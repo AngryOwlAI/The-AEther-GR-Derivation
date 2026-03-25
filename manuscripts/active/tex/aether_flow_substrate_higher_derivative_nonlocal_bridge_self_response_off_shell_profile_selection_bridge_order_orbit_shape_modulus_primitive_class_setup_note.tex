@@ -1,0 +1,417 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\RespShapeReadout}{\widetilde q_{\mathrm{br}}}
+\newcommand{\RespShapeCov}{\widetilde\kappa_{\mathrm{br}}}
+\newcommand{\RespShapeRelax}{\widetilde\rho_{\mathrm{br}}}
+\newcommand{\RespShapeWell}{\widetilde\lambda_{\mathrm{br}}}
+\newcommand{\RespShapeEq}{\widetilde U_{\mathrm{br}}^{\ast}}
+\newcommand{\RespShapeIso}{\widetilde\eta_{\mathrm{br}}}
+\newcommand{\RespRawReadout}{\widehat q_{\mathrm{br}}}
+\newcommand{\RespRawRef}{\widehat U_{\mathrm{br}}^{\mathrm{ref}}}
+\newcommand{\RespRawCov}{\widehat\kappa_{\mathrm{br}}}
+\newcommand{\RespRawRelax}{\widehat\rho_{\mathrm{br}}}
+\newcommand{\RespRawWell}{\widehat\lambda_{\mathrm{br}}}
+\newcommand{\RespRawEq}{\widehat U_{\mathrm{br}}^{\ast}}
+\newcommand{\RespVacPhase}{\phi_{\mathrm{br}}}
+\newcommand{\CurvProfileCan}{F_{\mathrm{br}}^{\mathrm{can}}}
+\newcommand{\DownPkg}{\mathscr P_{\mathrm{down}}}
+\newcommand{\ShapeTuple}{\mathfrak S_{\mathrm{br}}}
+\newcommand{\RawTuple}{\mathfrak R_{\mathrm{br}}}
+\newcommand{\ScaleMod}{s_{\mathrm{br}}}
+\newcommand{\RespOrbitGrad}{\alpha_{\mathrm{br}}^{\mathrm{orb}}}
+\newcommand{\RespOrbitEnergy}{\widetilde{\mathscr E}_{\mathrm{br}}^{\mathrm{orb}}}
+\newcommand{\PrimClass}{\mathfrak C_{\mathrm{br}}}
+\newcommand{\PrimRead}{r_{\mathrm{br}}}
+\newcommand{\PrimCovSlot}{a_{\mathrm{br}}^{\varphi}}
+\newcommand{\PrimRelaxSlot}{a_{\mathrm{br}}^{V}}
+\newcommand{\PrimKinetic}{\bm a_{\mathrm{br}}}
+\newcommand{\PrimWellSlot}{b_{\mathrm{br}}^{\lambda}}
+\newcommand{\PrimEqSlot}{b_{\mathrm{br}}^{U}}
+\newcommand{\PrimAnchor}{\bm b_{\mathrm{br}}}
+\newcommand{\PrimMap}{\Pi_{\mathrm{shape}}}
+\newcommand{\RawMap}{\Pi_{\mathrm{raw}}}
+\newcommand{\SetupMap}{\Pi_{\mathrm{setup}}}
+\newcommand{\ScaleQuot}{\sim_{\mathrm{sc}}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Nonlocal Bridge Self-Response Off-Shell Profile-Selection Bridge-Order Orbit-Shape/Modulus Primitive-Class Setup Note}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The benchmark exact-theory statement of \TheoryName{} remains fixed: the overview-first exact-closure package stays the public front door, and the present note acts only on the optional deeper derivational bridge beneath that benchmark. The orbit-shape/modulus-origin note has already fixed the next burden sharply: any still-deeper continuation must derive or sharply constrain the unit-reference orbit-shape block and the positive orbit modulus while preserving the same downstream chain.
+
+After that burden-fixing step, however, one structural ambiguity remains. The current line has fixed \emph{what} must be generated, but not yet \emph{which primitive class} is supposed to generate it. Without that choice, a direct still-deeper derivational manuscript would be underdetermined at the level where discipline now matters most.
+
+This note therefore performs the honest intermediate step. First, it isolates the unique minimal block decomposition already implicit in the current orbit-level formulas: a readout block, an ordered kinetic pair, a radial anchor pair, and the positive orbit modulus. Second, it packages those blocks as the primitive class
+\[
+\PrimClass=(\PrimRead,\PrimKinetic,\PrimAnchor,\ScaleMod)
+\in \mathbb R_{>0}\times\mathbb R_{>0}^2\times\mathbb R_{>0}^2\times\mathbb R_{>0}.
+\]
+Third, it defines the map
+\[
+\PrimClass
+\xrightarrow{\ \PrimMap\ }
+(\ShapeTuple,\ScaleMod)
+\xrightarrow{\ \RawMap\ }
+\RawTuple(\ScaleMod)
+\longrightarrow
+\DownPkg
+\]
+and proves that any later deeper derivation compatible with the current orbit energy, raw lift, phase-neutral minimizing branch, canonical profile, and dressed bridge map must factor through this setup class or an equivalent quotient thereof.
+
+The present manuscript is therefore not a deeper derivation claim. It is a narrow setup note fixing the primitive variable class that the next deeper derivational manuscript would have to use. At setup scope the verdicts on the positive scale orbit and the residual global \(O(2)\) vacuum angle do not change: unless later quotient or locking data are added explicitly, the scale orbit remains a canonical-normalization orbit rather than a proved redundancy, and the angle remains residual.
+\end{abstract}
+
+\section{Introduction}
+
+The active repository no longer needs another derivational note in order to justify its public theory claim. The exact-closure sequence already presents \TheoryName{} as the disciplined exact relativistic theory statement built on the \Aether{} / \Aflow{} ontology, and that benchmark package remains the front-door reading order. The present note therefore does not reopen the benchmark line. It acts only on the resumed optional derivational bridge downstream of it.
+
+On that resumed bridge line the latest burden-fixing manuscript is now clear. The raw-vacuum-orbit-origin note already derived the raw positive vacuum orbit from a primitive orbit-modulus sector. The orbit-shape/modulus-origin note then fixed the still deeper burden precisely: derive or sharply constrain the unit-reference orbit-shape block and the positive orbit modulus, preserve the same downstream density/current block, primitive bridge-order block, phase-neutral minimizing branch, canonical profile, and dressed bridge map, and revisit the scale-orbit or vacuum-angle verdicts only if genuinely deeper quotient or locking structure appears.
+
+The remaining issue is not another same-layer repair. It is methodological. The current line has fixed the target data but has not yet fixed the minimal primitive class below that target. Without that step, a direct deeper derivation would have to choose implicitly which variables are primitive, which combinations are readouts, which pair is ordered kinetic data, and which pair is radial anchor data. At the present stage, that implicit choice would be too arbitrary.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+This note stays strictly within that boundary. It does not claim that the still deeper origin of the orbit-shape/modulus layer has already been derived. It claims something narrower and preparatory: before that derivation can be asked honestly, the primitive variable class feeding the orbit-shape/modulus layer must be fixed.
+
+\section{Current Target and Why Setup Comes First}
+
+\begin{definition}[Current orbit-shape/modulus target]
+\label{def:target}
+At current scope, the live target below the raw-vacuum-orbit layer is the positive data pair
+\begin{equation}
+(\ShapeTuple,\ScaleMod),
+\qquad
+\ShapeTuple
+:=
+(\RespShapeReadout,\RespShapeCov,\RespShapeRelax,\RespShapeWell,\RespShapeEq),
+\qquad
+\ScaleMod>0,
+\label{eq:target}
+\end{equation}
+together with the induced raw lift
+\begin{equation}
+\RespRawReadout=\ScaleMod\,\RespShapeReadout,
+\qquad
+\RespRawRef=\ScaleMod,
+\qquad
+\RespRawCov=\ScaleMod^2\,\RespShapeCov,
+\label{eq:rawliftA}
+\end{equation}
+\begin{equation}
+\RespRawRelax=\ScaleMod^2\,\RespShapeRelax,
+\qquad
+\RespRawWell=\RespShapeWell,
+\qquad
+\RespRawEq=\ScaleMod\,\RespShapeEq,
+\label{eq:rawliftB}
+\end{equation}
+and the same downstream package
+consisting of the same density/current block, the same primitive bridge-order block, the same phase-neutral minimizing branch, the same canonical profile
+\[
+\CurvProfileCan(x)=1+\RespShapeEq\,x^2,
+\]
+and the same dressed bridge map.
+\end{definition}
+
+\begin{definition}[Current orbit-level use of the target data]
+\label{def:orbituse}
+The current primitive orbit-modulus layer uses the target data through the orbit-level energy
+\begin{align}
+\RespOrbitEnergy[\ScaleMod,U,\phi,V]
+=\;&
+\int_{\mathbb R}\Bigl[
+\frac{\RespOrbitGrad}{2}\abs{\ScaleMod'(x)}^2
++
+\frac{\RespShapeIso\,\ScaleMod(x)^2}{2}\abs{U'(x)}^2
+\Bigr]dx
+\nonumber\\
+&+
+\int_{\mathbb R}\Bigl[
+\frac{\RespShapeCov\,\ScaleMod(x)^2}{2}U(x)^2\abs{\phi'(x)-V(x)}^2
++
+\frac{\RespShapeRelax\,\ScaleMod(x)^2}{2}U(x)^2\abs{V(x)}^2
+\Bigr]dx
+\nonumber\\
+&+
+\int_{\mathbb R}\Bigl[
+\frac{\RespShapeWell}{8}\bigl(U(x)^2-\ScaleMod(x)^2(\RespShapeEq)^2\bigr)^2
+\Bigr]dx,
+\label{eq:orbitenergy}
+\end{align}
+where
+\begin{equation}
+\RespShapeIso
+:=
+\frac{\RespShapeCov\,\RespShapeRelax}{\RespShapeCov+\RespShapeRelax}.
+\label{eq:shapeiso}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[The target data split into three noninterchangeable coefficient blocks]
+\label{prop:blocks}
+Relative to Definitions \ref{def:target} and \ref{def:orbituse}, the orbit-shape data split uniquely into:
+\begin{enumerate}
+    \item a \emph{readout block} \(\RespShapeReadout\), which does not enter \eqref{eq:orbitenergy} but enters the downstream identifications and scales linearly in \eqref{eq:rawliftA};
+    \item an \emph{ordered kinetic pair} \((\RespShapeCov,\RespShapeRelax)\), which enters the phase/current and carrier-relaxation terms of \eqref{eq:orbitenergy} and scales quadratically in \eqref{eq:rawliftA}--\eqref{eq:rawliftB};
+    \item a \emph{radial anchor pair} \((\RespShapeWell,\RespShapeEq)\), which enters the potential term of \eqref{eq:orbitenergy}, with \(\RespShapeWell\) scale-invariant and \(\RespShapeEq\) scaling linearly in \eqref{eq:rawliftB}.
+\end{enumerate}
+No mixing of these three blocks preserves simultaneously the present orbit energy, the raw lift, and the already-fixed downstream interpretation.
+\end{proposition}
+
+\begin{proof}
+The raw lift \eqref{eq:rawliftA}--\eqref{eq:rawliftB} already separates three scale weights: linear, quadratic, and mixed \((0,1)\) for the potential pair. The coefficient \(\RespShapeReadout\) is the only positive datum of linear weight that does not appear in \eqref{eq:orbitenergy}; it belongs to the readout block. The coefficients \(\RespShapeCov\) and \(\RespShapeRelax\) both have quadratic weight, but they occupy different ordered slots in \eqref{eq:orbitenergy}: the former multiplies the phase/current term \(U^2\abs{\phi'-V}^2\), while the latter multiplies the carrier-relaxation term \(U^2\abs{V}^2\). Interchanging them would change the already-fixed phase/current versus carrier meaning. They therefore form an ordered kinetic pair. Finally, \(\RespShapeWell\) and \(\RespShapeEq\) appear only in the radial well term and with different scale weights under \eqref{eq:rawliftB}; they form the radial anchor pair.
+
+Any attempted mixing between these blocks would either move a coefficient to the wrong scale weight in \eqref{eq:rawliftA}--\eqref{eq:rawliftB} or place it in the wrong functional slot in \eqref{eq:orbitenergy}. Hence the three-block decomposition is forced by the current formulas.
+\end{proof}
+
+\begin{corollary}[Why a direct deeper derivation is not yet clean]
+\label{cor:needsetup}
+The orbit-shape/modulus target of Definition \ref{def:target} does not yet determine a unique still-deeper manuscript class. Before a direct derivational claim can be asked honestly, one must first fix which primitive variables are meant to generate the readout block, the ordered kinetic pair, the radial anchor pair, and the positive orbit modulus.
+\end{corollary}
+
+\begin{proof}
+Proposition \ref{prop:blocks} shows that the current formulas force a block decomposition, but they do not yet specify the primitive carrier that is supposed to generate those blocks. A direct deeper note would therefore have to choose that carrier implicitly. At the present disciplined stage, that implicit choice should instead be made explicitly and separately.
+\end{proof}
+
+\begin{remark}
+Corollary \ref{cor:needsetup} is not a retreat from the derivational line. It is the exact reason the next honest step is a narrow setup note rather than an underdefined deeper derivation.
+\end{remark}
+
+\section{The Primitive Class and the Map Into Orbit-Shape/Modulus Data}
+
+\begin{definition}[Primitive class below the orbit-shape/modulus layer]
+\label{def:primclass}
+The \emph{primitive class} is the positive block-ordered tuple
+\begin{equation}
+\PrimClass
+:=
+(\PrimRead,\PrimKinetic,\PrimAnchor,\ScaleMod)
+\in
+\mathbb R_{>0}\times\mathbb R_{>0}^2\times\mathbb R_{>0}^2\times\mathbb R_{>0},
+\label{eq:primclass}
+\end{equation}
+where
+\begin{equation}
+\PrimKinetic
+:=
+(\PrimCovSlot,\PrimRelaxSlot),
+\qquad
+\PrimAnchor
+:=
+(\PrimWellSlot,\PrimEqSlot).
+\label{eq:blocks}
+\end{equation}
+The intended meanings are:
+\begin{enumerate}
+    \item \(\PrimRead\): primitive readout variable;
+    \item \((\PrimCovSlot,\PrimRelaxSlot)\): primitive ordered kinetic pair feeding the phase/current and carrier-relaxation slots;
+    \item \((\PrimWellSlot,\PrimEqSlot)\): primitive radial anchor pair feeding the well strength and equilibrium amplitude;
+    \item \(\ScaleMod\): primitive positive orbit modulus.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Primitive-to-shape map]
+\label{def:pitoshape}
+Define the primitive-to-shape map
+\begin{equation}
+\PrimMap:\PrimClass\longrightarrow (\ShapeTuple,\ScaleMod)
+\label{eq:pitoshape}
+\end{equation}
+by
+\begin{equation}
+\PrimMap(\PrimRead,\PrimKinetic,\PrimAnchor,\ScaleMod)
+=
+(\RespShapeReadout,\RespShapeCov,\RespShapeRelax,\RespShapeWell,\RespShapeEq,\ScaleMod)
+\label{eq:pitoshapeexplicit}
+\end{equation}
+with the coefficient identifications
+\begin{equation}
+\RespShapeReadout=\PrimRead,
+\qquad
+\RespShapeCov=\PrimCovSlot,
+\qquad
+\RespShapeRelax=\PrimRelaxSlot,
+\label{eq:pitoshapeA}
+\end{equation}
+\begin{equation}
+\RespShapeWell=\PrimWellSlot,
+\qquad
+\RespShapeEq=\PrimEqSlot.
+\label{eq:pitoshapeB}
+\end{equation}
+\end{definition}
+
+\begin{definition}[Raw-orbit map]
+\label{def:rawmap}
+Define the raw-orbit map
+\begin{equation}
+\RawMap:(\ShapeTuple,\ScaleMod)\longrightarrow \RawTuple(\ScaleMod)
+\label{eq:rawmap}
+\end{equation}
+by the already-fixed lift \eqref{eq:rawliftA}--\eqref{eq:rawliftB}.
+\end{definition}
+
+\begin{proposition}[The setup map is the minimal carrier compatible with the current formulas]
+\label{prop:minimal}
+The composition
+\[
+\PrimClass
+\xrightarrow{\ \PrimMap\ }
+(\ShapeTuple,\ScaleMod)
+\xrightarrow{\ \RawMap\ }
+\RawTuple(\ScaleMod)
+\]
+is the minimal block carrier compatible with Proposition \ref{prop:blocks}. Any later deeper manuscript that preserves the present orbit-level formulas can enrich this class, but it cannot omit or merge its four blocks without changing the current orbit energy, raw lift, or downstream interpretation.
+\end{proposition}
+
+\begin{proof}
+By Proposition \ref{prop:blocks}, the current formulas distinguish exactly four primitive roles: readout, ordered kinetic pair, radial anchor pair, and modulus. Definition \ref{def:primclass} packages precisely those roles and nothing more. Omitting any block would leave one coefficient role without a primitive carrier. Merging two blocks would identify coefficients with different scale weights or different functional slots, which would change either \eqref{eq:orbitenergy} or \eqref{eq:rawliftA}--\eqref{eq:rawliftB}. Therefore the present setup class is minimal relative to the current formulas.
+\end{proof}
+
+\begin{remark}
+The present setup note does not claim that future deeper work must remain literally inside \(\mathbb R_{>0}\times\mathbb R_{>0}^2\times\mathbb R_{>0}^2\times\mathbb R_{>0}\). A later note may realize these blocks by constrained fields, quotient variables, or auxiliary sectors. What it must preserve is the induced block structure recorded here.
+\end{remark}
+
+\section{Any Later Deeper Derivation Must Factor Through the Setup Class}
+
+\begin{definition}[Admissible later deeper sector at setup scope]
+\label{def:later}
+A candidate later deeper sector \(\mathfrak D_{\mathrm{br}}\) is \emph{setup-admissible} if it comes with a coefficient-extraction map
+\begin{equation}
+\SetupMap:\mathfrak D_{\mathrm{br}}\longrightarrow \PrimClass
+\label{eq:setupmap}
+\end{equation}
+such that the induced orbit-shape/modulus data are \(\PrimMap\circ\SetupMap\), the raw tuple is \(\RawMap\circ\PrimMap\circ\SetupMap\), and the same phase-neutral minimizing branch is preserved.
+\end{definition}
+
+\begin{theorem}[Any compatible later deeper derivation factors through the setup class]
+\label{thm:factor}
+Let \(\mathfrak D_{\mathrm{br}}\) be a candidate later deeper sector whose eliminated or reduced orbit-level data preserve the current orbit energy \eqref{eq:orbitenergy}, the raw lift \eqref{eq:rawliftA}--\eqref{eq:rawliftB}, and the same phase-neutral minimizing branch. Then there exists a unique setup map \(\SetupMap\) of the form \eqref{eq:setupmap} such that
+\begin{equation}
+\mathfrak D_{\mathrm{br}}
+\xrightarrow{\ \SetupMap\ }
+\PrimClass
+\xrightarrow{\ \PrimMap\ }
+(\ShapeTuple,\ScaleMod)
+\xrightarrow{\ \RawMap\ }
+\RawTuple(\ScaleMod)
+\label{eq:factor}
+\end{equation}
+reproduces exactly the coefficients used by the compatible deeper sector.
+\end{theorem}
+
+\begin{proof}
+Because the later deeper sector preserves \eqref{eq:orbitenergy} and \eqref{eq:rawliftA}--\eqref{eq:rawliftB}, its reduced coefficient data must occupy the same orbit-level slots with the same scale weights as the present coefficients. Proposition \ref{prop:blocks} then forces those data to separate uniquely into the readout block, the ordered kinetic pair, the radial anchor pair, and the modulus. Define \(\SetupMap\) by sending any point of \(\mathfrak D_{\mathrm{br}}\) to that quadruple of extracted blocks. By construction, \(\PrimMap\circ\SetupMap\) reproduces the orbit-shape/modulus data and \(\RawMap\circ\PrimMap\circ\SetupMap\) reproduces the raw tuple. Uniqueness follows because Proposition \ref{prop:blocks} leaves no alternative block assignment compatible with the same orbit-level formulas.
+\end{proof}
+
+\begin{corollary}[The next direct derivational note now has a clean target]
+\label{cor:cleantarget}
+If the derivational line continues past the present setup note, the next direct manuscript is no longer allowed to choose the primitive class implicitly. It must specify a concrete later deeper sector \(\mathfrak D_{\mathrm{br}}\) together with the setup map \(\SetupMap\) into the class \(\PrimClass\).
+\end{corollary}
+
+\begin{proof}
+Theorem \ref{thm:factor} shows that any compatible later deeper derivation already factors through \(\PrimClass\). Therefore a direct deeper note should make that factorization explicit rather than hide it inside unstated coefficient choices.
+\end{proof}
+
+\section{Preservation of the Downstream Chain}
+
+\begin{theorem}[Setup-compatible factorization preserves the same downstream chain]
+\label{thm:downstream}
+Let \(\mathfrak D_{\mathrm{br}}\) be setup-admissible in the sense of Definition \ref{def:later}. Then the same downstream package \(\DownPkg\) is recovered unchanged.
+\end{theorem}
+
+\begin{proof}
+By Definition \ref{def:later}, the setup-admissible sector induces exactly the same orbit-shape/modulus data through \(\PrimMap\circ\SetupMap\), exactly the same raw tuple through \(\RawMap\circ\PrimMap\circ\SetupMap\), and the same phase-neutral minimizing branch. The orbit-shape/modulus-origin burden-fixing note already established that any deeper continuation with those three properties preserves the same downstream density/current block, primitive bridge-order block, canonical profile, and dressed bridge map. Therefore the same downstream package \(\DownPkg\) is recovered unchanged.
+\end{proof}
+
+\begin{remark}
+Theorem \ref{thm:downstream} is why the present note stays narrow. Its purpose is not to modify the successful downstream chain. It is to make explicit the primitive setup through which any later deeper derivation must pass if that chain is to remain fixed.
+\end{remark}
+
+\section{Scale-Orbit and Vacuum-Angle Verdicts Do Not Change at Setup Scope}
+
+\begin{definition}[Extra quotient or locking data]
+\label{def:extra}
+An \emph{extra quotient or locking augmentation} of the setup class \(\PrimClass\) means at least one of the following additional structures:
+\begin{enumerate}
+    \item an equivalence relation \(\ScaleQuot\) on the modulus factor \(\mathbb R_{>0}\) that identifies physically indistinguishable positive moduli;
+    \item an additional angle quotient identifying distinct constant vacuum angles \(\RespVacPhase=\phi_0\);
+    \item an anisotropic locking mechanism selecting a distinguished constant vacuum angle.
+\end{enumerate}
+\end{definition}
+
+\begin{theorem}[Bare setup data do not change the current verdicts]
+\label{thm:verdicts}
+The setup class \(\PrimClass\) of Definition \ref{def:primclass} carries no extra quotient or locking data in the sense of Definition \ref{def:extra}. Therefore, at setup scope:
+\begin{enumerate}
+    \item the positive scale orbit remains a canonical-normalization orbit rather than a proved deeper redundancy;
+    \item the global \(O(2)\) vacuum angle remains residual.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Definition \ref{def:primclass} fixes only positive coefficient blocks and the positive orbit modulus. It does not identify distinct values of \(\ScaleMod\), adjoin an angle quotient, or add an anisotropic locking sector. Hence no extra quotient or locking data are present. The scale-orbit and angle verdicts therefore remain exactly as they were at the burden-fixing stage.
+\end{proof}
+
+\begin{remark}
+Theorem \ref{thm:verdicts} is deliberately conservative. A later deeper derivation could still revise these verdicts, but only by adding the quotient or locking data explicitly rather than by rephrasing the same coefficient carrier.
+\end{remark}
+
+\section{Claim Boundary}
+
+This note does not claim that the still deeper origin of the orbit-shape/modulus layer has been derived. It does not claim that the primitive class \(\PrimClass\) is already the unique ultraviolet completion of that layer, and it does not claim that the positive scale orbit or the global \(O(2)\) vacuum angle have already been removed by a genuine quotient or locking mechanism.
+
+Its claim is narrower and preparatory. The current derivational line had reached the point where the next direct deeper manuscript would have been underdefined unless the primitive coefficient carrier was fixed first. The present note fixes that carrier explicitly as the minimal block class \(\PrimClass\), defines the map from that class into the orbit-shape/modulus data and then into the raw orbit, and proves that any later compatible deeper derivation must factor through this setup class or an equivalent quotient thereof.
+
+The benchmark exact-theory package remains untouched. The positive downstream bridge package remains untouched. What is changed is only the discipline of the next derivational step: it now has a definite primitive-class target.
+
+\section{Conclusion}
+
+The honest next manuscript step below the orbit-shape/modulus burden is not yet a direct deeper derivation. It is this narrower setup step. The current line had fixed the target data but not the primitive carrier that a later derivation would have to generate. This note now fixes that carrier.
+
+The positive result is modest but useful. The orbit-shape/modulus layer is now organized into a unique minimal block decomposition: readout block, ordered kinetic pair, radial anchor pair, and positive orbit modulus. Those blocks define the primitive class \(\PrimClass\), the map into the unit-reference orbit-shape block and positive orbit modulus is now explicit, and any later compatible deeper derivation must factor through that setup class before it can be judged against the already-fixed downstream package.
+
+The scope remains equally explicit. This note does not yet derive the deeper sector feeding \(\PrimClass\). It only fixes the primitive variable class that the next direct derivational note must use. Until a later manuscript adds genuine quotient or locking data, the disciplined current verdict also remains unchanged: the positive scale orbit is still a canonical-normalization orbit rather than a proved redundancy, and the global \(O(2)\) vacuum angle remains residual.
+
+\end{document}

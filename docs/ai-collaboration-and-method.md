@@ -35,6 +35,7 @@ Readers should evaluate the manuscripts by their stated assumptions, explicit eq
 - keep the derivational manuscripts downstream of that benchmark in public presentation even while they become the active research workstream
 - record negative results and boundary statements rather than smoothing them away
 - preserve explicit provenance so collaborators and reviewers can see how the project has been developed
+- treat LaTeX/PDF build hygiene as part of the documented workflow: every new or modified `.tex` file should have a regenerated `.pdf` in the matching PDF folder, and successful builds should delete the temporary `.aux`, `.log`, and `.out` files
 
 ## Related Repository Notes
 

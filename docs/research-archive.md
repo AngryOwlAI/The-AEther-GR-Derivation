@@ -28,6 +28,8 @@ Read the [Theory Package](theory-package.md) first. This derivational material i
 - [Substrate kinematics LaTeX](../manuscripts/active/tex/aether_flow_substrate_kinematics.tex)
 - [Current orbit-shape/modulus target PDF](../manuscripts/active/pdf/aether_flow_substrate_higher_derivative_nonlocal_bridge_self_response_off_shell_profile_selection_bridge_order_orbit_shape_modulus_origin_note.pdf)
 - [Current orbit-shape/modulus target LaTeX](../manuscripts/active/tex/aether_flow_substrate_higher_derivative_nonlocal_bridge_self_response_off_shell_profile_selection_bridge_order_orbit_shape_modulus_origin_note.tex)
+- [Primitive-class setup PDF](../manuscripts/active/pdf/aether_flow_substrate_higher_derivative_nonlocal_bridge_self_response_off_shell_profile_selection_bridge_order_orbit_shape_modulus_primitive_class_setup_note.pdf)
+- [Primitive-class setup LaTeX](../manuscripts/active/tex/aether_flow_substrate_higher_derivative_nonlocal_bridge_self_response_off_shell_profile_selection_bridge_order_orbit_shape_modulus_primitive_class_setup_note.tex)
 - [Raw-vacuum-orbit predecessor LaTeX](../manuscripts/active/tex/aether_flow_substrate_higher_derivative_nonlocal_bridge_self_response_off_shell_profile_selection_bridge_order_raw_vacuum_orbit_origin_note.tex)
 - [Research plan](../RESEARCH_PLAN.md)
 - [Extended repository inventory in README](../README.md)
@@ -35,19 +37,20 @@ Read the [Theory Package](theory-package.md) first. This derivational material i
 
 ## Current Active Target
 
-The live derivational target after the benchmark package is now the orbit-shape/modulus-origin note rather than another same-layer repair below the raw-vacuum-orbit result.
+The live derivational target after the benchmark package is now the first direct still-deeper note below the recorded orbit-shape/modulus burden-fixing note and its primitive-class setup note.
 
 - Read [aether_flow_substrate_higher_derivative_nonlocal_bridge_self_response_off_shell_profile_selection_bridge_order_raw_vacuum_orbit_origin_note.tex](../manuscripts/active/tex/aether_flow_substrate_higher_derivative_nonlocal_bridge_self_response_off_shell_profile_selection_bridge_order_raw_vacuum_orbit_origin_note.tex) as the positive predecessor result: it derives the raw positive vacuum orbit from a deeper primitive orbit-modulus sector while preserving the same downstream package.
-- Read [aether_flow_substrate_higher_derivative_nonlocal_bridge_self_response_off_shell_profile_selection_bridge_order_orbit_shape_modulus_origin_note.tex](../manuscripts/active/tex/aether_flow_substrate_higher_derivative_nonlocal_bridge_self_response_off_shell_profile_selection_bridge_order_orbit_shape_modulus_origin_note.tex) as the current burden-fixing target: it records that the next honest deeper step must derive or sharply constrain the unit-reference orbit-shape block and the positive orbit modulus while preserving the same downstream chain.
+- Read [aether_flow_substrate_higher_derivative_nonlocal_bridge_self_response_off_shell_profile_selection_bridge_order_orbit_shape_modulus_origin_note.tex](../manuscripts/active/tex/aether_flow_substrate_higher_derivative_nonlocal_bridge_self_response_off_shell_profile_selection_bridge_order_orbit_shape_modulus_origin_note.tex) as the burden-fixing target: it records that the next honest deeper step must derive or sharply constrain the unit-reference orbit-shape block and the positive orbit modulus while preserving the same downstream chain.
+- Read [aether_flow_substrate_higher_derivative_nonlocal_bridge_self_response_off_shell_profile_selection_bridge_order_orbit_shape_modulus_primitive_class_setup_note.tex](../manuscripts/active/tex/aether_flow_substrate_higher_derivative_nonlocal_bridge_self_response_off_shell_profile_selection_bridge_order_orbit_shape_modulus_primitive_class_setup_note.tex) as the recorded setup interface: it fixes the minimal primitive variable class and the map into the unit-reference orbit-shape block and positive orbit modulus while preserving the same downstream package.
 - Keep the present scale-orbit and residual vacuum-angle verdicts fixed unless a still deeper layer really supplies genuine quotient or locking structure.
 
 ## Immediate Working Next Step
 
-The next active work is no longer another archive or presentation edit. It is the next derivational `.tex` manuscript below the orbit-shape/modulus burden-fixing layer.
+The next active work is no longer another archive or presentation edit, and it is no longer the direct-vs-setup decision. That fork has already been resolved in favor of the narrow primitive-class setup note. The next active work is the first direct derivational `.tex` manuscript below that setup layer.
 
-- First decide whether the still-deeper primitive sector can be written directly below the orbit-shape/modulus layer.
-- If it can, draft that still-deeper manuscript next.
-- If it cannot yet be posed cleanly, draft one narrow setup note first that fixes the primitive variable class and the map into the unit-reference orbit-shape block and positive orbit modulus.
+- Use [aether_flow_substrate_higher_derivative_nonlocal_bridge_self_response_off_shell_profile_selection_bridge_order_orbit_shape_modulus_primitive_class_setup_note.tex](../manuscripts/active/tex/aether_flow_substrate_higher_derivative_nonlocal_bridge_self_response_off_shell_profile_selection_bridge_order_orbit_shape_modulus_primitive_class_setup_note.tex) as the frozen interface.
+- Draft the first still-deeper manuscript that derives or sharply constrains the deeper sector feeding the unit-reference orbit-shape block and positive orbit modulus while preserving the same downstream chain.
+- When that `.tex` file is created or modified, generate the matching `.pdf` in the appropriate folder and clean `.aux`, `.log`, and `.out` with [scripts/build_aether_pdf.sh](../scripts/build_aether_pdf.sh).
 
 ## Why This Separation Exists
 

@@ -42,9 +42,9 @@ This repository now serves as the active working repository for the derivational
 
 The central benchmark package in this repository is still the overview-first exact-closure sequence. Within that package, general relativity is adopted exactly as the operational relativistic sector with universal matter coupling, while the `Æther / Æther-flow` framework supplies the interpretive ontology. That benchmark is not being replaced. It is the fixed relativistic target that the next manuscript line will try to derive from explicit substrate structure.
 
-The current downstream manuscript target is [aether_flow_substrate_higher_derivative_nonlocal_bridge_self_response_off_shell_profile_selection_bridge_order_orbit_shape_modulus_origin_note.tex](manuscripts/active/tex/aether_flow_substrate_higher_derivative_nonlocal_bridge_self_response_off_shell_profile_selection_bridge_order_orbit_shape_modulus_origin_note.tex). That note records the present honest burden below the raw-vacuum-orbit layer: determine whether the unit-reference orbit-shape block and the unanchored positive orbit modulus can be derived, anchored, or quotiented from still more primitive substrate structure while preserving the same downstream recovered density/current block, composite primitive bridge-order block, phase-neutral minimizing branch, canonical profile, and dressed bridge map. Its immediate predecessor is [aether_flow_substrate_higher_derivative_nonlocal_bridge_self_response_off_shell_profile_selection_bridge_order_raw_vacuum_orbit_origin_note.tex](manuscripts/active/tex/aether_flow_substrate_higher_derivative_nonlocal_bridge_self_response_off_shell_profile_selection_bridge_order_raw_vacuum_orbit_origin_note.tex), which should be read positively as a deeper continuation rather than as a no-go.
+The current downstream manuscript burden is fixed by [aether_flow_substrate_higher_derivative_nonlocal_bridge_self_response_off_shell_profile_selection_bridge_order_orbit_shape_modulus_origin_note.tex](manuscripts/active/tex/aether_flow_substrate_higher_derivative_nonlocal_bridge_self_response_off_shell_profile_selection_bridge_order_orbit_shape_modulus_origin_note.tex) together with [aether_flow_substrate_higher_derivative_nonlocal_bridge_self_response_off_shell_profile_selection_bridge_order_orbit_shape_modulus_primitive_class_setup_note.tex](manuscripts/active/tex/aether_flow_substrate_higher_derivative_nonlocal_bridge_self_response_off_shell_profile_selection_bridge_order_orbit_shape_modulus_primitive_class_setup_note.tex). The burden-fixing note records what still has to be derived or sharply constrained below the raw-vacuum-orbit layer, and the setup note fixes the minimal primitive variable class and its map into the unit-reference orbit-shape block and the unanchored positive orbit modulus while preserving the same downstream recovered density/current block, composite primitive bridge-order block, phase-neutral minimizing branch, canonical profile, and dressed bridge map. The immediate predecessor [aether_flow_substrate_higher_derivative_nonlocal_bridge_self_response_off_shell_profile_selection_bridge_order_raw_vacuum_orbit_origin_note.tex](manuscripts/active/tex/aether_flow_substrate_higher_derivative_nonlocal_bridge_self_response_off_shell_profile_selection_bridge_order_raw_vacuum_orbit_origin_note.tex) should still be read positively as a deeper continuation rather than as a no-go.
 
-The immediate working next step is now manuscript production rather than another repository-presentation pass. The next new `.tex` manuscript should either write the first still-deeper derivational note below the orbit-shape/modulus layer directly or, if that deeper primitive sector cannot yet be posed cleanly, insert one narrow setup note that fixes the primitive variable class and its map into the unit-reference orbit-shape block and positive orbit modulus before deeper claims are made.
+The immediate working next step is now manuscript production rather than another repository-presentation pass. The next new `.tex` manuscript should use [aether_flow_substrate_higher_derivative_nonlocal_bridge_self_response_off_shell_profile_selection_bridge_order_orbit_shape_modulus_primitive_class_setup_note.tex](manuscripts/active/tex/aether_flow_substrate_higher_derivative_nonlocal_bridge_self_response_off_shell_profile_selection_bridge_order_orbit_shape_modulus_primitive_class_setup_note.tex) as the frozen interface and write the first still-deeper derivational note below that layer. That manuscript should derive or sharply constrain the deeper sector feeding the unit-reference orbit-shape block and positive orbit modulus, and it should change the scale-orbit or residual vacuum-angle verdicts only if genuine quotient or locking structure actually appears.
 
 ## Start Here
 
@@ -63,7 +63,7 @@ The `docs/` tree is the public GitHub Pages presentation layer for this preserve
 - The overview-first exact-closure package remains the benchmark starting point of the project.
 - GR is still adopted exactly in that benchmark package; it is not yet claimed there as derived from substrate microphysics.
 - The derivational manuscript line is now being continued here as the active research program.
-- The next manuscript move is no longer another Markdown cleanup pass; it is the first still-deeper `.tex` note below the orbit-shape/modulus burden-fixing layer, or a narrow setup note if that is needed first.
+- The next manuscript move is no longer another Markdown cleanup pass; it is the first direct still-deeper `.tex` note below the recorded primitive-class setup layer.
 - Public presentation should still begin with the benchmark package before moving into the active derivational manuscripts.
 
 For the fuller boundary statement, see [docs/AETHER_FLOW_CLAIM_BOUNDARY.md](docs/AETHER_FLOW_CLAIM_BOUNDARY.md). For naming and vocabulary, see [docs/AETHER_FLOW_NAMING_AND_VOCABULARY.md](docs/AETHER_FLOW_NAMING_AND_VOCABULARY.md).
@@ -94,15 +94,23 @@ For the fuller boundary statement, see [docs/AETHER_FLOW_CLAIM_BOUNDARY.md](docs
 - `manuscripts/active/pdf/`: compiled outputs for the preserved manuscripts in the legacy `active/` tree
 - `manuscripts/retired/tex/` and `manuscripts/retired/pdf/`: archived tested side branches
 
+## TeX/PDF Output Rule
+
+- Every new or modified `.tex` file must have a regenerated `.pdf` companion.
+- Manuscript `.tex` sources belong in their matching source trees such as `manuscripts/active/tex/`, `manuscripts/retired/tex/`, or `docs/assets/tex/`.
+- The generated `.pdf` output must be written to the matching PDF tree: `manuscripts/active/pdf/`, `manuscripts/retired/pdf/`, or `docs/assets/pdfs/`.
+- After a successful PDF build, the temporary `.aux`, `.log`, and `.out` files must be deleted rather than left in the repository.
+
 ## Build
 
-Compile the preserved manuscripts from the legacy `manuscripts/active/tex/` tree and write outputs into `manuscripts/active/pdf/`:
+Use the build helper so PDFs land in the correct folder and the temporary `.aux` / `.log` / `.out` files are cleaned automatically after a successful build:
 
-- `pdflatex -output-directory=manuscripts/active/pdf manuscripts/active/tex/aether_flow_exact_closure_flagship_article.tex`
-- `pdflatex -output-directory=manuscripts/active/pdf manuscripts/active/tex/aether_flow_exact_closure_sequence_overview.tex`
-- `pdflatex -output-directory=manuscripts/active/pdf manuscripts/active/tex/aether_flow_exact_closure_note.tex`
+- `scripts/build_aether_pdf.sh manuscripts/active/tex/aether_flow_exact_closure_flagship_article.tex`
+- `scripts/build_aether_pdf.sh manuscripts/active/tex/aether_flow_exact_closure_sequence_overview.tex`
+- `scripts/build_aether_pdf.sh manuscripts/active/tex/aether_flow_exact_closure_note.tex`
+- `scripts/build_aether_pdf.sh manuscripts/active/tex/aether_flow_substrate_higher_derivative_nonlocal_bridge_self_response_off_shell_profile_selection_bridge_order_orbit_shape_modulus_primitive_class_setup_note.tex`
 
-The remaining package manuscripts in `manuscripts/active/tex/` can be compiled the same way. The curated public copies surfaced by the site live under `docs/assets/`.
+The helper also supports `--all` to rebuild every `.tex` file in the supported source trees. The remaining package manuscripts in `manuscripts/active/tex/` can be compiled the same way, and the curated public copies surfaced by the site still live under `docs/assets/`.
 
 ## Research Provenance
 
