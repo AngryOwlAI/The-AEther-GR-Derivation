@@ -1,0 +1,755 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal{A}}
+\newcommand{\BridgeMetric}{\mathfrak{g}}
+\newcommand{\Ell}{\mathcal{L}}
+\newcommand{\AY}{\mathcal A_Y}
+\newcommand{\AZ}{\mathcal A_Z}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Ordered-Flow Label Symmetry/Quotient Branch: First Same-Class Asymptotic Closure Test}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The quotient branch has already cleared the candidate, architecture, reduced-system, local/coercive, theorem, and post-coercive decay/integrability stages. The next honest burden is therefore no longer another setup note and not a redesign of the bridge metric. It is the first same-class asymptotic closure test on exactly the same quotient physical field space, in exactly the same unit-lapse spatial-harmonic weighted/homogeneous class, and still with
+\[
+\AY=\AZ=0
+\]
+imposed from the outset.
+
+This manuscript performs precisely that test. It works only with the quotient variables
+\[
+(\gamma_{ij},\Sigma_{ij},K;\beta^i;Q^I,\chi,W_i^T;\psi,\pi_\psi),
+\]
+never lets \(S\), \(Y\), or \(Z\) re-enter as physical or analytic free data, and keeps the corrected quotient coercive functional
+\[
+\mathfrak F_N^{\mathrm{quot}}
+=
+\mathfrak E_N^{\mathrm{quot}}
++\mathfrak C_N^{\mathrm{geom}}
++\mathfrak C_N^\chi
+\]
+with no scalar correction channel. The propagating asymptotic variables are only
+\[
+U_{\mathrm{TL}}^\pm
+\equiv
+-|\nabla|G_\chi \pm i|\nabla|\Theta
+\]
+for the low-frequency trace/longitudinal wave pair and
+\[
+U_{\mathrm{Ein}}^\pm
+\equiv
+-2\mathbf P_{\mathrm{hi}}\mathbb K
+\pm i|\nabla|\mathbf P_{\mathrm{hi}}h
+\]
+for the high-frequency Einstein wave block. There is no propagating ordered-flow scalar profile to renormalize or scatter.
+
+The decisive point is Duhamel closure. The previous quotient decay/integrability note already proved that the nonlinear coefficient
+\[
+\mathfrak M_{\mathrm{quot}}(t)
+\lesssim
+\varepsilon^2(1+t)^{-2}
+\]
+is time-integrable in the same class. Here that integrability is used in its final asymptotic role: it improves the wave-type decay bootstrap, upgrades the corrected quotient energy from its \(T\sim \varepsilon^{-1}\) coercive bound to a global same-class bound, and yields actual limiting transport-dressed wave profiles for both propagating quotient sectors.
+
+The asymptotic verdict is therefore positive. On the same quotient physical field space and in the same weighted/homogeneous class, the nonlinear asymptotic bootstrap closes globally, the low-frequency trace/longitudinal pair and the high-frequency Einstein block admit limiting transport-dressed wave profiles, no scalar correction channel is needed, and no reintroduced \(S,Y,Z\) data appear. At this asymptotic stage the branch does not force any reconsideration of the bridge metric or the single-metric matter route. If the quotient line is continued, the next honest burden becomes a dedicated derivational bridge-closure test on this same positive quotient branch rather than a bridge redesign.
+\end{abstract}
+
+\section{Introduction}
+
+The ordered-flow-label symmetry/quotient route has now survived every branch-internal reopening demanded by the tracking layer. The explicit quotient candidate kept the bridge metric and the single-metric matter route fixed while removing the flat-background observer-equation correction tensor at coefficient level. The separate architecture screen then showed that the old infinite-dimensional ordered-flow-label fiber is pure gauge rather than revived physical underdetermination. The quotient reduced-system note reopened the \(3+1\) system directly on the quotient physical field space, imposed \(\AY=\AZ=0\), and kept \(S\), \(Y\), and \(Z\) out of the physical data. The quotient local/coercive and theorem notes then proved the first corrected coercive architecture, the first quotient local well-posedness/continuation theorem, and the first corrected \(T\sim\varepsilon^{-1}\) bootstrap. Finally, the dedicated quotient decay/integrability note showed that the same branch has the expected wave-like decay package and a time-integrable quadratic/lower-order nonlinear remainder with no scalar correction channel.
+
+That positive decay verdict leaves exactly one same-class burden before any deeper branch-level derivational question can honestly be reopened. The decay note still treated the linear-compatible wave rates as a compatible bootstrap regime. The next live question is whether that same package actually closes the nonlinear asymptotic argument on the same quotient branch, or whether the first genuine same-class obstruction appears only once the Duhamel terms and limiting profiles are examined.
+
+The present note performs exactly that test. It does not redesign the bridge metric. It does not reopen the single-metric matter route. It does not reintroduce representative ordered-flow variables as either physical or analytic data. It stays on the same quotient physical field space, in the same unit-lapse spatial-harmonic weighted/homogeneous class, and asks only whether the already-recorded quotient decay/integrability package closes the actual asymptotic bootstrap.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present manuscript stays strictly inside that boundary. It proves a same-class asymptotic closure statement on the quotient branch. It does not claim a completed substrate derivation. It does not yet decide the final derivational bridge verdict. It only discharges the asymptotic burden that the positive quotient decay note left open.
+
+\section{Asymptotic Bootstrap Regime and Quotient Profile Variables}
+
+Work in the same unit-lapse spatial-harmonic quotient gauge
+\begin{equation}
+N\equiv 1,
+\qquad
+V^i(\gamma)\equiv \gamma^{mn}\bigl(\Gamma^i_{mn}[\gamma]-\Gamma^i_{mn}[\delta]\bigr)=0,
+\label{eq:gauge}
+\end{equation}
+with reduced variables
+\begin{equation}
+(\gamma_{ij},\Sigma_{ij},K;\beta^i;Q^I,\chi,W_i^T;\psi,\pi_\psi),
+\label{eq:unknowns}
+\end{equation}
+and with \(\AY=\AZ=0\) imposed identically from the outset.
+
+Set
+\begin{equation}
+h_{ij}\equiv \gamma_{ij}-\delta_{ij},
+\qquad
+\vartheta\equiv \frac12\delta^{ij}h_{ij},
+\qquad
+\mathbb K_{ij}\equiv \Sigma_{ij}+\frac13\delta_{ij}K.
+\label{eq:basicdefs}
+\end{equation}
+Recall the quotient longitudinal source
+\begin{equation}
+F_\chi
+\equiv
+K-\mathcal N_\chi[\gamma,\Sigma,K,\beta,Q,\chi,W^T,\psi,\pi_\psi],
+\label{eq:Fchi}
+\end{equation}
+and the low-frequency trace/longitudinal variables
+\begin{equation}
+\Theta\equiv \mathbf P_{\mathrm{lo}}\vartheta,
+\qquad
+G_\chi\equiv |\nabla|^{-1}\mathbf P_{\mathrm{lo}}F_\chi.
+\label{eq:ThetaG}
+\end{equation}
+
+\begin{definition}[Quotient asymptotic profile variables]
+\label{def:profiles}
+Define
+\begin{align}
+U_{\mathrm{TL}}^\pm
+&\equiv
+-|\nabla|G_\chi \pm i|\nabla|\Theta,
+\label{eq:UTL}
+\\
+U_{\mathrm{Ein}}^\pm
+&\equiv
+-2\mathbf P_{\mathrm{hi}}\mathbb K
+\pm i|\nabla|\mathbf P_{\mathrm{hi}}h.
+\label{eq:UEin}
+\end{align}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:profiles} introduces only the two propagating quotient sectors already identified by the theorem and decay notes. There is no third scalar asymptotic variable because, after imposing \(\AY=\AZ=0\), no propagating ordered-flow scalar survives on the quotient branch.
+\end{remark}
+
+\begin{definition}[Same-class quotient asymptotic bootstrap interval]
+\label{def:asymboot}
+Fix \(N\ge 6\), \(0<\varepsilon\ll 1\), and \(C_\ast\ge 1\). An interval \([0,T]\) is said to lie in the \emph{same-class quotient asymptotic bootstrap regime} if:
+\begin{enumerate}
+    \item the strict quotient auxiliary-elliptic regime
+    \begin{equation}
+    \widehat M_{IJ}\xi^I\xi^J\ge m_{Q,\min}^2|\xi|^2,
+    \qquad
+    \kappa_\theta\ge \kappa_{\theta,\min}>0,
+    \qquad
+    \kappa_\Omega\ge \kappa_{\Omega,\min}>0
+    \label{eq:strict}
+    \end{equation}
+    holds on every slice;
+    \item the corrected quotient coercive functional satisfies
+    \begin{equation}
+    \sup_{0\le t\le T}\mathfrak F_N^{\mathrm{quot}}(t)\le 4\varepsilon^2;
+    \label{eq:Fboot}
+    \end{equation}
+    \item the decay norms
+    \begin{align}
+    \mathfrak D_{\mathrm{TL}}(t)
+    &\equiv
+    \|\nabla\Theta(t)\|_{W^{1,\infty}}
+    +\|G_\chi(t)\|_{W^{1,\infty}},
+    \label{eq:DTL}
+    \\
+    \mathfrak D_{\mathrm{Ein,hi}}(t)
+    &\equiv
+    \|\partial \mathbf P_{\mathrm{hi}}h(t)\|_{W^{2,\infty}}
+    +\|\mathbf P_{\mathrm{hi}}\Sigma(t)\|_{W^{1,\infty}}
+    +\|\mathbf P_{\mathrm{hi}}K(t)\|_{W^{1,\infty}}
+    \label{eq:DEin}
+    \end{align}
+    obey
+    \begin{align}
+    \mathfrak D_{\mathrm{TL}}(t)
+    &\le 4C_\ast\varepsilon(1+t)^{-1},
+    \label{eq:DTLboot}
+    \\
+    \mathfrak D_{\mathrm{Ein,hi}}(t)
+    &\le 4C_\ast\varepsilon(1+t)^{-1}
+    \label{eq:DEinboot}
+    \end{align}
+    for all \(t\in[0,T]\);
+    \item the low-order dispersive seed size
+    \begin{equation}
+    \mathfrak S_0^{\mathrm{quot}}
+    \equiv
+    \sum_{\pm}\|U_{\mathrm{TL}}^\pm(0)\|_{W^{2,1}\cap H^{N-2}}
+    +\sum_{\pm}\|U_{\mathrm{Ein}}^\pm(0)\|_{W^{2,1}\cap H^{N-2}}
+    \label{eq:S0}
+    \end{equation}
+    satisfies
+    \begin{equation}
+    \mathfrak S_0^{\mathrm{quot}}\le \varepsilon.
+    \label{eq:S0small}
+    \end{equation}
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Item \eqref{eq:S0small} is not a new quotient control norm and not a way of reintroducing hidden representative data. It is only the standard low-order seed needed to launch the wave dispersive bounds for the already-recorded propagating quotient sectors.
+\end{remark}
+
+\begin{definition}[Auxiliary decay norm and time-integrable coefficient]
+\label{def:M}
+Define
+\begin{equation}
+\mathfrak D_{\mathrm{aux}}(t)
+\equiv
+\|\beta(t)\|_{W^{2,\infty}}
++\|Q(t)\|_{W^{2,\infty}}
++\|\nabla\chi(t)\|_{W^{1,\infty}}
++\|W^T(t)\|_{W^{2,\infty}},
+\label{eq:Daux}
+\end{equation}
+and
+\begin{align}
+\mathfrak M_{\mathrm{quot}}(t)
+\equiv\;&
+\mathfrak D_{\mathrm{TL}}(t)^2
++\mathfrak D_{\mathrm{Ein,hi}}(t)^2
+\nonumber\\
+&+
+\mathfrak D_{\mathrm{aux}}(t)\Bigl(
+\mathfrak D_{\mathrm{TL}}(t)
++\mathfrak D_{\mathrm{Ein,hi}}(t)
+\Bigr).
+\label{eq:Mdef}
+\end{align}
+\end{definition}
+
+\begin{proposition}[Recalled same-class decay and integrability package]
+\label{prop:recalled}
+There exists \(C_N>0\) such that every solution in the same-class quotient asymptotic bootstrap regime satisfies
+\begin{align}
+\mathfrak D_{\mathrm{aux}}(t)
+&\le
+C_N\Bigl(
+\mathfrak D_{\mathrm{TL}}(t)
++\mathfrak D_{\mathrm{Ein,hi}}(t)
+\Bigr),
+\label{eq:auxrecall}
+\\
+\mathfrak M_{\mathrm{quot}}(t)
+&\le
+C_NC_\ast^2\varepsilon^2(1+t)^{-2},
+\label{eq:Mrate}
+\\
+\int_0^\infty \mathfrak M_{\mathrm{quot}}(s)\,ds
+&\le
+C_NC_\ast^2\varepsilon^2.
+\label{eq:Mint}
+\end{align}
+\end{proposition}
+
+\begin{proof}
+This is exactly the positive content of the preceding quotient decay/integrability note. The auxiliary inheritance estimate is Proposition 5 there, and the time-integrable coefficient bound is Proposition 6 there after inserting the same weighted/homogeneous decay assumptions. The present note simply reuses that package as the input to the asymptotic closure test.
+\end{proof}
+
+\section{Transport-Dressed Linear Blocks}
+
+The asymptotic variables of Definition \ref{def:profiles} diagonalize the quotient propagating sectors modulo the same time-integrable remainder already isolated at decay/integrability scope.
+
+\begin{definition}[Low-order source norm]
+\label{def:Ynorm}
+For \(N\ge 6\), define
+\begin{equation}
+\|f\|_{\mathcal Y_N}
+\equiv
+\|f\|_{W^{2,1}}+\|f\|_{H^{N-3}}.
+\label{eq:Ynorm}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[Principal equations for the quotient asymptotic variables]
+\label{prop:principal}
+On every same-class quotient asymptotic bootstrap interval, the variables \(U_{\mathrm{TL}}^\pm\) and \(U_{\mathrm{Ein}}^\pm\) satisfy
+\begin{align}
+(\partial_t-\Ell_\beta)U_{\mathrm{TL}}^\pm
+&=
+\pm i|\nabla|\,U_{\mathrm{TL}}^\pm
++\mathcal N_{\mathrm{TL}}^\pm,
+\label{eq:UTLeq}
+\\
+(\partial_t-\Ell_\beta)U_{\mathrm{Ein}}^\pm
+&=
+\pm i|\nabla|\,U_{\mathrm{Ein}}^\pm
++\mathcal N_{\mathrm{Ein}}^\pm.
+\label{eq:UEineq}
+\end{align}
+Moreover,
+\begin{equation}
+\sum_{\pm}\|\mathcal N_{\mathrm{TL}}^\pm(t)\|_{\mathcal Y_N}
++\sum_{\pm}\|\mathcal N_{\mathrm{Ein}}^\pm(t)\|_{\mathcal Y_N}
+\le
+C_N\,\mathfrak M_{\mathrm{quot}}(t)
+\label{eq:Nbound}
+\end{equation}
+for all \(t\in[0,T]\).
+\end{proposition}
+
+\begin{proof}
+For the low-frequency quotient pair, the decay note already proves
+\[
+(\partial_t-\Ell_\beta)\Theta
+=
+-|\nabla|G_\chi+\mathbf P_{\mathrm{lo}}\mathcal Q_\vartheta,
+\qquad
+(\partial_t-\Ell_\beta)G_\chi
+=
+|\nabla|\Theta+|\nabla|^{-1}\mathbf P_{\mathrm{lo}}\mathcal R_\chi.
+\]
+Applying the linear combinations in \eqref{eq:UTL} gives \eqref{eq:UTLeq}, with \(\mathcal N_{\mathrm{TL}}^\pm\) built from \(\mathbf P_{\mathrm{lo}}\mathcal Q_\vartheta\) and \(|\nabla|^{-1}\mathbf P_{\mathrm{lo}}\mathcal R_\chi\).
+
+For the high-frequency Einstein block, the quotient theorem and decay notes already isolate the flat principal wave system for \(\mathbf P_{\mathrm{hi}}h\). Since \((\partial_t-\Ell_\beta)h=-2\mathbb K+\) lower-order transport and auxiliary terms, the half-wave variables \(U_{\mathrm{Ein}}^\pm\) satisfy \eqref{eq:UEineq} after collecting the same Ricci, transport, matter, and quotient auxiliary substitutions into \(\mathcal N_{\mathrm{Ein}}^\pm\).
+
+Finally, the previous quotient decay/integrability note proves that every quadratic and lower-order source term left after extracting these two principal wave blocks is bounded by the same time-integrable coefficient \(\mathfrak M_{\mathrm{quot}}(t)\). The same low-order product bounds in the weighted/homogeneous class control those sources in \(\mathcal Y_N\), giving \eqref{eq:Nbound}.
+\end{proof}
+
+\begin{remark}
+Proposition \ref{prop:principal} identifies the exact asymptotic issue on the quotient branch. No new principal scalar channel enters, and no representative-data-dependent source block reappears. The only possible same-class failure would have to come from the Duhamel terms generated by \(\mathcal N_{\mathrm{TL}}^\pm\) and \(\mathcal N_{\mathrm{Ein}}^\pm\).
+\end{remark}
+
+\begin{definition}[Transport-dressed linear evolution families]
+\label{def:families}
+Let
+\[
+\mathcal U_{\mathrm{TL},\pm}^\beta(t,s),
+\qquad
+\mathcal U_{\mathrm{Ein},\pm}^\beta(t,s)
+\]
+denote the evolution families for the homogeneous principal equations
+\begin{equation}
+(\partial_t-\Ell_\beta)U=\pm i|\nabla|U.
+\label{eq:wavefamily}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[Linear dispersive bounds for the transport-dressed quotient wave blocks]
+\label{prop:lin}
+There exists \(C_N>0\) such that on every asymptotic bootstrap interval and for \(0\le s\le t\le T\),
+\begin{align}
+\|\mathcal U_{\mathrm{TL},\pm}^\beta(t,s)f\|_{W^{1,\infty}}
+&\le
+C_N(1+t-s)^{-1}\|f\|_{\mathcal Y_N},
+\label{eq:linTL}
+\\
+\|\mathcal U_{\mathrm{Ein},\pm}^\beta(t,s)f\|_{W^{2,\infty}}
+&\le
+C_N(1+t-s)^{-1}\|f\|_{\mathcal Y_N}.
+\label{eq:linEin}
+\end{align}
+\end{proposition}
+
+\begin{proof}
+At the flat exact-closure background these are the standard three-dimensional wave dispersive estimates for the low-frequency trace/longitudinal pair and the high-frequency Einstein wave block. On the present bootstrap interval the coefficients remain small in the same weighted/homogeneous class, and the only long-range coefficient contribution is the already-recorded transport by \(\beta\). Standard perturbative variable-coefficient wave parametrices in spatial-harmonic coordinates therefore preserve the same \(t^{-1}\) decay after conjugation by the transport flow.
+\end{proof}
+
+\begin{proposition}[Duhamel representations]
+\label{prop:duhamel}
+For every \(t\in[0,T]\),
+\begin{align}
+U_{\mathrm{TL}}^\pm(t)
+&=
+\mathcal U_{\mathrm{TL},\pm}^\beta(t,0)U_{\mathrm{TL}}^\pm(0)
++\int_0^t \mathcal U_{\mathrm{TL},\pm}^\beta(t,s)\mathcal N_{\mathrm{TL}}^\pm(s)\,ds,
+\label{eq:duhTL}
+\\
+U_{\mathrm{Ein}}^\pm(t)
+&=
+\mathcal U_{\mathrm{Ein},\pm}^\beta(t,0)U_{\mathrm{Ein}}^\pm(0)
++\int_0^t \mathcal U_{\mathrm{Ein},\pm}^\beta(t,s)\mathcal N_{\mathrm{Ein}}^\pm(s)\,ds.
+\label{eq:duhEin}
+\end{align}
+\end{proposition}
+
+\begin{proof}
+This is the usual variation-of-constants formula for the nonautonomous principal systems in Proposition \ref{prop:principal}.
+\end{proof}
+
+\section{Closure of the Same-Class Quotient Asymptotic Bootstrap}
+
+The remaining issue is now exactly whether the Duhamel terms preserve the same quotient decay rates.
+
+\begin{proposition}[Duhamel terms close in the same decay norms]
+\label{prop:close}
+There exists \(C_N>0\) such that every solution in the same-class quotient asymptotic bootstrap regime satisfies
+\begin{align}
+\mathfrak D_{\mathrm{TL}}(t)
+&\le
+C_N\varepsilon(1+t)^{-1}
++C_N\int_0^t (1+t-s)^{-1}\mathfrak M_{\mathrm{quot}}(s)\,ds,
+\label{eq:DTLduh}
+\\
+\mathfrak D_{\mathrm{Ein,hi}}(t)
+&\le
+C_N\varepsilon(1+t)^{-1}
++C_N\int_0^t (1+t-s)^{-1}\mathfrak M_{\mathrm{quot}}(s)\,ds
+\label{eq:DEinduh}
+\end{align}
+for all \(t\in[0,T]\).
+\end{proposition}
+
+\begin{proof}
+Apply the dispersive estimates of Proposition \ref{prop:lin} to the homogeneous terms in Proposition \ref{prop:duhamel}. The initial-data contributions are bounded by \(C_N\mathfrak S_0^{\mathrm{quot}}\), hence by \(C_N\varepsilon\).
+
+For the inhomogeneous terms, use \eqref{eq:Nbound} together with the same dispersive estimates. Since \(\Theta\), \(G_\chi\), \(\mathbf P_{\mathrm{hi}}h\), \(\mathbf P_{\mathrm{hi}}\mathbb K\), \(\mathbf P_{\mathrm{hi}}\Sigma\), and \(\mathbf P_{\mathrm{hi}}K\) are recovered from \(U_{\mathrm{TL}}^\pm\) and \(U_{\mathrm{Ein}}^\pm\) by bounded Fourier multipliers, the corresponding decay norms satisfy \eqref{eq:DTLduh}--\eqref{eq:DEinduh}.
+\end{proof}
+
+\begin{proposition}[Wave-kernel convolution improvement]
+\label{prop:conv}
+There exists \(C_N>0\) such that on every asymptotic bootstrap interval,
+\begin{equation}
+\int_0^t (1+t-s)^{-1}\mathfrak M_{\mathrm{quot}}(s)\,ds
+\le
+C_NC_\ast^2\varepsilon^2(1+t)^{-1}
+\label{eq:waveconv}
+\end{equation}
+for all \(t\in[0,T]\).
+\end{proposition}
+
+\begin{proof}
+By \eqref{eq:Mrate},
+\[
+\int_0^t (1+t-s)^{-1}\mathfrak M_{\mathrm{quot}}(s)\,ds
+\lesssim
+C_NC_\ast^2\varepsilon^2
+\int_0^t (1+t-s)^{-1}(1+s)^{-2}\,ds.
+\]
+Split the integral into \([0,t/2]\) and \([t/2,t]\). On the first subinterval, \((1+t-s)^{-1}\lesssim (1+t)^{-1}\) and \(\int_0^{t/2}(1+s)^{-2}\,ds\lesssim 1\). On the second subinterval, \((1+s)^{-2}\lesssim (1+t)^{-2}\), so
+\[
+\int_{t/2}^t (1+t-s)^{-1}(1+s)^{-2}\,ds
+\lesssim
+(1+t)^{-2}\int_0^{t/2}(1+r)^{-1}\,dr
+\lesssim
+(1+t)^{-1}.
+\]
+This proves \eqref{eq:waveconv}.
+\end{proof}
+
+\begin{theorem}[Improved same-class quotient decay bounds]
+\label{thm:improve}
+Fix \(N\ge 6\). There exist \(C_\ast\ge 1\) and \(\varepsilon_\sharp>0\) such that the following holds. If a smooth solution on \([0,T]\) lies in the same-class quotient asymptotic bootstrap regime of Definition \ref{def:asymboot} with \(0<\varepsilon\le \varepsilon_\sharp\), then
+\begin{align}
+\mathfrak D_{\mathrm{TL}}(t)
+&\le
+2C_\ast\varepsilon(1+t)^{-1},
+\label{eq:DTLimp}
+\\
+\mathfrak D_{\mathrm{Ein,hi}}(t)
+&\le
+2C_\ast\varepsilon(1+t)^{-1},
+\label{eq:DEinimp}
+\\
+\mathfrak D_{\mathrm{aux}}(t)
+&\le
+C_N\varepsilon(1+t)^{-1}
+\label{eq:Dauximp}
+\end{align}
+for all \(t\in[0,T]\).
+\end{theorem}
+
+\begin{proof}
+Insert Proposition \ref{prop:conv} into Proposition \ref{prop:close}. This gives
+\[
+\mathfrak D_{\mathrm{TL}}(t)+\mathfrak D_{\mathrm{Ein,hi}}(t)
+\le
+C_N\varepsilon(1+t)^{-1}
++C_NC_\ast^2\varepsilon^2(1+t)^{-1}.
+\]
+Choose \(C_\ast\) so that \(C_N\le C_\ast\), and then choose \(\varepsilon_\sharp\) so that \(C_NC_\ast^2\varepsilon_\sharp\le C_\ast\). This yields \eqref{eq:DTLimp}--\eqref{eq:DEinimp}. Equation \eqref{eq:Dauximp} then follows from \eqref{eq:auxrecall}.
+\end{proof}
+
+\begin{remark}
+Theorem \ref{thm:improve} is the actual nonlinear closure step missing from the quotient decay note. The recorded decay package is no longer merely a compatible bootstrap assumption. It improves itself under the same quotient remainder bounds and therefore closes as a genuine same-class dispersive bootstrap.
+\end{remark}
+
+\section{Global Same-Class Quotient Asymptotic Closure}
+
+The same-class decay improvement must now be combined with the corrected quotient energy estimate to obtain global continuation.
+
+\begin{proposition}[Integrable-growth quotient energy inequality]
+\label{prop:Fineq}
+There exists \(C_N>0\) such that on every same-class quotient asymptotic bootstrap interval,
+\begin{equation}
+\frac{d}{dt}\mathfrak F_N^{\mathrm{quot}}(t)
+\le
+C_N\mathfrak M_{\mathrm{quot}}(t)\mathfrak F_N^{\mathrm{quot}}(t)
+\label{eq:Fineq}
+\end{equation}
+for all \(t\in[0,T]\).
+\end{proposition}
+
+\begin{proof}
+The quotient theorem note already established the cubic differential inequality
+\[
+\frac{d}{dt}\mathfrak F_N^{\mathrm{quot}}(t)
+\le
+C_N\bigl(\mathfrak F_N^{\mathrm{quot}}(t)\bigr)^{3/2}.
+\]
+The later quotient decay/integrability note sharpened the same differentiated remainder structure by proving that, after extraction of the principal wave blocks, the remaining differentiated quadratic terms are pointwise bounded by \(\mathfrak M_{\mathrm{quot}}(t)\mathfrak F_N^{\mathrm{quot}}(t)\). That is exactly \eqref{eq:Fineq}.
+\end{proof}
+
+\begin{corollary}[Uniform global quotient energy bound]
+\label{cor:Fglobal}
+There exists \(\varepsilon_\flat>0\) such that if \(0<\varepsilon\le \varepsilon_\flat\) and the solution lies in the same-class quotient asymptotic bootstrap regime on \([0,T]\), then
+\begin{equation}
+\sup_{0\le t\le T}\mathfrak F_N^{\mathrm{quot}}(t)\le 2\varepsilon^2.
+\label{eq:Fglobal}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+Integrating \eqref{eq:Fineq} and using \eqref{eq:Mint} gives
+\[
+\mathfrak F_N^{\mathrm{quot}}(t)
+\le
+\mathfrak F_N^{\mathrm{quot}}(0)
+\exp\!\left(C_N\int_0^t \mathfrak M_{\mathrm{quot}}(s)\,ds\right)
+\le
+\varepsilon^2\exp(C_NC_\ast^2\varepsilon^2).
+\]
+For \(\varepsilon\) sufficiently small, the exponential factor is at most \(2\).
+\end{proof}
+
+\begin{theorem}[Same-class quotient asymptotic bootstrap closes globally]
+\label{thm:global}
+Fix \(N\ge 6\). There exist \(\varepsilon_{\mathrm{asy}}>0\) and \(C_\ast\ge 1\) such that the following holds. Let compatible asymptotically flat quotient initial data satisfy the hypotheses of the quotient local theorem together with
+\begin{equation}
+\mathfrak F_N^{\mathrm{quot}}(0)\le \varepsilon^2,
+\qquad
+\mathfrak S_0^{\mathrm{quot}}\le \varepsilon,
+\qquad
+0<\varepsilon\le \varepsilon_{\mathrm{asy}}.
+\label{eq:smallasy}
+\end{equation}
+Then the corresponding quotient solution exists for all \(t\ge 0\) and satisfies
+\begin{align}
+\sup_{t\ge 0}\mathfrak F_N^{\mathrm{quot}}(t)
+&\le 2\varepsilon^2,
+\label{eq:globalF}
+\\
+\mathfrak D_{\mathrm{TL}}(t)
+&\le
+2C_\ast\varepsilon(1+t)^{-1},
+\label{eq:globalTL}
+\\
+\mathfrak D_{\mathrm{Ein,hi}}(t)
+&\le
+2C_\ast\varepsilon(1+t)^{-1},
+\label{eq:globalEin}
+\\
+\mathfrak D_{\mathrm{aux}}(t)
+&\le
+C_N\varepsilon(1+t)^{-1}
+\label{eq:globalaux}
+\end{align}
+for all \(t\ge 0\).
+\end{theorem}
+
+\begin{proof}
+By the quotient local well-posedness theorem, a nonempty short-time interval of existence is available. Because the solution is continuous in the closed weighted/homogeneous norms and \((1+t)^{-1}=O(1)\) at \(t=0\), the asymptotic bootstrap assumptions hold on a sufficiently small interval after increasing \(C_\ast\) if necessary.
+
+Let \(T_\ast\) be the supremum of times for which the same-class quotient asymptotic bootstrap regime holds. On every interval \([0,T]\subset [0,T_\ast)\), Corollary \ref{cor:Fglobal} improves the energy bootstrap \eqref{eq:Fboot}, and Theorem \ref{thm:improve} improves the decay bootstrap \eqref{eq:DTLboot}--\eqref{eq:DEinboot}. Hence the bootstrap assumptions improve strictly and therefore extend past \(T_\ast\) unless \(T_\ast=\infty\).
+
+The quotient local continuation theorem then gives global existence because the closed quotient weighted/homogeneous norm remains finite and the strict auxiliary positivity regime persists under smallness. This proves \eqref{eq:globalF}--\eqref{eq:globalaux}.
+\end{proof}
+
+\begin{corollary}[No first genuine same-class asymptotic obstruction on the quotient branch]
+\label{cor:noobs}
+At the present recorded scope of the ordered-flow-label symmetry/quotient branch,
+the same weighted/homogeneous quotient class does \emph{not} encounter its first
+genuine obstruction at the asymptotic-bootstrap stage.
+\end{corollary}
+
+\begin{proof}
+Theorem \ref{thm:global} closes the nonlinear asymptotic bootstrap globally in the same quotient class.
+\end{proof}
+
+\section{Transport-Dressed Quotient Profiles and Verdict}
+
+The previous section closes the nonlinear bootstrap. What remains is to decide the correct asymptotic description.
+
+\begin{definition}[Transport-dressed quotient asymptotic profiles]
+\label{def:profiles2}
+Define
+\begin{align}
+\mathcal A_{\mathrm{TL}}^\pm(t)
+&\equiv
+\mathcal U_{\mathrm{TL},\pm}^\beta(0,t)U_{\mathrm{TL}}^\pm(t),
+\label{eq:ATL}
+\\
+\mathcal A_{\mathrm{Ein}}^\pm(t)
+&\equiv
+\mathcal U_{\mathrm{Ein},\pm}^\beta(0,t)U_{\mathrm{Ein}}^\pm(t).
+\label{eq:AEin}
+\end{align}
+\end{definition}
+
+\begin{proposition}[Cauchy property of the quotient asymptotic profiles]
+\label{prop:cauchy}
+There exist limits
+\[
+\mathcal A_{\mathrm{TL},\infty}^\pm,
+\qquad
+\mathcal A_{\mathrm{Ein},\infty}^\pm
+\]
+in \(H^{N-3}\) such that
+\begin{align}
+\|\mathcal A_{\mathrm{TL}}^\pm(t)-\mathcal A_{\mathrm{TL},\infty}^\pm\|_{H^{N-3}}
+&\le
+C_N\varepsilon^2(1+t)^{-1},
+\label{eq:ATLlimit}
+\\
+\|\mathcal A_{\mathrm{Ein}}^\pm(t)-\mathcal A_{\mathrm{Ein},\infty}^\pm\|_{H^{N-3}}
+&\le
+C_N\varepsilon^2(1+t)^{-1}
+\label{eq:AEinlimit}
+\end{align}
+for all \(t\ge 0\).
+\end{proposition}
+
+\begin{proof}
+Differentiate \eqref{eq:ATL}--\eqref{eq:AEin} in time and use Proposition \ref{prop:principal}. Since \(\mathcal U^\beta(0,t)\) solves the homogeneous adjoint transport-dressed linear problem,
+\[
+\partial_t\mathcal A_{\mathrm{TL}}^\pm(t)
+=
+\mathcal U_{\mathrm{TL},\pm}^\beta(0,t)\mathcal N_{\mathrm{TL}}^\pm(t),
+\qquad
+\partial_t\mathcal A_{\mathrm{Ein}}^\pm(t)
+=
+\mathcal U_{\mathrm{Ein},\pm}^\beta(0,t)\mathcal N_{\mathrm{Ein}}^\pm(t).
+\]
+The evolution families are bounded on \(H^{N-3}\), while \eqref{eq:Nbound} and \eqref{eq:Mrate} imply
+\[
+\|\partial_t\mathcal A_{\mathrm{TL}}^\pm(t)\|_{H^{N-3}}
++\|\partial_t\mathcal A_{\mathrm{Ein}}^\pm(t)\|_{H^{N-3}}
+\le
+C_N\mathfrak M_{\mathrm{quot}}(t)
+\le
+C_N\varepsilon^2(1+t)^{-2}.
+\]
+Hence the profiles are Cauchy in \(H^{N-3}\) and converge. Integrating from \(t\) to \(\infty\) gives \eqref{eq:ATLlimit}--\eqref{eq:AEinlimit}.
+\end{proof}
+
+\begin{remark}
+Proposition \ref{prop:cauchy} is exactly where the previously recorded \(L_t^1\) remainder is used in its final asymptotic role. The Duhamel defect is not merely integrable enough to preserve the decay rates. It is integrable enough to produce actual limiting same-class quotient profiles.
+\end{remark}
+
+\begin{theorem}[Asymptotic verdict for the same-class quotient branch]
+\label{thm:verdict}
+Under the hypotheses of Theorem \ref{thm:global}, the same-class quotient asymptotic closure has the following verdict:
+\begin{enumerate}
+    \item the perturbation remains globally small and decays to the flat exact-closure background in the same weighted/homogeneous quotient norms;
+    \item the low-frequency trace/longitudinal wave pair admits limiting transport-dressed wave profiles \(\mathcal A_{\mathrm{TL},\infty}^\pm\);
+    \item the high-frequency Einstein block admits limiting transport-dressed wave profiles \(\mathcal A_{\mathrm{Ein},\infty}^\pm\);
+    \item no scalar correction channel and no scalar asymptotic profile are needed, because no propagating ordered-flow scalar survives after imposing \(\AY=\AZ=0\);
+    \item no physical or analytic \(S,Y,Z\) data re-enter anywhere in the asymptotic argument;
+    \item the correct asymptotic alternative is therefore a mild transport-dressed wave scattering picture rather than a first genuine same-class obstruction.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Item (1) is Theorem \ref{thm:global}. Items (2) and (3) are exactly Proposition \ref{prop:cauchy}. Item (4) is built into the quotient reduced-system, theorem, and decay notes and remains unchanged throughout the present manuscript. Item (5) is part of the definition of the quotient branch and of the present bootstrap regime. Since the only nontrivial asymptotic issue was Duhamel closure and since that closure is positive, item (6) follows.
+\end{proof}
+
+\begin{corollary}[No bridge or matter-route redesign is forced at the quotient asymptotic stage]
+\label{cor:nodeeper}
+At the present disciplined scope, the positive same-class quotient asymptotic closure does not force any reconsideration of the bridge metric or the single-metric matter route.
+\end{corollary}
+
+\begin{proof}
+This is the direct content of Theorem \ref{thm:verdict}(6).
+\end{proof}
+
+\begin{corollary}[Next manuscript after the positive quotient asymptotic verdict]
+\label{cor:next}
+If the quotient line continues, the next honest manuscript should be a dedicated quotient derivational bridge-closure test on this same positive quotient branch, still keeping the bridge metric and the single-metric matter route fixed while deciding whether the observer-equation correction tensor remains exactly vanishing or only gauge/constraint exact after the full quotient elimination. Only if that later bridge-closure step fails should a later manuscript reconsider the bridge metric or the single-metric matter route.
+\end{corollary}
+
+\begin{proof}
+The present note discharges the asymptotic burden that the positive quotient
+decay/integrability manuscript left open. What remains incomplete relative to
+the repository goal is the first-principles derivational bridge. Since the
+asymptotic step itself is positive, the next burden is therefore the
+corresponding bridge-closure test rather than a redesign.
+\end{proof}
+
+\begin{remark}
+Corollary \ref{cor:next} should be read narrowly. The present note does \emph{not} yet prove that exact derivational bridge closure holds on the quotient branch. It records only that the same-class asymptotic burden has now been discharged positively, so the next live question moves back to the bridge rather than to another same-branch repair.
+\end{remark}
+
+\section{What This Step Establishes}
+
+The present manuscript establishes the following.
+\begin{enumerate}
+    \item It fixes the first same-class asymptotic bootstrap directly on the same quotient physical field space and in the same unit-lapse spatial-harmonic weighted/homogeneous class.
+    \item It keeps \(\AY=\AZ=0\) imposed from the outset and never allows \(S,Y,Z\) to re-enter as physical or analytic free data.
+    \item It proves that the low-frequency trace/longitudinal pair and the high-frequency Einstein block satisfy transport-dressed half-wave equations whose nonlinear sources are controlled by the already-recorded \(L_t^1\) coefficient \(\mathfrak M_{\mathrm{quot}}\).
+    \item It closes the nonlinear quotient decay bootstrap, upgrades the corrected quotient energy bound to a global same-class bound, and yields global continuation in the same quotient class.
+    \item It proves the existence of limiting transport-dressed wave profiles for both propagating quotient sectors.
+    \item It records the positive asymptotic verdict: no same-class obstruction appears here, no scalar correction channel is required, and no bridge redesign is forced at this stage.
+\end{enumerate}
+
+\section{What This Step Does Not Establish}
+
+The present manuscript does not establish the following.
+\begin{enumerate}
+    \item It does not yet prove the final derivational bridge-closure theorem for the quotient branch.
+    \item It does not claim that every other gauge, completion, or quotient implementation would enjoy the same asymptotic closure automatically.
+    \item It does not reopen representative ordered-flow variables as hidden data or introduce any scalar asymptotic repair.
+    \item It does not blur the distinction between the positive quotient asymptotic verdict and the still-open first-principles derivational bridge question.
+\end{enumerate}
+
+\section{Conclusion}
+
+The quotient decay/integrability note left one genuinely narrower same-branch burden: determine whether the positive \(L_t^1\) remainder package actually closes the nonlinear asymptotic argument before anything deeper is redesigned. The present manuscript answers exactly that question and nothing broader.
+
+The answer is positive. On the same quotient physical field space, in the same unit-lapse spatial-harmonic weighted/homogeneous class, with \(\AY=\AZ=0\) imposed from the outset and with no reintroduced \(S,Y,Z\) data, the quotient asymptotic bootstrap closes globally. The low-frequency trace/longitudinal pair and the high-frequency Einstein block admit limiting transport-dressed wave profiles, the corrected quotient energy remains globally small, and no scalar correction channel is needed.
+
+That is the asymptotic verdict the active quotient sequence needed. The branch does not fail at the same-class asymptotic stage, and the current disciplined program therefore does not turn next to bridge redesign. If the line is continued, the honest next burden is to return to the still-open derivational bridge-closure question on this same positive quotient branch.
+
+\end{document}

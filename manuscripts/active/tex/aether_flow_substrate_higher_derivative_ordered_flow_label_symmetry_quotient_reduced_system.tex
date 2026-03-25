@@ -1,0 +1,532 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal{A}}
+\newcommand{\BridgeMetric}{\mathfrak{g}}
+\newcommand{\AY}{\mathcal A_Y}
+\newcommand{\AZ}{\mathcal A_Z}
+\newcommand{\FieldSpace}{\mathscr F}
+\newcommand{\PhysFieldSpace}{\FieldSpace_{\mathrm{phys}}}
+\newcommand{\GaugeGroup}{\mathscr G_{\mathrm{of}}}
+\newcommand{\Slice}{\Sigma_*}
+\newcommand{\Ell}{\mathcal{L}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Ordered-Flow Label Symmetry/Quotient Branch: First Reduced \texorpdfstring{$3+1$}{3+1} System}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The separate quotient-architecture screen has already done the job it was supposed to do. It identified the physical field space of the tuned double exact-square quotient branch,
+\[
+\PhysFieldSpace
+\cong
+\left\{
+\bigl(G_{AB},U^A,Q^I,\lambda_U,\psi,\AY,\AZ\bigr)
+\right\},
+\]
+showed that the action descends there exactly, and showed that the old infinite-dimensional ordered-flow-label fiber is pure gauge rather than physical underdetermination. The next burden is therefore no longer another candidate-selection or architecture note. It is to decide whether reduced-system work should now be reopened directly on that quotient field space.
+
+This note performs exactly that reopening and stops at the reduced-system verdict. It works directly on the quotient branch, imposes the quotient equations
+\[
+\AY=0,
+\qquad
+\AZ=0,
+\]
+and derives the first \(3+1\) observer-system architecture without allowing \(S\), \(Y\), or \(Z\) to re-enter as physical free data. In unit-lapse spatial-harmonic gauge,
+\[
+N\equiv 1,
+\qquad
+V^i(\gamma)=0,
+\]
+the actual reduced quotient variables are
+\[
+(\gamma_{ij},\Sigma_{ij},K;\beta^i;Q^I,\chi,W_i^T;\psi,\pi_\psi;\AY,\AZ),
+\]
+with \(\beta^i\), \(Q^I\), \(\chi\), and \(W_i^T\) determined slice by slice through the same elliptic geometric package already present in the active line and with \(\AY,\AZ\) purely algebraic quotient fields. On shell one has \(\AY=\AZ=0\), so the physical branch data reduce further to
+\[
+(\gamma_{ij},\Sigma_{ij},K;Q^I,\chi,W_i^T;\psi,\pi_\psi)
+\]
+modulo the geometric gauge choice and the Einstein constraints.
+
+The resulting reduced equations are the Einstein \(3+1\) evolution/constraint system coupled only to the quotient \(Q\)- and \(U\)-sector auxiliaries and to matter:
+\begin{align*}
+(\partial_t-\Ell_\beta)\gamma_{ij}
+&=
+-2\Sigma_{ij}-\frac23\gamma_{ij}K,\\
+(\partial_t-\Ell_\beta)\Sigma_{ij}
+&=
+\bigl(R_{ij}[\gamma]\bigr)^{\mathrm{TF}}
+-2\Sigma_i{}^k\Sigma_{kj}
+-\frac13K\Sigma_{ij}
++\Theta_{ij}^{\mathrm{TF,quot}},\\
+(\partial_t-\Ell_\beta)K
+&=
+R[\gamma]+\Sigma_{ij}\Sigma^{ij}+\frac13K^2+\Theta_K^{\mathrm{quot}},
+\end{align*}
+subject to the elliptic subsystem
+\begin{align*}
+-\Delta_\gamma\beta^i-\frac13D^iD_j\beta^j+R^i{}_j[\gamma]\beta^j
+&=
+\mathcal S_\beta^i,\\
+\bigl((-\Delta_\gamma)\delta_{IJ}+\widehat M_{IJ}\bigr)Q^J
+&=
+\mathcal N_I^{(Q)},\\
+\kappa_\theta\Delta_\gamma\chi
+&=
+-K+\mathcal N_\chi,\\
+\kappa_\Omega(-\Delta_\gamma)W_i^T
+&=
+\mathcal N_i^{(T)},\\
+\AY&=0,\qquad \AZ=0.
+\end{align*}
+No propagating Stueckelberg-like scalar pair survives on the quotient branch. The old ordered-flow scalar sector disappears from the physical reduced system rather than merely being hidden in another representative choice.
+
+This is a positive reduced-system verdict at current disciplined scope. The quotient branch admits a clean reduced \(3+1\) formulation written directly on the quotient physical field space, and the old \(S,Y,Z\) ambiguity does not reappear as physical initial data. The note still stops before any local-coercive or theorem claim. It records only that, if the live line continues, the next honest manuscript is now a quotient-branch local/coercive note on this same quotient reduced system rather than a return to the failed double exact-square, fixed-route momentum-compensator, or non-algebraic candidate branches.
+\end{abstract}
+
+\section{Introduction}
+
+The explicit ordered-flow symmetry/quotient candidate and its separate architecture screen have already changed the program in one decisive way. They showed that on the tuned double exact-square branch the ordered-flow label can be treated as a genuine local redundancy, not merely as a coefficient-level curiosity. The quotient action is well defined, the physical field space is explicit, and the old infinite-dimensional ordered-flow-label fiber is pure gauge rather than revived physical underdetermination.
+
+That positive result does \emph{not} by itself prove a theorem route. But it changes what the next manuscript must be. Once the quotient architecture is clean, the next burden is no longer another architecture screen and no longer another candidate-selection placeholder. It is to decide whether reduced-system work should now be reopened on the quotient branch itself, and if so to do it directly on the quotient physical field space rather than on unreduced representatives.
+
+That is the purpose of the present note. It does not revisit the failed double exact-square architecture branch. It does not reopen the exhausted fixed-route momentum-compensator class. It does not return to the coefficient-level negative non-algebraic route. It does not reopen generic tuned-data asymptotics. It takes the positive quotient-architecture verdict as input and derives the first actual quotient-branch \(3+1\) system.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present manuscript stays strictly inside that boundary. It does not claim a completed substrate derivation. It does not prove local well-posedness, coercive control, or a theorem on the quotient branch. It performs only the next reduced-system step and stops at the corresponding verdict.
+
+\section{What Counts as an Honest Quotient Reduced-System Reopening}
+
+\begin{definition}[Honest quotient reduced-system reopening]
+\label{def:honest}
+An \emph{honest quotient reduced-system reopening} on the ordered-flow quotient branch means:
+\begin{enumerate}
+    \item the reduced variables are taken directly from the quotient field space
+    \[
+    \PhysFieldSpace
+    \cong
+    \left\{
+    \bigl(G_{AB},U^A,Q^I,\lambda_U,\psi,\AY,\AZ\bigr)
+    \right\}
+    \]
+    rather than from unreduced representative variables \((S,Y,Z)\);
+    \item the quotient equations \(\AY=\AZ=0\) are imposed as the ordered-flow-sector equations of motion;
+    \item the on-shell physical data are identified as \((G_{AB},U^A,Q^I,\lambda_U,\psi)\) modulo geometric gauge only;
+    \item any later reconstruction of a representative \((S,Y,Z)\) is treated as an optional gauge lift, not as part of the physical reduced unknowns.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:honest} is the real test that the separate architecture screen was preparing. If a purported reduced-system note still has to choose \(\sigma\), \(\pi_\sigma\), \(Y\), or \(Z\) as physical branch variables, then it has not really reopened the quotient branch. It has fallen back to representative language.
+\end{remark}
+
+\section{The Quotient Branch at Reduced-System Scope}
+
+\begin{definition}[Quotient action recalled]
+\label{def:quotaction}
+On the physical field space \(\PhysFieldSpace\), the quotient action is
+\begin{equation}
+S_{4YZ}^{\mathrm{phys}}
+=
+\frac{c^3}{16\pi G_N}
+\int_{\Sub} d^4X\,\sqrt{G}\,\bigl(R[\BridgeMetric]-2\Lambda_{\Sub}\bigr)
++\int_{\Sub} d^4X\,\sqrt{G}\,\mathcal L_{\mathrm{aux,phys}}
++S_{\mathrm{matter}}[\Xi^*\BridgeMetric,\psi],
+\label{eq:Sphys}
+\end{equation}
+with
+\begin{align}
+\mathcal L_{\mathrm{aux,phys}}
+=\;&
+\lambda_U\bigl(G_{AB}U^AU^B-1\bigr)
+-\frac12\AY^2
+-\frac12\AZ^2
+\nonumber\\
+&-\frac12\delta_{IJ}P^{AB}(D_AQ^I)(D_BQ^J)
+-\frac12\widehat M_{IJ}Q^IQ^J
+-\frac{\kappa_\theta}{2}\bigl(\nabla_AU^A\bigr)^2
+-\frac{\kappa_\Omega}{4}\Omega_{AB}\Omega^{AB},
+\label{eq:Lphys}
+\end{align}
+where
+\begin{equation}
+\BridgeMetric_{AB}=G_{AB}-2U_AU_B,
+\qquad
+P_{AB}=G_{AB}-U_AU_B,
+\qquad
+\Omega_{AB}=P_A{}^CP_B{}^D\nabla_{[C}U_{D]}.
+\label{eq:bridge}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[Ordered-flow quotient equations]
+\label{prop:AYAZ}
+The quotient Euler--Lagrange equations obtained by varying \(\AY\) and \(\AZ\) in \eqref{eq:Sphys} are
+\begin{equation}
+\AY=0,
+\qquad
+\AZ=0.
+\label{eq:AYAZzero}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+In \eqref{eq:Lphys}, the fields \(\AY\) and \(\AZ\) appear only through the algebraic exact squares \(-\frac12\AY^2\) and \(-\frac12\AZ^2\). Varying them gives \eqref{eq:AYAZzero}.
+\end{proof}
+
+\begin{corollary}[On-shell quotient branch]
+\label{cor:on-shell}
+After imposing \eqref{eq:AYAZzero}, the remaining equations of the quotient branch are exactly the Euler--Lagrange equations of the reduced \(S\)-free action
+\begin{equation}
+S_{\mathrm{deg}}
+=
+\frac{c^3}{16\pi G_N}
+\int_{\Sub} d^4X\,\sqrt{G}\,\bigl(R[\BridgeMetric]-2\Lambda_{\Sub}\bigr)
++\int_{\Sub} d^4X\,\sqrt{G}\,\mathcal L_{\mathrm{aux,deg}}
++S_{\mathrm{matter}}[\Xi^*\BridgeMetric,\psi],
+\label{eq:Sdeg}
+\end{equation}
+with
+\begin{align}
+\mathcal L_{\mathrm{aux,deg}}
+=\;&
+\lambda_U\bigl(G_{AB}U^AU^B-1\bigr)
+-\frac12\delta_{IJ}P^{AB}(D_AQ^I)(D_BQ^J)
+-\frac12\widehat M_{IJ}Q^IQ^J
+\nonumber\\
+&-\frac{\kappa_\theta}{2}\bigl(\nabla_AU^A\bigr)^2
+-\frac{\kappa_\Omega}{4}\Omega_{AB}\Omega^{AB}.
+\label{eq:Ldeg}
+\end{align}
+Hence the on-shell physical branch data are
+\begin{equation}
+\bigl(G_{AB},U^A,Q^I,\lambda_U,\psi\bigr)
+\label{eq:physdata}
+\end{equation}
+modulo geometric gauge only.
+\end{corollary}
+
+\begin{proof}
+Proposition \ref{prop:AYAZ} removes the exact-square block from \eqref{eq:Lphys}. What remains is exactly \eqref{eq:Sdeg}--\eqref{eq:Ldeg}.
+\end{proof}
+
+\begin{remark}
+Corollary \ref{cor:on-shell} is the structural starting point of the present note. The quotient branch is not an Einstein system coupled to a hidden Stueckelberg-like scalar pair. Once \(\AY=\AZ=0\) is imposed, no physical ordered-flow-label variable survives at reduced-system level.
+\end{remark}
+
+\section{Direct \texorpdfstring{$3+1$}{3+1} Variables on the Quotient Field Space}
+
+The active reduced-system package already on record is the unit-lapse spatial-harmonic one. The quotient reopening should therefore be written directly in that same geometric gauge rather than inventing a different one before it is needed.
+
+\begin{definition}[Unit-lapse spatial-harmonic quotient gauge]
+\label{def:gauge}
+Work in the observer gauge
+\begin{equation}
+N\equiv 1,
+\qquad
+V^i(\gamma)\equiv \gamma^{mn}\bigl(\Gamma^i_{mn}[\gamma]-\Gamma^i_{mn}[\delta]\bigr)=0,
+\label{eq:gauge}
+\end{equation}
+with \(\beta^i\to 0\) at spatial infinity. Write the observer metric as
+\begin{equation}
+g_{\mu\nu}dx^\mu dx^\nu
+=
+-dt^2
++\gamma_{ij}(dx^i+\beta^idt)(dx^j+\beta^jdt),
+\label{eq:ADM}
+\end{equation}
+so the future unit normal is
+\begin{equation}
+n^\mu=(1,-\beta^i).
+\label{eq:normal}
+\end{equation}
+Decompose the extrinsic curvature by
+\begin{equation}
+K_{ij}
+=
+\Sigma_{ij}+\frac13\gamma_{ij}K,
+\qquad
+\gamma^{ij}\Sigma_{ij}=0.
+\label{eq:Ksplit}
+\end{equation}
+For the spatial ordered-flow geometry carried by \(U^A\), decompose
+\begin{equation}
+W_i=D_i\chi+W_i^T,
+\qquad
+D^iW_i^T=0.
+\label{eq:Wdecomp}
+\end{equation}
+\end{definition}
+
+\begin{definition}[Reduced quotient variables]
+\label{def:variables}
+In the gauge of Definition \ref{def:gauge}, the quotient reduced variables are
+\begin{equation}
+(\gamma_{ij},\Sigma_{ij},K;\beta^i;Q^I,\chi,W_i^T;\psi,\pi_\psi;\AY,\AZ).
+\label{eq:variables}
+\end{equation}
+Among these:
+\begin{enumerate}
+    \item \((\gamma_{ij},\Sigma_{ij},K;\psi,\pi_\psi)\) are the propagating observer-accessible variables;
+    \item \(\beta^i\), \(Q^I\), \(\chi\), and \(W_i^T\) are slice-wise nonpropagating variables determined by elliptic equations;
+    \item \(\AY\) and \(\AZ\) are algebraic quotient variables whose on-shell values are fixed by \eqref{eq:AYAZzero}.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:variables} is the key difference from the prequotient tuned-compensator reduction. There is no physical scalar pair \((\sigma,\pi_\sigma)\) in \eqref{eq:variables}. The quotient fields \(\AY,\AZ\) replace the representative variables \(S,Y,Z\), and on shell even those quotient fields vanish.
+\end{remark}
+
+\section{Elliptic and Algebraic Quotient Package}
+
+\begin{proposition}[Shift equation on the quotient branch]
+\label{prop:shift}
+Preserving the spatial-harmonic condition in \eqref{eq:gauge} yields an elliptic shift equation of the schematic form
+\begin{equation}
+-\Delta_\gamma\beta^i
+-\frac13D^iD_j\beta^j
++R^i{}_j[\gamma]\beta^j
+=
+\mathcal S_\beta^i[\gamma,\Sigma,K,Q,\chi,W^T,\psi,\pi_\psi,\AY,\AZ].
+\label{eq:betaeq}
+\end{equation}
+The source \(\mathcal S_\beta^i\) vanishes on the flat exact-closure background and contains one derivative of the reduced fields at principal source level.
+\end{proposition}
+
+\begin{proof}
+The principal operator is the standard unit-lapse spatial-harmonic gauge-preservation operator already recorded on the active reduced-system line. Relative to the earlier tuned-compensator note, the only structural change is that the scalar pair \((\sigma,\pi_\sigma)\) is absent. The quotient fields \(\AY,\AZ\) can enter only algebraically because they appear in the action with no derivatives. This gives \eqref{eq:betaeq}.
+\end{proof}
+
+\begin{proposition}[Auxiliary-elliptic quotient subsystem]
+\label{prop:aux}
+On the quotient branch, the slice-wise nonpropagating variables satisfy
+\begin{align}
+\bigl((-\Delta_\gamma)\delta_{IJ}+\widehat M_{IJ}\bigr)Q^J
+&=
+\mathcal N_I^{(Q)}[\gamma,\Sigma,K,\beta,Q,\chi,W^T,\psi,\pi_\psi,\AY,\AZ],
+\label{eq:Qeq}
+\\
+\kappa_\theta\Delta_\gamma\chi
+&=
+-K+\mathcal N_\chi[\gamma,\Sigma,K,\beta,Q,\chi,W^T,\psi,\pi_\psi,\AY,\AZ],
+\label{eq:chieq}
+\\
+\kappa_\Omega(-\Delta_\gamma)W_i^T
+&=
+\mathcal N_i^{(T)}[\gamma,\Sigma,K,\beta,Q,\chi,W^T,\psi,\pi_\psi,\AY,\AZ],
+\label{eq:WTeq}
+\\
+\AY&=0,
+\qquad
+\AZ=0.
+\label{eq:AZeq}
+\end{align}
+All nonlinear source terms vanish on the flat exact-closure background and are lower-order relative to the displayed elliptic operators or algebraic equations.
+\end{proposition}
+
+\begin{proof}
+The \(Q\)-sector equation in \eqref{eq:Qeq} is unchanged from the earlier reduced-system line because the quotient action \eqref{eq:Sphys} retains the same positive projected spatial kinetic block and the same positive mass block for \(Q^I\). Likewise, the ordered-flow geometric sector entering through \(U^A\) still contains only the divergence block \((\nabla_AU^A)^2\) and the vorticity block \(\Omega_{AB}\Omega^{AB}\), so the longitudinal and transverse equations for \(\chi\) and \(W_i^T\) remain elliptic as in the unit-lapse formulation already on record. Finally, Proposition \ref{prop:AYAZ} gives the algebraic equations \(\AY=\AZ=0\). This yields \eqref{eq:Qeq}--\eqref{eq:AZeq}.
+\end{proof}
+
+\begin{corollary}[Actual on-shell free data]
+\label{cor:freedata}
+At reduced-system scope, the quotient branch does \emph{not} admit \(S\), \(Y\), \(Z\), \(\sigma\), or \(\pi_\sigma\) as physical free data. The actual on-shell \(3+1\) free data are the metric/matter variables satisfying the Einstein constraints, with \(Q^I\), \(\chi\), and \(W_i^T\) determined by \eqref{eq:Qeq}--\eqref{eq:WTeq} and \(\AY=\AZ=0\).
+\end{corollary}
+
+\begin{proof}
+Definition \ref{def:variables} contains no representative ordered-flow variables. Proposition \ref{prop:aux} shows that the remaining nonmetric quotient variables are either elliptic auxiliaries or algebraic exact-square fields.
+\end{proof}
+
+\section{Reduced Evolution and Constraints}
+
+\begin{proposition}[Quotient reduced Einstein system]
+\label{prop:reduced}
+After imposing \(\AY=\AZ=0\), the quotient branch evolution in the gauge of Definition \ref{def:gauge} is
+\begin{align}
+(\partial_t-\Ell_\beta)\gamma_{ij}
+&=
+-2\Sigma_{ij}-\frac23\gamma_{ij}K,
+\label{eq:gammadt}
+\\
+(\partial_t-\Ell_\beta)\Sigma_{ij}
+&=
+\bigl(R_{ij}[\gamma]\bigr)^{\mathrm{TF}}
+-2\Sigma_i{}^k\Sigma_{kj}
+-\frac13K\Sigma_{ij}
++\Theta_{ij}^{\mathrm{TF,quot}},
+\label{eq:Sigmadt}
+\\
+(\partial_t-\Ell_\beta)K
+&=
+R[\gamma]+\Sigma_{ij}\Sigma^{ij}+\frac13K^2+\Theta_K^{\mathrm{quot}},
+\label{eq:Kdt}
+\end{align}
+subject to the Einstein constraints
+\begin{align}
+R[\gamma]+\frac23K^2-\Sigma_{ij}\Sigma^{ij}
+&=
+16\pi G_N\bigl(\rho^{\mathrm{matter}}+\rho_{\mathrm{quot}}\bigr),
+\label{eq:Hconstraint}
+\\
+D^j\Sigma_{ij}-\frac23D_iK
+&=
+8\pi G_N\bigl(J_i^{\mathrm{matter}}+J_i^{\mathrm{quot}}\bigr).
+\label{eq:Mconstraint}
+\end{align}
+Here \(\Theta_{ij}^{\mathrm{TF,quot}}\), \(\Theta_K^{\mathrm{quot}}\), \(\rho_{\mathrm{quot}}\), and \(J_i^{\mathrm{quot}}\) are the stress contributions generated by the quotient \(Q\)- and \(U\)-sector fields after solving \eqref{eq:Qeq}--\eqref{eq:WTeq}. They vanish on the flat exact-closure background and carry no contribution from any propagating ordered-flow-label scalar.
+\end{proposition}
+
+\begin{proof}
+Corollary \ref{cor:on-shell} shows that, after imposing \(\AY=\AZ=0\), the quotient branch is governed by the reduced action \eqref{eq:Sdeg}--\eqref{eq:Ldeg}. Its bridge part is still the Einstein--Hilbert action of the bridge metric, so the reduced observer equations keep the standard ADM form in unit-lapse spatial-harmonic gauge. The completion-specific source now comes only from the quotient \(Q\)- and \(U\)-sector auxiliaries and from matter. Since no representative scalar block survives in \eqref{eq:Ldeg}, no scalar evolution equation analogous to the earlier \((\sigma,\pi_\sigma)\)-system appears. This gives \eqref{eq:gammadt}--\eqref{eq:Mconstraint}.
+\end{proof}
+
+\begin{corollary}[No propagating ordered-flow scalar survives]
+\label{cor:noscalar}
+The propagating observer-accessible quotient branch consists of the Einstein metric variables and the matter variables only. The quotient \(Q\)- and \(U\)-sector variables are nonpropagating slice-wise unknowns, and the quotient ordered-flow fields \(\AY,\AZ\) vanish algebraically on shell.
+\end{corollary}
+
+\begin{proof}
+Proposition \ref{prop:reduced} contains no evolution equation for any scalar representative of the ordered-flow label. Proposition \ref{prop:aux} shows that the remaining nonmetric variables are elliptic or algebraic.
+\end{proof}
+
+\begin{remark}
+Corollary \ref{cor:noscalar} is the central reduced-system simplification. The quotient branch is cleaner than the prequotient tuned-compensator branch precisely because the old neutral Stueckelberg-like momentum pair disappears from the physical reduced system instead of having to be controlled by a separate transport equation.
+\end{remark}
+
+\section{Reconstruction Without Reintroducing Physical Representative Data}
+
+\begin{proposition}[Auxiliary reconstruction on the quotient branch]
+\label{prop:auxrecon}
+Given on-shell quotient data satisfying \eqref{eq:Hconstraint}--\eqref{eq:Mconstraint}, the nonpropagating quotient variables are reconstructed slice by slice by the elliptic/algebraic package
+\[
+\eqref{eq:betaeq},
+\qquad
+\eqref{eq:Qeq},
+\qquad
+\eqref{eq:chieq},
+\qquad
+\eqref{eq:WTeq},
+\qquad
+\eqref{eq:AYAZzero}.
+\]
+Thus the reduced quotient architecture closes without adding any further physical branch variable beyond \((G,U,Q,\lambda_U,\psi)\).
+\end{proposition}
+
+\begin{proof}
+This is exactly the content of Propositions \ref{prop:shift}, \ref{prop:aux}, and \ref{prop:reduced}.
+\end{proof}
+
+\begin{proposition}[Optional representative lift after fixing a slice]
+\label{prop:lift}
+Fix once and for all a reference ordered-flow label \(S_*\) in the allowed asymptotic class. Then every on-shell quotient solution admits a unique representative on the slice \(S=S_*\), and the corresponding representative auxiliaries are reconstructed by
+\begin{equation}
+Y_*
+=
+\frac{\sqrt{\lambda_4}}{M_YM_*}\Delta_\perp S_*,
+\qquad
+Z_*
+=
+\frac{m_S}{M_Z}\bigl(U^A\nabla_A S_*-\sigma_0\bigr).
+\label{eq:lift}
+\end{equation}
+The fields \((S_*,Y_*,Z_*)\) are gauge-lift data only. They are not physical free data of the quotient branch.
+\end{proposition}
+
+\begin{proof}
+The separate quotient-architecture screen showed that every \(\GaugeGroup\)-orbit admits a unique representative on the slice \(S=S_*\). On shell one has \(\AY=\AZ=0\), so the defining relations
+\[
+\AY
+=
+\frac{\sqrt{\lambda_4}}{M_*}\Delta_\perp S-M_YY,
+\qquad
+\AZ
+=
+m_S\bigl(U^A\nabla_A S-\sigma_0\bigr)-M_ZZ
+\]
+reduce on that slice to \eqref{eq:lift}. Since the representative is fixed only after choosing the gauge slice \(S=S_*\), the reconstructed fields are not part of the physical quotient data.
+\end{proof}
+
+\begin{remark}
+Proposition \ref{prop:lift} is the only place in the note where \(S\), \(Y\), and \(Z\) reappear, and even here they reappear only as optional gauge-lift bookkeeping. They never re-enter the reduced-system architecture as physical unknowns or physical initial data.
+\end{remark}
+
+\section{Reduced-System Verdict and the Next Burden}
+
+\begin{theorem}[Positive quotient reduced-system verdict]
+\label{thm:verdict}
+The quotient branch admits an honest reduced \(3+1\) reopening at current disciplined scope. More precisely:
+\begin{enumerate}
+    \item the reduced variables are written directly on the quotient field space by Definition \ref{def:variables};
+    \item the ordered-flow-sector equations are the quotient equations \(\AY=\AZ=0\) of Proposition \ref{prop:AYAZ}, not a representative scalar evolution;
+    \item the actual on-shell physical data are \((G_{AB},U^A,Q^I,\lambda_U,\psi)\) modulo geometric gauge, with no physical \(S,Y,Z\) free data by Corollary \ref{cor:freedata};
+    \item the resulting \(3+1\) system is the Einstein evolution/constraint package \eqref{eq:gammadt}--\eqref{eq:Mconstraint} together with the quotient elliptic/algebraic reconstruction rules \eqref{eq:betaeq}--\eqref{eq:AZeq};
+    \item the old ordered-flow-label ambiguity reappears only as the optional gauge lift of Proposition \ref{prop:lift}, not as a new physical underdetermination.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Item (1) is Definition \ref{def:variables}. Item (2) is Proposition \ref{prop:AYAZ}. Item (3) is Corollaries \ref{cor:on-shell} and \ref{cor:freedata}. Item (4) is Propositions \ref{prop:shift}, \ref{prop:aux}, and \ref{prop:reduced}. Item (5) is Proposition \ref{prop:lift}.
+\end{proof}
+
+\begin{corollary}[Program consequence]
+\label{cor:next}
+The next live manuscript, if the active line continues on the quotient branch, should no longer be another candidate-selection note or another architecture placeholder. It should be the first quotient-branch local/coercive note written on the same quotient reduced system and the same geometric gauge. Only if that later local/coercive reopening fails should the program next reconsider the bridge metric or the single-metric matter route.
+\end{corollary}
+
+\begin{proof}
+Theorem \ref{thm:verdict} removes the specific reduced-system obstruction that remained after the architecture screen, namely the possibility that reopening the \(3+1\) system would force a return to representative ordered-flow variables. Since that obstruction is absent, the next unanswered question is no longer reduced-system existence but local/coercive closure on the quotient branch itself. The final sentence is exactly the stopping rule inherited from the active tracking layer.
+\end{proof}
+
+\begin{remark}
+Corollary \ref{cor:next} is deliberately narrower than a theorem claim. The present note does \emph{not} prove that the quotient branch already has a local theorem, a coercive bootstrap, or a full nonlinear stability result. It proves only that reduced-system reopening on the quotient branch is honest and clean enough that the next disciplined burden is now local/coercive rather than architectural.
+\end{remark}
+
+\section{Conclusion}
+
+The separate quotient-architecture screen left exactly one honest immediate question: can reduced-system work be reopened directly on the quotient branch without smuggling the ordered-flow representative variables back in as physical data? The present note answers that question positively.
+
+It does so in the narrow form required by the active sequence. The quotient equations are \(\AY=\AZ=0\). The on-shell physical data are \((G,U,Q,\lambda_U,\psi)\) modulo geometric gauge. In unit-lapse spatial-harmonic gauge, the reduced \(3+1\) variables are the Einstein metric variables together with the slice-wise elliptic quotient \(Q\)- and \(U\)-sector auxiliaries and the algebraic quotient exact-square fields. No propagating ordered-flow scalar pair survives, and no physical \(S,Y,Z\) free data reappear.
+
+That is the reduced-system verdict the tracking layer needed. The quotient branch is now open honestly at reduced-system scope. The next burden, if the live line continues, is a local/coercive note on this same quotient branch rather than a return to the failed double exact-square, exhausted fixed-route momentum-compensator, or coefficient-level negative non-algebraic routes.
+
+\end{document}

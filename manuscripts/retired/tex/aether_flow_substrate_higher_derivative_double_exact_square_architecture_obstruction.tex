@@ -1,0 +1,408 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal{A}}
+\newcommand{\BridgeMetric}{\mathfrak{g}}
+\newcommand{\AY}{\mathcal A_Y}
+\newcommand{\AZ}{\mathcal A_Z}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Double Exact-Square Replacement Candidate: Nonlinear Architecture Obstruction}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The double exact-square replacement note completed the coefficient-level task forced by the tuned infrared bridge verdict. It kept the bridge metric and the single-metric matter route fixed, added one new gapped auxiliary scalar \(Z\) to the ordered-flow momentum block, and showed that on the double exact-square locus the generic Stueckelberg-like observer remainder \(T_{\mu\nu}^{\mathrm{St}}\) vanishes at flat-background coefficient level. The next live burden was therefore no longer candidate selection. It was the nonlinear architecture screen: does that doubly tuned branch admit an acceptable reduced-system and theorem route?
+
+This note answers that question negatively. Write the explicit double exact-square completion with auxiliary squares
+\[
+\AY
+\equiv
+\frac{\sqrt{\lambda_4}}{M_*}\Delta_\perp S-M_YY,
+\qquad
+\AZ
+\equiv
+m_S\bigl(U^A\nabla_A S-\sigma_0\bigr)-M_ZZ.
+\]
+The \(Y\)- and \(Z\)-equations are algebraic and force
+\[
+\AY=0,
+\qquad
+\AZ=0.
+\]
+After substituting those solves back into the action, the entire \(S\)-sector disappears. The reduced action becomes
+\[
+S_{\mathrm{deg}}
+=
+\frac{c^3}{16\pi G_N}
+\int_{\Sub} d^4X\,\sqrt{G}\,\bigl(R[\BridgeMetric]-2\Lambda_{\Sub}\bigr)
++\int_{\Sub} d^4X\,\sqrt{G}\,\mathcal L_{\mathrm{aux,deg}}
++S_{\mathrm{matter}}[\Xi^*\BridgeMetric,\psi],
+\]
+with
+\[
+\mathcal L_{\mathrm{aux,deg}}
+=
+\lambda_U(G_{AB}U^AU^B-1)
+-\frac12\delta_{IJ}P^{AB}(D_AQ^I)(D_BQ^J)
+-\frac12\widehat M_{IJ}Q^IQ^J
+-\frac{\kappa_\theta}{2}(\nabla_AU^A)^2
+-\frac{\kappa_\Omega}{4}\Omega_{AB}\Omega^{AB},
+\]
+and no remaining dependence on \(S\).
+
+That is the obstruction. The full \(S\)-equation collapses to
+\[
+\frac{\sqrt{\lambda_4}}{M_*}\Delta_\perp \AY
++m_S\nabla_A(\AZ U^A)=0,
+\]
+so after the algebraic solves it becomes the identity \(0=0\). There is therefore no surviving scalar momentum \(\pi_\sigma\), no transport equation for \(\sigma\), and no constraint fixing the ordered-flow label. Moreover, for every solution of the reduced \(S\)-free system and every smooth \(S\), the algebraic formulas
+\[
+Y=\frac{\sqrt{\lambda_4}}{M_*M_Y}\Delta_\perp S,
+\qquad
+Z=\frac{m_S}{M_Z}\bigl(U^A\nabla_A S-\sigma_0\bigr)
+\]
+produce a full solution with the same observer metric and the same matter route. The branch therefore has an infinite-dimensional substrate fiber over the same reduced observer solution.
+
+The double exact-square replacement candidate is thus not a viable nonlinear branch at current scope. Its failure is not that the generic observer remainder survives; that part was removed. Its failure is architectural: exact-squaring the remaining momentum block annihilates the ordered-flow equation itself and destroys full-branch local uniqueness and slice closure. The correct next step after this note is not reduced-system or theorem work on this branch, but a broader redesign that removes \(T_{\mu\nu}^{\mathrm{St}}\) without eliminating the ordered-flow dynamics altogether, unless a new symmetry or quotient principle is introduced explicitly.
+\end{abstract}
+
+\section{Introduction}
+
+The double exact-square replacement candidate was always meant to be a narrow test. After the tuned infrared bridge-tensor verdict, the live obstruction was no longer the old quartic observer correction. It was the generic Stueckelberg-like remainder \(T_{\mu\nu}^{\mathrm{St}}\). The replacement note therefore made the smallest least-drift move available: keep the bridge metric, keep the single-metric matter route, keep the tuned quartic exact-square block, and act directly on the ordered-flow momentum block by adjoining one new algebraic compensator \(Z\).
+
+At coefficient level, that move worked. The remaining observer correction vanished on the double exact-square locus. But the replacement note stopped deliberately before any reduced-system or theorem claim, because the cancellation mechanism itself looked more degenerate than on the earlier tuned branch. The correct next burden is therefore architectural rather than coefficient-level: determine whether the new branch still supports an acceptable nonlinear formulation, or whether the cancellation has removed too much of the branch to leave a meaningful derivational system.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays within that boundary. It does not reopen broader theorem work. It performs only the next disciplined step: decide whether the double exact-square replacement candidate admits an acceptable nonlinear architecture while the bridge metric and matter route remain fixed.
+
+\section{Explicit Double Exact-Square Completion}
+
+\begin{definition}[Explicit double exact-square completion]
+\label{def:S4YZ}
+The \emph{explicit double exact-square completion} is
+\begin{equation}
+S_{4YZ}
+=
+\frac{c^3}{16\pi G_N}
+\int_{\Sub} d^4X\,\sqrt{G}\,\bigl(R[\BridgeMetric]-2\Lambda_{\Sub}\bigr)
++\int_{\Sub} d^4X\,\sqrt{G}\,\mathcal L_{\mathrm{aux},4YZ}
++S_{\mathrm{matter}}[\Xi^*\BridgeMetric,\psi],
+\label{eq:S4YZ}
+\end{equation}
+with bridge metric
+\begin{equation}
+\BridgeMetric_{AB}=G_{AB}-2U_AU_B,
+\qquad
+P_{AB}=G_{AB}-U_AU_B,
+\label{eq:bridge}
+\end{equation}
+and auxiliary Lagrangian
+\begin{align}
+\mathcal L_{\mathrm{aux},4YZ}
+=\;&
+\lambda_U\bigl(G_{AB}U^AU^B-1\bigr)
+-\frac12
+\left(
+\frac{\sqrt{\lambda_4}}{M_*}\Delta_\perp S-M_YY
+\right)^2
+\nonumber\\
+&-\frac12
+\left(
+m_S\bigl(U^A\nabla_A S-\sigma_0\bigr)-M_ZZ
+\right)^2
+-\frac12\delta_{IJ}P^{AB}(D_AQ^I)(D_BQ^J)
+\nonumber\\
+&-\frac12\widehat M_{IJ}Q^IQ^J
+-\frac{\kappa_\theta}{2}\bigl(\nabla_AU^A\bigr)^2
+-\frac{\kappa_\Omega}{4}\Omega_{AB}\Omega^{AB},
+\label{eq:L4YZ}
+\end{align}
+where
+\begin{equation}
+\Delta_\perp S\equiv \nabla_A\!\left(P^{AB}\nabla_BS\right),
+\qquad
+\Omega_{AB}\equiv P_A{}^CP_B{}^D\nabla_{[C}U_{D]},
+\label{eq:defops}
+\end{equation}
+and
+\begin{equation}
+m_S^2>0,
+\qquad
+\lambda_4>0,
+\qquad
+M_Y^2>0,
+\qquad
+M_Z^2>0,
+\qquad
+\widehat M_{IJ}>0,
+\qquad
+\kappa_\theta>0,
+\qquad
+\kappa_\Omega>0.
+\label{eq:positivity}
+\end{equation}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:S4YZ} is the nonlinear completion suggested by the previous coefficient-level replacement note. It keeps the bridge metric and matter route fixed and changes only the two scalar blocks already isolated by the tuned branch history.
+\end{remark}
+
+\begin{proposition}[Pointwise algebraic elimination of \(Y\) and \(Z\)]
+\label{prop:YZsolve}
+The auxiliary fields \(Y\) and \(Z\) are algebraic. Their Euler--Lagrange equations are
+\begin{equation}
+M_YY
+=
+\frac{\sqrt{\lambda_4}}{M_*}\Delta_\perp S,
+\qquad
+M_ZZ
+=
+m_S\bigl(U^A\nabla_A S-\sigma_0\bigr).
+\label{eq:YZsolve}
+\end{equation}
+Equivalently,
+\begin{equation}
+\AY=0,
+\qquad
+\AZ=0,
+\label{eq:AYAZzero}
+\end{equation}
+with
+\begin{equation}
+\AY
+\equiv
+\frac{\sqrt{\lambda_4}}{M_*}\Delta_\perp S-M_YY,
+\qquad
+\AZ
+\equiv
+m_S\bigl(U^A\nabla_A S-\sigma_0\bigr)-M_ZZ.
+\label{eq:AYAZdef}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Vary \eqref{eq:L4YZ} with respect to \(Y\) and \(Z\). Because both fields appear only inside the displayed exact squares, the equations are exactly \eqref{eq:YZsolve}, equivalently \eqref{eq:AYAZzero}.
+\end{proof}
+
+\begin{corollary}[Exact reduced action after algebraic elimination]
+\label{cor:Sdeg}
+After substituting \eqref{eq:YZsolve} into \eqref{eq:S4YZ}, the double exact-square completion reduces exactly to
+\begin{equation}
+S_{\mathrm{deg}}
+=
+\frac{c^3}{16\pi G_N}
+\int_{\Sub} d^4X\,\sqrt{G}\,\bigl(R[\BridgeMetric]-2\Lambda_{\Sub}\bigr)
++\int_{\Sub} d^4X\,\sqrt{G}\,\mathcal L_{\mathrm{aux,deg}}
++S_{\mathrm{matter}}[\Xi^*\BridgeMetric,\psi],
+\label{eq:Sdeg}
+\end{equation}
+with
+\begin{align}
+\mathcal L_{\mathrm{aux,deg}}
+=\;&
+\lambda_U\bigl(G_{AB}U^AU^B-1\bigr)
+-\frac12\delta_{IJ}P^{AB}(D_AQ^I)(D_BQ^J)
+-\frac12\widehat M_{IJ}Q^IQ^J
+\nonumber\\
+&-\frac{\kappa_\theta}{2}\bigl(\nabla_AU^A\bigr)^2
+-\frac{\kappa_\Omega}{4}\Omega_{AB}\Omega^{AB}.
+\label{eq:Ldeg}
+\end{align}
+In particular, the exact reduced action contains no dependence on \(S\).
+\end{corollary}
+
+\begin{proof}
+Substituting \eqref{eq:YZsolve} into the two exact squares in \eqref{eq:L4YZ} makes them vanish pointwise. What remains is exactly \eqref{eq:Sdeg}--\eqref{eq:Ldeg}.
+\end{proof}
+
+\begin{remark}
+Corollary \ref{cor:Sdeg} is the nonlinear version of the coefficient-level cancellation \(\mathcal L_{\hat\sigma,\mathrm{eff}}^{(2)}\equiv 0\). At quadratic scope the scalar bridge channel vanished. At full action level the entire ordered-flow scalar sector disappears once both algebraic exact-square solves are imposed.
+\end{remark}
+
+\section{The Ordered-Flow Equation Collapses}
+
+\begin{proposition}[Full \(S\)-equation before algebraic substitution]
+\label{prop:Seq}
+Varying \(S\) in the unreduced double exact-square action gives
+\begin{equation}
+\frac{\sqrt{\lambda_4}}{M_*}\Delta_\perp \AY
++m_S\nabla_A(\AZ U^A)
+=
+0,
+\label{eq:Seq}
+\end{equation}
+with \(\AY\) and \(\AZ\) defined by \eqref{eq:AYAZdef}.
+\end{proposition}
+
+\begin{proof}
+Only the two exact squares in \eqref{eq:L4YZ} depend on \(S\). For the quartic square,
+\[
+\delta\!\left(-\frac12\AY^2\right)
+=
+-\AY\frac{\sqrt{\lambda_4}}{M_*}\Delta_\perp(\delta S).
+\]
+Integrating by parts gives the contribution \((\sqrt{\lambda_4}/M_*)\Delta_\perp\AY\). For the momentum square,
+\[
+\delta\!\left(-\frac12\AZ^2\right)
+=
+-\AZ\,m_SU^A\nabla_A(\delta S),
+\]
+which contributes \(m_S\nabla_A(\AZ U^A)\) after integration by parts. Summing the two contributions yields \eqref{eq:Seq}.
+\end{proof}
+
+\begin{corollary}[On-shell identity of the \(S\)-equation]
+\label{cor:identity}
+On the double exact-square branch, the full \(S\)-equation becomes
+\begin{equation}
+0=0.
+\label{eq:zerozero}
+\end{equation}
+No transport law, momentum equation, or elliptic relation for \(S\) survives.
+\end{corollary}
+
+\begin{proof}
+Proposition \ref{prop:YZsolve} gives \(\AY=\AZ=0\). Substitute these identities into \eqref{eq:Seq}.
+\end{proof}
+
+\begin{remark}
+This is the sharp difference between the old singly tuned branch and the new doubly tuned one. On the singly tuned branch, elimination of \(Y\) left the collapsed-scalar momentum equation
+\[
+\nabla_A\!\left(
+m_S^2\bigl(U^B\nabla_BS-\sigma_0\bigr)U^A
+\right)=0,
+\]
+which produced the Stueckelberg-like pair \((\sigma,\pi_\sigma)\). On the double exact-square branch, even that current law disappears.
+\end{remark}
+
+\section{Infinite-Dimensional Substrate Fiber}
+
+\begin{definition}[Minimal nonlinear architecture criterion]
+\label{def:criterion}
+At current disciplined scope, a completion branch has an \emph{acceptable nonlinear reduced-system architecture} only if, after algebraic and elliptic reductions already justified by the branch, the remaining evolution/constraint system determines all completion fields from compatible initial data up to the already recorded gauge choices, and in particular determines any algebraically reconstructed fields from the reduced variables themselves rather than from extra free functions.
+\end{definition}
+
+\begin{theorem}[Infinite-dimensional lift fiber]
+\label{thm:fiber}
+Let \((G_{AB},U^A,Q^I,\psi)\) be any solution of the Euler--Lagrange equations of the reduced action \eqref{eq:Sdeg}. Then for every smooth scalar field \(S\) on \(\Sub\), the fields
+\begin{equation}
+Y
+=
+\frac{\sqrt{\lambda_4}}{M_*M_Y}\Delta_\perp S,
+\qquad
+Z
+=
+\frac{m_S}{M_Z}\bigl(U^A\nabla_A S-\sigma_0\bigr)
+\label{eq:YZrec}
+\end{equation}
+produce a full solution \((G_{AB},U^A,S,Q^I,Y,Z,\psi)\) of the original double exact-square completion \eqref{eq:S4YZ}. All these lifts induce the same observer metric \(g_{\mu\nu}=\Xi^*\BridgeMetric_{AB}\) and the same matter route.
+\end{theorem}
+
+\begin{proof}
+Equation \eqref{eq:YZrec} is exactly the algebraic solve \eqref{eq:YZsolve}, so the \(Y\)- and \(Z\)-equations are satisfied and \(\AY=\AZ=0\). By Corollary \ref{cor:identity}, the \(S\)-equation is then an identity. It remains to check the equations obtained by varying \(G_{AB}\), \(U^A\), \(Q^I\), and \(\psi\). In the full action \eqref{eq:S4YZ}, the only difference from the reduced action \eqref{eq:Sdeg} is the sum of the two exact squares. Varying those squares contributes terms proportional to \(\AY\) or \(\AZ\), schematically
+\[
+-\AY\,\delta\AY-\AZ\,\delta\AZ.
+\]
+Because \(\AY=\AZ=0\), those contributions vanish pointwise. Therefore the remaining field equations are exactly the Euler--Lagrange equations of \eqref{eq:Sdeg}, which hold by assumption. The observer metric and matter route depend only on \(\BridgeMetric_{AB}=G_{AB}-2U_AU_B\), so varying \(S\), \(Y\), and \(Z\) within the fiber does not change them.
+\end{proof}
+
+\begin{corollary}[Failure of full-branch uniqueness]
+\label{cor:nonunique}
+The full double exact-square branch is infinitely nonunique over the same reduced observer solution. In particular, the branch does not determine the ordered-flow label \(S\), the momentum compensator \(Z\), or the quartic compensator \(Y\) from observer/auxiliary data alone.
+\end{corollary}
+
+\begin{proof}
+Theorem \ref{thm:fiber} constructs one full-branch lift for every smooth \(S\). Distinct choices of \(S\) generically produce distinct \(Y\) and \(Z\) through \eqref{eq:YZrec}, while the observer metric remains unchanged.
+\end{proof}
+
+\begin{proposition}[Why no acceptable reduced system survives]
+\label{prop:noreducedsystem}
+The double exact-square replacement candidate fails the criterion of Definition \ref{def:criterion}. More precisely:
+\begin{enumerate}
+    \item if \(S\) is retained among the reduced unknowns, the full Cauchy problem is underdetermined because Corollary \ref{cor:identity} leaves no equation for it;
+    \item if \(S\) is removed from the reduced unknowns, the branch no longer determines the reconstructed fields \(Y\) and \(Z\), because \eqref{eq:YZrec} depends on an arbitrary free scalar.
+\end{enumerate}
+Hence the branch has no acceptable nonlinear reduced-system architecture at current scope.
+\end{proposition}
+
+\begin{proof}
+Item (1) is just Corollary \ref{cor:identity}. Item (2) is Corollary \ref{cor:nonunique}. Either way, the full completion fields are not determined by compatible initial data modulo the already recorded gauge choices. That is exactly the failure of Definition \ref{def:criterion}.
+\end{proof}
+
+\begin{remark}
+Choosing one representative by hand, for example \(S=\sigma_0 t\) and hence \(Y=Z=0\), would not repair the present branch. It would add a new external identification principle not contained in the action or in the currently recorded gauge structure. That would be a fresh redesign, not a reduction of the double exact-square completion as written.
+\end{remark}
+
+\section{Program Verdict}
+
+\begin{theorem}[Architecture verdict]
+\label{thm:verdict}
+The double exact-square replacement candidate is not a viable nonlinear branch of the current derivational program while the bridge metric and single-metric matter route remain fixed. Its precise obstruction is the complete disappearance of the ordered-flow scalar equation after algebraic elimination of the two exact squares, which leaves an infinite-dimensional substrate fiber over the same reduced observer solution.
+\end{theorem}
+
+\begin{proof}
+Corollary \ref{cor:Sdeg} removes all \(S\)-dependence from the reduced action. Corollary \ref{cor:identity} shows that the \(S\)-equation collapses to an identity. Theorem \ref{thm:fiber} and Proposition \ref{prop:noreducedsystem} then show that the full branch lacks local uniqueness and full slice closure. Therefore the branch fails the nonlinear architecture screen.
+\end{proof}
+
+\begin{corollary}[What this note justifies]
+\label{cor:stop}
+The present note justifies exactly three programmatic conclusions:
+\begin{enumerate}
+    \item the double exact-square replacement candidate should be treated as a coefficient-level positive but nonlinear-architecturally negative branch;
+    \item no reduced-system, local-coercive, or broader theorem manuscript should be written for this branch as it stands;
+    \item the next derivational burden is a broader redesign that removes \(T_{\mu\nu}^{\mathrm{St}}\) without annihilating the ordered-flow dynamics altogether, unless a new symmetry or quotient principle is introduced explicitly.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+Item (1) is Theorem \ref{thm:verdict} together with the already-recorded coefficient-level replacement note. Item (2) follows from Proposition \ref{prop:noreducedsystem}. Item (3) is the only honest next step once the smallest replacement candidate has failed at architecture level.
+\end{proof}
+
+\section{Conclusion}
+
+The previous replacement note answered the correct coefficient-level question. The smallest least-drift completion beyond the tuned infrared verdict does remove the generic Stueckelberg-like observer remainder. But the mechanism is now clear in full nonlinear form: the branch succeeds only by exact-squaring away the entire ordered-flow scalar sector.
+
+That is too degenerate for the present derivational program. After algebraic elimination of \(Y\) and \(Z\), the action no longer depends on \(S\). The \(S\)-equation becomes an identity, no scalar momentum pair survives, and the full completion acquires an infinite-dimensional substrate fiber over the same reduced observer solution. The problem is therefore not a surviving observer deformation. It is the loss of a determinate nonlinear completion architecture.
+
+The correct next step is correspondingly sharper than before. The active line should not reopen reduced-system or theorem work on the double exact-square branch. It should instead search for a broader replacement mechanism that kills \(T_{\mu\nu}^{\mathrm{St}}\) while preserving a genuine ordered-flow equation, or else formulate an explicit new symmetry/quotient principle if the ordered-flow label is meant to become physically redundant.
+
+\end{document}

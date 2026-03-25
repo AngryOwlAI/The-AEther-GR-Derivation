@@ -1,0 +1,401 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\ReBridge}{g^{\mathrm{br}}}
+\newcommand{\OpMetricSR}{g^{\mathrm{sr}}}
+\newcommand{\OpMetricIER}{g^{\mathrm{IER}}}
+\newcommand{\SigmaIER}{\Sigma^{\mathrm{IER}}}
+\newcommand{\SigmaSR}{\Sigma^{\mathrm{sr}}}
+\newcommand{\SigmaSRFour}{\Sigma^{\mathrm{sr},(\ge 4)}}
+\newcommand{\SigmaDress}{\Sigma^{\mathrm{dress}}}
+\newcommand{\SigmaReg}{\Sigma^{\mathrm{reg}}}
+\newcommand{\ReOff}{\widetilde{\mathcal R}_{\mu\nu}^{\mathrm{off}}}
+\newcommand{\ReLongThree}{\widetilde{\mathcal R}_{\mu\nu}^{(\chi,3)}}
+\newcommand{\ReLongFour}{\widetilde{\mathcal R}_{\mu\nu}^{(\chi,\ge 4)}}
+\newcommand{\EinLin}{\mathcal E_{\ReBridge}}
+\newcommand{\EinQuad}{\mathcal Q_{\ge 2}^{\mathrm{Ein}}}
+\newcommand{\GaugeH}{\mathcal C}
+\newcommand{\Pfour}{\mathbf P_{\ge 4}}
+\newcommand{\AsymClass}{\mathscr A_{\mathrm{sr}}}
+\newcommand{\SolveClass}{\mathscr S_{\mathrm{sr}}}
+\newcommand{\EinInvDress}{\mathfrak G_{\mathrm{sr}}}
+\newcommand{\HamChargeOmega}{\mathfrak m_{\Omega}}
+\newcommand{\DeltaTSR}{\Delta T_{\mu\nu}^{\mathrm{sr}}}
+\newcommand{\ChargeField}{Z_\infty}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Nonlocal Bridge Self-Response Redesign Note}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The positive quotient reduced-system, theorem, decay, and asymptotic line remains closed and is not reopened here. The recent inverse-Einstein-response bridge-map test also remains fixed in status at its positive broader-screen scope: on matter-free reduced data it cancels the currently recorded off-longitudinal \(Q/W\) remainder and adds an explicit cubic longitudinal completion. The quartic continuation note then makes the first unresolved burden exact. Once the admissible harmonic-gauge Coulomb-plus-regular solve class is fixed honestly, the charge-carrying tail required by the Hamiltonian projection feeds back through the quadratic Einstein response with
+\[
+n^\mu n^\nu \mathcal R_{\mu\nu}^{\mathrm{IER}}
+=
+\frac{3G_N^2\HamChargeOmega^2}{r^4}
++\mathcal O(r^{-5})
+\]
+on the exterior region. The present burden is therefore no longer a substrate-origin note for that same linear inverse map.
+
+This note records the minimum deeper redesign class. The next candidate must remain active on matter-free reduced data, preserve the already-positive cancellation of the full currently recorded off-longitudinal \(Q/W\) remainder, preserve the explicit cubic longitudinal completion, and remove or structurally absorb the quartic Coulomb self-response rather than letting it survive as a new observer remainder. The redesign must therefore change the bridge map itself at quartic order and must specify its admissibility package from the start: gauge, solve class, boundary data, and asymptotic sector.
+
+The smallest new ingredient is identified explicitly. Because the charge-carrying \(r^{-1}\) tail is already fixed by the Hamiltonian charge and because an exterior \(r^{-4}\) Hamiltonian density must be addressed without reopening the lower-order cancellations, the first admissible new asymptotic term is a charge-dependent \(r^{-2}\) dressing. The minimum next candidate is accordingly a \emph{self-response-dressed nonlocal bridge map}
+\[
+\OpMetricSR_{\mu\nu}
+=
+\ReBridge_{\mu\nu}
++\SigmaIER_{\mu\nu}
++\SigmaSRFour_{\mu\nu},
+\qquad
+\SigmaSRFour_{\mu\nu}
+=
+\SigmaDress_{\mu\nu}
++\SigmaReg_{\mu\nu},
+\]
+where \(\SigmaSRFour=\mathcal O_{\ge 4}\), the dressing \(\SigmaDress=\mathcal O(r^{-2})\) is charge dependent, and \(\SigmaSRFour\) is defined by a nonlocal quartic balance condition rather than by another bare linear inverse solve with fixed Coulomb tail.
+
+The note does not prove that this redesigned solve exists globally, nor does it derive it from substrate variables. Its narrower result is to fix the minimum live candidate class, its admissibility package, and the kind of substrate mechanism any later origin note would have to realize: a nonpropagating charge-balancing or polarization sector that generates the \(r^{-2}\) asymptotic dressing and prevents the Hamiltonian-charge sector from reappearing as an uncanceled quartic Einstein self-response.
+\end{abstract}
+
+\section{Introduction}
+
+The active sequence is now sharper than before about what is and is not still open. The explicit ordered-flow-label quotient candidate, the quotient-architecture screen, the quotient reduced-system note, the quotient local/coercive note, the quotient theorem note, and the quotient decay and asymptotic notes already closed the positive quotient reduced-system, theorem, decay, and asymptotic line at the recorded scope. None of that PDE work is reopened here.
+
+The observer-level redesign chain is also now disciplined. The bridge-first redesign removed only the old same-scope longitudinal slot. The matter-route-only redesign was then negative because it vanished on matter-free reduced data. The broader operational-metric redesign note then fixed the honest next burden: any live candidate had to act through the operational bridge map itself, remain active on matter-free reduced data, cancel the off-longitudinal \(Q/W\) remainder, and explain the longitudinal remainder. The first explicit local operational-metric candidate was negative because the rotational Hamiltonian projection obstructed any decaying local stress lift. The inverse-Einstein-response bridge-map note then took the first genuinely broader nonlocal step and achieved the two positive screens that matter most for the present note: it canceled the currently recorded off-longitudinal remainder and added an explicit cubic longitudinal completion.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The quartic continuation note then changes the immediate manuscript burden again. It shows that the honest admissible solve class for the inverse-Einstein-response map forces a charge-carrying Coulomb tail and that this tail is not inert: it produces a positive quartic Einstein self-response on the exterior region. The next live manuscript is therefore not a substrate-origin note for the present linear inverse map, not another same-scope bridge-only or matter-route-only repair, and not more PDE work on the already-positive quotient line. It is a deeper bridge-map redesign note aimed directly at the self-response mechanism.
+
+The present note does exactly that and nothing broader. It identifies the minimum next candidate class, states the admissibility package from the start, proves which part of the map must change and which parts must be preserved, and explains what kind of substrate mechanism could later realize the redesigned bridge map without yet claiming that such a derivation has already been achieved.
+
+\section{What the Quartic Verdict Changes and What Must Be Preserved}
+
+\begin{definition}[Current inverse-response gain package]
+\label{def:gains}
+The \emph{current inverse-response gain package} consists of the following already-recorded positive features of the inverse-Einstein-response bridge map:
+\begin{enumerate}
+    \item \textbf{matter-free activity:} the operational correction is nonzero and acts on matter-free reduced data;
+    \item \textbf{off-longitudinal cancellation:} on the current redesigned bridge branch the full currently recorded off-longitudinal \(Q/W\) remainder is canceled by the solve-defined metric correction \(\SigmaIER\);
+    \item \textbf{explicit cubic longitudinal completion:} the first surviving cubic longitudinal tensor \(\ReLongThree\) is canceled by an explicit longitudinal completion included in \(\SigmaIER\).
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:gains} is the reason the present note does not restart the redesign search from zero. The inverse-response map was negative only after the quartic continuation was done honestly. Its lower-order gains are therefore part of the structure to preserve.
+\end{remark}
+
+\begin{definition}[Current quartic observer burden]
+\label{def:quarticburden}
+Write the present inverse-response operational metric as
+\begin{equation}
+\OpMetricIER_{\mu\nu}
+=
+\ReBridge_{\mu\nu}
++\SigmaIER_{\mu\nu}.
+\label{eq:gier}
+\end{equation}
+The \emph{current quartic observer burden} is the quartic-and-higher tensor remainder
+\begin{equation}
+\mathcal R_{\mu\nu}^{\mathrm{IER}}
+=
+\ReLongFour
++\EinQuad[\SigmaIER]_{\mu\nu}
+-8\pi G_N\,\Delta T_{\mu\nu}^{\mathrm{IER}},
+\label{eq:oldrem}
+\end{equation}
+whose exterior Hamiltonian projection on the decisive rotational matter-free regime satisfies
+\begin{equation}
+n^\mu n^\nu \mathcal R_{\mu\nu}^{\mathrm{IER}}
+=
+\frac{3G_N^2\HamChargeOmega^2}{r^4}
++\mathcal O(r^{-5})
+>0.
+\label{eq:oldquartic}
+\end{equation}
+\end{definition}
+
+\begin{remark}
+Equation \eqref{eq:oldquartic} is the exact recorded obstruction. The point of the deeper redesign is not merely to move that term around rhetorically. It is to prevent the Hamiltonian-charge sector from reappearing as a genuine quartic observer remainder.
+\end{remark}
+
+\begin{proposition}[Why the next redesign cannot be a substrate-origin note for the present map]
+\label{prop:notsubstrate}
+Any substrate-origin note whose observer-level output is still exactly the present inverse-Einstein-response map \eqref{eq:gier} would inherit the quartic burden \eqref{eq:oldrem} and therefore the positive exterior Hamiltonian density \eqref{eq:oldquartic}. Such a note would not answer the recorded exact-closure obstruction.
+\end{proposition}
+
+\begin{proof}
+The quartic continuation note already proves that the map \eqref{eq:gier} with its honest admissible solve class leaves the nonvanishing remainder \eqref{eq:oldrem}. A later substrate-origin note reproducing the same observer-level map would therefore reproduce the same observer-level quartic burden. It would explain where the failed map came from, not repair the failure.
+\end{proof}
+
+\begin{corollary}[What must be preserved]
+\label{cor:preserve}
+The minimum next redesign is answerable to the quartic burden \eqref{eq:oldrem}, but it should preserve the gain package of Definition \ref{def:gains}. In particular, it should not give up matter-free activity, the off-longitudinal \(Q/W\) cancellation, or the explicit cubic longitudinal completion unless a later note proves that some one of them is structurally incompatible with quartic closure.
+\end{corollary}
+
+\begin{proof}
+The quartic continuation note is the first place the current map becomes negative. Therefore the lower-order gains remain the smallest positive structure worth preserving, while the quartic self-response is the first burden that the next redesign must answer.
+\end{proof}
+
+\begin{proposition}[The smallest new asymptotic ingredient is charge-dependent \(r^{-2}\) dressing]
+\label{prop:rminus2}
+Suppose the Hamiltonian charge coefficient of the inverse-response tail is kept fixed and no new lower-order cancellation is reopened. Then the first admissible new asymptotic term that can affect the exterior \(r^{-4}\) Hamiltonian density \eqref{eq:oldquartic} without changing the charge-carrying \(r^{-1}\) sector is a charge-dependent \(r^{-2}\) dressing.
+\end{proposition}
+
+\begin{proof}
+Changing the \(r^{-1}\) coefficient would alter the already-fixed Hamiltonian charge bookkeeping that allowed the inverse-response map to cancel the off-longitudinal source in the first place. Any new asymptotic term of size \(r^{-p}\) contributes through the second-order linearized Einstein operator at order \(r^{-p-2}\). To address the first surviving exterior density \(r^{-4}\), one therefore needs \(p=2\). Terms of order \(r^{-3}\) or smaller contribute only at order \(r^{-5}\) or beyond and cannot cancel the recorded \(r^{-4}\) burden. Hence the smallest new admissible asymptotic ingredient is a charge-dependent \(r^{-2}\) dressing.
+\end{proof}
+
+\begin{remark}
+Proposition \ref{prop:rminus2} is the key redesign criterion. The deeper note is not forced to change the charge itself. It is forced to change what happens \emph{next} to that charge-carrying sector.
+\end{remark}
+
+\section{Admissibility Package for the Deeper Redesign}
+
+\begin{definition}[Self-response redesign admissibility package]
+\label{def:admissibility}
+A quartic-dressed nonlocal bridge map is called \emph{observer admissible} only if all of the following are fixed from the outset.
+\begin{enumerate}
+    \item \textbf{Gauge.} The bridge correction obeys the same harmonic-type gauge used for the inverse-response screen,
+    \begin{equation}
+    \GaugeH_\nu(\Sigma)=0,
+    \label{eq:gauge}
+    \end{equation}
+    with no extra growing or radiative homogeneous mode inserted by hand.
+    \item \textbf{Solve class.} The quartic correction belongs to a nonlocal fixed-point solve class \(\SolveClass\) of the form
+    \begin{equation}
+    \SigmaSRFour
+    =
+    \SigmaDress+\SigmaReg,
+    \qquad
+    \SigmaDress=\mathcal O(r^{-2}),
+    \qquad
+    \SigmaReg=\mathcal O(r^{-2}),
+    \label{eq:split}
+    \end{equation}
+    with \(\SigmaSRFour=\mathcal O_{\ge 4}\) and \(\partial \SigmaDress,\partial \SigmaReg=\mathcal O(r^{-3})\) on the exterior region.
+    \item \textbf{Boundary data.} The boundary data are not just the reduced source and its Hamiltonian charge. They also include one charge-dependent asymptotic dressing datum \(\mathfrak b_\infty\), fixed by the quartic balance condition rather than chosen freely.
+    \item \textbf{Asymptotic sector.} The admissible asymptotic class \(\AsymClass\) is \emph{self-response neutral}: on the exterior region one requires
+    \begin{equation}
+    n^\mu n^\nu \Pfour
+    \Bigl(
+    \EinLin(\SigmaSRFour)
+    +\EinQuad[\SigmaIER+\SigmaSRFour]
+    -8\pi G_N\,\DeltaTSR
+    +\ReLongFour
+    \Bigr)
+    =
+    \mathcal O(r^{-5}).
+    \label{eq:neutral}
+    \end{equation}
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:admissibility} is stronger than the old Coulomb-plus-regular class in exactly the place where the quartic note failed. The new admissibility requirement is no longer only ``solve the linearized Einstein equation with the required charge tail.'' It is ``solve in a class whose asymptotic sector is already neutralized against the first nonlinear self-response.''
+\end{remark}
+
+\begin{proposition}[Why admissibility must be specified from the start]
+\label{prop:whyadmissible}
+If the redesign is attempted without first fixing the gauge, solve class, boundary data, and self-response-neutral asymptotic sector of Definition \ref{def:admissibility}, then the same ambiguity that hid the quartic obstruction in the first inverse-response screen reappears. In particular, one cannot tell whether the charge-carrying tail is genuinely repaired or merely postponed.
+\end{proposition}
+
+\begin{proof}
+The quartic continuation note is negative precisely because the admissible solve class was fixed honestly only after the broader-screen success had already been recorded. Without a fixed admissibility package, the redesigned map would again be underdetermined at the exact place where the old linear inverse map failed: one would not know whether the charge-carrying asymptotic sector had been neutralized, left bare, or supplemented by an arbitrary homogeneous mode.
+\end{proof}
+
+\section{Minimum Next Candidate Class}
+
+\begin{definition}[Self-response-dressed nonlocal bridge map]
+\label{def:bridge}
+The \emph{self-response-dressed nonlocal bridge map} is the operational metric
+\begin{equation}
+\OpMetricSR_{\mu\nu}
+=
+\ReBridge_{\mu\nu}
++\SigmaSR_{\mu\nu},
+\qquad
+\SigmaSR_{\mu\nu}
+=
+\SigmaIER_{\mu\nu}
++\SigmaSRFour_{\mu\nu},
+\label{eq:gsr}
+\end{equation}
+where \(\SigmaSRFour\in\SolveClass\) is defined by the nonlocal quartic balance equation
+\begin{equation}
+\EinLin(\SigmaSRFour)_{\mu\nu}
+=
+-\Pfour
+\Bigl(
+\ReLongFour
++\EinQuad[\SigmaIER+\SigmaSRFour]_{\mu\nu}
+-8\pi G_N\,\DeltaTSR
+\Bigr),
+\label{eq:balance}
+\end{equation}
+subject to the admissibility package of Definition \ref{def:admissibility}. Here
+\begin{equation}
+\DeltaTSR
+\equiv
+T_{\mu\nu}^{\mathrm{matter}}[\ReBridge+\SigmaIER+\SigmaSRFour,\psi]
+-T_{\mu\nu}^{\mathrm{matter}}[\ReBridge+\SigmaIER,\psi].
+\label{eq:deltat}
+\end{equation}
+\end{definition}
+
+\begin{remark}
+Equation \eqref{eq:balance} is the minimum deeper redesign because it changes the bridge map only where the present map first fails. The already-positive quadratic off-longitudinal and cubic longitudinal parts remain fixed inside \(\SigmaIER\). The new solve begins at quartic order and is nonlocal because it is defined by a fixed-point balance involving its own self-response.
+\end{remark}
+
+\begin{proposition}[The redesigned map stays active on matter-free reduced data]
+\label{prop:matterfree}
+On matter-free reduced data one has \(\DeltaTSR=0\), but \(\SigmaSRFour\) need not vanish. Hence the bridge map \eqref{eq:gsr} remains active on matter-free reduced data.
+\end{proposition}
+
+\begin{proof}
+The metric correction \(\SigmaSRFour\) is determined by \eqref{eq:balance}. On matter-free reduced data the matter correction \(\DeltaTSR\) drops out, but the quartic source
+\[
+\Pfour\Bigl(\ReLongFour+\EinQuad[\SigmaIER+\SigmaSRFour]\Bigr)
+\]
+does not. Therefore the correction is still driven by the observer-side reduced data themselves, not by matter stress alone.
+\end{proof}
+
+\begin{proposition}[Preservation of the already-positive lower-order gains]
+\label{prop:preserve}
+If \(\SigmaSRFour=\mathcal O_{\ge 4}\), then the self-response-dressed map \eqref{eq:gsr} preserves the full currently recorded off-longitudinal \(Q/W\) cancellation and the explicit cubic longitudinal completion already carried by \(\SigmaIER\).
+\end{proposition}
+
+\begin{proof}
+By construction, \(\SigmaIER\) is the part of the bridge correction that cancels the off-longitudinal remainder and the cubic longitudinal tensor. Since \(\SigmaSRFour\) begins at quartic order, it does not alter the quadratic or cubic identities already satisfied by \(\SigmaIER\). Therefore the lower-order cancellations remain intact.
+\end{proof}
+
+\begin{proposition}[Structural absorption of the quartic Coulomb self-response]
+\label{prop:absorb}
+Assume \(\SigmaSRFour\) satisfies \eqref{eq:balance} in the admissible class of Definition \ref{def:admissibility}. Then on the decisive rotational matter-free regime the bare positive exterior term
+\[
+\frac{3G_N^2\HamChargeOmega^2}{r^4}
+\]
+does not survive as an uncanceled quartic observer remainder. Instead it is absorbed into the defining balance of the bridge map, and the first exterior Hamiltonian projection left after the redesign is at worst \(\mathcal O(r^{-5})\).
+\end{proposition}
+
+\begin{proof}
+The quartic continuation note showed that the positive \(r^{-4}\) density comes from the quartic part of
+\[
+\ReLongFour+\EinQuad[\SigmaIER]-8\pi G_N\,\Delta T_{\mu\nu}^{\mathrm{IER}}
+\]
+when the asymptotic class contains only the bare charge-carrying tail. In the redesigned map, the quartic correction \(\SigmaSRFour\) is chosen so that its linear response cancels the quartic source in \eqref{eq:balance}, while the asymptotic sector is required by \eqref{eq:neutral} to be self-response neutral. Hence the bare exterior \(r^{-4}\) term is no longer left on the right-hand side as a remainder. The first remaining exterior Hamiltonian projection is therefore pushed to order \(r^{-5}\) or beyond.
+\end{proof}
+
+\begin{theorem}[Minimum deeper candidate class after the negative quartic verdict]
+\label{thm:minimum}
+At the present disciplined scope, the minimum next live candidate beyond the negative quartic continuation is the self-response-dressed nonlocal bridge map of Definition \ref{def:bridge}, or an equivalent redesign with the same four structural properties:
+\begin{enumerate}
+    \item it remains active on matter-free reduced data;
+    \item it preserves the already-positive off-longitudinal \(Q/W\) cancellation;
+    \item it preserves the explicit cubic longitudinal completion;
+    \item it replaces the old bare Coulomb-plus-regular admissible class by a self-response-neutral admissibility package from the start.
+\end{enumerate}
+Accordingly, the next manuscript burden is not another same-kind local stress-lift test, not another same-scope bridge-only or matter-route-only repair, and not a substrate-origin note for the present linear inverse-response map.
+\end{theorem}
+
+\begin{proof}
+Proposition \ref{prop:notsubstrate} excludes a substrate-origin note for the present map. Corollary \ref{cor:preserve} says that the positive lower-order gains should be preserved. Proposition \ref{prop:rminus2} identifies the smallest new structural ingredient capable of addressing the quartic exterior density without reopening the charge bookkeeping. Definition \ref{def:admissibility} and Proposition \ref{prop:absorb} then show how that ingredient enters: through a self-response-neutral quartic dressing of the bridge map itself. No narrower redesign answers all of these requirements simultaneously.
+\end{proof}
+
+\section{What Kind of Substrate Mechanism Could Realize the Redesign}
+
+\begin{definition}[Charge-balancing substrate mechanism]
+\label{def:substrate}
+A \emph{charge-balancing substrate mechanism} for the redesigned bridge map is a deeper substrate sector \(\ChargeField\) with the following properties:
+\begin{enumerate}
+    \item \(\ChargeField\) is determined nonlocally from the same reduced \(Q/W/\chi\) data and their Hamiltonian charge rather than introducing a new freely propagating observer-accessible mode;
+    \item after elimination, \(\ChargeField\) produces the charge-dependent \(r^{-2}\) bridge dressing \(\SigmaDress\) required by Proposition \ref{prop:rminus2};
+    \item the induced operational metric shift belongs to the self-response-neutral asymptotic class \(\AsymClass\);
+    \item the already-positive off-longitudinal cancellation and cubic longitudinal completion remain encoded in the same lower-order bridge correction \(\SigmaIER\).
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:substrate} does \emph{not} claim that a concrete substrate realization has already been derived. It only identifies the correct mechanism type. The future substrate-origin note must explain a nonpropagating charge-balancing or polarization sector that yields the quartic dressing. It should not simply reproduce the old bare Coulomb inverse map.
+\end{remark}
+
+\begin{proposition}[Why a polarization or charge-balance mechanism is the right substrate target]
+\label{prop:substrateright}
+Any eventual substrate realization of the redesigned bridge map must supply an auxiliary, constrained, or gapped sector whose eliminated effect is the quartic asymptotic dressing \(\SigmaDress\). A substrate mechanism that yields only the bare \(r^{-1}\) charge tail of the present inverse-response map would recreate the already-recorded quartic failure.
+\end{proposition}
+
+\begin{proof}
+By Proposition \ref{prop:rminus2}, the first new ingredient needed beyond the present inverse-response map is a charge-dependent \(r^{-2}\) asymptotic dressing. By Proposition \ref{prop:notsubstrate}, reproducing the present map does not repair the quartic burden. Therefore any future substrate mechanism must generate the dressing term itself, or something observer-equivalent to it, rather than merely explaining the old bare tail.
+\end{proof}
+
+\section{Immediate Next-Step Agenda}
+
+\begin{corollary}[What the next explicit test should now compute]
+\label{cor:next}
+After the present redesign note, the next explicit manuscript burden should be:
+\begin{enumerate}
+    \item choose a concrete charge-dependent \(r^{-2}\) dressing ansatz \(\SigmaDress\) or an equivalent self-response-neutral asymptotic closure;
+    \item compute its exterior Hamiltonian projection and verify that it cancels or structurally absorbs the bare quartic term \eqref{eq:oldquartic};
+    \item recompute the full quartic observer tensor on matter-free reduced data and check that the first unresolved burden has moved beyond the present quartic Coulomb self-response;
+    \item only after a positive result there ask for a substrate-origin note explaining how the successful dressed bridge map arises from explicit substrate variables.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+Items (1)--(3) are exactly the concrete computations required to test the candidate class of Definition \ref{def:bridge}. Item (4) follows from Proposition \ref{prop:notsubstrate}: the substrate-origin question is logically downstream of the redesign verdict, not prior to it.
+\end{proof}
+
+\section{Conclusion}
+
+The present note fixes the immediate research direction after the negative quartic continuation of the inverse-Einstein-response bridge map.
+
+\begin{enumerate}
+    \item The next live manuscript burden is not a substrate-origin note for the present inverse-response map, because that map already carries the positive quartic exterior self-response \eqref{eq:oldquartic}.
+    \item The already-positive lower-order structure should be preserved: matter-free activity, off-longitudinal \(Q/W\) cancellation, and explicit cubic longitudinal completion.
+    \item The smallest new structural ingredient capable of repairing the quartic obstruction without reopening the charge bookkeeping is a charge-dependent \(r^{-2}\) asymptotic dressing.
+    \item The minimum next candidate class is therefore a self-response-dressed nonlocal bridge map with a fixed admissibility package: gauge, solve class, boundary data, and self-response-neutral asymptotic sector.
+    \item Any later substrate-origin note must realize a charge-balancing or polarization mechanism of that type rather than merely reproducing the old bare Coulomb inverse solve.
+\end{enumerate}
+
+This is the practical answer to the current stage of the project. The live problem is no longer ``find the substrate origin of the present map.'' It is ``redesign the bridge map so that the Hamiltonian-charge sector does not come back as an uncanceled quartic Coulomb self-response, while keeping the lower-order positive gains already achieved.''
+
+\end{document}

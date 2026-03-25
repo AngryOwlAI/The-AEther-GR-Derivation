@@ -1,0 +1,339 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal{A}}
+\newcommand{\BridgeMetric}{\mathfrak{g}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large No-Go Result for the Minimal Stable-Sign Candidate Action}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This note records the next disciplined result in the candidate-derivational line of \TheoryName{}. Its scope is narrow and explicit. The note does not prove that every substrate completion of the \Aether{} / \Aflow{} framework fails. It analyzes only the minimal candidate action already carried through coefficient-level quadratic consistency.
+
+The result is a no-go statement for the minimal stable-sign branch. Starting from the flat-background exact-closure conditions
+\[
+\mathcal B(k^2)=\mathcal B_0+\mathcal B_2k^2+\mathcal O(k^4),
+\qquad
+\mathcal B_0=0,
+\qquad
+\mathcal B_2=0,
+\]
+the note shows that, if the shifted \(Q\)-sector mass matrix \(\widehat M_{IJ}\) is positive definite and the scalar spatial-gradient coefficient satisfies \(\kappa_S\ge 0\), then \(\mathcal B_2=0\) forces
+\[
+\kappa_S=0,
+\qquad
+\mu_{SI}=0.
+\]
+On that branch, \(\mathcal B_0=0\) further requires
+\[
+\mu_S^2=0.
+\]
+Therefore the minimal stable-sign candidate action has no nondegenerate flat-background exact-closure branch. Exact closure can be recovered within that minimal action only in a degenerate scalar limit, so any nondegenerate derivational continuation must either leave the minimal action class or alter the sign structure and then re-establish consistency separately.
+\end{abstract}
+
+\section{Introduction}
+
+The active manuscript sequence of \TheoryName{} already fixes the exact-closure theory statement, its effective dynamics, its consistency analysis, its relativistic recovery statement, its flow-geometry interpretation, and one explicit candidate substrate bridge. The coefficient-level linearized-consistency manuscript then sharpened the derivational side further: it reduced the entire flat-background auxiliary exact-closure burden of the minimal candidate action to a single scalar coefficient combination \(\mathcal B(k^2)\).
+
+That reduction changes the next research step. The immediate burden is no longer to restate the ontology or to repeat the GR / SR benchmark. It is to determine whether the flat-background cancellation conditions can actually be realized on a viable branch of the minimal candidate action. The present note records the first decisive answer to that question.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The note stays strictly inside that claim boundary. It does not demote exact closure. It does not promote the minimal candidate action to established theory. It records only the precise obstruction implied by the already-derived quadratic coefficients.
+
+\section{Minimal Candidate Action and Coefficient Data}
+
+The candidate substrate action inherited from the derivational-bridge manuscript is
+\begin{equation}
+S_{\mathrm{cand}}
+=
+\frac{c^3}{16\pi G_N}
+\int_{\Sub} d^4X\,\sqrt{G}\,\bigl(R[\BridgeMetric]-2\Lambda_{\Sub}\bigr)
++
+\int_{\Sub} d^4X\,\sqrt{G}\,\mathcal{L}_{\mathrm{aux}}
++
+S_{\mathrm{matter}}[\Xi^*\BridgeMetric,\psi],
+\label{eq:Scand}
+\end{equation}
+with bridge metric
+\begin{equation}
+\BridgeMetric_{AB}=G_{AB}-2U_AU_B,
+\label{eq:bridgemetric}
+\end{equation}
+and auxiliary sector
+\begin{align}
+\mathcal{L}_{\mathrm{aux}}
+=\;&
+\lambda_U\bigl(G_{AB}U^A U^B-1\bigr)
+-\frac{\kappa_S}{2}P^{AB}\partial_A S\,\partial_B S
+-\frac{m_S^2}{2}\bigl(U^A\partial_A S-\sigma_0\bigr)^2
+\nonumber\\
+&-\frac{1}{2}\delta_{IJ}P^{AB}(D_AQ^I)(D_BQ^J)
+-\frac{1}{2}M_{IJ}Q^IQ^J
+-\frac{\kappa_\theta}{2}\bigl(\nabla_AU^A\bigr)^2
+-\frac{\kappa_\Omega}{4}\Omega_{AB}\Omega^{AB}
+\nonumber\\
+&-\mathcal V(S,Q).
+\label{eq:Laux}
+\end{align}
+
+On the admissible homogeneous flat branch of the coefficient-level analysis, the nontrivial infrared exact-closure burden of the minimal action collapses to
+\begin{equation}
+\mathcal B(k^2)
+=
+\kappa_Sk^2
++\mu_S^2
+-\mu_{SI}\bigl(k^2\delta+\widehat M\bigr)^{-1\,IJ}\mu_{SJ},
+\label{eq:Bk}
+\end{equation}
+where
+\begin{equation}
+\widehat M_{IJ}\equiv M_{IJ}+\mu_{IJ},
+\label{eq:Mhat}
+\end{equation}
+and
+\begin{equation}
+\mu_S^2\equiv \eval{\pdv[2]{\mathcal V}{S}}_{(\bar S,0)},
+\qquad
+\mu_{SI}\equiv \eval{\frac{\partial^2\mathcal V}{\partial S\,\partial Q^I}}_{(\bar S,0)}.
+\label{eq:mudefs}
+\end{equation}
+
+Its small-\(k\) expansion is
+\begin{equation}
+\mathcal B(k^2)=\mathcal B_0+\mathcal B_2k^2+\mathcal O(k^4),
+\label{eq:Bexpand}
+\end{equation}
+with
+\begin{align}
+\mathcal B_0
+&=
+\mu_S^2-\mu_{SI}\widehat M^{-1\,IJ}\mu_{SJ},
+\label{eq:B0}
+\\
+\mathcal B_2
+&=
+\kappa_S+\mu_{SI}\widehat M^{-2\,IJ}\mu_{SJ}.
+\label{eq:B2}
+\end{align}
+Flat-background quadratic exact closure requires
+\begin{equation}
+\mathcal B_0=0,
+\qquad
+\mathcal B_2=0.
+\label{eq:Bconditions}
+\end{equation}
+
+\begin{definition}[Minimal stable-sign branch]
+For the purposes of the present note, the minimal stable-sign branch is the branch of the minimal candidate action \eqref{eq:Scand}--\eqref{eq:Laux} for which
+\begin{equation}
+\widehat M_{IJ}\ \text{is positive definite},
+\qquad
+\kappa_S\ge 0.
+\label{eq:stablesign}
+\end{equation}
+\end{definition}
+
+This is the sharp sign regime relevant to the obstruction proved below. No stronger assumption is needed for the no-go argument.
+
+\section{Positivity of the Quadratic Cancellation Coefficient}
+
+\begin{lemma}[Positive definiteness of the inverse-square form]
+\label{lem:inverse-square}
+If \(\widehat M_{IJ}\) is positive definite, then the quadratic form
+\begin{equation}
+\mu_{SI}\widehat M^{-2\,IJ}\mu_{SJ}
+\label{eq:positiveform}
+\end{equation}
+is nonnegative and vanishes if and only if \(\mu_{SI}=0\).
+\end{lemma}
+
+\begin{proof}
+Because \(\widehat M\) is real symmetric and positive definite, there exists an orthogonal matrix \(O\) such that
+\[
+O^\top \widehat M O = \mathrm{diag}(\lambda_1,\ldots,\lambda_N),
+\qquad
+\lambda_a>0.
+\]
+Define \(\widetilde\mu_a\equiv O_a{}^I\mu_{SI}\). Then
+\begin{equation}
+\mu_{SI}\widehat M^{-2\,IJ}\mu_{SJ}
+=
+\sum_{a=1}^N \frac{\widetilde\mu_a^2}{\lambda_a^2}.
+\label{eq:diagform}
+\end{equation}
+Every term on the right-hand side is nonnegative, so the whole sum is nonnegative. The sum vanishes only if every \(\widetilde\mu_a=0\), which is equivalent to \(\mu_{SI}=0\).
+\end{proof}
+
+\begin{proposition}[Sign structure of \(\mathcal B_2\)]
+\label{prop:B2-sign}
+On the minimal stable-sign branch,
+\begin{equation}
+\mathcal B_2\ge 0,
+\label{eq:B2positive}
+\end{equation}
+and \(\mathcal B_2=0\) holds if and only if
+\begin{equation}
+\kappa_S=0,
+\qquad
+\mu_{SI}=0.
+\label{eq:B2degenerate}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Equation \eqref{eq:B2} together with \eqref{eq:stablesign} and Lemma~\ref{lem:inverse-square} gives
+\[
+\mathcal B_2
+=
+\kappa_S+\mu_{SI}\widehat M^{-2\,IJ}\mu_{SJ}
+\ge 0.
+\]
+If \(\mathcal B_2=0\), then a sum of two nonnegative terms vanishes, so both must vanish separately. Hence \(\kappa_S=0\) and \(\mu_{SI}=0\). Conversely, if \eqref{eq:B2degenerate} holds, then \eqref{eq:B2} gives \(\mathcal B_2=0\).
+\end{proof}
+
+\section{No-Go Theorem for the Minimal Stable-Sign Branch}
+
+\begin{theorem}[Minimal stable-sign no-go]
+\label{thm:minimal-no-go}
+Consider the minimal candidate action \eqref{eq:Scand}--\eqref{eq:Laux} on the flat admissible branch. If \(\widehat M_{IJ}\) is positive definite and \(\kappa_S\ge 0\), then the flat-background quadratic exact-closure conditions \eqref{eq:Bconditions} imply
+\begin{equation}
+\kappa_S=0,
+\qquad
+\mu_{SI}=0,
+\qquad
+\mu_S^2=0.
+\label{eq:nogoconditions}
+\end{equation}
+Therefore the minimal stable-sign candidate action has no nondegenerate flat-background exact-closure branch.
+\end{theorem}
+
+\begin{proof}
+By Proposition~\ref{prop:B2-sign}, the condition \(\mathcal B_2=0\) forces
+\begin{equation}
+\kappa_S=0,
+\qquad
+\mu_{SI}=0.
+\label{eq:firstcollapse}
+\end{equation}
+Substituting \eqref{eq:firstcollapse} into \eqref{eq:B0} yields
+\begin{equation}
+\mathcal B_0=\mu_S^2.
+\label{eq:B0collapsed}
+\end{equation}
+Therefore the remaining exact-closure condition \(\mathcal B_0=0\) requires
+\begin{equation}
+\mu_S^2=0.
+\label{eq:muszero}
+\end{equation}
+Together, \eqref{eq:firstcollapse} and \eqref{eq:muszero} give \eqref{eq:nogoconditions}.
+
+The branch is degenerate because the same conditions remove the scalar spatial-gradient term, the quadratic \(S\)--\(Q\) mixing, and the quadratic \(S\)-sector potential curvature that would otherwise support a nontrivial stable-sign cancellation. Exact closure is therefore not achieved here by a robust nondegenerate balancing of the minimal action. It survives only in the collapsed scalar limit \eqref{eq:nogoconditions}.
+\end{proof}
+
+\begin{corollary}[Exclusion of a nondegenerate minimal stable-sign branch]
+Within the minimal stable-sign candidate action, there is no flat-background quadratic exact-closure branch with
+\[
+\kappa_S>0,
+\qquad
+\text{or}
+\qquad
+\mu_{SI}\neq 0,
+\qquad
+\text{or}
+\qquad
+\mu_S^2\neq 0.
+\]
+\end{corollary}
+
+\begin{remark}
+The theorem does not say that every possible derivational completion fails. It says something narrower and decisive: the already-written minimal action cannot realize exact closure through a nondegenerate stable-sign cancellation of its own quadratic coefficients.
+\end{remark}
+
+\section{Scientific Reading of the Obstruction}
+
+The no-go theorem sharpens the scientific status of the candidate program in three ways.
+\begin{enumerate}
+    \item It removes the option of treating \(\mathcal B_0=0\) and \(\mathcal B_2=0\) as a generic mild tuning inside the minimal stable-sign action. On that sign branch, the cancellations force a degenerate scalar limit instead.
+    \item It shows that the present minimal action is not yet a nondegenerate derivational realization answerable to the exact-closure benchmark of \TheoryName{}. The benchmark and reversion theory therefore remain the active scientific standard.
+    \item It narrows the next derivational choices. Any attempt to go beyond the theorem must either add genuinely new structure to the \(S/Q/U\) sector or alter the sign pattern and then re-do the consistency analysis from the beginning.
+\end{enumerate}
+
+The third point must be read carefully. A sign-changing escape route is not promoted here. Such a route would have to re-establish ghost control, low-energy health, and exact closure independently. The present note therefore does not recommend it. It only records that the stable-sign minimal action no longer has room to solve the problem nondegenerately.
+
+\section{What This Note Establishes and What It Does Not}
+
+The present note establishes the following.
+\begin{enumerate}
+    \item It converts the coefficient-level flat-branch conditions into a sharp no-go theorem for the minimal stable-sign action.
+    \item It proves that positive-definite \(\widehat M_{IJ}\) and nonnegative \(\kappa_S\) force the \(\mathcal B_2=0\) cancellation into the degenerate limit \(\kappa_S=0\) and \(\mu_{SI}=0\).
+    \item It proves that \(\mathcal B_0=0\) then further requires \(\mu_S^2=0\).
+    \item It shows that the minimal stable-sign candidate action has no nondegenerate flat-background quadratic exact-closure branch.
+\end{enumerate}
+
+The present note does \emph{not} establish the following.
+\begin{enumerate}
+    \item It does not prove that every nonminimal \(S/Q/U\) completion fails.
+    \item It does not establish that a sign-changing branch is healthy or acceptable.
+    \item It does not upgrade the local curved-background continuation to a global admissible-background theorem.
+    \item It does not solve the nonlinear stability problem on any putative completion branch.
+\end{enumerate}
+
+\section{Conclusion}
+
+The next step identified by the repository was to formalize the minimal-action obstruction cleanly. This note does that in the tightest form currently justified by the coefficient analysis.
+
+For the minimal candidate action on the stable-sign branch, the flat-background exact-closure conditions do not define a robust nondegenerate tuning surface. They collapse to the degenerate scalar limit
+\[
+\kappa_S=0,
+\qquad
+\mu_{SI}=0,
+\qquad
+\mu_S^2=0.
+\]
+That is the no-go result. The immediate consequence is methodological as much as mathematical: the active derivational program should no longer speak as if the minimal stable-sign candidate action merely awaits a routine branch choice. It now requires either a disciplined nonminimal completion or a separately justified sign-changing alternative, followed in either case by renewed consistency analysis and a global admissible-background test.
+
+Until such a branch is actually shown to work, \TheoryName{} remains scientifically anchored by the exact-closure benchmark already established in the main manuscript sequence.
+
+\end{document}

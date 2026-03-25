@@ -1,0 +1,562 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\ReBridge}{g^{\mathrm{br}}}
+\newcommand{\OpMetricIER}{g^{\mathrm{IER}}}
+\newcommand{\SigmaIER}{\Sigma^{\mathrm{IER}}}
+\newcommand{\SigmaOff}{\Sigma^{\mathrm{IER,off}}}
+\newcommand{\SigmaLongThree}{\Sigma^{\mathrm{IER},(3)}}
+\newcommand{\ReOff}{\widetilde{\mathcal R}_{\mu\nu}^{\mathrm{off}}}
+\newcommand{\ReOffTwo}{\widetilde{\mathcal R}_{\mu\nu}^{\mathrm{off},(2)}}
+\newcommand{\ReLong}{\widetilde{\mathcal R}_{\mu\nu}^{(\chi,\ge 3)}}
+\newcommand{\ReLongThree}{\widetilde{\mathcal R}_{\mu\nu}^{(\chi,3)}}
+\newcommand{\ReLongFour}{\widetilde{\mathcal R}_{\mu\nu}^{(\chi,\ge 4)}}
+\newcommand{\DeltaTIER}{\Delta T_{\mu\nu}^{\mathrm{IER}}}
+\newcommand{\EinLin}{\mathcal E_{\ReBridge}}
+\newcommand{\EinQuad}{\mathcal Q_{\ge 2}^{\mathrm{Ein}}}
+\newcommand{\EinInv}{\mathfrak G_{\mathrm{Ein}}}
+\newcommand{\GaugeH}{\mathcal C}
+\newcommand{\HamCharge}{\mathfrak m_{\mathrm H}}
+\newcommand{\PiOmega}{\Pi^{(\Omega)}}
+\newcommand{\AY}{\mathcal A_Y}
+\newcommand{\AZ}{\mathcal A_Z}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Inverse-Einstein-Response Bridge-Map Test}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The positive quotient reduced-system, theorem, decay, and asymptotic line remains closed and is not reopened here. The bridge-first redesign, the matter-route-only redesign, and the first explicit local operational-metric candidate test also remain fixed in status. The local candidate failed for a sharp reason: on the decisive matter-free rotational regime, the quadratic vorticity remainder has strictly positive integrated Hamiltonian projection, whereas the linearized Einstein response of every decaying metric shift has zero such projection. That obstruction rules out decaying local stress lifts, but it does \emph{not} rule out a genuinely broader bridge map defined through a solve with the corresponding Coulomb tail.
+
+The present note tests the cleanest such broader class: an inverse-Einstein-response bridge map. On the current redesigned bridge branch, let \(\EinInv\) denote a chosen harmonic-gauge right inverse of the linearized Einstein response \(\EinLin\) on the observer-admissible source class, with the asymptotic Coulomb coefficient fixed by the Hamiltonian charge of the source. Define the operational correction by
+\[
+\SigmaOff{}_{\mu\nu}\equiv \EinInv[-\ReOff]_{\mu\nu},
+\qquad
+\SigmaLongThree{}_{\mu\nu}\equiv \EinInv[-\ReLongThree]_{\mu\nu},
+\qquad
+\SigmaIER{}_{\mu\nu}\equiv \SigmaOff{}_{\mu\nu}+\SigmaLongThree{}_{\mu\nu},
+\]
+and set
+\[
+\OpMetricIER{}_{\mu\nu}\equiv \ReBridge_{\mu\nu}+\SigmaIER{}_{\mu\nu}.
+\]
+This candidate is active on matter-free reduced data by construction and is genuinely broader than every previous same-scope repair because it is solve-defined and nonlocal.
+
+Recomputing the observer equation gives
+\[
+G_{\mu\nu}[\OpMetricIER]
+=
+8\pi G_N\,T_{\mu\nu}^{\mathrm{matter}}[\OpMetricIER,\psi]
+\mathcal R_{\mu\nu}^{\mathrm{IER}},
+\]
+with
+\[
+\mathcal R_{\mu\nu}^{\mathrm{IER}}
+=
+\ReLongFour
++\EinQuad[\SigmaIER]_{\mu\nu}
+-8\pi G_N\,\DeltaTIER.
+\]
+Hence on matter-free reduced data one has \(\mathcal R_{\mu\nu}^{\mathrm{IER}}=\mathcal O_{\ge 4}\): the full off-longitudinal \(Q/W\) remainder is canceled by the inverse-Einstein-response solve, and the first surviving cubic longitudinal tensor is removed by an explicit cubic longitudinal completion rather than by another claim of hidden exactness.
+
+On the decisive rotational regime,
+\[
+K\equiv0,
+\qquad
+Q^I\equiv0,
+\qquad
+\Omega_{ij}^T\not\equiv0,
+\qquad
+T_{\mu\nu}^{\mathrm{matter}}=0,
+\]
+the source charge is
+\[
+\HamCharge[\ReOffTwo]
+=
+\frac{\kappa_\Omega}{4}\int_{\mathbb R^3}\abs{\Omega^T}^2\,d^3x>0.
+\]
+The inverse-Einstein-response correction therefore necessarily carries the corresponding Coulomb tail. That is precisely how the new bridge map escapes the integrated Hamiltonian obstruction that killed the first local candidate: the nonzero source charge is not forced to vanish, but is carried by the asymptotic sector of the solve.
+
+The verdict at current scope is positive but limited. The first decisive off-longitudinal and cubic longitudinal obstructions can be absorbed by a genuinely broader observer map, so the next burden is no longer another same-scope bridge-only, matter-route-only, or local stress-lift repair. Exact closure is still not proved, however, because the quartic-and-higher self-response, the asymptotic admissibility of the induced tail, and any first-principles substrate justification of this solve-defined bridge map remain open.
+\end{abstract}
+
+\section{Introduction}
+
+The active sequence is now sharp about what has already been settled. The explicit ordered-flow-label quotient candidate, the quotient-architecture screen, the quotient reduced-system note, the quotient local/coercive note, the quotient theorem note, and the quotient decay and asymptotic notes already closed the positive quotient reduced-system, theorem, decay, and asymptotic line at the recorded scope. None of that PDE work is reopened here.
+
+The redesign chain is equally disciplined. The bridge-first redesign removed only the old same-scope longitudinal slot. The matter-route-only redesign was then negative because it was matter dependent and therefore inactive on matter-free reduced data. The broader operational-metric redesign note reduced the next honest burden to two explicit targets, and the first explicit candidate test then showed that the direct local stress lift
+\[
+\Sigma^{\mathrm{op}}_\star=-(\ReOffTwo)
+\]
+is also negative. The failure mechanism there matters: it does not merely say that one more coefficient choice is wrong. It says that the decisive rotational \(Q/W\) remainder has nonzero integrated Hamiltonian projection, so no decaying local metric shift can produce the required Einstein response.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not claim a completed substrate derivation. It does not reopen the positive quotient PDE line. It does not pretend that a solve-defined bridge map is already justified by deeper substrate microphysics. Its narrower task is to test the cleanest broader candidate class suggested by the explicit local obstruction: an inverse-Einstein-response bridge map whose output is defined by solving for the operational metric shift rather than by feeding the already-recorded stress back locally with constant coefficients.
+
+\section{What the Local Failure Actually Forces}
+
+\begin{definition}[Current redesigned bridge branch]
+\label{def:branch}
+The \emph{current redesigned bridge branch} is the branch fixed by the redesigned-bridge closure/tensor-verdict note, the matter-route redesign note, the operational-metric redesign note, and the first explicit candidate test:
+\begin{enumerate}
+    \item the quotient equations
+    \begin{equation}
+    \AY=0,
+    \qquad
+    \AZ=0,
+    \label{eq:AYAZ}
+    \end{equation}
+    are imposed from the outset;
+    \item the operational bridge metric is \(\ReBridge_{\mu\nu}\);
+    \item the eliminated observer equation is
+    \begin{equation}
+    G_{\mu\nu}[\ReBridge]
+    =
+    8\pi G_N\,T_{\mu\nu}^{\mathrm{matter}}[\ReBridge,\psi]
+    +\ReOff+\ReLong;
+    \label{eq:oldobs}
+    \end{equation}
+    \item the higher-order longitudinal remainder splits as
+    \begin{equation}
+    \ReLong=\ReLongThree+\ReLongFour,
+    \qquad
+    \ReLongFour=\mathcal O_{\ge 4},
+    \label{eq:longsplit}
+    \end{equation}
+    with \(\ReLongThree\) the first surviving cubic longitudinal tensor recorded by the redesigned-bridge closure/tensor-verdict note.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Hamiltonian charge of an observer source]
+\label{def:charge}
+For any symmetric tensor \(S_{\mu\nu}\) on a unit-lapse slice with future unit normal \(n^\mu\), define its \emph{Hamiltonian charge} by
+\begin{equation}
+\HamCharge[S]
+\equiv
+\int_{\Sigma_t} n^\mu n^\nu S_{\mu\nu}\,d\mu_\gamma.
+\label{eq:charge}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[The first explicit candidate rules out the decaying class]
+\label{prop:decay}
+On the purely rotational matter-free regime
+\begin{equation}
+K\equiv0,
+\qquad
+Q^I\equiv0,
+\qquad
+\Omega_{ij}^T\not\equiv0,
+\qquad
+T_{\mu\nu}^{\mathrm{matter}}=0,
+\label{eq:rot}
+\end{equation}
+no decaying metric shift \(H_{\mu\nu}\) can satisfy
+\begin{equation}
+\EinLin(H)_{\mu\nu}=-\ReOffTwo{}_{\mu\nu}.
+\label{eq:nosolve}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+This is the content of the first explicit operational-metric candidate test. There, the Hamiltonian projection of the flat linearized Einstein response was shown to integrate to zero for every decaying \(H_{\mu\nu}\), while
+\[
+\HamCharge[\ReOffTwo]
+=
+\frac{\kappa_\Omega}{4}\int_{\mathbb R^3}\abs{\Omega^T}^2\,d^3x
+>0
+\]
+on \eqref{eq:rot}. Therefore \eqref{eq:nosolve} is impossible in the decaying class.
+\end{proof}
+
+\begin{corollary}[What the next candidate class must look like]
+\label{cor:must}
+Any viable next bridge-map candidate must lie outside the decaying local stress-lift class. In particular, it must be solve-defined and must allow the asymptotic sector needed to carry the nonzero Hamiltonian charge of the off-longitudinal source.
+\end{corollary}
+
+\begin{proof}
+Proposition \ref{prop:decay} rules out all decaying local candidates that try to realize \eqref{eq:nosolve}. Therefore the only honest next class is one in which the metric shift is produced by a broader solve whose asymptotic behavior is allowed to encode the nonzero source charge.
+\end{proof}
+
+\section{Admissible Inverse-Einstein-Response Solves}
+
+\begin{definition}[Observer-admissible source class]
+\label{def:adm}
+A symmetric tensor \(S_{\mu\nu}\) on the current redesigned bridge branch is called \emph{observer admissible at order \(k\)} if, after the Einstein Hamiltonian and momentum constraints together with the reduced slice equations are imposed,
+\begin{enumerate}
+    \item \(S_{\mu\nu}=\mathcal O_{\ge k}\);
+    \item \(\nabla^\mu S_{\mu\nu}=\mathcal O_{\ge k+1}\);
+    \item its spatial Hamiltonian projection is integrable so that \(\HamCharge[S]\) is defined;
+    \item its asymptotic data are compatible with one allowed Coulomb or radiative-free homogeneous completion.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:adm} is an observer-level compatibility condition, not a reopened PDE theorem. The point is only to state the minimal source class on which a gauge-fixed right inverse of \(\EinLin\) may be applied honestly at the present manuscript scope.
+\end{remark}
+
+\begin{definition}[Harmonic-gauge inverse-Einstein-response solve]
+\label{def:inverse}
+Fix one gauge condition
+\begin{equation}
+\GaugeH_\nu(H)
+\equiv
+\nabla^\mu\!\left(
+H_{\mu\nu}
+-\frac12 \ReBridge_{\mu\nu}(\ReBridge)^{\alpha\beta}H_{\alpha\beta}
+\right)
+=0.
+\label{eq:gauge}
+\end{equation}
+For every observer-admissible source \(S_{\mu\nu}\), let
+\begin{equation}
+\EinInv[S]_{\mu\nu}
+\label{eq:inverse}
+\end{equation}
+denote a chosen symmetric tensor \(H_{\mu\nu}\) satisfying
+\begin{equation}
+\EinLin(H)_{\mu\nu}=S_{\mu\nu},
+\qquad
+\GaugeH_\nu(H)=0,
+\label{eq:rightinverse}
+\end{equation}
+with the asymptotic Coulomb coefficient fixed by \(\HamCharge[S]\) and with no extra free homogeneous radiative part inserted at the present observer-level test.
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:inverse} is the precise nonlocal ingredient missing from the first explicit local candidate. When \(\HamCharge[S]\neq0\), the corresponding \(H_{\mu\nu}\) is not decaying in the old sense: it necessarily carries the standard Coulomb tail associated with the source charge. That is exactly what Corollary \ref{cor:must} says is now required.
+\end{remark}
+
+\begin{proposition}[The relevant current sources are observer admissible]
+\label{prop:admissible}
+At the present observer-level scope, the full off-longitudinal tensor \(\ReOff\) and the first cubic longitudinal tensor \(\ReLongThree\) are observer admissible in the sense of Definition \ref{def:adm}.
+\end{proposition}
+
+\begin{proof}
+Equation \eqref{eq:oldobs} implies, by the contracted Bianchi identity and the single-metric matter coupling already fixed on the current branch, that the total observer remainder \(\ReOff+\ReLong\) is divergence controlled on reduced solutions. The redesigned-bridge closure/tensor-verdict note and the first explicit candidate test isolate \(\ReOff\) as the full off-longitudinal remainder and \(\ReLongThree\) as the first surviving cubic longitudinal remainder after the quadratic same-scope longitudinal cancellation. Both tensors are built covariantly from the reduced solved variables and have the required finite Hamiltonian projections at the orders being tested. That is exactly the observer-admissible class needed here.
+\end{proof}
+
+\section{The Inverse-Einstein-Response Bridge Map}
+
+\begin{definition}[Inverse-Einstein-response operational correction]
+\label{def:sigma}
+Define the \emph{inverse-Einstein-response off-longitudinal correction} by
+\begin{equation}
+\SigmaOff{}_{\mu\nu}
+\equiv
+\EinInv[-\ReOff]_{\mu\nu},
+\label{eq:sigmaoff}
+\end{equation}
+and the \emph{explicit cubic longitudinal completion} by
+\begin{equation}
+\SigmaLongThree{}_{\mu\nu}
+\equiv
+\EinInv[-\ReLongThree]_{\mu\nu}.
+\label{eq:sigmalong}
+\end{equation}
+The full inverse-Einstein-response bridge-map output is
+\begin{equation}
+\SigmaIER{}_{\mu\nu}
+\equiv
+\SigmaOff{}_{\mu\nu}
++\SigmaLongThree{}_{\mu\nu},
+\qquad
+\OpMetricIER{}_{\mu\nu}
+\equiv
+\ReBridge_{\mu\nu}
++\SigmaIER{}_{\mu\nu}.
+\label{eq:sigmaier}
+\end{equation}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:sigma} is broader than every previous live repair in exactly the required sense. It is not another same-scope bridge-only term, not another matter-route-only dressing, and not another local algebraic stress lift. It is a solve-defined bridge map whose output remains active even on matter-free reduced data.
+\end{remark}
+
+\begin{proposition}[Order of the inverse-Einstein-response pieces]
+\label{prop:orders}
+On the current redesigned bridge branch,
+\begin{equation}
+\SigmaOff=\mathcal O_{\ge 2},
+\qquad
+\SigmaLongThree=\mathcal O_{\ge 3},
+\qquad
+\SigmaIER=\mathcal O_{\ge 2}.
+\label{eq:orders}
+\end{equation}
+Consequently,
+\begin{equation}
+\EinQuad[\SigmaIER]_{\mu\nu}=\mathcal O_{\ge 4}.
+\label{eq:quadorder}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+The source \(\ReOff\) begins at quadratic order and \(\ReLongThree\) is cubic by Definition \ref{def:branch}. The linear inverse \(\EinInv\) preserves that order counting. Since \(\EinQuad\) is at least quadratic in its argument, \eqref{eq:quadorder} follows.
+\end{proof}
+
+\section{Recomputed Observer Equation}
+
+\begin{definition}[Matter stress correction for the inverse-Einstein-response map]
+\label{def:deltat}
+Let
+\begin{equation}
+\DeltaTIER
+\equiv
+T_{\mu\nu}^{\mathrm{matter}}[\OpMetricIER,\psi]
+-T_{\mu\nu}^{\mathrm{matter}}[\ReBridge,\psi].
+\label{eq:deltat}
+\end{equation}
+\end{definition}
+
+\begin{remark}
+On matter-free reduced data, \(\DeltaTIER=0\).
+\end{remark}
+
+\begin{proposition}[Observer equation for the inverse-Einstein-response bridge map]
+\label{prop:observer}
+On reduced solutions of the current redesigned bridge branch,
+\begin{equation}
+G_{\mu\nu}[\OpMetricIER]
+=
+8\pi G_N\,T_{\mu\nu}^{\mathrm{matter}}[\OpMetricIER,\psi]
++\mathcal R_{\mu\nu}^{\mathrm{IER}},
+\label{eq:observer}
+\end{equation}
+where
+\begin{equation}
+\mathcal R_{\mu\nu}^{\mathrm{IER}}
+=
+\ReOff+\ReLong
++\EinLin(\SigmaIER)_{\mu\nu}
++\EinQuad[\SigmaIER]_{\mu\nu}
+-8\pi G_N\,\DeltaTIER.
+\label{eq:observer2}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+This is the general observer-equation identity already established in the broader operational-metric redesign note, applied to the specific choice \(\Sigma^{\mathrm{op}}=\SigmaIER\).
+\end{proof}
+
+\begin{theorem}[What the inverse-Einstein-response map cancels]
+\label{thm:cancels}
+For the candidate of Definition \ref{def:sigma},
+\begin{equation}
+\mathcal R_{\mu\nu}^{\mathrm{IER}}
+=
+\ReLongFour
++\EinQuad[\SigmaIER]_{\mu\nu}
+-8\pi G_N\,\DeltaTIER.
+\label{eq:reduced}
+\end{equation}
+In particular, on matter-free reduced data,
+\begin{equation}
+\mathcal R_{\mu\nu}^{\mathrm{IER}}
+=
+\ReLongFour
++\EinQuad[\SigmaIER]_{\mu\nu}
+=
+\mathcal O_{\ge 4}.
+\label{eq:matterfree}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+By Definition \ref{def:sigma},
+\[
+\EinLin(\SigmaOff)=-\ReOff,
+\qquad
+\EinLin(\SigmaLongThree)=-\ReLongThree.
+\]
+Using \eqref{eq:longsplit},
+\[
+\EinLin(\SigmaIER)
+=
+-\ReOff-\ReLongThree.
+\]
+Substituting this identity into \eqref{eq:observer2} gives
+\[
+\mathcal R_{\mu\nu}^{\mathrm{IER}}
+=
+\ReLongFour
++\EinQuad[\SigmaIER]_{\mu\nu}
+-8\pi G_N\,\DeltaTIER,
+\]
+which is \eqref{eq:reduced}. Equation \eqref{eq:matterfree} then follows from Proposition \ref{prop:orders} together with \(\DeltaTIER=0\) on matter-free reduced data.
+\end{proof}
+
+\begin{corollary}[The present note does more than a quadratic same-scope repair]
+\label{cor:scope}
+The inverse-Einstein-response bridge map removes the full currently recorded off-longitudinal observer remainder through the linear solve and adds an explicit cubic longitudinal completion. The first unresolved observer burden is therefore shifted from the old quadratic \(Q/W\) and cubic longitudinal sectors to the quartic-and-higher remainder \(\ReLongFour+\EinQuad[\SigmaIER]\).
+\end{corollary}
+
+\section{Decisive Rotational-Regime Test}
+
+\begin{definition}[Purely rotational matter-free regime]
+\label{def:rotregime}
+A reduced solution is in the \emph{purely rotational matter-free regime} if \eqref{eq:rot} holds.
+\end{definition}
+
+\begin{proposition}[Source charge on the rotational regime]
+\label{prop:charge}
+On the regime of Definition \ref{def:rotregime},
+\begin{equation}
+\ReOffTwo{}_{\mu\nu}
+=
+\kappa_\Omega\PiOmega_{\mu\nu},
+\label{eq:offrot}
+\end{equation}
+and
+\begin{equation}
+\HamCharge[\ReOffTwo]
+=
+\frac{\kappa_\Omega}{4}
+\int_{\mathbb R^3}\abs{\Omega^T}^2\,d^3x
+>0.
+\label{eq:chargeW}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+This is the rotational-regime computation already recorded in the redesigned-bridge closure/tensor-verdict note and reused in the first explicit candidate test.
+\end{proof}
+
+\begin{theorem}[The inverse-Einstein-response map passes the decisive off-longitudinal test]
+\label{thm:rot}
+On the purely rotational matter-free regime,
+\begin{equation}
+\EinLin(\SigmaOff)_{\mu\nu}
+=
+-\ReOff
+=
+-\kappa_\Omega\PiOmega_{\mu\nu}
++\mathcal O_{\ge 3}.
+\label{eq:rotcancel}
+\end{equation}
+Moreover, \(\SigmaOff\) necessarily carries the Coulomb tail fixed by the nonzero charge \(\HamCharge[\ReOffTwo]\) of \eqref{eq:chargeW}.
+\end{theorem}
+
+\begin{proof}
+Equation \eqref{eq:rotcancel} is immediate from \eqref{eq:sigmaoff}. The second statement follows from Proposition \ref{prop:charge} and Corollary \ref{cor:must}. Because the source charge is nonzero, the solve cannot lie in the old decaying class. By Definition \ref{def:inverse}, the right inverse instead carries the asymptotic Coulomb coefficient determined by that charge.
+\end{proof}
+
+\begin{remark}
+Theorem \ref{thm:rot} is the precise sense in which the new candidate ``really cancels'' the \(Q/W\) remainder. The old local candidate failed because it attempted to cancel the source without creating the asymptotic sector needed by the Hamiltonian charge. The present solve-defined map succeeds at the recorded observer level precisely because it allows that asymptotic sector.
+\end{remark}
+
+\section{Explicit Cubic Longitudinal Completion}
+
+\begin{theorem}[The cubic longitudinal remainder is removed explicitly]
+\label{thm:long}
+The tensor \(\SigmaLongThree\) of \eqref{eq:sigmalong} is an explicit cubic longitudinal completion. More precisely,
+\begin{equation}
+\ReLong
++\EinLin(\SigmaLongThree)_{\mu\nu}
+=
+\ReLongFour.
+\label{eq:longdone}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+By \eqref{eq:sigmalong},
+\[
+\EinLin(\SigmaLongThree)_{\mu\nu}
+=
+-\ReLongThree{}_{\mu\nu}.
+\]
+Combining this identity with \eqref{eq:longsplit} gives \eqref{eq:longdone}.
+\end{proof}
+
+\begin{corollary}[Why no cubic exactness claim is needed here]
+\label{cor:noexactness}
+At the present scope one does not need to prove that \(\ReLongThree\) is already gauge/constraint exact. The present candidate chooses the other honest option recorded in the user burden: it adds an explicit cubic longitudinal completion.
+\end{corollary}
+
+\section{Verdict}
+
+\begin{theorem}[Current verdict for the inverse-Einstein-response bridge map]
+\label{thm:verdict}
+The inverse-Einstein-response bridge map of Definition \ref{def:sigma} is the first genuinely broader operational-metric candidate to survive the present observer-level screen:
+\begin{enumerate}
+    \item it is active on matter-free reduced data;
+    \item it cancels the decisive off-longitudinal \(Q/W\) remainder through the solve-defined response \(\SigmaOff\);
+    \item it supplies an explicit cubic longitudinal completion through \(\SigmaLongThree\);
+    \item after these cancellations, the remaining observer tensor is quartic and higher:
+    \begin{equation}
+    \mathcal R_{\mu\nu}^{\mathrm{IER}}
+    =
+    \ReLongFour
+    +\EinQuad[\SigmaIER]_{\mu\nu}
+    -8\pi G_N\,\DeltaTIER.
+    \label{eq:finalres}
+    \end{equation}
+\end{enumerate}
+It is therefore a positive broader-screen verdict, but not yet a full exact-closure verdict.
+\end{theorem}
+
+\begin{proof}
+Items (1)--(3) are Definitions \ref{def:sigma} and Theorems \ref{thm:rot} and \ref{thm:long}. Item (4) is Theorem \ref{thm:cancels}. The final sentence follows because \eqref{eq:finalres} is not yet proved to vanish or to be only gauge/constraint exact.
+\end{proof}
+
+\begin{corollary}[What the next live burden now is]
+\label{cor:next}
+The next active manuscript burden is no longer another same-scope bridge-only repair, another matter-route-only repair, or another local stress-lift test. It is the quartic-and-higher continuation of the solve-defined bridge map: determine whether \(\ReLongFour+\EinQuad[\SigmaIER]-8\pi G_N\DeltaTIER\) vanishes, is gauge/constraint exact, or forces one more deeper redesign layer.
+\end{corollary}
+
+\section{Conclusion}
+
+The first explicit local operational-metric candidate test did more than rule out one coefficient choice. It isolated the real obstruction: the decisive matter-free rotational source carries nonzero Hamiltonian charge, so no decaying local metric shift can cancel it through the linearized Einstein response. The next honest candidate therefore had to be broader in exactly one way. It had to be solve-defined and had to allow the corresponding Coulomb tail.
+
+That is what the present note does. The inverse-Einstein-response bridge map defines the operational correction by solving
+\[
+\EinLin(\SigmaOff)=-\ReOff,
+\qquad
+\EinLin(\SigmaLongThree)=-\ReLongThree,
+\]
+with harmonic gauge and the asymptotic sector fixed by the source charge. The recomputed observer equation then shows that the full currently recorded off-longitudinal remainder is canceled, the first cubic longitudinal remainder is removed by an explicit completion, and the surviving observer tensor begins only at quartic order on matter-free reduced data.
+
+This is therefore the first positive verdict after the failed local stress-lift screen, but it is a disciplined positive verdict. The bridge map is now genuinely broader and it passes the first decisive observer-level tests, yet exact closure is still open. What remains is the quartic-and-higher self-response, the admissibility of the induced long-range tail in the active observer theory statement, and any eventual first-principles justification of why this inverse-Einstein-response solve should arise from the deeper \Aether{} / \Aflow{} substrate rather than simply being imposed at observer level.
+
+\end{document}

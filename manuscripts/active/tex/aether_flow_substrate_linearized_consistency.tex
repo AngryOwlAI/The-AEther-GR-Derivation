@@ -1,0 +1,587 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal{A}}
+\newcommand{\BridgeMetric}{\mathfrak{g}}
+\newcommand{\Extra}{\mathcal{Y}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Candidate-Model Linearized Consistency and Infrared Exact-Closure Recovery}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This manuscript carries the candidate substrate model of the derivational-bridge paper through the next dedicated test stage: coefficient-level quadratic consistency, extra-mode suppression, and infrared exact-closure recovery. Its scope remains disciplined. The paper does not claim a completed nonlinear proof that the candidate model reproduces Einsteinian gravity on every branch. It asks the narrower question of what the explicit quadratic coefficients already imply for the status of the candidate model on the active exact-closure line of \TheoryName{}.
+
+Starting from the candidate bridge action, the manuscript linearizes about an admissible homogeneous bridge background, rewrites the perturbations in terms of the bridge-metric fluctuation \(h_{\mu\nu}\) together with the nonmetric substrate sector \(\Extra=(\sigma,\chi,V^i_T,q^I)\), and evaluates the leading quadratic coefficients explicitly. The bridge-curvature term yields the ordinary Fierz--Pauli spin-2 sector. At the level of the minimal candidate action, the \(\chi\) and \(V_T^i\) sectors are auxiliary, the \(q^I\) sector renormalizes the effective \(\sigma\) operator, and the entire nontrivial flat-background self-energy burden collapses onto one scalar coefficient combination \(\mathcal B(k^2)\). Exact closure at quadratic order therefore requires \(\mathcal B_0=0\) and \(\mathcal B_2=0\), where \(\mathcal B(k^2)=\mathcal B_0+\mathcal B_2k^2+\mathcal O(k^4)\).
+
+The result is a sharper pass-fail criterion than the previous structural pass. The paper now shows explicitly where the candidate model must be tuned, degenerated, or completed if it is to close back onto the Einsteinian bridge sector, and it records the first local extension of that condition to slowly varying curved backgrounds. The full global curved-background proof and nonlinear stability analysis remain open.
+\end{abstract}
+
+\section{Introduction}
+
+The active manuscript sequence of \TheoryName{} now contains an exact-closure theory statement, its effective dynamics, its consistency analysis, its relativistic recovery statement, its congruence-based flow geometry, and a first substrate-kinematics manuscript that introduced an explicit derivational bridge together with one candidate substrate action class. The next research burden identified in the repository is no longer to restate the ontology or to repeat the GR / SR recovery argument. It is to test the candidate substrate model hard enough to determine whether it can actually remain on the exact relativistic line.
+
+That is the task of the present paper. The question is not whether the broader \Aether{} / \Aflow{} framework already possesses a completed microphysical derivation of Einsteinian gravity. It does not. The question is whether the specific candidate bridge model already stated in the substrate-kinematics manuscript has a controlled linearized branch on which the extra scalar and vector substrate sectors are absent from the observer-accessible infrared theory except through suppressed corrections.
+
+The present version of that test goes beyond the previous structural pass. It evaluates the leading quadratic coefficients explicitly, rather than leaving them at the level of undetermined kernel symbols. That extra step matters because it reveals which sectors are merely auxiliary, which sectors renormalize one another, and where a genuine exact-closure obstruction can survive.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present manuscript stays within that claim boundary. It performs a first dedicated quadratic branch analysis of the candidate substrate model, but it does not promote the candidate model to established theory. Exact closure remains the benchmark and reversion theory unless the candidate model actually passes the test derived here.
+
+\section{Candidate Branch and Perturbation Variables}
+
+The candidate substrate action introduced in the derivational-bridge manuscript may be written schematically as
+\begin{equation}
+S_{\mathrm{cand}}
+=
+\frac{c^3}{16\pi G_N}
+\int_{\Sub} d^4X\,\sqrt{G}\,\bigl(R[\BridgeMetric]-2\Lambda_{\Sub}\bigr)
++
+\int_{\Sub} d^4X\,\sqrt{G}\,\mathcal{L}_{\mathrm{aux}}
++
+S_{\mathrm{matter}}[\Xi^*\BridgeMetric,\psi],
+\label{eq:Scand}
+\end{equation}
+with bridge metric
+\begin{equation}
+\BridgeMetric_{AB}=G_{AB}-2U_AU_B,
+\label{eq:bridgemetric}
+\end{equation}
+and auxiliary sector
+\begin{align}
+\mathcal{L}_{\mathrm{aux}}
+=\;&
+\lambda_U\bigl(G_{AB}U^A U^B-1\bigr)
+-\frac{\kappa_S}{2}P^{AB}\partial_A S\,\partial_B S
+-\frac{m_S^2}{2}\bigl(U^A\partial_A S-\sigma_0\bigr)^2
+\nonumber\\
+&-\frac{1}{2}\delta_{IJ}P^{AB}(D_AQ^I)(D_BQ^J)
+-\frac{1}{2}M_{IJ}Q^IQ^J
+-\frac{\kappa_\theta}{2}\bigl(\nabla_AU^A\bigr)^2
+-\frac{\kappa_\Omega}{4}\Omega_{AB}\Omega^{AB}
+\nonumber\\
+&-\mathcal{V}(S,Q),
+\label{eq:Laux}
+\end{align}
+where \(P_{AB}=G_{AB}-U_AU_B\), \(\Omega_{AB}=P_A{}^CP_B{}^D\nabla_{[C}U_{D]}\), and \(\mathcal{V}(S,Q)\equiv V_S(S)+W(S,Q)\).
+
+\begin{definition}[Admissible homogeneous exact-closure branch]
+An admissible homogeneous exact-closure branch is a background configuration
+\begin{equation}
+\bar G_{AB}=\delta_{AB},
+\qquad
+\bar U^A=\delta^A{}_0,
+\qquad
+\bar S=\sigma_0X^0,
+\qquad
+\bar Q^I=0,
+\label{eq:background}
+\end{equation}
+for which the induced bridge metric is Minkowski,
+\begin{equation}
+\bar\BridgeMetric_{AB}=\eta_{AB}=\mathrm{diag}(-1,1,1,1),
+\label{eq:etabridge}
+\end{equation}
+and for which all linear tadpoles in the bridge and auxiliary sectors vanish.
+\end{definition}
+
+The ``all tadpoles vanish'' statement is the correct compact condition, but it is helpful to unpack its leading content.
+
+\begin{proposition}[Background admissibility conditions]
+The homogeneous branch \eqref{eq:background} can serve as a quadratic exact-closure test background only if the following hold along the background orbit:
+\begin{align}
+\eval{\pdv{\mathcal{V}}{Q^I}}_{(\bar S,0)} &= 0,
+\label{eq:Qtadpole}
+\\
+\eval{\pdv{\mathcal{V}}{S}}_{(\bar S,0)} &= 0,
+\label{eq:Stadpole}
+\\
+\Lambda_{\Sub}+\frac{8\pi G_N}{c^4}\rho_{\mathrm{aux}}^{(0)} &= 0,
+\label{eq:Lambdatune}
+\end{align}
+where \(\rho_{\mathrm{aux}}^{(0)}\) denotes the background auxiliary energy density. Equivalently, the linearized bridge equation has no source term on the chosen branch.
+\end{proposition}
+
+\begin{remark}
+Conditions \eqref{eq:Qtadpole}--\eqref{eq:Lambdatune} are branch-admissibility conditions, not yet proof of a derived completion. If the candidate model cannot satisfy them on a physically acceptable branch, then it fails before any further exact-closure claim can be made.
+\end{remark}
+
+Write perturbations as
+\begin{equation}
+G_{AB}=\delta_{AB}+H_{AB},
+\qquad
+U^A=\bar U^A+V^A,
+\qquad
+S=\sigma_0X^0+\sigma,
+\qquad
+Q^I=q^I.
+\label{eq:perturbations}
+\end{equation}
+The unit constraint \(G_{AB}U^AU^B=1\) gives at linear order
+\begin{equation}
+V^0=-\frac{1}{2}H_{00}.
+\label{eq:V0}
+\end{equation}
+Using the background observer map to identify the bridge perturbation with the effective metric perturbation, define
+\begin{equation}
+h_{\mu\nu}\equiv \delta \BridgeMetric_{\mu\nu}.
+\label{eq:hmunu}
+\end{equation}
+Then
+\begin{equation}
+h_{00}=-H_{00},
+\qquad
+h_{0i}=-H_{0i}-2V_i,
+\qquad
+h_{ij}=H_{ij}.
+\label{eq:bridgepert}
+\end{equation}
+The independent nonmetric substrate sector is therefore
+\begin{equation}
+\Extra=(\sigma,\chi,V_T^i,q^I),
+\label{eq:extrasector}
+\end{equation}
+where
+\begin{equation}
+V_i=V_i^T+\partial_i\chi,
+\qquad
+\partial_iV_T^i=0.
+\label{eq:Vdecomp}
+\end{equation}
+
+For later use, decompose the bridge perturbation under spatial rotations as
+\begin{equation}
+h_{00}=-2\phi,
+\qquad
+h_{0i}=S_i+\partial_iB,
+\label{eq:metricdecomp1}
+\end{equation}
+\begin{equation}
+h_{ij}
+=
+h_{ij}^{\mathrm{TT}}
++\partial_{(i}F_{j)}
++\left(\partial_i\partial_j-\frac{1}{3}\delta_{ij}\nabla^2\right)E
++\frac{1}{3}\delta_{ij}H,
+\label{eq:metricdecomp2}
+\end{equation}
+with
+\begin{equation}
+\partial^iS_i=0,
+\qquad
+\partial^iF_i=0,
+\qquad
+\partial^ih_{ij}^{\mathrm{TT}}=0,
+\qquad
+\delta^{ij}h_{ij}^{\mathrm{TT}}=0.
+\label{eq:TTconds}
+\end{equation}
+
+\section{Quadratic Action and Explicit Coefficients}
+
+\begin{proposition}[Bridge tensor sector]
+Expanding the bridge-curvature term in \eqref{eq:Scand} about the Minkowski bridge background \eqref{eq:etabridge} yields the standard quadratic Einstein operator for \(h_{\mu\nu}\):
+\begin{equation}
+S_{\mathrm{bridge}}^{(2)}
+=
+\frac{c^3}{64\pi G_N}
+\int d^4x\,
+h^{\mu\nu}\mathcal{E}_{\mu\nu}{}^{\rho\sigma}h_{\rho\sigma},
+\label{eq:Sbridge2}
+\end{equation}
+where \(\mathcal{E}_{\mu\nu}{}^{\rho\sigma}\) is the ordinary flat-space Lichnerowicz operator. Equivalently, before auxiliary-sector corrections are included, the bridge perturbation obeys the ordinary Fierz--Pauli linearized Einstein equation.
+\end{proposition}
+
+\begin{proof}
+The first term in \eqref{eq:Scand} is the Einstein--Hilbert action of the bridge metric \(\BridgeMetric_{AB}\). Once the background is chosen so that \(\bar\BridgeMetric_{AB}=\eta_{AB}\), its quadratic expansion is exactly the standard one for linearized GR. No extra tensor structure appears at this stage because the curvature term depends only on \(\BridgeMetric_{AB}\).
+\end{proof}
+
+The candidate model differs from pure GR only through the extra substrate sector and its mixing with the bridge perturbation. To evaluate that sector explicitly, first expand the background potential to quadratic order:
+\begin{equation}
+\mathcal V(S,Q)
+=
+\mathcal V_0
++\frac{1}{2}\mu_S^2\sigma^2
++\mu_{SI}\sigma q^I
++\frac{1}{2}\mu_{IJ}q^Iq^J
++\mathcal O(3),
+\label{eq:Vexpand}
+\end{equation}
+where
+\begin{equation}
+\mu_S^2 \equiv \eval{\pdv[2]{\mathcal V}{S}}_{(\bar S,0)},
+\qquad
+\mu_{SI} \equiv \eval{\frac{\partial^2\mathcal V}{\partial S\,\partial Q^I}}_{(\bar S,0)},
+\qquad
+\mu_{IJ} \equiv \eval{\frac{\partial^2\mathcal V}{\partial Q^I\,\partial Q^J}}_{(\bar S,0)}.
+\label{eq:Vhessian}
+\end{equation}
+Define the shifted \(Q\)-sector mass matrix
+\begin{equation}
+\widehat M_{IJ} \equiv M_{IJ}+\mu_{IJ}.
+\label{eq:Mhat}
+\end{equation}
+
+The leading-order combinations entering the auxiliary quadratic action are then
+\begin{align}
+U^A\partial_AS-\sigma_0
+&=
+\partial_0\sigma+\frac{\sigma_0}{2}h_{00}
++\mathcal O(2),
+\label{eq:USexpand}
+\\
+P^{AB}\partial_A\sigma\,\partial_B\sigma
+&=
+\delta^{ij}\partial_i\sigma\,\partial_j\sigma
++\mathcal O(3),
+\label{eq:Psigmaexpand}
+\\
+\nabla_AU^A
+&=
+\nabla^2\chi+\frac{1}{2}\partial_0H
++\mathcal O(2),
+\label{eq:thetaexpand}
+\\
+\Omega_{ij}
+&=
+-\partial_{[i}\!\left(S_{j]}+V^T_{j]}\right)
++\mathcal O(2),
+\label{eq:Omegaexpand}
+\\
+P^{AB}(D_Aq^I)(D_Bq_I)
+&=
+\delta^{ij}\partial_iq^I\,\partial_jq_I
++\mathcal O(3),
+\label{eq:Qexpand}
+\end{align}
+where \(H\equiv \delta^{ij}h_{ij}\) is the spatial trace mode already appearing in \eqref{eq:metricdecomp2}. Equation \eqref{eq:thetaexpand} shows that the longitudinal \(U\)-sector scalar mixes with the bridge spatial trace, while \eqref{eq:Omegaexpand} shows that the transverse \(U\)-sector vector mixes with the bridge vector \(S_i\).
+
+\begin{proposition}[Explicit auxiliary quadratic Lagrangian]
+Using \eqref{eq:USexpand}--\eqref{eq:Qexpand}, the quadratic auxiliary sector of the minimal candidate action is
+\begin{align}
+\mathcal L_{\mathrm{aux}}^{(2)}
+=\;&
+-\frac{m_S^2}{2}\bigl(\partial_0\sigma-\sigma_0\phi\bigr)^2
+-\frac{\kappa_S}{2}\,\partial_i\sigma\,\partial_i\sigma
+-\frac{1}{2}\mu_S^2\sigma^2
+-\mu_{SI}\sigma q^I
+\nonumber\\
+&-\frac{1}{2}q^I\!\left(-\nabla^2\delta_{IJ}+\widehat M_{IJ}\right)\!q^J
+-\frac{\kappa_\theta}{2}\left(\nabla^2\chi+\frac{1}{2}\partial_0H\right)^2
+\nonumber\\
+&-\frac{\kappa_\Omega}{4}\,
+\partial_{[i}\!\left(S_{j]}+V^T_{j]}\right)
+\partial^{[i}\!\left(S^{j]}+V_T^{j]}\right),
+\label{eq:Laux2}
+\end{align}
+with \(h_{00}=-2\phi\).
+\end{proposition}
+
+\begin{proof}
+Equation \eqref{eq:USexpand} gives \((U\cdot\partial S-\sigma_0)^2=(\partial_0\sigma-\sigma_0\phi)^2+\mathcal O(3)\). Equations \eqref{eq:Psigmaexpand} and \eqref{eq:Qexpand} provide the spatial-gradient parts of the \(\sigma\) and \(q^I\) sectors, while \eqref{eq:Vexpand} supplies the quadratic potential Hessian. Equations \eqref{eq:thetaexpand} and \eqref{eq:Omegaexpand} give the explicit scalar and vector mixing terms for the \(U^A\)-sector. Collecting those pieces yields \eqref{eq:Laux2}.
+\end{proof}
+
+\begin{remark}
+Equation \eqref{eq:Laux2} is more informative than the previous kernel-level summary. At quadratic order in the minimal candidate action, only \(\sigma\) carries an explicit time-derivative term. The \(q^I\), \(\chi\), and \(V_T^i\) sectors are auxiliary or elliptic at this stage.
+\end{remark}
+
+\section{Elimination of the Auxiliary Sectors}
+
+The explicit coefficient form \eqref{eq:Laux2} makes it possible to eliminate the nonpropagating sectors directly rather than only symbolically.
+
+\begin{proposition}[Longitudinal and transverse \(U\)-sector elimination]
+On the branch with decaying spatial boundary data and no harmonic zero mode, the \(\chi\) and \(V_T^i\) Euler--Lagrange equations imply
+\begin{equation}
+\nabla^2\chi=-\frac{1}{2}\partial_0H,
+\label{eq:chieq}
+\end{equation}
+and
+\begin{equation}
+V_T^i=-S^i.
+\label{eq:VTeq}
+\end{equation}
+Consequently the \(\kappa_\theta\) and \(\kappa_\Omega\) sectors contribute no residual flat-background bridge self-energy at quadratic order.
+\end{proposition}
+
+\begin{proof}
+Varying \eqref{eq:Laux2} with respect to \(\chi\) gives
+\[
+\nabla^2\!\left(\nabla^2\chi+\frac{1}{2}\partial_0H\right)=0.
+\]
+On the decaying branch the bracket must therefore vanish, yielding \eqref{eq:chieq}. Likewise variation with respect to the transverse vector gives
+\[
+\partial^j\partial_{[j}\!\left(S_{i]}+V^T_{i]}\right)=0.
+\]
+With \(\partial_iS^i=\partial_iV_T^i=0\) and decaying boundary data, this reduces to \(\nabla^2(S_i+V_i^T)=0\), whose regular solution is \eqref{eq:VTeq}. Substituting \eqref{eq:chieq} and \eqref{eq:VTeq} back into \eqref{eq:Laux2} makes both quadratic terms vanish identically.
+\end{proof}
+
+The \(Q\)-sector is also algebraic in time. Define its spatial operator by
+\begin{equation}
+\mathcal A_{IJ}(-\nabla^2)\equiv (-\nabla^2)\delta_{IJ}+\widehat M_{IJ}.
+\label{eq:Aoperator}
+\end{equation}
+Its Euler--Lagrange equation is
+\begin{equation}
+\mathcal A_{IJ}(-\nabla^2)\,q^J=-\mu_{SI}\sigma.
+\label{eq:qeq}
+\end{equation}
+Thus
+\begin{equation}
+q^I=-\mathcal A^{-1\,IJ}(-\nabla^2)\,\mu_{SJ}\sigma.
+\label{eq:qsolve}
+\end{equation}
+
+\begin{definition}[Induced \(Q\)-sector scalar self-energy]
+The \(Q\)-sector induces the scalar operator
+\begin{equation}
+\Sigma_q(-\nabla^2)
+\equiv
+\mu_{SI}\,\mathcal A^{-1\,IJ}(-\nabla^2)\,\mu_{SJ}.
+\label{eq:Sigmaq}
+\end{equation}
+\end{definition}
+
+Substituting \eqref{eq:qsolve} back into \eqref{eq:Laux2} yields the effective scalar-sector quadratic Lagrangian
+\begin{equation}
+\mathcal L_{\sigma,\mathrm{eff}}^{(2)}
+=
+-\frac{m_S^2}{2}\bigl(\partial_0\sigma-\sigma_0\phi\bigr)^2
+-\frac{1}{2}\sigma\,\mathcal B(-\nabla^2)\,\sigma,
+\label{eq:Lsigmaeff}
+\end{equation}
+with
+\begin{equation}
+\mathcal B(-\nabla^2)
+\equiv
+\kappa_S(-\nabla^2)
++\mu_S^2
+-\Sigma_q(-\nabla^2).
+\label{eq:Boperator}
+\end{equation}
+
+\begin{remark}
+Equation \eqref{eq:Boperator} is the first real coefficient-level compression of the flat-background problem. After the \(\chi\), \(V_T^i\), and \(q^I\) sectors are eliminated, every nontrivial auxiliary correction to the bridge sector is carried by the single scalar operator \(\mathcal B(-\nabla^2)\).
+\end{remark}
+
+\section{Flat-Background Self-Energy and Exact-Closure Conditions}
+
+The \(\sigma\)-sector may now be integrated out explicitly. In Fourier space, with \(k^2\equiv |\mathbf{k}|^2\), define
+\begin{equation}
+\mathcal B(k^2)
+\equiv
+\kappa_Sk^2
++\mu_S^2
+-\mu_{SI}\bigl(k^2\delta+\widehat M\bigr)^{-1\,IJ}\mu_{SJ}.
+\label{eq:Bk}
+\end{equation}
+Equation \eqref{eq:Lsigmaeff} then gives the bridge-scalar correction
+\begin{equation}
+\Delta\mathcal L_{\phi}^{(2)}(\omega,\mathbf{k})
+=
+-\frac{1}{2}\,
+\Pi_\phi(\omega,\mathbf{k})\,|\phi(\omega,\mathbf{k})|^2,
+\label{eq:Deltaphi}
+\end{equation}
+with
+\begin{equation}
+\Pi_\phi(\omega,\mathbf{k})
+=
+m_S^2\sigma_0^2\,
+\frac{\mathcal B(k^2)}{m_S^2\omega^2+\mathcal B(k^2)}.
+\label{eq:Piphi}
+\end{equation}
+
+\begin{proposition}[Only surviving flat-background self-energy channel]
+For the minimal candidate action \eqref{eq:Scand}--\eqref{eq:Laux}, after elimination of \(\chi\), \(V_T^i\), and \(q^I\), the only nonvanishing flat-background auxiliary correction to the bridge sector at quadratic order is the scalar self-energy channel \eqref{eq:Piphi}. No independent tensor or transverse-vector bridge self-energy survives at this order.
+\end{proposition}
+
+\begin{proof}
+The bridge tensor sector is fixed by \eqref{eq:Sbridge2}. Equations \eqref{eq:chieq} and \eqref{eq:VTeq} eliminate the \(\chi\) and \(V_T^i\) contributions without residual quadratic term, while \eqref{eq:qsolve} shows that the \(Q\)-sector only renormalizes the scalar operator of \(\sigma\). Therefore the only nontrivial residual self-energy is the \(\phi\)-sector term \eqref{eq:Piphi}.
+\end{proof}
+
+Expanding \eqref{eq:Bk} at small spatial momentum gives
+\begin{equation}
+\mathcal B(k^2)=\mathcal B_0+\mathcal B_2k^2+\mathcal O(k^4),
+\label{eq:Bexpand}
+\end{equation}
+with
+\begin{align}
+\mathcal B_0
+&=
+\mu_S^2-\mu_{SI}\widehat M^{-1\,IJ}\mu_{SJ},
+\label{eq:B0}
+\\
+\mathcal B_2
+&=
+\kappa_S+\mu_{SI}\widehat M^{-2\,IJ}\mu_{SJ}.
+\label{eq:B2}
+\end{align}
+
+\begin{proposition}[Coefficient-level quadratic exact-closure conditions]
+For the minimal candidate action on the flat homogeneous branch, quadratic infrared exact closure requires
+\begin{equation}
+\mathcal B_0=0,
+\qquad
+\mathcal B_2=0.
+\label{eq:Bconditions}
+\end{equation}
+Equivalently,
+\begin{equation}
+\mathcal B(k^2)=\mathcal O(k^4/M_*^2),
+\label{eq:Bsoft}
+\end{equation}
+so that
+\begin{equation}
+\Pi_\phi(\omega,\mathbf{k})
+=
+\mathcal O(p^4/M_*^2).
+\label{eq:Piphisoft}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+If \(\mathcal B_0\neq0\), then \eqref{eq:Piphi} contains an unsuppressed \(p^0\) preferred-frame scalar correction. If \(\mathcal B_0=0\) but \(\mathcal B_2\neq0\), then \eqref{eq:Piphi} contains an unsuppressed \(k^2\) scalar correction that is not of Einsteinian tensor form. Conversely, if \eqref{eq:Bconditions} holds, then \(\mathcal B(k^2)\) begins at order \(k^4\), and \eqref{eq:Piphi} is suppressed accordingly. Since no other flat-background auxiliary self-energy survives at this order, \eqref{eq:Bconditions} is exactly the coefficient-level quadratic exact-closure condition for the minimal candidate action.
+\end{proof}
+
+\begin{remark}
+The coefficient evaluation sharpens the scientific status of the candidate model substantially. The minimal candidate action does not generically close automatically. Its flat-background exact-closure burden collapses to the single scalar combination \eqref{eq:Bk}, and the cancellations \eqref{eq:Bconditions} are therefore real dynamical requirements, not matters of notation.
+\end{remark}
+
+\begin{remark}
+With positive-definite \(\widehat M_{IJ}\) and nonnegative \(\kappa_S\), the condition \eqref{eq:B2} is highly restrictive. In the minimal stable sign choice it points either to a degenerate Stueckelberg-like low-energy \(\sigma\)-sector or to the need for a further completion beyond the present auxiliary action if exact closure is to hold.
+\end{remark}
+
+\section{First Curved-Background Extension}
+
+The flat-background calculation is the decisive first filter, but the active exact-closure line also requires local control beyond Minkowski space. A full global curved-background proof remains open. The next local step is nevertheless clear.
+
+\begin{definition}[Slowly varying admissible background]
+Let \((\bar g_{\mu\nu},\bar u^\mu)\) be an admissible exact-closure background with local curvature scale \(\mathcal R\). A local patch is slowly varying relative to the extra-sector scales if
+\begin{equation}
+\mathcal R \ll M_*^2,
+\label{eq:curvaturehierarchy}
+\end{equation}
+where \(M_*^2\) denotes the smallest relevant auxiliary-sector scale appearing in the flat-background coefficient operators.
+\end{definition}
+
+In such a patch, the quadratic scalar operator inherits the local covariant replacements
+\begin{equation}
+\partial_0 \to \pounds_{\bar u},
+\qquad
+-\nabla^2 \to -D^2,
+\label{eq:covreplace}
+\end{equation}
+where \(D_a\) is the covariant derivative on the observer rest space orthogonal to \(\bar u^\mu\). The \(Q\)-sector operator becomes
+\begin{equation}
+\mathcal A_{IJ}^{\mathrm{cov}}
+=
+\bigl(-D^2\bigr)\delta_{IJ}
++\widehat M_{IJ}
++\mathcal O(\mathcal R),
+\label{eq:Acov}
+\end{equation}
+and hence
+\begin{equation}
+\mathcal B_{\mathrm{cov}}
+=
+\kappa_S(-D^2)
++\mu_S^2
+-\mu_{SI}\bigl(\mathcal A_{\mathrm{cov}}^{-1}\bigr)^{IJ}\mu_{SJ}
++\mathcal O(\mathcal R).
+\label{eq:Bcov}
+\end{equation}
+
+\begin{proposition}[Local curved-background continuation of the flat cancellation]
+If the flat-background coefficient conditions \eqref{eq:Bconditions} hold and if the curvature hierarchy \eqref{eq:curvaturehierarchy} is satisfied, then in a local slowly varying patch the induced scalar bridge self-energy obeys
+\begin{equation}
+\Pi_{\phi}^{\mathrm{curved}}
+=
+\mathcal O\!\left(\frac{\mathcal R}{M_*^2}\right)
++\mathcal O\!\left(\frac{D^4}{M_*^2}\right).
+\label{eq:Picurved}
+\end{equation}
+Thus no new unsuppressed observer-accessible low-energy deformation is generated locally by the same auxiliary branch.
+\end{proposition}
+
+\begin{proof}
+Equation \eqref{eq:Bcov} differs from its flat counterpart only by the local replacements \eqref{eq:covreplace} and curvature corrections of order \(\mathcal R\). When \eqref{eq:Bconditions} holds, the flat operator begins only at quartic derivative order. Under the hierarchy \eqref{eq:curvaturehierarchy}, the extra curvature corrections are therefore suppressed by \(\mathcal R/M_*^2\), while the derivative corrections remain of order \(D^4/M_*^2\). This yields \eqref{eq:Picurved}. The argument is local and does not by itself establish a global curved-background theorem.
+\end{proof}
+
+\begin{remark}
+This is the first extension beyond Minkowski space that the current coefficient-level analysis can support honestly. It is a local WKB-style continuation, not yet a full covariant proof on arbitrary backgrounds.
+\end{remark}
+
+\section{What This Manuscript Establishes and What It Does Not}
+
+The present manuscript establishes the following.
+\begin{enumerate}
+    \item It states the admissible homogeneous branch conditions required before the candidate model can even be linearized as an exact-closure test.
+    \item It rewrites the candidate perturbations in terms of the bridge metric fluctuation \(h_{\mu\nu}\) and the nonmetric substrate sector \(\Extra=(\sigma,\chi,V_T^i,q^I)\).
+    \item It shows that the bridge-curvature term yields the ordinary Fierz--Pauli tensor sector.
+    \item It evaluates the explicit quadratic auxiliary coefficients of the minimal candidate action, including the corrected scalar and vector mixing terms.
+    \item It shows that the \(\chi\) and \(V_T^i\) sectors are auxiliary on the flat admissible branch and that the \(Q\)-sector only renormalizes the scalar operator of \(\sigma\).
+    \item It compresses the entire nontrivial flat-background auxiliary burden into the single coefficient combination \(\mathcal B(k^2)\).
+    \item It derives the coefficient-level flat-background exact-closure conditions \(\mathcal B_0=0\) and \(\mathcal B_2=0\).
+    \item It records the first local curved-background continuation of those cancellation conditions under the hierarchy \(\mathcal R\ll M_*^2\).
+\end{enumerate}
+
+The present manuscript does \emph{not} establish the following.
+\begin{enumerate}
+    \item It does not give a full coefficient evaluation for every nonlinear completion of the \(U^A\) sector beyond the minimal candidate action.
+    \item It does not prove that an admissible branch satisfying \eqref{eq:Bconditions} exists for every allowed potential \(\mathcal V(S,Q)\) or every completion of the \(U^A\) sector.
+    \item It does not extend the analysis from the local slowly varying curved-background regime to a full global statement on arbitrary admissible backgrounds.
+    \item It does not complete the nonlinear stability problem or the all-orders proof that \(\Delta_{\mu\nu}^{(U,S,Q)}\) vanishes on the chosen branch.
+\end{enumerate}
+
+\begin{remark}
+The correct scientific status is therefore stronger than the previous linearized pass but still intermediate. The candidate model has now been carried through the first explicit coefficient evaluation. What remains is the harder proof that the cancellation conditions \eqref{eq:Bconditions} can be realized on a viable branch and maintained beyond the local curved-background regime.
+\end{remark}
+
+\section{Conclusion}
+
+The repository did not need another repetition of the ontology or another exact GR / SR recovery paper. It needed the first serious test of the candidate substrate model already placed on the table. This manuscript provides that test in the cleanest available form.
+
+At quadratic order, the picture is now sharper than before. The bridge curvature term supplies the ordinary Einsteinian spin-2 sector. The \(\chi\) and \(V_T^i\) sectors are auxiliary on the flat admissible branch, and the \(Q\)-sector renormalizes the effective \(\sigma\)-operator without introducing its own time-propagating pole. The entire nontrivial flat-background exact-closure burden therefore collapses to the scalar coefficient combination \(\mathcal B(k^2)\). The candidate model can remain on the exact-closure line only if \(\mathcal B_0=0\) and \(\mathcal B_2=0\), so that the residual bridge self-energy is pushed to higher derivative order.
+
+This is not yet the end of the derivational program. It is the coefficient-level branch test that decides whether the candidate bridge model is even eligible to belong to \TheoryName{} beyond the schematic level. The next work is therefore narrower again: determine whether any viable completion of the \(S/Q/U\) sector can actually satisfy \eqref{eq:Bconditions} nonaccidentally, upgrade the local curved-background continuation to a global one, and then confront the nonlinear stability problem on that branch.
+
+\end{document}

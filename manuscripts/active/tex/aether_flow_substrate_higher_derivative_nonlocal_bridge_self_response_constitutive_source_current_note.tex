@@ -1,0 +1,908 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal{A}}
+\newcommand{\BridgeMetric}{\mathfrak g}
+\newcommand{\ObserverMap}{\Xi}
+\newcommand{\ProjSub}{P}
+\newcommand{\SpatialD}{\mathcal D}
+\newcommand{\LapPerp}{\Delta_\perp}
+\newcommand{\FlowPot}{\Phi_\Omega}
+\newcommand{\FlowPotReg}{\Phi_\Omega^{\mathrm{reg}}}
+\newcommand{\CoulPot}{U_\Omega}
+\newcommand{\BalanceField}{\Pi_\Omega}
+\newcommand{\BalMult}{\Lambda_\Pi}
+\newcommand{\SourceDensity}{\varrho_\Omega}
+\newcommand{\SourceDensityRed}{\varrho_\Omega^{\mathrm{red}}}
+\newcommand{\SourceCurrent}{\mathcal J^{(\Omega)}}
+\newcommand{\SourceCurrentRed}{\mathcal J^{(\Omega,\mathrm{red})}}
+\newcommand{\ConstCurrent}{\mathcal C}
+\newcommand{\QCarrier}{\mathcal Q}
+\newcommand{\ChiCarrier}{\mathcal X}
+\newcommand{\TransCarrier}{\mathcal W}
+\newcommand{\ContMult}{\Lambda_{\mathrm c}}
+\newcommand{\CurrentMult}{\Lambda}
+\newcommand{\ConstGamma}{\Gamma}
+\newcommand{\QMult}{\mathscr M}
+\newcommand{\ChiMult}{\mathscr N}
+\newcommand{\TransMult}{\mathscr W}
+\newcommand{\SourceFlux}{\mathcal E}
+\newcommand{\HamChargeOmega}{\mathfrak m_\Omega}
+\newcommand{\SigmaIER}{\Sigma^{\mathrm{IER}}}
+\newcommand{\SigmaDressSch}{\Sigma^{\mathrm{Sch}}}
+\newcommand{\SigmaRegPol}{\Sigma^{\mathrm{pol,reg}}}
+\newcommand{\LiftIER}{\widehat\Sigma^{\mathrm{IER}}}
+\newcommand{\AuxPol}{\mathbb K}
+\newcommand{\CandAction}{S_{\mathrm{cand}}}
+\newcommand{\ConstitutiveAction}{S_{\mathrm{cand}}^{\mathrm{const+cur+aux}}}
+\newcommand{\ReOff}{\widetilde{\mathcal R}_{\mu\nu}^{\mathrm{off}}}
+\newcommand{\ReLongThree}{\widetilde{\mathcal R}_{\mu\nu}^{(\chi,3)}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Nonlocal Bridge Self-Response Constitutive Source-Current Note}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The positive quotient reduced-system, theorem, decay, and asymptotic line remains closed and is not reopened here. The inverse-Einstein-response bridge map, the explicit Schwarzschild-type dressing candidate test, the substrate-origin note, the constrained auxiliary-sector note, the intrinsic source-sector note, and the source-current-sector note are also fixed in status. In particular, the source-current-sector note already replaced the reduced Hamiltonian source-density black box by an explicit substrate source current \(\SourceCurrent_A\), derived the same continuity/Gauss-Poisson package and exterior Coulomb tail, reproduced the same Schwarzschild-type \(r^{-2}\) dressing after full elimination, and preserved the same matter-free/off-longitudinal/cubic/quartic gain package. Its remaining defect is now one layer deeper: the reduced source-current resolution \(\SourceCurrentRed_A[Q,W,\chi]\) was still assumed as admissible reduced current data.
+
+The present manuscript removes exactly that remaining black-box step by introducing an explicit local constitutive carrier layer. It appends to the enlarged source-current action a spatial constitutive current carrier \(\ConstCurrent_A\), carrier fields \((\QCarrier^I_A,\ChiCarrier_A,\TransCarrier_A)\), and constitutive multipliers \((\ConstGamma_A,\QMult^{AI},\ChiMult^A,\TransMult^A)\). The Euler--Lagrange equations of the constitutive block give
+\[
+\QCarrier^I_A=\SpatialD_AQ^I,
+\qquad
+\ChiCarrier_A=\SpatialD_A\chi,
+\qquad
+\TransCarrier_A=W_A^T,
+\]
+\[
+\ConstCurrent_A
+=
+\mathfrak c_I\QCarrier^I_A
++\mathfrak c_\chi\ChiCarrier_A
++\mathfrak c_W\TransCarrier_A,
+\]
+so that on shell
+\[
+\SourceCurrent_A
+=
+\ConstCurrent_A
+=
+\SourceCurrentRed_A
+=
+\mathfrak c_I\SpatialD_AQ^I
++\mathfrak c_\chi\SpatialD_A\chi
++\mathfrak c_WW_A^T.
+\]
+Hence the reduced source current is no longer an assumed admissible functional. It is now the eliminated constitutive current of explicit local substrate carrier variables.
+
+The same source-current equations then imply
+\[
+\SourceDensity
+=
+-\SpatialD^A\SourceCurrent_A
+=
+-\SpatialD^A\SourceCurrentRed_A
+=
+\SourceDensityRed,
+\qquad
+\SourceFlux_A=\SpatialD_A\FlowPot,
+\qquad
+-\LapPerp\FlowPot=4\pi G_N\,\SourceDensity.
+\]
+Therefore the same continuity/Gauss-Poisson package and the same exterior Coulomb tail follow after passing through the constitutive layer, and the Hamiltonian charge is equally the slice integral of \(\SourceDensityRed\) and the asymptotic flux of the constitutively resolved current \(\SourceCurrentRed_A\).
+
+The auxiliary polarization block is kept unchanged. It again yields
+\[
+\AuxPol_{AB}^{\mathrm{elim}}
+=
+-2\FlowPot^2U_AU_B
++\frac32\FlowPot^2\ProjSub_{AB},
+\]
+so the observer pullback again reproduces exactly the same Schwarzschild-type \(r^{-2}\) dressing together with the same \(\mathcal O(r^{-3})\) regular completion. Because the new constitutive layer is slice-wise nonpropagating and reaches the bridge only through the same quartic combination \(\BalanceField=\FlowPot^2\), it does not reopen the lower-order quotient PDE line and preserves the same matter-free/off-longitudinal/cubic/quartic gain package.
+
+The carrier block introduced here should therefore be read only as a disciplined local first-order realization of the chosen reduced current law. This note still does not claim that the constitutive coefficients \((\mathfrak c_I,\mathfrak c_\chi,\mathfrak c_W)\), the carrier basis, or the full enlarged bridge variable have already been derived uniquely from a deeper local substrate curvature action. Its narrower positive result is the one now required by the active sequence: the reduced source-current resolution itself is realized as the elimination of explicit local substrate carrier variables, and everything downstream remains the same.
+\end{abstract}
+
+\section{Introduction}
+
+The active sequence is now precise about what should happen next. The positive quotient reduced-system, theorem, decay, and asymptotic line is already recorded and remains closed at current scope. The observer-level redesign chain is also fixed in status: the inverse-Einstein-response bridge-map test already canceled the full off-longitudinal \(Q/W\) remainder and added an explicit cubic longitudinal completion, the quartic continuation note isolated the Coulomb self-response obstruction, and the explicit dressing-candidate test recorded the positive Schwarzschild-type \(r^{-2}\) closure. The substrate-origin, constrained auxiliary-sector, intrinsic source-sector, and source-current-sector notes then took the next four reconstruction steps by identifying the minimal polarization mechanism, embedding it variationally, internalizing the charge potential \(\FlowPot\), and internalizing the reduced Hamiltonian source density as the divergence of an explicit substrate current.
+
+That still leaves one real burden. In the source-current-sector note, the reduced density is no longer inserted directly, but the reduced source-current resolution \(\SourceCurrentRed_A[Q,W,\chi]\) still appears as assumed admissible current data. The present manuscript addresses exactly that remaining defect and no broader one. It asks for the least-drift deeper sector that can produce the same reduced current itself from explicit local constitutive carrier variables while preserving the same observer-side dressed output.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not reopen the already-positive quotient PDE line. It does not replace the already-positive observer-level dressing candidate. It does not claim that the constitutive coefficients or carrier basis used below are unique. It does not promote the full enlarged source-current plus polarization block into a deeper local substrate curvature action. Its narrower positive result is that the reduced source-current resolution itself can now be realized by explicit local carrier variables and a constitutive constraint block, without losing the same \(r^{-2}\) dressed bridge output or the same gain package. In particular, the carrier sector is offered only as a disciplined first-order constitutive realization of the active reduced current law, not as a uniqueness derivation in disguised form.
+
+\section{Fixed Target and Present Scope}
+
+\begin{definition}[Surviving dressed gain package]
+\label{def:gains}
+The \emph{surviving dressed gain package} consists of the four already-recorded features that the enlarged constitutive-current plus source-current plus polarization sector must preserve:
+\begin{enumerate}
+    \item \textbf{matter-free activity:} the bridge correction remains active on matter-free reduced data;
+    \item \textbf{off-longitudinal \(Q/W\) cancellation:} the full currently recorded off-longitudinal remainder \(\ReOff\) is canceled;
+    \item \textbf{explicit cubic longitudinal completion:} the first surviving cubic longitudinal tensor \(\ReLongThree\) is canceled by the same lower-order inverse-response correction;
+    \item \textbf{quartic Coulomb self-response absorption:} on the decisive matter-free rotational exterior regime, the isolated quartic Coulomb self-response is pushed to \(\mathcal O(r^{-5})\).
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Observer-side target already fixed]
+\label{def:target}
+The observer-side dressed bridge map to be reproduced remains
+\begin{equation}
+g_{\mu\nu}^{\mathrm{dressed}}
+=
+g_{\mu\nu}^{\mathrm{br}}
++\SigmaIER_{\mu\nu}
++\SigmaDressSch{}_{\mu\nu}
++\SigmaRegPol{}_{\mu\nu},
+\label{eq:targetmetric}
+\end{equation}
+where the charge-carrying Coulomb piece is
+\begin{equation}
+\CoulPot(r)\equiv \frac{G_N\,\HamChargeOmega}{r},
+\label{eq:coulpot}
+\end{equation}
+and
+\begin{equation}
+\SigmaDressSch{}_{00}=-2\CoulPot^2,
+\qquad
+\SigmaDressSch{}_{0i}=0,
+\qquad
+\SigmaDressSch{}_{ij}=\frac32\CoulPot^2\,\delta_{ij},
+\label{eq:schdress}
+\end{equation}
+while the regular completion satisfies
+\begin{equation}
+\SigmaRegPol=\mathcal O(r^{-3}),
+\qquad
+\partial\SigmaRegPol=\mathcal O(r^{-4})
+\label{eq:reg}
+\end{equation}
+on the exterior charge sector.
+\end{definition}
+
+\begin{remark}
+The present note does not replace the already-fixed lower-order inverse-response tensor \(\SigmaIER\). Its task is only to derive the reduced source current itself from explicit local carrier variables and then check that the resulting full elimination still reproduces Definition \ref{def:target}.
+\end{remark}
+
+\section{Local Constitutive Resolution of the Reduced Source Current}
+
+The substrate-kinematics manuscript already fixed the minimal substrate data
+\[
+(\Sub,G_{AB},U^A,S,Q),
+\]
+with \(G_{AB}\) positive definite, \(U^A\) the unit ordered-flow field, and
+\begin{equation}
+\ProjSub_{AB}=G_{AB}-U_AU_B
+\label{eq:projector}
+\end{equation}
+the local experiential projector orthogonal to \(U^A\). The present note appends only the extra variables needed to replace the reduced-current black box by a constitutive carrier layer.
+
+\begin{definition}[Active local slice variables entering the constitutive layer]
+\label{def:activeslice}
+At the present scope the constitutive layer is built from the already-recorded active reduced slice variables \((Q^I,\chi,W_A^T)\), where
+\begin{equation}
+W_A=\SpatialD_A\chi+W_A^T,
+\qquad
+U^AW_A^T=0,
+\qquad
+\SpatialD^AW_A^T=0.
+\label{eq:Wdecomp}
+\end{equation}
+The present manuscript treats \(Q^I\), \(\chi\), and \(W_A^T\) parametrically inside the new constitutive block, exactly as the previous note treated the already-recorded reduced current parametrically. Their previously recorded reduced equations are not reopened here.
+\end{definition}
+
+\begin{definition}[Explicit constitutive carrier variables]
+\label{def:carriers}
+The \emph{constitutive carrier sector} consists of the following spatial substrate variables:
+\begin{enumerate}
+    \item vector carriers \(\QCarrier^I_A\) for the \(Q^I\)-gradients;
+    \item a longitudinal carrier \(\ChiCarrier_A\);
+    \item a transverse carrier \(\TransCarrier_A\);
+    \item a constitutive current carrier \(\ConstCurrent_A\).
+\end{enumerate}
+They satisfy
+\begin{equation}
+U^A\QCarrier^I_A=0,
+\qquad
+U^A\ChiCarrier_A=0,
+\qquad
+U^A\TransCarrier_A=0,
+\qquad
+U^A\ConstCurrent_A=0.
+\label{eq:carrierspatial}
+\end{equation}
+\end{definition}
+
+\begin{definition}[Constitutively resolved reduced source current]
+\label{def:constitutivecurrent}
+Fix constitutive coefficients
+\begin{equation}
+\mathfrak c_I,
+\qquad
+\mathfrak c_\chi,
+\qquad
+\mathfrak c_W,
+\label{eq:cconst}
+\end{equation}
+with the \(I\)-index summed against the already-recorded Euclidean \(Q\)-sector metric. The \emph{constitutively resolved reduced source current} is the spatial current
+\begin{equation}
+\SourceCurrentRed_A
+\equiv
+\mathfrak c_I\SpatialD_AQ^I
++\mathfrak c_\chi\SpatialD_A\chi
++\mathfrak c_WW_A^T.
+\label{eq:Jredexplicit}
+\end{equation}
+The associated reduced Hamiltonian source density is
+\begin{equation}
+\SourceDensityRed
+\equiv
+-\SpatialD^A\SourceCurrentRed_A.
+\label{eq:rhorfromJ}
+\end{equation}
+At the present manuscript scope, the constitutive coefficients and the reduced-data class are required only to satisfy:
+\begin{enumerate}
+    \item \(\SourceCurrentRed\) is explicit and local on the local experiential slice in the active variables \((Q^I,\chi,W_A^T)\), hence local in the active \(Q/W/\chi\) variables;
+    \item \(\SourceCurrentRed=\mathcal O_{\ge 2}\) and therefore \(\SourceDensityRed=\mathcal O_{\ge 2}\) in the reduced-data counting;
+    \item the divergence is supported in a bounded charge core \(r\le R_\ast\), so
+    \begin{equation}
+    \SpatialD^A\SourceCurrentRed_A=0
+    \qquad
+    \text{for } r>R_\ast;
+    \label{eq:exteriorcurrent}
+    \end{equation}
+    \item the same Hamiltonian charge is carried by its asymptotic flux:
+    \begin{equation}
+    \HamChargeOmega
+    \equiv
+    \int_{\Sigma_t}\SourceDensityRed\,d\mu_P
+    =
+    -\lim_{r\to\infty}\int_{S_r}n^A\SourceCurrentRed_A\,dA;
+    \label{eq:charge}
+    \end{equation}
+    \item on the decisive rotational matter-free regime, \(\HamChargeOmega\) may be nonzero.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:constitutivecurrent} is the precise sense in which the present note goes one layer deeper than the source-current-sector note. The reduced current is no longer an unspecified admissible functional. It is now an explicit local constitutive expression in the active slice variables. What is \emph{not} yet claimed is that the coefficients \((\mathfrak c_I,\mathfrak c_\chi,\mathfrak c_W)\), the choice of carrier basis, or the full enlarged sector have already been derived uniquely from a deeper local substrate curvature action.
+\end{remark}
+
+\begin{definition}[Disciplined constitutive realization at present scope]
+\label{def:disciplined}
+At the present manuscript scope, a constitutive carrier sector is a \emph{disciplined constitutive realization} of the reduced source current if:
+\begin{enumerate}
+    \item it rewrites the chosen local reduced current law in the active slice variables \((Q^I,\chi,W_A^T)\) as a first-order local carrier system on the local experiential slice;
+    \item its extra carrier fields are nonpropagating and eliminate algebraically back to that same reduced current law, so no new independent observer-side mode is introduced;
+    \item it preserves the already-fixed Hamiltonian-charge flux, continuity/Gauss-Poisson package, and dressed bridge output;
+    \item it makes no claim that the carrier basis or coefficients are uniquely forced prior to a deeper local substrate curvature action.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+The present note is intended to meet Definition \ref{def:disciplined} and not more. The carrier basis \((\QCarrier^I_A,\ChiCarrier_A,\TransCarrier_A,\ConstCurrent_A)\) is the minimal first-order local packaging of the active current formula \eqref{eq:Jredexplicit} in the already-active \(Q/W/\chi\) variables. Its role is to remove the reduced-current black box honestly at constitutive level while leaving the deeper uniqueness question to the next curvature-action stage.
+\end{remark}
+
+\begin{definition}[Intrinsic source-current variables]
+\label{def:sourcevars}
+The \emph{intrinsic source-current sector} is the same one used in the source-current-sector note:
+\begin{enumerate}
+    \item a scalar substrate source density \(\SourceDensity\);
+    \item a spatial substrate source current \(\SourceCurrent_A\) satisfying
+    \begin{equation}
+    U^A\SourceCurrent_A=0;
+    \label{eq:spatialcurrent}
+    \end{equation}
+    \item a spatial source flux \(\SourceFlux_A\) satisfying
+    \begin{equation}
+    U^A\SourceFlux_A=0;
+    \label{eq:spatialflux}
+    \end{equation}
+    \item the potential \(\FlowPot\), treated as an independent substrate field;
+    \item a scalar continuity multiplier \(\ContMult\);
+    \item a spatial current multiplier \(\CurrentMult_A\).
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Constitutive multipliers]
+\label{def:mults}
+The constitutive layer is enforced by the spatial multipliers
+\begin{equation}
+\ConstGamma_A,
+\qquad
+\QMult^{AI},
+\qquad
+\ChiMult^A,
+\qquad
+\TransMult^A,
+\label{eq:mults}
+\end{equation}
+all orthogonal to \(U^A\).
+\end{definition}
+
+\begin{definition}[Projected source derivative]
+\label{def:projected}
+Let
+\begin{equation}
+\SpatialD_A\equiv \ProjSub_A{}^B\nabla_B,
+\qquad
+\LapPerp\equiv \SpatialD^A\SpatialD_A,
+\label{eq:projderiv}
+\end{equation}
+where \(\nabla_A\) is the Levi-Civita connection of \(G_{AB}\). Thus \(\SpatialD\) and \(\LapPerp\) act along the local experiential slice orthogonal to \(U^A\).
+\end{definition}
+
+\begin{definition}[Constitutive-current plus source-current plus polarization action]
+\label{def:action}
+The \emph{constitutive-current plus source-current plus polarization sector} is the enlarged action
+\begin{equation}
+\ConstitutiveAction
+\equiv
+\CandAction
++
+\int_{\Sub} d^4X\,\sqrt{G}\,
+\bigl(
+\mathcal L_{\mathrm{const}}
++\mathcal L_{\mathrm{src,cur}}
++\mathcal L_{\mathrm{pol,aux}}
+\bigr),
+\label{eq:fullaction}
+\end{equation}
+with constitutive Lagrangian
+\begin{align}
+\mathcal L_{\mathrm{const}}
+=\;&
+\QMult^{AI}\bigl(\QCarrier^I_A-\SpatialD_AQ^I\bigr)
++\ChiMult^A\bigl(\ChiCarrier_A-\SpatialD_A\chi\bigr)
++\TransMult^A\bigl(\TransCarrier_A-W_A^T\bigr)
+\nonumber\\
+&+\ConstGamma^A\bigl(
+\ConstCurrent_A
+-\mathfrak c_I\QCarrier^I_A
+-\mathfrak c_\chi\ChiCarrier_A
+-\mathfrak c_W\TransCarrier_A
+\bigr),
+\label{eq:lconst}
+\end{align}
+source-current Lagrangian
+\begin{equation}
+\mathcal L_{\mathrm{src,cur}}
+=
+\SourceFlux^A\SpatialD_A\FlowPot
+-\frac12 \SourceFlux_A\SourceFlux^A
+-4\pi G_N\,\SourceDensity\,\FlowPot
++\ContMult\bigl(\SourceDensity+\SpatialD^A\SourceCurrent_A\bigr)
++\CurrentMult^A\bigl(\SourceCurrent_A-\ConstCurrent_A\bigr),
+\label{eq:lcur}
+\end{equation}
+and polarization Lagrangian
+\begin{align}
+\mathcal L_{\mathrm{pol,aux}}
+=\;&
+\BalMult\bigl(\BalanceField-\FlowPot^2\bigr)
+-\frac{\mu_t^2}{2}\bigl(\alpha+2\BalanceField\bigr)^2
+-\frac{\mu_s^2}{2}\bigl(\beta-\tfrac32\BalanceField\bigr)^2
+\nonumber\\
+&-\frac{\mu_v^2}{2}\,\mathcal V_A\mathcal V^A
+-\frac{\mu_{\mathrm{tf}}^2}{2}\,\mathcal T_{AB}\mathcal T^{AB},
+\label{eq:laux}
+\end{align}
+where the independent symmetric auxiliary tensor \(\AuxPol_{AB}\) is decomposed as
+\begin{equation}
+\AuxPol_{AB}
+=
+\alpha\,U_AU_B
++2U_{(A}\mathcal V_{B)}
++\mathcal T_{AB}
++\beta\,\ProjSub_{AB},
+\label{eq:Kdecomp}
+\end{equation}
+with
+\begin{equation}
+U^A\mathcal V_A=0,
+\qquad
+U^A\mathcal T_{AB}=0,
+\qquad
+\ProjSub^{AB}\mathcal T_{AB}=0,
+\label{eq:TVcond}
+\end{equation}
+and
+\begin{equation}
+\mu_t^2>0,
+\qquad
+\mu_s^2>0,
+\qquad
+\mu_v^2>0,
+\qquad
+\mu_{\mathrm{tf}}^2>0.
+\label{eq:masses}
+\end{equation}
+\end{definition}
+
+\begin{remark}
+Compared with the source-current-sector note, the conceptual change in Definition \ref{def:action} is narrow but real. The block \(\CurrentMult^A(\SourceCurrent_A-\SourceCurrentRed_A)\) is replaced by the deeper constitutive-current block
+\[
+\QMult^{AI}\bigl(\QCarrier^I_A-\SpatialD_AQ^I\bigr)
++\ChiMult^A\bigl(\ChiCarrier_A-\SpatialD_A\chi\bigr)
++\TransMult^A\bigl(\TransCarrier_A-W_A^T\bigr)
++\ConstGamma^A\bigl(\ConstCurrent_A-\mathfrak c_I\QCarrier^I_A-\mathfrak c_\chi\ChiCarrier_A-\mathfrak c_W\TransCarrier_A\bigr),
+\]
+together with \(\CurrentMult^A(\SourceCurrent_A-\ConstCurrent_A)\). The reduced current is therefore no longer assumed as admissible reduced data. It is the eliminated constitutive current of explicit local carrier variables. As in the source-current-sector note, the already-recorded reduced variables \((Q^I,\chi,W_A^T)\) enter this deeper block parametrically rather than through a reopened variation of the quotient line.
+\end{remark}
+
+\section{Variational Derivation of the Constitutive/Continuity/Gauss-Poisson Package}
+
+\begin{proposition}[Euler--Lagrange system of the enlarged constitutive-current plus source-current plus polarization sector]
+\label{prop:EL}
+The Euler--Lagrange equations of \eqref{eq:fullaction} give
+\begin{equation}
+\QCarrier^I_A=\SpatialD_AQ^I,
+\qquad
+\ChiCarrier_A=\SpatialD_A\chi,
+\qquad
+\TransCarrier_A=W_A^T,
+\label{eq:carrierrels}
+\end{equation}
+\begin{equation}
+\ConstCurrent_A
+=
+\mathfrak c_I\QCarrier^I_A
++\mathfrak c_\chi\ChiCarrier_A
++\mathfrak c_W\TransCarrier_A
+=
+\SourceCurrentRed_A,
+\label{eq:constitutivecarrier}
+\end{equation}
+\begin{equation}
+\SourceCurrent_A=\ConstCurrent_A=\SourceCurrentRed_A,
+\qquad
+\SourceDensity=-\SpatialD^A\SourceCurrent_A=-\SpatialD^A\SourceCurrentRed_A=\SourceDensityRed,
+\label{eq:currenteqs}
+\end{equation}
+\begin{equation}
+\ContMult=4\pi G_N\,\FlowPot,
+\qquad
+\CurrentMult_A=\ConstGamma_A=\SpatialD_A\ContMult,
+\qquad
+\SourceFlux_A=\SpatialD_A\FlowPot,
+\label{eq:multflux}
+\end{equation}
+\begin{equation}
+\QMult_{A}{}^{I}=\mathfrak c_I\ConstGamma_A,
+\qquad
+\ChiMult_A=\mathfrak c_\chi\ConstGamma_A,
+\qquad
+\TransMult_A=\mathfrak c_W\ConstGamma_A,
+\label{eq:carrier_mults}
+\end{equation}
+\begin{equation}
+-\LapPerp \FlowPot=4\pi G_N\,\SourceDensity,
+\label{eq:poisson}
+\end{equation}
+and
+\begin{equation}
+\BalanceField=\FlowPot^2,
+\qquad
+\alpha=-2\BalanceField,
+\qquad
+\beta=\frac32\BalanceField,
+\qquad
+\mathcal V_A=0,
+\qquad
+\mathcal T_{AB}=0,
+\qquad
+\BalMult=0.
+\label{eq:poleqs}
+\end{equation}
+Consequently,
+\begin{equation}
+\AuxPol_{AB}^{\mathrm{elim}}
+=
+-2\FlowPot^2U_AU_B
++\frac32\FlowPot^2\ProjSub_{AB}.
+\label{eq:Kelim}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Variation with respect to \(\QMult^{AI}\), \(\ChiMult^A\), \(\TransMult^A\), and \(\ConstGamma^A\) gives \eqref{eq:carrierrels} and \eqref{eq:constitutivecarrier}. Combining those identities with Definition \ref{def:constitutivecurrent} identifies the eliminated constitutive current as \(\SourceCurrentRed_A\).
+
+Variation with respect to \(\CurrentMult_A\) gives \(\SourceCurrent_A=\ConstCurrent_A\). Variation with respect to \(\ContMult\) gives the slice continuity relation
+\[
+\SourceDensity+\SpatialD^A\SourceCurrent_A=0.
+\]
+Combining these two identities with \eqref{eq:constitutivecarrier} yields \eqref{eq:currenteqs}.
+
+Variation with respect to \(\SourceDensity\) gives \(\ContMult=4\pi G_N\FlowPot\). Variation with respect to \(\SourceCurrent_A\) and integration by parts on the local experiential slice yield
+\[
+\CurrentMult_A-\SpatialD_A\ContMult=0,
+\]
+which gives the second identity in \eqref{eq:multflux}. Variation with respect to \(\ConstCurrent_A\) gives
+\[
+\ConstGamma_A-\CurrentMult_A=0,
+\]
+so \(\ConstGamma_A=\CurrentMult_A\). Variation with respect to \(\QCarrier^I_A\), \(\ChiCarrier_A\), and \(\TransCarrier_A\) then yields \eqref{eq:carrier_mults}. Variation with respect to the spatial source flux \(\SourceFlux_A\) gives \(\SourceFlux_A=\SpatialD_A\FlowPot\).
+
+Varying \(\FlowPot\) and integrating by parts on the local experiential slice yields
+\[
+-\SpatialD_A\SourceFlux^A-4\pi G_N\,\SourceDensity-2\BalMult\FlowPot=0.
+\]
+The variation of \(\BalanceField\) in \eqref{eq:laux} gives
+\[
+\BalMult
+-2\mu_t^2(\alpha+2\BalanceField)
++\frac32\mu_s^2\bigl(\beta-\tfrac32\BalanceField\bigr)=0.
+\]
+Variation with respect to \(\alpha\), \(\beta\), \(\mathcal V_A\), and \(\mathcal T_{AB}\) gives
+\[
+\alpha=-2\BalanceField,
+\qquad
+\beta=\frac32\BalanceField,
+\qquad
+\mathcal V_A=0,
+\qquad
+\mathcal T_{AB}=0.
+\]
+Substituting these into the \(\BalanceField\)-equation yields \(\BalMult=0\). The \(\FlowPot\)-equation therefore reduces to \eqref{eq:poisson}, and the multiplier equation gives \(\BalanceField=\FlowPot^2\). Substituting \eqref{eq:poleqs} into \eqref{eq:Kdecomp} yields \eqref{eq:Kelim}.
+\end{proof}
+
+\begin{corollary}[Explicit local constitutive current in the active \texorpdfstring{\(Q/W/\chi\)}{Q/W/chi} variables]
+\label{cor:localcurrent}
+The eliminated reduced source current is the explicit local slice functional
+\begin{equation}
+\SourceCurrentRed_A
+=
+\mathfrak c_I\SpatialD_AQ^I
++\mathfrak c_\chi\SpatialD_A\chi
++\mathfrak c_WW_A^T,
+\label{eq:localcurrent}
+\end{equation}
+hence it is local, rather than merely admissibly assumed, in the active \(Q/W/\chi\) variables.
+\end{corollary}
+
+\begin{proof}
+This is exactly \eqref{eq:carrierrels} and \eqref{eq:constitutivecarrier}.
+\end{proof}
+
+\begin{corollary}[Constitutive continuity/Gauss-Poisson package]
+\label{cor:continuity}
+The enlarged constitutive-current sector derives the same continuity/Gauss-Poisson package that fed the previous source-current-sector note:
+\begin{equation}
+\SourceDensity+\SpatialD^A\SourceCurrent_A=0,
+\label{eq:continuity}
+\end{equation}
+\begin{equation}
+-\SpatialD_A\SourceFlux^A=4\pi G_N\,\SourceDensity,
+\qquad
+\SourceFlux_A=\SpatialD_A\FlowPot.
+\label{eq:gausspoisson}
+\end{equation}
+Hence, for every ball \(B_r\) containing the charge core,
+\begin{equation}
+\int_{B_r}\SourceDensity\,d\mu_P
+=
+-\int_{S_r}n^A\SourceCurrent_A\,dA
+=
+-\int_{S_r}n^A\SourceCurrentRed_A\,dA
+=
+-\frac{1}{4\pi G_N}\int_{S_r}n^A\SourceFlux_A\,dA.
+\label{eq:doublegauss}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+Equations \eqref{eq:continuity} and \eqref{eq:gausspoisson} are exactly \eqref{eq:currenteqs}, \eqref{eq:multflux}, and \eqref{eq:poisson}. Integrating each divergence relation over \(B_r\) and using the divergence theorem yields \eqref{eq:doublegauss}.
+\end{proof}
+
+\begin{corollary}[Derived exterior Coulomb profile after the constitutive layer]
+\label{cor:coulomb}
+Assume the exterior condition \eqref{eq:exteriorcurrent}. Then on the source-free exterior region \(r>R_\ast\),
+\begin{equation}
+\FlowPot
+=
+\CoulPot+\FlowPotReg,
+\qquad
+\CoulPot(r)=\frac{G_N\,\HamChargeOmega}{r},
+\qquad
+\FlowPotReg=\mathcal O(r^{-2}),
+\qquad
+\partial\FlowPotReg=\mathcal O(r^{-3}).
+\label{eq:potdecomp}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+By Definition \ref{def:constitutivecurrent} and Proposition \ref{prop:EL},
+\[
+\SourceDensity
+=
+-\SpatialD^A\SourceCurrentRed_A
+=
+0
+\qquad
+\text{for } r>R_\ast.
+\]
+Therefore \(\LapPerp\FlowPot=0\) on the exterior region. Standard harmonic expansion on the asymptotically Euclidean local experiential slice gives
+\[
+\FlowPot=\frac{A}{r}+\mathcal O(r^{-2})
+\]
+for the unique decaying branch. By \eqref{eq:doublegauss},
+\begin{equation}
+-\int_{S_r}n^A\SpatialD_A\FlowPot\,dA
+=
+4\pi G_N\int_{B_r}\SourceDensity\,d\mu_P
+=
+-4\pi G_N\int_{S_r}n^A\SourceCurrentRed_A\,dA
+=
+4\pi G_N\,\HamChargeOmega.
+\label{eq:gauss}
+\end{equation}
+For the harmonic monopole \(A/r\), the left-hand side of \eqref{eq:gauss} is \(4\pi A\). Hence \(A=G_N\HamChargeOmega\), which gives \eqref{eq:potdecomp}.
+\end{proof}
+
+\begin{remark}
+Corollary \ref{cor:coulomb} is the precise sense in which the constitutive layer does not change anything downstream. It simply makes the same Hamiltonian charge and the same exterior Coulomb tail descend from an explicit local current formula rather than from an assumed admissible reduced current functional.
+\end{remark}
+
+\section{Elimination and Recovery of the Same \texorpdfstring{\(r^{-2}\)}{r^-2} Dressing}
+
+\begin{definition}[Dressed bridge reconstruction after full elimination]
+\label{def:bridge}
+Let \(\LiftIER_{AB}\) be a substrate tensor whose observer pullback is the already-fixed lower-order inverse-response correction,
+\begin{equation}
+\ObserverMap^\ast\LiftIER_{AB}=\SigmaIER_{\mu\nu}.
+\label{eq:liftier}
+\end{equation}
+After eliminating the full constitutive-current plus source-current plus polarization sector, define the reconstructed bridge metric by
+\begin{equation}
+\BridgeMetric_{AB}^{\mathrm{const+cur+aux}}
+=
+G_{AB}
+-2U_AU_B
++\LiftIER_{AB}
++\AuxPol_{AB}^{\mathrm{elim}}.
+\label{eq:bridge}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[Coulomb-plus-regular split of the eliminated polarization tensor]
+\label{prop:split}
+On the exterior charge sector,
+\begin{equation}
+\AuxPol_{AB}^{\mathrm{elim}}
+=
+\AuxPol_{AB}^{\mathrm{Sch}}
++\AuxPol_{AB}^{\mathrm{reg}},
+\label{eq:Ksplit}
+\end{equation}
+where
+\begin{equation}
+\AuxPol_{AB}^{\mathrm{Sch}}
+=
+-2\CoulPot^2U_AU_B
++\frac32\CoulPot^2\ProjSub_{AB},
+\label{eq:Ksch}
+\end{equation}
+and
+\begin{align}
+\AuxPol_{AB}^{\mathrm{reg}}
+=\;&
+-2\bigl(2\CoulPot\FlowPotReg+(\FlowPotReg)^2\bigr)U_AU_B
+\nonumber\\
+&+\frac32\bigl(2\CoulPot\FlowPotReg+(\FlowPotReg)^2\bigr)\ProjSub_{AB}.
+\label{eq:Kreg}
+\end{align}
+Moreover,
+\begin{equation}
+\AuxPol_{AB}^{\mathrm{reg}}=\mathcal O(r^{-3}),
+\qquad
+\nabla\AuxPol_{AB}^{\mathrm{reg}}=\mathcal O(r^{-4}).
+\label{eq:Kregdecay}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Substitute \eqref{eq:potdecomp} into \eqref{eq:Kelim}:
+\[
+\FlowPot^2=\CoulPot^2+2\CoulPot\FlowPotReg+(\FlowPotReg)^2.
+\]
+Separating the pure Coulomb square from the faster remainder gives \eqref{eq:Ksplit}--\eqref{eq:Kreg}. Since \(\CoulPot=\mathcal O(r^{-1})\) and \(\FlowPotReg=\mathcal O(r^{-2})\), one has \(2\CoulPot\FlowPotReg+(\FlowPotReg)^2=\mathcal O(r^{-3})\), and the derivative estimate follows immediately.
+\end{proof}
+
+\begin{proposition}[Observer pullback of the full eliminated constitutive-current plus source-current plus polarization sector]
+\label{prop:pullback}
+In a substrate-adapted local observer chart in which \(U^A\) is the unit temporal direction and \(\ObserverMap^\ast\ProjSub_{AB}\) reduces to the spatial Euclidean metric at leading order, one has
+\begin{equation}
+\bigl(\ObserverMap^\ast\AuxPol^{\mathrm{Sch}}\bigr)_{00}
+=
+-2\CoulPot^2,
+\qquad
+\bigl(\ObserverMap^\ast\AuxPol^{\mathrm{Sch}}\bigr)_{0i}
+=
+0,
+\qquad
+\bigl(\ObserverMap^\ast\AuxPol^{\mathrm{Sch}}\bigr)_{ij}
+=
+\frac32\CoulPot^2\,\delta_{ij},
+\label{eq:pullsch}
+\end{equation}
+and
+\begin{equation}
+\ObserverMap^\ast\AuxPol_{AB}^{\mathrm{reg}}
+=
+\SigmaRegPol{}_{\mu\nu},
+\qquad
+\SigmaRegPol=\mathcal O(r^{-3}),
+\qquad
+\partial\SigmaRegPol=\mathcal O(r^{-4}).
+\label{eq:pullreg}
+\end{equation}
+Therefore
+\begin{equation}
+\ObserverMap^\ast \BridgeMetric_{AB}^{\mathrm{const+cur+aux}}
+=
+g_{\mu\nu}^{\mathrm{br}}
++\SigmaIER_{\mu\nu}
++\SigmaDressSch{}_{\mu\nu}
++\SigmaRegPol{}_{\mu\nu},
+\label{eq:targetrecovered}
+\end{equation}
+with \(\SigmaDressSch\) exactly as in \eqref{eq:schdress}.
+\end{proposition}
+
+\begin{proof}
+The pullback identities for \(U_AU_B\) and \(\ProjSub_{AB}\) are the same ones used in the substrate-origin, constrained auxiliary-sector, intrinsic source-sector, and source-current-sector notes. Applying them to \eqref{eq:Ksch} yields \eqref{eq:pullsch}, which is exactly the Schwarzschild-type \(r^{-2}\) dressing of Definition \ref{def:target}. Applying the same pullback to \eqref{eq:Kreg} and using \eqref{eq:Kregdecay} gives \eqref{eq:pullreg}. Combining those identities with \eqref{eq:bridge} and \eqref{eq:liftier} yields \eqref{eq:targetrecovered}.
+\end{proof}
+
+\begin{corollary}[Same observer output as the positive dressing test]
+\label{cor:sameoutput}
+Eliminating the full constitutive-current plus source-current plus polarization sector reproduces exactly the same observer-side dressed bridge map already fixed by the positive dressing-candidate test.
+\end{corollary}
+
+\begin{proof}
+This is precisely Proposition \ref{prop:pullback}.
+\end{proof}
+
+\section{Why the Same Gain Package Survives}
+
+\begin{proposition}[Constitutive-current sector is slice-wise elliptic and does not introduce new propagating observer modes]
+\label{prop:elliptic}
+At the present manuscript scope, the intrinsic constitutive-current sector is nonpropagating on each local experiential slice:
+\begin{equation}
+\ConstCurrent=\mathcal O_{\ge 2},
+\qquad
+\SourceCurrent=\mathcal O_{\ge 2},
+\qquad
+\SourceDensity=\mathcal O_{\ge 2},
+\qquad
+\FlowPot=\mathcal O_{\ge 2},
+\qquad
+\BalanceField=\FlowPot^2=\mathcal O_{\ge 4}.
+\label{eq:orders}
+\end{equation}
+Moreover, the full deeper sector reaches the bridge metric only through the quartic combination \(\BalanceField=\FlowPot^2\).
+\end{proposition}
+
+\begin{proof}
+Definition \ref{def:constitutivecurrent} gives \(\SourceCurrentRed=\mathcal O_{\ge 2}\). Proposition \ref{prop:EL} therefore gives \(\ConstCurrent=\SourceCurrent=\mathcal O_{\ge 2}\) and \(\SourceDensity=-\SpatialD^A\SourceCurrent=\mathcal O_{\ge 2}\). The elliptic solve \eqref{eq:poisson} is linear in \(\SourceDensity\), so \(\FlowPot=\mathcal O_{\ge 2}\) in the same reduced-data counting used in the inverse-response and dressing notes. Therefore \(\BalanceField=\FlowPot^2=\mathcal O_{\ge 4}\). Equation \eqref{eq:Kelim} shows that the deeper constitutive-current plus source-current plus polarization sector reaches the bridge metric only through \(\BalanceField\), hence only at quartic order.
+\end{proof}
+
+\begin{corollary}[No reopening of the lower-order quotient line]
+\label{cor:nopde}
+The constitutive-current sector does not reopen the already-positive quotient reduced-system, theorem, decay, or asymptotic line.
+\end{corollary}
+
+\begin{proof}
+By Proposition \ref{prop:elliptic}, the new constitutive carrier variables add only a slice-wise algebraic reconstruction of the source current together with the same slice-wise elliptic Poisson solve whose bridge imprint begins at quartic order. Therefore they do not alter the already-closed lower-order quotient equations or the estimates built on them.
+\end{proof}
+
+\begin{theorem}[Preservation of matter-free activity, off-longitudinal cancellation, and cubic completion]
+\label{thm:firstthree}
+The intrinsic constitutive-current plus source-current plus polarization sector preserves items (1)--(3) of Definition \ref{def:gains}: matter-free activity, off-longitudinal \(Q/W\) cancellation, and explicit cubic longitudinal completion.
+\end{theorem}
+
+\begin{proof}
+The lower-order inverse-response tensor \(\SigmaIER\) is unchanged by Definition \ref{def:bridge}. Therefore the lower-order identities through which \(\SigmaIER\) cancels the full off-longitudinal remainder \(\ReOff\) and the cubic longitudinal tensor \(\ReLongThree\) remain exactly as before. Matter-free activity also survives: by Definition \ref{def:constitutivecurrent}, the same reduced Hamiltonian charge \(\HamChargeOmega\) may be nonzero on the decisive rotational matter-free regime and is now represented explicitly by the asymptotic flux of the constitutively resolved current \(\SourceCurrentRed_A\). Corollary \ref{cor:coulomb} then gives the same nontrivial Coulomb tail even when ordinary matter vanishes. Since Proposition \ref{prop:elliptic} shows that the full deeper sector enters the observer map only at quartic order, none of these already-positive lower-order gains is disturbed.
+\end{proof}
+
+\begin{theorem}[Preservation of quartic Coulomb self-response absorption]
+\label{thm:quartic}
+On the decisive matter-free rotational exterior regime, the intrinsic constitutive-current plus source-current plus polarization sector preserves item (4) of Definition \ref{def:gains}: the isolated quartic Coulomb self-response is structurally absorbed and the resulting quartic observer tensor is pushed to \(\mathcal O(r^{-5})\).
+\end{theorem}
+
+\begin{proof}
+By Proposition \ref{prop:pullback}, the observer tensor produced by eliminating the full constitutive-current plus source-current plus polarization sector is exactly the same Schwarzschild-type \(r^{-2}\) dressing plus an \(\mathcal O(r^{-3})\) regular completion already tested positively in the dressing-candidate note. The Hamiltonian projection cancellation and full tensor-level \(\mathcal O(r^{-5})\) verdict of that note therefore apply verbatim.
+\end{proof}
+
+\begin{corollary}[Disciplined constitutive source-current verdict]
+\label{cor:verdict}
+At the present disciplined scope, the enlarged constitutive-current plus source-current plus polarization sector of Definition \ref{def:action} is a valid next-step realization of the surviving dressed bridge map:
+\begin{enumerate}
+    \item it introduces explicit local carrier variables whose elimination yields the reduced source current itself as the local slice functional \eqref{eq:localcurrent};
+    \item the divergence of that constitutively resolved current gives the reduced Hamiltonian source density and the same Hamiltonian charge flux,
+    \[
+    \SourceDensityRed=-\SpatialD^A\SourceCurrentRed_A,
+    \qquad
+    \HamChargeOmega=-\lim_{r\to\infty}\int_{S_r}n^A\SourceCurrentRed_A\,dA;
+    \]
+    \item the same continuity/Gauss-Poisson package and the same exterior Coulomb tail follow after passing through the constitutive layer;
+    \item eliminating the full constitutive-current plus source-current plus polarization block reproduces the same Schwarzschild-type \(r^{-2}\) dressing and \(\mathcal O(r^{-3})\) regular completion;
+    \item it preserves the same matter-free/off-longitudinal/cubic/quartic gain package.
+\end{enumerate}
+In particular, it should be retained on the active line only in the disciplined sense of Definition \ref{def:disciplined}: as a local first-order constitutive realization of the chosen reduced current law, not yet as a deeper curvature-forced derivation.
+\end{corollary}
+
+\begin{proof}
+Item (1) is Corollary \ref{cor:localcurrent}. Item (2) is Proposition \ref{prop:EL} together with Definition \ref{def:constitutivecurrent}. Item (3) is Corollaries \ref{cor:continuity} and \ref{cor:coulomb}. Item (4) is Proposition \ref{prop:pullback}. Item (5) is Theorems \ref{thm:firstthree} and \ref{thm:quartic}.
+The final sentence is exactly the disciplined-scope reading fixed by Definition \ref{def:disciplined} together with the explicit claim-boundary paragraphs above.
+\end{proof}
+
+\section{Conclusion}
+
+The active burden at this stage was no longer another observer-level repair, no longer merely the internalization of the source density, and no longer only the introduction of an explicit source current. It was to stop treating the reduced source current itself as the new black box. The present manuscript supplies that next step.
+
+\begin{enumerate}
+    \item The enlarged action now contains an explicit constitutive carrier layer \((\QCarrier^I_A,\ChiCarrier_A,\TransCarrier_A,\ConstCurrent_A)\) together with the multipliers \((\ConstGamma_A,\QMult^{AI},\ChiMult^A,\TransMult^A)\), so the reduced source current is no longer represented only by assumed admissible reduced data.
+    \item The Euler--Lagrange equations of that deeper block derive
+    \[
+    \SourceCurrentRed_A
+    =
+    \mathfrak c_I\SpatialD_AQ^I
+    +\mathfrak c_\chi\SpatialD_A\chi
+    +\mathfrak c_WW_A^T
+    \]
+    as the eliminated constitutive current of explicit local carrier variables.
+    \item The same enlarged variational system then derives the source density itself as
+    \[
+    \SourceDensity=-\SpatialD^A\SourceCurrent_A=-\SpatialD^A\SourceCurrentRed_A=\SourceDensityRed,
+    \]
+    and it carries the same Hamiltonian charge by the same asymptotic current flux.
+    \item The same continuity/Gauss-Poisson package and the same exterior Coulomb profile for \(\FlowPot\) therefore follow after passing through the constitutive layer.
+    \item The same auxiliary polarization block still yields \(\BalanceField=\FlowPot^2\) and \(\AuxPol_{AB}^{\mathrm{elim}}=-2\FlowPot^2U_AU_B+\tfrac32\FlowPot^2\ProjSub_{AB}\).
+    \item On the exterior charge sector, that elimination again splits into the same Schwarzschild-type \(r^{-2}\) dressing plus an \(\mathcal O(r^{-3})\) regular completion, so the observer output is exactly the same dressed bridge map already fixed by the positive candidate test.
+    \item Because the new constitutive layer is slice-wise nonpropagating and reaches the bridge only through the quartic combination \(\FlowPot^2\), the already-positive matter-free activity, off-longitudinal \(Q/W\) cancellation, explicit cubic longitudinal completion, and quartic Coulomb self-response absorption are all preserved.
+\end{enumerate}
+
+This is the correct scope for the present note. At disciplined scope, the carrier sector should remain on the active line as a local first-order constitutive realization of the reduced current law. It does not yet claim that the constitutive coefficients \((\mathfrak c_I,\mathfrak c_\chi,\mathfrak c_W)\) or the carrier basis are uniquely forced by a deeper local substrate curvature action, and it does not yet promote the full enlarged bridge variable into such a curvature action either. The narrower positive result is the one the active sequence now required: the reduced source-current resolution itself is internalized as the eliminated constitutive current of explicit local substrate variables without losing the same \(r^{-2}\) dressed bridge output or the same gain package.
+
+\end{document}

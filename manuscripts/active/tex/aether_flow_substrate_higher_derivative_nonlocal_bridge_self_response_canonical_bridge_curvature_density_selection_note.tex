@@ -1,0 +1,494 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal{A}}
+\newcommand{\BridgeMetric}{\mathfrak g}
+\newcommand{\ObserverMap}{\Xi}
+\newcommand{\ProjSub}{P}
+\newcommand{\SpatialD}{\mathcal D}
+\newcommand{\LapPerp}{\Delta_\perp}
+\newcommand{\FlowPot}{\Phi_\Omega}
+\newcommand{\CoulPot}{U_\Omega}
+\newcommand{\BalanceField}{\Pi_\Omega}
+\newcommand{\BalMult}{\Lambda_\Pi}
+\newcommand{\SourceDensity}{\varrho_\Omega}
+\newcommand{\SourceDensityRed}{\varrho_\Omega^{\mathrm{red}}}
+\newcommand{\SourceCurrent}{\mathcal J^{(\Omega)}}
+\newcommand{\SourceCurrentRed}{\mathcal J^{(\Omega,\mathrm{red})}}
+\newcommand{\ConstCurrent}{\mathcal C}
+\newcommand{\ContMult}{\Lambda_{\mathrm c}}
+\newcommand{\CurrentMult}{\Lambda}
+\newcommand{\ConstGamma}{\Gamma}
+\newcommand{\CurvQMult}{\mathscr P}
+\newcommand{\CurvChiMult}{\mathscr X}
+\newcommand{\CurvTransMult}{\mathscr Y}
+\newcommand{\SourceFlux}{\mathcal E}
+\newcommand{\HamChargeOmega}{\mathfrak m_\Omega}
+\newcommand{\SigmaIER}{\Sigma^{\mathrm{IER}}}
+\newcommand{\SigmaDressSch}{\Sigma^{\mathrm{Sch}}}
+\newcommand{\SigmaRegPol}{\Sigma^{\mathrm{pol,reg}}}
+\newcommand{\LiftIER}{\widehat\Sigma^{\mathrm{IER}}}
+\newcommand{\AuxPol}{\mathbb K}
+\newcommand{\CandAction}{S_{\mathrm{cand}}}
+\newcommand{\CurvAction}{S_{\mathrm{cand}}^{\mathrm{loc.curv+cur+aux}}}
+\newcommand{\CurvSeed}{\Theta_{\mathrm{br}}}
+\newcommand{\CurvSeedMult}{\Upsilon_{\mathrm{br}}}
+\newcommand{\CurvScale}{\ell_{\mathrm{br}}}
+\newcommand{\CurvProfile}{F_{\mathrm{br}}}
+\newcommand{\CurvOneI}{\mathfrak K}
+\newcommand{\CurvOneChi}{\mathfrak L}
+\newcommand{\CurvOneW}{\mathfrak M}
+\newcommand{\BridgeCurv}{\mathcal R_{\mathrm{br}}}
+\newcommand{\CurvFamily}{\mathscr F_{\mathrm{br}}^{+}}
+\newcommand{\CurvQuot}{[\mathcal L_{\mathrm{loc.curv}}]}
+\newcommand{\DownPkg}{\mathscr P_{\mathrm{down}}}
+\newcommand{\SelRule}{\mathscr S}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Nonlocal Bridge Self-Response Canonical Bridge-Curvature-Density Selection Note}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The positive quotient reduced-system, theorem, decay, and asymptotic line remains closed and is not reopened here. The constitutive source-current note is already canonized at disciplined constitutive scope, the constitutive-current curvature-action note is already canonized at disciplined integrated-action scope, and the explicit local bridge-curvature-density note is already canonized at disciplined representative scope. That explicit local note also fixed the present burden sharply: the carrier basis and coefficient triple are forced, but the explicit local bridge-curvature density remains fixed only up to an equivalence class of admissible representatives.
+
+The present manuscript tests whether the active line already contains any further honest substrate principle selecting a preferred canonical representative from that equivalence class without changing the same reduced current, Hamiltonian-charge flux, continuity/Gauss-Poisson package, exterior Coulomb tail, surviving dressed bridge map, or \(r^{-2}\) gain package. First, quotienting by local slice divergences and Bianchi-exact additions removes only the already-trivial redundancy; a smooth positive bridge-curvature profile \(\CurvProfile\) multiplying the forced carrier slots remains free. Second, the preserved downstream package is profile-blind because the normalized current readout cancels the seed \(\CurvSeed=\CurvProfile(\BridgeCurv)\). Third, benchmark normalization \(\CurvProfile(0)=1\), positivity, locality, and the present derivative-order bound still leave infinitely many admissible positive profiles. Fourth, off-shell first variation with respect to profile deformations is vacuous on shell because the multiplier \(\CurvSeedMult\) enforcing \(\CurvSeed=\CurvProfile(\BridgeCurv)\) vanishes in the Euler--Lagrange system. Finally, a no-new-scale minimality rule collapses only to the constant profile \(\CurvProfile\equiv1\), which removes nontrivial bridge-curvature dependence and therefore cannot serve as the canonical bridge-curvature-density principle of the active line.
+
+The honest verdict is negative. At current disciplined scope no further built-in substrate principle, symmetry, or variational criterion selects a unique canonical representative. If uniqueness is still desired, genuinely new structural input must be added rather than read back from the present local bridge-curvature sector alone.
+\end{abstract}
+
+\section{Introduction}
+
+The live burden after the explicit local bridge-curvature-density note is no longer to search for some local representative at all. That note already wrote one explicit representative tied directly to the bridge Ricci scalar in the candidate substrate action and checked that the same reduced current, Hamiltonian-charge flux, continuity/Gauss-Poisson package, exterior Coulomb tail, dressed bridge map, and gain package survive after elimination. Its sharper verdict was different: the local density exists, but it is not unique at current scope.
+
+The present manuscript addresses exactly that narrowed burden. It asks whether the active line already contains some further honest principle that collapses the representative equivalence class to a preferred canonical choice without changing the already-fixed downstream package. The answer matters because the explicit local note was retained only at disciplined representative scope. If a canonical selection principle were already present, the line could be sharpened one step further again. If not, then uniqueness remains genuinely open and must not be claimed implicitly.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+This note stays strictly inside that boundary. It does not reopen the already-positive quotient PDE line. It does not alter the already-positive dressed bridge map. It does not claim that every conceivable future deeper principle has already been ruled out. Its narrower result is a disciplined current-scope verdict: no canonical representative can yet be selected from the explicit local equivalence class using only the structure already present in the active candidate action, the current derivative-order restriction, the current local variational sector, and the already-fixed downstream package.
+
+\section{Fixed Equivalence-Class Data}
+
+\begin{definition}[Bridge-curvature anchor and local representative family]
+\label{def:family}
+Let
+\begin{equation}
+\BridgeCurv \equiv R[\BridgeMetric]-2\Lambda_{\Sub}
+\label{eq:anchor}
+\end{equation}
+be the bridge-curvature scalar already present in the candidate substrate action. For every smooth positive profile
+\begin{equation}
+\CurvProfile:\mathbb R\to \mathbb R_{>0},
+\label{eq:fpositive}
+\end{equation}
+define the seed
+\begin{equation}
+\CurvSeed=\CurvProfile(\BridgeCurv)
+\label{eq:seed}
+\end{equation}
+and the local bridge-curvature carrier density
+\begin{align}
+\mathcal L_{\mathrm{loc.curv}}[\CurvProfile]
+=\;&
+\CurvSeedMult\bigl(\CurvSeed-\CurvProfile(\BridgeCurv)\bigr)
+\nonumber\\
+&+\CurvQMult^{AI}\bigl(\CurvOneI_A^I-\CurvSeed\,\lambda_I\SpatialD_AQ^I\bigr)
++\CurvChiMult^A\bigl(\CurvOneChi_A-\CurvSeed\,\lambda_\chi\SpatialD_A\chi\bigr)
+\nonumber\\
+&+\CurvTransMult^A\bigl(\CurvOneW_A-\CurvSeed\,\lambda_WW_A^T\bigr)
++\ConstGamma^A\bigl(
+\ConstCurrent_A
+-\nu_I\CurvSeed^{-1}\CurvOneI_A^I
+-\nu_\chi\CurvSeed^{-1}\CurvOneChi_A
+-\nu_W\CurvSeed^{-1}\CurvOneW_A
+\bigr).
+\label{eq:locfamily}
+\end{align}
+Here the active slice variables \(Q^I\), \(\chi\), and \(W_A^T\) are the same ones fixed in the explicit local note, with
+\begin{equation}
+W_A=\SpatialD_A\chi+W_A^T,
+\qquad
+U^AW_A^T=0,
+\qquad
+\SpatialD^AW_A^T=0.
+\label{eq:Wdecomp}
+\end{equation}
+\end{definition}
+
+\begin{definition}[Forced carrier slots and forced coefficient triple]
+\label{def:forced}
+At the present local derivative order, the only allowed spatial one-form slots are
+\begin{equation}
+\SpatialD_AQ^I,
+\qquad
+\SpatialD_A\chi,
+\qquad
+W_A^T.
+\label{eq:slots}
+\end{equation}
+The normalized readout fixes the constitutive current to be
+\begin{equation}
+\ConstCurrent_A
+=
+\mathfrak c_I\SpatialD_AQ^I
++\mathfrak c_\chi\SpatialD_A\chi
++\mathfrak c_WW_A^T,
+\qquad
+\mathfrak c_I=\nu_I\lambda_I,
+\qquad
+\mathfrak c_\chi=\nu_\chi\lambda_\chi,
+\qquad
+\mathfrak c_W=\nu_W\lambda_W.
+\label{eq:forcedcurrent}
+\end{equation}
+\end{definition}
+
+\begin{definition}[Fixed downstream package]
+\label{def:downstream}
+The \emph{fixed downstream package} \(\DownPkg\) consists of:
+\begin{enumerate}
+    \item the reduced current and reduced density
+    \begin{equation}
+    \SourceCurrentRed_A=\ConstCurrent_A,
+    \qquad
+    \SourceDensityRed=-\SpatialD^A\SourceCurrentRed_A;
+    \label{eq:pkgcurrent}
+    \end{equation}
+    \item the Hamiltonian-charge flux and continuity/Gauss-Poisson package
+    \begin{equation}
+    \HamChargeOmega
+    =
+    \int_{\Sigma_t}\SourceDensityRed\,d\mu_P
+    =
+    -\lim_{r\to\infty}\int_{S_r} n^A\SourceCurrentRed_A\,dA,
+    \label{eq:pkgcharge}
+    \end{equation}
+    \begin{equation}
+    -\LapPerp\FlowPot=4\pi G_N\,\SourceDensityRed,
+    \qquad
+    \SourceFlux_A=\SpatialD_A\FlowPot;
+    \label{eq:pkgpoisson}
+    \end{equation}
+    \item the exterior Coulomb tail
+    \begin{equation}
+    \FlowPot
+    =
+    \CoulPot+\mathcal O(r^{-2}),
+    \qquad
+    \CoulPot(r)=\frac{G_N\,\HamChargeOmega}{r};
+    \label{eq:pkgcoul}
+    \end{equation}
+    \item the surviving dressed bridge map
+    \begin{equation}
+    g_{\mu\nu}^{\mathrm{dressed}}
+    =
+    g_{\mu\nu}^{\mathrm{br}}
+    +\SigmaIER_{\mu\nu}
+    +\SigmaDressSch{}_{\mu\nu}
+    +\SigmaRegPol{}_{\mu\nu},
+    \label{eq:pkgmetric}
+    \end{equation}
+    with the same matter-free activity, off-longitudinal \(Q/W\) cancellation, explicit cubic longitudinal completion, and quartic Coulomb self-response absorption already recorded in the explicit local note.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Representative equivalence class]
+\label{def:equivalence}
+Two local bridge-curvature densities \(\mathcal L_{\mathrm{loc.curv}}[\CurvProfile]\) and \(\mathcal L_{\mathrm{loc.curv}}[\widetilde{\CurvProfile}]\) lie in the same admissible representative class \(\CurvQuot\) if one can pass from one to the other by a finite sequence of the following moves:
+\begin{enumerate}
+    \item replace \(\CurvProfile\) by another smooth positive profile \(\widetilde{\CurvProfile}>0\);
+    \item add a local slice divergence;
+    \item add a Bianchi-exact local bridge-curvature term whose Euler--Lagrange contribution vanishes once \(\CurvSeedMult=0\) is imposed.
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}[Profile-blindness of the preserved downstream package]
+\label{prop:profileblind}
+For every smooth positive profile \(\CurvProfile\), elimination of the local sector \eqref{eq:locfamily} yields exactly the same downstream package \(\DownPkg\).
+\end{proposition}
+
+\begin{proof}
+Variation with respect to \(\CurvQMult^{AI}\), \(\CurvChiMult^A\), and \(\CurvTransMult^A\) gives
+\begin{equation}
+\CurvOneI_A^I=\CurvSeed\,\lambda_I\SpatialD_AQ^I,
+\qquad
+\CurvOneChi_A=\CurvSeed\,\lambda_\chi\SpatialD_A\chi,
+\qquad
+\CurvOneW_A=\CurvSeed\,\lambda_WW_A^T.
+\label{eq:carrierrels}
+\end{equation}
+Variation with respect to \(\ConstGamma^A\) then yields
+\begin{equation}
+\ConstCurrent_A
+=
+\nu_I\CurvSeed^{-1}\CurvOneI_A^I
++\nu_\chi\CurvSeed^{-1}\CurvOneChi_A
++\nu_W\CurvSeed^{-1}\CurvOneW_A.
+\label{eq:readout}
+\end{equation}
+Substituting \eqref{eq:carrierrels} into \eqref{eq:readout} cancels the seed \(\CurvSeed=\CurvProfile(\BridgeCurv)\) identically and gives the forced current law \eqref{eq:forcedcurrent}. The reduced density, Hamiltonian-charge flux, and continuity/Gauss-Poisson package then follow exactly as in the explicit local note. The polarization equations are unchanged by the choice of positive profile and again give
+\begin{equation}
+\BalanceField=\FlowPot^2,
+\qquad
+\AuxPol_{AB}^{\mathrm{elim}}
+=
+-2\FlowPot^2U_AU_B
++\frac32\FlowPot^2\ProjSub_{AB},
+\label{eq:polsame}
+\end{equation}
+so the observer pullback reproduces the same dressed bridge map and the same gain package. Hence \(\DownPkg\) is independent of the chosen positive profile.
+\end{proof}
+
+\begin{remark}
+Proposition \ref{prop:profileblind} is the central structural fact of the canonical-selection problem. At current scope the explicit representative is genuine, but the downstream package sees only the normalized carrier slots and their forced coefficient triple, not the profile that generated the seed.
+\end{remark}
+
+\section{Quotienting the Already-Trivial Redundancy}
+
+\begin{definition}[Nontrivial profile sector]
+\label{def:profilesector}
+Let
+\begin{equation}
+\CurvFamily
+\equiv
+\left\{
+\CurvProfile\in C^\infty(\mathbb R)\;:\;
+\CurvProfile(x)>0\ \text{for all }x
+\right\}.
+\label{eq:profilefamily}
+\end{equation}
+The \emph{nontrivial profile sector} is the residual freedom in \(\CurvQuot\) after quotienting by local slice divergences and Bianchi-exact additions.
+\end{definition}
+
+\begin{proposition}[Divergence and Bianchi quotient leaves the profile sector untouched]
+\label{prop:quotient}
+After quotienting \(\CurvQuot\) by local slice divergences and Bianchi-exact additions, the remaining freedom is exactly the choice of positive profile \(\CurvProfile\in\CurvFamily\).
+\end{proposition}
+
+\begin{proof}
+Local slice divergences do not change the Euler--Lagrange equations. Bianchi-exact additions vanish after \(\CurvSeedMult=0\) is imposed, so they do not change the eliminated constitutive-current sector either. By Proposition \ref{prop:profileblind}, every remaining change of representative that still preserves \(\DownPkg\) is therefore encoded solely by replacing \(\CurvProfile\) with another smooth positive profile in \eqref{eq:locfamily}. Conversely, every positive profile replacement yields another representative with the same \(\DownPkg\). Hence the quotient by the already-trivial redundancy leaves exactly the profile sector \(\CurvFamily\).
+\end{proof}
+
+\begin{corollary}[Canonical selection cannot come from the already-recorded quotient moves]
+\label{cor:noquotientsel}
+The already-recorded quotient moves of the explicit local note do not by themselves select a unique canonical representative.
+\end{corollary}
+
+\begin{proof}
+By Proposition \ref{prop:quotient}, those quotient moves remove only the divergence and Bianchi-exact redundancy. A full positive profile sector still remains.
+\end{proof}
+
+\section{Current-Scope Selection Principles and Their Limits}
+
+\begin{definition}[Admissible current-scope canonical selection principle]
+\label{def:admissible}
+An \emph{admissible current-scope canonical selection principle} is a rule \(\SelRule\) that assigns at most one representative in \(\CurvQuot\) using only:
+\begin{enumerate}
+    \item the bridge-curvature anchor \(\BridgeCurv\) already present in the candidate substrate action;
+    \item the present derivative-order restriction and forced slot structure \eqref{eq:slots};
+    \item the exact-flat benchmark and positivity/nondegeneracy requirements on \(\CurvProfile\);
+    \item quotienting by local slice divergences and Bianchi-exact additions;
+    \item off-shell variational information already contained in the local family \eqref{eq:locfamily};
+\end{enumerate}
+and such that the selected representative still preserves the fixed downstream package \(\DownPkg\) and retains nontrivial bridge-curvature dependence, i.e.
+\begin{equation}
+\CurvProfile' \not\equiv 0.
+\label{eq:nontrivial}
+\end{equation}
+\end{definition}
+
+\begin{remark}
+Condition \eqref{eq:nontrivial} is included because the present burden is to select a canonical \emph{bridge-curvature-density} representative, not to erase bridge-curvature dependence altogether and fall back to a trivial constant seed.
+\end{remark}
+
+\begin{proposition}[Benchmark normalization does not collapse the profile family]
+\label{prop:normalization}
+Imposing
+\begin{equation}
+\CurvProfile(0)=1,
+\qquad
+\CurvProfile(x)>0,
+\label{eq:bench}
+\end{equation}
+together with locality and the present no-higher-curvature-derivative restriction, still leaves infinitely many admissible profiles in \(\CurvFamily\).
+\end{proposition}
+
+\begin{proof}
+For every integer \(m\geq1\) and every choice of \(\ell_m>0\), the profile
+\begin{equation}
+\CurvProfile^{(m)}(x)\equiv 1+\ell_m^{4m}x^{2m}
+\label{eq:familym}
+\end{equation}
+is smooth, positive for all \(x\), and satisfies \(\CurvProfile^{(m)}(0)=1\). Each \(\CurvProfile^{(m)}\) depends only on the local scalar \(x=\BridgeCurv\) and introduces no higher bridge-curvature derivatives. Different values of \(m\) give distinct representatives. Therefore the normalized positive local family is infinite.
+\end{proof}
+
+\begin{corollary}[Downstream preservation plus benchmark normalization is not a selector]
+\label{cor:nobenchmark}
+No principle that uses only downstream preservation, positivity, exact-flat normalization, and the present derivative-order bound can select a unique canonical representative.
+\end{corollary}
+
+\begin{proof}
+By Proposition \ref{prop:profileblind}, all profiles in \(\CurvFamily\) preserve the same downstream package. By Proposition \ref{prop:normalization}, even the normalized positive local subfamily remains infinite.
+\end{proof}
+
+\begin{proposition}[Current-scope variational stationarity is vacuous in the profile direction]
+\label{prop:vacuous}
+Let
+\begin{equation}
+\CurvProfile^{(s)}=\CurvProfile+s\,\delta\CurvProfile
+\label{eq:defdeform}
+\end{equation}
+be any smooth one-parameter deformation through positive profiles. Then the first variation of the local bridge-curvature density in the profile direction is
+\begin{equation}
+\frac{d}{ds}\mathcal L_{\mathrm{loc.curv}}[\CurvProfile^{(s)}]\bigg|_{s=0}
+=
+-\CurvSeedMult\,\delta\CurvProfile(\BridgeCurv).
+\label{eq:firstvar}
+\end{equation}
+Hence the first variation vanishes on every solution of the Euler--Lagrange system, since \(\CurvSeedMult=0\) on shell.
+\end{proposition}
+
+\begin{proof}
+The profile \(\CurvProfile\) enters \eqref{eq:locfamily} only through the constraint term
+\[
+\CurvSeedMult\bigl(\CurvSeed-\CurvProfile(\BridgeCurv)\bigr).
+\]
+Differentiating with respect to \(s\) gives \eqref{eq:firstvar}. The explicit local note already showed that the Euler--Lagrange equations imply \(\CurvSeedMult=0\), so the first variation vanishes for every profile deformation on shell.
+\end{proof}
+
+\begin{corollary}[No canonical representative follows from the present profile-direction Euler--Lagrange test]
+\label{cor:novar}
+Current-scope variational stationarity does not distinguish one positive profile from another.
+\end{corollary}
+
+\begin{proof}
+By Proposition \ref{prop:vacuous}, every profile deformation is stationary on shell. Therefore profile-direction stationarity cannot isolate a unique representative.
+\end{proof}
+
+\begin{proposition}[No-new-scale minimality collapses only to the constant profile]
+\label{prop:noscale}
+Assume one imposes the additional rule that \(\CurvProfile\) introduce no new dimensionful scale beyond those already present in the candidate substrate action. Then the only smooth dimensionless local profile of \(\BridgeCurv\) is a constant:
+\begin{equation}
+\CurvProfile(x)\equiv c.
+\label{eq:constant}
+\end{equation}
+If one also imposes the exact-flat normalization \(\CurvProfile(0)=1\), then
+\begin{equation}
+\CurvProfile(x)\equiv 1.
+\label{eq:one}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+The bridge-curvature scalar \(\BridgeCurv\) has dimension of inverse length squared. A nonconstant dimensionless smooth function of \(\BridgeCurv\) requires a compensating length scale. If no such new scale is allowed, the only remaining smooth dimensionless profile is constant. The normalization \(\CurvProfile(0)=1\) then fixes that constant to be \(1\).
+\end{proof}
+
+\begin{proposition}[The constant profile is not an admissible canonical bridge-curvature-density selector]
+\label{prop:notadmissible}
+The profile \(\CurvProfile\equiv1\) does preserve the downstream package, but it fails the nontriviality requirement \eqref{eq:nontrivial}. Therefore it cannot serve as an admissible current-scope canonical bridge-curvature-density principle.
+\end{proposition}
+
+\begin{proof}
+If \(\CurvProfile\equiv1\), then \(\CurvSeed=1\) and the carrier relations become
+\begin{equation}
+\CurvOneI_A^I=\lambda_I\SpatialD_AQ^I,
+\qquad
+\CurvOneChi_A=\lambda_\chi\SpatialD_A\chi,
+\qquad
+\CurvOneW_A=\lambda_WW_A^T.
+\label{eq:constcarrier}
+\end{equation}
+The normalized readout still yields the same forced current law \eqref{eq:forcedcurrent}, so the downstream package is preserved. However the representative no longer depends nontrivially on \(\BridgeCurv\): the bridge-curvature anchor survives only through the vacuous constraint \(\CurvSeed=1\). This violates \eqref{eq:nontrivial}, which was imposed precisely to keep the canonical object inside the explicit local bridge-curvature-density problem rather than collapsing it back to a trivial constant seed.
+\end{proof}
+
+\begin{remark}
+If one were willing to abandon nontrivial bridge-curvature dependence entirely, then \(\CurvProfile\equiv1\) would provide a degenerate selector. The active line does not permit that relaxation, because the explicit local note was canonized as a bridge-curvature representative, not merely as a rewritten constitutive carrier block.
+\end{remark}
+
+\section{Canonical-Selection Verdict}
+
+\begin{theorem}[Negative current-scope canonical-selection verdict]
+\label{thm:negative}
+No admissible current-scope canonical selection principle in the sense of Definition \ref{def:admissible} selects a unique representative in \(\CurvQuot\).
+\end{theorem}
+
+\begin{proof}
+By Corollary \ref{cor:noquotientsel}, quotienting by local slice divergences and Bianchi-exact additions does not remove the positive profile sector. By Corollary \ref{cor:nobenchmark}, downstream preservation together with positivity, exact-flat normalization, and the present derivative-order bound still leaves infinitely many admissible profiles. By Corollary \ref{cor:novar}, the present profile-direction variational test is vacuous and therefore does not distinguish those profiles. Proposition \ref{prop:noscale} shows that a no-new-scale rule collapses only to the constant profile \(\CurvProfile\equiv1\), but Proposition \ref{prop:notadmissible} shows that this constant profile is not admissible inside the active bridge-curvature-density problem because it removes nontrivial bridge-curvature dependence. Therefore no admissible current-scope canonical selection principle yields a unique representative.
+\end{proof}
+
+\begin{corollary}[What would be needed if uniqueness remains the goal]
+\label{cor:newinput}
+If one still wants a preferred canonical bridge-curvature-density representative, the active line must add genuinely new structural input beyond the current local sector. At minimum, that new input must be one of the following:
+\begin{enumerate}
+    \item a new off-shell functional on the profile sector that does not vanish once the present multiplier equation \(\CurvSeedMult=0\) is imposed;
+    \item a new substrate symmetry that restricts the admissible positive profile family to a singleton;
+    \item a new scale-setting or normalization postulate that keeps nontrivial bridge-curvature dependence while ruling out every profile except one;
+    \item a deeper local or nonlocal action principle in which the present profile freedom is no longer pure representative freedom.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+Theorem \ref{thm:negative} rules out unique selection from the currently available ingredients. Therefore any future uniqueness result must come from additional structure not presently contained in the explicit local representative class.
+\end{proof}
+
+\section{Conclusion}
+
+The previous explicit local note already solved the existence problem for a local bridge-curvature-density representative tied directly to the candidate substrate action. The present note asked the next narrower question: whether the current line already contains a further honest principle selecting one preferred canonical representative from the resulting equivalence class.
+
+\begin{enumerate}
+    \item Quotienting by local slice divergences and Bianchi-exact additions removes only the already-trivial redundancy; the positive profile sector \(\CurvFamily\) remains.
+    \item The preserved downstream package is profile-blind because the normalized readout cancels the seed \(\CurvSeed=\CurvProfile(\BridgeCurv)\).
+    \item Benchmark normalization, positivity, and the present derivative-order bound still leave infinitely many admissible profiles.
+    \item The current profile-direction variational test is vacuous on shell because \(\CurvSeedMult=0\).
+    \item A no-new-scale minimality rule collapses only to \(\CurvProfile\equiv1\), which is not an admissible canonical bridge-curvature-density principle because it removes nontrivial bridge-curvature dependence.
+\end{enumerate}
+
+The honest verdict is therefore negative at current disciplined scope. The active line now has:
+\begin{enumerate}
+    \item a disciplined constitutive realization of the reduced current sector;
+    \item a disciplined integrated-action realization of that same carrier sector;
+    \item a disciplined explicit local bridge-curvature-density representative;
+    \item and now a disciplined canonical-selection verdict showing that no further built-in current-scope principle collapses the explicit equivalence class to a unique representative.
+\end{enumerate}
+
+If uniqueness is still desired, the next burden is no longer to reinterpret the existing local representative class more aggressively. It is to introduce genuinely new structural input and test whether that new input selects a canonical bridge-curvature density without disturbing the already-fixed reduced current, Hamiltonian-charge flux, continuity/Gauss-Poisson package, exterior Coulomb tail, surviving dressed bridge map, and \(r^{-2}\) gain package.
+
+\end{document}

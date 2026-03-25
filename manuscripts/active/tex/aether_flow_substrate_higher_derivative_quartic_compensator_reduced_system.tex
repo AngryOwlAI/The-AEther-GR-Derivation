@@ -1,0 +1,655 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal{A}}
+\newcommand{\BridgeMetric}{\mathfrak{g}}
+\newcommand{\Ell}{\mathcal{L}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Higher-Derivative Quartic Compensator Branch Explicit Tuned Completion and First Reduced 3+1 System}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The full compensator consistency/reduction note changed the branch question sharply. The tuned exact-square compensator branch no longer waits on another flat-background quadratic test: after complete auxiliary elimination it removes the full observer correction, preserves the bridge metric and single-metric matter route, keeps the \(Q\)-sector gapped, and leaves the longitudinal ordered-flow solve on the same repaired auxiliary-elliptic package. What remains open is the first nonlinear formulation of that tuned branch.
+
+This note performs that next step. It fixes one explicit tuned nonlinear completion by replacing the old quartic operator with the exact square
+\[
+-\frac12
+\left(
+\frac{\sqrt{\lambda_4}}{M_*}\Delta_\perp S
+- M_Y Y
+\right)^2,
+\qquad
+M_Y^2>0,
+\]
+while keeping the same bridge metric, the same single-metric matter route, the same collapsed-scalar low-order baseline, and the same positive \(Q\)- and ordered-flow auxiliary blocks. The compensator is algebraic at nonlinear level:
+\[
+Y
+=
+\frac{\sqrt{\lambda_4}}{M_*M_Y}\Delta_\perp S.
+\]
+After that pointwise solve the exact-square block vanishes identically, so the reduced observer system is no longer Einstein--quartic-scalar. It is an Einstein--Stueckelberg-like momentum system with the same repaired unit-lapse weighted/homogeneous auxiliary package.
+
+In unit-lapse spatial-harmonic gauge,
+\[
+N\equiv 1,
+\qquad
+V^i(\gamma)=0,
+\]
+the reduced unknowns are
+\[
+(\gamma_{ij},\Sigma_{ij},K;\beta^i;\sigma,\pi_\sigma;\psi,\pi_\psi),
+\qquad
+\pi_\sigma \equiv m_S^2(n^\mu\nabla_\mu S-\sigma_0),
+\]
+with \(Q^I\) and \((\chi,W_i^T)\) still determined slice by slice through the same elliptic subsystem and with \(Y\) reconstructed algebraically by
+\[
+Y
+=
+\frac{\sqrt{\lambda_4}}{M_*M_Y}
+\left(
+\Delta_\gamma\sigma+\sigma_0\Delta_\gamma\chi+\mathcal N_{\Delta S}
+\right).
+\]
+The scalar evolution now reads
+\begin{align*}
+(\partial_t-\Ell_\beta)\sigma &= \frac{\pi_\sigma}{m_S^2},\\
+(\partial_t-\Ell_\beta)\pi_\sigma &= \mathcal N_\pi,
+\end{align*}
+with no quartic principal term \( -(\lambda_4/M_*^2)\Delta_\gamma^2\sigma\). The replacement scalar control structure is therefore not the old quartic Schr\"odinger energy, but the pair \((\sigma,\pi_\sigma)\) together with algebraic recovery of \(Y\) and the repaired weighted/homogeneous longitudinal auxiliary norm.
+
+The narrowest honest theorem target is correspondingly smaller than the old fixed-completion asymptotic program. It is a first local well-posedness and continuation theorem in the same unit-lapse weighted/homogeneous class, followed by a corrected \(T\sim \varepsilon^{-1}\) coercive bootstrap for the mixed Einstein--trace/Stueckelberg-like momentum system. This note does not prove that theorem. It fixes the explicit tuned completion, the first reduced \(3+1\) architecture, the replacement scalar control variable, and the correct next theorem target.
+\end{abstract}
+
+\section{Introduction}
+
+The full flat-background reduction of the quartic compensator branch settled one question and forced another. It settled the coefficient-level question positively: on the tuned exact-square branch the complete reduced observer correction vanishes after all auxiliary variables are eliminated, not only on an isolated scalar subsection. But it also forced the correct next burden. The tuned branch succeeds only by removing the quartic observer scalar channel entirely. The next manuscript should therefore not ask whether the old quartic Schr\"odinger architecture can somehow be kept. It should write the first explicit nonlinear reduced system for the branch that actually survives.
+
+That is the purpose of the present note. It does not reopen the old quartic side program. It does not attempt another asymptotic repair of a branch already classified as a stable recovery-compatible side program. It takes the tuned compensator branch at its own structural verdict and turns that verdict into an explicit nonlinear completion and a first reduced \(3+1\) observer-system architecture.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays within that boundary. It does not claim a completed tuned-compensator theorem. It does not claim that the tuned branch is the unique acceptable nonlinear completion. It chooses one explicit tuned completion, derives the corresponding reduced system, and states the narrowest honest local/coercive theorem target now forced by the branch history.
+
+\section{Explicit Tuned Nonlinear Completion}
+
+The full-reduction note identified the tuned exact-square locus
+\[
+\frac{\alpha_Y^2}{M_Y^2}=\frac{\lambda_4}{M_*^2}
+\]
+as the branch on which the complete reduced observer correction vanishes. The next manuscript should therefore fix one concrete nonlinear completion realizing that tuning exactly rather than only at quadratic level.
+
+\begin{definition}[Explicit tuned exact-square completion]
+\label{def:Stc}
+The \emph{explicit tuned-compensator completion} is the substrate action
+\begin{equation}
+S_{\mathrm{tc}}
+=
+\frac{c^3}{16\pi G_N}
+\int_{\Sub} d^4X\,\sqrt{G}\,\bigl(R[\BridgeMetric]-2\Lambda_{\Sub}\bigr)
++ \int_{\Sub} d^4X\,\sqrt{G}\,\mathcal L_{\mathrm{aux,tc}}
++ S_{\mathrm{matter}}[\Xi^*\BridgeMetric,\psi],
+\label{eq:Stc}
+\end{equation}
+with bridge metric
+\begin{equation}
+\BridgeMetric_{AB}=G_{AB}-2U_AU_B,
+\qquad
+P_{AB}=G_{AB}-U_AU_B,
+\label{eq:bridge}
+\end{equation}
+and auxiliary Lagrangian
+\begin{align}
+\mathcal L_{\mathrm{aux,tc}}
+=\;&
+\lambda_U\bigl(G_{AB}U^AU^B-1\bigr)
+-\frac{m_S^2}{2}\bigl(U^A\nabla_A S-\sigma_0\bigr)^2
+\nonumber\\
+&-\frac12
+\left(
+\frac{\sqrt{\lambda_4}}{M_*}\Delta_\perp S
+- M_Y Y
+\right)^2
+-\frac12\delta_{IJ}P^{AB}(D_AQ^I)(D_BQ^J)
+-\frac12\widehat M_{IJ}Q^IQ^J
+\nonumber\\
+&-\frac{\kappa_\theta}{2}\bigl(\nabla_AU^A\bigr)^2
+-\frac{\kappa_\Omega}{4}\Omega_{AB}\Omega^{AB},
+\label{eq:Lauxtc}
+\end{align}
+where
+\begin{equation}
+\Delta_\perp S\equiv \nabla_A\!\left(P^{AB}\nabla_BS\right),
+\qquad
+\Omega_{AB}\equiv P_A{}^CP_B{}^D\nabla_{[C}U_{D]},
+\label{eq:defops}
+\end{equation}
+and the branch assumptions are
+\begin{equation}
+m_S^2>0,
+\qquad
+\lambda_4>0,
+\qquad
+M_Y^2>0,
+\qquad
+\widehat M_{IJ}\ge m_{Q,\min}^2\delta_{IJ}>0,
+\qquad
+\kappa_\theta>0,
+\qquad
+\kappa_\Omega>0.
+\label{eq:positivity}
+\end{equation}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:Stc} is the smallest explicit nonlinear completion consistent with the full reduction verdict. It keeps the bridge metric and matter route fixed, keeps the collapsed-scalar low-order baseline \(\kappa_S=\mu_{SI}=\mu_S^2=0\), keeps the positive \(Q\)- and ordered-flow auxiliary blocks, and changes only the quartic scalar block itself by adjoining one algebraic compensator.
+\end{remark}
+
+\begin{proposition}[Pointwise algebraic compensator solve]
+\label{prop:Ysolve}
+The compensator \(Y\) in Definition \ref{def:Stc} is algebraic. Its Euler--Lagrange equation is
+\begin{equation}
+M_Y^2 Y
+=
+\frac{M_Y\sqrt{\lambda_4}}{M_*}\Delta_\perp S,
+\label{eq:Ysolve}
+\end{equation}
+equivalently
+\begin{equation}
+Y
+=
+\frac{\sqrt{\lambda_4}}{M_*M_Y}\Delta_\perp S.
+\label{eq:Ysolve2}
+\end{equation}
+After substituting \eqref{eq:Ysolve2} back into \eqref{eq:Lauxtc}, the exact-square block vanishes identically.
+\end{proposition}
+
+\begin{proof}
+Varying \eqref{eq:Lauxtc} with respect to \(Y\) gives
+\[
+M_Y
+\left(
+\frac{\sqrt{\lambda_4}}{M_*}\Delta_\perp S
+-M_Y Y
+\right)=0,
+\]
+which is \eqref{eq:Ysolve}--\eqref{eq:Ysolve2}. Substituting \eqref{eq:Ysolve2} into the exact square gives zero pointwise.
+\end{proof}
+
+\begin{corollary}[Nonlinear effective branch after algebraic elimination]
+\label{cor:Seff}
+After eliminating \(Y\) by \eqref{eq:Ysolve2}, the tuned completion \eqref{eq:Stc} reduces exactly to the collapsed-scalar baseline
+\begin{align}
+S_{\mathrm{St}}
+=\;&
+\frac{c^3}{16\pi G_N}
+\int_{\Sub} d^4X\,\sqrt{G}\,\bigl(R[\BridgeMetric]-2\Lambda_{\Sub}\bigr)
++ \int_{\Sub} d^4X\,\sqrt{G}\,\mathcal L_{\mathrm{aux,St}}
++ S_{\mathrm{matter}}[\Xi^*\BridgeMetric,\psi],
+\label{eq:SSt}
+\\
+\mathcal L_{\mathrm{aux,St}}
+=\;&
+\lambda_U\bigl(G_{AB}U^AU^B-1\bigr)
+-\frac{m_S^2}{2}\bigl(U^A\nabla_A S-\sigma_0\bigr)^2
+-\frac12\delta_{IJ}P^{AB}(D_AQ^I)(D_BQ^J)
+\nonumber\\
+&-\frac12\widehat M_{IJ}Q^IQ^J
+-\frac{\kappa_\theta}{2}\bigl(\nabla_AU^A\bigr)^2
+-\frac{\kappa_\Omega}{4}\Omega_{AB}\Omega^{AB},
+\label{eq:LauxSt}
+\end{align}
+together with the algebraic reconstruction formula \eqref{eq:Ysolve2}. In particular, the tuned branch introduces no surviving quartic principal operator and no propagating compensator mode.
+\end{corollary}
+
+\begin{proof}
+Proposition \ref{prop:Ysolve} removes the exact-square block from \eqref{eq:Lauxtc}. What remains is exactly \eqref{eq:LauxSt}.
+\end{proof}
+
+\begin{remark}
+Corollary \ref{cor:Seff} is the structural core of the branch. The tuned completion is not a new propagating higher-derivative scalar theory. Its nonlinear observer-side content is the Einstein branch coupled to the old collapsed-scalar Stueckelberg-like momentum structure, with the compensator retained only as an algebraic reconstruction of \(\Delta_\perp S\).
+\end{remark}
+
+\section{First Reduced \texorpdfstring{\(3+1\)}{3+1} System on the Tuned Branch}
+
+The repaired auxiliary package already on record is the unit-lapse spatial-harmonic one, not the old maximal branch. The first reduced tuned-compensator system should therefore be written directly in that gauge.
+
+\begin{definition}[Unit-lapse spatial-harmonic gauge and reduced variables]
+\label{def:gauge}
+Work in the gauge
+\begin{equation}
+N\equiv 1,
+\qquad
+V^i(\gamma)\equiv \gamma^{mn}\bigl(\Gamma^i_{mn}[\gamma]-\Gamma^i_{mn}[\delta]\bigr)=0,
+\label{eq:gauge}
+\end{equation}
+with asymptotics \(\beta^i\to 0\) at spatial infinity. Write the observer metric as
+\begin{equation}
+g_{\mu\nu}dx^\mu dx^\nu
+=
+-dt^2
++\gamma_{ij}(dx^i+\beta^idt)(dx^j+\beta^jdt),
+\label{eq:ADM}
+\end{equation}
+decompose
+\begin{equation}
+K_{ij}
+=
+\Sigma_{ij}+\frac13\gamma_{ij}K,
+\qquad
+\gamma^{ij}\Sigma_{ij}=0,
+\label{eq:Ksplit}
+\end{equation}
+and write
+\begin{equation}
+S=\sigma_0 t+\sigma,
+\qquad
+\pi_\sigma\equiv m_S^2\bigl(n^\mu\nabla_\mu S-\sigma_0\bigr),
+\label{eq:pidef}
+\end{equation}
+with \(n^\mu=(1,-\beta^i)\). The reduced propagating unknowns are
+\begin{equation}
+(\gamma_{ij},\Sigma_{ij},K;\beta^i;\sigma,\pi_\sigma;\psi,\pi_\psi),
+\label{eq:unknowns}
+\end{equation}
+while the nonpropagating branch variables are \(Q^I\), the ordered-flow decomposition
+\begin{equation}
+W_i=D_i\chi+W_i^T,
+\qquad
+D^iW_i^T=0,
+\label{eq:Wdecomp}
+\end{equation}
+and the algebraic compensator \(Y\).
+\end{definition}
+
+\begin{proposition}[Auxiliary-elliptic and algebraic branch package]
+\label{prop:auxpackage}
+For the tuned completion \eqref{eq:Stc} in Definition \ref{def:gauge}, the nonpropagating branch variables are determined slice by slice by
+\begin{align}
+-\Delta_\gamma\beta^i
+-\frac13 D^iD_j\beta^j
++R^i{}_j[\gamma]\beta^j
+&=
+\mathcal S_\beta^i[\gamma,\Sigma,K,\sigma,\pi_\sigma,Q,\chi,W^T,\psi,\pi_\psi],
+\label{eq:betaeq}
+\\
+\bigl((-\Delta_\gamma)\delta_{IJ}+\widehat M_{IJ}\bigr)Q^J
+&=
+\mathcal N_I^{(Q)}[\gamma,\Sigma,K,\beta,\sigma,\pi_\sigma,Q,\chi,W^T,\psi,\pi_\psi],
+\label{eq:Qeq}
+\\
+\kappa_\theta\Delta_\gamma\chi
+&=
+-K+\mathcal N_\chi[\gamma,\Sigma,K,\beta,\sigma,\pi_\sigma,Q,\chi,W^T,\psi,\pi_\psi],
+\label{eq:chieq}
+\\
+\kappa_\Omega(-\Delta_\gamma)W_i^T
+&=
+\mathcal N_i^{(T)}[\gamma,\Sigma,K,\beta,\sigma,\pi_\sigma,Q,\chi,W^T,\psi,\pi_\psi],
+\label{eq:WTeq}
+\\
+Y
+&=
+\frac{\sqrt{\lambda_4}}{M_*M_Y}
+\left(
+\Delta_\gamma\sigma+\sigma_0\Delta_\gamma\chi+\mathcal N_{\Delta S}[\gamma,\Sigma,K,\beta,\sigma,\pi_\sigma,\chi,W^T]
+\right).
+\label{eq:Yrec}
+\end{align}
+All nonlinear source terms vanish on the flat exact-closure background and are lower-order relative to the elliptic operators or the explicit algebraic solve.
+\end{proposition}
+
+\begin{proof}
+The shift equation \eqref{eq:betaeq} and the \(Q\)- and ordered-flow equations \eqref{eq:Qeq}--\eqref{eq:WTeq} are exactly the same unit-lapse reduced equations already recorded on the repaired weighted/homogeneous route, because Corollary \ref{cor:Seff} leaves the bridge metric, the \(Q\)-sector, and the divergence/vorticity ordered-flow blocks unchanged. For the compensator, Proposition \ref{prop:Ysolve} gives \(Y=(\sqrt{\lambda_4}/(M_*M_Y))\Delta_\perp S\). In unit-lapse \(3+1\) variables, the projected divergence \(\Delta_\perp S\) reduces to the displayed form \eqref{eq:Yrec}: its principal linear piece is \(\Delta_\gamma\sigma+\sigma_0\Delta_\gamma\chi\), while all remaining metric, shift, and lower-order ordered-flow contributions are absorbed into \(\mathcal N_{\Delta S}\). This yields \eqref{eq:betaeq}--\eqref{eq:Yrec}.
+\end{proof}
+
+\begin{remark}
+Proposition \ref{prop:auxpackage} is the explicit branch architecture promised by the full reduction note. \(Q^I\) remain the same elliptic/gapped sector, the longitudinal/transverse ordered-flow auxiliaries remain on the repaired weighted/homogeneous elliptic package, and \(Y\) is solved algebraically rather than promoted to a new propagating channel.
+\end{remark}
+
+\begin{proposition}[Reduced Einstein--trace/Stueckelberg-like momentum system]
+\label{prop:reducedsystem}
+After the algebraic elimination of \(Y\), the tuned branch evolution is
+\begin{align}
+(\partial_t-\Ell_\beta)\gamma_{ij}
+&=
+-2\Sigma_{ij}-\frac23\gamma_{ij}K,
+\label{eq:gammadt}
+\\
+(\partial_t-\Ell_\beta)\Sigma_{ij}
+&=
+\bigl(R_{ij}[\gamma]\bigr)^{\mathrm{TF}}
+-2\Sigma_i{}^k\Sigma_{kj}
+-\frac13 K\Sigma_{ij}
++\Theta_{ij}^{\mathrm{TF,St}},
+\label{eq:Sigmadt}
+\\
+(\partial_t-\Ell_\beta)K
+&=
+R[\gamma]+\Sigma_{ij}\Sigma^{ij}+\frac13K^2+\Theta_K^{\mathrm{St}},
+\label{eq:Kdt}
+\\
+(\partial_t-\Ell_\beta)\sigma
+&=
+\frac{\pi_\sigma}{m_S^2},
+\label{eq:sigmadt}
+\\
+(\partial_t-\Ell_\beta)\pi_\sigma
+&=
+\mathcal N_\pi[\gamma,\Sigma,K,\beta,\sigma,\pi_\sigma,Q,\chi,W^T,\psi,\pi_\psi],
+\label{eq:pidt}
+\end{align}
+subject to the Einstein constraints
+\begin{align}
+R[\gamma]+\frac23K^2-\Sigma_{ij}\Sigma^{ij}
+&=
+16\pi G_N\bigl(\rho^{\mathrm{matter}}+\rho_{\mathrm{St}}\bigr),
+\label{eq:Hconstraint}
+\\
+D^j\Sigma_{ij}-\frac23D_iK
+&=
+8\pi G_N\bigl(J_i^{\mathrm{matter}}+J_i^{\mathrm{St}}\bigr).
+\label{eq:Mconstraint}
+\end{align}
+Here
+\begin{equation}
+\rho_{\mathrm{St}}
+=
+\frac{1}{2m_S^2}\pi_\sigma^2+\mathcal O_{\mathrm{l.o.t.}},
+\qquad
+J_i^{\mathrm{St}}
+=
+-\pi_\sigma D_i\sigma+\mathcal O_{\mathrm{l.o.t.}},
+\label{eq:ststress}
+\end{equation}
+while \(\Theta_{ij}^{\mathrm{TF,St}}\), \(\Theta_K^{\mathrm{St}}\), and \(\mathcal N_\pi\) vanish on the flat exact-closure background and contain no quartic scalar principal operator.
+\end{proposition}
+
+\begin{proof}
+Corollary \ref{cor:Seff} shows that, after eliminating \(Y\), the tuned completion is exactly the unit-lapse branch built from the collapsed-scalar baseline \eqref{eq:SSt} rather than the old quartic completion. The Einstein evolution and constraint equations therefore keep the same ADM form as on the earlier unit-lapse route, but their completion-specific source is now the Stueckelberg-like momentum sector rather than a quartic scalar stress tensor. The transport equation \eqref{eq:sigmadt} is simply the definition of \(\pi_\sigma\) with \(N\equiv 1\). Because the exact-square block has vanished identically after the algebraic solve, the \(\pi_\sigma\)-equation has no surviving term of the form \(-(\lambda_4/M_*^2)\Delta_\gamma^2\sigma\); what remains is the lower-order nonlinear remainder \(\mathcal N_\pi\) generated by the metric, matter, and auxiliary couplings of \eqref{eq:LauxSt}. This gives \eqref{eq:gammadt}--\eqref{eq:ststress}.
+\end{proof}
+
+\begin{corollary}[No quartic observer scalar channel survives]
+\label{cor:noquartic}
+On the tuned branch, the reduced observer-accessible propagating sector consists of the Einstein metric variables \((\gamma_{ij},\Sigma_{ij},K)\), the matter variables, and the Stueckelberg-like scalar pair \((\sigma,\pi_\sigma)\). There is no surviving quartic scalar principal operator and no propagating compensator mode.
+\end{corollary}
+
+\begin{proof}
+The absence of a quartic principal term is the content of \eqref{eq:pidt}. The nonpropagating character of \(Q^I\), \((\chi,W_i^T)\), and \(Y\) is the content of Proposition \ref{prop:auxpackage}.
+\end{proof}
+
+\section{Replacement Scalar Control Structure}
+
+The previous fixed-completion route used the quartic scalar coercive term
+\[
+\frac{\lambda_4}{M_*^2}\|\Delta_\gamma\sigma\|_{H^{N-1}}^2
+\]
+as a principal part of the energy. Corollary \ref{cor:noquartic} shows that the tuned branch does not admit that control slot. The correct scalar bookkeeping must therefore be rewritten explicitly.
+
+Keep the same low- and high-frequency projectors \(\mathbf P_{\mathrm{lo}}\), \(\mathbf P_{\mathrm{hi}}\) and the same weighted/homogeneous longitudinal norm already introduced on the repaired unit-lapse route:
+\begin{equation}
+\|\chi\|_{\mathcal X_\chi^N}^2
+\equiv
+\|\nabla\chi\|_{L^2}^2
++\|\mathbf P_{\mathrm{hi}}\chi\|_{H^N}^2
++\mathfrak L_\chi(F_\chi)^2,
+\qquad
+F_\chi\equiv K-\mathcal N_\chi,
+\label{eq:Xchi}
+\end{equation}
+where
+\begin{equation}
+\mathfrak L_\chi(F_\chi)^2
+\equiv
+\int_{\mathbb R^3}
+\varphi_{\mathrm{lo}}(\xi)^2|\xi|^{-2}|\widehat{F_\chi}(\xi)|^2\,d\xi.
+\label{eq:Lchi}
+\end{equation}
+
+\begin{definition}[Replacement scalar control package]
+\label{def:scalarcontrol}
+For \(N\ge 6\), the \emph{tuned-compensator scalar control package} is
+\begin{equation}
+\mathfrak S_N^{\mathrm{tc}}(t)
+\equiv
+\|\sigma(t)\|_{H^N(\Sigma_t)}^2
++\frac{1}{m_S^2}\|\pi_\sigma(t)\|_{H^{N-1}(\Sigma_t)}^2.
+\label{eq:SNtc}
+\end{equation}
+The compensator \(Y\) is not part of the propagating control energy; it is reconstructed slice by slice from \eqref{eq:Yrec}.
+\end{definition}
+
+\begin{proposition}[Algebraic recovery of the compensator]
+\label{prop:Ycontrol}
+In the small-data regime of the repaired unit-lapse branch, the compensator obeys the schematic bound
+\begin{equation}
+\|Y\|_{H^{N-2}(\Sigma_t)}
+\le
+C_N
+\Bigl(
+\|\sigma\|_{H^N(\Sigma_t)}
++\|\chi\|_{\mathcal X_\chi^N(\Sigma_t)}
++\mathfrak E_{N,\mathrm{geom}}(t)^{1/2}
+\bigl(
+\|\sigma\|_{H^N(\Sigma_t)}
++\|\chi\|_{\mathcal X_\chi^N(\Sigma_t)}
+\bigr)
+\Bigr),
+\label{eq:Ybound}
+\end{equation}
+where \(\mathfrak E_{N,\mathrm{geom}}\) denotes the metric/shift/auxiliary part of the tuned branch energy. In particular, \(Y\) is controlled algebraically once \((\sigma,\pi_\sigma)\) and the repaired auxiliary package are controlled.
+\end{proposition}
+
+\begin{proof}
+Equation \eqref{eq:Yrec} expresses \(Y\) directly in terms of \(\Delta_\gamma\sigma\), \(\Delta_\gamma\chi\), and lower-order geometric corrections. The weighted/homogeneous norm \eqref{eq:Xchi} already controls \(\nabla\chi\) and the low-frequency component needed to recover \(\Delta_\gamma\chi\) through the slice elliptic equation, while \(\sigma\in H^N\) controls \(\Delta_\gamma\sigma\) in \(H^{N-2}\). The remainder \(\mathcal N_{\Delta S}\) is lower-order in the same small-data class. This yields \eqref{eq:Ybound}.
+\end{proof}
+
+\begin{corollary}[Why the old quartic scalar energy is gone]
+\label{cor:scalarpackage}
+The primary scalar control variable on the tuned branch is \(\pi_\sigma\), with \(\sigma\) transported by \eqref{eq:sigmadt} and \(Y\) recovered by Proposition \ref{prop:Ycontrol}. There is no surviving quartic coercive scalar energy of the old form \((\lambda_4/M_*^2)\|\Delta_\gamma\sigma\|^2\).
+\end{corollary}
+
+\begin{proof}
+The absence of a quartic principal term in \eqref{eq:pidt} removes the old quartic energy from the propagating system. Proposition \ref{prop:Ycontrol} shows that \(Y\) is recovered algebraically rather than by a new evolution equation.
+\end{proof}
+
+\begin{definition}[Tuned-compensator weighted/homogeneous control energy]
+\label{def:Etc}
+For \(N\ge 6\), define
+\begin{align}
+\mathfrak E_N^{\mathrm{tc}}(t)
+\equiv\;&
+\|\gamma-\delta\|_{H^N(\Sigma_t)}^2
++\|\Sigma\|_{H^{N-1}(\Sigma_t)}^2
++\|K\|_{H^{N-1}(\Sigma_t)}^2
++\mathfrak S_N^{\mathrm{tc}}(t)
++\mathcal E_N^{\mathrm{matter}}(t)
+\nonumber\\
+&+\|\beta\|_{H^{N+1}(\Sigma_t)}^2
++\|Q\|_{H^N(\Sigma_t)}^2
++\|\chi\|_{\mathcal X_\chi^N(\Sigma_t)}^2
++\|W^T\|_{H^N(\Sigma_t)}^2.
+\label{eq:Etc}
+\end{align}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:Etc} differs from the old quartic unit-lapse energy in exactly one structural way: the quartic scalar slot is gone. Everything else in the repaired auxiliary-elliptic package is preserved.
+\end{remark}
+
+\section{Narrowest Honest Local/Coercive Theorem Target}
+
+The tuned branch no longer justifies the old quartic asymptotic program, but it also does not yet justify a broader theorem claim. The right next theorem target should therefore be stated explicitly and as narrowly as possible.
+
+\begin{definition}[Strict tuned auxiliary-elliptic regime]
+\label{def:strict}
+Fix \(N\ge 6\). A solution of the tuned branch lies in the \emph{strict tuned auxiliary-elliptic regime} if
+\begin{equation}
+\widehat M_{IJ}\xi^I\xi^J\ge m_{Q,\min}^2|\xi|^2,
+\qquad
+M_Y^2\ge M_{Y,\min}^2>0,
+\qquad
+\kappa_\theta\ge \kappa_{\theta,\min}>0,
+\qquad
+\kappa_\Omega\ge \kappa_{\Omega,\min}>0,
+\label{eq:strict}
+\end{equation}
+the spatial metric remains uniformly equivalent to \(\delta_{ij}\), and the unit-lapse weighted/homogeneous gauge conditions are preserved.
+\end{definition}
+
+\begin{definition}[Narrowest honest tuned-compensator theorem target]
+\label{def:target}
+The \emph{narrowest honest local/coercive theorem target} for the tuned branch consists of two statements and no more:
+\begin{enumerate}
+    \item a first local well-posedness and continuation theorem for the mixed hyperbolic--elliptic system \eqref{eq:betaeq}--\eqref{eq:pidt} in the weighted/homogeneous class \eqref{eq:Etc}, with \(Y\) reconstructed algebraically by \eqref{eq:Yrec};
+    \item a first corrected \(T\sim \varepsilon^{-1}\) coercive bootstrap for a modified energy \(\mathfrak F_N^{\mathrm{tc}}\) equivalent to \(\mathfrak E_N^{\mathrm{tc}}\), in which the only genuinely low-frequency correction retained from the old repaired unit-lapse route is the trace/longitudinal coupling already encoded in \(\mathfrak L_\chi(F_\chi)\).
+\end{enumerate}
+No decay, integrability, asymptotic, or broader admissible-background statement is part of the first honest target.
+\end{definition}
+
+\begin{proposition}[Why the target of Definition \ref{def:target} is the right next one]
+\label{prop:target}
+Definition \ref{def:target} is the narrowest honest theorem target forced by the current branch history.
+\end{proposition}
+
+\begin{proof}
+The full compensator reduction already settled the flat-background observer-correction question and showed that the repaired unit-lapse auxiliary package survives unchanged. Proposition \ref{prop:reducedsystem} now fixes the explicit tuned nonlinear reduced system. Therefore the next burden is no longer branch selection or another coefficient test. On the other hand, Corollary \ref{cor:scalarpackage} shows that the tuned branch no longer carries the old quartic scalar principal operator, so it would be mathematically dishonest to jump immediately to a quartic-style decay or asymptotic theorem. The smallest theorem question left is whether the mixed Einstein--trace/Stueckelberg-like momentum system is locally well posed in the repaired weighted/homogeneous class and whether its corrected energy closes a first coercive bootstrap before any later decay analysis is attempted. That is exactly Definition \ref{def:target}.
+\end{proof}
+
+\begin{theorem}[Form of the first tuned-compensator local/coercive result]
+\label{thm:form}
+Fix \(N\ge 6\). The first tuned-compensator theorem should aim to prove the following.
+
+There exists \(\varepsilon_{\mathrm{tc}}>0\) such that every asymptotically flat compatible initial data set for the tuned branch satisfying the Einstein constraints, the unit-lapse spatial-harmonic gauge conditions, the algebraic relation \eqref{eq:Yrec}, the strict regime \eqref{eq:strict}, and
+\begin{equation}
+\mathfrak E_N^{\mathrm{tc}}(0)\le \varepsilon_{\mathrm{tc}}^2
+\label{eq:small}
+\end{equation}
+admits a unique solution on some interval \([0,T_{\mathrm{loc}}]\) with
+\begin{align}
+\gamma-\delta &\in C([0,T_{\mathrm{loc}}],H^N)\cap C^1([0,T_{\mathrm{loc}}],H^{N-1}),
+\label{eq:reggamma}
+\\
+\Sigma,\ K,\ \pi_\sigma &\in C([0,T_{\mathrm{loc}}],H^{N-1}),
+\label{eq:regsigmakpi}
+\\
+\sigma &\in C([0,T_{\mathrm{loc}}],H^N)\cap C^1([0,T_{\mathrm{loc}}],H^{N-1}),
+\label{eq:regsigma}
+\\
+\beta &\in C([0,T_{\mathrm{loc}}],H^{N+1}),
+\label{eq:regbeta}
+\\
+Q,\ W^T &\in C([0,T_{\mathrm{loc}}],H^N),
+\label{eq:regaux}
+\\
+\nabla\chi &\in C([0,T_{\mathrm{loc}}],H^{N-1}),
+\qquad
+\mathbf P_{\mathrm{hi}}\chi\in C([0,T_{\mathrm{loc}}],H^N),
+\label{eq:regchi}
+\\
+Y &\in C([0,T_{\mathrm{loc}}],H^{N-2}),
+\label{eq:regY}
+\end{align}
+and
+\begin{equation}
+\sup_{0\le t\le T_{\mathrm{loc}}}\mathfrak E_N^{\mathrm{tc}}(t)
+\le
+2\,\mathfrak E_N^{\mathrm{tc}}(0).
+\label{eq:localbound}
+\end{equation}
+Moreover, if one constructs a corrected energy \(\mathfrak F_N^{\mathrm{tc}}\simeq \mathfrak E_N^{\mathrm{tc}}\) satisfying
+\begin{equation}
+\frac{d}{dt}\mathfrak F_N^{\mathrm{tc}}(t)
+\le
+C_N\bigl(\mathfrak F_N^{\mathrm{tc}}(t)\bigr)^{3/2},
+\label{eq:coerciveineq}
+\end{equation}
+then the first post-local coercive conclusion should be
+\begin{equation}
+\sup_{0\le t\le c_0\varepsilon^{-1}}\mathfrak F_N^{\mathrm{tc}}(t)
+\le
+2\varepsilon^2
+\qquad
+\text{whenever }
+\mathfrak F_N^{\mathrm{tc}}(0)\le \varepsilon^2
+\label{eq:coercivetarget}
+\end{equation}
+for \(0<\varepsilon\le \varepsilon_{\mathrm{tc}}\) and some \(c_0>0\) depending only on the fixed branch constants.
+\end{theorem}
+
+\begin{proof}
+The first local part is the direct analogue of the repaired unit-lapse local theorem architecture, with the quartic scalar equation replaced by the transport/momentum system \eqref{eq:sigmadt}--\eqref{eq:pidt} and with \(Y\) reconstructed algebraically rather than evolved. The second part is the narrowest honest coercive objective because the trace/longitudinal low-frequency mechanism of the repaired unit-lapse route still survives, while the old quartic scalar dispersive slot does not. Therefore the correct corrected energy must retain the former and omit the latter. This is exactly \eqref{eq:coerciveineq}--\eqref{eq:coercivetarget}.
+\end{proof}
+
+\begin{remark}
+Theorem \ref{thm:form} is a theorem \emph{target}, not a theorem proved here. Its purpose is to prevent the next branch step from drifting either too low or too high. The next manuscript should not retreat to another branch-selection discussion, and it should not leap directly to decay or asymptotic closure. It should prove the local/coercive statement whose form is now explicit.
+\end{remark}
+
+\section{What This Step Establishes}
+
+The present note establishes the following.
+\begin{enumerate}
+    \item It fixes one explicit tuned-compensator nonlinear completion in exact-square form.
+    \item It shows that the compensator remains algebraic at nonlinear level and that, after its pointwise elimination, the tuned branch reduces to the collapsed-scalar baseline together with algebraic reconstruction of \(Y\).
+    \item It derives the first reduced \(3+1\) observer-system architecture in unit-lapse spatial-harmonic gauge, with \(Q^I\) elliptic/gapped, \((\chi,W_i^T)\) on the repaired weighted/homogeneous auxiliary package, and \(Y\) algebraic.
+    \item It identifies the replacement scalar control structure as the Stueckelberg-like pair \((\sigma,\pi_\sigma)\) rather than the old quartic Schr\"odinger channel.
+    \item It states the narrowest honest local/coercive theorem target for the tuned branch.
+\end{enumerate}
+
+It does not establish the following.
+\begin{enumerate}
+    \item It does not prove the local theorem stated in Theorem \ref{thm:form}.
+    \item It does not prove the corrected coercive inequality \eqref{eq:coerciveineq}.
+    \item It does not prove any decay or asymptotic result on the tuned branch.
+    \item It does not weaken the strict ordered-flow positivity assumptions.
+    \item It does not claim a completed substrate derivation.
+\end{enumerate}
+
+\section{Conclusion}
+
+The tuned compensator branch should no longer be treated as a coefficient-level curiosity. The full reduction has already shown that, on its exact-square branch, it removes the complete observer correction while preserving the bridge metric, the single-metric matter route, the gapped \(Q\)-sector, and the repaired unit-lapse auxiliary package. The missing step was to turn that verdict into an explicit nonlinear branch architecture.
+
+This note performs that conversion. It fixes one explicit tuned completion, shows that the compensator is algebraic already at nonlinear level, derives the first reduced \(3+1\) system in unit-lapse spatial-harmonic gauge, and makes the replacement scalar control structure explicit. The old quartic scalar channel is gone by design. What remains is the Einstein metric sector, the Stueckelberg-like momentum pair \((\sigma,\pi_\sigma)\), the same weighted/homogeneous longitudinal auxiliary package, the same elliptic/gapped \(Q\)-sector, and algebraic recovery of \(Y\).
+
+The next question is therefore no longer whether the tuned branch removes \(\Pi_\phi\). At the present disciplined scope, that question is settled. The next question is whether the explicit reduced system written here supports the local/coercive theorem target now stated in Theorem \ref{thm:form} without reintroducing a new obstruction.
+
+\end{document}

@@ -1,0 +1,436 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal{A}}
+\newcommand{\BridgeMetric}{\mathfrak{g}}
+\newcommand{\DeltaPerp}{\Delta_{\perp}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Next Candidate Family: Quartic Exact-Square Compensator Completion}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The post-verdict criteria note fixed the next burden of the derivational program. The surviving higher-derivative quartic branch is now a stable recovery-compatible side program, not the active derivational line, because the reduced observer equation still carries the nonzero scalar self-energy
+\[
+\Pi_\phi^{(4)}(\omega,\mathbf{k})
+=
+m_S^2\sigma_0^2
+\frac{(\lambda_4/M_*^2)k^4}
+{m_S^2\omega^2+(\lambda_4/M_*^2)k^4}.
+\]
+If exact derivation remains the goal, the next manuscript must therefore choose the smallest new branch or redesign that preserves single-metric matter coupling, keeps as much of the good current architecture as possible, and directly targets removal of that observer-accessible quartic remainder.
+
+This note performs that next branch-selection step. It argues that the smallest admissible redesign is not a renewed longitudinal \(U\)-sector program, not a positivity-relaxation program, and not another higher-order propagation note on \(S_{\mathrm{min},4}\). It is a quartic exact-square compensator completion acting directly on the offending \((\Delta_{\perp}S)^2\) block. The new branch adjoins one gapped auxiliary scalar \(Y\) through
+\[
+\Delta\mathcal L_{4Y}
+=
+\alpha_Y\,Y\,\Delta_{\perp}S
+-\frac{M_Y^2}{2}Y^2,
+\qquad
+M_Y^2>0,
+\]
+while leaving the bridge metric, single-metric matter route, and ordered-flow kinetic block unchanged.
+
+On the flat admissible background, the quadratic scalar sector becomes
+\[
+\mathcal L_{\sigma Y}^{(2)}
+=
+-\frac{m_S^2}{2}\bigl(\partial_0\sigma-\sigma_0\phi\bigr)^2
+-\frac{1}{2}
+\left(
+\frac{\lambda_4}{M_*^2}
+-\frac{\alpha_Y^2}{M_Y^2}
+\right)
+(\nabla^2\sigma)^2.
+\]
+Thus the quartic scalar self-energy is removed identically at the same quadratic scope on the tuned branch
+\[
+\frac{\alpha_Y^2}{M_Y^2}
+=
+\frac{\lambda_4}{M_*^2}.
+\]
+This candidate does not yet come with a completed health or stability theorem. It does, however, satisfy the post-verdict selection logic: it is the smallest redesign that changes the recorded quartic observer remainder at its source, keeps the public matter route fixed, and is immediately testable by a direct quadratic reduction.
+\end{abstract}
+
+\section{Introduction}
+
+The active manuscript sequence of \TheoryName{} has now crossed an important threshold. The surviving higher-derivative quartic branch is no longer merely a speculative derivational attempt. It has a fixed completion, a local theorem, a coercive bootstrap, a weighted/homogeneous asymptotic closure route, and an explicit observer-equation verdict. That verdict is decisive: the branch is stable and recovery-compatible, but it is not an exact derivational closure because the reduced observer equation retains the nonzero scalar self-energy \(\Pi_\phi^{(4)}\).
+
+That changes the meaning of the next step. The next manuscript is no longer another repair note on the same surviving quartic branch. The post-verdict criteria note already fixed that. The next step is to choose the smallest acceptable new branch or bridge/completion redesign beyond it.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays within that boundary. It does not claim that the new branch already succeeds. It selects the next candidate family and states it in a form sharp enough that the next quadratic exact-closure test can be carried out directly.
+
+\section{What the Post-Verdict Criteria Force}
+
+The post-verdict criteria note fixed three requirements that matter immediately here:
+\begin{enumerate}
+    \item the next branch must preserve single-metric matter coupling
+    \item it must target removal of the residual quartic scalar self-energy \(\Pi_\phi^{(4)}\) rather than merely suppressing it
+    \item it should preserve as much of the present good architecture as possible, but not at the price of leaving the same observer-accessible remainder in place.
+\end{enumerate}
+
+\begin{proposition}[The next redesign must act on the quartic scalar block itself]
+\label{prop:actonquartic}
+At the present disciplined scope, the smallest admissible next branch must modify the scalar/auxiliary completion precisely where the surviving observer correction is generated, namely the reduced quartic scalar block, rather than beginning with a new matter route, a new bridge metric, or a gauge-only reformulation.
+\end{proposition}
+
+\begin{proof}
+The recorded observer remainder is the scalar self-energy \(\Pi_\phi^{(4)}\), generated after auxiliary reduction from the quartic scalar kernel of the surviving branch. The matter route is already acceptable and must remain single-metric by the post-verdict criteria. A gauge-only reformulation cannot remove a gauge-invariant nonzero reduced scalar self-energy that has already survived gauge fixing and auxiliary elimination. Therefore the smallest admissible redesign must act on the reduced scalar/auxiliary block that produces \(\Pi_\phi^{(4)}\).
+\end{proof}
+
+\begin{corollary}[Why the longitudinal \texorpdfstring{\(U\)}{U}-sector is not the first post-verdict move]
+\label{cor:notU}
+The first post-verdict move should not reopen the longitudinal \(U\)-sector or weaken the ordered-flow positivity assumptions before a smaller redesign acting directly on the quartic scalar block is tested.
+\end{corollary}
+
+\begin{proof}
+Both of those directions represent a larger structural drift than a direct quartic-block redesign. The post-verdict criteria require the smallest admissible change first. Proposition \ref{prop:actonquartic} shows that the quartic scalar block itself is where the current observer remainder originates. Therefore that is the smallest place to act.
+\end{proof}
+
+\section{How Much of the Current Architecture Can Actually Be Preserved}
+
+The post-verdict criteria ask that the good same-class stability architecture be kept if possible. The phrase ``if possible'' matters.
+
+\begin{proposition}[Literal preservation of the old quartic scalar channel is incompatible with exact removal of \texorpdfstring{\(\Pi_\phi^{(4)}\)}{Pi}]
+\label{prop:notliteral}
+Suppose the ordered-flow kinetic block
+\begin{equation}
+-\frac{m_S^2}{2}\bigl(\partial_0\sigma-\sigma_0\phi\bigr)^2
+\label{eq:kin}
+\end{equation}
+is left unchanged and the reduced flat-background scalar operator of a candidate branch is \(\mathcal B_{\mathrm{new}}(k^2)\). Then the reduced observer scalar self-energy has the form
+\begin{equation}
+\Pi_\phi^{\mathrm{new}}(\omega,\mathbf{k})
+=
+m_S^2\sigma_0^2
+\frac{\mathcal B_{\mathrm{new}}(k^2)}
+{m_S^2\omega^2+\mathcal B_{\mathrm{new}}(k^2)}.
+\label{eq:Pigen}
+\end{equation}
+If \(\Pi_\phi^{\mathrm{new}}\equiv 0\) in the intended quadratic regime, then \(\mathcal B_{\mathrm{new}}(k^2)\equiv 0\) there. Therefore the old nonzero quartic Schr\"odinger-type scalar channel cannot survive literally on an exact-removal branch.
+\end{proposition}
+
+\begin{proof}
+Equation \eqref{eq:Pigen} is the same reduced scalar structure already recorded on the surviving quartic branch, with only the spatial kernel replaced by \(\mathcal B_{\mathrm{new}}(k^2)\). Because \(m_S^2>0\) and \(\sigma_0\neq 0\) are kept fixed, vanishing of \(\Pi_\phi^{\mathrm{new}}\) for generic \((\omega,\mathbf{k})\) forces the numerator \(\mathcal B_{\mathrm{new}}(k^2)\) to vanish identically in the tested regime. Therefore the old nonzero quartic scalar channel cannot remain literally intact on a branch that removes the observer remainder exactly.
+\end{proof}
+
+\begin{remark}
+Proposition \ref{prop:notliteral} does not mean that all of the good architecture must be abandoned. It means only that the old quartic observer scalar mode itself cannot remain as a nonzero reduced channel if the post-verdict removal target is taken seriously. The surrounding architecture should still be preserved as strongly as possible: the bridge metric, the single-metric matter route, the no-new-tensor/no-new-transverse-vector rule, and the preference for auxiliary or gapped nonmetric sectors.
+\end{remark}
+
+\section{Selection Principle for the Next Candidate}
+
+The previous branch notes worked by identifying the smallest structure that changes the precise obstruction then on record. The same method applies again.
+
+\begin{definition}[Least-drift post-verdict redesign]
+\label{def:leastdrift}
+A \emph{least-drift post-verdict redesign} is a candidate branch that:
+\begin{enumerate}
+    \item leaves the bridge metric and single-metric matter route unchanged
+    \item leaves the ordered-flow kinetic block \eqref{eq:kin} unchanged
+    \item introduces no new observer-accessible tensor or transverse-vector propagating channel
+    \item modifies only the scalar/auxiliary completion needed to change the reduced quartic scalar kernel generating \(\Pi_\phi^{(4)}\).
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}[Next branch-selection result]
+\label{prop:select}
+The smallest admissible next candidate family after the post-verdict criteria note is a quartic exact-square compensator completion of the scalar/auxiliary block.
+\end{proposition}
+
+\begin{proof}
+By Proposition \ref{prop:actonquartic}, the next redesign must act directly on the quartic scalar block. By Definition \ref{def:leastdrift}, the smallest such redesign leaves the bridge metric, matter route, and ordered-flow kinetic term fixed and changes only the quartic scalar/auxiliary completion. The simplest way to change that block exactly at the source is to adjoin one gapped auxiliary scalar compensator \(Y\) with linear coupling to \(\Delta_\perp S\). This creates an exact-square completion of the quartic block and therefore directly targets the recorded self-energy \(\Pi_\phi^{(4)}\). Any route beginning with a new gauge, a new matter route, or a new longitudinal \(U\)-sector mechanism is structurally larger. Therefore the quartic exact-square compensator completion is the smallest admissible next candidate family.
+\end{proof}
+
+\section{Quartic Exact-Square Compensator Completion}
+
+\subsection{Branch Definition}
+
+Keep the bridge metric
+\begin{equation}
+\BridgeMetric_{AB}=G_{AB}-2U_AU_B,
+\label{eq:bridge}
+\end{equation}
+the matter route
+\begin{equation}
+S_{\mathrm{matter}}[\Xi^\ast\BridgeMetric,\psi]
+=
+S_{\mathrm{matter}}[g,\psi],
+\qquad
+g_{\mu\nu}=\Xi^\ast\BridgeMetric_{AB},
+\label{eq:matter}
+\end{equation}
+and the ordered-flow kinetic block already fixed on the surviving branch. Let the old quartic piece be
+\begin{equation}
+\mathcal L_{4}
+=
+-\frac{\lambda_4}{2M_*^2}(\Delta_\perp S)^2,
+\qquad
+\Delta_\perp \equiv P^{AB}\nabla_A\nabla_B.
+\label{eq:L4}
+\end{equation}
+
+\begin{definition}[Quartic exact-square compensator completion]
+\label{def:branch}
+The \emph{quartic exact-square compensator completion} is obtained by adjoining one gapped auxiliary scalar \(Y\) through
+\begin{equation}
+\Delta\mathcal L_{4Y}
+=
+\alpha_Y\,Y\,\Delta_\perp S
+-\frac{M_Y^2}{2}Y^2,
+\qquad
+M_Y^2>0,
+\label{eq:L4Y}
+\end{equation}
+and replacing the old quartic block \eqref{eq:L4} by
+\begin{equation}
+\mathcal L_{4,\mathrm{comp}}
+=
+\mathcal L_{4}+\Delta\mathcal L_{4Y}.
+\label{eq:L4comp}
+\end{equation}
+\end{definition}
+
+\begin{remark}
+The new field \(Y\) is chosen as a gapped auxiliary scalar rather than as a new propagating observer mode. This is the least-drift post-verdict role compatible with Definition \ref{def:leastdrift}. In later notation it may be absorbed into an enlarged scalar auxiliary sector, but it is cleaner to keep it separate at the branch-selection stage.
+\end{remark}
+
+\subsection{Exact-Square Form}
+
+\begin{proposition}[Tuned exact-square branch]
+\label{prop:square}
+If
+\begin{equation}
+\frac{\alpha_Y^2}{M_Y^2}
+=
+\frac{\lambda_4}{M_*^2},
+\label{eq:tune}
+\end{equation}
+then the quartic scalar/auxiliary block becomes the exact square
+\begin{equation}
+\mathcal L_{4,\mathrm{comp}}
+=
+-\frac{1}{2}
+\left(
+\frac{\sqrt{\lambda_4}}{M_*}\Delta_\perp S
+-M_Y Y
+\right)^2.
+\label{eq:square}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Expand the right-hand side of \eqref{eq:square}. It gives
+\[
+-\frac{\lambda_4}{2M_*^2}(\Delta_\perp S)^2
++\frac{\sqrt{\lambda_4}M_Y}{M_*}Y\Delta_\perp S
+-\frac{M_Y^2}{2}Y^2.
+\]
+This is exactly \eqref{eq:L4comp} under the tuning condition \eqref{eq:tune}.
+\end{proof}
+
+\begin{remark}
+The exact-square structure is the key post-verdict idea. The quartic self-energy is not to be merely controlled better. It is to be neutralized at the operator level by an auxiliary completion acting exactly on the recorded offending block.
+\end{remark}
+
+\section{Flat-Background Quadratic Reduction}
+
+Use the same admissible homogeneous background as on the surviving quartic branch,
+\begin{equation}
+\bar G_{AB}=\delta_{AB},
+\qquad
+\bar U^A=\delta^A{}_0,
+\qquad
+\bar S=\sigma_0X^0,
+\qquad
+\bar Y=0,
+\label{eq:background}
+\end{equation}
+with perturbations
+\begin{equation}
+S=\sigma_0X^0+\sigma,
+\qquad
+Y=y.
+\label{eq:perts}
+\end{equation}
+Then
+\begin{equation}
+\Delta_\perp S
+=
+\nabla^2\sigma+\mathcal O(2),
+\label{eq:deltaperpflat}
+\end{equation}
+so the scalar/compensator quadratic Lagrangian becomes
+\begin{equation}
+\mathcal L_{\sigma y}^{(2)}
+=
+-\frac{m_S^2}{2}\bigl(\partial_0\sigma-\sigma_0\phi\bigr)^2
+-\frac{\lambda_4}{2M_*^2}(\nabla^2\sigma)^2
++\alpha_Y\,y\,\nabla^2\sigma
+-\frac{M_Y^2}{2}y^2.
+\label{eq:Lsigmay}
+\end{equation}
+
+\begin{proposition}[Reduced quartic scalar operator on the compensator branch]
+\label{prop:reduce}
+Eliminating the auxiliary scalar \(y\) from \eqref{eq:Lsigmay} gives the effective reduced scalar Lagrangian
+\begin{equation}
+\mathcal L_{\sigma,\mathrm{eff}}^{(2)}
+=
+-\frac{m_S^2}{2}\bigl(\partial_0\sigma-\sigma_0\phi\bigr)^2
+-\frac{1}{2}
+\left(
+\frac{\lambda_4}{M_*^2}
+-\frac{\alpha_Y^2}{M_Y^2}
+\right)
+(\nabla^2\sigma)^2.
+\label{eq:Leff}
+\end{equation}
+Therefore the reduced quartic scalar kernel is
+\begin{equation}
+\mathcal B_{4Y}(k^2)
+=
+\left(
+\frac{\lambda_4}{M_*^2}
+-\frac{\alpha_Y^2}{M_Y^2}
+\right)k^4.
+\label{eq:B4Y}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Varying \eqref{eq:Lsigmay} with respect to \(y\) gives
+\begin{equation}
+M_Y^2y=\alpha_Y\nabla^2\sigma,
+\qquad
+y=\frac{\alpha_Y}{M_Y^2}\nabla^2\sigma.
+\label{eq:ysolve}
+\end{equation}
+Substituting \eqref{eq:ysolve} into \eqref{eq:Lsigmay} yields
+\[
+\alpha_Y y\nabla^2\sigma-\frac{M_Y^2}{2}y^2
+=
+\frac{\alpha_Y^2}{2M_Y^2}(\nabla^2\sigma)^2.
+\]
+Combining this with the old quartic term gives \eqref{eq:Leff}. Fourier transformation then gives \eqref{eq:B4Y}.
+\end{proof}
+
+\begin{corollary}[Direct target on the tuned branch]
+\label{cor:target}
+On the tuned exact-square branch \eqref{eq:tune},
+\begin{equation}
+\mathcal B_{4Y}(k^2)\equiv 0
+\label{eq:Bzero}
+\end{equation}
+at the same flat-background quadratic scope. Consequently the scalar self-energy
+\begin{equation}
+\Pi_\phi^{(4Y)}(\omega,\mathbf{k})
+=
+m_S^2\sigma_0^2
+\frac{\mathcal B_{4Y}(k^2)}
+{m_S^2\omega^2+\mathcal B_{4Y}(k^2)}
+\label{eq:Pinew}
+\end{equation}
+vanishes identically at that scope.
+\end{corollary}
+
+\begin{proof}
+Equation \eqref{eq:Bzero} follows immediately from \eqref{eq:B4Y} and \eqref{eq:tune}. Substituting \eqref{eq:Bzero} into \eqref{eq:Pinew} gives \(\Pi_\phi^{(4Y)}\equiv 0\).
+\end{proof}
+
+\begin{remark}
+Corollary \ref{cor:target} is exactly why this branch is the correct next candidate to test. It does not merely weaken the quartic remainder. It targets the recorded observer-accessible self-energy at the exact operator level that produced the post-verdict obstruction.
+\end{remark}
+
+\section{Why This Is the Smallest Honest Next Candidate}
+
+\begin{proposition}[Minimality of the quartic compensator branch]
+\label{prop:minimal}
+The quartic exact-square compensator completion is the smallest honest next candidate beyond the surviving quartic branch for the following reasons.
+\begin{enumerate}
+    \item It leaves the bridge metric and single-metric matter route unchanged.
+    \item It leaves the ordered-flow kinetic block unchanged.
+    \item It introduces no new observer-accessible tensor or transverse-vector propagating channel.
+    \item It changes only the quartic scalar/auxiliary block that directly generated \(\Pi_\phi^{(4)}\).
+    \item It is immediately testable by the same flat-background quadratic reduction method already used throughout the branch sequence.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Items (1)--(4) are built into Definitions \ref{def:leastdrift} and \ref{def:branch}. Item (5) is exactly Proposition \ref{prop:reduce} together with Corollary \ref{cor:target}. Any larger redesign would alter additional sectors before this smallest direct quartic-block test is exhausted.
+\end{proof}
+
+\begin{remark}
+The price of this minimality is visible in Proposition \ref{prop:notliteral}: the old quartic observer scalar channel cannot remain literally unchanged on a branch that removes \(\Pi_\phi^{(4)}\) exactly. The correct preservation target is therefore the surrounding bridge/matter/auxiliary architecture, not the survival of the old quartic Schr\"odinger channel itself.
+\end{remark}
+
+\section{Immediate Next Tests for the Compensator Branch}
+
+This note selects the branch. It does not yet complete its evaluation. The next calculation stage is now specific.
+
+\begin{enumerate}
+    \item derive the full flat-background quadratic reduction of the quartic compensator branch, including any mixing with the existing \(Q\)- and longitudinal ordered-flow auxiliaries
+    \item determine whether the tuned branch \eqref{eq:tune} removes the observer-accessible scalar self-energy beyond the narrow scalar subsection recorded here
+    \item check whether the compensator remains auxiliary or uniformly gapped after the full reduction and does not reintroduce a new unsuppressed low-energy nonmetric sector
+    \item verify that single-metric matter coupling is preserved on the full branch, not only on the scalar subsection
+    \item determine the narrowest replacement local/coercive architecture for the tuned branch, now that the old quartic observer scalar channel is intentionally neutralized rather than propagated.
+\end{enumerate}
+
+\begin{remark}
+The first three tasks come before any broader theorem or stability claim. That ordering is part of the post-verdict discipline: the branch must first prove that it really changes the observer equation in the intended way before the manuscript line invests in a deeper nonlinear analysis.
+\end{remark}
+
+\section{Conclusion}
+
+The next step after the post-verdict criteria note is no longer abstract. It is now carried out.
+\begin{enumerate}
+    \item The smallest admissible next candidate branch is selected: the quartic exact-square compensator completion.
+    \item The branch acts directly on the offending quartic scalar block and leaves the bridge metric and single-metric matter route unchanged.
+    \item On the tuned branch \(\alpha_Y^2/M_Y^2=\lambda_4/M_*^2\), the flat-background quartic scalar kernel vanishes at the same quadratic scope, so the recorded self-energy target \(\Pi_\phi^{(4)}\) is removed there identically.
+    \item This candidate therefore earns the next direct quadratic test rather than a larger redesign of matter coupling, gauge choice, or the longitudinal \(U\)-sector.
+\end{enumerate}
+
+The present note does not yet prove that the compensator branch is healthy, that it preserves the best current nonlinear architecture, or that it completes the substrate derivation. It does identify the smallest next branch that honestly targets the recorded post-verdict obstruction.
+
+\end{document}

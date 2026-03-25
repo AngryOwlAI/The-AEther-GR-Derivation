@@ -1,0 +1,390 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal{A}}
+\newcommand{\BridgeMetric}{\mathfrak{g}}
+\newcommand{\Ell}{\mathcal{L}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Higher-Derivative Quartic Branch Failure of the Unit-Lapse Coulomb-Split Regular-Part Closure Test}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The propagated trace-monopole cancellation test has now been carried out for the fixed-completion unit-lapse spatial-harmonic formulation, and at the present recorded scope it does not close: a vanishing initial trace monopole is not derived from the existing compatibility conditions, and its propagation is not presently proved. The next smallest repair is therefore the longitudinal auxiliary renormalization
+\[
+\chi=\chi_{\mathrm{Coul}}+\chi_{\mathrm{reg}},
+\]
+with the hope that the regular part might lie in the same unweighted Sobolev class used by the old local and coercive architecture.
+
+This note performs that next test. The Coulomb split does remove the explicit monopole tail at the slice equation level: after choosing a compactly supported unit-mass profile \(B_{\mathrm{ext}}\), the regular part satisfies
+\[
+\kappa_\theta \Delta \chi_{\mathrm{reg}}
+=
+-\bigl(F_\chi-\mathfrak m_\chi B_{\mathrm{ext}}\bigr),
+\qquad
+\int_{\mathbb R^3}\bigl(F_\chi-\mathfrak m_\chi B_{\mathrm{ext}}\bigr)\,dx=0.
+\]
+Thus the leading \(1/|x|\) coefficient is subtracted explicitly.
+
+The decisive point is that this is still not enough to recover the \emph{old} unweighted \(H^N\) closure package. For the zero-mean source
+\[
+F_{\chi,\mathrm{reg}}
+\equiv
+F_\chi-\mathfrak m_\chi B_{\mathrm{ext}},
+\]
+the Fourier representation of the regular part is
+\[
+\widehat{\chi_{\mathrm{reg}}}(\xi)
+=
+-\frac{\widehat{F_{\chi,\mathrm{reg}}}(\xi)}{\kappa_\theta |\xi|^2}.
+\]
+Hence unweighted \(H^N\) control of \(\chi_{\mathrm{reg}}\) requires an additional low-frequency seminorm
+\[
+\int_{|\xi|\le 1} |\xi|^{-4}\,|\widehat{F_{\chi,\mathrm{reg}}}(\xi)|^2\,d\xi,
+\]
+not merely zero mean and not merely the old \(H^{N-2}\) control of the source. A zero-mean condition removes only \(\widehat{F_{\chi,\mathrm{reg}}}(0)\); it does not control the remaining \(|\xi|^{-2}\) singularity of the Poisson inverse in unweighted \(L^2\). Therefore the Coulomb split does not presently close the old unweighted \((K,\chi,\beta)\) local/coercive architecture. The next honest move is now the broader weighted or homogeneous function-space reformulation whose controlled norm records precisely that missing low-frequency information.
+\end{abstract}
+
+\section{Introduction}
+
+The fixed-completion unit-lapse spatial-harmonic route has now passed through two increasingly narrow repair tests. First, the straightforward unweighted \((K,\chi,\beta)\) package failed because the longitudinal auxiliary variable \(\chi\) acquires a trace-driven Coulomb tail whenever the source monopole
+\[
+\mathfrak m_\chi(t)
+=
+\int_{\mathbb R^3}\bigl(K-\mathcal N_\chi\bigr)(t,x)\,dx
+\]
+is nonzero. Second, the propagated trace-monopole cancellation test asked whether that monopole could be forced at \(t=0\) and then propagated by the existing unit-lapse evolution. At the present recorded scope, that route also failed to close.
+
+The next smallest repair is therefore not yet a weighted-space redesign. It is the Coulomb split itself: subtract the explicit monopole profile from the longitudinal auxiliary variable and ask whether the remainder \(\chi_{\mathrm{reg}}\) fits back into the old unweighted Sobolev energy.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays within that boundary. It does not claim that no Coulomb-split theorem can ever be proved in any refined function class. It records only that the split does not presently restore the \emph{old unweighted} closure package.
+
+\section{The Coulomb Split to Be Tested}
+
+On each slice of the unit-lapse reduction, write the longitudinal source as
+\begin{equation}
+F_\chi
+\equiv
+K-\mathcal N_\chi[\gamma,\Sigma,K,\beta,\sigma,\pi_\sigma,Q,\chi,W^T,\psi,\pi_\psi],
+\label{eq:Fchi}
+\end{equation}
+so that the longitudinal auxiliary equation is
+\begin{equation}
+\kappa_\theta \Delta_\gamma \chi = -F_\chi.
+\label{eq:chieq}
+\end{equation}
+The old unweighted closure test failed because nonzero \(\mathfrak m_\chi=\int F_\chi\) produces the Coulomb asymptotic of the previous unit-lapse obstruction note.
+
+\begin{definition}[Recorded unit-mass profile for the Coulomb split]
+Fix once and for all a smooth compactly supported function
+\begin{equation}
+B_{\mathrm{ext}}\in C_c^\infty(\mathbb R^3)
+\qquad\text{such that}\qquad
+\int_{\mathbb R^3} B_{\mathrm{ext}}(x)\,dx = 1.
+\label{eq:Bext}
+\end{equation}
+\end{definition}
+
+\begin{definition}[Coulomb split of the longitudinal auxiliary variable]
+On a slice with source monopole
+\begin{equation}
+\mathfrak m_\chi
+\equiv
+\int_{\mathbb R^3}F_\chi(x)\,dx,
+\label{eq:mchi}
+\end{equation}
+define the \emph{Coulomb profile} \(\chi_{\mathrm{Coul}}\) and the \emph{regular part} \(\chi_{\mathrm{reg}}\) by
+\begin{equation}
+\chi=\chi_{\mathrm{Coul}}+\chi_{\mathrm{reg}},
+\label{eq:split}
+\end{equation}
+where \(\chi_{\mathrm{Coul}}\) is the decaying solution of
+\begin{equation}
+\kappa_\theta \Delta \chi_{\mathrm{Coul}}
+=
+-\mathfrak m_\chi B_{\mathrm{ext}}
+\label{eq:chiCoul}
+\end{equation}
+and \(\chi_{\mathrm{reg}}\) is the remainder.
+\end{definition}
+
+\begin{remark}
+Definition 2 fixes only the low-frequency renormalization. It does not change the completion \(S_{\mathrm{min},4}\), the unit-lapse gauge, or the propagating Einstein--quartic-scalar variables.
+\end{remark}
+
+Since the present test concerns the old asymptotically flat Sobolev package, it is enough to examine the flat-background small-data model in which \(\Delta_\gamma\) is a perturbation of the Euclidean Laplacian. The decisive low-frequency issue is already visible in the Euclidean part.
+
+\begin{proposition}[The split removes the explicit monopole from the flat model]
+\label{prop:meanzero}
+On the flat model \(\gamma=\delta\), the regular part satisfies
+\begin{equation}
+\kappa_\theta \Delta \chi_{\mathrm{reg}}
+=
+-F_{\chi,\mathrm{reg}},
+\qquad
+F_{\chi,\mathrm{reg}}
+\equiv
+F_\chi-\mathfrak m_\chi B_{\mathrm{ext}},
+\label{eq:chireg}
+\end{equation}
+and the renormalized source obeys
+\begin{equation}
+\int_{\mathbb R^3} F_{\chi,\mathrm{reg}}(x)\,dx = 0.
+\label{eq:meanzero}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Subtract \eqref{eq:chiCoul} from the flat equation \(\kappa_\theta\Delta\chi=-F_\chi\). The mean-zero property \eqref{eq:meanzero} follows from \eqref{eq:Bext} and \eqref{eq:mchi}.
+\end{proof}
+
+\begin{remark}
+Proposition \ref{prop:meanzero} is exactly what the Coulomb split is supposed to accomplish. It removes the explicit monopole from the elliptic source and therefore removes the \emph{recorded} \(1/|x|\) tail at the formal source level.
+\end{remark}
+
+\section{The Old Energy One Would Like to Reuse}
+
+The old local/coercive architecture would now try to replay the same unweighted energy with \(\chi\) replaced by \(\chi_{\mathrm{reg}}\).
+
+\begin{definition}[Coulomb-split unweighted test package]
+Fix \(N\ge 6\). The \emph{Coulomb-split unweighted test package} is the direct old energy with the longitudinal variable replaced by its regular part:
+\begin{align}
+\mathfrak E_N^{\mathrm{ul,reg}}
+\equiv\;&
+\|\gamma-\delta\|_{H^N}^2
++ \|\Sigma\|_{H^{N-1}}^2
++ \|K\|_{H^{N-1}}^2
++ \|\sigma\|_{H^{N-1}}^2
++ \frac{1}{m_S^2}\|\pi_\sigma\|_{H^{N-1}}^2
+\nonumber\\
+&+
+\frac{\lambda_4}{M_*^2}\|\Delta_\gamma \sigma\|_{H^{N-1}}^2
++ \mathcal E_N^{\mathrm{matter}}
++ \|\beta\|_{H^{N+1}}^2
++ \|Q\|_{H^N}^2
++ \|\chi_{\mathrm{reg}}\|_{H^N}^2
++ \|W^T\|_{H^N}^2.
+\label{eq:Ereg}
+\end{align}
+\end{definition}
+
+\begin{remark}
+Definition 3 is the exact question the present note tests. If the Coulomb split repaired the old energy, then \(\|\chi_{\mathrm{reg}}\|_{H^N}\) would be controlled by the same kind of unweighted Sobolev norms that already appear in \eqref{eq:Ereg}, with no added weighted or homogeneous seminorm.
+\end{remark}
+
+\section{Low-Frequency Structure of the Regular Part}
+
+The main issue is not the high-frequency elliptic estimate. It is the remaining low-frequency singularity of the inverse Laplacian.
+
+\begin{proposition}[Fourier representation of the regular part]
+\label{prop:fourier}
+Assume the flat model of Proposition \ref{prop:meanzero}. Then
+\begin{equation}
+\widehat{\chi_{\mathrm{reg}}}(\xi)
+=
+-\frac{\widehat{F_{\chi,\mathrm{reg}}}(\xi)}{\kappa_\theta |\xi|^2},
+\label{eq:fourier}
+\end{equation}
+and therefore
+\begin{align}
+\|\chi_{\mathrm{reg}}\|_{H^N}^2
+\lesssim\;&
+\int_{|\xi|\le 1}
+|\xi|^{-4}\,|\widehat{F_{\chi,\mathrm{reg}}}(\xi)|^2\,d\xi
+\nonumber\\
+&+
+\|F_{\chi,\mathrm{reg}}\|_{H^{N-2}}^2.
+\label{eq:splitestimate}
+\end{align}
+Conversely, the low-frequency integral in \eqref{eq:splitestimate} is necessary for unweighted \(L^2\) control of \(\chi_{\mathrm{reg}}\).
+\end{proposition}
+
+\begin{proof}
+Taking the Fourier transform of \eqref{eq:chireg} gives \eqref{eq:fourier}. Then
+\[
+\|\chi_{\mathrm{reg}}\|_{H^N}^2
+\simeq
+\int_{\mathbb R^3}
+(1+|\xi|^2)^N |\widehat{\chi_{\mathrm{reg}}}(\xi)|^2\,d\xi.
+\]
+Insert \eqref{eq:fourier} and split the integral into \(|\xi|\le 1\) and \(|\xi|\ge 1\). On the high-frequency region,
+\[
+(1+|\xi|^2)^N |\xi|^{-4}
+\lesssim
+(1+|\xi|^2)^{N-2},
+\]
+which gives the \(H^{N-2}\) term. On the low-frequency region, the multiplier remains \(|\xi|^{-4}\), yielding the first term in \eqref{eq:splitestimate}. Since the \(H^N\)-norm contains the \(L^2\)-norm, no unweighted \(H^N\) estimate can avoid that low-frequency integral.
+\end{proof}
+
+\begin{definition}[Missing low-frequency seminorm]
+For the Coulomb-split source define
+\begin{equation}
+\mathfrak L_\chi^2
+\equiv
+\int_{|\xi|\le 1}
+|\xi|^{-4}\,|\widehat{F_{\chi,\mathrm{reg}}}(\xi)|^2\,d\xi.
+\label{eq:Lchi}
+\end{equation}
+\end{definition}
+
+\begin{remark}
+The seminorm \(\mathfrak L_\chi\) is precisely what the old energy does \emph{not} contain. It is a low-frequency or homogeneous control quantity rather than an ordinary unweighted Sobolev norm.
+\end{remark}
+
+\section{Why Zero Mean Is Still Not Enough}
+
+Subtracting the monopole forces \(\widehat{F_{\chi,\mathrm{reg}}}(0)=0\), but that does not control the full seminorm \eqref{eq:Lchi}.
+
+\begin{proposition}[Zero mean does not restore the old elliptic estimate]
+\label{prop:noestimate}
+There is no constant \(C_N>0\) such that every smooth zero-mean source \(g\) satisfies
+\begin{equation}
+\|(-\Delta)^{-1}g\|_{H^N(\mathbb R^3)}
+\le
+C_N \|g\|_{H^{N-2}(\mathbb R^3)}.
+\label{eq:falseestimate}
+\end{equation}
+In particular, zero mean alone does not close the slice estimate for \(\chi_{\mathrm{reg}}\) in the old unweighted energy.
+\end{proposition}
+
+\begin{proof}
+Choose a nonzero \(\varphi\in C_c^\infty(\mathbb R^3)\) supported in the annulus
+\[
+\frac{1}{2}\le |\xi|\le 2.
+\]
+For \(j\ge 1\), define \(g_j\in \mathcal S(\mathbb R^3)\) by
+\begin{equation}
+\widehat{g_j}(\xi)
+\equiv
+2^{3j/2}\,\varphi(2^j\xi).
+\label{eq:gj}
+\end{equation}
+Then \(\widehat{g_j}(0)=0\), so each \(g_j\) has zero mean. Since \(\widehat{g_j}\) is supported where \(|\xi|\simeq 2^{-j}\), one has
+\[
+\|g_j\|_{H^{N-2}}^2
+\simeq
+\int |\widehat{g_j}(\xi)|^2\,d\xi
+\simeq
+1,
+\]
+uniformly in \(j\). Let \(u_j=(-\Delta)^{-1}g_j\). Then
+\[
+\widehat{u_j}(\xi)
+=
+|\xi|^{-2}\widehat{g_j}(\xi),
+\]
+so on the support of \(\widehat{g_j}\),
+\[
+|\xi|^{-2}\simeq 2^{2j}.
+\]
+Therefore
+\[
+\|u_j\|_{L^2}^2
+\simeq
+2^{4j}\int |\widehat{g_j}(\xi)|^2\,d\xi
+\simeq
+2^{4j},
+\]
+which tends to infinity. Since the \(H^N\)-norm dominates the \(L^2\)-norm, \eqref{eq:falseestimate} cannot hold.
+\end{proof}
+
+\begin{corollary}[What the Coulomb split actually buys]
+\label{cor:whatbuys}
+The Coulomb split removes the explicit monopole contribution, but it does \emph{not} convert the longitudinal elliptic solve into an unweighted \(H^{N-2}\to H^N\) estimate. The remaining obstacle is the low-frequency seminorm \(\mathfrak L_\chi\), not the monopole itself.
+\end{corollary}
+
+\begin{proof}
+Proposition \ref{prop:meanzero} gives the monopole subtraction. Proposition \ref{prop:noestimate} shows that the old unweighted elliptic estimate still fails.
+\end{proof}
+
+\section{Verdict for the Old Unweighted Package}
+
+The previous proposition already decides the question the present note was meant to test.
+
+\begin{theorem}[Failure of the Coulomb-split regular-part closure test]
+\label{thm:failure}
+Assume the fixed-completion unit-lapse spatial-harmonic formulation for \(S_{\mathrm{min},4}\) and apply the Coulomb split \eqref{eq:split} to the longitudinal auxiliary variable. Then, at the present recorded scope:
+\begin{enumerate}
+    \item the split removes the explicit monopole from the slice equation through Proposition \ref{prop:meanzero}
+    \item nevertheless the regular part \(\chi_{\mathrm{reg}}\) does not satisfy the old unweighted slice estimate
+    \[
+    \|\chi_{\mathrm{reg}}\|_{H^N}
+    \lesssim
+    \|K\|_{H^{N-1}}+\cdots
+    \]
+    in terms of the unweighted Sobolev quantities already present in \eqref{eq:Ereg}
+    \item therefore the Coulomb split does not presently repair the old unweighted local well-posedness, continuation, or coercive architecture for the \((K,\chi,\beta)\) package.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Item (1) is Proposition \ref{prop:meanzero}. Item (2) follows from Proposition \ref{prop:noestimate}: even for smooth zero-mean sources, the inverse Poisson operator is not bounded from \(H^{N-2}\) to unweighted \(H^N\). Since the old energy \eqref{eq:Ereg} contains only unweighted Sobolev norms and no low-frequency seminorm such as \eqref{eq:Lchi}, it cannot close the elliptic estimate for \(\chi_{\mathrm{reg}}\). Item (3) then follows exactly as in the earlier obstruction note: if the slice-wise auxiliary estimate fails, the hyperbolic energy argument that depends on it cannot be replayed in the same function class.
+\end{proof}
+
+\begin{remark}
+Theorem \ref{thm:failure} is a negative result for the \emph{old unweighted package}, not for Coulomb splitting in every possible formulation. If one enlarges the control norm by a weighted moment, a homogeneous low-frequency seminorm, or some equivalent replacement for \(\mathfrak L_\chi\), then a different theorem route may remain available.
+\end{remark}
+
+\section{What the Next Reformulation Must Record}
+
+The old energy has now failed twice after the gauge-first reformulation: once because of the explicit monopole tail, and again because subtracting that tail still leaves an uncontrolled low-frequency inverse-Laplacian singularity.
+
+\begin{corollary}[Next honest step after the Coulomb-split failure]
+\label{cor:next}
+The next honest fixed-completion reformulation is now the weighted or homogeneous function-space route in which the controlled longitudinal quantity is no longer \(\chi\) or \(\chi_{\mathrm{reg}}\) in plain unweighted \(H^N\), but rather a package that includes the missing low-frequency control represented by \(\mathfrak L_\chi\) or an equivalent weighted moment norm.
+\end{corollary}
+
+\begin{proof}
+Theorem \ref{thm:failure} shows that the Coulomb split does not recover the old energy class. Proposition \ref{prop:fourier} identifies exactly what is missing: a low-frequency control quantity beyond unweighted Sobolev regularity. Therefore the next reformulation must change the function space rather than merely subtracting the monopole profile inside the old one.
+\end{proof}
+
+\section{Conclusion}
+
+The propagated trace-monopole cancellation test did not close, so the next smallest repair was the Coulomb split. That test is now complete as well.
+
+Its verdict is precise. Subtracting the explicit monopole profile does fix the first visible \(1/|x|\) tail at the slice equation level, but it does not restore the old unweighted closure package. The reason is structural: after monopole subtraction the regular part still solves a Poisson equation, and the inverse Poisson operator on \(\mathbb R^3\) retains a low-frequency \(|\xi|^{-2}\) singularity that is not controlled by zero mean plus the old unweighted \(H^{N-2}\) source norm.
+
+Therefore the fixed-completion unit-lapse route has now exhausted the two smallest repairs compatible with the old unweighted energy. The next burden is the broader weighted or homogeneous function-space reformulation in which the longitudinal auxiliary sector is controlled by a norm that records the missing low-frequency information explicitly.
+
+\end{document}

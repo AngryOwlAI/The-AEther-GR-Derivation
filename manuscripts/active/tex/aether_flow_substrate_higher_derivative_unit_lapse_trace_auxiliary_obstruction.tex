@@ -1,0 +1,341 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal{A}}
+\newcommand{\BridgeMetric}{\mathfrak{g}}
+\newcommand{\Ell}{\mathcal{L}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Higher-Derivative Quartic Branch First Unit-Lapse Trace-Auxiliary Obstruction}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The fixed-completion gauge-first note showed that, for the explicit minimal quartic-compatible completion \(S_{\mathrm{min},4}\), the old maximal-gauge lapse obstruction disappears at equation level in unit-lapse spatial-harmonic gauge. The next honest question is therefore narrower: does the modified \((K,\chi,\beta)\) package support a first local well-posedness and continuation argument, together with a coercive or decay architecture of the same basic decaying-Sobolev type used on the maximal branch, or does a different obstruction appear first?
+
+This note performs that test at the smallest disciplined scope. It keeps the same asymptotically flat small-data setting and examines the most direct unweighted closure package for the unit-lapse system. The key structural change is the longitudinal ordered-flow constraint
+\[
+\kappa_\theta \Delta_\gamma \chi
+=
+-K+\mathcal N_\chi,
+\]
+which now contains the dynamical trace \(K\) at principal source level. For slices on which
+\[
+F_\chi \equiv K-\mathcal N_\chi \in L^1(\mathbb R^3)\cap H^{N-2}(\mathbb R^3),
+\]
+the decaying solution satisfies the standard Green-function expansion
+\[
+\chi(t,x)
+=
+-\frac{\mathfrak m_\chi(t)}{4\pi\kappa_\theta |x|}
++ \mathcal O(|x|^{-2}),
+\qquad
+\mathfrak m_\chi(t)\equiv \int_{\mathbb R^3}F_\chi(t,y)\,dy.
+\]
+Hence, unless a new slice-wise monopole cancellation \(\mathfrak m_\chi(t)=0\) is imposed and propagated, the longitudinal auxiliary variable is not in \(L^2\) and therefore not in the unweighted \(H^N\) class used by the previous local and coercive architectures.
+
+The conclusion is correspondingly narrow. The fixed-completion unit-lapse spatial-harmonic formulation does \emph{not} presently support a straightforward first local well-posedness and continuation theorem, nor the corresponding coercive/decay architecture, in the same unweighted decaying Sobolev class as the maximal branch. The first new obstruction is a trace-driven longitudinal auxiliary Coulomb tail, not the quartic principal scalar operator and not the old lapse feedback. This note does not rule out a weighted, homogeneous, or renormalized auxiliary reformulation. It records only that such a reformulation is now the smaller necessary next step before any deeper nonlinear-completion change is justified.
+\end{abstract}
+
+\section{Introduction}
+
+The higher-derivative quartic branch now has a sharply staged nonlinear history. The active sequence already contains one explicit minimal quartic-compatible completion, a first reduced Einstein--quartic-scalar \(3+1\) system, a first local theorem in maximal spatial-harmonic gauge, a corrected coercive longer-time bootstrap on the same strict branch, a decay/obstruction note isolating the maximal-gauge lapse tail, a same-branch renormalized asymptotic test together with its failure, and finally the gauge-first unit-lapse spatial-harmonic reduction note.
+
+That last note changed the next burden again. It showed that the old obstruction was not forced by the quartic completion alone: once the lapse is prescribed as \(N\equiv 1\), no elliptic lapse equation remains and the scalar transport law loses the term \(\sigma_0(N-1)\). The immediate question is therefore no longer whether the recorded maximal-gauge lapse renormalization can be repaired. It is whether the new gauge-first formulation closes analytically on its own.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays within that boundary. It does not claim that the unit-lapse formulation fails in every possible functional setting. It tests only the smallest direct continuation of the architecture already used on the maximal branch: asymptotically flat small data, decaying auxiliary variables, and an unweighted Sobolev closure package. At that disciplined scope a new obstruction appears before any deeper completion change is forced.
+
+\section{The Straightforward Unit-Lapse Closure Test}
+
+The unit-lapse reduction fixes the gauge
+\begin{equation}
+N\equiv 1,
+\qquad
+V^i(\gamma)=0,
+\label{eq:gauge}
+\end{equation}
+and uses reduced unknowns
+\begin{equation}
+(\gamma_{ij},\Sigma_{ij},K;\beta^i;\sigma,\pi_\sigma;\psi,\pi_\psi)
+\label{eq:unknowns}
+\end{equation}
+together with slice-wise auxiliary variables \((Q^I,\chi,W_i^T)\). The modified equations already recorded in the gauge-first note include
+\begin{align}
+-\Delta_\gamma\beta^i-\frac{1}{3}D^iD_j\beta^j + R^i{}_j[\gamma]\beta^j
+&=
+\mathcal S_\beta^i[\gamma,\Sigma,K,\sigma,\pi_\sigma,Q,\chi,W^T,\psi,\pi_\psi],
+\label{eq:betaell}
+\\
+\kappa_\theta \Delta_\gamma \chi
+&=
+-K+\mathcal N_\chi[\gamma,\Sigma,K,\beta,\sigma,\pi_\sigma,Q,\chi,W^T,\psi,\pi_\psi],
+\label{eq:chiell}
+\\
+\kappa_\Omega(-\Delta_\gamma)W_i^T
+&=
+\mathcal N_i^{(T)}[\gamma,\Sigma,K,\beta,\sigma,\pi_\sigma,Q,\chi,W^T,\psi,\pi_\psi].
+\label{eq:WTell}
+\end{align}
+The new feature is visible already in \eqref{eq:chiell}: unlike the maximal branch, the longitudinal ordered-flow variable now sees the trace \(K\) as a principal elliptic source.
+
+\begin{definition}[Straightforward unit-lapse unweighted closure package]
+Fix \(N\ge 6\). The \emph{straightforward unit-lapse unweighted closure package} is the direct analogue of the previous maximal-branch local/coercive architecture, obtained by treating
+\[
+(\gamma,\Sigma,K;\sigma,\pi_\sigma;\psi,\pi_\psi)
+\]
+as propagating variables and attempting to control the slice-wise auxiliary variables in the same decaying unweighted Sobolev classes,
+\begin{equation}
+\beta \in H^{N+1}(\mathbb R^3),
+\qquad
+Q,\chi,W^T \in H^N(\mathbb R^3),
+\label{eq:naiveaux}
+\end{equation}
+through a closed energy of schematic form
+\begin{align}
+\mathfrak E_N^{\mathrm{ul,naive}}
+\equiv\;&
+\|\gamma-\delta\|_{H^N}^2
++ \|\Sigma\|_{H^{N-1}}^2
++ \|K\|_{H^{N-1}}^2
++ \|\sigma\|_{H^{N-1}}^2
++ \frac{1}{m_S^2}\|\pi_\sigma\|_{H^{N-1}}^2
+\nonumber\\
+&+
+\frac{\lambda_4}{M_*^2}\|\Delta_\gamma \sigma\|_{H^{N-1}}^2
++ \mathcal E_N^{\mathrm{matter}}
++ \|\beta\|_{H^{N+1}}^2
++ \|Q\|_{H^N}^2
++ \|\chi\|_{H^N}^2
++ \|W^T\|_{H^N}^2.
+\label{eq:naiveenergy}
+\end{align}
+\end{definition}
+
+\begin{remark}
+Definition 1 is intentionally the smallest theorem test. If it closed, it would provide the first local well-posedness and continuation statement for the new formulation and the starting point for the corresponding coercive and decay analysis. The present note asks whether that direct continuation actually works.
+\end{remark}
+
+\section{Trace-Driven Longitudinal Auxiliary Tail}
+
+The obstruction appears first in the longitudinal elliptic solve. Write
+\begin{equation}
+F_\chi
+\equiv
+K-\mathcal N_\chi[\gamma,\Sigma,K,\beta,\sigma,\pi_\sigma,Q,\chi,W^T,\psi,\pi_\psi].
+\label{eq:Fchi}
+\end{equation}
+Then \eqref{eq:chiell} becomes
+\begin{equation}
+\kappa_\theta \Delta_\gamma \chi = -F_\chi.
+\label{eq:chieq}
+\end{equation}
+
+\begin{definition}[Trace monopole of the longitudinal source]
+Assume that on a fixed slice \(F_\chi \in L^1(\mathbb R^3)\cap H^{N-2}(\mathbb R^3)\). The associated \emph{trace monopole} is
+\begin{equation}
+\mathfrak m_\chi
+\equiv
+\int_{\mathbb R^3} F_\chi(y)\,dy.
+\label{eq:mchi}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[Coulomb expansion of the longitudinal auxiliary solve]
+\label{prop:coulomb}
+Fix a slice in the flat-background small-data regime, and assume \(F_\chi \in L^1(\mathbb R^3)\cap H^{N-2}(\mathbb R^3)\) with \(N\ge 2\). Let \(\chi\) be the decaying solution of \eqref{eq:chieq}. Then
+\begin{equation}
+\chi(x)
+=
+-\frac{1}{4\pi\kappa_\theta}
+\int_{\mathbb R^3}\frac{F_\chi(y)}{|x-y|}\,dy
++ \mathcal R_\gamma(x),
+\label{eq:greenrep}
+\end{equation}
+where \(\mathcal R_\gamma(x)=o(|x|^{-1})\) in the flat-background small-data regime. In particular, for \(|x|\to\infty\),
+\begin{equation}
+\chi(x)
+=
+-\frac{\mathfrak m_\chi}{4\pi\kappa_\theta |x|}
++ o(|x|^{-1}).
+\label{eq:chiasy}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+In the small-data regime the metric \(\gamma\) is a perturbation of the Euclidean metric, so standard perturbative elliptic potential theory represents \(\chi\) by the Euclidean Newton kernel plus a remainder whose contribution is \(o(|x|^{-1})\) at spatial infinity. Expanding the Euclidean kernel for large \(|x|\),
+\[
+\frac{1}{|x-y|}
+=
+\frac{1}{|x|}
++ \mathcal O\!\left(\frac{|y|}{|x|^2}\right),
+\]
+and using \(F_\chi\in L^1\) yields
+\[
+\int_{\mathbb R^3}\frac{F_\chi(y)}{|x-y|}\,dy
+=
+\frac{1}{|x|}\int_{\mathbb R^3}F_\chi(y)\,dy
++ \mathcal O(|x|^{-2}).
+\]
+Substituting \eqref{eq:mchi} gives \eqref{eq:chiasy}.
+\end{proof}
+
+\begin{corollary}[Failure of unweighted \(H^N\) control for nonzero trace monopole]
+\label{cor:nonH}
+If \(\mathfrak m_\chi \neq 0\) on a slice, then the corresponding decaying longitudinal auxiliary variable satisfies
+\begin{equation}
+\chi \notin L^2(\mathbb R^3),
+\qquad
+\text{hence}
+\qquad
+\chi \notin H^N(\mathbb R^3)
+\quad
+\text{for every } N\ge 0.
+\label{eq:notH}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+By Proposition \ref{prop:coulomb},
+\[
+\chi(x)= -\frac{\mathfrak m_\chi}{4\pi\kappa_\theta |x|} + \mathcal O(|x|^{-2}).
+\]
+Therefore \(|\chi(x)|^2 \sim c|x|^{-2}\) at spatial infinity for some \(c>0\), and
+\[
+\int_{|x|\ge R} |\chi(x)|^2\,dx
+\gtrsim
+\int_R^\infty r^{-2}r^2\,dr
+=
+\infty.
+\]
+Hence \(\chi\notin L^2\), which excludes \(\chi\in H^N\).
+\end{proof}
+
+\begin{remark}
+Corollary \ref{cor:nonH} isolates the new obstruction at the smallest possible level. The old lapse problem was a long-range tail feeding the scalar transport equation. The new problem appears already in the auxiliary solve itself: the dynamical trace variable \(K\) now acts as a Poisson source for \(\chi\).
+\end{remark}
+
+\begin{remark}
+At the present recorded scope, the unit-lapse reduction supplies no slice-wise identity or propagated constraint that forces \(\mathfrak m_\chi(t)=0\). The sharpened open question is therefore not whether the new trace source exists, but whether its monopole can be cancelled or renormalized without changing the completion.
+\end{remark}
+
+\section{Obstruction to the Straightforward Local and Coercive Architecture}
+
+The previous local and coercive notes depended on slice-wise elliptic estimates that place each auxiliary variable directly in the unweighted Sobolev norm used by the energy. The unit-lapse package would need the same first step for \(\chi\).
+
+\begin{theorem}[First unit-lapse trace-auxiliary obstruction]
+\label{thm:obstruction}
+Assume the unit-lapse spatial-harmonic reduced system for the fixed completion \(S_{\mathrm{min},4}\), and test it with the straightforward unit-lapse unweighted closure package of Definition 1. If \(\mathfrak m_\chi\neq 0\) on any slice, then:
+\begin{enumerate}
+    \item the slice-wise estimate \(\|\chi\|_{H^N}\lesssim \|K\|_{H^{N-1}}+\cdots\) fails
+    \item the energy \(\mathfrak E_N^{\mathrm{ul,naive}}\) is not finite
+    \item the direct analogue of the previous unweighted local well-posedness/continuation argument cannot be closed on that slice
+    \item the corresponding coercive and decay analysis cannot even be started in the same unweighted function class.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Item (1) is immediate from Corollary \ref{cor:nonH}: if \(\mathfrak m_\chi\neq 0\), then \(\chi\notin H^N\), so no estimate can bound \(\|\chi\|_{H^N}\) by finite Sobolev norms of the remaining fields. Item (2) then follows directly from the definition \eqref{eq:naiveenergy}.
+
+For item (3), every local iteration of the same basic type as the maximal-branch theorem would first solve the elliptic subsystem slice by slice and then feed those auxiliary norms into the hyperbolic energy estimate. Since \(\chi\) is already outside the declared class \eqref{eq:naiveaux}, that first slice-wise closure step fails. Item (4) follows because the coercive and decay analyses both require a finite closed control functional before any improved differential inequality or time-integrability question can be posed.
+\end{proof}
+
+\begin{remark}
+Theorem \ref{thm:obstruction} is a failure result for the \emph{straightforward unweighted package}, not for the unit-lapse formulation in every possible sense. It leaves open several smaller repairs: imposing a new trace compatibility condition, renormalizing the longitudinal auxiliary profile, or changing the functional setting to weighted or homogeneous norms.
+\end{remark}
+
+\section{Why This Is the First New Obstruction}
+
+The point of the present result is not merely that one norm fails. It is that the first new obstruction appears before the old sequence of theorem steps can even be replayed.
+
+\begin{proposition}[The obstruction is trace/auxiliary rather than quartic-principal]
+The failure identified in Theorem \ref{thm:obstruction} is caused by the longitudinal auxiliary equation \eqref{eq:chiell} and occurs independently of the old maximal-gauge lapse mechanism and independently of the quartic principal scalar operator.
+\end{proposition}
+
+\begin{proof}
+The old lapse mechanism is absent because the unit-lapse reduction fixes \(N\equiv 1\). The quartic principal scalar operator acts in the \(\pi_\sigma\)-equation and is unchanged from the earlier branch. By contrast, the new obstruction is already visible in the elliptic solve \eqref{eq:chiell}, before one uses the scalar evolution at all. Therefore the first failure of the straightforward unit-lapse architecture is trace/auxiliary rather than lapse-driven or quartic-principal.
+\end{proof}
+
+\begin{corollary}[Immediate next burden before any deeper completion change]
+Before changing the nonlinear completion, the smaller necessary next step is to repair the unit-lapse trace/auxiliary package itself. At current scope that means testing one of the following:
+\begin{enumerate}
+    \item a new slice-wise trace compatibility condition forcing \(\mathfrak m_\chi(t)=0\) together with a propagation argument for that condition
+    \item a renormalized longitudinal auxiliary decomposition
+    \[
+    \chi = \chi_{\mathrm{Coul}} + \chi_{\mathrm{reg}}
+    \]
+    that removes the \(1/|x|\) tail from the controlled remainder
+    \item a weighted or homogeneous functional setting in which the natural controlled quantity is not \(\chi\) itself in unweighted \(H^N\).
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+Theorem \ref{thm:obstruction} shows that the direct unweighted architecture fails because of the low-frequency longitudinal tail. Each listed option is precisely a way of modifying that low-frequency auxiliary treatment while keeping the completion \(S_{\mathrm{min},4}\) fixed.
+\end{proof}
+
+\section{What This Step Establishes}
+
+The present manuscript establishes the following.
+\begin{enumerate}
+    \item It performs the first local/coercive test of the fixed-completion unit-lapse spatial-harmonic formulation rather than stopping at the equation-level removal of the old lapse obstruction.
+    \item It identifies the new structural burden as the longitudinal ordered-flow solve driven by the trace variable \(K\).
+    \item It shows that the straightforward unweighted decaying Sobolev \((K,\chi,\beta)\) package fails whenever the trace monopole \(\mathfrak m_\chi\) is nonzero.
+    \item It therefore sharpens the next step without yet forcing a deeper nonlinear-completion change.
+\end{enumerate}
+
+It does not establish the following.
+\begin{enumerate}
+    \item It does not prove that no unit-lapse local theorem exists in any weighted, homogeneous, or renormalized formulation.
+    \item It does not prove that the trace monopole cannot be cancelled by a new compatibility condition.
+    \item It does not prove nonlinear instability of the fixed completion.
+    \item It does not claim that a different nonlinear completion is already required in principle.
+\end{enumerate}
+
+\section{Conclusion}
+
+The gauge-first unit-lapse reformulation removed the old maximal-gauge lapse obstruction, but that was not yet the same thing as a new theorem architecture. The first direct test of such an architecture is now complete.
+
+Its verdict is precise. The fixed completion \(S_{\mathrm{min},4}\) does not presently support a straightforward first local well-posedness and continuation argument, nor the corresponding coercive/decay architecture, in the same unweighted decaying Sobolev class previously used on the maximal branch. The reason is not the quartic principal scalar operator. It is the new trace-driven longitudinal auxiliary equation, whose generic nonzero monopole produces a Coulomb \(1/|x|\) tail in \(\chi\).
+
+The next burden is therefore smaller than a new completion and more specific than a generic stability question. One must first decide whether the unit-lapse trace/auxiliary package can be repaired by a propagated trace compatibility condition, a renormalized auxiliary profile, or a different weighted or homogeneous functional setting. Only after that narrower fixed-completion route fails would a deeper completion change become the next honest move.
+
+\end{document}

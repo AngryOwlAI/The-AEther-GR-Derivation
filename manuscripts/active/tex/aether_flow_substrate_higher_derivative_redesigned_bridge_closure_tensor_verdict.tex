@@ -1,0 +1,543 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal{A}}
+\newcommand{\BridgeMetric}{\mathfrak{g}}
+\newcommand{\ReBridge}{\widetilde{\mathfrak{g}}}
+\newcommand{\Proj}{\mathcal D}
+\newcommand{\Dperp}{\mathcal D}
+\newcommand{\PiTheta}{\Pi^{(\vartheta)}}
+\newcommand{\ReEff}{\widetilde{\mathcal T}_{\mu\nu}^{\mathrm{br,eff}}}
+\newcommand{\ReLong}{\widetilde{\mathcal R}_{\mu\nu}^{(\chi,\ge 3)}}
+\newcommand{\ReOff}{\widetilde{\mathcal R}_{\mu\nu}^{\mathrm{off}}}
+\newcommand{\AY}{\mathcal A_Y}
+\newcommand{\AZ}{\mathcal A_Z}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Redesigned Bridge-Closure Reduction and Tensor Verdict}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The post-quotient bridge-metric redesign note proved only a narrow same-scope fact. With the revised bridge
+\[
+\ReBridge_{AB}
+=
+G_{AB}-2U_AU_B-\frac{1}{\kappa_\theta}\PiTheta_{AB},
+\]
+and with matter still coupled through the single operational metric
+\[
+g^{\mathrm{br}}_{\mu\nu}=\Xi^\ast\ReBridge_{AB},
+\]
+the old longitudinal quotient remainder
+\[
+T_{\mu\nu}^{(\chi,\mathrm{eff},2)}
+=
+\frac{1}{\kappa_\theta}
+\left(
+\Dperp_\mu\Phi_K\,\Dperp_\nu\Phi_K
+-\frac12 g_{\mu\nu}\Dperp_\alpha\Phi_K\,\Dperp^\alpha\Phi_K
+\right)
+\]
+is cancelled at that same tensor-reduction scope. The present note performs the next, broader test that was still missing: derive the full eliminated observer equation on the revised bridge, check whether any higher-order or off-longitudinal remainder survives, and decide whether the minimal convergence-response bridge really closes the observer tensor.
+
+The result is negative for full closure. On reduced redesigned solutions one has
+\[
+G_{\mu\nu}[g^{\mathrm{br}}]
+=
+8\pi G_N\,T_{\mu\nu}^{\mathrm{matter}}
++ \ReEff,
+\]
+and after the same slice elimination already used on the quotient branch, the redesigned effective tensor splits as
+\[
+\ReEff
+=
+T_{\mu\nu}^{(Q,\mathrm{br,eff})}
++T_{\mu\nu}^{(W,\mathrm{br,eff})}
++\ReLong.
+\]
+Here \(\ReLong=\mathcal O_{\ge 3}\) is the surviving higher-order longitudinal remainder left after the quadratic same-scope cancellation, while the off-longitudinal piece
+\[
+\ReOff
+\equiv
+T_{\mu\nu}^{(Q,\mathrm{br,eff})}
++T_{\mu\nu}^{(W,\mathrm{br,eff})}
+\]
+is untouched at leading order because the bridge redesign depends only on the convergence potential \(\Phi_\vartheta\).
+
+The redesigned bridge therefore fails the full closure test already on a convergence-free rotational regime. If \(K\equiv0\) but the transverse vorticity solve is nontrivial, then \(\Phi_\vartheta\equiv0\), so the new bridge slot vanishes, yet
+\[
+\Gamma_{W,\mathrm{eff}}^{\mathrm{br},(2)}
+=
+-\frac{\kappa_\Omega}{4}
+\int_{\mathbb R^{1+3}}\Omega^T_{ij}\Omega^{T,ij}\,dt\,d^3x
+\]
+produces the nonzero tensor
+\[
+T_{\mu\nu}^{(W,\mathrm{br,eff},2)}
+=
+\kappa_\Omega
+\left(
+\Omega_{\mu\alpha}^T\Omega_\nu^{T\,\alpha}
+-\frac14 g_{\mu\nu}^{\mathrm{br}}\Omega_{\alpha\beta}^T\Omega^{T,\alpha\beta}
+\right),
+\qquad
+\rho_{W}^{\mathrm{br},(2)}
+=
+\frac{\kappa_\Omega}{4}\abs{\Omega^T}^2.
+\]
+Hence the minimal convergence-response bridge does not close the observer tensor. It removes the old same-scope longitudinal slot but leaves a genuine redesigned observer remainder, both through the unresolved higher-order longitudinal sector and, decisively, through off-longitudinal auxiliary stress. The verdict is that the first bridge-first redesign only postpones the problem. With this full redesigned-bridge test now negative, it is finally honest to open the second redesign note that reconsiders the single-metric matter route.
+\end{abstract}
+
+\section{Introduction}
+
+The positive quotient line remains positive where it was already positive. The ordered-flow-label quotient candidate, the separate quotient-architecture screen, the quotient reduced-system note, the quotient local/coercive note, the quotient theorem note, and the quotient decay and asymptotic notes still give a clean dynamical branch with
+\[
+\AY=\AZ=0
+\]
+imposed from the outset and with no physical or analytic \(S,Y,Z\) data reintroduced. None of that work is reopened here.
+
+What changed after the negative quotient tensor verdict was narrower. The fixed bridge metric
+\[
+\BridgeMetric_{AB}=G_{AB}-2U_AU_B
+\]
+left a genuine eliminated observer remainder, and the first post-verdict redesign note therefore tested the smallest bridge-only move: add one convergence-response tensor \(\PiTheta_{AB}\), keep the single-metric matter route fixed, and ask whether the old longitudinal quotient remainder disappears at the same tensor-reduction scope. That same-scope test was positive.
+
+The same-scope test did \emph{not} prove full closure. It did not recompute the actual eliminated observer equation on the revised bridge. It did not decide whether higher-order longitudinal terms survive. It did not decide whether off-longitudinal \(Q\)- or vorticity-sector remainders survive. The present note performs exactly that missing step.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present manuscript stays strictly inside that boundary. It does not claim a completed substrate derivation. It does not reopen reduced-system, theorem, decay, or asymptotic work. It keeps the positive quotient branch and the single-metric matter route fixed, computes the actual eliminated observer equation for the revised bridge metric, and records the tensor-level verdict forced by that computation.
+
+\section{Current Redesigned Branch}
+
+\begin{definition}[Current redesigned bridge branch]
+\label{def:branch}
+The \emph{current redesigned bridge branch} consists of:
+\begin{enumerate}
+    \item the same reduced quotient action and the same quotient equations
+    \begin{equation}
+    \AY=0,
+    \qquad
+    \AZ=0,
+    \label{eq:AYAZ}
+    \end{equation}
+    already used on the positive quotient line;
+    \item the revised bridge metric
+    \begin{equation}
+    \ReBridge_{AB}
+    =
+    G_{AB}-2U_AU_B-\frac{1}{\kappa_\theta}\PiTheta_{AB},
+    \label{eq:newbridge}
+    \end{equation}
+    with
+    \begin{equation}
+    P_{AB}=G_{AB}-U_AU_B,
+    \qquad
+    \vartheta=\nabla_AU^A,
+    \qquad
+    \Proj_A=P_A{}^B\nabla_B,
+    \label{eq:proj}
+    \end{equation}
+    and
+    \begin{equation}
+    \PiTheta_{AB}
+    =
+    \Proj_A\Phi_\vartheta\,\Proj_B\Phi_\vartheta
+    -\frac12 P_{AB}\Proj_C\Phi_\vartheta\,\Proj^C\Phi_\vartheta,
+    \qquad
+    (-\Delta_\perp)\Phi_\vartheta=\vartheta;
+    \label{eq:pitheta}
+    \end{equation}
+    \item the revised operational metric
+    \begin{equation}
+    g^{\mathrm{br}}_{\mu\nu}=\Xi^\ast\ReBridge_{AB};
+    \label{eq:gbr}
+    \end{equation}
+    \item the same single-metric matter route
+    \begin{equation}
+    S_{\mathrm{matter}}^{\mathrm{br}}[G,U,\Xi,\psi]
+    =
+    S_{\mathrm{matter}}[\Xi^\ast\ReBridge,\psi]
+    =
+    S_{\mathrm{matter}}[g^{\mathrm{br}},\psi].
+    \label{eq:matter}
+    \end{equation}
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:branch} changes only the bridge metric. The quotient physical field space, the quotient slice package, and the already-positive reduced-system/theorem/decay/asymptotic line are not modified structurally.
+\end{remark}
+
+\begin{proposition}[The slice package stays of the same type]
+\label{prop:slice}
+On the redesigned bridge branch, the slice-wise nonpropagating variables still satisfy an elliptic package of the same principal type:
+\begin{align}
+\bigl((-\Delta_\gamma)\delta_{IJ}+\widehat M_{IJ}\bigr)Q^J
+&=
+\mathcal N_I^{(Q,\mathrm{br})},
+\label{eq:Qeq}
+\\
+\kappa_\theta\Delta_\gamma\chi
+&=
+-K+\mathcal N_\chi^{\mathrm{br}},
+\label{eq:chieq}
+\\
+\kappa_\Omega(-\Delta_\gamma)W_i^T
+&=
+\mathcal N_i^{(T,\mathrm{br})},
+\label{eq:Weq}
+\end{align}
+with \(\AY=\AZ=0\) and with modified only lower-order source terms.
+\end{proposition}
+
+\begin{proof}
+The redesign note already established that the bridge term \(\PiTheta_{AB}\) does not annihilate the ordered-flow equation and does not introduce a new propagating scalar channel. The positive quotient branch still carries the same \(Q\)-, divergence-, and vorticity-sector auxiliary blocks. Hence the principal operators of the slice package remain exactly the positive projected-mass \(Q\)-operator, the longitudinal \(\kappa_\theta\Delta_\gamma\) operator, and the transverse \(\kappa_\Omega(-\Delta_\gamma)\) operator. Only lower-order couplings are altered by the revised bridge metric.
+\end{proof}
+
+\section{Full Eliminated Observer Equation on the Revised Bridge}
+
+\begin{definition}[Redesigned eliminated auxiliary action]
+\label{def:Gamma}
+Let
+\[
+\widetilde{\mathscr S}_{\mathrm{br}}[g^{\mathrm{br}},\psi]
+=
+\bigl(Q[g^{\mathrm{br}},\psi],\chi[g^{\mathrm{br}},\psi],W^T[g^{\mathrm{br}},\psi]\bigr)
+\]
+denote the decaying slice solver for \eqref{eq:Qeq}--\eqref{eq:Weq}. The \emph{redesigned eliminated auxiliary action} is
+\begin{equation}
+\widetilde{\Gamma}_{\mathrm{aux}}^{\mathrm{br}}[g^{\mathrm{br}},\psi]
+\equiv
+\int_{\Sub} d^4X\,\sqrt{G}\,
+\mathcal L_{\mathrm{aux,deg}}
+\Big|_{\widetilde{\mathscr S}_{\mathrm{br}}[g^{\mathrm{br}},\psi]},
+\label{eq:Gamma}
+\end{equation}
+where \(\mathcal L_{\mathrm{aux,deg}}\) is the same reduced \(S\)-free auxiliary Lagrangian already used on the quotient branch.
+\end{definition}
+
+\begin{definition}[Redesigned effective observer tensor]
+\label{def:Teff}
+Define the \emph{redesigned effective observer tensor} by
+\begin{equation}
+\ReEff
+\equiv
+-\frac{2}{\sqrt{-g^{\mathrm{br}}}}
+\frac{\delta\widetilde{\Gamma}_{\mathrm{aux}}^{\mathrm{br}}}{\delta (g^{\mathrm{br}})^{\mu\nu}}.
+\label{eq:Teff}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[Actual eliminated observer equation]
+\label{prop:redeq}
+On reduced redesigned solutions satisfying the slice equations and \eqref{eq:AYAZ},
+\begin{equation}
+G_{\mu\nu}[g^{\mathrm{br}}]
+=
+8\pi G_N\,T_{\mu\nu}^{\mathrm{matter}}
++\ReEff.
+\label{eq:redeq}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+The observer metric has been changed from \(\BridgeMetric\) to \(\ReBridge\), but the action still has the same three pieces: the Einstein--Hilbert term of the operational bridge metric, the reduced auxiliary action, and the matter action coupled through that same operational metric. As in the earlier quotient bridge-closure reduction note, substituting the slice solver and varying with respect to the operational metric produces chain-rule terms proportional to the slice equations, which vanish on reduced solutions. What remains is the metric variation of the eliminated auxiliary action, namely \eqref{eq:Teff}. This yields \eqref{eq:redeq}.
+\end{proof}
+
+\section{Longitudinal Cancellation Versus Higher-Order Longitudinal Remainder}
+
+The previous redesign note computed only the first quadratic longitudinal slot. The first step in the full closure test is to isolate what remains of that sector after the same-scope cancellation has been imposed.
+
+\begin{proposition}[Quadratic longitudinal cancellation is exact only at that slot]
+\label{prop:longcancel}
+On the redesigned branch with coefficient \(-1/\kappa_\theta\), the longitudinal contribution to \(\ReEff\) has the form
+\begin{equation}
+T_{\mu\nu}^{(\chi,\mathrm{br,eff})}
+=
+\ReLong,
+\qquad
+\ReLong=\mathcal O_{\ge 3},
+\label{eq:longres}
+\end{equation}
+where \(\ReLong\) is the residual higher-order longitudinal tensor left after the cancellation of the quadratic slot
+\[
+\frac{1}{\kappa_\theta}
+\left(
+\Dperp_\mu\Phi_K\,\Dperp_\nu\Phi_K
+-\frac12 g_{\mu\nu}\Dperp_\alpha\Phi_K\,\Dperp^\alpha\Phi_K
+\right).
+\]
+\end{proposition}
+
+\begin{proof}
+The post-quotient redesign note already proved that
+\[
+\Xi^\ast\PiTheta_{\mu\nu}
+=
+\Dperp_\mu\Phi_K\,\Dperp_\nu\Phi_K
+-\frac12 g_{\mu\nu}\Dperp_\alpha\Phi_K\,\Dperp^\alpha\Phi_K
++\mathcal O_{\ge 3},
+\]
+so the coefficient choice \(-1/\kappa_\theta\) removes exactly the quadratic longitudinal tensor computed in the previous quotient tensor-verdict note. All remaining longitudinal terms arise from the nonlinear difference between \(\vartheta\) and \(K\), the nonlinear part of the slice source \(\mathcal N_\chi^{\mathrm{br}}\), and the nonlinear metric dependence of the same eliminated longitudinal functional. Those terms all start at cubic order, giving \eqref{eq:longres}.
+\end{proof}
+
+\begin{remark}
+Proposition \ref{prop:longcancel} is the precise meaning of the earlier same-scope positive result. The minimal convergence-response bridge clears the old quadratic longitudinal slot, but it does not prove any all-order longitudinal identity.
+\end{remark}
+
+\section{Off-Longitudinal Effective Tensor}
+
+The full closure question is broader than the longitudinal slot alone. The redesigned bridge must also be tested against the off-longitudinal eliminated tensor carried by the \(Q\)- and vorticity-sector auxiliaries.
+
+\begin{definition}[Off-longitudinal redesigned remainder]
+\label{def:off}
+Define the \emph{off-longitudinal redesigned remainder} by
+\begin{equation}
+\ReOff
+\equiv
+T_{\mu\nu}^{(Q,\mathrm{br,eff})}
++T_{\mu\nu}^{(W,\mathrm{br,eff})},
+\label{eq:off}
+\end{equation}
+where \(T_{\mu\nu}^{(Q,\mathrm{br,eff})}\) and \(T_{\mu\nu}^{(W,\mathrm{br,eff})}\) are the contributions to \eqref{eq:Teff} coming from the eliminated \(Q\)- and transverse-vorticity blocks.
+\end{definition}
+
+\begin{proposition}[Full redesigned tensor decomposition]
+\label{prop:decomp}
+On reduced redesigned solutions,
+\begin{equation}
+\ReEff
+=
+\ReOff+\ReLong.
+\label{eq:decomp}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+The reduced auxiliary action splits into its \(Q\)-sector, longitudinal, and transverse-vorticity pieces exactly as in the earlier quotient tensor-verdict note. Proposition \ref{prop:longcancel} replaces the old explicit quadratic longitudinal tensor by the higher-order residual \(\ReLong\). The remaining sectors are precisely the off-longitudinal \(Q\)- and \(W\)-pieces. This yields \eqref{eq:decomp}.
+\end{proof}
+
+\begin{proposition}[The minimal convergence-response bridge is blind to the off-longitudinal sectors]
+\label{prop:blind}
+At leading order, the revised bridge term \(\PiTheta_{AB}\) does not alter the off-longitudinal effective tensor. More precisely,
+\begin{equation}
+T_{\mu\nu}^{(Q,\mathrm{br,eff})}
+=
+T_{\mu\nu}^{(Q,\mathrm{eff})}
++\mathcal O_{\ge 3},
+\qquad
+T_{\mu\nu}^{(W,\mathrm{br,eff})}
+=
+T_{\mu\nu}^{(W,\mathrm{eff})}
++\mathcal O_{\ge 3}.
+\label{eq:blind}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+The redesigned bridge term depends only on the convergence potential \(\Phi_\vartheta\). It introduces no dependence on the projected spatial \(Q\)-block and no new dependence on the transverse vorticity variable \(W_i^T\) beyond the background metric factors already present in the quotient branch. Therefore the \(Q\)- and \(W\)-sector eliminated tensors keep their old leading-order form. Any change in those sectors can only enter through higher-order feedback of the redesigned metric into the same lower-order coefficients, which is \(\mathcal O_{\ge 3}\) at the present expansion level.
+\end{proof}
+
+\begin{remark}
+Proposition \ref{prop:blind} is the central structural point of the present note. A bridge term built only from \(\vartheta\) can cancel a convergence-generated longitudinal slot, but it cannot by itself eliminate an independent off-longitudinal eliminated tensor.
+\end{remark}
+
+\section{A Decisive Off-Longitudinal Surviving Remainder}
+
+\begin{definition}[Rotationally nontrivial convergence-free redesigned regime]
+\label{def:rot}
+A reduced redesigned solution is said to lie in the \emph{rotationally nontrivial convergence-free regime} if
+\begin{equation}
+K\equiv 0,
+\qquad
+\Omega_{ij}^T\not\equiv 0,
+\label{eq:rot}
+\end{equation}
+where
+\[
+\Omega_{ij}^T\equiv D_iW_j^T-D_jW_i^T
+\]
+is the transverse-vorticity two-form determined by the slice solve.
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:rot} is part of the physical scope already suggested by the mass-shaped gravity criterion: rotational dragging is one of the channels that the full bridge should eventually encode. The minimal convergence-response redesign did not remove or constrain that sector.
+\end{remark}
+
+\begin{proposition}[The redesigned bridge term vanishes on the convergence-free rotational regime]
+\label{prop:convfree}
+On the regime of Definition \ref{def:rot}, the bridge-redesign slot vanishes at quadratic order:
+\begin{equation}
+\Phi_\vartheta\equiv 0,
+\qquad
+\PiTheta_{AB}=0
+\quad\text{to quadratic order}.
+\label{eq:convfree}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+If \(K\equiv0\), then the leading convergence scalar \(\vartheta\) also vanishes at the same order used by the redesign note, so its elliptic potential \(\Phi_\vartheta\) vanishes there as well. Equation \eqref{eq:pitheta} then gives \eqref{eq:convfree}.
+\end{proof}
+
+\begin{proposition}[Leading vorticity effective action and tensor]
+\label{prop:W}
+On the regime of Definition \ref{def:rot}, the leading redesigned vorticity effective action is
+\begin{equation}
+\Gamma_{W,\mathrm{eff}}^{\mathrm{br},(2)}
+=
+-\frac{\kappa_\Omega}{4}
+\int_{\mathbb R^{1+3}}\Omega_{ij}^T\Omega^{T,ij}\,dt\,d^3x,
+\label{eq:GammaW}
+\end{equation}
+and its metric variation gives
+\begin{equation}
+T_{\mu\nu}^{(W,\mathrm{br,eff},2)}
+=
+\kappa_\Omega
+\left(
+\Omega_{\mu\alpha}^T\Omega_\nu^{T\,\alpha}
+-\frac14 g_{\mu\nu}^{\mathrm{br}}\Omega_{\alpha\beta}^T\Omega^{T,\alpha\beta}
+\right).
+\label{eq:TW}
+\end{equation}
+Its Hamiltonian projection is
+\begin{equation}
+\rho_W^{\mathrm{br},(2)}
+\equiv
+n^\mu n^\nu T_{\mu\nu}^{(W,\mathrm{br,eff},2)}
+=
+\frac{\kappa_\Omega}{4}\abs{\Omega^T}^2.
+\label{eq:rhoW}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Once the longitudinal convergence source is set to zero at the relevant order, the leading off-longitudinal auxiliary functional comes from the unchanged transverse-vorticity block
+\[
+-\frac{\kappa_\Omega}{4}\Omega_{AB}\Omega^{AB}
+\]
+already present in the reduced quotient action. Restricting that block to the spatially transverse vorticity solve on the redesigned branch gives \eqref{eq:GammaW}. Let \(n^\mu\) be the future unit normal of the unit-lapse quotient slicing, and extend the spatial two-form \(\Omega_{ij}^T\) to a spacetime two-form \(\Omega_{\mu\nu}^T\) by requiring \(n^\mu\Omega_{\mu\nu}^T=0\). Varying the quadratic two-form energy with respect to the operational metric then produces the standard Maxwell-type stress tensor \eqref{eq:TW}. Contracting with the unit normal gives \eqref{eq:rhoW}.
+\end{proof}
+
+\begin{theorem}[Redesigned bridge tensor verdict]
+\label{thm:verdict}
+On the current redesigned bridge branch:
+\begin{enumerate}
+    \item the actual eliminated observer equation is
+    \begin{equation}
+    G_{\mu\nu}[g^{\mathrm{br}}]
+    =
+    8\pi G_N\,T_{\mu\nu}^{\mathrm{matter}}
+    +T_{\mu\nu}^{(Q,\mathrm{br,eff})}
+    +T_{\mu\nu}^{(W,\mathrm{br,eff})}
+    +\ReLong;
+    \label{eq:full}
+    \end{equation}
+    \item \(\ReLong\) is only a higher-order longitudinal residual, not a proof of all-order cancellation;
+    \item the off-longitudinal remainder survives genuinely: in the rotationally nontrivial convergence-free regime of Definition \ref{def:rot},
+    \begin{equation}
+    \ReEff
+    =
+    T_{\mu\nu}^{(W,\mathrm{br,eff},2)}
+    +\mathcal O_{\ge 3},
+    \label{eq:survive}
+    \end{equation}
+    with nonzero Hamiltonian density \eqref{eq:rhoW};
+    \item therefore the minimal convergence-response bridge does \emph{not} close the observer tensor. It removes the old same-scope longitudinal slot but only postpones the bridge problem.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Item (1) is Proposition \ref{prop:decomp}. Item (2) is Proposition \ref{prop:longcancel}. For item (3), combine Proposition \ref{prop:convfree} with Proposition \ref{prop:blind} and Proposition \ref{prop:W}. On the regime \(K\equiv0\), the redesigned bridge slot itself vanishes at the same order, so the quadratic remainder comes from the transverse-vorticity effective tensor. Since \(\Omega_{ij}^T\not\equiv0\), equation \eqref{eq:rhoW} shows that this tensor has a nonzero observer-side Hamiltonian projection. Such a nonzero Hamiltonian density produced directly by metric variation of the effective action is not removed by the vanishing slice equations and is not merely a gauge artifact. Hence \(\ReEff\not\equiv0\) on that regime.
+
+Item (4) follows immediately. Exact bridge closure would require the right-hand side of \eqref{eq:full} to vanish identically or to collapse to a pure gauge/constraint-exact expression on the full redesigned branch. The quadratic vorticity tensor \eqref{eq:TW} already rules that out.
+\end{proof}
+
+\begin{corollary}[Status of the higher-order longitudinal remainder]
+\label{cor:high}
+Even apart from the off-longitudinal obstruction of Theorem \ref{thm:verdict}, the redesigned bridge leaves an unresolved higher-order longitudinal remainder \(\ReLong=\mathcal O_{\ge 3}\). The same-scope redesign therefore does not provide an all-order longitudinal identity.
+\end{corollary}
+
+\begin{proof}
+This is exactly Proposition \ref{prop:longcancel}.
+\end{proof}
+
+\begin{corollary}[Minimal bridge-first redesign is only a postponement]
+\label{cor:postpone}
+The minimal convergence-response redesign is a positive same-scope repair, not a full redesigned-bridge closure. It postpones the original longitudinal obstruction to higher order while leaving a genuine off-longitudinal observer remainder.
+\end{corollary}
+
+\begin{proof}
+Combine Theorem \ref{thm:verdict} with Corollary \ref{cor:high}.
+\end{proof}
+
+\section{What the Verdict Changes}
+
+\begin{proposition}[The next redesign may now move beyond bridge metric alone]
+\label{prop:next}
+Because the full redesigned-bridge closure test is now negative, it is finally honest to open the second redesign note that reconsiders the single-metric matter route.
+\end{proposition}
+
+\begin{proof}
+The previous redesign note imposed the correct discipline: first test whether the smallest bridge-only change removes the observer remainder before reopening the matter route. Theorem \ref{thm:verdict} shows that this bridge-only test fails at full eliminated-tensor scope. Therefore the recorded conditional trigger for a second redesign note has now been reached.
+\end{proof}
+
+\begin{remark}
+Proposition \ref{prop:next} does not claim that every future successful route must abandon the bridge-metric line completely. It records only the sequence verdict requested here: after the full redesigned-bridge test remains negative, a disciplined matter-route reconsideration is now honest.
+\end{remark}
+
+\section{Conclusion}
+
+The present note performs the first full redesigned-bridge closure test that the previous same-scope redesign note deliberately left open.
+\begin{enumerate}
+    \item It keeps the positive quotient reduced-system/theorem/decay/asymptotic line closed and keeps the single-metric matter route fixed throughout the test.
+    \item It derives the actual eliminated observer equation on the revised bridge metric.
+    \item It shows that the old quadratic longitudinal quotient tensor is cancelled, but only at that same scope, leaving a higher-order longitudinal residual \(\ReLong=\mathcal O_{\ge 3}\).
+    \item It shows that the redesigned bridge is blind at leading order to the off-longitudinal \(Q\)- and vorticity-sector effective tensors.
+    \item It proves a decisive negative verdict on a convergence-free rotational regime: the transverse-vorticity effective tensor survives with positive observer-side Hamiltonian density, so the redesigned observer tensor is still not zero.
+\end{enumerate}
+
+The minimal convergence-response bridge therefore does not achieve full observer-tensor closure. It was the right bridge-first test, and it was worth doing, but its success was only same-scope and only longitudinal. The full redesigned-bridge verdict is that the bridge problem is postponed rather than solved. With that verdict now recorded, the next honest manuscript may finally reconsider the single-metric matter route itself.
+
+\end{document}

@@ -1,0 +1,718 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal{A}}
+\newcommand{\BridgeMetric}{\mathfrak g}
+\newcommand{\SpatialD}{\mathcal D}
+\newcommand{\LapPerp}{\Delta_\perp}
+\newcommand{\FlowPot}{\Phi_\Omega}
+\newcommand{\CoulPot}{U_\Omega}
+\newcommand{\SourceDensityRed}{\varrho_\Omega^{\mathrm{red}}}
+\newcommand{\ConstCurrent}{\mathcal C}
+\newcommand{\ConstGamma}{\Gamma}
+\newcommand{\CurvQMult}{\mathscr P}
+\newcommand{\CurvChiMult}{\mathscr X}
+\newcommand{\CurvTransMult}{\mathscr Y}
+\newcommand{\HamChargeOmega}{\mathfrak m_\Omega}
+\newcommand{\SigmaIER}{\Sigma^{\mathrm{IER}}}
+\newcommand{\SigmaDressSch}{\Sigma^{\mathrm{Sch}}}
+\newcommand{\SigmaRegPol}{\Sigma^{\mathrm{pol,reg}}}
+\newcommand{\CurvSeed}{\Theta_{\mathrm{br}}}
+\newcommand{\CurvSeedMult}{\Upsilon_{\mathrm{br}}}
+\newcommand{\CurvScale}{\ell_{\mathrm{br}}}
+\newcommand{\CurvProfile}{F_{\mathrm{br}}}
+\newcommand{\CurvProfileCan}{F_{\mathrm{br}}^{\mathrm{can}}}
+\newcommand{\CurvOneI}{\mathfrak K}
+\newcommand{\CurvOneChi}{\mathfrak L}
+\newcommand{\CurvOneW}{\mathfrak M}
+\newcommand{\BridgeCurv}{\mathcal R_{\mathrm{br}}}
+\newcommand{\DownPkg}{\mathscr P_{\mathrm{down}}}
+\newcommand{\ProfWeight}{\varpi_{\mathrm{br}}}
+\newcommand{\RespSus}{\Sigma_{\mathrm{br}}}
+\newcommand{\RespSusEq}{\Sigma_{\mathrm{br}}^{\ast}}
+\newcommand{\RespCarrier}{Y_{\mathrm{br}}}
+\newcommand{\RespFlux}{J_{\mathrm{br}}}
+\newcommand{\RespCompat}{\Lambda_{\mathrm{br}}}
+\newcommand{\RespNorm}{\mathcal N_{\mathrm{br}}}
+\newcommand{\RespFluxCoeff}{\gamma_{\mathrm{br}}}
+\newcommand{\RespGap}{m_{\mathrm{br}}}
+\newcommand{\RespBias}{h_{\mathrm{br}}}
+\newcommand{\RespMicro}{X_{\mathrm{br}}}
+\newcommand{\RespMicroEq}{X_{\mathrm{br}}^{\ast}}
+\newcommand{\RespMicroRef}{X_{\mathrm{br}}^{\mathrm{ref}}}
+\newcommand{\RespMicroFluxCoeff}{\Gamma_{\mathrm{br}}^{\mathrm{mic}}}
+\newcommand{\RespMicroGap}{\mu_{\mathrm{br}}}
+\newcommand{\RespOrderField}{\bm Z_{\mathrm{br}}}
+\newcommand{\RespOrderAmp}{Z_{\mathrm{br}}}
+\newcommand{\RespOrderRef}{Z_{\mathrm{br}}^{\mathrm{ref}}}
+\newcommand{\RespOrderEq}{Z_{\mathrm{br}}^{\ast}}
+\newcommand{\RespOrderReadout}{\Xi_{\mathrm{br}}}
+\newcommand{\RespOrderStiff}{\Gamma_{\mathrm{br}}^{\mathrm{ord}}}
+\newcommand{\RespOrderQuartic}{\Lambda_{\mathrm{br}}}
+\newcommand{\RespOrderEnergy}{\mathscr E_{\mathrm{br}}^{\mathrm{ord}}}
+\newcommand{\RespOrderCurrent}{\mathcal I_{\mathrm{br}}^{\mathrm{ord}}}
+\newcommand{\RespOrderPhase}{\vartheta_{\mathrm{br}}}
+\newcommand{\RespOrderDir}{\bm n_0}
+\newcommand{\RespDeepDensity}{\mathcal Z_{\mathrm{br}}}
+\newcommand{\RespDeepDensityRef}{\mathcal Z_{\mathrm{br}}^{\mathrm{ref}}}
+\newcommand{\RespDeepDensityEq}{\mathcal Z_{\mathrm{br}}^{\ast}}
+\newcommand{\RespDeepReadout}{\mathfrak X_{\mathrm{br}}}
+\newcommand{\RespDeepTrack}{\mathfrak a_{\mathrm{br}}}
+\newcommand{\RespDeepRelax}{\mathfrak b_{\mathrm{br}}}
+\newcommand{\RespDeepStiff}{\mathfrak g_{\mathrm{br}}}
+\newcommand{\RespDeepWell}{\mathfrak l_{\mathrm{br}}}
+\newcommand{\RespDeepAux}{\mathfrak J_{\mathrm{br}}}
+\newcommand{\RespDeepEnergy}{\mathscr E_{\mathrm{br}}^{\mathrm{deep}}}
+\newcommand{\RespDeepReducedEnergy}{\widetilde{\mathscr E}_{\mathrm{br}}^{\mathrm{deep}}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Nonlocal Bridge Self-Response Off-Shell Profile-Selection Primitive-Bridge-Order-Origin Note}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The positive quotient reduced-system, theorem, decay, and asymptotic line remains closed and is not reopened here. The explicit local bridge-curvature-density note, the canonical bridge-curvature-density selection note, the off-shell profile-selection principle note, the selector-justification note, the susceptibility-origin note, the carrier-data-origin note, and the microscopic-amplitude-origin note have already fixed the current scope sharply: the downstream package is profile-blind, the continuation side has been chosen, the selector and the response scale have been pushed several layers deeper, and the microscopic bridge-response amplitude sector has been recovered as the phase-neutral quadratic reduction of a primitive bridge-order doublet. One narrower derivational gap remains. The primitive bridge-order sector itself, with data \((\RespOrderReadout,\RespOrderRef,\RespOrderStiff,\RespOrderQuartic,\RespOrderEq)\), and the zero-current phase-neutral branch are still inserted as the present deepest representative rather than derived from still more primitive substrate structure.
+
+The present manuscript supplies the smallest honest next step. It introduces a deeper positive bridge-order density \(\RespDeepDensity(x)\), an internal phase \(\RespOrderPhase(x)\), an auxiliary neutral-current variable \(\RespDeepAux(x)\), a positive readout coefficient \(\RespDeepReadout>0\), a positive reference density \(\RespDeepDensityRef>0\), a positive current-tracking coefficient \(\RespDeepTrack>0\), a positive current-relaxation coefficient \(\RespDeepRelax>0\), a positive density-well coefficient \(\RespDeepWell>0\), and a positive equilibrium density \(\RespDeepDensityEq>0\). Writing
+\[
+\RespDeepStiff\equiv \frac{\RespDeepTrack\,\RespDeepRelax}{\RespDeepTrack+\RespDeepRelax},
+\qquad
+\RespOrderField(x)
+=
+\sqrt{\RespDeepDensity(x)}
+\begin{pmatrix}
+\cos\RespOrderPhase(x)\\
+\sin\RespOrderPhase(x)
+\end{pmatrix},
+\]
+the deeper energy is
+\begin{align*}
+\RespDeepEnergy[\RespDeepDensity,\RespOrderPhase,\RespDeepAux]
+=\;&
+\int_{\mathbb R}\ProfWeight(x)\Bigl[
+\frac{\RespDeepStiff}{8\,\RespDeepDensity(x)}\abs{\RespDeepDensity'(x)}^2
++
+\frac{\RespDeepWell}{8}\bigl(\RespDeepDensity(x)-\RespDeepDensityEq\bigr)^2
+\Bigr]dx
+\nonumber\\
+&+
+\int_{\mathbb R}\ProfWeight(x)\Bigl[
+\frac{\RespDeepTrack}{2\,\RespDeepDensity(x)}\abs{\RespDeepAux(x)-\RespOrderCurrent(x)}^2
++
+\frac{\RespDeepRelax}{2\,\RespDeepDensity(x)}\abs{\RespDeepAux(x)}^2
+\Bigr]dx,
+\end{align*}
+where \(\RespOrderCurrent(x)=\RespDeepDensity(x)\RespOrderPhase'(x)\). Eliminating \(\RespDeepAux\) yields exactly the primitive bridge-order energy
+\[
+\RespOrderEnergy[\RespOrderField]
+=
+\int_{\mathbb R}\ProfWeight(x)\Bigl[
+\frac{\RespOrderStiff}{2}\abs{\RespOrderField'(x)}^2
++
+\frac{\RespOrderQuartic}{8}\Bigl(\abs{\RespOrderField(x)}^2-(\RespOrderEq)^2\Bigr)^2
+\Bigr]dx
+\]
+with the derived identifications
+\[
+\RespOrderReadout=\RespDeepReadout,
+\qquad
+\RespOrderRef=\sqrt{\RespDeepDensityRef},
+\qquad
+\RespOrderStiff=\frac{\RespDeepTrack\,\RespDeepRelax}{\RespDeepTrack+\RespDeepRelax},
+\qquad
+\RespOrderQuartic=\RespDeepWell,
+\qquad
+\RespOrderEq=\sqrt{\RespDeepDensityEq}.
+\]
+Hence the primitive bridge-order doublet is no longer primitive either; it is a composite density-phase realization of the deeper density/current sector.
+
+The same deeper sector also selects the zero-current phase-neutral branch. Its minimizers are exactly
+\[
+\RespDeepDensity(x)\equiv \RespDeepDensityEq,
+\qquad
+\RespDeepAux(x)\equiv0,
+\qquad
+\RespOrderField(x)\equiv \RespOrderEq\,\RespOrderDir
+\]
+for constant \(\RespOrderDir\in\mathbb S^1\). Equivalently the minimizing branch is uniquely the phase-neutral branch modulo the global \(O(2)\) phase symmetry, and on that branch \(\RespOrderCurrent\equiv0\). Therefore
+\[
+\RespMicroRef=\RespDeepReadout\sqrt{\RespDeepDensityRef},
+\qquad
+\RespMicroFluxCoeff=\frac{\RespDeepTrack\,\RespDeepRelax}{(\RespDeepTrack+\RespDeepRelax)\RespDeepReadout^2},
+\qquad
+\RespMicroGap=\frac{\sqrt{\RespDeepWell\,\RespDeepDensityEq}}{\RespDeepReadout},
+\qquad
+\RespMicroEq=\RespDeepReadout\sqrt{\RespDeepDensityEq},
+\]
+and hence
+\[
+\CurvScale^4=\RespSusEq=\frac{\RespOrderEq}{\RespOrderRef}
+=
+\sqrt{\frac{\RespDeepDensityEq}{\RespDeepDensityRef}}.
+\]
+The canonical profile remains
+\[
+\CurvProfileCan(x)=1+\RespSusEq x^2,
+\]
+so substituting it back into the already-fixed local bridge-curvature family preserves the same reduced current, Hamiltonian-charge flux, continuity/Gauss-Poisson package, exterior Coulomb tail, surviving dressed bridge map, and matter-free/off-longitudinal/cubic/quartic gain package as before. The claim boundary is strict: the note does not claim that every conceivable deeper substrate completion must reduce to the present density/current representative, and it does not claim that the global \(O(2)\) vacuum angle has already been broken. Its narrower positive result is that the primitive bridge-order sector and the zero-current phase-neutral branch are now both recovered from a still deeper substrate sector while the same downstream package and dressed bridge map remain fixed.
+\end{abstract}
+
+\section{Introduction}
+
+The microscopic-amplitude-origin note changed the burden of the bridge-curvature-density sequence sharply. The microscopic bridge-response amplitude sector is no longer primitive, the carrier data are no longer primitive, and the response scale is no longer fixed only at microscopic or carrier level. What remains open is deeper and narrower: the primitive bridge-order doublet that supported that reduction is itself still a representative terminal layer, and the zero-current phase-neutral branch used to read off the microscopic line is still inserted as branch data rather than selected by a still deeper substrate mechanism.
+
+That is the exact burden of the present manuscript. It does not reopen another observer-level repair note. It does not alter the already-positive self-response-dressed bridge map. It does not search for a new bridge metric, a new matter route, or another selector-level repair. It acts only on the remaining derivational gap left by the previous note: whether the primitive bridge-order sector itself can be recovered from still more primitive substrate variables, and whether the zero-current phase-neutral branch can be selected there without changing anything downstream.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+This note stays strictly inside that boundary. Its positive claim is not that a unique ultraviolet completion has already been isolated. Its positive claim is narrower and more disciplined: once one introduces the smallest deeper positive bridge-order density/current sector compatible with the already-fixed bridge map and profile-blind downstream package, the old primitive bridge-order doublet becomes a composite reduced representative, the order data are derived from deeper density/current constants, the zero-current phase-neutral branch becomes the unique minimizing branch modulo global \(O(2)\) phase, and the same downstream package and dressed bridge map stay fixed.
+
+\section{Fixed Local Family and Downstream Package}
+
+\begin{definition}[Bridge-curvature anchor and local family]
+\label{def:family}
+Let
+\begin{equation}
+\BridgeCurv \equiv R[\BridgeMetric]-2\Lambda_{\Sub}
+\label{eq:anchor}
+\end{equation}
+be the bridge-curvature scalar already present in the candidate substrate action. For every smooth positive profile
+\begin{equation}
+\CurvProfile:\mathbb R\to\mathbb R_{>0},
+\label{eq:positiveprofile}
+\end{equation}
+define the seed
+\begin{equation}
+\CurvSeed=\CurvProfile(\BridgeCurv)
+\label{eq:seed}
+\end{equation}
+and the local bridge-curvature density
+\begin{align}
+\mathcal L_{\mathrm{loc.curv}}[\CurvProfile]
+=\;&
+\CurvSeedMult\bigl(\CurvSeed-\CurvProfile(\BridgeCurv)\bigr)
+\nonumber\\
+&+\CurvQMult^{AI}\bigl(\CurvOneI_A^I-\CurvSeed\,\lambda_I\SpatialD_AQ^I\bigr)
++\CurvChiMult^A\bigl(\CurvOneChi_A-\CurvSeed\,\lambda_\chi\SpatialD_A\chi\bigr)
+\nonumber\\
+&+\CurvTransMult^A\bigl(\CurvOneW_A-\CurvSeed\,\lambda_WW_A^T\bigr)
++\ConstGamma^A\bigl(
+\ConstCurrent_A
+-\nu_I\CurvSeed^{-1}\CurvOneI_A^I
+-\nu_\chi\CurvSeed^{-1}\CurvOneChi_A
+-\nu_W\CurvSeed^{-1}\CurvOneW_A
+\bigr).
+\label{eq:locfamily}
+\end{align}
+\end{definition}
+
+\begin{definition}[Fixed downstream package]
+\label{def:downstream}
+The \emph{fixed downstream package} \(\DownPkg\) consists of:
+\begin{enumerate}
+    \item the reduced current and reduced density
+    \begin{equation}
+    \ConstCurrent_A
+    =
+    \mathfrak c_I\SpatialD_AQ^I
+    +\mathfrak c_\chi\SpatialD_A\chi
+    +\mathfrak c_WW_A^T,
+    \qquad
+    \SourceDensityRed=-\SpatialD^A\ConstCurrent_A;
+    \label{eq:pkgcurrent}
+    \end{equation}
+    \item the Hamiltonian-charge flux and continuity/Gauss-Poisson package
+    \begin{equation}
+    \HamChargeOmega
+    =
+    \int_{\Sigma_t}\SourceDensityRed\,d\mu_P
+    =
+    -\lim_{r\to\infty}\int_{S_r} n^A\ConstCurrent_A\,dA,
+    \label{eq:pkgcharge}
+    \end{equation}
+    \begin{equation}
+    -\LapPerp\FlowPot=4\pi G_N\,\SourceDensityRed,
+    \qquad
+    \SpatialD_A\FlowPot=\mathcal E_A;
+    \label{eq:pkgpoisson}
+    \end{equation}
+    \item the exterior Coulomb tail
+    \begin{equation}
+    \FlowPot
+    =
+    \CoulPot+\mathcal O(r^{-2}),
+    \qquad
+    \CoulPot(r)=\frac{G_N\,\HamChargeOmega}{r};
+    \label{eq:pkgcoul}
+    \end{equation}
+    \item the surviving dressed bridge map
+    \begin{equation}
+    g_{\mu\nu}^{\mathrm{dressed}}
+    =
+    g_{\mu\nu}^{\mathrm{br}}
+    +\SigmaIER_{\mu\nu}
+    +\SigmaDressSch{}_{\mu\nu}
+    +\SigmaRegPol{}_{\mu\nu},
+    \label{eq:pkgmetric}
+    \end{equation}
+    with the same matter-free activity, off-longitudinal \(Q/W\) cancellation, explicit cubic longitudinal completion, and quartic Coulomb self-response absorption already recorded in the explicit local note.
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}[The downstream package is profile-blind]
+\label{prop:profileblind}
+For every smooth positive profile \(\CurvProfile\), eliminating the local sector \eqref{eq:locfamily} yields the same downstream package \(\DownPkg\).
+\end{proposition}
+
+\begin{proof}
+Variation with respect to \(\CurvQMult^{AI}\), \(\CurvChiMult^A\), and \(\CurvTransMult^A\) gives
+\begin{equation}
+\CurvOneI_A^I=\CurvSeed\,\lambda_I\SpatialD_AQ^I,
+\qquad
+\CurvOneChi_A=\CurvSeed\,\lambda_\chi\SpatialD_A\chi,
+\qquad
+\CurvOneW_A=\CurvSeed\,\lambda_WW_A^T.
+\label{eq:carrierrels}
+\end{equation}
+Variation with respect to \(\ConstGamma^A\) gives
+\begin{equation}
+\ConstCurrent_A
+=
+\nu_I\CurvSeed^{-1}\CurvOneI_A^I
++\nu_\chi\CurvSeed^{-1}\CurvOneChi_A
++\nu_W\CurvSeed^{-1}\CurvOneW_A.
+\label{eq:readout}
+\end{equation}
+Substituting \eqref{eq:carrierrels} into \eqref{eq:readout} cancels \(\CurvSeed=\CurvProfile(\BridgeCurv)\) identically and yields the same forced constitutive current
+\begin{equation}
+\ConstCurrent_A
+=
+\mathfrak c_I\SpatialD_AQ^I
++\mathfrak c_\chi\SpatialD_A\chi
++\mathfrak c_WW_A^T,
+\qquad
+\mathfrak c_I=\nu_I\lambda_I,
+\qquad
+\mathfrak c_\chi=\nu_\chi\lambda_\chi,
+\qquad
+\mathfrak c_W=\nu_W\lambda_W.
+\label{eq:forcedcurrent}
+\end{equation}
+The reduced density, Hamiltonian-charge flux, continuity/Gauss-Poisson package, exterior Coulomb tail, and surviving dressed bridge map are therefore independent of the chosen positive profile.
+\end{proof}
+
+\begin{remark}
+Proposition \ref{prop:profileblind} is the structural reason this note can act only on the primitive-bridge-order origin. Once a positive profile \(\CurvProfile\) is selected, no further change is forced downstream.
+\end{remark}
+
+\section{Deeper Bridge-Order Density and Neutral-Current Sector}
+
+\begin{definition}[Deeper density/current sector and composite order field]
+\label{def:deepsector}
+Fix positive constants
+\begin{equation}
+\RespDeepReadout>0,
+\qquad
+\RespDeepDensityRef>0,
+\qquad
+\RespDeepTrack>0,
+\qquad
+\RespDeepRelax>0,
+\qquad
+\RespDeepWell>0,
+\qquad
+\RespDeepDensityEq>0,
+\label{eq:deepconstants}
+\end{equation}
+set
+\begin{equation}
+\RespDeepStiff
+\equiv
+\frac{\RespDeepTrack\,\RespDeepRelax}{\RespDeepTrack+\RespDeepRelax},
+\label{eq:deepstiff}
+\end{equation}
+and let
+\begin{equation}
+\ProfWeight:\mathbb R\to\mathbb R_{>0},
+\qquad
+\int_{\mathbb R}\ProfWeight(x)\,dx<\infty
+\label{eq:weight}
+\end{equation}
+be the same smooth positive integrable weight used in the previous bridge-response notes. The deeper sector consists of smooth fields
+\begin{equation}
+\RespDeepDensity\in C^\infty(\mathbb R,\mathbb R_{>0}),
+\qquad
+\RespOrderPhase\in C^\infty(\mathbb R,\mathbb R),
+\qquad
+\RespDeepAux\in C^\infty(\mathbb R,\mathbb R)
+\label{eq:deepfields}
+\end{equation}
+with energy
+\begin{align}
+\RespDeepEnergy[\RespDeepDensity,\RespOrderPhase,\RespDeepAux]
+\equiv\;&
+\int_{\mathbb R}\ProfWeight(x)\Bigl[
+\frac{\RespDeepStiff}{8\,\RespDeepDensity(x)}\abs{\RespDeepDensity'(x)}^2
++
+\frac{\RespDeepWell}{8}\bigl(\RespDeepDensity(x)-\RespDeepDensityEq\bigr)^2
+\Bigr]dx
+\nonumber\\
+&+
+\int_{\mathbb R}\ProfWeight(x)\Bigl[
+\frac{\RespDeepTrack}{2\,\RespDeepDensity(x)}\abs{\RespDeepAux(x)-\RespOrderCurrent(x)}^2
++
+\frac{\RespDeepRelax}{2\,\RespDeepDensity(x)}\abs{\RespDeepAux(x)}^2
+\Bigr]dx,
+\label{eq:deepenergy}
+\end{align}
+where
+\begin{equation}
+\RespOrderCurrent(x)\equiv \RespDeepDensity(x)\RespOrderPhase'(x).
+\label{eq:deepcurrent}
+\end{equation}
+Define the composite order field and readout by
+\begin{equation}
+\RespOrderField(x)
+\equiv
+\sqrt{\RespDeepDensity(x)}
+\begin{pmatrix}
+\cos\RespOrderPhase(x)\\
+\sin\RespOrderPhase(x)
+\end{pmatrix},
+\qquad
+\RespOrderRef\equiv \sqrt{\RespDeepDensityRef},
+\qquad
+\RespOrderEq\equiv \sqrt{\RespDeepDensityEq},
+\label{eq:compositeorder}
+\end{equation}
+\begin{equation}
+\RespMicro(x)\equiv \RespDeepReadout\,\abs{\RespOrderField(x)}=\RespDeepReadout\,\sqrt{\RespDeepDensity(x)},
+\qquad
+\RespMicroRef\equiv \RespDeepReadout\,\RespOrderRef,
+\qquad
+\RespSus(x)\equiv \frac{\RespMicro(x)}{\RespMicroRef}=\sqrt{\frac{\RespDeepDensity(x)}{\RespDeepDensityRef}}.
+\label{eq:deepreadout}
+\end{equation}
+\end{definition}
+
+\begin{remark}
+At the present disciplined scope, \(\RespDeepDensity\) is the still-more-primitive positive bridge-order density, \(\RespOrderPhase\) is its internal ordered phase, \(\RespDeepAux\) is the auxiliary neutral-current variable, \(\RespDeepReadout\) is the density-to-microscopic transduction coefficient, and \(\RespDeepDensityRef\) is the reference density fixing the susceptibility normalization. The pair \((\RespDeepTrack,\RespDeepRelax)\) is the deeper current-tracking/current-relaxation block, while \((\RespDeepWell,\RespDeepDensityEq)\) is the deeper positive density well.
+\end{remark}
+
+\begin{proposition}[Exact recovery of the primitive bridge-order sector]
+\label{prop:orderrecovery}
+Eliminating the auxiliary neutral-current variable \(\RespDeepAux\) from \eqref{eq:deepenergy} yields the reduced energy
+\begin{align}
+\RespDeepReducedEnergy[\RespDeepDensity,\RespOrderPhase]
+=\;&
+\int_{\mathbb R}\ProfWeight(x)\Bigl[
+\frac{\RespDeepStiff}{8\,\RespDeepDensity(x)}\abs{\RespDeepDensity'(x)}^2
++
+\frac{\RespDeepStiff}{2}\RespDeepDensity(x)\abs{\RespOrderPhase'(x)}^2
++
+\frac{\RespDeepWell}{8}\bigl(\RespDeepDensity(x)-\RespDeepDensityEq\bigr)^2
+\Bigr]dx
+\nonumber\\
+=\;&
+\int_{\mathbb R}\ProfWeight(x)\Bigl[
+\frac{\RespOrderStiff}{2}\abs{\RespOrderField'(x)}^2
++
+\frac{\RespOrderQuartic}{8}\Bigl(\abs{\RespOrderField(x)}^2-(\RespOrderEq)^2\Bigr)^2
+\Bigr]dx.
+\label{eq:deepreduced}
+\end{align}
+Hence the primitive bridge-order sector is recovered exactly with the derived identifications
+\begin{equation}
+\RespOrderReadout=\RespDeepReadout,
+\qquad
+\RespOrderRef=\sqrt{\RespDeepDensityRef},
+\qquad
+\RespOrderStiff=\RespDeepStiff=\frac{\RespDeepTrack\,\RespDeepRelax}{\RespDeepTrack+\RespDeepRelax},
+\qquad
+\RespOrderQuartic=\RespDeepWell,
+\qquad
+\RespOrderEq=\sqrt{\RespDeepDensityEq}.
+\label{eq:orderfromdeep}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Varying \eqref{eq:deepenergy} with respect to \(\RespDeepAux\) gives
+\begin{equation}
+\frac{\RespDeepTrack}{\RespDeepDensity(x)}\bigl(\RespDeepAux(x)-\RespOrderCurrent(x)\bigr)
++
+\frac{\RespDeepRelax}{\RespDeepDensity(x)}\RespDeepAux(x)
+=0,
+\label{eq:auxvariation}
+\end{equation}
+hence
+\begin{equation}
+\RespDeepAux(x)
+=
+\frac{\RespDeepTrack}{\RespDeepTrack+\RespDeepRelax}\RespOrderCurrent(x).
+\label{eq:auxsolution}
+\end{equation}
+Substituting \eqref{eq:auxsolution} into the second line of \eqref{eq:deepenergy} yields
+\begin{equation}
+\frac{\RespDeepTrack}{2\,\RespDeepDensity}\abs{\RespDeepAux-\RespOrderCurrent}^2
++
+\frac{\RespDeepRelax}{2\,\RespDeepDensity}\abs{\RespDeepAux}^2
+=
+\frac{\RespDeepTrack\,\RespDeepRelax}{2(\RespDeepTrack+\RespDeepRelax)}\RespDeepDensity\,\abs{\RespOrderPhase'}^2
+=
+\frac{\RespDeepStiff}{2}\RespDeepDensity\,\abs{\RespOrderPhase'}^2.
+\label{eq:phasecost}
+\end{equation}
+This gives the first line of \eqref{eq:deepreduced}. Next,
+\[
+\abs{\RespOrderField'(x)}^2
+=
+\frac{1}{4\,\RespDeepDensity(x)}\abs{\RespDeepDensity'(x)}^2
++
+\RespDeepDensity(x)\abs{\RespOrderPhase'(x)}^2,
+\]
+so the second line of \eqref{eq:deepreduced} follows from \eqref{eq:compositeorder}. The identities \eqref{eq:orderfromdeep} are then immediate.
+\end{proof}
+
+\begin{remark}
+Proposition \ref{prop:orderrecovery} is the precise sense in which the order doublet ceases to be the deepest layer. It is not discarded, but it is no longer primitive: it is the composite reduced representative of a still-more-primitive density/current sector.
+\end{remark}
+
+\section{Selected Zero-Current Phase-Neutral Branch}
+
+\begin{definition}[Phase-neutral branch]
+\label{def:neutralbranch}
+The \emph{phase-neutral branch} is the zero-current branch
+\begin{equation}
+\RespOrderCurrent\equiv0,
+\label{eq:zerocurrent}
+\end{equation}
+equivalently
+\begin{equation}
+\RespOrderField(x)=\RespOrderAmp(x)\RespOrderDir
+\label{eq:neutralfield}
+\end{equation}
+for some fixed unit vector \(\RespOrderDir\in\mathbb S^1\) and nonnegative amplitude \(\RespOrderAmp(x)\ge0\).
+\end{definition}
+
+\begin{theorem}[The deeper sector selects the phase-neutral minimizing branch]
+\label{thm:neutralselection}
+The minimizers of the deeper energy \eqref{eq:deepenergy} are exactly
+\begin{equation}
+\RespDeepDensity(x)\equiv \RespDeepDensityEq,
+\qquad
+\RespDeepAux(x)\equiv0,
+\qquad
+\RespOrderField(x)\equiv \RespOrderEq\,\RespOrderDir
+\label{eq:deepground}
+\end{equation}
+for constant \(\RespOrderDir\in\mathbb S^1\). Equivalently the zero-current phase-neutral branch is the unique minimizing branch modulo the global \(O(2)\) phase symmetry.
+\end{theorem}
+
+\begin{proof}
+Every term in the integrand of \eqref{eq:deepenergy} is nonnegative because \(\ProfWeight>0\), \(\RespDeepDensity>0\), \(\RespDeepTrack>0\), \(\RespDeepRelax>0\), and \(\RespDeepWell>0\). Therefore \(\RespDeepEnergy\) is minimized exactly when
+\begin{equation}
+\RespDeepDensity'(x)=0,
+\qquad
+\RespDeepDensity(x)=\RespDeepDensityEq,
+\qquad
+\RespDeepAux(x)-\RespOrderCurrent(x)=0,
+\qquad
+\RespDeepAux(x)=0
+\label{eq:minconditions}
+\end{equation}
+for all \(x\). The last two identities imply
+\begin{equation}
+\RespOrderCurrent(x)=\RespDeepDensity(x)\RespOrderPhase'(x)=0.
+\label{eq:currentzero}
+\end{equation}
+Since \(\RespDeepDensity(x)=\RespDeepDensityEq>0\), equation \eqref{eq:currentzero} forces \(\RespOrderPhase'(x)=0\), so \(\RespOrderPhase\) is constant. Writing that constant angle as the fixed unit vector \(\RespOrderDir\in\mathbb S^1\) and using \(\RespOrderEq=\sqrt{\RespDeepDensityEq}\) gives \eqref{eq:deepground}.
+\end{proof}
+
+\begin{corollary}[Recovered microscopic data]
+\label{cor:microdata}
+On the minimizing phase-neutral branch \eqref{eq:deepground}, the microscopic bridge-response amplitude data are recovered as
+\begin{equation}
+\RespMicroRef=\RespDeepReadout\sqrt{\RespDeepDensityRef},
+\qquad
+\RespMicroFluxCoeff=\frac{\RespDeepTrack\,\RespDeepRelax}{(\RespDeepTrack+\RespDeepRelax)\RespDeepReadout^2},
+\qquad
+\RespMicroGap=\frac{\sqrt{\RespDeepWell\,\RespDeepDensityEq}}{\RespDeepReadout},
+\qquad
+\RespMicroEq=\RespDeepReadout\sqrt{\RespDeepDensityEq}.
+\label{eq:microfromdeep}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+Equation \eqref{eq:microfromdeep} follows by substituting the derived order data \eqref{eq:orderfromdeep} into the previously fixed microscopic-amplitude relations
+\[
+\RespMicroRef=\RespOrderReadout\,\RespOrderRef,
+\qquad
+\RespMicroFluxCoeff=\frac{\RespOrderStiff}{\RespOrderReadout^2},
+\qquad
+\RespMicroGap=\frac{\sqrt{\RespOrderQuartic}\,\RespOrderEq}{\RespOrderReadout},
+\qquad
+\RespMicroEq=\RespOrderReadout\,\RespOrderEq.
+\]
+\end{proof}
+
+\begin{corollary}[Recovered carrier data, equilibrium susceptibility, and response scale]
+\label{cor:carrierandscale}
+The carrier data are therefore recovered one layer deeper as
+\begin{equation}
+\RespNorm=\frac{1}{\RespDeepReadout\sqrt{\RespDeepDensityRef}},
+\qquad
+\RespFluxCoeff=\frac{\RespDeepTrack\,\RespDeepRelax}{(\RespDeepTrack+\RespDeepRelax)\RespDeepReadout^2},
+\qquad
+\RespGap=\frac{\sqrt{\RespDeepWell\,\RespDeepDensityEq}}{\RespDeepReadout},
+\qquad
+\RespBias=\frac{\RespDeepWell\,(\RespDeepDensityEq)^{3/2}}{\RespDeepReadout}.
+\label{eq:carrierfromdeep}
+\end{equation}
+On the minimizing branch,
+\begin{equation}
+\RespSusEq
+=
+\frac{\RespOrderEq}{\RespOrderRef}
+=
+\frac{\RespMicroEq}{\RespMicroRef}
+=
+\RespNorm\frac{\RespBias}{\RespGap^2}
+=
+\sqrt{\frac{\RespDeepDensityEq}{\RespDeepDensityRef}},
+\label{eq:sigmafromdeep}
+\end{equation}
+and hence
+\begin{equation}
+\CurvScale^4=\RespSusEq=\sqrt{\frac{\RespDeepDensityEq}{\RespDeepDensityRef}}.
+\label{eq:scalefromdeep}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+The identities \eqref{eq:carrierfromdeep} follow by substituting \eqref{eq:microfromdeep} into the already-fixed carrier-data relations
+\[
+\RespNorm=\frac{1}{\RespMicroRef},
+\qquad
+\RespFluxCoeff=\RespMicroFluxCoeff,
+\qquad
+\RespGap=\RespMicroGap,
+\qquad
+\RespBias=\RespMicroGap^2\RespMicroEq.
+\]
+Equation \eqref{eq:sigmafromdeep} follows from \eqref{eq:deepground}, \eqref{eq:deepreadout}, and \eqref{eq:carrierfromdeep}. Equation \eqref{eq:scalefromdeep} is exactly the pinned-branch response-scale identification.
+\end{proof}
+
+\begin{definition}[Profile reconstructed from susceptibility]
+\label{def:profilereconstruction}
+On the continuation side fixed by the profile-selection principle note, reconstruct the profile by
+\begin{equation}
+\CurvProfile''(x)=2\RespSus(x),
+\qquad
+\CurvProfile(0)=1,
+\qquad
+\CurvProfile'(0)=0.
+\label{eq:profilereconstruction}
+\end{equation}
+\end{definition}
+
+\begin{corollary}[Canonical profile on the primitive-bridge-order-origin branch]
+\label{cor:canonicalprofile}
+On the minimizing phase-neutral branch,
+\begin{equation}
+\CurvProfileCan(x)=1+\RespSusEq x^2=1+\CurvScale^4x^2.
+\label{eq:canonicalprofile}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+By \eqref{eq:deepground} and \eqref{eq:deepreadout}, the susceptibility is constant:
+\[
+\RespSus(x)\equiv \RespSusEq.
+\]
+Integrating \eqref{eq:profilereconstruction} twice with the imposed normalization conditions gives \eqref{eq:canonicalprofile}.
+\end{proof}
+
+\begin{remark}
+At the present disciplined scope, the deeper density/current sector determines four nested layers at once:
+\begin{align*}
+(\RespDeepReadout,\RespDeepDensityRef,\RespDeepTrack,\RespDeepRelax,\RespDeepWell,\RespDeepDensityEq)
+&\Longrightarrow
+(\RespOrderReadout,\RespOrderRef,\RespOrderStiff,\RespOrderQuartic,\RespOrderEq)
+\nonumber\\
+&\Longrightarrow
+(\RespMicroRef,\RespMicroFluxCoeff,\RespMicroGap,\RespMicroEq)
+\nonumber\\
+&\Longrightarrow
+(\RespNorm,\RespFluxCoeff,\RespGap,\RespBias,\RespSusEq,\CurvScale^4).
+\end{align*}
+This is the precise sense in which the active derivational bridge burden has been moved one layer deeper again.
+\end{remark}
+
+\section{Fixed Downstream Package and Dressed Bridge Map}
+
+\begin{theorem}[The downstream package and dressed bridge map stay fixed]
+\label{thm:fixedpackage}
+Substituting the canonical profile \eqref{eq:canonicalprofile} obtained from the deeper primitive-bridge-order-origin sector into the local bridge-curvature family \eqref{eq:locfamily} reproduces the same downstream package \(\DownPkg\) and the same surviving dressed bridge map \eqref{eq:pkgmetric}.
+\end{theorem}
+
+\begin{proof}
+By Corollary \ref{cor:canonicalprofile}, the deeper sector yields the same quadratic canonical profile already selected in the earlier continuation-side notes, with the same response scale \(\CurvScale^4=\RespSusEq\). Proposition \ref{prop:profileblind} then implies that the reduced current, Hamiltonian-charge flux, continuity/Gauss-Poisson package, exterior Coulomb tail, and surviving dressed bridge map are unchanged.
+\end{proof}
+
+\begin{remark}
+The primitive-bridge-order-origin step therefore does not reopen any lower-level repair work. It only moves the origin of the same fixed continuation-side data one layer deeper and makes the zero-current phase-neutral branch intrinsic to that deeper sector.
+\end{remark}
+
+\section{Claim Boundary}
+
+This note does not claim that the deeper density/current sector \eqref{eq:deepenergy} is the unique ultraviolet completion of the bridge-curvature response line. It does not claim that every conceivable deeper substrate realization must reduce to the present positive density/current representative, and it does not claim that the global \(O(2)\) vacuum angle has already been broken to a single preferred unit vector. The minimizing branch remains unique only modulo that global phase symmetry.
+
+Its narrower positive result is that the primitive bridge-order sector is no longer primitive either. At the present disciplined scope it is recovered exactly from a deeper bridge-order density/current sector, the order data \((\RespOrderReadout,\RespOrderRef,\RespOrderStiff,\RespOrderQuartic,\RespOrderEq)\) are derived from deeper density/current constants, the zero-current phase-neutral branch is selected there as the unique minimizing branch modulo global \(O(2)\) phase, the microscopic and carrier data and the response scale are therefore recovered yet again from that deeper origin, and the same downstream package and surviving dressed bridge map remain fixed.
+
+\section{Conclusion}
+
+The positive result of this note is that the primitive bridge-order sector is no longer left as a terminal representative. At disciplined current scope it is recovered exactly from a deeper bridge-order density/current sector, the zero-current phase-neutral branch becomes intrinsic to that deeper layer, and the same microscopic data, carrier data, response scale, and downstream dressed bridge map remain fixed.
+
+The scope remains limited to that explicit density/current realization. This note does not claim a unique ultraviolet completion or a final breaking of the global \(O(2)\) vacuum angle. The next honest burden is therefore one layer deeper again: whether that deeper bridge-order density/current sector itself can be derived or uniquely selected from still more primitive substrate variables while keeping the same phase-neutral minimizing branch.
+
+\end{document}

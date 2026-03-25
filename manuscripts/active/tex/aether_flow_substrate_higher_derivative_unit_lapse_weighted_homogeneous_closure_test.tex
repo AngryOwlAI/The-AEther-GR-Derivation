@@ -1,0 +1,527 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal{A}}
+\newcommand{\BridgeMetric}{\mathfrak{g}}
+\newcommand{\Ell}{\mathcal{L}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Higher-Derivative Quartic Branch Unit-Lapse Weighted/Homogeneous Longitudinal Closure Test}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The fixed-completion unit-lapse spatial-harmonic route has now exhausted the two smallest repairs that still tried to preserve the old unweighted \(H^N\) longitudinal architecture. The propagated trace-monopole cancellation route does not presently close, and the Coulomb split removes the explicit \(1/|x|\) tail without restoring the old unweighted elliptic estimate. The honest next question is therefore no longer another obstruction test. It is whether the same fixed completion \(S_{\mathrm{min},4}\) admits slice-wise elliptic closure for the longitudinal ordered-flow sector in a weighted or homogeneous norm.
+
+This note performs that theorem-architecture test. For the unit-lapse longitudinal equation
+\[
+\kappa_\theta \Delta_\gamma \chi
+=
+-K+\mathcal N_\chi
+\equiv
+-F_\chi,
+\]
+it replaces the failed norm \(\|\chi\|_{H^N}\) by the weighted/homogeneous package
+\[
+\|\chi\|_{\mathcal X_\chi^N}^2
+\equiv
+\|\nabla\chi\|_{L^2}^2
++ \|\mathbf P_{\mathrm{hi}}\chi\|_{H^N}^2
++ \mathfrak L_\chi(F_\chi)^2,
+\qquad
+\mathfrak L_\chi(F_\chi)^2
+\equiv
+\int_{\mathbb R^3}\varphi_{\mathrm{lo}}(\xi)^2 |\xi|^{-2}|\widehat{F_\chi}(\xi)|^2\,d\xi,
+\]
+which is equivalent on slice solutions to a \(\dot H^1\) plus high-frequency \(H^N\) control of \(\chi\). In that class the longitudinal elliptic solve satisfies the replacement estimate
+\[
+\|\chi\|_{\mathcal X_\chi^N}
+\lesssim
+\|\mathbf P_{\mathrm{hi}}F_\chi\|_{H^{N-2}}
++ \mathfrak L_\chi(F_\chi),
+\]
+so the low-frequency part is recorded explicitly rather than hidden inside a false unweighted \(H^N\) bound.
+
+The second point is structural. For the explicit completion \(S_{\mathrm{min},4}\), every recorded occurrence of the longitudinal variable in the unit-lapse reduced system is derivative-level: it enters through \(W_i=D_i\chi+W_i^T\), through \(\Delta_\gamma\chi\), or through lower-order contractions of the same ordered-flow blocks. No independent zeroth-order \(\chi\) potential or mass term survives in the recorded reduced equations. Therefore the weighted/homogeneous package is natural for the fixed completion and no extra local \(L^2\) anchor is forced at the present scope.
+
+The conclusion is correspondingly narrow but positive. The fixed-completion unit-lapse system \emph{does} admit slice-wise elliptic closure for the longitudinal sector in a weighted/homogeneous norm, and the first local well-posedness and continuation architecture can be replayed in that class. This note does not yet prove a new coercive longer-time bootstrap or a decay theorem. It records that the next immediate burden is now exactly those post-local questions, not another attempt to decide which smaller longitudinal repair should be tried.
+\end{abstract}
+
+\section{Introduction}
+
+The fixed-completion unit-lapse spatial-harmonic formulation has now passed through three increasingly narrow tests. First, the gauge-first reduction showed that the old maximal-gauge lapse obstruction disappears at equation level once \(N\equiv 1\). Second, the direct unweighted \((K,\chi,\beta)\) closure test failed because the longitudinal auxiliary solve
+\begin{equation}
+\kappa_\theta \Delta_\gamma \chi
+=
+-K+\mathcal N_\chi
+\label{eq:chiell}
+\end{equation}
+generically produces a trace-driven Coulomb tail. Third, the two smallest repairs compatible with the old \(H^N\) architecture have also now been exhausted: propagated monopole cancellation is not presently forced or propagated, and Coulomb splitting still does not recover plain unweighted \(H^N\) control of the regular part.
+
+That changes the next honest move. The question is no longer whether another obstruction note can be extracted from the same old norm. The question is whether the unit-lapse formulation naturally wants a different longitudinal function class. If it does, then the correct next manuscript is a theorem-architecture note that defines that class, proves the replacement slice estimate, checks whether the reduced system really uses only derivative-level longitudinal information, and then replays the first local theorem package in the new setting.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays within that boundary. It does not change the explicit completion \(S_{\mathrm{min},4}\). It does not claim a new nonlinear stability theorem. It asks only whether the fixed-completion unit-lapse system admits a slice-wise elliptic closure for the longitudinal sector in a weighted or homogeneous norm and, if it does, whether the first local theorem architecture should now be replayed in that class.
+
+\section{Weighted/Homogeneous Longitudinal Control}
+
+Keep the same unit-lapse spatial-harmonic gauge
+\begin{equation}
+N\equiv 1,
+\qquad
+V^i(\gamma)=0,
+\label{eq:gauge}
+\end{equation}
+the same reduced variables
+\begin{equation}
+(\gamma_{ij},\Sigma_{ij},K;\beta^i;\sigma,\pi_\sigma;\psi,\pi_\psi),
+\label{eq:unknowns}
+\end{equation}
+and the same slice-wise auxiliary variables \((Q^I,\chi,W_i^T)\). As before, define the longitudinal source by
+\begin{equation}
+F_\chi
+\equiv
+K-\mathcal N_\chi[\gamma,\Sigma,K,\beta,\sigma,\pi_\sigma,Q,\chi,W^T,\psi,\pi_\psi],
+\label{eq:Fchi}
+\end{equation}
+so that \eqref{eq:chiell} becomes
+\begin{equation}
+\kappa_\theta\Delta_\gamma\chi = -F_\chi.
+\label{eq:chieq}
+\end{equation}
+
+\begin{definition}[Low- and high-frequency projectors]
+Choose a smooth radial cutoff \(\varphi_{\mathrm{lo}}\in C_c^\infty(\mathbb R^3)\) such that
+\[
+0\le \varphi_{\mathrm{lo}}\le 1,
+\qquad
+\varphi_{\mathrm{lo}}(\xi)=1 \text{ for } |\xi|\le 1,
+\qquad
+\varphi_{\mathrm{lo}}(\xi)=0 \text{ for } |\xi|\ge 2.
+\]
+Define Fourier multipliers
+\begin{equation}
+\widehat{\mathbf P_{\mathrm{lo}}f}(\xi)
+\equiv
+\varphi_{\mathrm{lo}}(\xi)\widehat f(\xi),
+\qquad
+\mathbf P_{\mathrm{hi}}\equiv I-\mathbf P_{\mathrm{lo}}.
+\label{eq:projectors}
+\end{equation}
+\end{definition}
+
+\begin{definition}[Low-frequency longitudinal source seminorm]
+For a slice source \(F_\chi\), define the \emph{low-frequency longitudinal seminorm}
+\begin{equation}
+\mathfrak L_\chi(F_\chi)^2
+\equiv
+\int_{\mathbb R^3}
+\varphi_{\mathrm{lo}}(\xi)^2
+|\xi|^{-2}
+|\widehat{F_\chi}(\xi)|^2\,d\xi
+=
+\|\mathbf P_{\mathrm{lo}}F_\chi\|_{\dot H^{-1}}^2.
+\label{eq:Lchi}
+\end{equation}
+\end{definition}
+
+\begin{remark}
+The seminorm \(\mathfrak L_\chi\) is the explicit low-frequency quantity missing from the old unweighted \(H^N\) closure. In three space dimensions it remains finite for \(L^1\cap H^{N-2}\) sources even when the trace monopole is nonzero, because the \(\dot H^{-1}\) weight is only \(|\xi|^{-2}\), not the stronger \(|\xi|^{-4}\) singularity that obstructed plain \(H^N\)-control of \(\chi\).
+\end{remark}
+
+\begin{definition}[Weighted/homogeneous longitudinal norm]
+Fix \(N\ge 6\). The \emph{weighted/homogeneous longitudinal control norm} is
+\begin{equation}
+\|\chi\|_{\mathcal X_\chi^N}^2
+\equiv
+\|\nabla\chi\|_{L^2(\mathbb R^3)}^2
++ \|\mathbf P_{\mathrm{hi}}\chi\|_{H^N(\mathbb R^3)}^2
++ \mathfrak L_\chi(F_\chi)^2.
+\label{eq:Xchi}
+\end{equation}
+\end{definition}
+
+\begin{remark}
+Definition 3 is equivalent on solutions of \eqref{eq:chieq} to the simpler heuristic package
+\[
+\|\nabla\chi\|_{H^{N-1}}^2 + \mathfrak L_\chi(F_\chi)^2,
+\]
+and may therefore be read as a \(\dot H^1\) plus high-frequency \(H^N\) reformulation of the longitudinal sector. The point is not to produce a unique canonical norm. The point is to replace the false requirement \(\chi\in H^N\) by a norm that measures exactly the derivative-level information naturally generated by the unit-lapse slice equation.
+\end{remark}
+
+\section{Slice Elliptic Estimate in the New Norm}
+
+The first task is to identify the correct replacement for the failed unweighted estimate
+\[
+\|\chi\|_{H^N}\lesssim \|F_\chi\|_{H^{N-2}}.
+\]
+The weighted/homogeneous version records the low-frequency piece separately.
+
+\begin{proposition}[Flat-model weighted/homogeneous elliptic estimate]
+\label{prop:flatell}
+Assume the flat model \(\gamma=\delta\), \(N\ge 2\), and let \(\chi\) be the decaying solution of
+\begin{equation}
+\kappa_\theta \Delta \chi = -F_\chi.
+\label{eq:flatpoisson}
+\end{equation}
+Then
+\begin{equation}
+\|\chi\|_{\mathcal X_\chi^N}
+\le
+C_{N,\kappa_\theta}
+\Bigl(
+\|\mathbf P_{\mathrm{hi}}F_\chi\|_{H^{N-2}}
++ \mathfrak L_\chi(F_\chi)
+\Bigr).
+\label{eq:flatestimate}
+\end{equation}
+Conversely,
+\begin{equation}
+\|\mathbf P_{\mathrm{hi}}F_\chi\|_{H^{N-2}}
++ \mathfrak L_\chi(F_\chi)
+\le
+C_{N,\kappa_\theta}
+\|\chi\|_{\mathcal X_\chi^N}.
+\label{eq:flatestimate2}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Taking Fourier transforms of \eqref{eq:flatpoisson} gives
+\begin{equation}
+\widehat\chi(\xi)
+=
+-\frac{\widehat{F_\chi}(\xi)}{\kappa_\theta |\xi|^2}.
+\label{eq:fourierchi}
+\end{equation}
+Therefore
+\[
+\|\nabla\chi\|_{L^2}^2
+=
+\kappa_\theta^{-2}\int_{\mathbb R^3}
+|\xi|^{-2}|\widehat{F_\chi}(\xi)|^2\,d\xi.
+\]
+Splitting this integral into low and high frequencies gives
+\[
+\|\nabla\chi\|_{L^2}^2
+\lesssim
+\mathfrak L_\chi(F_\chi)^2
++ \|\mathbf P_{\mathrm{hi}}F_\chi\|_{L^2}^2.
+\]
+Next,
+\[
+\|\mathbf P_{\mathrm{hi}}\chi\|_{H^N}^2
+\simeq
+\int_{\mathbb R^3}
+(1+|\xi|^2)^N(1-\varphi_{\mathrm{lo}}(\xi))^2
+|\widehat\chi(\xi)|^2\,d\xi.
+\]
+Substituting \eqref{eq:fourierchi} and using that \(|\xi|^{-2}\lesssim (1+|\xi|^2)^{-1}\) on the support of \(1-\varphi_{\mathrm{lo}}\) yields
+\[
+\|\mathbf P_{\mathrm{hi}}\chi\|_{H^N}
+\lesssim
+\|\mathbf P_{\mathrm{hi}}F_\chi\|_{H^{N-2}}.
+\]
+Combining these bounds proves \eqref{eq:flatestimate}. The converse estimate \eqref{eq:flatestimate2} follows by reversing the same Fourier identities:
+\[
+\mathbf P_{\mathrm{hi}}\widehat{F_\chi}
+=
+-\kappa_\theta |\xi|^2 \mathbf P_{\mathrm{hi}}\widehat\chi,
+\qquad
+\varphi_{\mathrm{lo}}(\xi)|\xi|^{-1}\widehat{F_\chi}
+=
+-\kappa_\theta \varphi_{\mathrm{lo}}(\xi)|\xi|\,\widehat\chi.
+\]
+\end{proof}
+
+\begin{remark}
+Proposition \ref{prop:flatell} is the exact replacement for the failed old estimate. The high-frequency part of the Poisson inverse is still ordinary elliptic regularity. Only the low-frequency piece has to be carried separately, and there it is the source in \(\dot H^{-1}\), not the full \(\chi\) in unweighted \(L^2\), that is natural.
+\end{remark}
+
+The unit-lapse reduced system uses \(\Delta_\gamma\) rather than the Euclidean Laplacian, so one must perturb Proposition \ref{prop:flatell} to the small-data slice class already used in the earlier notes.
+
+\begin{proposition}[Perturbative slice elliptic closure]
+\label{prop:sliceell}
+Fix \(N\ge 6\). There exists \(\varepsilon_{\mathrm{wh}}>0\) such that if
+\begin{equation}
+\|\gamma-\delta\|_{H^N}
++ \|\Sigma\|_{H^{N-1}}
++ \|K\|_{H^{N-1}}
++ \|\sigma\|_{H^{N-1}}
++ \|\pi_\sigma\|_{H^{N-1}}
++ \mathcal E_N^{\mathrm{matter}}{}^{1/2}
+\le
+\varepsilon_{\mathrm{wh}}
+\label{eq:whsmall}
+\end{equation}
+and the slice lies in the same strict positivity regime
+\begin{equation}
+\widehat M_{IJ}\xi^I\xi^J\ge m_{Q,\min}^2|\xi|^2,
+\qquad
+\kappa_\theta\ge \kappa_{\theta,\min}>0,
+\qquad
+\kappa_\Omega\ge \kappa_{\Omega,\min}>0,
+\label{eq:strict}
+\end{equation}
+then the longitudinal equation \eqref{eq:chieq} has a unique decaying solution satisfying
+\begin{equation}
+\|\chi\|_{\mathcal X_\chi^N}
+\le
+C_N
+\Bigl(
+\|\mathbf P_{\mathrm{hi}}F_\chi\|_{H^{N-2}}
++ \mathfrak L_\chi(F_\chi)
+\Bigr),
+\label{eq:sliceestimate}
+\end{equation}
+where \(C_N\) depends only on the fixed lower bounds and the Sobolev index.
+\end{proposition}
+
+\begin{proof}
+In the small-data regime the operator \(\Delta_\gamma\) is a small \(H^{N-1}\)-coefficient perturbation of the Euclidean Laplacian. Standard elliptic perturbation theory gives a decaying solution in the same class as the flat operator provided one closes the low-frequency bound at the level of \(\dot H^{-1}\) rather than \(L^2\). The high-frequency estimate is unchanged up to coefficient-error terms absorbed by \(\varepsilon_{\mathrm{wh}}\), while the low-frequency component is controlled by the \(\dot H^{-1}\) energy method for the divergence-form elliptic operator obtained from \(\Delta_\gamma\). Since \(\kappa_\theta\) remains uniformly positive, the perturbation is coercive on \(\dot H^1\), and \eqref{eq:sliceestimate} follows from Proposition \ref{prop:flatell} by a standard continuity argument.
+\end{proof}
+
+\begin{corollary}[Natural source norm for the longitudinal slice solve]
+\label{cor:source}
+For the fixed completion \(S_{\mathrm{min},4}\), the correct source class for the unit-lapse longitudinal solve is
+\begin{equation}
+F_\chi \in \dot H^{-1}_{\mathrm{lo}} \cap H^{N-2}_{\mathrm{hi}},
+\label{eq:sourceclass}
+\end{equation}
+not \(F_\chi\in H^{N-2}\) alone.
+\end{corollary}
+
+\begin{proof}
+This is exactly the content of \eqref{eq:sliceestimate}.
+\end{proof}
+
+\section{Every Recorded Occurrence of \texorpdfstring{\(\chi\)}{chi} Is Derivative-Level}
+
+The slice estimate above would be less useful if the reduced system contained unavoidable zeroth-order \(\chi\) terms. The next task is therefore structural rather than analytic.
+
+\begin{proposition}[Derivative-level occurrence of the longitudinal variable]
+\label{prop:derivative}
+At the present recorded scope of the explicit completion \(S_{\mathrm{min},4}\) and the unit-lapse reduced system, every occurrence of the longitudinal variable \(\chi\) is derivative-level. More precisely:
+\begin{enumerate}
+    \item the ordered-flow perturbation enters through
+    \begin{equation}
+    W_i = D_i\chi + W_i^T,
+    \label{eq:Wdecomp}
+    \end{equation}
+    so the reduced variables see \(\chi\) through \(D_i\chi\)
+    \item the longitudinal constraint itself uses \(\Delta_\gamma\chi\)
+    \item the completion \(S_{\mathrm{min},4}\) introduces no separate zeroth-order longitudinal potential, no mass term for \(\chi\), and no algebraic ordered-flow block depending on \(\chi\) alone.
+\end{enumerate}
+Consequently the schematic source terms
+\[
+\mathcal S_\beta^i,\quad
+\mathcal N_I^{(Q)},\quad
+\mathcal N_\chi,\quad
+\mathcal N_i^{(T)},\quad
+\mathcal N_\sigma
+\]
+depend on the longitudinal sector only through derivative-level quantities.
+\end{proposition}
+
+\begin{proof}
+The explicit-completion note records that the \(U\)-sector of \(S_{\mathrm{min},4}\) contains no new block beyond the unit constraint, the divergence term \((\nabla_AU^A)^2\), and the vorticity term \(\Omega_{AB}\Omega^{AB}\). In the \(3+1\) decomposition, these contribute to the reduced system through the decomposition \eqref{eq:Wdecomp}, through the longitudinal elliptic relation \eqref{eq:chiell}, and through the transverse vorticity equation for \(W_i^T\). None of those blocks produces an independent zeroth-order \(\chi\) potential. Therefore the recorded unit-lapse source terms can only use \(\chi\) through \(D\chi\), \(\Delta_\gamma\chi\), or nonlinear contractions of the same ordered-flow tensors.
+\end{proof}
+
+\begin{corollary}[No extra local zeroth-order anchor is forced]
+\label{cor:noanchor}
+At the present recorded scope, the weighted/homogeneous longitudinal norm \eqref{eq:Xchi} is sufficient for the unit-lapse reduced system. No additional local \(L^2\) term of the form \(\|\eta\chi\|_{L^2}\) is forced by any recorded zeroth-order occurrence of \(\chi\).
+\end{corollary}
+
+\begin{proof}
+If a genuine zeroth-order \(\chi\) term were present, one would need a norm that distinguished \(\chi\) from its homogeneous derivative data. Proposition \ref{prop:derivative} shows that no such term is presently recorded.
+\end{proof}
+
+\begin{remark}
+Corollary \ref{cor:noanchor} should be read carefully. It is a statement about the currently recorded reduced system, not a universal claim about every future refinement of the unit-lapse formulation. If a later fully expanded remainder reveals a truly algebraic longitudinal term, the smallest repair would then be to adjoin exactly such a local anchor. At current scope, that extra term is not needed.
+\end{remark}
+
+\section{Replayed Local Theorem Architecture}
+
+Once the longitudinal slice estimate is placed in the correct norm and the derivative-level structure is checked, the first local theorem architecture can be replayed in the unit-lapse class.
+
+\begin{definition}[Closed weighted/homogeneous control energy]
+For \(N\ge 6\), define
+\begin{align}
+\mathfrak E_N^{\mathrm{ul,wh}}(t)
+\equiv\;&
+\|\gamma-\delta\|_{H^N(\Sigma_t)}^2
++ \|\Sigma\|_{H^{N-1}(\Sigma_t)}^2
++ \|K\|_{H^{N-1}(\Sigma_t)}^2
++ \|\sigma\|_{H^{N-1}(\Sigma_t)}^2
++ \frac{1}{m_S^2}\|\pi_\sigma\|_{H^{N-1}(\Sigma_t)}^2
+\nonumber\\
+&+
+\frac{\lambda_4}{M_*^2}\|\Delta_\gamma \sigma\|_{H^{N-1}(\Sigma_t)}^2
++ \mathcal E_N^{\mathrm{matter}}(t)
++ \|\beta\|_{H^{N+1}(\Sigma_t)}^2
++ \|Q\|_{H^N(\Sigma_t)}^2
+\nonumber\\
+&+
+\|\chi\|_{\mathcal X_\chi^N(\Sigma_t)}^2
++ \|W^T\|_{H^N(\Sigma_t)}^2.
+\label{eq:Ewh}
+\end{align}
+\end{definition}
+
+\begin{remark}
+Definition 4 differs from the earlier unweighted unit-lapse test only in the longitudinal slot. Everything else in the mixed hyperbolic--elliptic energy is left unchanged.
+\end{remark}
+
+\begin{proposition}[Slice-wise elliptic closure for the full auxiliary package]
+\label{prop:fullell}
+Under the hypotheses of Proposition \ref{prop:sliceell}, the unit-lapse elliptic subsystem for \((\beta,Q,\chi,W^T)\) has a unique decaying solution satisfying
+\begin{equation}
+\|\beta\|_{H^{N+1}}
++ \|Q\|_{H^N}
++ \|\chi\|_{\mathcal X_\chi^N}
++ \|W^T\|_{H^N}
+\le
+C_N\,\mathfrak E_N^{\mathrm{ul,wh}}{}^{1/2},
+\label{eq:fullell}
+\end{equation}
+provided \(\varepsilon_{\mathrm{wh}}\) is sufficiently small.
+\end{proposition}
+
+\begin{proof}
+The shift, \(Q\)-sector, and transverse ordered-flow equations are the same uniformly elliptic equations already used in the earlier local theory, so their estimates are unchanged. The only replacement is the longitudinal slot, where Proposition \ref{prop:sliceell} gives \eqref{eq:sliceestimate} in place of the false \(\|\chi\|_{H^N}\)-bound. Proposition \ref{prop:derivative} ensures that the nonlinear source \(\mathcal N_\chi\) is estimated by the same closed energy because it uses only derivative-level longitudinal quantities. Hence the elliptic subsystem closes in the norm \eqref{eq:Ewh}.
+\end{proof}
+
+\begin{proposition}[High-order a priori estimate in the weighted/homogeneous class]
+\label{prop:apriori}
+Let \(N\ge 6\), and let a smooth unit-lapse solution exist on \([0,T]\) while remaining in the strict regime \eqref{eq:strict}. Then
+\begin{equation}
+\frac{d}{dt}\mathfrak E_N^{\mathrm{ul,wh}}(t)
+\le
+C_N\bigl(1+\mathfrak E_N^{\mathrm{ul,wh}}(t)^{1/2}\bigr)\mathfrak E_N^{\mathrm{ul,wh}}(t)
+\label{eq:apriori}
+\end{equation}
+for all \(t\in[0,T]\).
+\end{proposition}
+
+\begin{proof}
+The metric and quartic-scalar parts of the energy are estimated exactly as in the earlier local theorem architecture for the explicit completion, except that unit lapse replaces the maximal-gauge lapse equation. The shift, \(Q\)-sector, and transverse ordered-flow terms are again inserted through Proposition \ref{prop:fullell}. For the longitudinal sector, no evolution equation for \(\chi\) is differentiated directly; one differentiates only the propagating Einstein--quartic-scalar equations and replaces every occurrence of the longitudinal variable by the slice estimate \eqref{eq:fullell}. Proposition \ref{prop:derivative} is the decisive structural input here: because \(\chi\) enters only through derivative-level quantities, the homogeneous norm \(\|\chi\|_{\mathcal X_\chi^N}\) is sufficient to bound all nonlinear source terms with no derivative loss and with no need for an extra zeroth-order \(\chi\)-estimate. Summing the same differentiated Einstein, scalar, and matter inequalities therefore yields \eqref{eq:apriori}.
+\end{proof}
+
+\begin{theorem}[Weighted/homogeneous unit-lapse local well-posedness architecture]
+\label{thm:local}
+Fix \(N\ge 6\). There exists \(\varepsilon_{\mathrm{loc}}>0\) with the following property. Let asymptotically flat compatible initial data for the unit-lapse spatial-harmonic system satisfy the Einstein constraints, the unit-lapse gauge conditions, the auxiliary compatibility conditions, the strict positivity regime \eqref{eq:strict}, and
+\begin{equation}
+\mathfrak E_N^{\mathrm{ul,wh}}(0)\le \varepsilon_{\mathrm{loc}}^2.
+\label{eq:smalllocal}
+\end{equation}
+Then the fixed completion \(S_{\mathrm{min},4}\) admits a unique solution on some interval \([0,T_{\mathrm{loc}}]\), \(T_{\mathrm{loc}}>0\), such that
+\begin{align}
+\gamma-\delta &\in C([0,T_{\mathrm{loc}}],H^N)\cap C^1([0,T_{\mathrm{loc}}],H^{N-1}),
+\label{eq:reggamma}
+\\
+\Sigma,\ K &\in C([0,T_{\mathrm{loc}}],H^{N-1}),
+\label{eq:regSigma}
+\\
+\sigma &\in C([0,T_{\mathrm{loc}}],H^{N+1})\cap C^1([0,T_{\mathrm{loc}}],H^{N-1}),
+\label{eq:regsigma}
+\\
+\pi_\sigma &\in C([0,T_{\mathrm{loc}}],H^{N-1}),
+\label{eq:regpi}
+\\
+\beta &\in C([0,T_{\mathrm{loc}}],H^{N+1}),
+\label{eq:regbeta}
+\\
+Q,\ W^T &\in C([0,T_{\mathrm{loc}}],H^N),
+\label{eq:regaux}
+\\
+\nabla\chi &\in C([0,T_{\mathrm{loc}}],H^{N-1}),
+\qquad
+\mathbf P_{\mathrm{hi}}\chi \in C([0,T_{\mathrm{loc}}],H^N),
+\label{eq:regchi}
+\end{align}
+and
+\begin{equation}
+\sup_{0\le t\le T_{\mathrm{loc}}}
+\mathfrak E_N^{\mathrm{ul,wh}}(t)
+\le
+2\,\mathfrak E_N^{\mathrm{ul,wh}}(0).
+\label{eq:localbound}
+\end{equation}
+Moreover, the solution extends past any time \(T<T_{\max}\) as long as \(\mathfrak E_N^{\mathrm{ul,wh}}(t)\) stays finite and the strict positivity regime \eqref{eq:strict} persists.
+\end{theorem}
+
+\begin{proof}
+Construct the same quasilinear mixed hyperbolic--elliptic iteration used in the earlier local theorem note, now in unit-lapse spatial-harmonic gauge. At each iteration step solve the elliptic subsystem slice by slice using Proposition \ref{prop:fullell}, then solve the resulting quasilinear Einstein--quartic-scalar evolution for the propagating variables. Proposition \ref{prop:apriori} gives a uniform high-order bound, and the standard difference estimate closes because the only new ingredient relative to the old architecture is the longitudinal norm replacement already encoded in \eqref{eq:fullell}. Since Proposition \ref{prop:derivative} removes the possibility of a hidden zeroth-order \(\chi\)-loss, the contraction and continuation arguments are the same as before after replacing \(\|\chi\|_{H^N}\) by \(\|\chi\|_{\mathcal X_\chi^N}\).
+\end{proof}
+
+\begin{remark}
+Theorem \ref{thm:local} should be read as the first local theorem architecture for the unit-lapse formulation in its natural weighted/homogeneous class. It is intentionally prior to any new coercive longer-time or decay analysis. The point of the present note is precisely that one should rerun this local package before asking whether a new bootstrap or asymptotic obstruction appears.
+\end{remark}
+
+\section{What This Step Establishes}
+
+The present manuscript establishes the following.
+\begin{enumerate}
+    \item It defines a weighted/homogeneous longitudinal control norm that replaces the failed unweighted \(H^N\)-requirement for the unit-lapse variable \(\chi\).
+    \item It proves the slice elliptic estimate in that norm, with the low-frequency part recorded explicitly through the seminorm \(\mathfrak L_\chi(F_\chi)\).
+    \item It checks that, for the recorded fixed completion \(S_{\mathrm{min},4}\), every occurrence of \(\chi\) in the unit-lapse reduced system is derivative-level.
+    \item It shows that no extra local zeroth-order \(\chi\) anchor is forced at the present scope.
+    \item It replays the first local well-posedness and continuation architecture in the new derivative-level weighted/homogeneous class.
+\end{enumerate}
+
+It does not establish the following.
+\begin{enumerate}
+    \item It does not prove a new coercive longer-time bootstrap in the weighted/homogeneous class.
+    \item It does not prove a decay theorem or asymptotic stability statement for the unit-lapse formulation.
+    \item It does not show that no further low-frequency obstruction can appear once one goes beyond local closure.
+    \item It does not claim that every future refinement of the unit-lapse remainders will remain free of zeroth-order longitudinal terms.
+\end{enumerate}
+
+\section{Conclusion}
+
+The two smallest attempts to preserve the old unweighted longitudinal theorem package have now been exhausted. The correct next move was therefore not another obstruction note. It was to ask whether the fixed-completion unit-lapse system wants a different longitudinal norm.
+
+This note gives a narrow positive answer. The longitudinal slice equation does admit a natural weighted/homogeneous closure in which the controlled quantity is derivative-level \(\chi\), not full unweighted \(H^N\)-control of \(\chi\) itself. The low-frequency burden is explicit and finite in the source seminorm \(\mathfrak L_\chi(F_\chi)\), the recorded reduced system uses only derivative-level longitudinal information, and the first local well-posedness and continuation architecture can therefore be replayed in that class.
+
+That sharpens the program again. The immediate burden is no longer to decide whether the fixed-completion unit-lapse route should be repaired by monopole cancellation, Coulomb splitting, or a weighted/homogeneous class. That decision is now made. The next burden is whether the newly closed weighted/homogeneous local architecture supports a corrected coercive or decay theory of its own.
+
+\end{document}

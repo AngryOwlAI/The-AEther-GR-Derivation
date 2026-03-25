@@ -1,0 +1,720 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal{A}}
+\newcommand{\BridgeMetric}{\mathfrak{g}}
+\newcommand{\Ell}{\mathcal{L}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Higher-Derivative Quartic Compensator Branch Restricted Asymptotic-Closure Test on the Invariant Momentum-Suppressed Same Branch}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The momentum-suppressed same-branch note settled one narrow but decisive preliminary question on the tuned exact-square compensator branch. On the invariant restriction
+\[
+\pi_\sigma|_{t=0}=0,
+\qquad
+\pi_\sigma\equiv 0,
+\]
+the full completion-specific observer-side Stueckelberg source vanishes identically, so the same repaired weighted/homogeneous class yields an honest \(L_t^1\) remainder around the same exact flat observer target. The remaining theorem burden is therefore no longer another generic-data asymptotic note and no broader redesign. It is the restricted asymptotic-closure decision on that invariant tuned sub-branch itself.
+
+This note performs exactly that follow-up. The key structural simplification is stronger than mere integrability. Once \(\pi_\sigma\equiv 0\), the propagating observer-side system contains only the same low-frequency trace--longitudinal wave pair and the same high-frequency Einstein wave block already isolated on the repaired unit-lapse route. The scalar variable survives only as the passive transport field
+\[
+(\partial_t-\Ell_\beta)\sigma=0,
+\]
+so its transport-dressed profile is exact rather than perturbative:
+\[
+\mathcal A_\sigma(t)\equiv \mathcal T^\beta(0,t)\sigma(t)=\sigma|_{t=0}.
+\]
+
+The observer-side nonlinear coefficient is therefore reduced to the same quadratic wave/auxiliary remainder already recorded at the \(L_t^1\) level,
+\[
+\mathfrak M_{\mathrm{ms}}(t)
+\lesssim
+\varepsilon^2(1+t)^{-2},
+\]
+with no scalar source contribution left. The Duhamel terms for the low-frequency trace--longitudinal wave pair and the high-frequency Einstein wave block then close exactly as on the earlier positive unit-lapse asymptotic note, while the corrected tuned coercive energy satisfies an integrable-growth inequality driven by the same \(\mathfrak M_{\mathrm{ms}}\).
+
+The restricted verdict is therefore positive. On the invariant momentum-suppressed same branch, the same tuned exact-square completion, the same unit-lapse spatial-harmonic gauge, and the same repaired weighted/homogeneous class yield a full same-class asymptotic-closure statement around the same exact flat observer target. The observer-side perturbation remains globally small and decays to that flat target in the same weighted/homogeneous norms, the wave sectors admit limiting transport-dressed radiation profiles, and the passive scalar label carries an exact transport-dressed profile rather than a new obstruction. Generic tuned-data asymptotic claims remain closed: the positive statement proved here belongs only to the invariant momentum-suppressed sub-branch.
+\end{abstract}
+
+\section{Introduction}
+
+The explicit tuned-compensator branch now has its reduced \(3+1\) system, its first local well-posedness and continuation theorem, its corrected \(T\sim\varepsilon^{-1}\) coercive bootstrap, its first post-coercive decay/integrability obstruction note, its first renormalized same-branch asymptotic failure note on generic tuned data, and its narrower momentum-suppressed same-branch fallback note. That last manuscript changed the question again, but only in a restricted direction. The generic tuned branch remains asymptotically closed negatively by the renormalized note. The invariant momentum-suppressed sub-branch is the only presently open asymptotic sub-branch inside the existing tuned formulation.
+
+The remaining burden is therefore precise. One should not reopen a broader generic-data claim, and one should not redesign the branch again before this restricted question is settled. Instead, keep the same tuned exact-square completion, the same unit-lapse spatial-harmonic gauge, and the same repaired weighted/homogeneous class fixed, impose only the invariant condition \(\pi_\sigma|_{t=0}=0\), and decide whether the recorded \(L_t^1\) remainder verdict upgrades to a full same-class asymptotic-closure statement around the same exact flat observer target or instead meets the first honest obstruction there.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays within that boundary. It does not reopen generic tuned-data asymptotic claims. It does not alter the tuned local/coercive theorem architecture. It does not weaken the strict ordered-flow positivity assumptions. It decides only the remaining restricted asymptotic question on the already-isolated invariant momentum-suppressed same branch.
+
+\section{Restricted Same-Branch System and Bootstrap Regime}
+
+Retain the same unit-lapse spatial-harmonic formulation and the same basic reduced notation from the tuned local/coercive and momentum-suppressed notes:
+\begin{equation}
+N\equiv 1,
+\qquad
+V^i(\gamma)=0,
+\label{eq:gauge}
+\end{equation}
+\begin{equation}
+h_{ij}\equiv \gamma_{ij}-\delta_{ij},
+\qquad
+\vartheta\equiv \frac12\delta^{ij}h_{ij},
+\qquad
+\mathbb K_{ij}\equiv \Sigma_{ij}+\frac13\delta_{ij}K,
+\label{eq:hkdefs}
+\end{equation}
+\begin{equation}
+F_\chi
+\equiv
+K-\mathcal N_\chi,
+\qquad
+\Theta\equiv \mathbf P_{\mathrm{lo}}\vartheta,
+\qquad
+G_\chi\equiv |\nabla|^{-1}\mathbf P_{\mathrm{lo}}F_\chi,
+\qquad
+\mathbf P_{\mathrm{hi}}\equiv I-\mathbf P_{\mathrm{lo}}.
+\label{eq:ThetaG}
+\end{equation}
+Let \(\mathfrak F_N^{\mathrm{tc}}(t)\) denote the corrected tuned-compensator coercive functional already constructed in the tuned local/coercive note.
+
+\begin{definition}[Restricted momentum-suppressed branch]
+\label{def:branch}
+Work throughout on the invariant tuned same branch defined by
+\begin{equation}
+\pi_\sigma|_{t=0}=0,
+\qquad
+\pi_\sigma\equiv 0,
+\qquad
+(\partial_t-\Ell_\beta)\sigma=0.
+\label{eq:branch}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[Exact restricted same-branch structure]
+\label{prop:restricted}
+On the branch of Definition \ref{def:branch}:
+\begin{enumerate}
+    \item the observer-side tuned scalar source vanishes identically,
+    \begin{equation}
+    \rho_{\mathrm{St}}\equiv 0,
+    \qquad
+    J_i^{\mathrm{St}}\equiv 0,
+    \qquad
+    \Theta_K^{\mathrm{St}}\equiv 0,
+    \qquad
+    \Theta_{ij}^{\mathrm{TF,St}}\equiv 0;
+    \label{eq:sourcezero}
+    \end{equation}
+    \item the propagating observer-side blocks are therefore only the low-frequency trace--longitudinal wave pair and the high-frequency Einstein wave sector already isolated on the repaired unit-lapse route;
+    \item the scalar variable \(\sigma\) survives only as a passive transport field and no longer contributes an observer-side nonlinear source.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+The momentum-suppressed same-branch note proved \eqref{eq:sourcezero} exactly from the current-conservation law for the tuned scalar momentum density. After that source is removed, the observer-side reduced equations are exactly the tuned Einstein equations with the completion-specific source deleted, while \(\sigma\) obeys the homogeneous transport law in \eqref{eq:branch}. No new propagating scalar observer block remains.
+\end{proof}
+
+\begin{definition}[Restricted asymptotic bootstrap interval]
+\label{def:boot}
+Fix \(N\ge 6\), \(0<\varepsilon\ll 1\), and \(C_\ast\ge 1\). An interval \([0,T]\) is said to lie in the \emph{restricted momentum-suppressed asymptotic bootstrap regime} if:
+\begin{enumerate}
+    \item the strict tuned auxiliary-elliptic regime from the tuned local/coercive note holds on every slice;
+    \item the corrected tuned coercive functional satisfies
+    \begin{equation}
+    \sup_{0\le t\le T}\mathfrak F_N^{\mathrm{tc}}(t)\le 4\varepsilon^2;
+    \label{eq:Fboot}
+    \end{equation}
+    \item the decay norms
+    \begin{align}
+    \mathfrak D_{\mathrm{TL}}(t)
+    &\equiv
+    \|\nabla\Theta(t)\|_{W^{1,\infty}}
+    + \|G_\chi(t)\|_{W^{1,\infty}},
+    \label{eq:DTL}
+    \\
+    \mathfrak D_{\mathrm{Ein,hi}}(t)
+    &\equiv
+    \|\partial \mathbf P_{\mathrm{hi}}h(t)\|_{W^{2,\infty}}
+    + \|\mathbf P_{\mathrm{hi}}\Sigma(t)\|_{W^{1,\infty}}
+    + \|\mathbf P_{\mathrm{hi}}K(t)\|_{W^{1,\infty}},
+    \label{eq:DEin}
+    \\
+    \mathfrak D_{\mathrm{aux}}(t)
+    &\equiv
+    \|\beta(t)\|_{W^{2,\infty}}
+    + \|Q(t)\|_{W^{2,\infty}}
+    + \|\nabla\chi(t)\|_{W^{1,\infty}}
+    + \|W^T(t)\|_{W^{2,\infty}}
+    \label{eq:Daux}
+    \end{align}
+    obey
+    \begin{align}
+    \mathfrak D_{\mathrm{TL}}(t)
+    &\le 4C_\ast\varepsilon(1+t)^{-1},
+    \label{eq:DTLboot}
+    \\
+    \mathfrak D_{\mathrm{Ein,hi}}(t)
+    &\le 4C_\ast\varepsilon(1+t)^{-1},
+    \label{eq:DEinboot}
+    \\
+    \mathfrak D_{\mathrm{aux}}(t)
+    &\le 4C_\ast\varepsilon(1+t)^{-1}
+    \label{eq:Dauxboot}
+    \end{align}
+    for all \(t\in[0,T]\);
+    \item the low-order dispersive seed size
+    \begin{equation}
+    \mathfrak S_0^{\mathrm{ms}}
+    \equiv
+    \sum_{\pm}\|U_{\mathrm{TL}}^\pm(0)\|_{W^{2,1}\cap H^{N-2}}
+    +
+    \sum_{\pm}\|U_{\mathrm{Ein}}^\pm(0)\|_{W^{2,1}\cap H^{N-2}}
+    \le \varepsilon
+    \label{eq:S0}
+    \end{equation}
+    holds for the profile variables defined below.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:boot} deliberately contains no scalar decay norm. On the invariant branch the scalar channel is not dispersive and not source-generating. It is exactly the passive transport field \(\sigma\), so the restricted asymptotic question is whether the wave/auxiliary sectors close globally while that passive label remains controlled in the same closed coercive energy.
+\end{remark}
+
+\begin{definition}[Restricted quadratic nonlinear coefficient]
+\label{def:Mms}
+Define
+\begin{equation}
+\mathfrak M_{\mathrm{ms}}(t)
+\equiv
+\mathfrak D_{\mathrm{TL}}(t)^2
++ \mathfrak D_{\mathrm{Ein,hi}}(t)^2
++ \mathfrak D_{\mathrm{aux}}(t)\Bigl(
+\mathfrak D_{\mathrm{TL}}(t)+\mathfrak D_{\mathrm{Ein,hi}}(t)
+\Bigr).
+\label{eq:Mms}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[Restricted auxiliary decay inheritance]
+\label{prop:aux}
+There exists \(C_N>0\) such that every solution in the restricted bootstrap regime satisfies
+\begin{equation}
+\mathfrak D_{\mathrm{aux}}(t)
+\le
+C_N\Bigl(
+\mathfrak D_{\mathrm{TL}}(t)+\mathfrak D_{\mathrm{Ein,hi}}(t)
+\Bigr)
+\label{eq:auxdecay}
+\end{equation}
+for all \(t\in[0,T]\).
+\end{proposition}
+
+\begin{proof}
+The shift, \(Q\)-sector, longitudinal solve, and transverse ordered-flow solve are the same slice equations already used in the repaired weighted/homogeneous route. On the present branch the completion-specific observer source is zero by Proposition \ref{prop:restricted}, and the surviving scalar field \(\sigma\) enters only through the already-controlled closed coercive energy rather than through a new dispersive source term. The same weighted/homogeneous elliptic estimates therefore recover the auxiliary decay from the decaying trace--longitudinal and high-frequency Einstein sectors, giving \eqref{eq:auxdecay}.
+\end{proof}
+
+\begin{corollary}[Time-integrability of the restricted nonlinear coefficient]
+\label{cor:Mint}
+There exists \(C_N>0\) such that on every restricted bootstrap interval,
+\begin{equation}
+\mathfrak M_{\mathrm{ms}}(t)
+\le
+C_NC_\ast^2\varepsilon^2(1+t)^{-2},
+\qquad
+\int_0^T \mathfrak M_{\mathrm{ms}}(s)\,ds
+\le
+C_NC_\ast^2\varepsilon^2.
+\label{eq:Mint}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+Combine \eqref{eq:DTLboot}--\eqref{eq:Dauxboot} with Proposition \ref{prop:aux}. Every term in \eqref{eq:Mms} is then \(O(\varepsilon^2(1+t)^{-2})\), which is \(L_t^1\).
+\end{proof}
+
+\section{Transport-Dressed Principal Blocks}
+
+Define the same wave profile variables as on the earlier positive unit-lapse asymptotic-closure note,
+\begin{align}
+U_{\mathrm{TL}}^\pm
+&\equiv
+-|\nabla|G_\chi \pm i|\nabla|\Theta,
+\label{eq:UTL}
+\\
+U_{\mathrm{Ein}}^\pm
+&\equiv
+-2\mathbf P_{\mathrm{hi}}\mathbb K
+\pm i|\nabla|\mathbf P_{\mathrm{hi}}h.
+\label{eq:UEin}
+\end{align}
+
+\begin{proposition}[Restricted principal equations]
+\label{prop:principal}
+On every restricted bootstrap interval,
+\begin{align}
+(\partial_t-\Ell_\beta)U_{\mathrm{TL}}^\pm
+&=
+\pm i|\nabla|\,U_{\mathrm{TL}}^\pm
++ \mathcal N_{\mathrm{TL}}^\pm,
+\label{eq:UTLeq}
+\\
+(\partial_t-\Ell_\beta)U_{\mathrm{Ein}}^\pm
+&=
+\pm i|\nabla|\,U_{\mathrm{Ein}}^\pm
++ \mathcal N_{\mathrm{Ein}}^\pm,
+\label{eq:UEineq}
+\\
+(\partial_t-\Ell_\beta)\sigma
+&=0.
+\label{eq:sigmaeq}
+\end{align}
+Moreover,
+\begin{equation}
+\sum_{\pm}\|\mathcal N_{\mathrm{TL}}^\pm(t)\|_{H^{N-3}}
++ \sum_{\pm}\|\mathcal N_{\mathrm{Ein}}^\pm(t)\|_{H^{N-3}}
+\le
+C_N\,\mathfrak M_{\mathrm{ms}}(t)
+\label{eq:Nbound}
+\end{equation}
+for all \(t\in[0,T]\).
+\end{proposition}
+
+\begin{proof}
+The low-frequency trace--longitudinal and high-frequency Einstein principal equations are exactly the ones already isolated on the repaired unit-lapse route. Proposition \ref{prop:restricted} removes the completion-specific scalar observer source entirely, so the remaining remainders are only the same variable-coefficient Ricci, transport, and auxiliary-substitution terms recorded in the momentum-suppressed note. Those are precisely the terms controlled by \(\mathfrak M_{\mathrm{ms}}\). The scalar equation \eqref{eq:sigmaeq} is the exact invariant transport law on the restricted branch.
+\end{proof}
+
+\begin{definition}[Transport-dressed evolution families]
+\label{def:families}
+Let
+\[
+\mathcal U_{\mathrm{TL},\pm}^\beta(t,s),
+\qquad
+\mathcal U_{\mathrm{Ein},\pm}^\beta(t,s)
+\]
+denote the evolution families for the homogeneous wave blocks
+\begin{equation}
+(\partial_t-\Ell_\beta)U=\pm i|\nabla|U,
+\label{eq:wavefamily}
+\end{equation}
+and let \(\mathcal T^\beta(t,s)\) denote the evolution family for the scalar transport equation
+\begin{equation}
+(\partial_t-\Ell_\beta)f=0.
+\label{eq:transportfamily}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[Linear dispersive bounds for the restricted wave blocks]
+\label{prop:lin}
+There exists \(C_N>0\) such that on every restricted bootstrap interval and for \(0\le s\le t\le T\),
+\begin{align}
+\|\mathcal U_{\mathrm{TL},\pm}^\beta(t,s)f\|_{W^{1,\infty}}
+&\le
+C_N(1+t-s)^{-1}\|f\|_{W^{2,1}\cap H^{N-2}},
+\label{eq:linTL}
+\\
+\|\mathcal U_{\mathrm{Ein},\pm}^\beta(t,s)f\|_{W^{2,\infty}}
+&\le
+C_N(1+t-s)^{-1}\|f\|_{W^{2,1}\cap H^{N-2}}.
+\label{eq:linEin}
+\end{align}
+Moreover \(\mathcal T^\beta(t,s)\) is bounded on \(H^N\) and satisfies
+\begin{equation}
+\mathcal T^\beta(t,s)\mathcal T^\beta(s,r)=\mathcal T^\beta(t,r).
+\label{eq:transportgroup}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+The wave estimates are the same perturbative transport-dressed half-wave bounds already used in the positive unit-lapse asymptotic-closure note. The transport family is generated by the homogeneous first-order equation \eqref{eq:transportfamily}, so \eqref{eq:transportgroup} is the standard semigroup property.
+\end{proof}
+
+\begin{proposition}[Duhamel representations]
+\label{prop:duhamel}
+For every \(t\in[0,T]\),
+\begin{align}
+U_{\mathrm{TL}}^\pm(t)
+&=
+\mathcal U_{\mathrm{TL},\pm}^\beta(t,0)U_{\mathrm{TL}}^\pm(0)
++ \int_0^t \mathcal U_{\mathrm{TL},\pm}^\beta(t,s)\mathcal N_{\mathrm{TL}}^\pm(s)\,ds,
+\label{eq:duhTL}
+\\
+U_{\mathrm{Ein}}^\pm(t)
+&=
+\mathcal U_{\mathrm{Ein},\pm}^\beta(t,0)U_{\mathrm{Ein}}^\pm(0)
++ \int_0^t \mathcal U_{\mathrm{Ein},\pm}^\beta(t,s)\mathcal N_{\mathrm{Ein}}^\pm(s)\,ds,
+\label{eq:duhEin}
+\\
+\sigma(t)
+&=
+\mathcal T^\beta(t,0)\sigma(0).
+\label{eq:duhSigma}
+\end{align}
+\end{proposition}
+
+\begin{proof}
+Equations \eqref{eq:duhTL} and \eqref{eq:duhEin} are the usual variation-of-constants formulas for \eqref{eq:UTLeq} and \eqref{eq:UEineq}. Equation \eqref{eq:duhSigma} is the exact solution formula for the homogeneous transport equation \eqref{eq:sigmaeq}.
+\end{proof}
+
+\section{Restricted Duhamel Closure}
+
+\begin{proposition}[Restricted Duhamel bounds]
+\label{prop:close}
+There exists \(C_N>0\) such that every solution in the restricted bootstrap regime satisfies
+\begin{align}
+\mathfrak D_{\mathrm{TL}}(t)
+&\le
+C_N\varepsilon(1+t)^{-1}
++ C_N\int_0^t (1+t-s)^{-1}\mathfrak M_{\mathrm{ms}}(s)\,ds,
+\label{eq:DTLduh}
+\\
+\mathfrak D_{\mathrm{Ein,hi}}(t)
+&\le
+C_N\varepsilon(1+t)^{-1}
++ C_N\int_0^t (1+t-s)^{-1}\mathfrak M_{\mathrm{ms}}(s)\,ds
+\label{eq:DEinduh}
+\end{align}
+for all \(t\in[0,T]\).
+\end{proposition}
+
+\begin{proof}
+Apply the dispersive estimates of Proposition \ref{prop:lin} to the homogeneous and inhomogeneous terms in Proposition \ref{prop:duhamel}. The initial-data contributions are bounded by \(C_N\mathfrak S_0^{\mathrm{ms}}\le C_N\varepsilon\). The remainders are controlled by \eqref{eq:Nbound}. Recovering \(\Theta\), \(G_\chi\), \(\mathbf P_{\mathrm{hi}}h\), \(\mathbf P_{\mathrm{hi}}\mathbb K\), \(\mathbf P_{\mathrm{hi}}\Sigma\), and \(\mathbf P_{\mathrm{hi}}K\) from \(U_{\mathrm{TL}}^\pm\) and \(U_{\mathrm{Ein}}^\pm\) uses only bounded Fourier multipliers, giving \eqref{eq:DTLduh}--\eqref{eq:DEinduh}.
+\end{proof}
+
+\begin{proposition}[Convolution improvement]
+\label{prop:conv}
+There exists \(C_N>0\) such that on every restricted bootstrap interval,
+\begin{equation}
+\int_0^t (1+t-s)^{-1}\mathfrak M_{\mathrm{ms}}(s)\,ds
+\le
+C_NC_\ast^2\varepsilon^2(1+t)^{-1}
+\label{eq:waveconv}
+\end{equation}
+for all \(t\in[0,T]\).
+\end{proposition}
+
+\begin{proof}
+By Corollary \ref{cor:Mint},
+\[
+\mathfrak M_{\mathrm{ms}}(s)\le C_NC_\ast^2\varepsilon^2(1+s)^{-2}.
+\]
+Thus
+\[
+\int_0^t (1+t-s)^{-1}\mathfrak M_{\mathrm{ms}}(s)\,ds
+\lesssim
+C_NC_\ast^2\varepsilon^2
+\int_0^t (1+t-s)^{-1}(1+s)^{-2}\,ds.
+\]
+Split the integral into \([0,t/2]\) and \([t/2,t]\) exactly as in the earlier positive unit-lapse asymptotic note. The first half contributes \(O((1+t)^{-1})\), and the second half contributes \(O((1+t)^{-1})\) because \((1+s)^{-2}\lesssim (1+t)^{-2}\) there while \(\int_0^{t/2}(1+r)^{-1}dr\lesssim 1+t\). This yields \eqref{eq:waveconv}.
+\end{proof}
+
+\begin{theorem}[Improved restricted decay bounds]
+\label{thm:improve}
+Fix \(N\ge 6\). There exist \(C_\ast\ge 1\) and \(\varepsilon_\sharp>0\) such that if a smooth solution on \([0,T]\) lies in the restricted bootstrap regime of Definition \ref{def:boot} with \(0<\varepsilon\le \varepsilon_\sharp\), then
+\begin{align}
+\mathfrak D_{\mathrm{TL}}(t)
+&\le
+2C_\ast\varepsilon(1+t)^{-1},
+\label{eq:DTLimp}
+\\
+\mathfrak D_{\mathrm{Ein,hi}}(t)
+&\le
+2C_\ast\varepsilon(1+t)^{-1},
+\label{eq:DEinimp}
+\\
+\mathfrak D_{\mathrm{aux}}(t)
+&\le
+C_N\varepsilon(1+t)^{-1}
+\label{eq:Dauximp}
+\end{align}
+for all \(t\in[0,T]\).
+\end{theorem}
+
+\begin{proof}
+Insert Proposition \ref{prop:conv} into Proposition \ref{prop:close}. This gives
+\[
+\mathfrak D_{\mathrm{TL}}(t)+\mathfrak D_{\mathrm{Ein,hi}}(t)
+\le
+C_N\varepsilon(1+t)^{-1}
++ C_NC_\ast^2\varepsilon^2(1+t)^{-1}.
+\]
+Choose \(C_\ast\) so that \(C_N\le C_\ast\), then choose \(\varepsilon_\sharp\) so that \(C_NC_\ast^2\varepsilon_\sharp\le C_\ast\). This yields \eqref{eq:DTLimp} and \eqref{eq:DEinimp}. Equation \eqref{eq:Dauximp} follows from Proposition \ref{prop:aux}.
+\end{proof}
+
+\begin{remark}
+Theorem \ref{thm:improve} is the restricted nonlinear decay closure step. Once the tuned scalar source is removed exactly, the only Duhamel issue left is the same integrable wave/auxiliary remainder already identified at the \(L_t^1\) stage, and it improves the restricted decay bootstrap rather than saturating it.
+\end{remark}
+
+\section{Global Restricted Asymptotic Closure}
+
+\begin{proposition}[Restricted integrable-growth energy inequality]
+\label{prop:Fineq}
+There exists \(C_N>0\) such that on every restricted bootstrap interval,
+\begin{equation}
+\frac{d}{dt}\mathfrak F_N^{\mathrm{tc}}(t)
+\le
+C_N\mathfrak M_{\mathrm{ms}}(t)\mathfrak F_N^{\mathrm{tc}}(t)
+\label{eq:Fineq}
+\end{equation}
+for all \(t\in[0,T]\).
+\end{proposition}
+
+\begin{proof}
+The momentum-suppressed same-branch note already proved that the restricted observer-side remainder satisfies the bound
+\[
+|\mathcal R_N^{\mathrm{ms}}(t)|
+\le
+C_N\,\mathfrak M_{\mathrm{ms}}(t)\,\mathfrak F_N^{\mathrm{tc}}(t).
+\]
+That is exactly the differentiated remainder entering the corrected tuned coercive energy inequality on the restricted branch, so it yields \eqref{eq:Fineq}.
+\end{proof}
+
+\begin{corollary}[Uniform global restricted energy bound]
+\label{cor:Fglobal}
+There exists \(\varepsilon_\flat>0\) such that if \(0<\varepsilon\le \varepsilon_\flat\) and the solution lies in the restricted bootstrap regime on \([0,T]\), then
+\begin{equation}
+\sup_{0\le t\le T}\mathfrak F_N^{\mathrm{tc}}(t)\le 2\varepsilon^2.
+\label{eq:Fglobal}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+Integrating \eqref{eq:Fineq} and using Corollary \ref{cor:Mint} gives
+\[
+\mathfrak F_N^{\mathrm{tc}}(t)
+\le
+\mathfrak F_N^{\mathrm{tc}}(0)
+\exp\!\left(C_N\int_0^t \mathfrak M_{\mathrm{ms}}(s)\,ds\right)
+\le
+\varepsilon^2\exp(C_NC_\ast^2\varepsilon^2).
+\]
+For \(\varepsilon\) sufficiently small, the exponential factor is at most \(2\).
+\end{proof}
+
+\begin{theorem}[Restricted same-class asymptotic bootstrap closes globally]
+\label{thm:global}
+Fix \(N\ge 6\). There exist \(\varepsilon_{\mathrm{asy}}>0\) and \(C_\ast\ge 1\) such that the following holds. Let compatible asymptotically flat initial data for the tuned unit-lapse spatial-harmonic system satisfy the hypotheses of the tuned local theorem together with the restricted condition \(\pi_\sigma|_{t=0}=0\) and the smallness assumptions
+\begin{equation}
+\mathfrak F_N^{\mathrm{tc}}(0)\le \varepsilon^2,
+\qquad
+\mathfrak S_0^{\mathrm{ms}}\le \varepsilon,
+\qquad
+0<\varepsilon\le \varepsilon_{\mathrm{asy}}.
+\label{eq:smallasy}
+\end{equation}
+Then the corresponding restricted solution exists for all \(t\ge 0\) and satisfies
+\begin{align}
+\sup_{t\ge 0}\mathfrak F_N^{\mathrm{tc}}(t)
+&\le 2\varepsilon^2,
+\label{eq:globalF}
+\\
+\mathfrak D_{\mathrm{TL}}(t)
++ \mathfrak D_{\mathrm{Ein,hi}}(t)
+&\le
+2C_\ast\varepsilon(1+t)^{-1},
+\label{eq:globalwave}
+\\
+\mathfrak D_{\mathrm{aux}}(t)
+&\le
+C_N\varepsilon(1+t)^{-1}
+\label{eq:globalaux}
+\end{align}
+for all \(t\ge 0\).
+\end{theorem}
+
+\begin{proof}
+The tuned local theorem gives a nonempty short-time interval of existence. Let \(T_\ast\) be the supremum of times for which the restricted bootstrap regime holds. On every interval \([0,T]\subset[0,T_\ast)\), Corollary \ref{cor:Fglobal} improves the energy bootstrap \eqref{eq:Fboot}, while Theorem \ref{thm:improve} improves the decay bootstrap \eqref{eq:DTLboot}--\eqref{eq:Dauxboot}. Hence the restricted bootstrap assumptions improve strictly and therefore extend past \(T_\ast\) unless \(T_\ast=\infty\).
+
+The tuned local continuation theorem then yields global existence because the closed coercive norm remains finite and the strict positivity regime persists under smallness. This proves \eqref{eq:globalF}--\eqref{eq:globalaux}.
+\end{proof}
+
+\begin{corollary}[No first honest restricted obstruction]
+\label{cor:noobs}
+At the present disciplined scope of the invariant momentum-suppressed tuned branch, the first honest obstruction does \emph{not} appear at the restricted asymptotic-bootstrap stage.
+\end{corollary}
+
+\begin{proof}
+This is exactly the content of Theorem \ref{thm:global}.
+\end{proof}
+
+\section{Asymptotic Profiles and Restricted Verdict}
+
+\begin{definition}[Restricted transport-dressed asymptotic profiles]
+\label{def:profiles}
+Define
+\begin{align}
+\mathcal A_{\mathrm{TL}}^\pm(t)
+&\equiv
+\mathcal U_{\mathrm{TL},\pm}^\beta(0,t)U_{\mathrm{TL}}^\pm(t),
+\label{eq:ATL}
+\\
+\mathcal A_{\mathrm{Ein}}^\pm(t)
+&\equiv
+\mathcal U_{\mathrm{Ein},\pm}^\beta(0,t)U_{\mathrm{Ein}}^\pm(t),
+\label{eq:AEin}
+\\
+\mathcal A_\sigma(t)
+&\equiv
+\mathcal T^\beta(0,t)\sigma(t).
+\label{eq:Asig}
+\end{align}
+\end{definition}
+
+\begin{proposition}[Wave profiles converge and the scalar transport profile is exact]
+\label{prop:cauchy}
+There exist limits
+\[
+\mathcal A_{\mathrm{TL},\infty}^\pm,
+\qquad
+\mathcal A_{\mathrm{Ein},\infty}^\pm
+\]
+in \(H^{N-3}\) such that
+\begin{align}
+\|\mathcal A_{\mathrm{TL}}^\pm(t)-\mathcal A_{\mathrm{TL},\infty}^\pm\|_{H^{N-3}}
+&\le
+C_N\varepsilon^2(1+t)^{-1},
+\label{eq:ATLlimit}
+\\
+\|\mathcal A_{\mathrm{Ein}}^\pm(t)-\mathcal A_{\mathrm{Ein},\infty}^\pm\|_{H^{N-3}}
+&\le
+C_N\varepsilon^2(1+t)^{-1}
+\label{eq:AEinlimit}
+\end{align}
+for all \(t\ge 0\). Moreover,
+\begin{equation}
+\mathcal A_\sigma(t)\equiv \sigma(0)
+\label{eq:Asigconst}
+\end{equation}
+for all \(t\ge 0\).
+\end{proposition}
+
+\begin{proof}
+Differentiate \eqref{eq:ATL} and \eqref{eq:AEin} in time and use Proposition \ref{prop:principal}. Since the dressed evolution families solve the homogeneous adjoint problems,
+\[
+\partial_t\mathcal A_{\mathrm{TL}}^\pm(t)
+=
+\mathcal U_{\mathrm{TL},\pm}^\beta(0,t)\mathcal N_{\mathrm{TL}}^\pm(t),
+\qquad
+\partial_t\mathcal A_{\mathrm{Ein}}^\pm(t)
+=
+\mathcal U_{\mathrm{Ein},\pm}^\beta(0,t)\mathcal N_{\mathrm{Ein}}^\pm(t).
+\]
+The evolution families are bounded on \(H^{N-3}\), so \eqref{eq:Nbound} and Corollary \ref{cor:Mint} imply
+\[
+\|\partial_t\mathcal A_{\mathrm{TL}}^\pm(t)\|_{H^{N-3}}
++ \|\partial_t\mathcal A_{\mathrm{Ein}}^\pm(t)\|_{H^{N-3}}
+\le
+C_N\varepsilon^2(1+t)^{-2}.
+\]
+Hence the wave profiles are Cauchy in \(H^{N-3}\), giving \eqref{eq:ATLlimit} and \eqref{eq:AEinlimit}.
+
+For the scalar profile, combine \eqref{eq:Asig} with \eqref{eq:duhSigma}:
+\[
+\mathcal A_\sigma(t)
+=
+\mathcal T^\beta(0,t)\mathcal T^\beta(t,0)\sigma(0)
+=
+\sigma(0)
+\]
+by the semigroup property \eqref{eq:transportgroup}. This proves \eqref{eq:Asigconst}.
+\end{proof}
+
+\begin{remark}
+Proposition \ref{prop:cauchy} is the precise restricted asymptotic outcome. The observer-side wave sectors acquire the same transport-dressed limiting radiation profiles as on the earlier positive unit-lapse route, while the scalar label is not a new Duhamel problem at all. It is already an exact transport-dressed profile.
+\end{remark}
+
+\begin{theorem}[Restricted asymptotic verdict on the invariant momentum-suppressed branch]
+\label{thm:verdict}
+Under the hypotheses of Theorem \ref{thm:global}, the invariant momentum-suppressed same branch obeys a full restricted same-class asymptotic-closure statement around the same exact flat observer target:
+\begin{enumerate}
+    \item the observer-side perturbation remains globally small and decays to the exact flat observer background in the same repaired weighted/homogeneous norms;
+    \item the low-frequency trace--longitudinal wave pair and the high-frequency Einstein block admit limiting transport-dressed radiation profiles \(\mathcal A_{\mathrm{TL},\infty}^\pm\) and \(\mathcal A_{\mathrm{Ein},\infty}^\pm\);
+    \item the passive scalar label satisfies the exact transport-dressed profile law \(\mathcal A_\sigma(t)\equiv \sigma(0)\), so it creates no new nonlinear asymptotic obstruction;
+    \item the correct asymptotic alternative is therefore a restricted mild transport-dressed profile, not a first honest obstruction;
+    \item no broader generic tuned-data asymptotic claim follows from this theorem.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Item (1) follows from Theorem \ref{thm:global}. Item (2) is Proposition \ref{prop:cauchy}. Item (3) is the exact identity \eqref{eq:Asigconst}. Because the scalar source vanishes identically on the branch and the remaining nonlinear coefficient is \(L_t^1\) by Corollary \ref{cor:Mint}, no first honest restricted obstruction appears. The transport term \(\Ell_\beta\) still forces the asymptotic description to be transport-dressed rather than literal free scattering in fixed coordinates, but that is a mild profile modification rather than a failure. The final item is exactly the claim boundary inherited from the generic-data negative renormalized note.
+\end{proof}
+
+\begin{corollary}[Generic tuned-data claims remain closed]
+\label{cor:genericclosed}
+Theorem \ref{thm:verdict} does not alter the generic tuned-data asymptotic verdict. The broader tuned branch remains closed negatively by the renormalized same-branch asymptotic note; the positive asymptotic statement proved here belongs only to the invariant momentum-suppressed sub-branch.
+\end{corollary}
+
+\begin{proof}
+The theorem assumptions include the exact invariant restriction \(\pi_\sigma|_{t=0}=0\). Outside that restricted branch the generic-data frozen-momentum source from the renormalized note reappears, so no broader claim is justified.
+\end{proof}
+
+\section{What This Step Establishes}
+
+The present manuscript establishes the following.
+\begin{enumerate}
+    \item It writes the substantive restricted asymptotic-closure follow-up required by the tracking docs rather than leaving that step only as an open task.
+    \item It keeps the same tuned exact-square branch, the same unit-lapse spatial-harmonic gauge, and the same repaired weighted/homogeneous class fixed while imposing only the invariant restriction \(\pi_\sigma|_{t=0}=0\).
+    \item It proves that, on this restricted branch, the only propagating observer-side sectors are the low-frequency trace--longitudinal wave pair and the high-frequency Einstein wave block, while \(\sigma\) becomes an exact passive transport profile.
+    \item It closes the restricted Duhamel argument globally because the nonlinear coefficient \(\mathfrak M_{\mathrm{ms}}\) is \(L_t^1\).
+    \item It upgrades the earlier positive \(L_t^1\) remainder verdict to a full restricted same-class asymptotic-closure statement around the same exact flat observer target.
+    \item It keeps generic tuned-data asymptotic claims closed.
+\end{enumerate}
+
+It does not establish the following.
+\begin{enumerate}
+    \item It does not reopen any broader generic-data asymptotic or nonlinear-stability claim on the tuned branch.
+    \item It does not show that the passive scalar label decays to zero in fixed spatial coordinates; its asymptotic description is transport-dressed.
+    \item It does not weaken the strict ordered-flow positivity assumptions \(\kappa_\theta>0\), \(\kappa_\Omega>0\).
+    \item It does not claim a broader first-principles derivation of Einsteinian gravity from substrate microphysics.
+    \item It does not change the editorial fact that the derivative-mixing and constraint-assisted branches are side branches rather than active derivational candidates.
+\end{enumerate}
+
+\section{Conclusion}
+
+The next substantive tuned-branch manuscript has now been written in the narrow form that the tracking layer required. On the invariant momentum-suppressed same branch, the tuned observer-side scalar source does not merely become integrable after renormalization. It disappears exactly. What remains is a two-wave-sector observer problem with the same repaired weighted/homogeneous auxiliary package as before, plus a passive scalar label transported by the decaying unit-lapse shift.
+
+That structure closes positively. The restricted nonlinear coefficient is \(L_t^1\), the Duhamel terms for the low-frequency trace--longitudinal and high-frequency Einstein wave sectors improve the same decay bootstrap, the corrected tuned coercive energy remains globally small, and the resulting transport-dressed radiation profiles converge. The passive scalar profile is exact rather than obstructive.
+
+The honest verdict is therefore no longer undecided on this restricted branch. The invariant momentum-suppressed tuned sub-branch does satisfy a full restricted same-class asymptotic-closure statement around the same exact flat observer target. What remains closed is broader generic tuned-data asymptotics: the positive theorem proved here is restricted to the invariant branch \(\pi_\sigma\equiv 0\) and should not be read more broadly.
+
+\end{document}

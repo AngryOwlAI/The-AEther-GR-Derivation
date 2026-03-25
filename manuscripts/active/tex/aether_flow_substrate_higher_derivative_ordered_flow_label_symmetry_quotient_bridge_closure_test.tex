@@ -1,0 +1,388 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal{A}}
+\newcommand{\BridgeMetric}{\mathfrak{g}}
+\newcommand{\AY}{\mathcal A_Y}
+\newcommand{\AZ}{\mathcal A_Z}
+\newcommand{\Ell}{\mathcal{L}}
+\newcommand{\EffAux}{\mathcal T_{\mu\nu}^{\mathrm{quot,eff}}}
+\newcommand{\BridgeCorr}{\mathcal C_{\mu\nu}^{\mathrm{quot,br}}}
+\newcommand{\SliceSolve}{\mathscr S_{\mathrm{quot}}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Ordered-Flow Label Symmetry/Quotient Branch: Derivational Bridge-Closure Reduction Test}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The ordered-flow-label symmetry/quotient branch has now cleared the candidate, architecture, reduced-system, local/coercive, theorem, decay/integrability, and same-class asymptotic-closure stages. The next honest burden is therefore no longer another asymptotic-repair note and not a bridge redesign. It is the dedicated derivational bridge-closure test already flagged in the tracking layer, carried out on the same positive quotient branch while keeping the bridge metric and the single-metric matter route fixed.
+
+This manuscript performs the first disciplined step of that bridge-closure test. The positive quotient branch already removes the old ordered-flow exact-square scalar channel: on shell one has
+\[
+\AY=\AZ=0,
+\]
+the representative variables \(S,Y,Z\) never return as physical or analytic free data, and the coefficient-level flat-background observer-equation correction tensor vanishes. What remains to be checked is the fully eliminated observer equation after the slice-wise quotient auxiliaries have also been solved.
+
+To state that question precisely, the note defines the full quotient bridge-correction tensor by
+\[
+G_{\mu\nu}[g]
+=
+8\pi G_N\,T_{\mu\nu}^{\mathrm{matter}}
++ \BridgeCorr,
+\]
+where \(g_{\mu\nu}=\Xi^*\BridgeMetric_{AB}\) is the same operational metric already fixed throughout the active quotient line. After quotient elimination and slice-wise auxiliary elimination, the correction tensor decomposes as
+\[
+\BridgeCorr
+=
+\EffAux
++ \mathcal P_{\mu\nu}^{(\beta)i}E_{\beta,i}
++ \mathcal P_{\mu\nu}^{(Q)I}E_{Q,I}
++ \mathcal P_{\mu\nu}^{(\chi)}E_\chi
++ \mathcal P_{\mu\nu}^{(W)i}E_{W,i},
+\]
+where \(E_{\beta}=E_Q=E_\chi=E_W=0\) are exactly the quotient slice equations already recorded in the reduced-system and theorem notes. Hence on reduced quotient solutions the only remaining candidate observer-side correction is the effective eliminated auxiliary tensor \(\EffAux\). Its \(3+1\) projections are precisely the completion-dependent source slots already carried by the positive quotient reduced-system line:
+\[
+\rho_{\mathrm{quot}},\qquad
+J_i^{\mathrm{quot}},\qquad
+\Theta_{ij}^{\mathrm{TF,quot}},\qquad
+\Theta_K^{\mathrm{quot}}.
+\]
+
+The present verdict is therefore sharp but narrow. The old coefficient-level identity \(\BridgeCorr\equiv0\) does \emph{not} automatically lift to a full eliminated observer-equation identity merely because the same-class asymptotic burden closed positively. Instead, the bridge-closure question is reduced to the status of \(\EffAux\): does that tensor vanish identically, or is it only gauge/constraint exact once the quotient slice equations and Einstein constraints are imposed? That is now the exact next manuscript-level proof burden on this branch. Because the quotient asymptotic step was positive, no reconsideration of the bridge metric or the single-metric matter route is forced before that narrower tensor-level test is decided.
+\end{abstract}
+
+\section{Introduction}
+
+The positive quotient line has changed what counts as an honest next step. The explicit quotient candidate kept the bridge metric and the single-metric matter route fixed while killing the flat-background ordered-flow scalar correction tensor at coefficient level. The quotient-architecture screen then showed that the old infinite-dimensional ordered-flow-label fiber is pure gauge rather than revived physical underdetermination. The quotient reduced-system, local/coercive, theorem, decay/integrability, and asymptotic-closure notes subsequently showed that the same quotient physical field space supports a clean \(3+1\) formulation, a positive local theorem route, a positive corrected coercive route, a positive decay/integrability package, and a positive same-class asymptotic verdict, all with
+\[
+\AY=\AZ=0
+\]
+imposed from the outset and with no physical or analytic \(S,Y,Z\) data reintroduced.
+
+That does \emph{not} yet settle the derivational bridge. A positive asymptotic verdict says that the same quotient branch remains dynamically controlled in the same weighted/homogeneous class. It does not by itself say that the fully eliminated observer equation has already collapsed back to the exact Einstein equation with matter only.
+
+The present note therefore performs the next bridge-closure reduction test and stops there. It does not reopen reduced-system, local-coercive, theorem, decay, or asymptotic work. It does not redesign the bridge metric. It does not alter the single-metric matter route. It asks only what the actual remaining observer-equation correction tensor is after the full quotient elimination already justified elsewhere in the sequence.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present manuscript stays strictly inside that boundary. It does not claim a completed substrate derivation. It does not claim that the positive quotient asymptotic verdict has already settled the observer equation exactly. It isolates the remaining bridge-closure tensor at the full quotient-eliminated level and fixes the exact proof burden that now remains.
+
+\section{Current Positive Quotient Branch Data}
+
+\begin{definition}[Current positive quotient branch]
+\label{def:branch}
+The \emph{current positive quotient branch} consists of:
+\begin{enumerate}
+    \item the bridge metric
+    \begin{equation}
+    \BridgeMetric_{AB}=G_{AB}-2U_AU_B,
+    \qquad
+    g_{\mu\nu}=\Xi^*\BridgeMetric_{AB},
+    \label{eq:bridge}
+    \end{equation}
+    \item the single-metric matter route
+    \begin{equation}
+    S_{\mathrm{matter}}[\Xi^*\BridgeMetric,\psi]
+    =
+    S_{\mathrm{matter}}[g,\psi],
+    \label{eq:matterroute}
+    \end{equation}
+    \item the quotient action on the physical field space, whose on-shell ordered-flow equations are
+    \begin{equation}
+    \AY=0,
+    \qquad
+    \AZ=0,
+    \label{eq:AYAZ}
+    \end{equation}
+    and whose remaining on-shell equations are those of the reduced \(S\)-free action already recorded in the quotient-architecture and quotient reduced-system notes,
+    \item the positive quotient reduced-system, theorem, decay/integrability, and same-class asymptotic-closure results already on record.
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}[What has already been removed]
+\label{prop:removed}
+At the present disciplined scope, the current positive quotient branch already removes all of the following as live bridge-closure obstructions:
+\begin{enumerate}
+    \item any physical or analytic free data attached to \(S\), \(Y\), or \(Z\);
+    \item any propagating ordered-flow scalar channel on the quotient branch;
+    \item any need to reopen another same-branch asymptotic note before the bridge-closure verdict;
+    \item any immediate pressure to redesign the bridge metric or the single-metric matter route merely because the asymptotic step is incomplete.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Item (1) is the content of the quotient-architecture and quotient reduced-system notes. Item (2) is exactly the quotient reduced-system verdict and is preserved throughout the theorem, decay, and asymptotic notes. Item (3) is the meaning of the positive same-class asymptotic-closure verdict. Item (4) follows because that asymptotic verdict is positive rather than negative.
+\end{proof}
+
+\begin{remark}
+Proposition \ref{prop:removed} is exactly why the next manuscript must be a bridge-closure note and not another asymptotic repair or redesign note. The only honest unresolved issue is now the fully eliminated observer equation itself.
+\end{remark}
+
+\section{The Full Quotient Bridge-Correction Tensor}
+
+The bridge-closure question must now be stated at the observer-equation level after the quotient elimination already justified in the earlier notes.
+
+\begin{definition}[Full quotient bridge-correction tensor]
+\label{def:C}
+In the same unit-lapse spatial-harmonic quotient gauge already used by the positive reduced-system and theorem line, define the \emph{full quotient bridge-correction tensor} by
+\begin{equation}
+G_{\mu\nu}[g]
+=
+8\pi G_N\,T_{\mu\nu}^{\mathrm{matter}}
++ \BridgeCorr.
+\label{eq:bridgeeq}
+\end{equation}
+Here \(G_{\mu\nu}[g]\) is the Einstein tensor of the operational metric \(g_{\mu\nu}\), and \(T_{\mu\nu}^{\mathrm{matter}}\) is the ordinary matter stress tensor coming from \eqref{eq:matterroute}.
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:C} is deliberately stronger than the coefficient-level correction tensor used in the flat-background quotient-candidate note. There, the only issue was the explicit quadratic ordered-flow scalar bridge channel. Here the issue is the full eliminated observer equation on the already-proved positive quotient branch.
+\end{remark}
+
+\begin{definition}[Pure gauge/constraint exactness]
+\label{def:pure}
+The tensor \(\BridgeCorr\) is said to be \emph{pure gauge/constraint exact} if there exist a one-form \(Y_\mu\), the Einstein Hamiltonian and momentum constraints \(\mathcal H\), \(\mathcal M_\mu\), and the quotient slice equations
+\[
+E_{\beta,i}=0,
+\qquad
+E_{Q,I}=0,
+\qquad
+E_\chi=0,
+\qquad
+E_{W,i}=0
+\]
+such that
+\begin{equation}
+\BridgeCorr
+=
+\nabla_{(\mu}Y_{\nu)}
++ \mathcal P_{\mu\nu}\mathcal H
++ \mathcal P_{\mu\nu}{}^\rho\mathcal M_\rho
++ \mathcal P_{\mu\nu}^{(\beta)i}E_{\beta,i}
++ \mathcal P_{\mu\nu}^{(Q)I}E_{Q,I}
++ \mathcal P_{\mu\nu}^{(\chi)}E_\chi
++ \mathcal P_{\mu\nu}^{(W)i}E_{W,i},
+\label{eq:pure}
+\end{equation}
+for some differential operators \(\mathcal P\) depending on the reduced quotient variables.
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:pure} is the correct notion of ``only gauge/constraint exact'' on the positive quotient branch. By this stage the representative ordered-flow equations \(\AY=\AZ=0\) are already imposed identically and no longer constitute independent analytic variables.
+\end{remark}
+
+\section{Slice-Wise Auxiliary Elimination}
+
+The quotient branch is already written as a mixed hyperbolic--elliptic system. The bridge-closure test must therefore distinguish the genuine observer-side tensor from terms that are merely proportional to the slice equations used to define the branch.
+
+\begin{definition}[Quotient slice solver and effective auxiliary action]
+\label{def:solver}
+Let
+\[
+\SliceSolve[g,\psi]
+=
+\bigl(\beta[g,\psi],Q[g,\psi],\chi[g,\psi],W^T[g,\psi]\bigr)
+\]
+denote the unique decaying solution of the quotient slice equations on a slice in the strict positive quotient regime. Define the \emph{effective eliminated auxiliary action} by
+\begin{equation}
+\Gamma_{\mathrm{aux}}^{\mathrm{quot}}[g,\psi]
+\equiv
+\int_{\Sub} d^4X\,\sqrt{G}\,
+\mathcal L_{\mathrm{aux,deg}}
+\Big|_{(\beta,Q,\chi,W^T)=\SliceSolve[g,\psi]},
+\label{eq:Gamma}
+\end{equation}
+where \(\mathcal L_{\mathrm{aux,deg}}\) is the reduced \(S\)-free auxiliary Lagrangian already recorded in the quotient-architecture screen.
+\end{definition}
+
+\begin{definition}[Effective eliminated auxiliary tensor]
+\label{def:Teff}
+The \emph{effective eliminated auxiliary tensor} is
+\begin{equation}
+\EffAux
+\equiv
+-\frac{2}{\sqrt{-g}}
+\frac{\delta \Gamma_{\mathrm{aux}}^{\mathrm{quot}}}{\delta g^{\mu\nu}}.
+\label{eq:Teff}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[Observer-side decomposition after full quotient elimination]
+\label{prop:decomp}
+After imposing \(\AY=\AZ=0\) and substituting the slice solver of Definition \ref{def:solver}, the full bridge-correction tensor decomposes as
+\begin{equation}
+\BridgeCorr
+=
+\EffAux
++ \mathcal P_{\mu\nu}^{(\beta)i}E_{\beta,i}
++ \mathcal P_{\mu\nu}^{(Q)I}E_{Q,I}
++ \mathcal P_{\mu\nu}^{(\chi)}E_\chi
++ \mathcal P_{\mu\nu}^{(W)i}E_{W,i}
+\label{eq:decomp}
+\end{equation}
+for some operators \(\mathcal P\) depending on the reduced quotient variables.
+\end{proposition}
+
+\begin{proof}
+The quotient-architecture screen shows that, once \(\AY=\AZ=0\) are imposed, the on-shell branch is governed by the reduced \(S\)-free action with auxiliary variables \((\beta,Q,\chi,W^T)\) determined slice by slice by the quotient elliptic package. Vary the action after substituting an arbitrary off-shell slice tuple \((\beta,Q,\chi,W^T)\). The variation with respect to \(g_{\mu\nu}\) contains the direct metric variation of the substituted auxiliary functional plus chain-rule terms coming from the dependence of the eliminated variables on the metric. Those chain-rule terms are proportional to the slice Euler--Lagrange equations themselves. Replacing the auxiliary tuple by the actual solver \(\SliceSolve[g,\psi]\) gives \eqref{eq:decomp}.
+\end{proof}
+
+\begin{corollary}[Bridge-closure tensor on reduced quotient solutions]
+\label{cor:onreduced}
+On reduced quotient solutions satisfying the slice equations,
+\begin{equation}
+\BridgeCorr=\EffAux.
+\label{eq:Conreduced}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+This is immediate from Proposition \ref{prop:decomp}.
+\end{proof}
+
+\begin{remark}
+Corollary \ref{cor:onreduced} is the key reduction step. After the full quotient elimination already justified elsewhere in the sequence, the bridge-closure issue is not the old \((S,Y,Z)\)-sector anymore. It is the effective observer tensor generated by the eliminated quotient auxiliaries.
+\end{remark}
+
+\section{The Surviving \texorpdfstring{$3+1$}{3+1} Source Slots}
+
+The positive quotient reduced-system line already contains the full \(3+1\) image of the tensor \(\EffAux\).
+
+\begin{proposition}[Reduced-system projections of the effective tensor]
+\label{prop:3plus1}
+The Hamiltonian, momentum, spatial trace-free, and spatial trace projections of \(\EffAux\) are exactly the completion-dependent quotient source slots already recorded in the positive quotient reduced-system and theorem notes:
+\[
+\rho_{\mathrm{quot}},
+\qquad
+J_i^{\mathrm{quot}},
+\qquad
+\Theta_{ij}^{\mathrm{TF,quot}},
+\qquad
+\Theta_K^{\mathrm{quot}}.
+\]
+Equivalently, the reduced observer equations may be read as the \(3+1\) decomposition of \eqref{eq:Conreduced}.
+\end{proposition}
+
+\begin{proof}
+The quotient reduced-system note writes the propagating observer equations after imposing \(\AY=\AZ=0\) as the Einstein evolution/constraint system coupled to the completion-dependent source slots \(\rho_{\mathrm{quot}},J_i^{\mathrm{quot}},\Theta_{ij}^{\mathrm{TF,quot}},\Theta_K^{\mathrm{quot}}\). By Corollary \ref{cor:onreduced}, every completion-dependent observer source on that branch is the corresponding projection of \(\EffAux\). Therefore those four slots are precisely the \(3+1\) components of the effective eliminated auxiliary tensor.
+\end{proof}
+
+\begin{proposition}[What the current sequence already proves about \texorpdfstring{\(\EffAux\)}{Teff}]
+\label{prop:linear}
+At the present recorded scope:
+\begin{enumerate}
+    \item \(\EffAux\) vanishes on the flat exact-closure background;
+    \item \(\EffAux\) also vanishes at linear order around that background;
+    \item the same-class theorem, decay, and asymptotic notes treat its \(3+1\) projections as quadratic or lower-order nonlinear source terms.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Item (1) is the background statement already built into the quotient reduced-system and theorem notes, which state that the quotient source slots vanish on the flat exact-closure background. Item (2) is recorded explicitly in the quotient theorem note, which uses that the quotient auxiliary stresses vanish at linear order. Item (3) is the same theorem/decay/asymptotic architecture: those notes use \(\Theta_K^{\mathrm{quot}}\), \(\Theta_{ij}^{\mathrm{TF,quot}}\), \(\rho_{\mathrm{quot}}\), and \(J_i^{\mathrm{quot}}\) only as quadratic or lower-order nonlinear remainders in the same weighted/homogeneous bootstrap class.
+\end{proof}
+
+\begin{remark}
+Proposition \ref{prop:linear} explains why the positive asymptotic verdict does not by itself settle bridge closure. The surviving tensor is dynamically mild and starts beyond linear order, but that is weaker than exact vanishing.
+\end{remark}
+
+\section{Bridge-Closure Reduction Verdict}
+
+\begin{theorem}[Exact remaining bridge-closure burden]
+\label{thm:burden}
+On the current positive quotient branch, the fully eliminated observer equation reduces to the following exact alternative:
+\begin{equation}
+\EffAux\equiv 0
+\qquad\text{or}\qquad
+\EffAux \text{ is pure gauge/constraint exact.}
+\label{eq:alternative}
+\end{equation}
+More precisely:
+\begin{enumerate}
+    \item the flat-background coefficient-level identity \(\BridgeCorr\equiv 0\) removes the ordered-flow exact-square scalar channel only and does not by itself establish a full nonlinear eliminated observer identity;
+    \item after full quotient elimination, the only remaining candidate observer-side tensor is \(\EffAux\), by Corollary \ref{cor:onreduced};
+    \item therefore the next honest proof burden is to decide whether \(\EffAux\) vanishes identically or only collapses to the gauge/constraint-exact form of Definition \ref{def:pure}.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+The coefficient-level quotient-candidate note proves \(\BridgeCorr\equiv0\) only for the flat-background quadratic ordered-flow scalar bridge channel. The quotient-architecture screen and quotient reduced-system note then show that, on the full branch, the ordered-flow exact-square fields are removed by \(\AY=\AZ=0\) and no representative scalar survives as a physical variable. Proposition \ref{prop:decomp} reduces the remaining observer equation to the effective eliminated auxiliary tensor plus terms proportional to the slice equations, and Corollary \ref{cor:onreduced} removes those slice-equation terms on reduced solutions.
+
+Hence the remaining observer-side object is exactly \(\EffAux\). If \(\EffAux\equiv0\), then the observer equation is exactly Einsteinian with matter only. If \(\EffAux\) is not identically zero but can be written in the gauge/constraint-exact form \eqref{eq:pure}, then it still carries no observer-accessible content on reduced solutions. No third ordered-flow scalar channel survives at this stage. Therefore \eqref{eq:alternative} is the exact remaining bridge-closure alternative.
+\end{proof}
+
+\begin{corollary}[What the current note does and does not settle]
+\label{cor:scope}
+The present manuscript does settle the bridge-closure reduction problem, but it does not yet settle the final bridge-closure verdict. Specifically:
+\begin{enumerate}
+    \item it identifies the fully eliminated observer-side tensor that now carries the entire remaining bridge-closure burden;
+    \item it shows that the positive same-class asymptotic verdict does not license reopening another asymptotic note before the tensor in \eqref{eq:alternative} is decided;
+    \item it does \emph{not} yet prove whether \(\EffAux\) is identically zero or only gauge/constraint exact.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+Items (1) and (2) are Theorem \ref{thm:burden}. Item (3) is immediate because the present note isolates the remaining tensor-level test rather than computing the final form of \(\EffAux\).
+\end{proof}
+
+\begin{corollary}[No redesign before the tensor verdict]
+\label{cor:noredesign}
+At current scope, no reconsideration of the bridge metric or the single-metric matter route is forced before the tensor-level alternative \eqref{eq:alternative} is decided.
+\end{corollary}
+
+\begin{proof}
+Proposition \ref{prop:removed} shows that the positive asymptotic quotient branch already remains viable as a same-class branch. Theorem \ref{thm:burden} shows that the unresolved issue is narrower: the exact status of \(\EffAux\). Therefore a bridge or matter-route redesign would be premature before that narrower test fails.
+\end{proof}
+
+\section{Conclusion}
+
+The present manuscript records the first dedicated quotient derivational bridge-closure step after the positive same-class asymptotic verdict.
+\begin{enumerate}
+    \item It keeps the same positive quotient branch, the same bridge metric, and the same single-metric matter route fixed.
+    \item It defines the full quotient bridge-correction tensor after the full quotient elimination already justified elsewhere in the sequence.
+    \item It proves that, on reduced quotient solutions, the only remaining candidate observer-side correction is the effective eliminated auxiliary tensor \(\EffAux\).
+    \item It identifies the already-recorded \(3+1\) source slots \(\rho_{\mathrm{quot}},J_i^{\mathrm{quot}},\Theta_{ij}^{\mathrm{TF,quot}},\Theta_K^{\mathrm{quot}}\) as the projections of that tensor.
+    \item It reduces the remaining bridge-closure problem to the exact tensor-level alternative \(\EffAux\equiv0\) versus pure gauge/constraint exactness.
+\end{enumerate}
+
+This is the correct narrow stopping point. The quotient asymptotic burden is closed positively. The next honest manuscript, if the same quotient line is continued, should explicitly decide the tensor-level alternative \eqref{eq:alternative}. Only if that later step fails should the program reconsider the bridge metric or the single-metric matter route.
+
+\end{document}

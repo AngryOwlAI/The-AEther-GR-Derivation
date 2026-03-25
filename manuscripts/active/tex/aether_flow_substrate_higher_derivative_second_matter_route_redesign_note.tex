@@ -1,0 +1,524 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal{A}}
+\newcommand{\BridgeMetric}{\mathfrak{g}}
+\newcommand{\ReBridge}{\widetilde{\mathfrak{g}}}
+\newcommand{\Dperp}{\mathcal D}
+\newcommand{\PiTheta}{\Pi^{(\vartheta)}}
+\newcommand{\PiQ}{\Pi^{(Q)}}
+\newcommand{\PiOmega}{\Pi^{(\Omega)}}
+\newcommand{\MatterMetric}{g^{\mathrm{mr}}}
+\newcommand{\SigmaMR}{\Sigma}
+\newcommand{\ReEff}{\widetilde{\mathcal T}_{\mu\nu}^{\mathrm{br,eff}}}
+\newcommand{\ReLong}{\widetilde{\mathcal R}_{\mu\nu}^{(\chi,\ge 3)}}
+\newcommand{\ReOff}{\widetilde{\mathcal R}_{\mu\nu}^{\mathrm{off}}}
+\newcommand{\DeltaTM}{\Delta T_{\mu\nu}^{\mathrm{mr}}}
+\newcommand{\AY}{\mathcal A_Y}
+\newcommand{\AZ}{\mathcal A_Z}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Second Matter-Route Redesign Note}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The positive quotient reduced-system/theorem/decay/asymptotic line remains closed and is not reopened here. The recent redesigned-bridge closure verdict fixed the narrower problem sharply. On the revised bridge branch one already has
+\[
+G_{\mu\nu}[g^{\mathrm{br}}]
+=
+8\pi G_N\,T_{\mu\nu}^{\mathrm{matter}}
++\ReEff,
+\qquad
+\ReEff=\ReOff+\ReLong,
+\]
+where \(\ReLong=\mathcal O_{\ge 3}\) is the surviving higher-order longitudinal remainder and \(\ReOff\) contains the genuinely off-longitudinal eliminated \(Q\)- and vorticity-sector stress. In particular, on the rotationally nontrivial convergence-free regime one still has
+\[
+\ReEff
+=
+T_{\mu\nu}^{(W,\mathrm{br,eff},2)}
++\mathcal O_{\ge 3}
+\neq 0.
+\]
+The bridge-first redesign was therefore only a same-scope longitudinal repair, not a full closure.
+
+This note opens the next honest redesign step: reconsider the single-metric matter route itself while keeping the positive quotient dynamical line closed. The smallest covariant candidate compatible with the exact-closure goal and the mass-shaped gravity criterion is a universal response-dressed matter metric
+\[
+\MatterMetric_{\mu\nu}
+=
+g^{\mathrm{br}}_{\mu\nu}
++\SigmaMR_{\mu\nu},
+\qquad
+\SigmaMR_{\mu\nu}
+=
+\beta_\theta \PiTheta_{\mu\nu}
++\beta_Q \PiQ_{\mu\nu}
++\beta_\Omega \PiOmega_{\mu\nu},
+\]
+where \(\PiTheta\), \(\PiQ\), and \(\PiOmega\) are the observer-side convergence, projected-spatial, and rotational response tensors built from the same reduced auxiliary sectors already present on the redesigned bridge branch. Matter is then coupled universally through \(S_{\mathrm{matter}}[\MatterMetric,\psi]\).
+
+The resulting observer equation is still negative for exact closure. The dressed matter route changes the slice equations only by matter-dependent source terms and adds a matter-sector correction
+\[
+\DeltaTM
+=
+\mathcal O\!\left(T_{\alpha\beta}^{\mathrm{matter}}\SigmaMR^{\alpha\beta}\right)
+\]
+to the right-hand side of the observer equation. Hence
+\[
+G_{\mu\nu}[g^{\mathrm{br}}]
+=
+8\pi G_N\Bigl(T_{\mu\nu}^{\mathrm{matter}}+\DeltaTM\Bigr)
++\ReOff+\ReLong.
+\]
+On matter-free reduced data those new terms vanish, while the old off-longitudinal auxiliary stress does not. In particular, on the same rotationally nontrivial convergence-free regime with vanishing matter stress one still finds
+\[
+G_{\mu\nu}[g^{\mathrm{br}}]
+=
+T_{\mu\nu}^{(W,\mathrm{br,eff},2)}
++\mathcal O_{\ge 3},
+\qquad
+\rho_W^{\mathrm{br},(2)}
+=
+\frac{\kappa_\Omega}{4}\abs{\Omega^T}^2.
+\]
+Therefore the smallest honest matter-route modification does not remove the surviving higher-order or off-longitudinal observer remainder. If one instead promotes \(\MatterMetric\) itself to the sole operational metric, the move ceases to be a matter-route-only change and becomes a broader bridge/operational-metric redesign. The verdict of the present note is thus negative: a broader redesign is still needed.
+\end{abstract}
+
+\section{Introduction}
+
+The active sequence is now disciplined about what is closed and what is still open. The explicit ordered-flow-label quotient candidate, the quotient-architecture screen, the quotient reduced-system note, the quotient local/coercive note, the quotient theorem note, and the quotient decay and asymptotic notes already closed the positive quotient dynamical line at the recorded reduced-system, theorem, decay, and asymptotic scopes. None of that work is reopened here.
+
+The redesigned-bridge closure/tensor-verdict note then performed the next necessary bridge test on that same positive branch. Its result was equally disciplined. The minimal convergence-response bridge redesign removed the old quadratic longitudinal slot only at the same tensor-reduction scope. It did not produce a full all-order identity, and it left a genuine off-longitudinal observer remainder. The active line therefore no longer needs another bridge-only note of the same kind. The next live burden is the second redesign note reconsidering the matter route itself.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not claim a completed substrate derivation. It does not reopen reduced-system, local-coercive, theorem, decay, or asymptotic work on the positive quotient line. It treats the bridge-first redesign only as the same-scope longitudinal repair already recorded, proposes the smallest honest matter-route modification compatible with the exact-closure goal and the mass-shaped gravity criterion, recomputes the eliminated observer equation under that modified matter route, and records the resulting verdict.
+
+\section{What Must Be Reconsidered and What Must Stay Fixed}
+
+\begin{definition}[Current redesigned bridge branch]
+\label{def:current}
+The \emph{current redesigned bridge branch} is the branch already fixed by the redesigned-bridge closure/tensor-verdict note:
+\begin{enumerate}
+    \item the quotient equations
+    \begin{equation}
+    \AY=0,
+    \qquad
+    \AZ=0,
+    \label{eq:AYAZ}
+    \end{equation}
+    are imposed from the outset;
+    \item the operational bridge metric is
+    \begin{equation}
+    \ReBridge_{AB}
+    =
+    G_{AB}-2U_AU_B-\frac{1}{\kappa_\theta}\PiTheta_{AB},
+    \qquad
+    g^{\mathrm{br}}_{\mu\nu}=\Xi^\ast\ReBridge_{AB};
+    \label{eq:gbr}
+    \end{equation}
+    \item the reduced slice package remains elliptic of the same principal type for \((Q^I,\chi,W_i^T)\);
+    \item the full eliminated observer equation already recorded on that branch is
+    \begin{equation}
+    G_{\mu\nu}[g^{\mathrm{br}}]
+    =
+    8\pi G_N\,T_{\mu\nu}^{\mathrm{matter}}
+    +\ReEff,
+    \qquad
+    \ReEff=\ReOff+\ReLong.
+    \label{eq:oldobs}
+    \end{equation}
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:current} keeps the positive quotient dynamical line and the revised bridge metric fixed. The present note changes only the matter route.
+\end{remark}
+
+\begin{proposition}[Bridge-first redesign was only a same-scope longitudinal repair]
+\label{prop:narrow}
+On the current redesigned bridge branch:
+\begin{enumerate}
+    \item \(\ReLong\) is only a higher-order longitudinal remainder,
+    \begin{equation}
+    \ReLong=\mathcal O_{\ge 3},
+    \label{eq:long}
+    \end{equation}
+    not an all-order longitudinal identity;
+    \item \(\ReOff\) survives genuinely;
+    \item in particular, on the rotationally nontrivial convergence-free regime
+    \begin{equation}
+    K\equiv 0,
+    \qquad
+    \Omega_{ij}^T\not\equiv 0,
+    \qquad
+    T_{\mu\nu}^{\mathrm{matter}}=0,
+    \label{eq:rot}
+    \end{equation}
+    one has
+    \begin{equation}
+    \ReEff
+    =
+    T_{\mu\nu}^{(W,\mathrm{br,eff},2)}
+    +\mathcal O_{\ge 3},
+    \qquad
+    \rho_W^{\mathrm{br},(2)}
+    =
+    \frac{\kappa_\Omega}{4}\abs{\Omega^T}^2.
+    \label{eq:oldW}
+    \end{equation}
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+This is exactly the content of the redesigned-bridge closure/tensor-verdict note. The bridge redesign removes the old quadratic longitudinal slot but leaves both the higher-order longitudinal remainder and the off-longitudinal \(Q/W\)-sector stress.
+\end{proof}
+
+\begin{corollary}[What the next note must and must not do]
+\label{cor:task}
+The next honest note must reconsider the matter route itself. It must not reopen the already-positive quotient reduced-system, theorem, decay, and asymptotic line, and it must not redescribe the bridge-first redesign as anything more than the same-scope longitudinal repair recorded in Proposition \ref{prop:narrow}.
+\end{corollary}
+
+\section{Smallest Honest Matter-Route Modification}
+
+The mass-shaped gravity criterion says that matter should not merely coexist with the \Aflow{} reorganization; the matter route should read that reorganization in the observer-facing coupling law. The current bridge already carries the convergence-response slot \(\PiTheta\) on the geometric side, so the smallest remaining matter-route candidate should target the same response channels without rebuilding the whole bridge architecture.
+
+\begin{definition}[Observer-side response tensors]
+\label{def:responses}
+On the current redesigned bridge branch, define the three observer-side response tensors:
+\begin{enumerate}
+    \item the convergence tensor
+    \begin{equation}
+    \PiTheta_{\mu\nu}
+    \equiv
+    \Dperp_\mu\Phi_K\,\Dperp_\nu\Phi_K
+    -\frac12 g_{\mu\nu}^{\mathrm{br}}\Dperp_\alpha\Phi_K\,\Dperp^\alpha\Phi_K;
+    \label{eq:pitheta}
+    \end{equation}
+    \item the projected-spatial \(Q\)-sector tensor
+    \begin{equation}
+    \PiQ_{\mu\nu}
+    \equiv
+    D_\mu Q^I\,D_\nu Q_I
+    -\frac12 g_{\mu\nu}^{\mathrm{br}}
+    \left(
+    D_\alpha Q^I\,D^\alpha Q_I+\widehat M_{IJ}Q^IQ^J
+    \right);
+    \label{eq:piQ}
+    \end{equation}
+    \item the transverse-vorticity tensor
+    \begin{equation}
+    \PiOmega_{\mu\nu}
+    \equiv
+    \Omega_{\mu\alpha}^T\Omega_\nu^{T\,\alpha}
+    -\frac14 g_{\mu\nu}^{\mathrm{br}}\Omega_{\alpha\beta}^T\Omega^{T,\alpha\beta}.
+    \label{eq:piOmega}
+    \end{equation}
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+The tensors in Definition \ref{def:responses} are not new propagating sectors. They are the observer-side response tensors already singled out by the eliminated auxiliary stress on the redesigned bridge branch. Equation \eqref{eq:pitheta} is the same convergence slot that the bridge-first redesign already used at quadratic order, while \eqref{eq:piQ} and \eqref{eq:piOmega} are the natural projected-spatial and rotational companions of the surviving off-longitudinal remainder.
+\end{remark}
+
+\begin{definition}[Response-dressed matter metric]
+\label{def:mmetric}
+The \emph{smallest response-dressed matter metric} is
+\begin{equation}
+\MatterMetric_{\mu\nu}
+=
+g_{\mu\nu}^{\mathrm{br}}+\SigmaMR_{\mu\nu},
+\label{eq:gmr}
+\end{equation}
+with
+\begin{equation}
+\SigmaMR_{\mu\nu}
+\equiv
+\beta_\theta \PiTheta_{\mu\nu}
++\beta_Q \PiQ_{\mu\nu}
++\beta_\Omega \PiOmega_{\mu\nu},
+\label{eq:sigmamr}
+\end{equation}
+for fixed constants \(\beta_\theta,\beta_Q,\beta_\Omega\).
+\end{definition}
+
+\begin{definition}[Response-dressed universal matter route]
+\label{def:matterroute}
+The \emph{response-dressed universal matter route} is
+\begin{equation}
+S_{\mathrm{matter}}^{\mathrm{mr}}[g^{\mathrm{br}},Q,\chi,W^T,\psi]
+\equiv
+S_{\mathrm{matter}}[\MatterMetric,\psi].
+\label{eq:matterroute}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[Why this is the smallest honest matter-route move]
+\label{prop:smallest}
+The response-dressed route of Definitions \ref{def:mmetric}--\ref{def:matterroute} is the smallest honest matter-route modification compatible with the exact-closure goal and the mass-shaped gravity criterion in the following sense:
+\begin{enumerate}
+    \item it preserves universal coupling through one metric argument only;
+    \item it vanishes on the exact flat redesigned background, so it does not deform the already-recorded background exact-closure target;
+    \item it targets precisely the response channels already identified by the surviving eliminated auxiliary stress, without reopening the quotient reduced-system or changing the bridge metric again inside the present note.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Item (1) is immediate from \eqref{eq:matterroute}. Item (2) holds because \(\PiTheta\), \(\PiQ\), and \(\PiOmega\) are quadratic in the reduced auxiliary variables or their first projected derivatives and therefore vanish on the exact flat redesigned background. Item (3) follows because \eqref{eq:sigmamr} is built only from the already-recorded convergence, projected-spatial, and rotational response tensors rather than introducing a new bridge tensor or a new propagating field.
+\end{proof}
+
+\begin{remark}
+The coefficient \(\beta_\theta\) is kept in \eqref{eq:sigmamr} for completeness, but the bridge-first redesign has already spent the same-scope quadratic longitudinal cancellation on the geometric side. The actual pressure point of the present note is therefore the off-longitudinal part carried by \(\beta_Q\) and \(\beta_\Omega\).
+\end{remark}
+
+\section{Modified Slice System}
+
+\begin{proposition}[The matter-route deformation changes only lower-order slice sources]
+\label{prop:slice}
+On the response-dressed matter-route branch, the principal slice operators remain unchanged:
+\begin{align}
+\bigl((-\Delta_\gamma)\delta_{IJ}+\widehat M_{IJ}\bigr)Q^J
+&=
+\mathcal N_I^{(Q,\mathrm{br})}
++\mathcal J_I^{(Q,\mathrm{mr})},
+\label{eq:Qeq}
+\\
+\kappa_\theta\Delta_\gamma\chi
+&=
+-K+\mathcal N_\chi^{\mathrm{br}}
++\mathcal J_\chi^{\mathrm{mr}},
+\label{eq:chieq}
+\\
+\kappa_\Omega(-\Delta_\gamma)W_i^T
+&=
+\mathcal N_i^{(T,\mathrm{br})}
++\mathcal J_i^{(T,\mathrm{mr})},
+\label{eq:Weq}
+\end{align}
+where each \(\mathcal J^{(\cdot,\mathrm{mr})}\) is proportional to the matter route deformation and vanishes whenever the matter stress tensor vanishes.
+\end{proposition}
+
+\begin{proof}
+The deformation \eqref{eq:matterroute} changes only the matter action. The auxiliary/gravitational part of the reduced action is the same as on the redesigned bridge branch, so the principal \(Q\)-, longitudinal-, and transverse-vorticity operators are unchanged. Varying the dressed matter action with respect to \(Q\), \(\chi\), and \(W_i^T\) produces additional source terms through the dependence of \(\SigmaMR_{\mu\nu}\) on \((Q,\chi,W^T)\). Every such term is multiplied by the matter stress tensor or its metric derivatives because the deformation enters only through \(S_{\mathrm{matter}}[\MatterMetric,\psi]\). Hence the new source terms vanish when \(T_{\mu\nu}^{\mathrm{matter}}=0\).
+\end{proof}
+
+\begin{corollary}[Matter-free reduced regimes are unchanged]
+\label{cor:matterfree}
+On matter-free reduced data, the slice system of the response-dressed matter-route branch coincides with the slice system of the current redesigned bridge branch.
+\end{corollary}
+
+\begin{proof}
+This is immediate from Proposition \ref{prop:slice}.
+\end{proof}
+
+\section{Recomputed Eliminated Observer Equation}
+
+\begin{definition}[Matter-route stress correction]
+\label{def:deltat}
+Define the \emph{matter-route stress correction} by
+\begin{equation}
+\DeltaTM
+\equiv
+-\frac{2}{\sqrt{-g^{\mathrm{br}}}}
+\left(
+\frac{\delta S_{\mathrm{matter}}[\MatterMetric,\psi]}{\delta (g^{\mathrm{br}})^{\mu\nu}}
+-\frac{\delta S_{\mathrm{matter}}[g^{\mathrm{br}},\psi]}{\delta (g^{\mathrm{br}})^{\mu\nu}}
+\right).
+\label{eq:deltat}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[First expansion of the matter-route correction]
+\label{prop:expansion}
+The dressed matter action admits the first expansion
+\begin{equation}
+S_{\mathrm{matter}}[\MatterMetric,\psi]
+=
+S_{\mathrm{matter}}[g^{\mathrm{br}},\psi]
++\frac12
+\int_{\mathbb R^{1+3}}
+\sqrt{-g^{\mathrm{br}}}\,
+T_{\alpha\beta}^{\mathrm{matter}}\SigmaMR^{\alpha\beta}
++\mathcal O\!\left((\SigmaMR)^2\right),
+\label{eq:expand}
+\end{equation}
+and therefore
+\begin{equation}
+\DeltaTM
+=
+\mathcal K_{\mu\nu}{}^{\alpha\beta}\SigmaMR_{\alpha\beta}
++\frac12
+T_{\alpha\beta}^{\mathrm{matter}}
+\frac{\delta \SigmaMR^{\alpha\beta}}{\delta (g^{\mathrm{br}})^{\mu\nu}}
++\mathcal O\!\left((\SigmaMR)^2\right),
+\label{eq:deltat2}
+\end{equation}
+for a matter-sector response operator \(\mathcal K_{\mu\nu}{}^{\alpha\beta}\) built from the second metric variation of the original matter action. In particular,
+\begin{equation}
+\DeltaTM=0
+\qquad
+\text{whenever}
+\qquad
+T_{\alpha\beta}^{\mathrm{matter}}=0.
+\label{eq:vacvanish}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Equation \eqref{eq:expand} is the standard first variation of the matter action around \(g^{\mathrm{br}}\). Varying \eqref{eq:expand} once more with respect to \(g^{\mathrm{br}}\) gives \eqref{eq:deltat2}. Every term in \eqref{eq:deltat2} is multiplied either by the matter stress tensor or by the first metric response of the matter action, so \eqref{eq:vacvanish} follows.
+\end{proof}
+
+\begin{definition}[Response-dressed eliminated observer tensor]
+\label{def:mrteff}
+Let \(\Gamma_{\mathrm{aux}}^{\mathrm{mr}}[g^{\mathrm{br}},\psi]\) denote the eliminated reduced auxiliary action obtained by solving \eqref{eq:Qeq}--\eqref{eq:Weq} on the response-dressed matter-route branch. Define
+\begin{equation}
+\mathcal T_{\mu\nu}^{\mathrm{mr,eff}}
+\equiv
+-\frac{2}{\sqrt{-g^{\mathrm{br}}}}
+\frac{\delta\Gamma_{\mathrm{aux}}^{\mathrm{mr}}}{\delta (g^{\mathrm{br}})^{\mu\nu}}.
+\label{eq:mrteff}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[Recomputed observer equation]
+\label{prop:observer}
+On reduced response-dressed matter-route solutions,
+\begin{equation}
+G_{\mu\nu}[g^{\mathrm{br}}]
+=
+8\pi G_N
+\Bigl(
+T_{\mu\nu}^{\mathrm{matter}}+\DeltaTM
+\Bigr)
++\mathcal T_{\mu\nu}^{\mathrm{mr,eff}}.
+\label{eq:observer}
+\end{equation}
+Moreover,
+\begin{equation}
+\mathcal T_{\mu\nu}^{\mathrm{mr,eff}}
+=
+\ReOff+\ReLong
++\mathcal O\!\left(T_{\alpha\beta}^{\mathrm{matter}}\SigmaMR^{\alpha\beta}\right).
+\label{eq:observer2}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+The reduced action on the response-dressed branch still has three pieces: the Einstein--Hilbert term of \(g^{\mathrm{br}}\), the eliminated reduced auxiliary action, and the dressed matter action. Varying with respect to \(g^{\mathrm{br}}\) gives \eqref{eq:observer}. The correction \(\DeltaTM\) is precisely Definition \ref{def:deltat}. The auxiliary contribution equals the old redesigned-bridge tensor plus the matter-dependent changes induced through the modified slice sources in Proposition \ref{prop:slice}. Those changes are proportional to the dressed matter coupling and therefore begin at the order shown in \eqref{eq:observer2}.
+\end{proof}
+
+\begin{remark}
+Equation \eqref{eq:observer} is the precise recomputation requested at the present scope. The dressed matter route does add new terms, but those new terms are matter-sector dependent. They do not replace the old eliminated auxiliary tensor by a matter-independent exact cancellation.
+\end{remark}
+
+\section{Decisive Matter-Free Regime}
+
+\begin{theorem}[Negative verdict for the smallest matter-route redesign]
+\label{thm:negative}
+The response-dressed matter route of Definitions \ref{def:mmetric}--\ref{def:matterroute} does \emph{not} remove the surviving higher-order or off-longitudinal observer remainder. More precisely, on the rotationally nontrivial convergence-free matter-free regime
+\begin{equation}
+K\equiv 0,
+\qquad
+\Omega_{ij}^T\not\equiv 0,
+\qquad
+T_{\mu\nu}^{\mathrm{matter}}=0,
+\label{eq:regime}
+\end{equation}
+one still has
+\begin{equation}
+G_{\mu\nu}[g^{\mathrm{br}}]
+=
+T_{\mu\nu}^{(W,\mathrm{br,eff},2)}
++\mathcal O_{\ge 3},
+\qquad
+\rho_W^{\mathrm{br},(2)}
+=
+\frac{\kappa_\Omega}{4}\abs{\Omega^T}^2.
+\label{eq:finalW}
+\end{equation}
+Hence the smallest honest matter-route modification is negative for exact closure.
+\end{theorem}
+
+\begin{proof}
+By Corollary \ref{cor:matterfree}, the matter-free slice system on the response-dressed branch coincides with the matter-free slice system on the current redesigned bridge branch. By Proposition \ref{prop:expansion}, the matter-route correction \(\DeltaTM\) vanishes whenever \(T_{\mu\nu}^{\mathrm{matter}}=0\). Therefore the recomputed observer equation \eqref{eq:observer} reduces, on the regime \eqref{eq:regime}, to the same matter-free observer equation already computed on the redesigned bridge branch. Proposition \ref{prop:narrow} then gives \eqref{eq:finalW}. Since \(\Omega_{ij}^T\not\equiv0\), the Hamiltonian density in \eqref{eq:finalW} is nonzero, so the observer-side remainder survives genuinely.
+\end{proof}
+
+\begin{corollary}[Why the verdict is stronger than a single-regime counterexample]
+\label{cor:stronger}
+No fixed choice of coefficients \(\beta_\theta,\beta_Q,\beta_\Omega\) can turn the response-dressed matter route into an exact-closure mechanism on the full redesigned branch. The correction it adds is matter-sector dependent, whereas the surviving off-longitudinal remainder already persists on matter-free reduced data.
+\end{corollary}
+
+\begin{proof}
+Theorem \ref{thm:negative} already gives a matter-free regime where the dressed matter correction vanishes but the observer-side remainder does not.
+\end{proof}
+
+\begin{corollary}[Higher-order longitudinal issue remains open even after the off-longitudinal counterexample]
+\label{cor:long}
+Even if the off-longitudinal counterexample of Theorem \ref{thm:negative} were absent, the response-dressed matter route would still leave the higher-order longitudinal remainder \(\ReLong=\mathcal O_{\ge 3}\) unresolved. The matter-route modification therefore does not supply an all-order longitudinal identity either.
+\end{corollary}
+
+\begin{proof}
+This is immediate from Proposition \ref{prop:narrow} and from the matter dependence of \(\DeltaTM\).
+\end{proof}
+
+\section{Why a Positive Verdict Would Already Be a Broader Redesign}
+
+\begin{proposition}[Promoting \(\MatterMetric\) to the sole operational metric is not a matter-route-only move]
+\label{prop:broad}
+If one tries to save the response-dressed matter route by declaring \(\MatterMetric\) itself to be the sole operational observer metric for clocks, light, Einstein variation, and matter, then the move ceases to be a pure matter-route reconsideration and becomes a broader bridge/operational-metric redesign.
+\end{proposition}
+
+\begin{proof}
+The present note keeps the redesigned bridge metric \(g_{\mu\nu}^{\mathrm{br}}\) fixed and changes only the matter action. If \(\MatterMetric\) is instead promoted to the metric that also carries the Einstein--Hilbert term and the causal/proper-time structure, then the operational metric itself has changed from \(g_{\mu\nu}^{\mathrm{br}}\) to \(g_{\mu\nu}^{\mathrm{mr}}\). That is exactly a new bridge/operational-metric choice rather than a matter-route-only modification.
+\end{proof}
+
+\begin{corollary}[Manuscript-level verdict]
+\label{cor:verdict}
+The second matter-route redesign note is negative. The smallest honest response-dressed matter-route modification does not remove the surviving higher-order or off-longitudinal observer remainder. A broader redesign is still needed.
+\end{corollary}
+
+\section{Conclusion}
+
+The active sequence is now sharper again. The positive quotient reduced-system, theorem, decay, and asymptotic line remains closed. The bridge-first redesign remains worth having, but only as the same-scope longitudinal repair already recorded. The smallest honest matter-route modification is the universal response-dressed matter metric \(\MatterMetric=g^{\mathrm{br}}+\SigmaMR\), built from the same convergence, projected-spatial, and rotational response tensors already isolated by the surviving eliminated auxiliary stress.
+
+That candidate does not close the observer equation. Its new terms are matter-sector dependent and vanish on matter-free reduced data, while the redesigned branch already carries a genuine matter-free off-longitudinal observer remainder through the transverse-vorticity sector. The higher-order longitudinal remainder also remains unresolved. The correct verdict is therefore negative. The present note closes the smallest honest matter-route test and shows that a broader redesign, beyond a mere single-metric matter-route dressing, is still required if the exact-closure goal is to remain active.
+
+\end{document}

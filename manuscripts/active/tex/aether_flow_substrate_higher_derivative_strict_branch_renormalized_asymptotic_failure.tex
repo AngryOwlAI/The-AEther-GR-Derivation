@@ -1,0 +1,373 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal{A}}
+\newcommand{\BridgeMetric}{\mathfrak{g}}
+\newcommand{\Ell}{\mathcal{L}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Higher-Derivative Quartic Branch Failure of the Recorded Same-Branch Renormalized Asymptotic Test}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The previous strict-branch renormalized-asymptotic note recorded the narrowest same-branch repair one should try after isolating the lapse-tail obstruction: define an exterior Coulomb profile
+\[
+n_{\mathrm{asy}}(t,x)=\Psi_{\mathrm{ext}}(x)\,\mathfrak m_N(t),
+\qquad
+\Psi_{\mathrm{ext}}(x)=\chi_{\mathrm{ext}}(|x|)\frac{1}{4\pi|x|},
+\]
+solve
+\[
+(\partial_t-\Ell_\beta)\Gamma_N=n_{\mathrm{asy}},
+\]
+and renormalize the scalar by \(\widetilde{\sigma}=\sigma-\sigma_0\Gamma_N\). That construction indeed removes the explicit Coulomb forcing from the scalar transport law. The next honest question is whether it also preserves the quartic scalar momentum equation and the corrected coercive energy architecture already recorded on the same strict branch.
+
+This note shows that, for the recorded first-pass exterior profile, the answer at current disciplined scope is no. After the renormalization, the scalar momentum equation contains the new source
+\[
+\mathcal S_{\pi,\Gamma}
+=
+-N\frac{\lambda_4\sigma_0}{M_*^2}\Delta_\gamma^2\Gamma_N.
+\]
+Because the recorded cutoff Coulomb profile has a fixed compactly supported bi-Laplacian defect
+\[
+\Delta^2\Psi_{\mathrm{ext}}\neq 0
+\]
+on the cutoff annulus, the quantity \(\Delta_\gamma^2\Gamma_N\) accumulates the time antiderivative
+\[
+\mathfrak M_N(t)\equiv \int_0^t \mathfrak m_N(s)\,ds.
+\]
+Under the same generic nonvanishing-monopole hypothesis used in the strict-branch obstruction note, \(|\mathfrak M_N(t)|\gtrsim \varepsilon^2 t\), so \(\mathcal S_{\pi,\Gamma}\) is not an \(L_t^1\) perturbation of the recorded quartic momentum equation and does not vanish at the renormalized zero state. Thus the recorded same-branch renormalized scalar-variable test fails to preserve the corrected coercive strict-branch architecture. A successful next route would already require more structure than that recorded test, so the active docs may now point next to a different gauge, completion, or auxiliary architecture.
+\end{abstract}
+
+\section{Introduction}
+
+The higher-derivative quartic branch now has a much sharper nonlinear map than it did even one note ago. The active sequence contains a fixed explicit minimal quartic-compatible completion, a reduced Einstein--quartic-scalar \(3+1\) system, a first local theorem, a corrected coercive \(T\sim\varepsilon^{-1}\) bootstrap, a same-branch strict-elliptic relaxation test, a strict-branch decay/obstruction note, and a same-branch renormalized-asymptotic test note.
+
+That last note made the next question precise. The long-range lapse tail enters the scalar transport equation through \(\sigma_0(N-1)\). One therefore tries to subtract a transport corrector \(\sigma_0\Gamma_N\) whose time derivative reproduces the explicit Coulomb profile of the lapse. At the level of the scalar transport law, that is the right first thing to try.
+
+The present manuscript performs the next honest check. It asks whether that recorded renormalized scalar-variable test remains compatible with the quartic momentum equation and with the corrected coercive energy architecture already fixed on the same strict branch. At current scope, the answer is negative.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays within that boundary. It does not claim global instability of the quartic branch in principle. It tests only the specific same-branch renormalized asymptotic package already recorded in the previous note. That recorded package fails at the current strict-branch quartic-momentum and coercive-energy level.
+
+\section{The Recorded Same-Branch Renormalized Scalar Test}
+
+The strict-branch obstruction note and the renormalized-asymptotic test note fix the following first-pass repair.
+
+\begin{definition}[Recorded first-pass exterior profile]
+Fix a smooth radial cutoff \(\chi_{\mathrm{ext}}\in C^\infty(\mathbb R^3)\) such that
+\[
+0\le \chi_{\mathrm{ext}}\le 1,
+\qquad
+\chi_{\mathrm{ext}}(x)=0 \text{ for } |x|\le 1,
+\qquad
+\chi_{\mathrm{ext}}(x)=1 \text{ for } |x|\ge 2,
+\]
+and define
+\begin{equation}
+\Psi_{\mathrm{ext}}(x)
+\equiv
+\chi_{\mathrm{ext}}(x)\frac{1}{4\pi|x|}.
+\label{eq:Psi}
+\end{equation}
+The recorded first-pass lapse profile is
+\begin{equation}
+n_{\mathrm{asy}}(t,x)
+\equiv
+\Psi_{\mathrm{ext}}(x)\,\mathfrak m_N(t),
+\label{eq:nasy}
+\end{equation}
+where \(\mathfrak m_N(t)\) is the lapse monopole defined in the strict-branch obstruction note.
+\end{definition}
+
+\begin{definition}[Recorded renormalized scalar variable]
+Let \(\Gamma_N\) solve
+\begin{equation}
+(\partial_t-\Ell_\beta)\Gamma_N
+=
+n_{\mathrm{asy}},
+\qquad
+\Gamma_N|_{t=0}=0,
+\label{eq:Gamma}
+\end{equation}
+and define
+\begin{equation}
+\widetilde{\sigma}
+\equiv
+\sigma-\sigma_0\Gamma_N.
+\label{eq:sigmatilde}
+\end{equation}
+\end{definition}
+
+\begin{remark}
+Definitions 1 and 2 are exactly the narrowest same-branch renormalized scalar-variable package already recorded in the previous note. The present manuscript does not test some wider unspecified class of asymptotic repairs. It tests this one.
+\end{remark}
+
+The benefit of Definition 2 is immediate in the scalar transport law.
+
+\begin{proposition}[Recorded transport-law cancellation]
+For the recorded renormalized scalar variable \(\widetilde{\sigma}\),
+\begin{equation}
+(\partial_t-\Ell_\beta)\widetilde{\sigma}
+=
+N\frac{\pi_\sigma}{m_S^2}
++ \sigma_0\bigl(n-n_{\mathrm{asy}}\bigr),
+\qquad
+n\equiv N-1.
+\label{eq:sigmatildeeq}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Subtract \(\sigma_0\) times \eqref{eq:Gamma} from the strict-branch scalar transport equation
+\[
+(\partial_t-\Ell_\beta)\sigma
+=
+N\frac{\pi_\sigma}{m_S^2}
++ \sigma_0(N-1).
+\qedhere
+\]
+\end{proof}
+
+\section{The Quartic Momentum Equation Sees a New Source}
+
+The quartic branch is not governed only by the transport law. The same explicit completion also contains the quartic scalar momentum equation
+\begin{equation}
+(\partial_t-\Ell_\beta)\pi_\sigma
+=
+-N\frac{\lambda_4}{M_*^2}\Delta_\gamma^2\sigma
++ \mathcal N_\sigma[\gamma,K,N,\beta,\sigma,\pi_\sigma,\psi,\pi_\psi].
+\label{eq:pieq}
+\end{equation}
+Substituting \(\sigma=\widetilde{\sigma}+\sigma_0\Gamma_N\) therefore introduces a new term.
+
+\begin{proposition}[Renormalized momentum equation]
+The recorded renormalized variable \(\widetilde{\sigma}\) satisfies
+\begin{equation}
+(\partial_t-\Ell_\beta)\pi_\sigma
+=
+-N\frac{\lambda_4}{M_*^2}\Delta_\gamma^2\widetilde{\sigma}
++ \widetilde{\mathcal N}_\sigma
++ \mathcal S_{\pi,\Gamma},
+\label{eq:renpieq}
+\end{equation}
+where \(\widetilde{\mathcal N}_\sigma\) has the same lower-order perturbative structure as \(\mathcal N_\sigma\) and
+\begin{equation}
+\mathcal S_{\pi,\Gamma}
+\equiv
+-N\frac{\lambda_4\sigma_0}{M_*^2}\Delta_\gamma^2\Gamma_N.
+\label{eq:SpiGamma}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Insert \(\sigma=\widetilde{\sigma}+\sigma_0\Gamma_N\) into \eqref{eq:pieq}. The quartic principal part is linear in \(\sigma\), so the explicit new term is exactly \eqref{eq:SpiGamma}. Every remaining change is lower order and is absorbed into \(\widetilde{\mathcal N}_\sigma\).
+\end{proof}
+
+\begin{remark}
+Proposition 2 is the decisive test. The previous note checked only whether the explicit Coulomb forcing could be removed from the transport law. The present note asks whether the same corrector is compatible with the quartic momentum equation. The answer depends on \(\Delta_\gamma^2\Gamma_N\).
+\end{remark}
+
+\section{The Bi-Laplacian Defect of the Recorded Exterior Profile}
+
+The recorded profile \(\Psi_{\mathrm{ext}}\) has the desired \(1/|x|\) exterior tail, but it is not a global quartic-harmonic profile. That mismatch is exactly what the quartic momentum equation detects.
+
+\begin{definition}[Recorded compact quartic defect]
+Define the \emph{recorded compact quartic defect}
+\begin{equation}
+\mathcal B_{\mathrm{ext}}
+\equiv
+\Delta^2\Psi_{\mathrm{ext}}.
+\label{eq:Bext}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[Support and nontriviality of the recorded defect]
+The function \(\mathcal B_{\mathrm{ext}}\) is smooth and compactly supported in the cutoff annulus \(\{1\le |x|\le 2\}\). For the generic first-pass cutoff used to test the recorded renormalized scalar mechanism, \(\mathcal B_{\mathrm{ext}}\not\equiv 0\).
+\label{prop:Bext}
+\end{proposition}
+
+\begin{proof}
+Outside the cutoff annulus, \(\Psi_{\mathrm{ext}}\) is either identically zero or equal to \(1/(4\pi|x|)\). Both pieces are biharmonic away from the origin, so \(\Delta^2\Psi_{\mathrm{ext}}\) vanishes there. Hence \(\mathcal B_{\mathrm{ext}}\) is compactly supported in the annulus where the cutoff varies. For a generic smooth cutoff, differentiating \(\chi_{\mathrm{ext}}(|x|)/|x|\) four times does not annihilate identically on that annulus, so \(\mathcal B_{\mathrm{ext}}\) is nonzero.
+\end{proof}
+
+\begin{remark}
+The phrase ``generic first-pass cutoff'' is deliberate. The previous note recorded the narrowest natural renormalized scalar test, not a specially tuned quartic-harmonic matching construction. The present negative result applies exactly to that recorded first-pass test.
+\end{remark}
+
+The next point is that the momentum equation sees the time antiderivative of the lapse monopole through this fixed compact defect.
+
+\begin{definition}[Accumulated lapse monopole]
+Define
+\begin{equation}
+\mathfrak M_N(t)
+\equiv
+\int_0^t \mathfrak m_N(s)\,ds.
+\label{eq:MN}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[Secular quartic defect generated by the recorded corrector]
+Assume the strict branch and the linear-compatible decay package of the strict-branch obstruction note. Then the recorded corrector obeys the schematic identity
+\begin{equation}
+\Delta_\gamma^2\Gamma_N
+=
+\mathfrak M_N(t)\,\mathcal B_{\mathrm{ext}}
++ \mathcal R_\Gamma,
+\label{eq:DGamma}
+\end{equation}
+where the remainder satisfies
+\begin{equation}
+\|\mathcal R_\Gamma(t)\|_{H^{N-5}}
+\le
+C_N\varepsilon
+\int_0^t (1+s)^{-1}
+\Bigl(
+|\mathfrak m_N(s)|
++ \|\Delta_\gamma^2\Gamma_N(s)\|_{H^{N-5}}
+\Bigr)\,ds
+\label{eq:RGamma}
+\end{equation}
+for \(N\ge 6\).
+\end{proposition}
+
+\begin{proof}
+Apply \(\Delta_\gamma^2\) to the transport equation \eqref{eq:Gamma}. Because \(\Psi_{\mathrm{ext}}\) is time-independent,
+\[
+\Delta^2 n_{\mathrm{asy}}
+=
+\mathfrak m_N(t)\,\Delta^2\Psi_{\mathrm{ext}}
+=
+\mathfrak m_N(t)\,\mathcal B_{\mathrm{ext}}.
+\]
+Integrating in time therefore produces the leading term \(\mathfrak M_N(t)\mathcal B_{\mathrm{ext}}\). The difference between \(\Delta_\gamma^2\) and the flat bi-Laplacian, together with the commutator \([\Delta_\gamma^2,\Ell_\beta]\Gamma_N\), is perturbative because \(\gamma-\delta\) and \(\beta\) satisfy the same strict-branch decay package already used in the obstruction note. Those terms give \eqref{eq:RGamma} after the usual Sobolev commutator estimates.
+\end{proof}
+
+\begin{corollary}[Linear growth under a nonvanishing lapse monopole]
+Assume in addition that
+\begin{equation}
+|\mathfrak m_N(t)|\ge c_0\varepsilon^2
+\label{eq:mpositive}
+\end{equation}
+on a time interval \([0,T]\). Then, for \(\varepsilon\) sufficiently small,
+\begin{equation}
+\|\Delta_\gamma^2\Gamma_N(t)\|_{H^{N-5}}
+\ge
+c_\Psi c_0 \varepsilon^2 t
+\label{eq:linearq}
+\end{equation}
+for all \(t\in[0,T]\), where \(c_\Psi>0\) depends only on the recorded profile \(\Psi_{\mathrm{ext}}\).
+\end{corollary}
+
+\begin{proof}
+By Proposition \ref{prop:Bext}, \(\mathcal B_{\mathrm{ext}}\) is a fixed nonzero compactly supported function, so \(\|\mathfrak M_N(t)\mathcal B_{\mathrm{ext}}\|_{H^{N-5}} \ge c_\Psi |\mathfrak M_N(t)|\). Under \eqref{eq:mpositive}, \(|\mathfrak M_N(t)|\ge c_0\varepsilon^2 t\). The remainder term in \eqref{eq:RGamma} is then absorbed by Gronwall because its coefficient is integrable in time and \(\varepsilon\) is small.
+\end{proof}
+
+\section{Failure of the Recorded Same-Branch Renormalized Test}
+
+The corrected coercive bootstrap was built around a system whose renormalized zero state should still solve the principal equations up to quadratic or at least \(L_t^1\)-integrable remainder terms. The recorded scalar-variable renormalization does not satisfy that requirement.
+
+\begin{theorem}[Failure of the recorded same-branch renormalized scalar-variable test]
+Assume the strict branch, the corrected coercive bootstrap, the linear-compatible decay package, and the generic nonvanishing-monopole condition \eqref{eq:mpositive} on arbitrarily long time intervals. Then the recorded same-branch renormalized scalar-variable package from Definitions 1 and 2 does \emph{not} preserve the corrected coercive strict-branch architecture. More precisely:
+\begin{enumerate}
+    \item the renormalized momentum equation contains the inhomogeneous source \(\mathcal S_{\pi,\Gamma}\) from \eqref{eq:SpiGamma}
+    \item that source does not vanish at the renormalized zero state \((\widetilde{\sigma},\pi_\sigma)=(0,0)\)
+    \item and its \(H^{N-5}\)-norm grows at least linearly:
+    \begin{equation}
+    \|\mathcal S_{\pi,\Gamma}(t)\|_{H^{N-5}}
+    \gtrsim
+    \frac{\lambda_4|\sigma_0|}{M_*^2}\,\varepsilon^2 t.
+    \label{eq:linearSpi}
+    \end{equation}
+\end{enumerate}
+Consequently, the recorded same-branch renormalized scalar-variable test does not convert the long-range lapse obstruction into an \(L_t^1\) perturbation compatible with the present corrected coercive energy method.
+\label{thm:failure}
+\end{theorem}
+
+\begin{proof}
+Items (1) and (2) are immediate from Proposition 2. Corollary 1 gives
+\[
+\|\Delta_\gamma^2\Gamma_N(t)\|_{H^{N-5}}
+\gtrsim
+\varepsilon^2 t,
+\]
+which inserted into \eqref{eq:SpiGamma} yields \eqref{eq:linearSpi}. Since the source is inhomogeneous and grows like \(t\), it is neither quadratic in the renormalized perturbation size nor integrable in time. Therefore the corrected coercive strict-branch argument cannot be transplanted to the recorded renormalized scalar package at the same scope.
+\end{proof}
+
+\begin{corollary}[Why the recorded repair fails before any new theorem is reached]
+The recorded renormalized scalar-variable test fails for a structural reason: the same corrector that removes the Coulomb tail from the transport law generates a secular compactly supported quartic defect in the momentum equation. Therefore the present strict branch does not admit a genuine nonlinear-stability upgrade by that recorded scalar-variable renormalization alone.
+\end{corollary}
+
+\begin{proof}
+This is exactly the content of Theorem \ref{thm:failure}.
+\end{proof}
+
+\begin{remark}
+The corollary does \emph{not} rule out every conceivable same-branch asymptotic reformulation. It rules out the specific first-pass package already recorded in the previous note. Any future same-branch rescue would need more structure than a single transport corrector built from the cutoff Coulomb profile. In the language of the active docs, that is already a different auxiliary/asymptotic architecture rather than the recorded narrowest same-branch repair.
+\end{remark}
+
+\section{What This Step Establishes}
+
+The present manuscript establishes the following.
+\begin{enumerate}
+    \item It performs the next actual test after the renormalized-asymptotic setup note rather than merely restating that test as future work.
+    \item It shows that the recorded same-branch renormalized scalar variable removes the explicit lapse-tail forcing from the transport equation but reintroduces a worse secular source in the quartic momentum equation.
+    \item It identifies the mechanism precisely: the compact quartic defect \(\mathcal B_{\mathrm{ext}}=\Delta^2\Psi_{\mathrm{ext}}\) of the recorded cutoff Coulomb profile accumulates the time antiderivative \(\mathfrak M_N(t)\).
+    \item It closes the recorded first-pass same-branch scalar-variable route at current disciplined scope.
+\end{enumerate}
+
+It does not establish the following.
+\begin{enumerate}
+    \item It does not prove that every imaginable same-branch asymptotic reformulation is impossible in principle.
+    \item It does not select which different gauge, completion, or auxiliary architecture should now be tried first.
+    \item It does not alter the earlier exact-closure, local-theorem, coercive-bootstrap, strict-elliptic-relaxation, or strict-branch obstruction results already on record.
+    \item It does not prove or disprove a full nonlinear stability theorem for any new formulation.
+\end{enumerate}
+
+\section{Conclusion}
+
+The active sequence has now carried the strict-branch renormalization program one step further than the previous note. The first-pass same-branch renormalized scalar variable does the one thing it was designed to do in the transport equation: it cancels the explicit Coulomb forcing \(\sigma_0 n_{\mathrm{asy}}\). But the quartic branch is not only a transport equation. In the scalar momentum equation, that same correction generates a secular compactly supported source through \(\Delta_\gamma^2\Gamma_N\), and that source accumulates the time antiderivative of the lapse monopole.
+
+At current disciplined scope, that is enough to close the recorded first-pass same-branch repair. The next burden is therefore no longer to ask whether the existing scalar-variable renormalization might still work. It does not. The active docs may now point next to a different gauge, completion, or auxiliary architecture if one wants a genuine theorem beyond the present strict branch.
+
+\end{document}

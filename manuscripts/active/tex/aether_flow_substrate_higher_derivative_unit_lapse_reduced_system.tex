@@ -1,0 +1,407 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal{A}}
+\newcommand{\BridgeMetric}{\mathfrak{g}}
+\newcommand{\Ell}{\mathcal{L}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Higher-Derivative Quartic Branch Gauge-First Unit-Lapse Reduction and Equation-Level Lapse-Obstruction Test}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The recorded first-pass same-branch scalar-variable renormalization has now failed for the explicit minimal quartic-compatible completion \(S_{\mathrm{min},4}\). The negative result is narrow but decisive: on the present strict branch, keeping maximal spatial-harmonic gauge and trying only asymptotic scalar bookkeeping does not preserve the corrected coercive quartic architecture. The next honest step should therefore be the smallest real structural change, not a larger jump to a different nonlinear completion.
+
+This note performs that smaller move. It keeps the explicit completion \(S_{\mathrm{min},4}\) fixed and changes the gauge first. More precisely, it replaces maximal slicing by \emph{unit-lapse spatial-harmonic gauge},
+\[
+N\equiv 1,
+\qquad
+V^i(\gamma)=0,
+\]
+while preserving the same bridge metric, the same matter route, the same quartic scalar channel, and the same positive \(Q\)- and ordered-flow auxiliary blocks. The resulting reduced unknowns are
+\[
+(\gamma_{ij},\Sigma_{ij},K;\beta^i;\sigma,\pi_\sigma;\psi,\pi_\psi),
+\]
+with
+\[
+K_{ij}=\Sigma_{ij}+\frac{1}{3}\gamma_{ij}K,
+\qquad
+\gamma^{ij}\Sigma_{ij}=0,
+\]
+and with \((Q^I,\chi,W_i^T)\) still solved slice by slice through elliptic equations. The lapse is no longer part of the elliptic package, while the longitudinal ordered-flow variable now honestly sees the trace source through
+\[
+\kappa_\theta \Delta_\gamma \chi
+=
+-K+\mathcal N_\chi.
+\]
+
+In this formulation the scalar transport law becomes
+\[
+(\partial_t-\Ell_\beta)\sigma
+=
+\frac{\pi_\sigma}{m_S^2},
+\]
+so the previous forcing term \(\sigma_0(N-1)\) vanishes identically. Therefore the specific maximal-gauge obstruction recorded in the strict-branch decay note and its renormalized same-branch failure note disappears at the equation level in the new gauge: there is no elliptic lapse equation, no Coulombic lapse tail, and no need for a lapse-profile renormalization. This note does not prove local well-posedness, coercive control, or nonlinear stability in the new formulation. It records the gauge-first reduced system and the precise verdict that the old obstruction is gauge-specific rather than completion-forced at the present scope.
+\end{abstract}
+
+\section{Introduction}
+
+The higher-derivative quartic branch has already been carried through the broader admissible-background route, the narrow nonlinear-stability setup, one explicit minimal quartic-compatible completion, a first reduced Einstein--quartic-scalar \(3+1\) system, a first local theorem, a corrected coercive longer-time bootstrap, a same-branch strict-elliptic relaxation test, a strict-branch decay/obstruction note, and a first same-branch renormalized asymptotic failure note. That sequence has now changed the decision tree again.
+
+The next burden is no longer another same-branch scalar renormalization. That route has been tested and has failed in exactly the way the previous note records. The narrowest honest move is therefore smaller than a new nonlinear completion and larger than new bookkeeping. One should keep the explicit completion \(S_{\mathrm{min},4}\) fixed, change the gauge first together with the lapse/auxiliary package it uses, re-derive the reduced system in that new formulation, and test whether the earlier obstruction survives already at the equation level.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays within that boundary. It does not alter the explicit completion \(S_{\mathrm{min},4}\). It does not claim that unit-lapse spatial-harmonic gauge already yields a local theorem or a global nonlinear-stability theorem. It performs only the next narrow test: if the completion is held fixed and the maximal-gauge lapse sector is replaced by a different time gauge, does the previously recorded lapse obstruction remain visible already at the reduced equation level?
+
+\section{Why Gauge Changes First}
+
+The failure note fixes what was and was not ruled out. It ruled out the recorded first-pass same-branch scalar renormalization on the maximal spatial-harmonic strict branch. It did not show that every reformulation with the same explicit completion must fail in principle.
+
+\begin{definition}[Gauge-first next step]
+The \emph{gauge-first next step} after the renormalized same-branch failure is the following controlled move:
+\begin{enumerate}
+    \item keep the explicit minimal quartic-compatible completion \(S_{\mathrm{min},4}\) fixed
+    \item keep the same bridge metric and matter route
+    \item change the time gauge before changing the nonlinear completion
+    \item re-derive the reduced \(3+1\) Einstein--quartic-scalar system together with the modified shift and auxiliary package
+    \item test whether the previously recorded lapse obstruction survives at the level of the new equations themselves.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition 1 is the narrowest honest post-failure move because the earlier obstruction originated in the maximal-gauge elliptic lapse sector, not in the quartic principal scalar operator and not in the explicit completion \(S_{\mathrm{min},4}\) itself. A different nonlinear completion would be a larger change and should come only if this smaller gauge-first route also fails.
+\end{remark}
+
+The simplest time-gauge change that removes the lapse from the elliptic package while preserving the flat exact-closure background is to prescribe the lapse directly.
+
+\section{Unit-Lapse Spatial-Harmonic Gauge}
+
+\begin{definition}[Unit-lapse spatial-harmonic gauge]
+The \emph{unit-lapse spatial-harmonic gauge} is defined by
+\begin{equation}
+N\equiv 1,
+\qquad
+V^i(\gamma)\equiv \gamma^{mn}\bigl(\Gamma^i_{mn}[\gamma]-\Gamma^i_{mn}[\delta]\bigr)=0
+\label{eq:gauge}
+\end{equation}
+on every time slice, together with the asymptotics
+\begin{equation}
+\beta^i\to 0
+\qquad
+\text{as } |x|\to\infty.
+\label{eq:gaugeasym}
+\end{equation}
+\end{definition}
+
+\begin{remark}
+The gauge keeps the spatial-harmonic part of the previous formulation but removes maximal slicing entirely. The lapse is prescribed rather than solved elliptically, so lapse positivity is automatic and the elliptic package is reduced to shift plus the \(Q\)- and \(U\)-sector auxiliaries.
+\end{remark}
+
+Write the observer metric in ADM form
+\begin{equation}
+g_{\mu\nu}dx^\mu dx^\nu
+=
+-dt^2
++ \gamma_{ij}(dx^i+\beta^idt)(dx^j+\beta^jdt),
+\label{eq:ADM}
+\end{equation}
+so the future unit normal is
+\begin{equation}
+n^\mu=(1,-\beta^i).
+\label{eq:normal}
+\end{equation}
+Decompose the extrinsic curvature into trace and tracefree parts,
+\begin{equation}
+K_{ij}
+=
+\Sigma_{ij}+\frac{1}{3}\gamma_{ij}K,
+\qquad
+\gamma^{ij}\Sigma_{ij}=0.
+\label{eq:Ksplit}
+\end{equation}
+As before, decompose the order scalar by
+\begin{equation}
+S=\sigma_0 t+\sigma
+\label{eq:Sdecomp}
+\end{equation}
+and define the scalar momentum
+\begin{equation}
+\pi_\sigma
+\equiv
+m_S^2\bigl(n^\mu\nabla_\mu S-\sigma_0\bigr).
+\label{eq:pisigma}
+\end{equation}
+
+\begin{definition}[Gauge-first reduced unknowns]
+For the fixed completion \(S_{\mathrm{min},4}\) in unit-lapse spatial-harmonic gauge, the reduced unknowns are
+\begin{equation}
+(\gamma_{ij},\Sigma_{ij},K;\beta^i;\sigma,\pi_\sigma;\psi,\pi_\psi)
+\label{eq:unknowns}
+\end{equation}
+together with auxiliary variables \((Q^I,\chi,W_i^T)\) determined slice by slice.
+\end{definition}
+
+\begin{proposition}[Shift equation in the new gauge]
+Preserving the spatial-harmonic condition in \eqref{eq:gauge} yields an elliptic shift equation of the schematic form
+\begin{equation}
+-\Delta_\gamma\beta^i
+-\frac{1}{3}D^iD_j\beta^j
++R^i{}_j[\gamma]\beta^j
+=
+\mathcal S_\beta^i[\gamma,\Sigma,K,\sigma,\pi_\sigma,Q,\chi,W^T,\psi,\pi_\psi],
+\label{eq:betaell}
+\end{equation}
+where \(\mathcal S_\beta^i\) vanishes on the flat exact-closure background and contains one derivative of the reduced fields at principal source level.
+\end{proposition}
+
+\begin{proof}
+The principal operator is the standard spatial-harmonic gauge-preservation operator already seen in the earlier local-theorem note. The only change is that maximal slicing is no longer imposed, so the source term now retains its dependence on the trace variable \(K\) as well as on the tracefree part \(\Sigma_{ij}\). Since the explicit completion is unchanged, the quartic scalar and auxiliary sectors still enter below the principal elliptic operator through the same reduced stress and constraint couplings. This gives \eqref{eq:betaell}.
+\end{proof}
+
+\section{Modified Elliptic Auxiliary Package}
+
+The \(Q\)-sector remains gapped exactly as before. The ordered-flow auxiliaries remain elliptic, but maximal gauge no longer removes the trace source from the longitudinal equation.
+
+\begin{proposition}[Gauge-first auxiliary subsystem]
+For the fixed completion \(S_{\mathrm{min},4}\) in unit-lapse spatial-harmonic gauge, the auxiliary variables solve
+\begin{align}
+\bigl((-\Delta_\gamma)\delta_{IJ}+\widehat M_{IJ}\bigr)Q^J
+&=
+\mathcal N_I^{(Q)}[\gamma,\Sigma,K,\beta,\sigma,\pi_\sigma,Q,\chi,W^T,\psi,\pi_\psi],
+\label{eq:Qell}
+\\
+\kappa_\theta \Delta_\gamma \chi
+&=
+-K
++\mathcal N_\chi[\gamma,\Sigma,K,\beta,\sigma,\pi_\sigma,Q,\chi,W^T,\psi,\pi_\psi],
+\label{eq:chiell}
+\\
+\kappa_\Omega(-\Delta_\gamma)W_i^T
+&=
+\mathcal N_i^{(T)}[\gamma,\Sigma,K,\beta,\sigma,\pi_\sigma,Q,\chi,W^T,\psi,\pi_\psi],
+\label{eq:WTell}
+\end{align}
+with decaying boundary conditions at spatial infinity and \(D^iW_i^T=0\).
+\end{proposition}
+
+\begin{proof}
+The \(Q\)-sector statement is unchanged from the explicit-completion reduction because the completion still contains the same projected spatial kinetic block and the same positive mass block. For the ordered-flow variables, the earlier reduction already gave
+\[
+\kappa_\theta\Delta_\gamma\chi
+=
+-K+\mathcal N_\chi,
+\qquad
+\kappa_\Omega(-\Delta_\gamma)W_i^T
+=
+\mathcal N_i^{(T)}.
+\]
+In maximal gauge the trace term was set to zero. Here it remains and therefore becomes an explicit part of the auxiliary package rather than a gauge-suppressed source. No new ordered-flow time derivative was introduced by \(S_{\mathrm{min},4}\), so both equations remain elliptic. This yields \eqref{eq:Qell}--\eqref{eq:WTell}.
+\end{proof}
+
+\begin{remark}
+Proposition 2 is one of the real structural changes produced by the new gauge. The lapse disappears from the elliptic package, but the longitudinal ordered-flow auxiliary is no longer homogeneous at principal level: it now tracks the trace variable \(K\) through \eqref{eq:chiell}.
+\end{remark}
+
+\section{Re-Derived Reduced Evolution System}
+
+With the lapse fixed and the shift and auxiliary variables treated through \eqref{eq:betaell}--\eqref{eq:WTell}, the observer-accessible branch is governed by a modified Einstein--quartic-scalar system.
+
+\begin{proposition}[Metric evolution in the gauge-first formulation]
+For the fixed completion \(S_{\mathrm{min},4}\) in unit-lapse spatial-harmonic gauge, the reduced metric evolution takes the form
+\begin{align}
+(\partial_t-\Ell_\beta)\gamma_{ij}
+&=
+-2\Sigma_{ij}
+-\frac{2}{3}\gamma_{ij}K,
+\label{eq:gammadt}
+\\
+(\partial_t-\Ell_\beta)\Sigma_{ij}
+&=
+\bigl(R_{ij}[\gamma]\bigr)^{\mathrm{TF}}
+-2\Sigma_i{}^k\Sigma_{kj}
+-\frac{1}{3}K\Sigma_{ij}
++\Theta_{ij}^{\mathrm{TF}},
+\label{eq:Sigmadt}
+\\
+(\partial_t-\Ell_\beta)K
+&=
+R[\gamma]
++\Sigma_{ij}\Sigma^{ij}
++\frac{1}{3}K^2
++\Theta_K,
+\label{eq:Kdt}
+\end{align}
+where \(\Theta_{ij}^{\mathrm{TF}}\) and \(\Theta_K\) denote the tracefree and trace parts of the matter plus quartic-scalar stress contributions and vanish on the flat exact-closure background.
+\end{proposition}
+
+\begin{proof}
+Equation \eqref{eq:gammadt} is the standard ADM metric evolution with \(N=1\) and the decomposition \eqref{eq:Ksplit}. Equation \eqref{eq:Sigmadt} is the tracefree part of the Einstein evolution for \(K_{ij}\); the Hessian term \(-D_iD_jN\) vanishes because the lapse is prescribed as a constant. Equation \eqref{eq:Kdt} is the traced evolution equation with the same substitution. The explicit completion contributes only through the already-recorded quartic scalar stress tensor and through lower-order auxiliary insertions, because the completion itself is unchanged. This gives \eqref{eq:gammadt}--\eqref{eq:Kdt}.
+\end{proof}
+
+\begin{remark}
+Compared with the maximal-gauge reduction, the new formulation trades the elliptic lapse equation for the explicit evolution of the trace variable \(K\). The Einstein trace sector is therefore no longer suppressed by gauge; it is part of the reduced dynamical system.
+\end{remark}
+
+\begin{proposition}[Scalar evolution in the gauge-first formulation]
+For the fixed completion \(S_{\mathrm{min},4}\) in unit-lapse spatial-harmonic gauge, the scalar channel satisfies
+\begin{align}
+(\partial_t-\Ell_\beta)\sigma
+&=
+\frac{\pi_\sigma}{m_S^2},
+\label{eq:sigmadt}
+\\
+(\partial_t-\Ell_\beta)\pi_\sigma
+&=
+-\frac{\lambda_4}{M_*^2}\Delta_\gamma^2\sigma
++\mathcal N_\sigma[\gamma,\Sigma,K,\beta,\sigma,\pi_\sigma,Q,\chi,W^T,\psi,\pi_\psi],
+\label{eq:pidt}
+\end{align}
+where \(\mathcal N_\sigma\) contains only lower-order terms relative to the quartic principal operator and vanishes on the flat exact-closure background.
+\end{proposition}
+
+\begin{proof}
+Equation \eqref{eq:sigmadt} is the definition of \(\pi_\sigma\) rewritten with \(N\equiv 1\). The background-slope lapse forcing \(\sigma_0(N-1)\) drops out identically because the lapse is fixed. Equation \eqref{eq:pidt} keeps the same quartic principal operator as in the earlier explicit-completion note because the completion is unchanged, while the shift, curvature, and auxiliary terms are absorbed into the lower-order remainder \(\mathcal N_\sigma\).
+\end{proof}
+
+\begin{corollary}[Gauge-first principal propagating sector]
+At the present reduced scope, the propagating observer-accessible sector consists of the Einstein metric variables \((\gamma_{ij},\Sigma_{ij},K)\) and one quartic scalar channel \((\sigma,\pi_\sigma)\). The shift and the \(Q\)- and \(U\)-sector variables remain nonpropagating slice-wise unknowns.
+\end{corollary}
+
+\begin{proof}
+This is the direct content of Propositions 1--4.
+\end{proof}
+
+\section{Equation-Level Lapse-Obstruction Test}
+
+The earlier strict-branch obstruction had two rigid ingredients:
+\begin{enumerate}
+    \item the lapse perturbation \(n=N-1\) was determined by an elliptic equation whose inverse generated a Coulombic \(1/|x|\) tail from the nonzero lapse monopole
+    \item the scalar transport equation re-inserted that same \(n\) through the background-slope forcing term \(\sigma_0 n\).
+\end{enumerate}
+The present gauge-first reformulation tests whether that same mechanism survives when the completion is fixed but the time gauge is changed.
+
+\begin{proposition}[No lapse perturbation remains]
+In unit-lapse spatial-harmonic gauge,
+\begin{equation}
+N-1\equiv 0.
+\label{eq:nzero}
+\end{equation}
+Consequently the elliptic lapse equation of the maximal-gauge reduction is absent from the new reduced system.
+\end{proposition}
+
+\begin{proof}
+Equation \eqref{eq:nzero} is exactly the gauge condition \(N\equiv 1\). Therefore no lapse perturbation variable remains to satisfy an elliptic equation.
+\end{proof}
+
+\begin{proposition}[The old scalar forcing disappears identically]
+For the fixed completion \(S_{\mathrm{min},4}\) in unit-lapse spatial-harmonic gauge, the scalar transport law contains no background-slope lapse forcing:
+\begin{equation}
+(\partial_t-\Ell_\beta)\sigma
+=
+\frac{\pi_\sigma}{m_S^2}.
+\label{eq:noforce}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+This is exactly equation \eqref{eq:sigmadt}. The previous term \(\sigma_0(N-1)\) vanishes because \(N-1\equiv 0\).
+\end{proof}
+
+\begin{corollary}[The maximal-gauge lapse obstruction is absent at equation level]
+The specific obstruction recorded in the strict-branch decay note does not survive in the new gauge-first formulation. More precisely, there is no elliptic lapse tail, no Coulombic lapse profile to renormalize, and no scalar transport forcing of the form \(\sigma_0(N-1)\).
+\label{cor:obstructiongone}
+\end{corollary}
+
+\begin{proof}
+Proposition 5 removes the lapse perturbation and therefore the maximal-gauge elliptic lapse equation. Proposition 6 removes the insertion of that lapse perturbation into the scalar transport law. Those were exactly the two ingredients of the earlier obstruction mechanism.
+\end{proof}
+
+\begin{remark}
+Corollary \ref{cor:obstructiongone} is deliberately narrow. It says only that the \emph{old} obstruction disappears in the new equations. It does not prove that the new gauge is already stable, or that the coupled \((K,\chi,\beta)\) package cannot produce a different obstruction later.
+\end{remark}
+
+\section{What the New Burden Becomes}
+
+Once the old lapse obstruction is removed at equation level, the next mathematical questions shift accordingly.
+
+\begin{theorem}[Next burden after the gauge-first test]
+For the fixed completion \(S_{\mathrm{min},4}\), the next theorem-level burden is no longer a same-branch lapse renormalization. It is to determine whether the gauge-first unit-lapse spatial-harmonic formulation supports:
+\begin{enumerate}
+    \item a first local small-data well-posedness statement for the mixed hyperbolic--elliptic system \eqref{eq:betaell}--\eqref{eq:pidt}
+    \item a coercive energy or continuation architecture controlling the trace/longitudinal package \((K,\chi)\) together with the shift and the quartic scalar channel
+    \item a decay analysis strong enough to decide whether the new formulation introduces a different long-range mechanism not already visible at equation level.
+\end{enumerate}
+Only if that gauge-first route fails would it be mathematically disciplined to turn next to a different nonlinear completion.
+\end{theorem}
+
+\begin{proof}
+Corollary \ref{cor:obstructiongone} shows that the previously recorded maximal-gauge obstruction is absent in the new formulation. Therefore the old same-branch renormalization problem is no longer the immediate obstacle on the fixed completion. What remains open is whether the new mixed package \((\gamma,\Sigma,K;\beta;Q,\chi,W^T;\sigma,\pi_\sigma)\) admits a theorem architecture of its own. Since the completion and matter route are unchanged, any failure of that next step would then be attributable to the new gauge-first formulation rather than to untested scalar renormalization bookkeeping. Only after that smaller structural route fails would a new nonlinear completion become the next honest move.
+\end{proof}
+
+\section{What This Step Establishes}
+
+The present manuscript establishes the following.
+\begin{enumerate}
+    \item It keeps the explicit minimal quartic-compatible completion \(S_{\mathrm{min},4}\) fixed after the same-branch renormalized failure.
+    \item It changes the time gauge first, replacing maximal slicing by unit-lapse spatial-harmonic gauge while preserving the same bridge metric and matter route.
+    \item It re-derives the reduced Einstein--quartic-scalar system in that gauge, including the modified shift equation and the restored \(K\)-source in the longitudinal ordered-flow auxiliary equation.
+    \item It shows that the previously recorded maximal-gauge lapse obstruction disappears at the equation level in the new formulation.
+\end{enumerate}
+
+It does not establish the following.
+\begin{enumerate}
+    \item It does not prove local well-posedness in unit-lapse spatial-harmonic gauge.
+    \item It does not prove a corrected coercive bootstrap or nonlinear stability in the new formulation.
+    \item It does not show that the \((K,\chi,\beta)\) package cannot create a different obstruction later.
+    \item It does not claim that a different nonlinear completion is already unnecessary in principle.
+\end{enumerate}
+
+\section{Conclusion}
+
+The recorded first-pass same-branch scalar renormalization failure means that the active program should not spend another turn on the same maximal-gauge scalar bookkeeping. The next honest move is narrower and more structural: keep the explicit completion fixed and change the gauge first.
+
+This note carries out that move in the smallest concrete way. It prescribes unit lapse, keeps spatial-harmonic coordinates, re-derives the reduced Einstein--quartic-scalar system together with the modified shift and auxiliary package, and checks the earlier obstruction at the level of the new equations themselves. At that level the verdict is clear. The old maximal-gauge lapse obstruction disappears: no lapse perturbation remains, no elliptic lapse tail is generated, and the scalar transport law no longer carries the forcing term \(\sigma_0(N-1)\).
+
+The new burden is therefore sharper. The next theorem work is to determine whether this gauge-first formulation can actually be closed analytically for the fixed completion \(S_{\mathrm{min},4}\), or whether a different completion will be needed only after that smaller structural route is also tested.
+
+\end{document}

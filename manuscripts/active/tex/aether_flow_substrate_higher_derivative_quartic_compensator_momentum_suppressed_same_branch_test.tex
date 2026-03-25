@@ -1,0 +1,439 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal{A}}
+\newcommand{\BridgeMetric}{\mathfrak{g}}
+\newcommand{\Ell}{\mathcal{L}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Higher-Derivative Quartic Compensator Branch Momentum-Suppressed Same-Branch Test}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The renormalized same-branch asymptotic note closed the generic tuned-data route negatively: subtracting the transported frozen \(\pi_\sigma\) profile and the induced linear \(\sigma\)-drift preserves the tuned local/coercive architecture but still leaves a nonintegrable observer-side frozen-momentum source around the same exact flat target. The tracking layer therefore pointed to one narrower fallback only: stay on the same tuned branch and test the momentum-suppressed sub-branch
+\[
+\pi_\sigma|_{t=0}=0
+\]
+or any equivalent same-branch condition forcing the transported frozen profile to vanish.
+
+This note performs exactly that fallback test and stops at the resulting verdict. The decisive structural fact is stronger than the flat linear bookkeeping used in the previous two notes. After the exact-square compensator is eliminated, the tuned branch reduces exactly to the collapsed-scalar baseline, so the \(S\)-equation is the current-conservation law
+\[
+\nabla_A\!\left(\Pi_S U^A\right)=0,
+\qquad
+\Pi_S\equiv m_S^2(U^B\nabla_BS-\sigma_0).
+\]
+In unit-lapse spatial-harmonic gauge \(\Pi_S=\pi_\sigma\), hence the momentum-suppressed condition is an exact invariant same-branch restriction rather than merely a flat linear cancellation:
+\[
+\pi_\sigma|_{t=0}=0
+\quad\Longrightarrow\quad
+\pi_\sigma\equiv 0.
+\]
+
+The leading observer-side tuned scalar source therefore changes completely under that restriction. The generic frozen-profile terms from the renormalized note disappear because the frozen profile itself vanishes, and in fact the full completion-specific Stueckelberg source vanishes identically:
+\[
+\rho_{\mathrm{St}}\equiv 0,
+\qquad
+J_i^{\mathrm{St}}\equiv 0,
+\qquad
+\Theta_{ij}^{\mathrm{TF,St}}\equiv 0,
+\qquad
+\Theta_K^{\mathrm{St}}\equiv 0.
+\]
+The scalar variable \(\sigma\) survives only as the transported passive field
+\[
+(\partial_t-\Ell_\beta)\sigma=0,
+\]
+which no longer feeds any observer-side source at the present reduced scope.
+
+The resulting \(L_t^1\) test is therefore positive but narrow. On this invariant momentum-suppressed same branch, the same repaired weighted/homogeneous class does yield an honest \(L_t^1\) observer-side remainder around the same exact flat target, because the tuned scalar source is gone and the only remaining nonlinear remainder is the same wave/auxiliary quadratic remainder already known to decay like \((1+t)^{-2}\) in that class. The verdict does \emph{not} reopen any broader asymptotic claim on generic tuned data. It records only that the narrower momentum-suppressed same branch clears the \(L_t^1\) remainder test that the generic branch fails.
+\end{abstract}
+
+\section{Introduction}
+
+The explicit tuned-compensator branch already has its first reduced \(3+1\) system, its first local well-posedness/continuation theorem, its first corrected \(T\sim\varepsilon^{-1}\) coercive bootstrap, its first post-coercive decay/integrability obstruction note, and its first renormalized same-branch asymptotic follow-up. Those two post-coercive notes sharpened the asymptotic question materially. On generic small data, the tuned scalar pair is neutral rather than dispersive, and even after transporting the frozen \(\pi_\sigma\) profile and subtracting the induced linear \(\sigma\)-drift, the same exact flat observer target still sees a nonintegrable frozen-momentum source.
+
+That negative generic-data verdict did \emph{not} leave the next burden broad. The tracking layer narrowed it to one smaller test: remain on the same tuned branch, impose \(\pi_\sigma|_{t=0}=0\) or an equivalent same-branch condition forcing the transported frozen profile to vanish, and then re-check the observer-side source and its \(L_t^1\) closure in the same repaired weighted/homogeneous class.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays within that boundary. It does not reopen a broad asymptotic theorem on generic tuned data. It does not redesign the branch again. It performs only the narrower momentum-suppressed same-branch test forced by the negative generic-data renormalized note and records the resulting clean verdict.
+
+\section{Exact Momentum-Suppressed Same-Branch Restriction}
+
+The tuned exact-square completion reduces, after algebraic elimination of the compensator, to the collapsed-scalar baseline together with algebraic reconstruction of \(Y\). The scalar equation should therefore be read from that reduced action rather than guessed from the flat linearized equations alone.
+
+\begin{definition}[Momentum density carried by the tuned branch]
+\label{def:PiS}
+Define the exact tuned scalar momentum density by
+\begin{equation}
+\Pi_S
+\equiv
+m_S^2\bigl(U^A\nabla_A S-\sigma_0\bigr).
+\label{eq:PiS}
+\end{equation}
+In unit-lapse spatial-harmonic gauge this coincides with the reduced variable
+\begin{equation}
+\Pi_S=\pi_\sigma.
+\label{eq:PiSpisigma}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[Exact tuned scalar current conservation]
+\label{prop:current}
+After algebraic elimination of the exact-square compensator block, variation of the tuned branch with respect to \(S\) gives the exact conservation law
+\begin{equation}
+\nabla_A\!\left(\Pi_S U^A\right)=0.
+\label{eq:current}
+\end{equation}
+Equivalently,
+\begin{equation}
+U^A\nabla_A\Pi_S
++
+(\nabla_AU^A)\Pi_S
+=
+0.
+\label{eq:transportPi}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+After eliminating the compensator, the tuned completion reduces exactly to the collapsed-scalar baseline. At that stage the action depends on \(S\) only through the scalar combination \(U^A\nabla_A S-\sigma_0\), namely through the term
+\[
+-\frac{m_S^2}{2}\bigl(U^A\nabla_A S-\sigma_0\bigr)^2.
+\]
+Varying \(S\) therefore yields
+\[
+0
+=
+\nabla_A\!\left(
+m_S^2\bigl(U^B\nabla_BS-\sigma_0\bigr)U^A
+\right),
+\]
+which is \eqref{eq:current}. Expanding the divergence gives \eqref{eq:transportPi}.
+\end{proof}
+
+\begin{definition}[Momentum-suppressed same branch]
+\label{def:mssb}
+The \emph{momentum-suppressed same branch} is the invariant restriction of the tuned branch defined by
+\begin{equation}
+\pi_\sigma|_{t=0}=0,
+\label{eq:msinitial}
+\end{equation}
+equivalently
+\begin{equation}
+\Pi_S|_{\Sigma_0}=0.
+\label{eq:msinitialPi}
+\end{equation}
+\end{definition}
+
+\begin{corollary}[The momentum-suppressed restriction is invariant]
+\label{cor:invariant}
+Let \(\Gamma\) be any integral curve of \(U^A\). Then
+\begin{equation}
+\Pi_S(\Gamma(s))
+=
+\Pi_S(\Gamma(0))
+\exp\!\left(
+-\int_0^s (\nabla_AU^A)(\Gamma(\tau))\,d\tau
+\right).
+\label{eq:flowline}
+\end{equation}
+Consequently the momentum-suppressed condition is preserved exactly:
+\begin{equation}
+\pi_\sigma|_{t=0}=0
+\quad\Longrightarrow\quad
+\pi_\sigma\equiv 0
+\label{eq:piinvariant}
+\end{equation}
+throughout the existence interval of the tuned local/coercive theorem.
+\end{corollary}
+
+\begin{proof}
+Restrict \eqref{eq:transportPi} to an integral curve \(\Gamma\) of \(U^A\). Then
+\[
+\frac{d}{ds}\Pi_S(\Gamma(s))
+=
+-(\nabla_AU^A)(\Gamma(s))\,\Pi_S(\Gamma(s)),
+\]
+whose solution is exactly \eqref{eq:flowline}. If \(\Pi_S(\Gamma(0))=0\), then \(\Pi_S(\Gamma(s))=0\) for all \(s\). Using \eqref{eq:PiSpisigma} yields \eqref{eq:piinvariant}.
+\end{proof}
+
+\begin{remark}
+Corollary \ref{cor:invariant} is the key difference between the present note and a mere flat linear bookkeeping restriction. The condition \(\pi_\sigma|_{t=0}=0\) is not just the vanishing of one dangerous linear mode. It is an exact invariant same-branch submanifold of the already-recorded tuned local/coercive system.
+\end{remark}
+
+\begin{proposition}[Scalar evolution on the invariant sub-branch]
+\label{prop:sigmapassive}
+On the momentum-suppressed same branch,
+\begin{equation}
+\pi_\sigma\equiv 0,
+\qquad
+(\partial_t-\Ell_\beta)\sigma=0.
+\label{eq:sigmapassive}
+\end{equation}
+The transported frozen profile introduced in the previous renormalized same-branch note therefore vanishes identically:
+\begin{equation}
+\pi_{\mathrm{fr}}\equiv 0.
+\label{eq:pifrzero}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Equation \eqref{eq:piinvariant} gives \(\pi_\sigma\equiv 0\). Substituting this into the tuned transport equation
+\[
+(\partial_t-\Ell_\beta)\sigma=\frac{\pi_\sigma}{m_S^2}
+\]
+gives \eqref{eq:sigmapassive}. The transported frozen profile from the renormalized note solves \((\partial_t-\Ell_\beta)\pi_{\mathrm{fr}}=0\) with initial data \(\pi_{\mathrm{fr}}|_{t=0}=\pi_\sigma|_{t=0}=0\), so \(\pi_{\mathrm{fr}}\equiv 0\).
+\end{proof}
+
+\begin{corollary}[Same-branch architecture is unchanged]
+\label{cor:samebranch}
+Definition \ref{def:mssb} changes neither the tuned exact-square completion, nor the unit-lapse spatial-harmonic gauge, nor the repaired weighted/homogeneous auxiliary package, nor the tuned local/coercive theorem architecture. It is a same-branch invariant restriction and nothing broader.
+\end{corollary}
+
+\begin{proof}
+The condition \eqref{eq:msinitial} is imposed inside the already-recorded tuned reduced system and preserved there by Corollary \ref{cor:invariant}. No new variable, gauge choice, or completion term is introduced.
+\end{proof}
+
+\section{Observer-Side Tuned Scalar Source Under the Restriction}
+
+The generic-data obstruction in the previous two notes came entirely from the observer-side Stueckelberg source carried by nonzero \(\pi_\sigma\). Once the invariant momentum-suppressed restriction is imposed, that source must be recomputed directly rather than inferred from the generic formula by optimism.
+
+\begin{proposition}[Leading observer-side tuned scalar source]
+\label{prop:leading}
+On the tuned branch, the observer-side Stueckelberg source has leading terms
+\begin{equation}
+\rho_{\mathrm{St}}
+=
+\frac{1}{2m_S^2}\pi_\sigma^2+\mathcal O_{\mathrm{l.o.t.}},
+\qquad
+J_i^{\mathrm{St}}
+=
+-\pi_\sigma D_i\sigma+\mathcal O_{\mathrm{l.o.t.}},
+\label{eq:leading}
+\end{equation}
+while the completion-specific trace and tracefree evolution sources \(\Theta_K^{\mathrm{St}}\), \(\Theta_{ij}^{\mathrm{TF,St}}\) vanish on the flat exact-closure background and contain no quartic scalar principal operator.
+\end{proposition}
+
+\begin{proof}
+This is exactly the observer-side tuned scalar source recorded in the explicit tuned reduced-system and local/coercive notes after the exact-square block is eliminated algebraically.
+\end{proof}
+
+\begin{theorem}[Observer-side tuned scalar source vanishes on the momentum-suppressed branch]
+\label{thm:sourcezero}
+On the invariant momentum-suppressed same branch of Definition \ref{def:mssb},
+\begin{equation}
+\rho_{\mathrm{St}}\equiv 0,
+\qquad
+J_i^{\mathrm{St}}\equiv 0,
+\qquad
+\Theta_K^{\mathrm{St}}\equiv 0,
+\qquad
+\Theta_{ij}^{\mathrm{TF,St}}\equiv 0.
+\label{eq:sourcezero}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+By Proposition \ref{prop:sigmapassive}, \(\pi_\sigma\equiv 0\) on the invariant sub-branch. Therefore the leading source terms \eqref{eq:leading} vanish identically. After algebraic elimination of the exact-square block, no quartic observer scalar stress survives, and the remaining completion-specific observer source is precisely the Stueckelberg-like momentum sector recorded in the tuned reduced system. Since that sector is zero when \(\pi_\sigma=0\), the full completion-specific source vanishes identically, yielding \eqref{eq:sourcezero}.
+\end{proof}
+
+\begin{remark}
+The point is not merely that the frozen-profile terms from the generic-data renormalized note disappear. A stronger statement holds. On the invariant momentum-suppressed same branch there is no observer-side tuned scalar source left to estimate: the entire completion-specific Stueckelberg source is identically zero.
+\end{remark}
+
+\section{Same Repaired Weighted/Homogeneous \texorpdfstring{\(L_t^1\)}{L1-in-time} Test}
+
+The question fixed by the tracking layer is now precise: after imposing the invariant same-branch condition \(\pi_\sigma|_{t=0}=0\), does the same repaired weighted/homogeneous class yield an honest \(L_t^1\) remainder around the same exact flat target?
+
+\begin{definition}[Momentum-suppressed flat-target test]
+\label{def:lt1test}
+The momentum-suppressed same branch is said to \emph{pass in the same repaired weighted/homogeneous flat-target class} if, under the same unit-lapse spatial-harmonic formulation and the same repaired weighted/homogeneous wave/auxiliary decay package already recorded for the unit-lapse route, the observer-side nonlinear remainder around the same exact flat target lies in \(L_t^1\).
+\end{definition}
+
+Retain the same basic weighted/homogeneous notation as in the tuned local/coercive and decay/integrability notes:
+\begin{equation}
+h_{ij}\equiv \gamma_{ij}-\delta_{ij},
+\qquad
+\vartheta\equiv \frac12\delta^{ij}h_{ij},
+\qquad
+F_\chi\equiv K-\mathcal N_\chi,
+\label{eq:basicdefs}
+\end{equation}
+\begin{equation}
+\Theta\equiv \mathbf P_{\mathrm{lo}}\vartheta,
+\qquad
+G_\chi\equiv |\nabla|^{-1}\mathbf P_{\mathrm{lo}}F_\chi,
+\qquad
+\mathbf P_{\mathrm{hi}}\equiv I-\mathbf P_{\mathrm{lo}}.
+\label{eq:ThetaG}
+\end{equation}
+Let \(\mathfrak F_N^{\mathrm{tc}}(t)\) denote the corrected tuned-compensator coercive functional already constructed in the tuned local/coercive note.
+
+Retain the same low-frequency trace--longitudinal and high-frequency Einstein decay norms as on the repaired unit-lapse route:
+\begin{equation}
+\mathfrak D_{\mathrm{TL}}(t)
+\equiv
+\|\nabla\Theta(t)\|_{W^{1,\infty}}
++\|G_\chi(t)\|_{W^{1,\infty}},
+\label{eq:DTL}
+\end{equation}
+\begin{equation}
+\mathfrak D_{\mathrm{Ein,hi}}(t)
+\equiv
+\|\partial \mathbf P_{\mathrm{hi}}h(t)\|_{W^{2,\infty}}
++\|\mathbf P_{\mathrm{hi}}\Sigma(t)\|_{W^{1,\infty}}
++\|\mathbf P_{\mathrm{hi}}K(t)\|_{W^{1,\infty}},
+\label{eq:DEin}
+\end{equation}
+and the same auxiliary decay norm
+\begin{equation}
+\mathfrak D_{\mathrm{aux}}(t)
+\equiv
+\|\beta(t)\|_{W^{2,\infty}}
++\|Q(t)\|_{W^{2,\infty}}
++\|\nabla\chi(t)\|_{W^{1,\infty}}
++\|W^T(t)\|_{W^{2,\infty}}.
+\label{eq:Daux}
+\end{equation}
+At the same disciplined scope the repaired weighted/homogeneous class uses the wave-compatible bounds
+\begin{equation}
+\mathfrak D_{\mathrm{TL}}(t)
++\mathfrak D_{\mathrm{Ein,hi}}(t)
++\mathfrak D_{\mathrm{aux}}(t)
+\lesssim
+\varepsilon(1+t)^{-1}.
+\label{eq:decays}
+\end{equation}
+
+\begin{proposition}[Quadratic remainder bound on the momentum-suppressed branch]
+\label{prop:quadratic}
+On the invariant momentum-suppressed same branch, every completion-specific observer-side scalar source vanishes by Theorem \ref{thm:sourcezero}. The remaining nonlinear remainder therefore consists only of the same variable-coefficient Ricci corrections, trace--longitudinal couplings, transport commutators, matter insertions, and derivative-level auxiliary substitutions already present in the repaired unit-lapse weighted/homogeneous route. Consequently there exists \(C_N>0\) such that
+\begin{equation}
+|\mathcal R_N^{\mathrm{ms}}(t)|
+\le
+C_N\,\mathfrak M_{\mathrm{ms}}(t)\,\mathfrak F_N^{\mathrm{tc}}(t),
+\label{eq:Rms}
+\end{equation}
+where
+\begin{equation}
+\mathfrak M_{\mathrm{ms}}(t)
+\equiv
+\mathfrak D_{\mathrm{TL}}(t)^2
++\mathfrak D_{\mathrm{Ein,hi}}(t)^2
++\mathfrak D_{\mathrm{aux}}(t)\bigl(
+\mathfrak D_{\mathrm{TL}}(t)+\mathfrak D_{\mathrm{Ein,hi}}(t)
+\bigr).
+\label{eq:Mms}
+\end{equation}
+Under \eqref{eq:decays},
+\begin{equation}
+\mathfrak M_{\mathrm{ms}}(t)
+\le
+C_N\varepsilon^2(1+t)^{-2},
+\label{eq:Mmsdecay}
+\end{equation}
+hence \(\mathfrak M_{\mathrm{ms}}\in L_t^1([0,\infty))\).
+\end{proposition}
+
+\begin{proof}
+Theorem \ref{thm:sourcezero} removes the tuned Stueckelberg source entirely. What remains is therefore exactly the same wave/auxiliary remainder structure already analyzed on the repaired unit-lapse weighted/homogeneous route, but with one fewer propagating source channel rather than one more. Every surviving term still contains at least one perturbative coefficient factor and one differentiated wave/auxiliary factor, so it is quadratic in the same bootstrap size. This gives \eqref{eq:Rms} with coefficient \eqref{eq:Mms}. Inserting \eqref{eq:decays} yields \eqref{eq:Mmsdecay}, and \((1+t)^{-2}\in L_t^1([0,\infty))\).
+\end{proof}
+
+\begin{theorem}[Positive momentum-suppressed same-branch verdict]
+\label{thm:positive}
+The momentum-suppressed same-branch test of Definition \ref{def:mssb} passes in the same repaired weighted/homogeneous flat-target class of Definition \ref{def:lt1test}. More precisely:
+\begin{enumerate}
+    \item the transported frozen profile from the generic-data renormalized note vanishes identically, \(\pi_{\mathrm{fr}}\equiv 0\);
+    \item the observer-side tuned scalar source vanishes identically, \eqref{eq:sourcezero};
+    \item the only remaining nonlinear observer-side remainder is the same wave/auxiliary quadratic remainder already controlled in the repaired weighted/homogeneous class;
+    \item that remainder is \(L_t^1\) in time because its coefficient obeys \eqref{eq:Mmsdecay}.
+\end{enumerate}
+Therefore the same repaired weighted/homogeneous class now yields an honest \(L_t^1\) observer-side remainder around the same exact flat target on the invariant momentum-suppressed sub-branch.
+\end{theorem}
+
+\begin{proof}
+Items (1) and (2) are Proposition \ref{prop:sigmapassive} and Theorem \ref{thm:sourcezero}. Item (3) is the content of Proposition \ref{prop:quadratic}. Item (4) follows from \eqref{eq:Mmsdecay}. Combining these facts gives the stated \(L_t^1\) verdict.
+\end{proof}
+
+\begin{corollary}[Why the verdict changes sign]
+\label{cor:whychanges}
+The verdict is positive here for a narrower reason than the generic-data renormalized note failed. On generic data the frozen scalar momentum is itself an observer-side source. On the invariant momentum-suppressed same branch, that source is absent exactly rather than merely renormalized.
+\end{corollary}
+
+\begin{proof}
+The generic-data negative verdict came from the nonzero frozen profile identified in the renormalized note. Corollary \ref{cor:invariant} and Theorem \ref{thm:sourcezero} show that this profile and the corresponding observer-side source vanish identically on the momentum-suppressed sub-branch.
+\end{proof}
+
+\begin{remark}
+Theorem \ref{thm:positive} should be read with the same discipline as the earlier negative notes. It does \emph{not} reopen a broad asymptotic claim on generic tuned data. It records only that the narrower invariant sub-branch clears the \(L_t^1\) remainder test that the generic tuned branch fails.
+\end{remark}
+
+\section{What This Step Establishes}
+
+The present manuscript establishes the following.
+\begin{enumerate}
+    \item It writes the narrower momentum-suppressed same-branch follow-up explicitly rather than leaving it only in the tracking layer.
+    \item It shows that, after the exact-square elimination, the tuned \(S\)-equation is an exact current-conservation law, so \(\pi_\sigma|_{t=0}=0\) is an invariant same-branch condition.
+    \item It re-derives the leading observer-side tuned scalar source under that restriction and proves that the full completion-specific Stueckelberg source vanishes identically on the invariant sub-branch.
+    \item It proves that the same repaired weighted/homogeneous class then gives an honest \(L_t^1\) observer-side remainder around the same exact flat target on that restricted branch.
+    \item It records the clean verdict required by the tracking docs: positive on the momentum-suppressed invariant sub-branch, still negative on generic tuned data.
+\end{enumerate}
+
+It does not establish the following.
+\begin{enumerate}
+    \item It does not reopen a broader asymptotic or nonlinear-stability claim on generic tuned data.
+    \item It does not yet prove a full same-class asymptotic closure theorem for the restricted sub-branch.
+    \item It does not weaken the ordered-flow positivity assumptions \(\kappa_\theta>0\), \(\kappa_\Omega>0\).
+    \item It does not decide whether the derivative-mixing and constraint-assisted branches should now be archived in the tracking docs.
+    \item It does not decide whether \texttt{aether\_flow\_exact\_closure\_note.tex} remains standalone.
+\end{enumerate}
+
+\section{Conclusion}
+
+The next same-branch manuscript step has now been carried out in the narrower form fixed by the tracking docs. On the tuned exact-square compensator branch, the condition \(\pi_\sigma|_{t=0}=0\) is not merely a helpful linear cancellation. It is an exact invariant same-branch restriction because the tuned scalar equation is a conserved current law once the exact-square block has been eliminated.
+
+That changes the observer-side bookkeeping decisively. On this invariant momentum-suppressed sub-branch, the frozen profile vanishes, the transported drift correction is unnecessary, and the Stueckelberg source disappears identically. The same repaired weighted/homogeneous class therefore does admit an honest \(L_t^1\) observer-side remainder around the same exact flat target at this restricted scope.
+
+The verdict is thus cleanly positive, but only there. The generic tuned branch remains closed negatively by the previous renormalized note. What changes now is narrower: the restricted momentum-suppressed same branch survives the \(L_t^1\) remainder test and can therefore be treated as the only presently open asymptotic sub-branch inside the existing tuned formulation.
+
+\end{document}

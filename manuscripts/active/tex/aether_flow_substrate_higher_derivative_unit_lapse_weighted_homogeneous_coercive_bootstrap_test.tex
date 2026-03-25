@@ -1,0 +1,618 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal{A}}
+\newcommand{\BridgeMetric}{\mathfrak{g}}
+\newcommand{\Ell}{\mathcal{L}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Higher-Derivative Quartic Branch Unit-Lapse Weighted/Homogeneous Coercive Bootstrap Test}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The fixed-completion unit-lapse spatial-harmonic route has now reached a genuine post-local question. The weighted/homogeneous closure note already showed that the longitudinal ordered-flow variable should not be controlled by plain unweighted \(H^N\), but by a derivative-level norm together with the explicit low-frequency seminorm
+\[
+\mathfrak L_\chi(F_\chi)^2
+=
+\|\mathbf P_{\mathrm{lo}}F_\chi\|_{\dot H^{-1}}^2,
+\qquad
+F_\chi \equiv K-\mathcal N_\chi.
+\]
+What that local note did \emph{not} yet supply is the time-propagation estimate for \(\mathfrak L_\chi(F_\chi(t))\). The present manuscript performs exactly that post-local test and asks whether the corrected weighted/homogeneous energy closes a \(T\sim \varepsilon^{-1}\) coercive bootstrap before any dedicated decay analysis is attempted.
+
+The new ingredient is structural but favorable. In unit-lapse spatial-harmonic gauge, the low-frequency longitudinal source \(F_\chi\) couples to the low-frequency trace sector of the metric through a linear flat-model subsystem
+\[
+(\partial_t-\Ell_\beta)\vartheta = -F_\chi + \mathcal Q_\vartheta,
+\qquad
+(\partial_t-\Ell_\beta)F_\chi = -\Delta_\delta \vartheta + \mathcal R_\chi,
+\]
+where
+\[
+\vartheta \equiv \frac12 \operatorname{tr}_\delta(\gamma-\delta),
+\]
+and the remainders are quadratic in the weighted/homogeneous bootstrap size. Consequently the combination
+\[
+\|\mathbf P_{\mathrm{lo}}\vartheta\|_{L^2}^2 + \mathfrak L_\chi(F_\chi)^2
+\]
+obeys a quadratic remainder estimate with no derivative loss. This is the missing low-frequency propagation law postponed by the local note.
+
+Using that estimate together with the same corrected metric/scalar pairings already familiar from the strict-branch bootstrap, one obtains a corrected weighted/homogeneous coercive functional
+\[
+\mathfrak F_N^{\mathrm{ul,wh}}(t)
+=
+\mathfrak E_N^{\mathrm{ul,wh}}(t)+\mathfrak C_N^{\mathrm{ul,wh}}(t),
+\]
+equivalent to the local weighted/homogeneous control energy and satisfying
+\[
+\frac{d}{dt}\mathfrak F_N^{\mathrm{ul,wh}}(t)
+\le
+C_N\bigl(\mathfrak F_N^{\mathrm{ul,wh}}(t)\bigr)^{3/2}
+\]
+for \(N\ge 6\). Hence the fixed completion \(S_{\mathrm{min},4}\) \emph{does} admit a corrected \(T\sim \varepsilon^{-1}\) coercive bootstrap in the weighted/homogeneous unit-lapse class. The first genuine post-local obstruction therefore does not appear at the coercive level. At the present disciplined scope it is postponed to the next dedicated weighted/homogeneous decay/integrability test, and no deeper completion change is yet forced.
+\end{abstract}
+
+\section{Introduction}
+
+The fixed-completion unit-lapse spatial-harmonic route has now passed through a disciplined sequence of narrowing tests. The first direct unweighted closure package failed because the longitudinal ordered-flow auxiliary variable \(\chi\) generically acquires a trace-driven Coulomb tail. The two smallest repairs that still tried to preserve the old unweighted \(H^N\) architecture were then carried through as separate notes and also failed: propagated monopole cancellation is not presently derived from the existing compatibility package, and Coulomb splitting removes the explicit \(1/|x|\) profile without restoring old unweighted Sobolev closure of the regular part.
+
+The weighted/homogeneous closure note then changed the picture again. It showed that the fixed-completion unit-lapse system does admit a natural local theorem package, but only after rewriting the longitudinal slot in a derivative-level class. That step was local. The next honest burden is therefore no longer to decide which local closure norm is right. The local decision is now made. The burden is post-local: does the corrected weighted/homogeneous energy propagate coherently enough to support the same type of \(T\sim \varepsilon^{-1}\) coercive bootstrap already recorded on the strict maximal branch, or does a new obstruction appear immediately once the low-frequency longitudinal seminorm must be propagated in time?
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays within that boundary. It does not change the explicit completion \(S_{\mathrm{min},4}\). It does not yet attempt decay or asymptotic analysis in the weighted/homogeneous class. It performs only the next post-local theorem test: whether the corrected weighted/homogeneous energy closes a \(T\sim \varepsilon^{-1}\) coercive bootstrap, or whether the first genuine post-local obstruction already appears there.
+
+\section{Bootstrap Regime and Corrected Weighted/Homogeneous Energy}
+
+Work in the same fixed-completion unit-lapse spatial-harmonic gauge
+\begin{equation}
+N\equiv 1,
+\qquad
+V^i(\gamma)=0,
+\label{eq:gauge}
+\end{equation}
+with reduced unknowns
+\begin{equation}
+(\gamma_{ij},\Sigma_{ij},K;\beta^i;\sigma,\pi_\sigma;\psi,\pi_\psi)
+\label{eq:unknowns}
+\end{equation}
+and slice-wise auxiliaries \((Q^I,\chi,W_i^T)\).
+
+Choose the same smooth low-frequency projector as in the weighted/homogeneous closure note:
+\begin{equation}
+\widehat{\mathbf P_{\mathrm{lo}}f}(\xi)
+\equiv
+\varphi_{\mathrm{lo}}(\xi)\widehat f(\xi),
+\qquad
+\mathbf P_{\mathrm{hi}}\equiv I-\mathbf P_{\mathrm{lo}},
+\label{eq:projector}
+\end{equation}
+where \(\varphi_{\mathrm{lo}}\in C_c^\infty(\mathbb R^3)\) is radial, equals \(1\) on \(|\xi|\le 1\), and vanishes on \(|\xi|\ge 2\).
+
+As before, define the longitudinal source by
+\begin{equation}
+F_\chi
+\equiv
+K-\mathcal N_\chi[\gamma,\Sigma,K,\beta,\sigma,\pi_\sigma,Q,\chi,W^T,\psi,\pi_\psi],
+\label{eq:Fchi}
+\end{equation}
+so that the longitudinal elliptic equation is
+\begin{equation}
+\kappa_\theta \Delta_\gamma \chi = -F_\chi.
+\label{eq:chieq}
+\end{equation}
+The low-frequency seminorm remains
+\begin{equation}
+\mathfrak L_\chi(F_\chi)^2
+\equiv
+\int_{\mathbb R^3}
+\varphi_{\mathrm{lo}}(\xi)^2 |\xi|^{-2}
+|\widehat{F_\chi}(\xi)|^2\,d\xi
+=
+\|\mathbf P_{\mathrm{lo}}F_\chi\|_{\dot H^{-1}}^2.
+\label{eq:Lchi}
+\end{equation}
+
+\begin{definition}[Weighted/homogeneous control energy]
+Fix \(N\ge 6\). Define
+\begin{align}
+\mathfrak E_N^{\mathrm{ul,wh}}(t)
+\equiv\;&
+\|\gamma-\delta\|_{H^N(\Sigma_t)}^2
++ \|\Sigma\|_{H^{N-1}(\Sigma_t)}^2
++ \|K\|_{H^{N-1}(\Sigma_t)}^2
++ \|\sigma\|_{H^{N-1}(\Sigma_t)}^2
++ \frac{1}{m_S^2}\|\pi_\sigma\|_{H^{N-1}(\Sigma_t)}^2
+\nonumber\\
+&+
+\frac{\lambda_4}{M_*^2}\|\Delta_\gamma \sigma\|_{H^{N-1}(\Sigma_t)}^2
++ \mathcal E_N^{\mathrm{matter}}(t)
++ \|\beta\|_{H^{N+1}(\Sigma_t)}^2
++ \|Q\|_{H^N(\Sigma_t)}^2
+\nonumber\\
+&+
+\|\nabla\chi\|_{H^{N-1}(\Sigma_t)}^2
++ \mathfrak L_\chi(F_\chi(t))^2
++ \|W^T\|_{H^N(\Sigma_t)}^2.
+\label{eq:Ewh}
+\end{align}
+\end{definition}
+
+\begin{remark}
+Definition 1 is the same local weighted/homogeneous package as before, written in the equivalent longitudinal form
+\[
+\|\nabla\chi\|_{H^{N-1}}^2 + \mathfrak L_\chi(F_\chi)^2
+\]
+rather than in the split \(\dot H^1\) plus high-frequency \(H^N\) notation. No new zeroth-order \(\chi\) term is introduced.
+\end{remark}
+
+\begin{definition}[Bootstrap interval]
+Fix \(0<\varepsilon\ll 1\). An interval \([0,T]\) is said to lie in the \emph{weighted/homogeneous coercive bootstrap regime} if:
+\begin{enumerate}
+    \item the strict positivity assumptions
+    \begin{equation}
+    \widehat M_{IJ}\xi^I\xi^J\ge m_{Q,\min}^2|\xi|^2,
+    \qquad
+    \kappa_\theta\ge \kappa_{\theta,\min}>0,
+    \qquad
+    \kappa_\Omega\ge \kappa_{\Omega,\min}>0
+    \label{eq:strict}
+    \end{equation}
+    hold on every slice
+    \item the weighted/homogeneous energy satisfies
+    \begin{equation}
+    \sup_{0\le t\le T}\mathfrak E_N^{\mathrm{ul,wh}}(t)\le 4\varepsilon^2
+    \label{eq:bootenergy}
+    \end{equation}
+    \item the same norm-level non-ultrasoft dominance condition used in the earlier coercive bootstrap note holds:
+    \begin{equation}
+    \frac{\lambda_4}{M_*^2}\|\Delta_\gamma\sigma(t)\|_{H^{N-1}}^2
+    \le
+    4\delta_0\,\frac{1}{m_S^2}\|\pi_\sigma(t)\|_{H^{N-1}}^2,
+    \qquad
+    0<\delta_0\ll 1.
+    \label{eq:dominance}
+    \end{equation}
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Auxiliary weighted/homogeneous package]
+On a bootstrap interval, define
+\begin{align}
+\mathfrak A_N^{\mathrm{ul,wh}}(t)
+\equiv\;&
+\|\beta\|_{H^{N+1}}^2
++ \|Q\|_{H^N}^2
++ \|\nabla\chi\|_{H^{N-1}}^2
++ \mathfrak L_\chi(F_\chi)^2
++ \|W^T\|_{H^N}^2.
+\label{eq:Awh}
+\end{align}
+\end{definition}
+
+\begin{proposition}[Slice-wise auxiliary coercivity in the weighted/homogeneous class]
+\label{prop:aux}
+There exists \(C_N>0\) such that every solution in the weighted/homogeneous coercive bootstrap regime satisfies
+\begin{equation}
+\mathfrak A_N^{\mathrm{ul,wh}}(t)
+\le
+C_N\,\mathfrak E_N^{\mathrm{ul,wh}}(t)
+\label{eq:auxcoercive}
+\end{equation}
+for all \(t\in[0,T]\).
+\end{proposition}
+
+\begin{proof}
+This is exactly the slice-wise elliptic closure proved in the weighted/homogeneous local note, rewritten in the present notation. The shift, \(Q\)-sector, and transverse ordered-flow estimates are unchanged, while the longitudinal estimate is the already-recorded equivalence
+\[
+\|\nabla\chi\|_{H^{N-1}} + \mathfrak L_\chi(F_\chi)
+\lesssim
+\|\mathbf P_{\mathrm{hi}}F_\chi\|_{H^{N-2}}
++ \mathfrak L_\chi(F_\chi),
+\]
+combined with the derivative-level occurrence of \(\chi\) in the reduced system.
+\end{proof}
+
+For the corrected coercive functional, set
+\begin{equation}
+h_{ij}\equiv \gamma_{ij}-\delta_{ij},
+\qquad
+\mathbb K_{ij}\equiv \Sigma_{ij}+\frac13\delta_{ij}K.
+\label{eq:hk}
+\end{equation}
+
+\begin{definition}[Corrected weighted/homogeneous coercive functional]
+For \(N\ge 6\), define
+\begin{align}
+\mathfrak C_N^{\mathrm{ul,wh}}(t)
+\equiv\;&
+\sum_{|\alpha|\le N-1} c_\alpha^{(g)}
+\int_{\Sigma_t}
+\partial^\alpha h^{ij}\,
+\partial^\alpha \mathbb K_{ij}\,d\mu_\gamma
+\nonumber\\
+&+
+\sum_{|\alpha|\le N-1} c_\alpha^{(\sigma)}
+\int_{\Sigma_t}
+\partial^\alpha \sigma\,
+\partial^\alpha\!\left(\frac{\pi_\sigma}{m_S^2}\right)d\mu_\gamma,
+\label{eq:Cwh}
+\end{align}
+where the coefficients \(c_\alpha^{(g)}\), \(c_\alpha^{(\sigma)}\) are fixed sufficiently small depending only on \(N\) and the flat background normalization. The \emph{corrected weighted/homogeneous coercive functional} is
+\begin{equation}
+\mathfrak F_N^{\mathrm{ul,wh}}(t)
+\equiv
+\mathfrak E_N^{\mathrm{ul,wh}}(t)
++ \mathfrak C_N^{\mathrm{ul,wh}}(t).
+\label{eq:Fwh}
+\end{equation}
+\end{definition}
+
+\begin{remark}
+The new longitudinal slot does not require an additional zeroth-order \(\chi\)-correction. The genuinely new task is to propagate the explicit low-frequency seminorm \(\mathfrak L_\chi(F_\chi(t))\), and that propagation couples to the low-frequency trace part of the metric already present inside \(\|h\|_{H^N}^2\).
+\end{remark}
+
+\begin{proposition}[Coercive equivalence]
+\label{prop:equiv}
+There exists \(\varepsilon_{\mathrm{coer}}>0\) such that if \([0,T]\) lies in the weighted/homogeneous coercive bootstrap regime with \(\varepsilon\le \varepsilon_{\mathrm{coer}}\), then
+\begin{equation}
+\frac12 \mathfrak E_N^{\mathrm{ul,wh}}(t)
+\le
+\mathfrak F_N^{\mathrm{ul,wh}}(t)
+\le
+\frac32 \mathfrak E_N^{\mathrm{ul,wh}}(t)
+\label{eq:Fequiv}
+\end{equation}
+for all \(t\in[0,T]\).
+\end{proposition}
+
+\begin{proof}
+By Cauchy--Schwarz and Sobolev embedding,
+\[
+|\mathfrak C_N^{\mathrm{ul,wh}}(t)|
+\le
+C_N\Bigl(
+\|h\|_{H^N}\|\mathbb K\|_{H^{N-1}}
++
+\|\sigma\|_{H^{N-1}}\frac{1}{m_S}\|\pi_\sigma\|_{H^{N-1}}
+\Bigr).
+\]
+Absorb these pairings into \(\mathfrak E_N^{\mathrm{ul,wh}}\) with sufficiently small coefficients \(c_\alpha^{(g)}\), \(c_\alpha^{(\sigma)}\), and then use \eqref{eq:bootenergy}.
+\end{proof}
+
+\section{Time Propagation of the Low-Frequency Longitudinal Quantity}
+
+The weighted/homogeneous local note intentionally stopped before proving time propagation of the low-frequency seminorm \(\mathfrak L_\chi(F_\chi(t))\). That is the only genuinely new ingredient needed for the post-local bootstrap.
+
+\begin{definition}[Low-frequency trace variable]
+Define the trace variable
+\begin{equation}
+\vartheta \equiv \frac12 \operatorname{tr}_\delta(\gamma-\delta)
+=
+\frac12 \delta^{ij}h_{ij}.
+\label{eq:vartheta}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[Trace--longitudinal source subsystem]
+\label{prop:trace}
+On every weighted/homogeneous bootstrap interval, the low-frequency trace variable \(\vartheta\) and the longitudinal source \(F_\chi\) satisfy
+\begin{align}
+(\partial_t-\Ell_\beta)\vartheta
+&=
+-F_\chi + \mathcal Q_\vartheta,
+\label{eq:varthetadt}
+\\
+(\partial_t-\Ell_\beta)F_\chi
+&=
+-\Delta_\delta \vartheta + \mathcal R_\chi,
+\label{eq:Fdt}
+\end{align}
+where the remainders obey
+\begin{equation}
+\|\mathcal Q_\vartheta(t)\|_{L^2}
++ \|\mathbf P_{\mathrm{lo}}\mathcal R_\chi(t)\|_{\dot H^{-1}}
+\le
+C_N\,\mathfrak E_N^{\mathrm{ul,wh}}(t)
+\label{eq:tracebounds}
+\end{equation}
+for all \(t\in[0,T]\).
+\end{proposition}
+
+\begin{proof}
+Take the \(\delta\)-trace of the unit-lapse metric evolution
+\[
+(\partial_t-\Ell_\beta)\gamma_{ij}
+=
+-2\Sigma_{ij}
+-\frac23\gamma_{ij}K.
+\]
+Because \(\gamma^{ij}\Sigma_{ij}=0\), one has \(\delta^{ij}\Sigma_{ij}=\mathcal O(h\Sigma)\), so the tracefree contribution is quadratic on the bootstrap interval. This yields
+\[
+(\partial_t-\Ell_\beta)\vartheta
+=
+-K+\mathcal Q_{\mathrm{tr}}
+\]
+with \(\|\mathcal Q_{\mathrm{tr}}\|_{L^2}\le C_N \mathfrak E_N^{\mathrm{ul,wh}}\). Since the fixed-completion unit-lapse longitudinal source is \(F_\chi=K-\mathcal N_\chi\) and \(\mathcal N_\chi\) vanishes at least quadratically around the flat exact-closure background, the first equation becomes \eqref{eq:varthetadt} with
+\[
+\mathcal Q_\vartheta = \mathcal Q_{\mathrm{tr}}+\mathcal N_\chi,
+\]
+and the same bound follows from Proposition \ref{prop:aux}.
+
+For the second equation, differentiate \eqref{eq:Fchi} along \((\partial_t-\Ell_\beta)\). The trace evolution equation in the unit-lapse reduction gives
+\[
+(\partial_t-\Ell_\beta)K
+=
+R[\gamma]+\Sigma_{ij}\Sigma^{ij}+\frac13 K^2+\Theta_K.
+\]
+In spatial-harmonic gauge, the flat-model linearization of the scalar curvature is
+\[
+R[\gamma]=-\Delta_\delta \vartheta + \mathcal Q_R,
+\]
+with \(\|\mathbf P_{\mathrm{lo}}\mathcal Q_R\|_{\dot H^{-1}}\le C_N \mathfrak E_N^{\mathrm{ul,wh}}\). The terms \(\Sigma_{ij}\Sigma^{ij}\), \(K^2\), \(\Theta_K\), the transport commutators, and \((\partial_t-\Ell_\beta)\mathcal N_\chi\) are all quadratic because \(\mathcal N_\chi\) depends only on derivative-level quantities already controlled by the closed weighted/homogeneous energy. Collecting them yields \eqref{eq:Fdt}--\eqref{eq:tracebounds}.
+\end{proof}
+
+\begin{theorem}[Propagation of the low-frequency longitudinal seminorm]
+\label{thm:lowprop}
+Fix \(N\ge 6\). There exists \(C_N>0\) such that every smooth solution in the weighted/homogeneous coercive bootstrap regime satisfies
+\begin{equation}
+\frac{d}{dt}
+\Bigl(
+\|\mathbf P_{\mathrm{lo}}\vartheta(t)\|_{L^2}^2
++ \mathfrak L_\chi(F_\chi(t))^2
+\Bigr)
+\le
+C_N\bigl(\mathfrak E_N^{\mathrm{ul,wh}}(t)\bigr)^{3/2}
+\label{eq:lowprop}
+\end{equation}
+for all \(t\in[0,T]\). Consequently,
+\begin{equation}
+\mathfrak L_\chi(F_\chi(t))^2
+\le
+\|\mathbf P_{\mathrm{lo}}\vartheta(0)\|_{L^2}^2
++ \mathfrak L_\chi(F_\chi(0))^2
++ C_N\int_0^t
+\bigl(\mathfrak E_N^{\mathrm{ul,wh}}(s)\bigr)^{3/2}\,ds.
+\label{eq:lowpropint}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Apply \(\mathbf P_{\mathrm{lo}}\) to \eqref{eq:varthetadt} and take the \(L^2\)-inner product with \(\mathbf P_{\mathrm{lo}}\vartheta\). This gives
+\begin{equation}
+\frac12\frac{d}{dt}\|\mathbf P_{\mathrm{lo}}\vartheta\|_{L^2}^2
+=
+-\langle \mathbf P_{\mathrm{lo}}\vartheta,\mathbf P_{\mathrm{lo}}F_\chi\rangle
++ \mathcal E_\vartheta,
+\label{eq:thetader}
+\end{equation}
+where the transport and remainder contribution obeys
+\[
+|\mathcal E_\vartheta|
+\le
+C_N\|\mathbf P_{\mathrm{lo}}\vartheta\|_{L^2}\,
+\|\mathcal Q_\vartheta\|_{L^2}
++ C_N\|\beta\|_{H^{N+1}}\|\mathbf P_{\mathrm{lo}}\vartheta\|_{L^2}^2
+\le
+C_N\bigl(\mathfrak E_N^{\mathrm{ul,wh}}\bigr)^{3/2}.
+\]
+
+Next, apply \(|\nabla|^{-1}\mathbf P_{\mathrm{lo}}\) to \eqref{eq:Fdt} and take the \(L^2\)-inner product with \(|\nabla|^{-1}\mathbf P_{\mathrm{lo}}F_\chi\). Since \(|\nabla|^{-1}(-\Delta_\delta)=|\nabla|\), one obtains
+\begin{equation}
+\frac12\frac{d}{dt}\mathfrak L_\chi(F_\chi)^2
+=
+\langle |\nabla|^{-1}\mathbf P_{\mathrm{lo}}F_\chi,\,
+|\nabla|\mathbf P_{\mathrm{lo}}\vartheta\rangle
++ \mathcal E_F,
+\label{eq:Lder}
+\end{equation}
+with
+\[
+|\mathcal E_F|
+\le
+C_N\mathfrak L_\chi(F_\chi)\,
+\|\mathbf P_{\mathrm{lo}}\mathcal R_\chi\|_{\dot H^{-1}}
++ C_N\|\beta\|_{H^{N+1}}\mathfrak L_\chi(F_\chi)^2
+\le
+C_N\bigl(\mathfrak E_N^{\mathrm{ul,wh}}\bigr)^{3/2}.
+\]
+The linear terms in \eqref{eq:thetader} and \eqref{eq:Lder} cancel exactly because
+\[
+\langle \mathbf P_{\mathrm{lo}}\vartheta,\mathbf P_{\mathrm{lo}}F_\chi\rangle
+=
+\langle |\nabla|\mathbf P_{\mathrm{lo}}\vartheta,\,
+|\nabla|^{-1}\mathbf P_{\mathrm{lo}}F_\chi\rangle.
+\]
+This proves \eqref{eq:lowprop}. Integrating in time yields \eqref{eq:lowpropint}.
+\end{proof}
+
+\begin{corollary}[No derivative loss in the low-frequency propagation step]
+\label{cor:noloss}
+The low-frequency quantity \(\mathfrak L_\chi(F_\chi(t))\) propagates using only the same derivative count already present in the weighted/homogeneous local theorem package.
+\end{corollary}
+
+\begin{proof}
+Theorem \ref{thm:lowprop} uses only \(\mathbf P_{\mathrm{lo}}\vartheta\in L^2\), \(F_\chi\in \dot H^{-1}_{\mathrm{lo}}\), and the quadratic remainder bounds of Proposition \ref{prop:trace}. No extra differentiated longitudinal unknown is introduced.
+\end{proof}
+
+\section{Reworked Elliptic--Hyperbolic Coercive Estimate}
+
+The weighted/homogeneous local theorem already showed that one should not differentiate the longitudinal elliptic variable \(\chi\) directly in the high-order energy argument. Exactly as before, one differentiates only the propagating Einstein--quartic-scalar equations and then re-inserts the auxiliary slice estimates. The only additional ingredient relative to that local note is now Theorem \ref{thm:lowprop}, which supplies the missing time control of the low-frequency longitudinal slot.
+
+\begin{proposition}[Quadratic remainder structure in the weighted/homogeneous class]
+\label{prop:quadratic}
+On the flat exact-closure background and in unit-lapse spatial-harmonic gauge, every nonprincipal remainder term left after commuting derivatives through the propagating Einstein--quartic-scalar evolution, inserting the weighted/homogeneous auxiliary estimates, and using Proposition \ref{prop:trace} is at least quadratic in the perturbation size measured by \(\bigl(\mathfrak E_N^{\mathrm{ul,wh}}\bigr)^{1/2}\).
+\end{proposition}
+
+\begin{proof}
+The background is an exact solution of the full reduced system, so every source term vanishes there. The principal linear propagating terms are the same Einstein tracefree/trace block and the same quartic scalar block already isolated in the unit-lapse reduction note. By Proposition \ref{prop:aux}, the auxiliary variables are inserted only through slice-wise elliptic control in the weighted/homogeneous norm. The derivative-level occurrence of \(\chi\) recorded in the local weighted/homogeneous closure note removes any hidden zeroth-order longitudinal loss, while Proposition \ref{prop:trace} isolates the only low-frequency linear coupling that survives. What remains after those extractions is made of variable-coefficient commutators, Ricci corrections, transport by \(\beta\), matter insertions, quartic scalar lower-order terms, and differentiated nonlinear auxiliary sources. Each such term contains at least one perturbative coefficient factor and one controlled differentiated unknown, so it is quadratic in the bootstrap size.
+\end{proof}
+
+\begin{theorem}[Improved weighted/homogeneous coercive energy estimate]
+\label{thm:ineq}
+Fix \(N\ge 6\). There exist \(\varepsilon_{\mathrm{boot}}>0\) and \(C_N>0\) such that every smooth solution in the weighted/homogeneous coercive bootstrap regime with \(\varepsilon\le \varepsilon_{\mathrm{boot}}\) satisfies
+\begin{equation}
+\frac{d}{dt}\mathfrak F_N^{\mathrm{ul,wh}}(t)
+\le
+C_N\bigl(\mathfrak F_N^{\mathrm{ul,wh}}(t)\bigr)^{3/2}
+\label{eq:quadraticineq}
+\end{equation}
+for all \(t\in[0,T]\).
+\end{theorem}
+
+\begin{proof}
+Differentiate the propagating part of \(\mathfrak E_N^{\mathrm{ul,wh}}\) exactly as in the local weighted/homogeneous theorem architecture. The tracefree Einstein block is paired against the metric correction term in \(\mathfrak C_N^{\mathrm{ul,wh}}\), and the quartic scalar block is paired against the scalar correction term in \(\mathfrak C_N^{\mathrm{ul,wh}}\), removing the purely linear transport pieces in the same way as in the earlier strict-branch coercive bootstrap note.
+
+For the longitudinal sector, one does not differentiate \(\|\nabla\chi\|_{H^{N-1}}^2\) directly. Instead, Proposition \ref{prop:aux} controls that derivative-level longitudinal slot pointwise by the same closed energy, while Theorem \ref{thm:lowprop} supplies the missing time-propagation estimate for the explicit low-frequency seminorm \(\mathfrak L_\chi(F_\chi(t))\). The linear low-frequency terms there cancel against the low-frequency trace component already present in the metric block, so no additional derivative is lost and no extra zeroth-order longitudinal correction is required.
+
+After those cancellations, Proposition \ref{prop:quadratic} shows that all remaining commutators and source terms are quadratic. Sobolev multiplication in three space dimensions bounds each of them by \(C_N(\mathfrak E_N^{\mathrm{ul,wh}})^{3/2}\). Proposition \ref{prop:aux} controls the auxiliary variables by the same energy, and Proposition \ref{prop:equiv} converts \(\mathfrak E_N^{\mathrm{ul,wh}}\) to \(\mathfrak F_N^{\mathrm{ul,wh}}\). This yields \eqref{eq:quadraticineq}.
+\end{proof}
+
+\section{Closure of the Weighted/Homogeneous Coercive Bootstrap}
+
+\begin{theorem}[Weighted/homogeneous coercive bootstrap]
+\label{thm:bootstrap}
+Fix \(N\ge 6\). There exist \(\varepsilon_\sharp>0\) and \(c_N>0\) such that the following holds. Let compatible asymptotically flat initial data for the fixed-completion unit-lapse spatial-harmonic system satisfy the hypotheses of the weighted/homogeneous local theorem together with
+\begin{equation}
+\mathfrak F_N^{\mathrm{ul,wh}}(0)\le \varepsilon^2,
+\qquad
+0<\varepsilon\le \varepsilon_\sharp.
+\label{eq:initsmall}
+\end{equation}
+Assume that on some interval \([0,T]\) the corresponding solution lies in the weighted/homogeneous coercive bootstrap regime. If
+\begin{equation}
+T\le c_N\,\varepsilon^{-1},
+\label{eq:Tbootstrap}
+\end{equation}
+then
+\begin{equation}
+\sup_{0\le t\le T}\mathfrak F_N^{\mathrm{ul,wh}}(t)\le 2\varepsilon^2,
+\qquad
+\sup_{0\le t\le T}\mathfrak E_N^{\mathrm{ul,wh}}(t)\le 3\varepsilon^2,
+\label{eq:bootstrapimprove}
+\end{equation}
+and consequently
+\begin{equation}
+\sup_{0\le t\le T}\mathfrak A_N^{\mathrm{ul,wh}}(t)\le C_N\varepsilon^2.
+\label{eq:auximprove}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Let
+\[
+M(T)\equiv \sup_{0\le t\le T}\mathfrak F_N^{\mathrm{ul,wh}}(t).
+\]
+By Theorem \ref{thm:ineq},
+\[
+\mathfrak F_N^{\mathrm{ul,wh}}(t)
+\le
+\mathfrak F_N^{\mathrm{ul,wh}}(0)
++ C_N\int_0^t
+\bigl(\mathfrak F_N^{\mathrm{ul,wh}}(s)\bigr)^{3/2}\,ds
+\le
+\varepsilon^2 + C_N T\,M(T)^{3/2}.
+\]
+The bootstrap assumptions \eqref{eq:bootenergy} and \eqref{eq:Fequiv} imply \(M(T)\le 6\varepsilon^2\). Therefore
+\[
+\mathfrak F_N^{\mathrm{ul,wh}}(t)
+\le
+\varepsilon^2 + C_N 6^{3/2}T\,\varepsilon^3.
+\]
+Taking the supremum over \(t\in[0,T]\) gives
+\[
+M(T)\le \varepsilon^2 + C_N 6^{3/2}T\,\varepsilon^3.
+\]
+Choose \(c_N>0\) so that \(C_N 6^{3/2} c_N\le 1\). Then \eqref{eq:Tbootstrap} implies \(M(T)\le 2\varepsilon^2\), which is a strict improvement of the assumed bootstrap bound for sufficiently small \(\varepsilon\). Equation \eqref{eq:bootstrapimprove} follows from Proposition \ref{prop:equiv}, and \eqref{eq:auximprove} follows from Proposition \ref{prop:aux}.
+\end{proof}
+
+\begin{corollary}[Bootstrap lifespan lower bound]
+\label{cor:lifespan}
+Under the hypotheses of Theorem \ref{thm:bootstrap}, the maximal existence interval of the weighted/homogeneous local theorem satisfies
+\begin{equation}
+T_{\max}\ge c_N\,\varepsilon^{-1},
+\label{eq:lifespan}
+\end{equation}
+provided the strict positivity regime \eqref{eq:strict} holds initially with the recorded fixed positive lower bounds.
+\end{corollary}
+
+\begin{proof}
+The weighted/homogeneous local theorem continues the solution as long as the closed weighted/homogeneous norm stays finite and the strict positivity regime persists. Theorem \ref{thm:bootstrap} supplies exactly those bounds on every subinterval of length at most \(c_N\varepsilon^{-1}\).
+\end{proof}
+
+\begin{corollary}[No coercive-level post-local obstruction]
+\label{cor:noobstruction}
+At the present recorded scope of the fixed completion \(S_{\mathrm{min},4}\), the weighted/homogeneous post-local route does not encounter its first genuine obstruction at the coercive-bootstrap stage.
+\end{corollary}
+
+\begin{proof}
+Theorem \ref{thm:bootstrap} shows that the corrected weighted/homogeneous energy closes a \(T\sim \varepsilon^{-1}\) bootstrap with no derivative loss. Therefore the post-local weighted/homogeneous route remains open beyond the coercive stage.
+\end{proof}
+
+\section{What This Step Establishes}
+
+The present manuscript establishes the following.
+\begin{enumerate}
+    \item It rewrites the corrected weighted/homogeneous unit-lapse energy with the longitudinal slot in the derivative-level form
+    \[
+    \|\nabla\chi\|_{H^{N-1}}^2 + \mathfrak L_\chi(F_\chi)^2.
+    \]
+    \item It derives the missing time-propagation estimate for the low-frequency longitudinal quantity \(\mathfrak L_\chi(F_\chi(t))\).
+    \item It shows that the low-frequency propagation couples favorably to the low-frequency trace sector and closes with no derivative loss.
+    \item It reworks the elliptic--hyperbolic energy estimate in the weighted/homogeneous class and upgrades it to a corrected coercive differential inequality.
+    \item It proves that the fixed-completion unit-lapse weighted/homogeneous class admits a \(T\sim \varepsilon^{-1}\) coercive bootstrap.
+\end{enumerate}
+
+It does not establish the following.
+\begin{enumerate}
+    \item It does not prove global existence or nonlinear stability.
+    \item It does not prove a decay or asymptotic theorem in the weighted/homogeneous class.
+    \item It does not claim that no later obstruction can appear at the decay/integrability stage.
+    \item It does not change the fixed nonlinear completion \(S_{\mathrm{min},4}\) or relax the strict ordered-flow positivity assumptions.
+\end{enumerate}
+
+\section{Conclusion}
+
+The weighted/homogeneous local note postponed one genuinely new issue: how the explicit low-frequency longitudinal seminorm should propagate in time. The present note resolves that post-local question at the coercive level. The low-frequency source \(F_\chi\) couples to the trace sector through a favorable linear subsystem, the quantity \(\mathfrak L_\chi(F_\chi(t))\) propagates without derivative loss once that trace coupling is used, and the resulting corrected weighted/homogeneous energy closes the same \(T\sim \varepsilon^{-1}\) coercive bootstrap already familiar from the earlier strict-branch analysis.
+
+The program is therefore sharpened again. The fixed-completion weighted/homogeneous unit-lapse route no longer stops at local closure and does not yet force a deeper completion change. The next honest step is now narrower: a dedicated weighted/homogeneous decay/integrability test. Only if that later post-local step fails should a deeper nonlinear-completion or auxiliary redesign be treated as necessary.
+
+\end{document}

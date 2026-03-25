@@ -1,0 +1,859 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal{A}}
+\newcommand{\BridgeMetric}{\mathfrak g}
+\newcommand{\SpatialD}{\mathcal D}
+\newcommand{\LapPerp}{\Delta_\perp}
+\newcommand{\FlowPot}{\Phi_\Omega}
+\newcommand{\CoulPot}{U_\Omega}
+\newcommand{\SourceDensityRed}{\varrho_\Omega^{\mathrm{red}}}
+\newcommand{\ConstCurrent}{\mathcal C}
+\newcommand{\ConstGamma}{\Gamma}
+\newcommand{\CurvQMult}{\mathscr P}
+\newcommand{\CurvChiMult}{\mathscr X}
+\newcommand{\CurvTransMult}{\mathscr Y}
+\newcommand{\HamChargeOmega}{\mathfrak m_\Omega}
+\newcommand{\SigmaIER}{\Sigma^{\mathrm{IER}}}
+\newcommand{\SigmaDressSch}{\Sigma^{\mathrm{Sch}}}
+\newcommand{\SigmaRegPol}{\Sigma^{\mathrm{pol,reg}}}
+\newcommand{\CurvSeed}{\Theta_{\mathrm{br}}}
+\newcommand{\CurvSeedMult}{\Upsilon_{\mathrm{br}}}
+\newcommand{\CurvScale}{\ell_{\mathrm{br}}}
+\newcommand{\CurvProfile}{F_{\mathrm{br}}}
+\newcommand{\CurvProfileCan}{F_{\mathrm{br}}^{\mathrm{can}}}
+\newcommand{\CurvOneI}{\mathfrak K}
+\newcommand{\CurvOneChi}{\mathfrak L}
+\newcommand{\CurvOneW}{\mathfrak M}
+\newcommand{\BridgeCurv}{\mathcal R_{\mathrm{br}}}
+\newcommand{\DownPkg}{\mathscr P_{\mathrm{down}}}
+\newcommand{\ProfWeight}{\varpi_{\mathrm{br}}}
+\newcommand{\RespSusEq}{\Sigma_{\mathrm{br}}^{\ast}}
+\newcommand{\RespNorm}{\mathcal N_{\mathrm{br}}}
+\newcommand{\RespFluxCoeff}{\gamma_{\mathrm{br}}}
+\newcommand{\RespGap}{m_{\mathrm{br}}}
+\newcommand{\RespBias}{h_{\mathrm{br}}}
+\newcommand{\RespMicroRef}{X_{\mathrm{br}}^{\mathrm{ref}}}
+\newcommand{\RespMicroFluxCoeff}{\Gamma_{\mathrm{br}}^{\mathrm{mic}}}
+\newcommand{\RespMicroGap}{\mu_{\mathrm{br}}}
+\newcommand{\RespMicroEq}{X_{\mathrm{br}}^{\ast}}
+\newcommand{\RespOrderField}{\bm Z_{\mathrm{br}}}
+\newcommand{\RespOrderReadout}{\Xi_{\mathrm{br}}}
+\newcommand{\RespOrderRef}{Z_{\mathrm{br}}^{\mathrm{ref}}}
+\newcommand{\RespOrderStiff}{\Gamma_{\mathrm{br}}^{\mathrm{ord}}}
+\newcommand{\RespOrderQuartic}{\Lambda_{\mathrm{br}}}
+\newcommand{\RespOrderEq}{Z_{\mathrm{br}}^{\ast}}
+\newcommand{\RespOrderCurrent}{\mathcal I_{\mathrm{br}}^{\mathrm{ord}}}
+\newcommand{\RespDeepReadout}{\mathfrak X_{\mathrm{br}}}
+\newcommand{\RespDeepDensityRef}{\mathcal Z_{\mathrm{br}}^{\mathrm{ref}}}
+\newcommand{\RespDeepTrack}{\mathfrak a_{\mathrm{br}}}
+\newcommand{\RespDeepRelax}{\mathfrak b_{\mathrm{br}}}
+\newcommand{\RespDeepWell}{\mathfrak l_{\mathrm{br}}}
+\newcommand{\RespDeepDensityEq}{\mathcal Z_{\mathrm{br}}^{\ast}}
+\newcommand{\RespVacAmp}{U_{\mathrm{br}}}
+\newcommand{\RespVacRef}{U_{\mathrm{br}}^{\mathrm{ref}}}
+\newcommand{\RespVacEq}{U_{\mathrm{br}}^{\ast}}
+\newcommand{\RespVacPhase}{\phi_{\mathrm{br}}}
+\newcommand{\RespVacCarrier}{V_{\mathrm{br}}}
+\newcommand{\RespVacReadout}{q_{\mathrm{br}}}
+\newcommand{\RespVacCov}{\kappa_{\mathrm{br}}}
+\newcommand{\RespVacRelax}{\rho_{\mathrm{br}}}
+\newcommand{\RespVacWell}{\lambda_{\mathrm{br}}}
+\newcommand{\RespVacIso}{\eta_{\mathrm{br}}}
+\newcommand{\RespScaleEq}{S_{\mathrm{br}}^{\ast}}
+\newcommand{\RespScaleReadout}{\bar q_{\mathrm{br}}}
+\newcommand{\RespScaleAmpRef}{\bar A_{\mathrm{br}}^{\mathrm{ref}}}
+\newcommand{\RespScaleCov}{\bar\kappa_{\mathrm{br}}}
+\newcommand{\RespScaleRelax}{\bar\rho_{\mathrm{br}}}
+\newcommand{\RespScaleWell}{\bar\lambda_{\mathrm{br}}}
+\newcommand{\RespScaleAmpEq}{\bar A_{\mathrm{br}}^{\ast}}
+\newcommand{\RespScaleIso}{\bar\eta_{\mathrm{br}}}
+\newcommand{\RespRawReadout}{\widehat q_{\mathrm{br}}}
+\newcommand{\RespRawRef}{\widehat U_{\mathrm{br}}^{\mathrm{ref}}}
+\newcommand{\RespRawCov}{\widehat\kappa_{\mathrm{br}}}
+\newcommand{\RespRawRelax}{\widehat\rho_{\mathrm{br}}}
+\newcommand{\RespRawWell}{\widehat\lambda_{\mathrm{br}}}
+\newcommand{\RespRawEq}{\widehat U_{\mathrm{br}}^{\ast}}
+\newcommand{\RespRawIso}{\widehat\eta_{\mathrm{br}}}
+\newcommand{\RespShapeReadout}{\widetilde q_{\mathrm{br}}}
+\newcommand{\RespShapeCov}{\widetilde\kappa_{\mathrm{br}}}
+\newcommand{\RespShapeRelax}{\widetilde\rho_{\mathrm{br}}}
+\newcommand{\RespShapeWell}{\widetilde\lambda_{\mathrm{br}}}
+\newcommand{\RespShapeEq}{\widetilde U_{\mathrm{br}}^{\ast}}
+\newcommand{\RespShapeIso}{\widetilde\eta_{\mathrm{br}}}
+\newcommand{\RespOrbitField}{G_{\mathrm{br}}}
+\newcommand{\RespOrbitGrad}{\alpha_{\mathrm{br}}^{\mathrm{orb}}}
+\newcommand{\RespOrbitEnergy}{\widetilde{\mathscr E}_{\mathrm{br}}^{\mathrm{orb}}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Nonlocal Bridge Self-Response Off-Shell Profile-Selection Bridge-Order Raw-Vacuum-Orbit-Origin Note}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The flagship exact-theory statement of \TheoryName{} has already crossed its threshold and is not reopened here. The exact-closure sequence, the positive quotient theorem line, and the surviving self-response-dressed bridge map already stand as the active disciplined theory statement. The present manuscript acts only on the optional deeper derivational bridge below that exact theory line.
+
+The bridge-order-calibration-modulus-origin note had already pushed the live burden one layer lower by showing that the calibration-modulus lift is the unique canonical normalized slice of a deeper raw positive vacuum orbit. One narrower question remained. That raw orbit plus canonical normalization were still the present deepest layer. The honest next move is therefore not another same-layer repair. It is the deeper origin of the raw positive vacuum orbit itself.
+
+The present note supplies the smallest such step. It introduces a positive unit-reference orbit-shape block
+\[
+(\RespShapeReadout,\RespShapeCov,\RespShapeRelax,\RespShapeWell,\RespShapeEq),
+\qquad
+\RespShapeIso\equiv\frac{\RespShapeCov\,\RespShapeRelax}{\RespShapeCov+\RespShapeRelax},
+\]
+an orbit-gradient coefficient \(\RespOrbitGrad>0\), and one unanchored positive orbit modulus \(\RespOrbitField(x)\). The deeper orbit-modulus energy is
+\begin{align*}
+\RespOrbitEnergy[\RespOrbitField,\RespVacAmp,\RespVacPhase,\RespVacCarrier]
+=\;&
+\int_{\mathbb R}\ProfWeight(x)\Bigl[
+\frac{\RespOrbitGrad}{2}\abs{\RespOrbitField'(x)}^2
++
+\frac{\RespShapeIso\,\RespOrbitField(x)^2}{2}\abs{\RespVacAmp'(x)}^2
+\Bigr]dx
+\nonumber\\
+&+
+\int_{\mathbb R}\ProfWeight(x)\Bigl[
+\frac{\RespShapeCov\,\RespOrbitField(x)^2}{2}\RespVacAmp(x)^2
+\abs{\RespVacPhase'(x)-\RespVacCarrier(x)}^2
+\Bigr]dx
+\nonumber\\
+&+
+\int_{\mathbb R}\ProfWeight(x)\Bigl[
+\frac{\RespShapeRelax\,\RespOrbitField(x)^2}{2}\RespVacAmp(x)^2
+\abs{\RespVacCarrier(x)}^2
+\Bigr]dx
+\nonumber\\
+&+
+\int_{\mathbb R}\ProfWeight(x)\Bigl[
+\frac{\RespShapeWell}{8}\bigl(\RespVacAmp(x)^2-\RespOrbitField(x)^2(\RespShapeEq)^2\bigr)^2
+\Bigr]dx.
+\end{align*}
+Its minimizers are exactly
+\[
+\RespOrbitField(x)\equiv s,\qquad
+\RespVacAmp(x)\equiv s\,\RespShapeEq,\qquad
+\RespVacCarrier(x)\equiv0,\qquad
+\RespVacPhase(x)\equiv\phi_0
+\]
+for arbitrary \(s>0\) and \(\phi_0\in\mathbb R/2\pi\mathbb Z\). On each constant branch \(s\), the derived raw tuple is
+\[
+\RespRawReadout=s\,\RespShapeReadout,\qquad
+\RespRawRef=s,\qquad
+\RespRawCov=s^2\RespShapeCov,
+\]
+\[
+\RespRawRelax=s^2\RespShapeRelax,\qquad
+\RespRawWell=\RespShapeWell,\qquad
+\RespRawEq=s\,\RespShapeEq,
+\]
+so the entire raw positive vacuum orbit is generated from still more primitive substrate structure rather than inserted as terminal input.
+
+The same downstream chain survives unchanged. The same density/current block, the same composite primitive bridge-order block, the same phase-neutral minimizing branch, the same canonical profile
+\[
+\CurvProfileCan(x)=1+\RespShapeEq\,x^2
+=1+\frac{\RespRawEq}{\RespRawRef}x^2,
+\]
+and the same surviving dressed bridge map are recovered exactly. At the same time the deeper verdict is disciplined rather than inflated. The positive scale orbit is now derived, but it is not promoted to a genuine deeper substrate redundancy: the present orbit-modulus sector supplies no quotient identifying different constant \(s\). The earlier canonical normalization remains the disciplined representative choice. Likewise the global \(O(2)\) vacuum angle remains residual because this deeper layer supplies neither angular locking nor an angle quotient.
+\end{abstract}
+
+\section{Introduction}
+
+The exact-theory statement of \TheoryName{} is already in hand. The exact-closure note, foundations, dynamics, consistency, relativistic recovery, and flow geometry manuscripts already carry the flagship line at the level of a disciplined exact relativistic theory statement. The present note therefore does not try to strengthen the public theory claim. It acts only on the optional deeper derivational bridge below that already-positive line.
+
+At the level of that derivational bridge, the burden had already been narrowed sharply. The bridge-order-vacuum-amplitude/current-carrier-origin note reduced the deeper density/current block to a primitive vacuum-amplitude/current-carrier lift. The bridge-order-calibration-modulus-origin note then showed that this lift is itself the unique canonical normalized slice of a deeper raw positive vacuum orbit. What still remained open was deeper again and narrower again: whether the raw positive vacuum orbit itself can be derived from more primitive substrate structure, and whether the positive scale orbit appearing there should be read as a mere normalization device or as a genuine deeper redundancy.
+
+That is the exact burden of the present manuscript. It does not reopen an observer-side repair screen, it does not alter the already-fixed dressed bridge map, and it does not split off a standalone angle-decision note detached from deeper origin work. Instead it writes the smallest lower layer capable of generating the full raw orbit itself, then checks whether the same downstream chain survives and whether the deeper layer naturally supplies either a true scale quotient or a true angular quotient.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+This note stays strictly inside that boundary. Its positive claim is not that a unique ultraviolet completion has already been isolated. Its positive claim is narrower and structural: the raw positive vacuum orbit is no longer terminal input. It is generated exactly as the minimizing branch of a deeper orbit-modulus sector. The same downstream chain survives unchanged. At the same time, the present deeper layer does \emph{not} supply quotient data making the scale orbit or the global \(O(2)\) vacuum angle redundant. The honest verdict therefore remains narrower than a completed first-principles closure.
+
+\section{Fixed Local Family and Downstream Package}
+
+\begin{definition}[Bridge-curvature anchor and local family]
+\label{def:family}
+Let
+\begin{equation}
+\BridgeCurv \equiv R[\BridgeMetric]-2\Lambda_{\Sub}
+\label{eq:anchor}
+\end{equation}
+be the bridge-curvature scalar already present in the candidate substrate action. For every smooth positive profile
+\begin{equation}
+\CurvProfile:\mathbb R\to\mathbb R_{>0},
+\label{eq:positiveprofile}
+\end{equation}
+define the seed
+\begin{equation}
+\CurvSeed=\CurvProfile(\BridgeCurv)
+\label{eq:seed}
+\end{equation}
+and the local bridge-curvature density
+\begin{align}
+\mathcal L_{\mathrm{loc.curv}}[\CurvProfile]
+=\;&
+\CurvSeedMult\bigl(\CurvSeed-\CurvProfile(\BridgeCurv)\bigr)
+\nonumber\\
+&+\CurvQMult^{AI}\bigl(\CurvOneI_A^I-\CurvSeed\,\lambda_I\SpatialD_AQ^I\bigr)
++\CurvChiMult^A\bigl(\CurvOneChi_A-\CurvSeed\,\lambda_\chi\SpatialD_A\chi\bigr)
+\nonumber\\
+&+\CurvTransMult^A\bigl(\CurvOneW_A-\CurvSeed\,\lambda_WW_A^T\bigr)
++\ConstGamma^A\bigl(
+\ConstCurrent_A
+-\nu_I\CurvSeed^{-1}\CurvOneI_A^I
+-\nu_\chi\CurvSeed^{-1}\CurvOneChi_A
+-\nu_W\CurvSeed^{-1}\CurvOneW_A
+\bigr).
+\label{eq:locfamily}
+\end{align}
+\end{definition}
+
+\begin{definition}[Fixed downstream package]
+\label{def:downstream}
+The \emph{fixed downstream package} \(\DownPkg\) consists of:
+\begin{enumerate}
+    \item the reduced current and reduced density
+    \begin{equation}
+    \ConstCurrent_A
+    =
+    \mathfrak c_I\SpatialD_AQ^I
+    +\mathfrak c_\chi\SpatialD_A\chi
+    +\mathfrak c_WW_A^T,
+    \qquad
+    \SourceDensityRed=-\SpatialD^A\ConstCurrent_A;
+    \label{eq:pkgcurrent}
+    \end{equation}
+    \item the Hamiltonian-charge flux and continuity/Gauss-Poisson package
+    \begin{equation}
+    \HamChargeOmega
+    =
+    \int_{\Sigma_t}\SourceDensityRed\,d\mu_P
+    =
+    -\lim_{r\to\infty}\int_{S_r} n^A\ConstCurrent_A\,dA,
+    \label{eq:pkgcharge}
+    \end{equation}
+    \begin{equation}
+    -\LapPerp\FlowPot=4\pi G_N\,\SourceDensityRed,
+    \qquad
+    \SpatialD_A\FlowPot=\mathcal E_A;
+    \label{eq:pkgpoisson}
+    \end{equation}
+    \item the exterior Coulomb tail
+    \begin{equation}
+    \FlowPot
+    =
+    \CoulPot+\mathcal O(r^{-2}),
+    \qquad
+    \CoulPot(r)=\frac{G_N\,\HamChargeOmega}{r};
+    \label{eq:pkgcoul}
+    \end{equation}
+    \item the surviving dressed bridge map
+    \begin{equation}
+    g_{\mu\nu}^{\mathrm{dressed}}
+    =
+    g_{\mu\nu}^{\mathrm{br}}
+    +\SigmaIER_{\mu\nu}
+    +\SigmaDressSch{}_{\mu\nu}
+    +\SigmaRegPol{}_{\mu\nu},
+    \label{eq:pkgmetric}
+    \end{equation}
+    with the same matter-free activity, off-longitudinal \(Q/W\) cancellation, explicit cubic longitudinal completion, and quartic Coulomb self-response absorption already fixed in the earlier explicit candidate sequence.
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}[The downstream package is profile-blind]
+\label{prop:profileblind}
+For every smooth positive profile \(\CurvProfile\), eliminating the local sector \eqref{eq:locfamily} yields the same downstream package \(\DownPkg\).
+\end{proposition}
+
+\begin{proof}
+Variation with respect to \(\CurvQMult^{AI}\), \(\CurvChiMult^A\), and \(\CurvTransMult^A\) gives
+\[
+\CurvOneI_A^I=\CurvSeed\,\lambda_I\SpatialD_AQ^I,
+\qquad
+\CurvOneChi_A=\CurvSeed\,\lambda_\chi\SpatialD_A\chi,
+\qquad
+\CurvOneW_A=\CurvSeed\,\lambda_WW_A^T.
+\]
+Substituting these relations into the \(\ConstGamma^A\)-equation in \eqref{eq:locfamily} cancels every factor of \(\CurvSeed=\CurvProfile(\BridgeCurv)\) and forces
+\[
+\ConstCurrent_A
+=
+\nu_I\lambda_I\SpatialD_AQ^I
++\nu_\chi\lambda_\chi\SpatialD_A\chi
++\nu_W\lambda_WW_A^T.
+\]
+Therefore the reduced density, Hamiltonian-charge flux, continuity/Gauss-Poisson package, exterior Coulomb tail, and surviving dressed bridge map are independent of the chosen positive profile.
+\end{proof}
+
+\begin{remark}
+Proposition \ref{prop:profileblind} is the structural reason the present note can act only on the origin of the raw orbit while leaving the downstream bridge package fixed. Once the same continuation-side profile is recovered, no further downstream change is forced.
+\end{remark}
+
+\section{Primitive Orbit-Modulus Lift Below the Raw Orbit}
+
+\begin{definition}[Primitive orbit-shape data and orbit-modulus energy]
+\label{def:orbitlift}
+Fix positive constants
+\begin{equation}
+\RespShapeReadout>0,
+\qquad
+\RespShapeCov>0,
+\qquad
+\RespShapeRelax>0,
+\qquad
+\RespShapeWell>0,
+\qquad
+\RespShapeEq>0,
+\qquad
+\RespOrbitGrad>0,
+\label{eq:shapeconstants}
+\end{equation}
+and set
+\begin{equation}
+\RespShapeIso\equiv\frac{\RespShapeCov\,\RespShapeRelax}{\RespShapeCov+\RespShapeRelax}.
+\label{eq:shapeiso}
+\end{equation}
+Let
+\begin{equation}
+\RespOrbitField\in C^\infty(\mathbb R,\mathbb R_{>0}),
+\qquad
+\RespVacAmp\in C^\infty(\mathbb R,\mathbb R_{>0}),
+\qquad
+\RespVacPhase\in C^\infty(\mathbb R,\mathbb R),
+\qquad
+\RespVacCarrier\in C^\infty(\mathbb R,\mathbb R).
+\label{eq:orbitfields}
+\end{equation}
+Define the primitive orbit-modulus energy
+\begin{align}
+\RespOrbitEnergy[\RespOrbitField,\RespVacAmp,\RespVacPhase,\RespVacCarrier]
+\equiv\;&
+\int_{\mathbb R}\ProfWeight(x)\Bigl[
+\frac{\RespOrbitGrad}{2}\abs{\RespOrbitField'(x)}^2
++
+\frac{\RespShapeIso\,\RespOrbitField(x)^2}{2}\abs{\RespVacAmp'(x)}^2
+\Bigr]dx
+\nonumber\\
+&+
+\int_{\mathbb R}\ProfWeight(x)\Bigl[
+\frac{\RespShapeCov\,\RespOrbitField(x)^2}{2}\RespVacAmp(x)^2
+\abs{\RespVacPhase'(x)-\RespVacCarrier(x)}^2
+\Bigr]dx
+\nonumber\\
+&+
+\int_{\mathbb R}\ProfWeight(x)\Bigl[
+\frac{\RespShapeRelax\,\RespOrbitField(x)^2}{2}\RespVacAmp(x)^2
+\abs{\RespVacCarrier(x)}^2
+\Bigr]dx
+\nonumber\\
+&+
+\int_{\mathbb R}\ProfWeight(x)\Bigl[
+\frac{\RespShapeWell}{8}\bigl(\RespVacAmp(x)^2-\RespOrbitField(x)^2(\RespShapeEq)^2\bigr)^2
+\Bigr]dx.
+\label{eq:orbitenergy}
+\end{align}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:orbitlift} is the strict sense in which the present note sits one layer below the raw orbit. The primitive data are now the unit-reference shape block \((\RespShapeReadout,\RespShapeCov,\RespShapeRelax,\RespShapeWell,\RespShapeEq)\) together with the unanchored positive orbit modulus \(\RespOrbitField\). The readout coefficient \(\RespShapeReadout\) does not enter the vacuum energy directly, just as the corresponding raw readout coefficient entered the earlier downstream identifications rather than the raw vacuum energy itself.
+\end{remark}
+
+\begin{definition}[Positive raw-orbit action]
+\label{def:raworbitaction}
+For every \(\sigma>0\) and every positive representative tuple
+\[
+(q,U^{\mathrm{ref}},\kappa,\rho,\lambda,U^\ast),
+\]
+define
+\begin{equation}
+\sigma\odot(q,U^{\mathrm{ref}},\kappa,\rho,\lambda,U^\ast)
+\equiv
+\bigl(\sigma q,\sigma U^{\mathrm{ref}},\sigma^2\kappa,\sigma^2\rho,\lambda,\sigma U^\ast\bigr).
+\label{eq:orbitaction}
+\end{equation}
+The \emph{raw positive vacuum orbit generated by the primitive shape block} is the \(\mathbb R_{>0}\)-orbit of
+\begin{equation}
+\bigl(\RespShapeReadout,1,\RespShapeCov,\RespShapeRelax,\RespShapeWell,\RespShapeEq\bigr).
+\label{eq:orbitbase}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[Constant orbit branches recover the raw tuple and the calibration lift]
+\label{prop:branchraw}
+Fix \(s>0\) and restrict \eqref{eq:orbitenergy} to the constant orbit branch
+\begin{equation}
+\RespOrbitField(x)\equiv s.
+\label{eq:constbranch}
+\end{equation}
+Then the induced raw tuple is
+\begin{equation}
+\RespRawReadout=s\,\RespShapeReadout,
+\qquad
+\RespRawRef=s,
+\qquad
+\RespRawCov=s^2\RespShapeCov,
+\label{eq:rawfromshapeA}
+\end{equation}
+\begin{equation}
+\RespRawRelax=s^2\RespShapeRelax,
+\qquad
+\RespRawWell=\RespShapeWell,
+\qquad
+\RespRawEq=s\,\RespShapeEq,
+\label{eq:rawfromshapeB}
+\end{equation}
+with
+\begin{equation}
+\RespRawIso=s^2\RespShapeIso
+=
+\frac{\RespRawCov\,\RespRawRelax}{\RespRawCov+\RespRawRelax}.
+\label{eq:rawisofromshape}
+\end{equation}
+Consequently \eqref{eq:orbitenergy} reduces exactly to the raw vacuum energy
+\begin{align}
+\RespOrbitEnergy[s,\RespVacAmp,\RespVacPhase,\RespVacCarrier]
+=\;&
+\int_{\mathbb R}\ProfWeight(x)\Bigl[
+\frac{\RespRawIso}{2}\abs{\RespVacAmp'(x)}^2
++
+\frac{\RespRawCov}{2}\RespVacAmp(x)^2\abs{\RespVacPhase'(x)-\RespVacCarrier(x)}^2
+\Bigr]dx
+\nonumber\\
+&+
+\int_{\mathbb R}\ProfWeight(x)\Bigl[
+\frac{\RespRawRelax}{2}\RespVacAmp(x)^2\abs{\RespVacCarrier(x)}^2
++
+\frac{\RespRawWell}{8}\bigl(\RespVacAmp(x)^2-(\RespRawEq)^2\bigr)^2
+\Bigr]dx.
+\label{eq:rawenergyderived}
+\end{align}
+On the same branch the calibration-modulus data of the previous note are recovered exactly as
+\begin{equation}
+\RespScaleEq=s,
+\qquad
+\RespScaleReadout=\RespShapeReadout,
+\qquad
+\RespScaleAmpRef=1,
+\qquad
+\RespScaleCov=\RespShapeCov,
+\label{eq:scalefromshapeA}
+\end{equation}
+\begin{equation}
+\RespScaleRelax=\RespShapeRelax,
+\qquad
+\RespScaleWell=\RespShapeWell,
+\qquad
+\RespScaleAmpEq=\RespShapeEq.
+\label{eq:scalefromshapeB}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Substituting \eqref{eq:constbranch} into \eqref{eq:orbitenergy} yields
+\[
+\frac{s^2\RespShapeIso}{2}\abs{\RespVacAmp'(x)}^2,
+\qquad
+\frac{s^2\RespShapeCov}{2}\RespVacAmp(x)^2\abs{\RespVacPhase'(x)-\RespVacCarrier(x)}^2,
+\]
+\[
+\frac{s^2\RespShapeRelax}{2}\RespVacAmp(x)^2\abs{\RespVacCarrier(x)}^2,
+\qquad
+\frac{\RespShapeWell}{8}\bigl(\RespVacAmp(x)^2-s^2(\RespShapeEq)^2\bigr)^2.
+\]
+The identifications \eqref{eq:rawfromshapeA}--\eqref{eq:rawfromshapeB} therefore give \eqref{eq:rawenergyderived} directly, and \eqref{eq:rawisofromshape} is the harmonic-mean identity
+\[
+\frac{s^2\RespShapeCov\,s^2\RespShapeRelax}{s^2\RespShapeCov+s^2\RespShapeRelax}
+=
+s^2\frac{\RespShapeCov\,\RespShapeRelax}{\RespShapeCov+\RespShapeRelax}.
+\]
+The calibration-lift formulas \eqref{eq:scalefromshapeA}--\eqref{eq:scalefromshapeB} are the canonical-normalization relations of the earlier note applied to \eqref{eq:rawfromshapeA}--\eqref{eq:rawfromshapeB}:
+\[
+\RespScaleEq=\RespRawRef=s,
+\quad
+\RespScaleReadout=\frac{\RespRawReadout}{\RespRawRef}=\RespShapeReadout,
+\quad
+\RespScaleCov=\frac{\RespRawCov}{(\RespRawRef)^2}=\RespShapeCov,
+\]
+and likewise for \(\RespScaleRelax\), \(\RespScaleWell\), and \(\RespScaleAmpEq\).
+\end{proof}
+
+\begin{theorem}[The primitive orbit-modulus sector generates exactly the raw positive vacuum orbit]
+\label{thm:orbitminimizers}
+The minimizers of the primitive orbit-modulus energy \eqref{eq:orbitenergy} are exactly
+\begin{equation}
+\RespOrbitField(x)\equiv s,
+\qquad
+\RespVacAmp(x)\equiv s\,\RespShapeEq,
+\qquad
+\RespVacCarrier(x)\equiv0,
+\qquad
+\RespVacPhase(x)\equiv\phi_0
+\label{eq:orbitminimizers}
+\end{equation}
+for arbitrary \(s>0\) and \(\phi_0\in\mathbb R/2\pi\mathbb Z\). Under the branch-wise identification \eqref{eq:rawfromshapeA}--\eqref{eq:rawfromshapeB}, the set of minimizing branches is in bijection with the full raw positive vacuum orbit \eqref{eq:orbitaction} of the primitive base point \eqref{eq:orbitbase}.
+\end{theorem}
+
+\begin{proof}
+Every term in the integrand of \eqref{eq:orbitenergy} is nonnegative because \(\ProfWeight>0\), \(\RespOrbitField>0\), \(\RespVacAmp>0\), and all coefficients in \eqref{eq:shapeconstants} are positive. Therefore \(\RespOrbitEnergy\) is minimized exactly when
+\[
+\RespOrbitField'(x)=0,
+\qquad
+\RespVacAmp'(x)=0,
+\qquad
+\RespVacPhase'(x)-\RespVacCarrier(x)=0,
+\qquad
+\RespVacCarrier(x)=0,
+\]
+\[
+\RespVacAmp(x)^2=\RespOrbitField(x)^2(\RespShapeEq)^2
+\]
+for all \(x\). The first two relations force
+\[
+\RespOrbitField(x)\equiv s,
+\qquad
+\RespVacAmp(x)\equiv c
+\]
+for constants \(s>0\) and \(c>0\). The potential condition then gives \(c=s\,\RespShapeEq\). The carrier equation forces \(\RespVacPhase'(x)=0\), so \(\RespVacPhase(x)\equiv\phi_0\). This proves \eqref{eq:orbitminimizers}.
+
+Now fix \(s>0\). Proposition \ref{prop:branchraw} identifies the corresponding derived raw tuple exactly as
+\[
+\bigl(\RespRawReadout,\RespRawRef,\RespRawCov,\RespRawRelax,\RespRawWell,\RespRawEq\bigr)
+=
+s\odot\bigl(\RespShapeReadout,1,\RespShapeCov,\RespShapeRelax,\RespShapeWell,\RespShapeEq\bigr).
+\]
+Conversely every orbit element of Definition \ref{def:raworbitaction} arises from exactly one \(s>0\). Hence the minimizing branches and the full raw positive vacuum orbit are in bijection.
+\end{proof}
+
+\begin{remark}
+Theorem \ref{thm:orbitminimizers} is the central positive result of the present note. The raw positive vacuum orbit is no longer terminal input. It is generated exactly as the minimizing branch of a still more primitive orbit-modulus sector whose unit-reference shape data are \((\RespShapeReadout,\RespShapeCov,\RespShapeRelax,\RespShapeWell,\RespShapeEq)\).
+\end{remark}
+
+\section{Recovered Calibration Lift and Same Downstream Chain}
+
+\begin{corollary}[Same recovered density/current block]
+\label{cor:samedeepblock}
+On every minimizing branch \eqref{eq:orbitminimizers}, the same deeper density/current block is recovered:
+\begin{equation}
+\RespDeepReadout=\RespRawReadout=s\,\RespShapeReadout,
+\qquad
+\RespDeepDensityRef=(\RespRawRef)^2=s^2,
+\qquad
+\RespDeepTrack=\RespRawCov=s^2\RespShapeCov,
+\label{eq:deepfromshapeA}
+\end{equation}
+\begin{equation}
+\RespDeepRelax=\RespRawRelax=s^2\RespShapeRelax,
+\qquad
+\RespDeepWell=\RespRawWell=\RespShapeWell,
+\qquad
+\RespDeepDensityEq=(\RespRawEq)^2=s^2(\RespShapeEq)^2.
+\label{eq:deepfromshapeB}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+The bridge-order-density/current-origin note identifies
+\[
+\RespDeepReadout=\RespVacReadout,
+\qquad
+\RespDeepDensityRef=(\RespVacRef)^2,
+\qquad
+\RespDeepTrack=\RespVacCov,
+\]
+\[
+\RespDeepRelax=\RespVacRelax,
+\qquad
+\RespDeepWell=\RespVacWell,
+\qquad
+\RespDeepDensityEq=(\RespVacEq)^2.
+\]
+On the present minimizing branch, Proposition \ref{prop:branchraw} gives the raw vacuum tuple \eqref{eq:rawfromshapeA}--\eqref{eq:rawfromshapeB}, and that raw tuple is identified with the physical vacuum tuple exactly as in the previous note. Substituting those identities yields \eqref{eq:deepfromshapeA}--\eqref{eq:deepfromshapeB}.
+\end{proof}
+
+\begin{corollary}[Same composite primitive bridge-order block]
+\label{cor:sameorderblock}
+Eliminating \(\RespVacCarrier\) from \eqref{eq:rawenergyderived} yields the same composite primitive bridge-order field
+\begin{equation}
+\RespOrderField(x)
+=
+\RespVacAmp(x)
+\begin{pmatrix}
+\cos\RespVacPhase(x)\\
+\sin\RespVacPhase(x)
+\end{pmatrix},
+\label{eq:raworderfield}
+\end{equation}
+with the same recovered primitive bridge-order data
+\begin{equation}
+\RespOrderReadout=\RespRawReadout=s\,\RespShapeReadout,
+\qquad
+\RespOrderRef=\RespRawRef=s,
+\qquad
+\RespOrderStiff=\RespRawIso=s^2\RespShapeIso,
+\label{eq:orderfromshapeA}
+\end{equation}
+\begin{equation}
+\RespOrderQuartic=\RespRawWell=\RespShapeWell,
+\qquad
+\RespOrderEq=\RespRawEq=s\,\RespShapeEq.
+\label{eq:orderfromshapeB}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+The bridge-order-density/current-origin note shows that eliminating \(\RespVacCarrier\) from the primitive vacuum sector recovers the composite primitive bridge-order block with
+\[
+\RespOrderReadout=\RespVacReadout,
+\qquad
+\RespOrderRef=\RespVacRef,
+\qquad
+\RespOrderStiff=\RespVacIso,
+\qquad
+\RespOrderQuartic=\RespVacWell,
+\qquad
+\RespOrderEq=\RespVacEq.
+\]
+By Proposition \ref{prop:branchraw}, \(\RespVacIso=\RespRawIso=s^2\RespShapeIso\), and the remaining quantities are exactly the raw data \eqref{eq:rawfromshapeA}--\eqref{eq:rawfromshapeB}. This gives \eqref{eq:orderfromshapeA}--\eqref{eq:orderfromshapeB}.
+\end{proof}
+
+\begin{corollary}[Same microscopic and carrier data]
+\label{cor:samemicroscopic}
+The same microscopic and carrier data are recovered on every minimizing branch:
+\begin{equation}
+\RespMicroRef=\RespRawReadout\,\RespRawRef=s^2\RespShapeReadout,
+\qquad
+\RespMicroFluxCoeff=\frac{\RespRawIso}{\RespRawReadout^2}=\frac{\RespShapeIso}{\RespShapeReadout^2},
+\label{eq:microfromshapeA}
+\end{equation}
+\begin{equation}
+\RespMicroGap=\frac{\sqrt{\RespRawWell}\,\RespRawEq}{\RespRawReadout}
+=
+\frac{\sqrt{\RespShapeWell}\,\RespShapeEq}{\RespShapeReadout},
+\qquad
+\RespMicroEq=\RespRawReadout\,\RespRawEq=s^2\RespShapeReadout\,\RespShapeEq,
+\label{eq:microfromshapeB}
+\end{equation}
+and therefore
+\begin{equation}
+\RespNorm=\frac{1}{\RespRawReadout\,\RespRawRef}=\frac{1}{s^2\RespShapeReadout},
+\qquad
+\RespFluxCoeff=\frac{\RespShapeIso}{\RespShapeReadout^2},
+\qquad
+\RespGap=\frac{\sqrt{\RespShapeWell}\,\RespShapeEq}{\RespShapeReadout},
+\label{eq:carrierfromshapeA}
+\end{equation}
+\begin{equation}
+\RespBias=\frac{\RespRawWell\,(\RespRawEq)^3}{\RespRawReadout}
+=
+\frac{s^2\RespShapeWell\,(\RespShapeEq)^3}{\RespShapeReadout}.
+\label{eq:carrierfromshapeB}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+Substituting \eqref{eq:orderfromshapeA}--\eqref{eq:orderfromshapeB} into the already-fixed microscopic relations
+\[
+\RespMicroRef=\RespOrderReadout\,\RespOrderRef,
+\qquad
+\RespMicroFluxCoeff=\frac{\RespOrderStiff}{\RespOrderReadout^2},
+\]
+\[
+\RespMicroGap=\frac{\sqrt{\RespOrderQuartic}\,\RespOrderEq}{\RespOrderReadout},
+\qquad
+\RespMicroEq=\RespOrderReadout\,\RespOrderEq
+\]
+gives \eqref{eq:microfromshapeA}--\eqref{eq:microfromshapeB}. The carrier relations
+\[
+\RespNorm=\frac{1}{\RespMicroRef},
+\qquad
+\RespFluxCoeff=\RespMicroFluxCoeff,
+\qquad
+\RespGap=\RespMicroGap,
+\qquad
+\RespBias=\RespGap^2\,\RespMicroEq
+\]
+then yield \eqref{eq:carrierfromshapeA}--\eqref{eq:carrierfromshapeB}.
+\end{proof}
+
+\begin{corollary}[Same phase-neutral minimizing branch]
+\label{cor:samephasebranch}
+After branch-wise identification with the raw tuple, the minimizing branch remains exactly
+\begin{equation}
+\RespVacAmp(x)\equiv\RespRawEq,
+\qquad
+\RespVacCarrier(x)\equiv0,
+\qquad
+\RespVacPhase(x)\equiv\phi_0
+\label{eq:rawphasebranch}
+\end{equation}
+for arbitrary constant \(\phi_0\in\mathbb R/2\pi\mathbb Z\). Consequently
+\begin{equation}
+\RespOrderCurrent(x)=\RespVacAmp(x)^2\RespVacPhase'(x)=0,
+\label{eq:rawzeroordercurrent}
+\end{equation}
+so the same phase-neutral zero-current minimizing branch survives exactly.
+\end{corollary}
+
+\begin{proof}
+This is Theorem \ref{thm:orbitminimizers} rewritten through the branch-wise raw identifications \eqref{eq:rawfromshapeA}--\eqref{eq:rawfromshapeB}. Equation \eqref{eq:rawzeroordercurrent} follows immediately because \(\RespVacPhase'(x)=0\).
+\end{proof}
+
+\begin{corollary}[Same response scale and canonical profile]
+\label{cor:sameprofile}
+On every minimizing branch,
+\begin{equation}
+\RespSusEq
+=
+\frac{\RespRawEq}{\RespRawRef}
+=
+\frac{\RespOrderEq}{\RespOrderRef}
+=
+\frac{\RespMicroEq}{\RespMicroRef}
+=
+\RespShapeEq.
+\label{eq:sigmafromshape}
+\end{equation}
+Hence
+\begin{equation}
+\CurvScale^4=\RespSusEq=\RespShapeEq=\frac{\RespRawEq}{\RespRawRef},
+\label{eq:scalefromshape}
+\end{equation}
+and the canonical profile remains
+\begin{equation}
+\CurvProfileCan(x)=1+\RespSusEq x^2=1+\RespShapeEq\,x^2=1+\frac{\RespRawEq}{\RespRawRef}x^2.
+\label{eq:canonicalprofile}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+By \eqref{eq:orderfromshapeA}--\eqref{eq:orderfromshapeB},
+\[
+\frac{\RespOrderEq}{\RespOrderRef}=\frac{s\,\RespShapeEq}{s}=\RespShapeEq.
+\]
+By \eqref{eq:microfromshapeA}--\eqref{eq:microfromshapeB},
+\[
+\frac{\RespMicroEq}{\RespMicroRef}
+=
+\frac{s^2\RespShapeReadout\,\RespShapeEq}{s^2\RespShapeReadout}
+=
+\RespShapeEq.
+\]
+The raw ratio is also \(\RespRawEq/\RespRawRef=\RespShapeEq\) by \eqref{eq:rawfromshapeA}--\eqref{eq:rawfromshapeB}. This proves \eqref{eq:sigmafromshape}. Equation \eqref{eq:scalefromshape} is the already-fixed response-scale identification, and integrating the profile reconstruction law
+\[
+\CurvProfile''(x)=2\RespSusEq,
+\qquad
+\CurvProfile(0)=1,
+\qquad
+\CurvProfile'(0)=0
+\]
+gives \eqref{eq:canonicalprofile}.
+\end{proof}
+
+\begin{theorem}[The downstream package and dressed bridge map stay fixed]
+\label{thm:fixedpackage}
+Substituting the canonical profile \eqref{eq:canonicalprofile} obtained from the primitive orbit-modulus lift into the local bridge-curvature family \eqref{eq:locfamily} reproduces the same downstream package \(\DownPkg\) and the same surviving dressed bridge map \eqref{eq:pkgmetric}.
+\end{theorem}
+
+\begin{proof}
+Corollary \ref{cor:sameprofile} gives exactly the same continuation-side quadratic profile already selected earlier in the off-shell profile sequence, now derived from the primitive orbit-shape equilibrium ratio \(\RespShapeEq\). Proposition \ref{prop:profileblind} then implies that the reduced current, Hamiltonian-charge flux, continuity/Gauss-Poisson package, exterior Coulomb tail, and surviving dressed bridge map are unchanged.
+\end{proof}
+
+\begin{remark}
+The present deeper step therefore preserves everything that had already become positive downstream. It changes only the deepest origin story of the raw orbit itself: the raw orbit is now generated from a still more primitive orbit-shape sector rather than inserted as terminal data.
+\end{remark}
+
+\section{Scale-Orbit and Vacuum-Angle Status}
+
+\begin{theorem}[The positive scale orbit is derived but not yet a genuine deeper redundancy]
+\label{thm:scalestatus}
+The primitive orbit-modulus sector derives the full positive raw orbit, but it does not quotient that orbit. Different constant values \(s>0\) in \eqref{eq:orbitminimizers} are not identified by any gauge symmetry or quotient data supplied by the present deeper layer. Consequently the positive scale orbit remains a canonical-normalization orbit rather than a genuine deeper substrate redundancy.
+\end{theorem}
+
+\begin{proof}
+Theorem \ref{thm:orbitminimizers} shows that the present deeper sector produces a flat positive family of minimizers parameterized by \(s>0\). Proposition \ref{prop:branchraw} then maps different \(s\) to different raw tuples
+\[
+\bigl(\RespRawReadout,\RespRawRef,\RespRawCov,\RespRawRelax,\RespRawWell,\RespRawEq\bigr)
+=
+\bigl(s\,\RespShapeReadout,s,s^2\RespShapeCov,s^2\RespShapeRelax,\RespShapeWell,s\,\RespShapeEq\bigr).
+\]
+The same change propagates to the recovered density/current block \eqref{eq:deepfromshapeA}--\eqref{eq:deepfromshapeB}, the primitive bridge-order block \eqref{eq:orderfromshapeA}--\eqref{eq:orderfromshapeB}, and the microscopic amplitudes \eqref{eq:microfromshapeA}--\eqref{eq:microfromshapeB}. Nothing in Definitions \ref{def:orbitlift} and \ref{def:raworbitaction} identifies two different constants \(s_1\neq s_2\) as the same physical point, and no quotient data are adjoined that would remove that distinction.
+
+What the present note does supply is a privileged comparison slice: the unit-reference primitive shape block \eqref{eq:orbitbase}. The earlier canonical normalization is therefore explained, but not replaced by a true redundancy. It remains the disciplined representative choice by which orbit branches are compared. Hence the scale orbit is derived but not quotiented.
+\end{proof}
+
+\begin{theorem}[The deeper raw-orbit layer leaves the global \(O(2)\) angle residual]
+\label{thm:angleresidual}
+The primitive orbit-modulus sector \eqref{eq:orbitenergy} supplies neither an anisotropic locking term for \(\RespVacPhase\) nor a quotient identifying different constant vacuum angles. Consequently the global \(O(2)\) vacuum angle remains genuinely residual on the deeper raw-orbit branch.
+\end{theorem}
+
+\begin{proof}
+The phase enters \eqref{eq:orbitenergy} only through the derivative combination \(\RespVacPhase'-\RespVacCarrier\). By Theorem \ref{thm:orbitminimizers}, the minimizing branch is
+\[
+\RespOrbitField(x)\equiv s,
+\qquad
+\RespVacAmp(x)\equiv s\,\RespShapeEq,
+\qquad
+\RespVacCarrier(x)\equiv0,
+\qquad
+\RespVacPhase(x)\equiv\phi_0
+\]
+for arbitrary constants \(s>0\) and \(\phi_0\in\mathbb R/2\pi\mathbb Z\). No term in \eqref{eq:orbitenergy} singles out one distinguished \(\phi_0\), and no quotient data are added that identify different constant angles. Therefore the deeper raw-orbit layer changes neither the minimizing-angle family nor its status: the global \(O(2)\) vacuum angle remains residual.
+\end{proof}
+
+\begin{remark}
+Theorems \ref{thm:scalestatus} and \ref{thm:angleresidual} are deliberately disciplined. The present note does not deny that some still deeper layer could eventually anchor, quotient, or lock these moduli. It says only that the present deeper layer does not do so. At this scope the scale orbit is derived but not quotiented, and the global angle remains residual.
+\end{remark}
+
+\section{Claim Boundary}
+
+This note does not claim that the primitive orbit-modulus energy \eqref{eq:orbitenergy} is the unique ultraviolet completion of the bridge-curvature response line. It does not claim that every conceivable deeper substrate continuation must reduce to the specific unit-reference shape block \((\RespShapeReadout,\RespShapeCov,\RespShapeRelax,\RespShapeWell,\RespShapeEq)\), and it does not claim that the positive scale orbit or the residual global \(O(2)\) vacuum angle have already been removed by a true quotient. Its disciplined verdict is narrower: the raw positive vacuum orbit itself is now derived from a still more primitive substrate sector, and the exact same downstream package survives unchanged.
+
+Its positive result is therefore structural rather than observer-level. The primitive orbit-modulus sector generates exactly the full raw positive vacuum orbit, recovers the earlier calibration-modulus lift branchwise, reproduces the same density/current block and the same composite primitive bridge-order block, preserves the same phase-neutral minimizing branch, recovers the same response scale and canonical profile, and leaves the same downstream package and surviving dressed bridge map fixed.
+
+The next honest burden, if the derivational line continues, is deeper again. It is no longer the raw-orbit slot itself. It is whether the unit-reference orbit-shape block and the unanchored positive orbit modulus can be derived, anchored, or quotiented by still more primitive substrate structure, and whether any such further layer naturally changes the scale-orbit or vacuum-angle verdict. Unless such a later layer genuinely supplies quotient or locking structure, the present disciplined reading should remain in force.
+
+\section{Conclusion}
+
+The live burden below the calibration-modulus note has now been resolved in the intended way. The raw positive vacuum orbit is no longer terminal input. It is generated exactly as the minimizing branch of a deeper primitive orbit-modulus sector. That is the positive result of this manuscript.
+
+At the same time, the downstream derivational chain is unchanged. The same recovered density/current block, the same composite primitive bridge-order block, the same phase-neutral minimizing branch, the same canonical profile, and the same surviving dressed bridge map all persist exactly. The deeper verdict is also now sharper. The positive scale orbit is derived, but the present layer does not supply a true quotient, so canonical normalization remains the honest representative choice rather than a proved redundancy. Likewise the global \(O(2)\) vacuum angle remains residual. The next open burden, if the line continues, is therefore deeper still: a still more primitive origin, anchoring, or quotient for the orbit-shape block itself.
+
+\end{document}

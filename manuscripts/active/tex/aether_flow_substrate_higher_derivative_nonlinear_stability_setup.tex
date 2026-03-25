@@ -1,0 +1,353 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal{A}}
+\newcommand{\BridgeMetric}{\mathfrak{g}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Higher-Derivative Quartic Branch Narrowest Honest Nonlinear-Stability Setup}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The admissible-background route of the higher-derivative quartic branch has now reached its present disciplined endpoint: a broader theorem on uniformly controlled regions, a recorded obstruction to automatic extension beyond uniform control, and a negative result for the first locally finite summable patch-control weakening test. The next major burden is therefore nonlinear stability. At the present claim boundary, however, that burden cannot yet be posed as a theorem on an unspecified nonlinear branch.
+
+This manuscript fixes the minimum structure that must be stated before a legitimate stability problem exists. First, it defines a \emph{quartic-compatible nonlinear completion}: a nonlinear substrate completion that preserves the same bridge metric and matter route, reduces on the flat admissible background to the already-recorded quartic quadratic branch,
+\[
+\mathcal L_{\sigma,\mathrm{eff},4}^{(2)}
+=
+-\frac{m_S^2}{2}\bigl(\partial_0\sigma-\sigma_0\phi\bigr)^2
+-\frac{1}{2}\sigma \frac{\lambda_4}{M_*^2}(-\nabla^2)^2 \sigma,
+\]
+reproduces the same local curved-background quartic hierarchy, keeps the auxiliary blocks uniformly positive, and introduces no new observer-accessible principal term with more than two derivatives along the ordered flow. Second, it states the narrowest honest first-pass stability problem: a conditional small-data Cauchy stability setup around the flat exact-closure background, with the nonmetric \(U\)- and \(Q\)-sector variables remaining constrained or uniformly gapped.
+
+For initial data \((\gamma_{ij},K_{ij};\sigma,\pi_\sigma;\psi,\pi_\psi)\) on \(\Sigma_0\simeq\mathbb R^3\), the natural control norm is
+\[
+\mathcal E_N
+\equiv
+\|\gamma-\delta\|_{H^N}^2
++ \|K\|_{H^{N-1}}^2
++ \|\sigma\|_{H^{N-1}}^2
++ \frac{1}{m_S^2}\|\pi_\sigma\|_{H^{N-1}}^2
++ \frac{\lambda_4}{M_*^2}\|\nabla_\gamma^2 \sigma\|_{H^{N-1}}^2
++ \mathcal E_N^{\mathrm{matter}},
+\]
+together with the norm-level non-ultrasoft dominance condition
+\[
+\frac{\lambda_4}{M_*^2}\|\nabla_\gamma^2 \sigma\|_{H^{N-1}}^2
+\le
+\delta\,
+\frac{1}{m_S^2}\|\pi_\sigma\|_{H^{N-1}}^2,
+\qquad
+0<\delta\ll 1.
+\]
+The resulting first stability target is local well-posedness, constraint propagation, persistence of auxiliary positivity and single-metric observer access, and a continuation criterion controlling \(\mathcal E_N\). This note does not prove those statements. It defines the smallest nonlinear-stability problem that can now be asked honestly.
+\end{abstract}
+
+\section{Introduction}
+
+The higher-derivative quartic branch has now been carried through the entire admissible-background route currently supported by the mathematics on record. The active manuscript sequence contains the flat-background exact-closure result, the bridge-metric matter-coupling gate, the recovery-compatibility gate, the local curved-background continuation, the admissible-background requirements note, the broader theorem on uniformly controlled regions, the obstruction to automatic extension, and the negative result for the first concrete weakening of the finite-overlap gluing hypothesis.
+
+That sequence changes the meaning of ``next step.'' The immediate burden is no longer another minimal theorem-widening variation. It is nonlinear stability. But that burden must still be stated with the same discipline as the rest of the branch program. The current notes do not yet fix a unique full nonlinear covariant completion of the quartic branch. Without that missing input, one does not yet have a unique principal symbol, a unique nonlinear constraint algebra, or a unique energy functional. Nonlinear stability cannot honestly be posed as a theorem before that issue is faced.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays within that boundary. It does not prove nonlinear stability. It does not fix a unique completed substrate dynamics. It identifies the minimum nonlinear-completion burden that must be stated first and then formulates the narrowest honest first stability problem for the surviving quartic branch.
+
+\section{Why Nonlinear Completion Must Be Fixed First}
+
+The current branch data already determine several important structures. The bridge metric remains
+\begin{equation}
+\BridgeMetric_{AB}=G_{AB}-2U_AU_B,
+\label{eq:bridge}
+\end{equation}
+the observer-accessible matter route remains
+\begin{equation}
+S_{\mathrm{matter}}[\Xi^*\BridgeMetric,\psi]
+=
+S_{\mathrm{matter}}[g,\psi],
+\label{eq:matterroute}
+\end{equation}
+and the quadratic quartic representative on the collapsed-scalar baseline is
+\begin{equation}
+\mathcal L_{\sigma,\mathrm{eff},4}^{(2)}
+=
+-\frac{m_S^2}{2}\bigl(\partial_0\sigma-\sigma_0\phi\bigr)^2
+-\frac{1}{2}\sigma\,\mathcal B_4(-\nabla^2)\,\sigma,
+\qquad
+\mathcal B_4(-\nabla^2)=\frac{\lambda_4}{M_*^2}(-\nabla^2)^2.
+\label{eq:quadraticquartic}
+\end{equation}
+On slowly varying admissible backgrounds, the same branch reduces locally to
+\begin{equation}
+\mathcal B_{4,\mathrm{cov}}
+=
+\frac{\lambda_4}{M_*^2}(-D^2)^2
++ \mathcal O\!\left(\frac{\mathcal R\,D^2}{M_*^2}\right)
++ \mathcal O\!\left(\frac{\nabla\mathcal R\,D}{M_*^3}\right)
++ \mathcal O\!\left(\frac{\mathcal R^2}{M_*^2}\right).
+\label{eq:covquartic}
+\end{equation}
+
+\begin{proposition}[The current branch data do not yet determine a nonlinear stability theorem]
+The recorded quartic branch results \eqref{eq:bridge}--\eqref{eq:covquartic} are insufficient by themselves to define a nonlinear stability theorem. In particular, they do not yet fix:
+\begin{enumerate}
+    \item a unique nonlinear principal part for the coupled metric--scalar system
+    \item a unique nonlinear constraint system for the \(U\)- and \(Q\)-sector variables
+    \item a unique coercive high-order energy controlling the quartic scalar sector.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Equation \eqref{eq:quadraticquartic} fixes only the quadratic flat-background reduction of the quartic branch, while \eqref{eq:covquartic} fixes only its local curved-background continuation at observer-accessible quadratic and WKB-style scope. Many nonlinear completions can share those same lower-order reductions while differing in higher-order metric--scalar couplings, in whether the \(U\)- and \(Q\)-sector variables remain auxiliary, and in whether new higher ordered-flow derivatives appear in the nonlinear principal part. Those differences change the principal symbol, the constraint propagation problem, and the form of any energy estimate. Therefore the currently recorded data do not by themselves define a unique nonlinear stability theorem.
+\end{proof}
+
+\begin{remark}
+Proposition 1 is not a retreat from the branch results already obtained. It is the correct reason the next step must begin with a setup note rather than a theorem claim.
+\end{remark}
+
+\section{Quartic-Compatible Nonlinear Completion}
+
+\begin{definition}[Quartic-compatible nonlinear completion]
+A \emph{quartic-compatible nonlinear completion} of the higher-derivative branch is a nonlinear substrate action
+\begin{equation}
+S_{\mathrm{comp}}[G,U,S,Q,\psi]
+=
+S_{\mathrm{cand}}[G,U,S,Q,\psi]
++ \Delta S_{\mathrm{quartic,nl}}[G,U,S,Q]
+\label{eq:Scomp}
+\end{equation}
+with the following properties.
+\begin{enumerate}
+    \item \textbf{Same bridge and matter route.} The bridge metric is still \eqref{eq:bridge}, and observer-accessible matter still couples only through \eqref{eq:matterroute}.
+    \item \textbf{Correct flat-background reduction.} Linearization about the homogeneous admissible bridge background
+    \begin{equation}
+    \bar G_{AB}=\delta_{AB},
+    \qquad
+    \bar U^A=\delta^A{}_0,
+    \qquad
+    \bar S=\sigma_0X^0,
+    \qquad
+    \bar Q^I=0
+    \label{eq:flatbackground}
+    \end{equation}
+    reproduces the already-recorded quartic quadratic branch \eqref{eq:quadraticquartic}, with no unsuppressed \(k^0\) or \(k^2\) scalar remainder.
+    \item \textbf{Correct local curved reduction.} On slowly varying admissible backgrounds, the reduced scalar operator still takes the local form \eqref{eq:covquartic} at the present scope.
+    \item \textbf{No new higher ordered-flow principal term.} The observer-accessible principal part of the completion contains no new term with more than two derivatives along the ordered flow beyond the existing \(m_S^2(\pounds_{\bar u}\sigma-\sigma_0\phi)^2\) block.
+    \item \textbf{Uniform positivity.} The completion preserves
+    \begin{equation}
+    m_S^2\ge m_{S,\min}^2>0,
+    \qquad
+    \widehat M_{IJ}\ge m_{Q,\min}^2\delta_{IJ},
+    \qquad
+    \lambda_4>0
+    \label{eq:positivity}
+    \end{equation}
+    on the regime claimed.
+    \item \textbf{Auxiliary closure or uniform gap.} The nonmetric \(U\)- and \(Q\)-sector variables remain either algebraically constrained, elliptically determined, or uniformly gapped so that no additional observer-accessible tensor or transverse-vector propagating channel is introduced at the same scope.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition 1 deliberately does not pick a unique \(\Delta S_{\mathrm{quartic,nl}}\). Its purpose is narrower: it isolates the minimum nonlinear structure that any honest first stability problem must state explicitly.
+\end{remark}
+
+\begin{proposition}[Minimum completion burden before stability]
+Any honest first nonlinear-stability problem for the quartic branch must at least fix one quartic-compatible nonlinear completion in the sense of Definition 1.
+\end{proposition}
+
+\begin{proof}
+Without Definition 1 one cannot know whether the nonlinear branch preserves the same matter route, whether the \(q^I\), \(\chi\), and \(V_T^i\) sectors remain auxiliary, whether new higher ordered-flow derivatives spoil the principal structure, or whether the quartic scalar block remains coercive. Those are exactly the data needed to formulate a Cauchy problem and an energy estimate. Therefore the minimum burden before any stability question is the choice of at least one quartic-compatible completion.
+\end{proof}
+
+\section{Narrow First-Pass Background and Initial Data}
+
+The present note uses the flat exact-closure background as the narrowest honest first-pass stability background. On the observer side this is Minkowski spacetime,
+\begin{equation}
+\bar g_{\mu\nu}=\eta_{\mu\nu},
+\qquad
+\bar u^\mu=\delta^\mu{}_0,
+\label{eq:minkowski}
+\end{equation}
+and on the substrate side it is the pullback of \eqref{eq:flatbackground}.
+
+\begin{definition}[Narrow first-pass nonlinear stability data]
+Fix a quartic-compatible nonlinear completion. Let \(\Sigma_0\simeq \mathbb R^3\) be an asymptotically flat Cauchy hypersurface. The \emph{narrow first-pass nonlinear stability data} are:
+\begin{enumerate}
+    \item gravitational data \((\gamma_{ij},K_{ij})\) on \(\Sigma_0\)
+    \item quartic scalar data \((\sigma,\pi_\sigma)\), where
+    \begin{equation}
+    \pi_\sigma
+    \equiv
+    m_S^2\bigl(\pounds_u \sigma-\sigma_0\phi\bigr)\Big|_{\Sigma_0}
+    \label{eq:pisigma}
+    \end{equation}
+    is the canonical momentum of the reduced scalar channel
+    \item matter data \((\psi,\pi_\psi)\) for any chosen healthy matter sector
+    \item any auxiliary data required by the completion, subject to the algebraic or elliptic auxiliary constraints implied by Definition 1.
+\end{enumerate}
+These data must satisfy the ordinary Einstein Hamiltonian and momentum constraints together with the completion-dependent auxiliary constraints, and they must approach the flat background \((\delta_{ij},0;0,0)\) at spatial infinity.
+\end{definition}
+
+\begin{definition}[Quartic small-data norm]
+Fix an integer \(N\ge 6\). On a time slice \(\Sigma_t\), define
+\begin{align}
+\mathcal E_N(t)
+&\equiv
+\|\gamma-\delta\|_{H^N(\Sigma_t)}^2
++ \|K\|_{H^{N-1}(\Sigma_t)}^2
+\nonumber\\
+&\quad
++ \|\sigma\|_{H^{N-1}(\Sigma_t)}^2
++ \frac{1}{m_S^2}\|\pi_\sigma\|_{H^{N-1}(\Sigma_t)}^2
++ \frac{\lambda_4}{M_*^2}\|\nabla_\gamma^2 \sigma\|_{H^{N-1}(\Sigma_t)}^2
++ \mathcal E_N^{\mathrm{matter}}(t),
+\label{eq:EN}
+\end{align}
+where \(\nabla_\gamma\) is the Levi-Civita connection of \(\gamma_{ij}\), and \(\mathcal E_N^{\mathrm{matter}}(t)\) is the standard positive Sobolev energy of the chosen matter model.
+\end{definition}
+
+\begin{definition}[Norm-level non-ultrasoft dominance]
+The quartic branch is said to satisfy its \emph{norm-level non-ultrasoft dominance condition} on \(\Sigma_t\) if
+\refstepcounter{equation}
+\begin{equation*}
+\frac{\lambda_4}{M_*^2}\|\nabla_\gamma^2 \sigma\|_{H^{N-1}(\Sigma_t)}^2
+\le
+\delta\,
+\frac{1}{m_S^2}\|\pi_\sigma\|_{H^{N-1}(\Sigma_t)}^2
+\tag{\theequation}
+\label{eq:normepsilon}
+\end{equation*}
+for some fixed \(0<\delta\ll 1\).
+\end{definition}
+
+\begin{remark}
+Equation \eqref{eq:normepsilon} is the norm-level analogue of the earlier pointwise recovery-compatible condition \(\varepsilon_4\ll 1\). It is not yet a theorem. It is the smallest nonlinear bookkeeping device that keeps the quartic spatial block subordinate to the existing time-derivative block in the intended small-data regime.
+\end{remark}
+
+\section{Narrowest Honest First Stability Target}
+
+\begin{proposition}[Narrowest honest first nonlinear-stability problem]
+At the present claim boundary, the narrowest honest first nonlinear-stability problem for the quartic branch is the following conditional small-data Cauchy problem.
+\begin{enumerate}
+    \item Choose one quartic-compatible nonlinear completion in the sense of Definition 1.
+    \item Pose narrow first-pass data of Definition 2 on \(\Sigma_0\simeq\mathbb R^3\) with
+    \begin{equation}
+    \mathcal E_N(0)\le \varepsilon^2,
+    \qquad
+    0<\varepsilon\ll 1,
+    \label{eq:smallness}
+    \end{equation}
+    and the norm-level dominance condition \eqref{eq:normepsilon} at \(t=0\).
+    \item Prove existence of a maximal development on some interval \([0,T_{\max})\) such that:
+    \begin{enumerate}
+        \item the Einstein and auxiliary constraints propagate
+        \item the positivity conditions \eqref{eq:positivity} persist
+        \item the auxiliary sectors remain constrained or uniformly gapped with no new observer-accessible tensor or transverse-vector channel
+        \item the solution obeys a continuation criterion of the schematic form
+        \begin{equation}
+        \sup_{0\le t<T}\mathcal E_N(t)\le C\,\mathcal E_N(0),
+        \qquad
+        \sup_{0\le t<T}
+        \frac{\lambda_4}{M_*^2}\|\nabla_\gamma^2 \sigma\|_{H^{N-1}}^2
+        \le 2\delta\,
+        \sup_{0\le t<T}
+        \frac{1}{m_S^2}\|\pi_\sigma\|_{H^{N-1}}^2
+        \label{eq:continuation}
+        \end{equation}
+        on every compact time interval \([0,T)\subset [0,T_{\max})\).
+    \end{enumerate}
+\end{enumerate}
+Neither arbitrary-background stability nor global asymptotic stability is the first honest target at the current scope.
+\end{proposition}
+
+\begin{proof}
+Propositions 1 and 2 show that the nonlinear principal structure and constraint content must first be fixed by a quartic-compatible completion. The flat exact-closure background is the narrowest background on which the branch already has explicit quadratic control, explicit positivity data, and an exact coefficient-level reduction. Theorem-route widening has already reached its present endpoint, so the first stability question should not reintroduce arbitrary admissible backgrounds before the flat problem is even posed. The small-data Cauchy problem stated above is therefore the narrowest honest first target. Any broader statement would add a burden not yet justified by the current manuscripts.
+\end{proof}
+
+\begin{corollary}[What the next manuscript after this setup should do]
+The next stability manuscript should not yet claim a full global nonlinear theorem. It should first choose one explicit quartic-compatible completion and derive the corresponding reduced evolution, constraint, and continuation system around the flat exact-closure background.
+\end{corollary}
+
+\begin{proof}
+This is exactly the remaining unperformed step after Proposition 3.
+\end{proof}
+
+\section{Immediate Post-Setup Tasks}
+
+Once the setup of Proposition 3 is accepted, the next tasks are specific.
+\begin{enumerate}
+    \item choose one explicit quartic-compatible nonlinear interaction set \(\Delta S_{\mathrm{quartic,nl}}\)
+    \item derive its \(3+1\) reduced evolution equations and completion-dependent auxiliary constraints
+    \item construct a coercive high-order energy whose leading scalar terms match \eqref{eq:EN}
+    \item prove a first local well-posedness and continuation criterion before asking any longer-time decay or global result.
+\end{enumerate}
+
+\begin{remark}
+This is the correct sense in which the active burden now shifts to nonlinear stability. The shift is real, but the first stability pass remains conditional, flat-background, and local-in-time until the completion and energy architecture are fixed explicitly.
+\end{remark}
+
+\section{What This Note Establishes and What It Does Not}
+
+The present note establishes the following.
+\begin{enumerate}
+    \item It identifies the minimum nonlinear-completion burden that must be fixed before a stability problem is well posed.
+    \item It defines quartic-compatible nonlinear completions that preserve the current branch data and claim boundary.
+    \item It states the narrow first-pass Cauchy data and the corresponding quartic small-data norm.
+    \item It records the narrowest honest first nonlinear-stability target at current scope.
+\end{enumerate}
+
+It does not establish the following.
+\begin{enumerate}
+    \item It does not pick a unique nonlinear completion.
+    \item It does not prove local well-posedness.
+    \item It does not prove global nonlinear stability.
+    \item It does not widen the admissible-background theorem.
+    \item It does not complete a first-principles substrate derivation of Einsteinian gravity.
+\end{enumerate}
+
+\section{Conclusion}
+
+The quartic branch has now passed as far through the admissible-background route as the current mathematics honestly allows. The next burden is nonlinear stability, but that burden must itself be posed carefully. The current manuscripts fix the branch strongly enough to identify the right first question and strongly enough to exclude broader premature ones.
+
+That first question is now explicit. One must choose a quartic-compatible nonlinear completion preserving the existing bridge, matter route, flat-background quartic reduction, and local curved-background hierarchy, and then study the corresponding small-data Cauchy problem around the flat exact-closure background. Only after that conditional, local-in-time, flat-background setup is made concrete does a genuine nonlinear-stability theorem become a well-posed target.
+
+\end{document}

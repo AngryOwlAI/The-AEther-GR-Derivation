@@ -1,0 +1,533 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal{A}}
+\newcommand{\BridgeMetric}{\mathfrak{g}}
+\newcommand{\Ell}{\mathcal{L}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Higher-Derivative Quartic Branch First Local Well-Posedness and Continuation with Auxiliary Elliptic Control}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The explicit-completion note fixed one definite nonlinear target for the surviving higher-derivative quartic branch: the explicit minimal quartic-compatible completion \(S_{\mathrm{min},4}\) and its reduced Einstein--quartic-scalar \(3+1\) system with slice-wise auxiliary constraints for the \(Q\)- and \(U\)-sector variables. The next burden is therefore no longer to choose a completion. It is to prove the first local well-posedness and continuation statement for that chosen branch.
+
+This manuscript performs that next step at the narrowest honest scope. It works on asymptotically flat perturbations of the flat exact-closure background, fixes maximal spatial-harmonic gauge, and sharpens the completion assumptions to a \emph{strict auxiliary elliptic-control regime}
+\[
+m_S^2\ge m_{S,\min}^2>0,\qquad
+\lambda_4\ge \lambda_{4,\min}>0,\qquad
+\widehat M_{IJ}\xi^I\xi^J\ge m_{Q,\min}^2|\xi|^2,
+\]
+\[
+\kappa_\theta\ge \kappa_{\theta,\min}>0,
+\qquad
+\kappa_\Omega\ge \kappa_{\Omega,\min}>0,
+\]
+so that the lapse, shift, gapped \(Q\)-sector, longitudinal ordered-flow potential, and transverse ordered-flow part are all determined by uniformly elliptic slice equations. In that regime the closed high-order control quantity
+\[
+\mathfrak E_N
+=
+\mathcal E_N^{\mathrm{min},4}
+\quad + \|N-1\|_{H^{N+1}}^2
+\quad + \|\beta\|_{H^{N+1}}^2
+\quad + \|Q\|_{H^N}^2
+\quad + \|\chi\|_{H^N}^2
+\quad + \|W^T\|_{H^N}^2
+\]
+is equivalent to the propagating Einstein--quartic-scalar energy and obeys the a priori estimate
+\[
+\frac{d}{dt}\mathfrak E_N(t)
+\le
+C_N\bigl(1+\mathfrak E_N(t)^{1/2}\bigr)\mathfrak E_N(t)
+\]
+for \(N\ge 6\). A standard iteration for the resulting mixed hyperbolic--elliptic system therefore gives a first local well-posedness theorem together with a continuation criterion: the solution extends as long as \(\mathfrak E_N\) stays finite and the strict elliptic-control regime persists.
+
+The result is intentionally local, small-data, and flat-background. It does not prove global nonlinear stability, and it does not reopen the broader admissible-background theorem route. It supplies only the first local existence, uniqueness, and continuation argument now justified by the explicit completion already on record.
+\end{abstract}
+
+\section{Introduction}
+
+The higher-derivative quartic branch no longer lacks a concrete nonlinear target. The active manuscript sequence has already fixed the explicit minimal quartic-compatible completion \(S_{\mathrm{min},4}\), written the corresponding reduced Einstein--quartic-scalar \(3+1\) system, and identified the slice-wise auxiliary constraints that the \(Q\)- and \(U\)-sector variables must satisfy. That reduction changed the status of the next open problem. The missing step is no longer branch selection or nonlinear completion design. It is the first actual local well-posedness and continuation argument for the definite system already chosen.
+
+That argument must still be stated with the same discipline as the rest of the sequence. The reduced system in the explicit-completion note is not yet a closed Cauchy problem until one adds a gauge for the Einstein sector and a solvability package for the auxiliary elliptic constraints. The natural first pass is the narrowest one: asymptotically flat perturbations of the flat exact-closure background in a gauge that keeps the metric equations hyperbolic and the nonpropagating variables elliptic.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays within that boundary. It does not claim a completed nonlinear stability theorem. It does not prove a local result on arbitrary admissible backgrounds. It proves only the first local small-data theorem for the explicit minimal completion and does so on a branch where the auxiliary sectors are strictly elliptic rather than merely nonnegative.
+
+\section{Gauge-Fixed Hyperbolic--Elliptic Formulation}
+
+The explicit-completion note already fixed the reduced propagating variables
+\begin{equation}
+(\gamma_{ij},K_{ij};\sigma,\pi_\sigma;\psi,\pi_\psi),
+\label{eq:reducedunknowns}
+\end{equation}
+the ADM observer metric
+\begin{equation}
+g=-N^2dt^2+\gamma_{ij}(dx^i+\beta^idt)(dx^j+\beta^jdt),
+\label{eq:ADM}
+\end{equation}
+and the principal evolution
+\begin{align}
+(\partial_t-\Ell_\beta)\gamma_{ij} &= -2N K_{ij},
+\label{eq:gammadt}
+\\
+(\partial_t-\Ell_\beta)K_{ij}
+&=
+-D_iD_jN
++N\Bigl(R_{ij}[\gamma]-2K_i{}^kK_{kj}\Bigr)
+\nonumber\\
+&\quad
+-8\pi G_N N
+\Bigl(
+S_{ij}^{\mathrm{matter}}
+-\frac{1}{2}\gamma_{ij}\bigl(S^{\mathrm{matter}}-\rho^{\mathrm{matter}}\bigr)
++\Theta_{ij}^{(\sigma)}
+\Bigr)
++\mathcal N_{ij}^{(\mathrm{aux})},
+\label{eq:Kdt}
+\\
+(\partial_t-\Ell_\beta)\sigma
+&=
+N\frac{\pi_\sigma}{m_S^2}
++\sigma_0(N-1),
+\label{eq:sigmadt}
+\\
+(\partial_t-\Ell_\beta)\pi_\sigma
+&=
+-N\frac{\lambda_4}{M_*^2}\Delta_\gamma^2\sigma
++\mathcal N_\sigma[\gamma,K,N,\beta,\sigma,\pi_\sigma,\psi,\pi_\psi].
+\label{eq:pidt}
+\end{align}
+Here \(\mathcal N_\sigma\) contains only lower-order terms relative to the principal quartic scalar operator, exactly as recorded in the explicit-completion note.
+
+\begin{definition}[Maximal spatial-harmonic gauge]
+The first local well-posedness argument is posed in \emph{maximal spatial-harmonic gauge}, defined by
+\begin{equation}
+\operatorname{tr}_\gamma K=0,
+\qquad
+V^i(\gamma)\equiv \gamma^{mn}\bigl(\Gamma^i_{mn}[\gamma]-\Gamma^i_{mn}[\delta]\bigr)=0
+\label{eq:gauge}
+\end{equation}
+on every time slice, together with the asymptotics
+\begin{equation}
+N\to 1,
+\qquad
+\beta\to 0
+\qquad
+\text{as } |x|\to\infty.
+\label{eq:gaugeasym}
+\end{equation}
+\end{definition}
+
+\begin{remark}
+This is the narrowest standard gauge adapted to the current reduced \(3+1\) formulation. It preserves the flat exact-closure background, keeps the metric evolution in the familiar mixed hyperbolic--elliptic Einstein form, and fits naturally with the already-recorded slice-wise auxiliary constraints.
+\end{remark}
+
+Preserving \eqref{eq:gauge} under the metric evolution yields the usual elliptic lapse and shift equations. At the present manuscript scope, only their principal structure and coercivity matter.
+
+\begin{proposition}[Gauge-preservation elliptic subsystem]
+In maximal spatial-harmonic gauge, the lapse and shift satisfy elliptic equations of the schematic form
+\begin{align}
+-\Delta_\gamma N + a_N[\gamma,K,\sigma,\pi_\sigma,\psi,\pi_\psi]\,N
+&=
+1+\mathcal N_N[\gamma,K,\sigma,\pi_\sigma,Q,\chi,W^T,\psi,\pi_\psi],
+\label{eq:Nelliptic}
+\\
+-\Delta_\gamma\beta^i-\frac{1}{3}D^iD_j\beta^j
++R^i{}_j[\gamma]\beta^j
+&=
+\mathcal N_\beta^i[\gamma,K,\sigma,\pi_\sigma,Q,\chi,W^T,\psi,\pi_\psi],
+\label{eq:betaelliptic}
+\end{align}
+where \(a_N\ge 0\) on the flat background and the nonlinear source terms vanish at that background.
+\end{proposition}
+
+\begin{proof}
+Equation \eqref{eq:Nelliptic} is the standard maximal-slicing equation obtained by differentiating \(\operatorname{tr}_\gamma K=0\) along the evolution and substituting the Einstein Hamiltonian source terms. Equation \eqref{eq:betaelliptic} is the spatial-harmonic gauge-preservation equation. The explicit completion contributes to these equations only through the already-recorded metric stress tensor of the quartic scalar channel and through the auxiliary variables, which enter below principal order because they carry no independent evolution equation at the present scope. Since all completion-specific source terms vanish on the flat exact-closure background, the stated schematic form follows.
+\end{proof}
+
+\section{Strict Auxiliary Elliptic-Control Regime}
+
+The explicit completion note required only nonnegativity of \(\kappa_\theta\) and \(\kappa_\Omega\). That is sufficient for branch selection and reduced-system recording, but it is not sufficient for an actual elliptic solvability theorem. The first local argument therefore requires a sharper subregime.
+
+\begin{definition}[Strict auxiliary elliptic-control regime]
+Fix positive constants
+\begin{equation}
+m_{S,\min}^2,\ \lambda_{4,\min},\ m_{Q,\min}^2,\ \kappa_{\theta,\min},\ \kappa_{\Omega,\min}>0.
+\label{eq:lowerbounds}
+\end{equation}
+A time slice is said to lie in the \emph{strict auxiliary elliptic-control regime} if all of the following hold:
+\begin{enumerate}
+    \item the spatial metric is uniformly equivalent to the Euclidean metric,
+    \begin{equation}
+    \frac{1}{2}\delta_{ij}\xi^i\xi^j
+    \le
+    \gamma_{ij}\xi^i\xi^j
+    \le
+    2\delta_{ij}\xi^i\xi^j;
+    \label{eq:metricequiv}
+    \end{equation}
+    \item the completion parameters satisfy
+    \begin{equation}
+    m_S^2\ge m_{S,\min}^2,
+    \qquad
+    \lambda_4\ge \lambda_{4,\min},
+    \qquad
+    \widehat M_{IJ}\xi^I\xi^J\ge m_{Q,\min}^2|\xi|^2;
+    \label{eq:paramlower}
+    \end{equation}
+    \item the ordered-flow elliptic coefficients satisfy
+    \begin{equation}
+    \kappa_\theta\ge \kappa_{\theta,\min},
+    \qquad
+    \kappa_\Omega\ge \kappa_{\Omega,\min};
+    \label{eq:auxlower}
+    \end{equation}
+    \item the lapse is uniformly positive,
+    \begin{equation}
+    N\ge \frac{1}{2};
+    \label{eq:lapsepositive}
+    \end{equation}
+    \item the Sobolev norm of the reduced fields is sufficiently small that all coefficient perturbations from the flat background are \(H^{N-1}\)-small.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+The strict regime is not a change of public theory claim. It is the first branch on which the already-recorded auxiliary equations become uniformly invertible slice by slice. Theorems beyond this regime would require a different argument.
+\end{remark}
+
+The completion-dependent auxiliary subsystem from the explicit-completion note now sharpens as follows.
+
+\begin{proposition}[Strictly elliptic auxiliary subsystem]
+In maximal spatial-harmonic gauge and on a slice satisfying Definition 2, the \(Q\)- and \(U\)-sector auxiliary variables solve
+\begin{align}
+\bigl((-\Delta_\gamma)\delta_{IJ}+\widehat M_{IJ}\bigr)Q^J
+&=
+\mathcal N_I^{(Q)}[\gamma,K,\sigma,\pi_\sigma,N,\beta,Q,\chi,W^T,\psi,\pi_\psi],
+\label{eq:Qell}
+\\
+-\kappa_\theta\Delta_\gamma\chi
+&=
+\widetilde{\mathcal N}_\chi[\gamma,K,\sigma,\pi_\sigma,N,\beta,Q,\chi,W^T,\psi,\pi_\psi],
+\label{eq:chiell}
+\\
+-\kappa_\Omega\Delta_\gamma W_i^T
+&=
+\mathcal N_i^{(T)}[\gamma,K,\sigma,\pi_\sigma,N,\beta,Q,\chi,W^T,\psi,\pi_\psi],
+\label{eq:WTell}
+\end{align}
+with decaying boundary conditions at spatial infinity and \(D^iW_i^T=0\). The right-hand sides vanish on the flat exact-closure background and are lower-order in derivatives relative to the principal elliptic operators.
+\end{proposition}
+
+\begin{proof}
+Equation \eqref{eq:Qell} is exactly the gapped \(Q\)-sector constraint already recorded in the explicit-completion note. For the ordered-flow variables, the same note gave
+\[
+\kappa_\theta\Delta_\gamma\chi
+=
+-K+\mathcal N_\chi,
+\qquad
+\kappa_\Omega(-\Delta_\gamma)W_i^T
+=
+\mathcal N_i^{(T)}.
+\]
+In maximal gauge, \(\operatorname{tr}_\gamma K=0\), so the principal longitudinal source term disappears and may be absorbed into the lower-order remainder \(\widetilde{\mathcal N}_\chi\). Since no new ordered-flow time derivative was introduced by \(S_{\mathrm{min},4}\), both \(U\)-sector equations remain elliptic rather than evolutionary. This gives \eqref{eq:chiell}--\eqref{eq:WTell}.
+\end{proof}
+
+\begin{proposition}[Slice-wise elliptic control]
+Fix \(N\ge 6\). There exists \(\varepsilon_{\mathrm{ell}}>0\) such that if
+\begin{equation}
+\|\gamma-\delta\|_{H^N}
++\|K\|_{H^{N-1}}
++\|\sigma\|_{H^{N-1}}
++\|\pi_\sigma\|_{H^{N-1}}
++\mathcal E_N^{\mathrm{matter}}{}^{1/2}
+\le
+\varepsilon_{\mathrm{ell}}
+\label{eq:ellsmall}
+\end{equation}
+and the slice lies in the strict auxiliary elliptic-control regime, then the elliptic subsystem \eqref{eq:Nelliptic}--\eqref{eq:WTell} has a unique decaying solution with
+\begin{align}
+\|N-1\|_{H^{N+1}}
++\|\beta\|_{H^{N+1}}
++\|Q\|_{H^N}
++\|\chi\|_{H^N}
++\|W^T\|_{H^N}
+\le
+C_N\,\mathcal E_N^{\mathrm{min},4}{}^{1/2}.
+\label{eq:ellestimate}
+\end{align}
+\end{proposition}
+
+\begin{proof}
+The principal operators in \eqref{eq:Nelliptic}--\eqref{eq:WTell} are small perturbations of the Euclidean operators
+\[
+-\Delta+1,\qquad
+-\Delta\delta^i{}_j-\frac{1}{3}\partial^i\partial_j,\qquad
+(-\Delta)\delta_{IJ}+\widehat M_{IJ},\qquad
+-\kappa_\theta\Delta,\qquad
+-\kappa_\Omega\Delta
+\]
+on decaying scalar, vector, and divergence-free vector fields. Definition 2 supplies uniform positive lower bounds for the zeroth-order and coefficient blocks, while \eqref{eq:metricequiv} and \eqref{eq:ellsmall} keep the metric coefficients in the same elliptic class as the Euclidean operators. Lax--Milgram gives weak solvability, standard elliptic regularity upgrades the solutions to the stated Sobolev classes, and uniqueness follows from the decay condition at spatial infinity together with the positive mass or positive coefficient terms. Because every nonlinear source vanishes on the flat background and begins at least linearly in the reduced perturbation size, the right-hand sides are bounded by \(C_N\mathcal E_N^{\mathrm{min},4}{}^{1/2}\), which yields \eqref{eq:ellestimate}.
+\end{proof}
+
+\section{Closed High-Order Energy}
+
+The explicit-completion note defined the propagating energy \(\mathcal E_N^{\mathrm{min},4}\). To close the mixed hyperbolic--elliptic system, we supplement it with the elliptically determined variables.
+
+\begin{definition}[Closed control energy]
+For \(N\ge 6\), define
+\begin{align}
+\mathfrak E_N(t)
+\equiv\;&
+\|\gamma-\delta\|_{H^N(\Sigma_t)}^2
++\|K\|_{H^{N-1}(\Sigma_t)}^2
++\|\sigma\|_{H^{N-1}(\Sigma_t)}^2
++\frac{1}{m_S^2}\|\pi_\sigma\|_{H^{N-1}(\Sigma_t)}^2
+\nonumber\\
+&+\frac{\lambda_4}{M_*^2}\|\Delta_\gamma\sigma\|_{H^{N-1}(\Sigma_t)}^2
++\mathcal E_N^{\mathrm{matter}}(t)
++\|N-1\|_{H^{N+1}(\Sigma_t)}^2
++\|\beta\|_{H^{N+1}(\Sigma_t)}^2
+\nonumber\\
+&+\|Q\|_{H^N(\Sigma_t)}^2
++\|\chi\|_{H^N(\Sigma_t)}^2
++\|W^T\|_{H^N(\Sigma_t)}^2.
+\label{eq:closedenergy}
+\end{align}
+\end{definition}
+
+\begin{proposition}[Energy equivalence in the strict elliptic regime]
+Under the hypotheses of Proposition 4 and for \(\varepsilon_{\mathrm{ell}}\) sufficiently small,
+\begin{equation}
+\mathcal E_N^{\mathrm{min},4}(t)
+\le
+\mathfrak E_N(t)
+\le
+C_N\,\mathcal E_N^{\mathrm{min},4}(t).
+\label{eq:energyequiv}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+The left inequality is immediate from Definition 3. The right inequality is the elliptic estimate \eqref{eq:ellestimate} inserted into \eqref{eq:closedenergy}. The key point is that the elliptic variables are not independent new phase-space directions; their Sobolev norms are controlled by the propagating energy of the Einstein--quartic-scalar variables.
+\end{proof}
+
+\begin{proposition}[High-order a priori estimate]
+Let \(N\ge 6\), and let a smooth solution of the gauge-fixed reduced system exist on \([0,T]\) while remaining in the strict auxiliary elliptic-control regime. Then
+\begin{equation}
+\frac{d}{dt}\mathfrak E_N(t)
+\le
+C_N\bigl(1+\mathfrak E_N(t)^{1/2}\bigr)\mathfrak E_N(t)
+\label{eq:apriori}
+\end{equation}
+for all \(t\in[0,T]\).
+\end{proposition}
+
+\begin{proof}
+The metric part of \(\mathfrak E_N\) is estimated by the standard maximal spatial-harmonic Einstein energy argument: commute spatial derivatives up to order \(N\) through \eqref{eq:gammadt}--\eqref{eq:Kdt}, integrate by parts in the principal terms, and use the gauge equations \eqref{eq:Nelliptic}--\eqref{eq:betaelliptic} to replace lapse and shift derivatives by the controlled elliptic norms. The quartic scalar part is controlled by commuting \(\partial^\alpha\), \(|\alpha|\le N-1\), with \eqref{eq:sigmadt}--\eqref{eq:pidt} and pairing the differentiated equations against \(\partial^\alpha\pi_\sigma/m_S^2\) and \((\lambda_4/M_*^2)\Delta_\gamma\partial^\alpha\sigma\), respectively. The principal quartic term is self-adjoint:
+\[
+\int_{\Sigma_t}\partial^\alpha\pi_\sigma\,\partial^\alpha\Delta_\gamma^2\sigma
+=
+-\int_{\Sigma_t}D\partial^\alpha\pi_\sigma\cdot D\Delta_\gamma\partial^\alpha\sigma,
+\]
+so after using \eqref{eq:sigmadt} it contributes to the time derivative of \(\|\Delta_\gamma\sigma\|_{H^{N-1}}^2\) without derivative loss. All commutators generated by variable coefficients, Ricci terms, transport by \(\beta\), and the matter sources are lower-order and are bounded by \(C_N(1+\mathfrak E_N^{1/2})\mathfrak E_N\) using Sobolev multiplication in dimension three.
+
+Finally, the auxiliary variables contribute only through the nonlinear source terms because they satisfy no independent evolution equation. Proposition 4 replaces every occurrence of \(N-1\), \(\beta\), \(Q\), \(\chi\), and \(W^T\) by the same closed energy. Summing the differentiated Einstein, scalar, and matter inequalities yields \eqref{eq:apriori}.
+\end{proof}
+
+\begin{corollary}[Short-time persistence of the strict elliptic regime]
+There exists \(\varepsilon_*>0\) such that if \(\mathfrak E_N(0)\le \varepsilon_*^2\), then for some \(T_*=T_*(\varepsilon_*,N)>0\) the solution remains in the strict auxiliary elliptic-control regime on \([0,T_*]\).
+\end{corollary}
+
+\begin{proof}
+Proposition 6 and Gronwall imply
+\[
+\sup_{0\le t\le T}\mathfrak E_N(t)
+\le
+\mathfrak E_N(0)\exp\!\bigl(C_NT(1+\sup_{0\le s\le T}\mathfrak E_N(s)^{1/2})\bigr).
+\]
+For \(\mathfrak E_N(0)\) small and \(T\) sufficiently short, the right-hand side stays below the threshold used in Definition 2 and Proposition 4. Sobolev embedding then preserves the metric equivalence, lapse positivity, and coefficient lower bounds.
+\end{proof}
+
+\section{First Local Well-Posedness and Continuation Theorem}
+
+\begin{definition}[Compatible initial data]
+Initial data for the present theorem consist of asymptotically flat fields
+\begin{equation}
+(\gamma_{ij}^{(0)},K_{ij}^{(0)};\sigma^{(0)},\pi_\sigma^{(0)};\psi^{(0)},\pi_\psi^{(0)})
+\label{eq:initdata}
+\end{equation}
+on \(\Sigma_0\simeq\mathbb R^3\) such that:
+\begin{enumerate}
+    \item the Einstein Hamiltonian and momentum constraints hold
+    \item the maximal spatial-harmonic gauge conditions \eqref{eq:gauge} hold at \(t=0\)
+    \item the auxiliary elliptic equations \eqref{eq:Qell}--\eqref{eq:WTell} admit decaying solutions at \(t=0\)
+    \item the data lie in \(H^N\times H^{N-1}\) with \(N\ge 6\)
+    \item the strict auxiliary elliptic-control regime holds initially.
+\end{enumerate}
+\end{definition}
+
+\begin{theorem}[First local well-posedness with auxiliary elliptic control]
+Fix \(N\ge 6\). There exists \(\varepsilon_{\mathrm{wp}}>0\) with the following property. Let compatible initial data \eqref{eq:initdata} satisfy
+\begin{equation}
+\mathfrak E_N(0)\le \varepsilon_{\mathrm{wp}}^2.
+\label{eq:wpsmall}
+\end{equation}
+Then the explicit minimal quartic-compatible completion \(S_{\mathrm{min},4}\) admits a unique solution on some interval \([0,T_{\mathrm{loc}}]\), \(T_{\mathrm{loc}}>0\), in maximal spatial-harmonic gauge such that
+\begin{align}
+\gamma-\delta &\in C([0,T_{\mathrm{loc}}],H^N)\cap C^1([0,T_{\mathrm{loc}}],H^{N-1}),
+\label{eq:reggamma}
+\\
+K &\in C([0,T_{\mathrm{loc}}],H^{N-1}),
+\label{eq:regK}
+\\
+\sigma &\in C([0,T_{\mathrm{loc}}],H^{N+1})\cap C^1([0,T_{\mathrm{loc}}],H^{N-1}),
+\label{eq:regsigma}
+\\
+\pi_\sigma &\in C([0,T_{\mathrm{loc}}],H^{N-1}),
+\label{eq:regpi}
+\\
+N-1,\ \beta
+&\in C([0,T_{\mathrm{loc}}],H^{N+1}),
+\label{eq:reggauge}
+\\
+Q,\ \chi,\ W^T
+&\in C([0,T_{\mathrm{loc}}],H^N),
+\label{eq:regaux}
+\end{align}
+and the following hold.
+\begin{enumerate}
+    \item The Einstein constraints propagate.
+    \item The gauge conditions \eqref{eq:gauge} are preserved.
+    \item The auxiliary variables remain the unique decaying solutions of the slice-wise elliptic subsystem \eqref{eq:Nelliptic}--\eqref{eq:WTell}.
+    \item The solution stays in the strict auxiliary elliptic-control regime on \([0,T_{\mathrm{loc}}]\).
+    \item The closed control energy satisfies
+    \begin{equation}
+    \sup_{0\le t\le T_{\mathrm{loc}}}\mathfrak E_N(t)
+    \le
+    2\,\mathfrak E_N(0).
+    \label{eq:localbound}
+    \end{equation}
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Construct an iteration by freezing the coefficients from the previous iterate, solving the elliptic subsystem \eqref{eq:Nelliptic}--\eqref{eq:WTell} on each time slice, and then solving the resulting quasilinear hyperbolic Einstein--quartic-scalar evolution for \((\gamma,K,\sigma,\pi_\sigma;\psi,\pi_\psi)\). Proposition 4 gives uniform elliptic solvability at each iteration step, while Proposition 6 supplies a uniform high-order energy estimate. Choosing \(T_{\mathrm{loc}}\) so that the Gronwall factor remains below \(2\) yields \eqref{eq:localbound}. Standard difference estimates for the same mixed hyperbolic--elliptic system then show contraction on a shorter interval if necessary, so the iteration converges to a unique solution with regularity \eqref{eq:reggamma}--\eqref{eq:regaux}.
+
+Constraint propagation is the usual consequence of the contracted Bianchi identities together with the matter equations in the chosen gauge. Gauge preservation follows because \(N\) and \(\beta\) are solved precisely from the gauge-preservation equations. The auxiliary variables propagate as slice-wise determinations because they are redefined at each time by the unique elliptic solutions furnished by Proposition 4. Finally, Corollary 1 guarantees persistence of the strict elliptic-control regime when the initial norm is sufficiently small.
+\end{proof}
+
+\begin{theorem}[Continuation criterion]
+Let \([0,T_{\max})\) be the maximal interval of existence of the solution from Theorem 1. If
+\begin{equation}
+\sup_{0\le t<T_{\max}}\mathfrak E_N(t)<\infty
+\label{eq:Enbounded}
+\end{equation}
+and the solution remains in the strict auxiliary elliptic-control regime on \([0,T_{\max})\), then the solution extends beyond \(T_{\max}\). Equivalently, finite-time breakdown can occur only if at least one of the following happens:
+\begin{enumerate}
+    \item \(\mathfrak E_N(t)\) becomes unbounded
+    \item the spatial metric ceases to satisfy the uniform ellipticity bound \eqref{eq:metricequiv}
+    \item the lapse loses the positivity bound \eqref{eq:lapsepositive}
+    \item one of the lower bounds \eqref{eq:paramlower}--\eqref{eq:auxlower} fails
+    \item the elliptic subsystem \eqref{eq:Nelliptic}--\eqref{eq:WTell} loses invertibility.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Assume \eqref{eq:Enbounded} and persistence of the strict elliptic-control regime. Then the coefficients of the mixed hyperbolic--elliptic system remain bounded in the Sobolev classes used in Theorem 1, and Proposition 4 continues to provide uniform elliptic estimates on every slice. Restart the local argument at any time \(t_0<T_{\max}\) using the bounded data at that slice. The same construction then yields a further interval of existence beyond \(t_0\) with length depending only on the uniform control bounds, contradicting maximality if \(T_{\max}<\infty\). Therefore any finite-time breakdown must come from loss of one of the listed control mechanisms.
+\end{proof}
+
+\begin{corollary}[Short-time persistence of the non-ultrasoft dominance regime]
+Assume in addition that the initial data satisfy the norm-level dominance condition
+\begin{equation}
+\frac{\lambda_4}{M_*^2}\|\Delta_{\gamma^{(0)}}\sigma^{(0)}\|_{H^{N-1}}^2
+\le
+\delta_0\,
+\frac{1}{m_S^2}\|\pi_\sigma^{(0)}\|_{H^{N-1}}^2,
+\qquad
+0<\delta_0\ll 1.
+\label{eq:dominance0}
+\end{equation}
+Then, after possibly shrinking \(T_{\mathrm{loc}}\), the solution of Theorem 1 satisfies
+\begin{equation}
+\frac{\lambda_4}{M_*^2}\|\Delta_\gamma\sigma(t)\|_{H^{N-1}}^2
+\le
+2\delta_0\,
+\frac{1}{m_S^2}\|\pi_\sigma(t)\|_{H^{N-1}}^2
+\qquad
+\text{for } 0\le t\le T_{\mathrm{loc}}.
+\label{eq:dominanceprop}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+The ratio in \eqref{eq:dominanceprop} depends continuously on time in the regularity class of Theorem 1. Since it starts below \(\delta_0\) at \(t=0\), it remains below \(2\delta_0\) on a sufficiently short interval.
+\end{proof}
+
+\section{What This Step Establishes}
+
+The present manuscript establishes the following.
+\begin{enumerate}
+    \item It fixes the first gauge in which the explicit minimal quartic-compatible completion becomes a closed local Cauchy problem.
+    \item It identifies the strict auxiliary elliptic-control regime needed to solve the \(Q\)- and \(U\)-sector constraints slice by slice.
+    \item It shows that the auxiliary variables, lapse, and shift are controlled by the propagating Einstein--quartic-scalar energy rather than adding new observer-accessible degrees of freedom.
+    \item It proves the first local existence, uniqueness, and continuation theorem for the explicit minimal completion.
+    \item It shows that the earlier non-ultrasoft dominance bookkeeping is locally compatible with the local existence theorem.
+\end{enumerate}
+
+It does not establish the following.
+\begin{enumerate}
+    \item It does not prove global nonlinear stability.
+    \item It does not prove a theorem on arbitrary admissible backgrounds.
+    \item It does not remove the need for strict positive ordered-flow elliptic coefficients in this argument.
+    \item It does not show that every quartic-compatible completion enjoys the same local theorem.
+    \item It does not complete a first-principles substrate derivation of Einsteinian gravity.
+\end{enumerate}
+
+\section{Conclusion}
+
+The explicit minimal quartic-compatible completion now has its first genuine local theorem. In maximal spatial-harmonic gauge and on the strict auxiliary elliptic-control branch, the reduced Einstein--quartic-scalar system is locally well posed, its nonpropagating \(Q\)- and \(U\)-sector variables are controlled slice by slice through uniformly elliptic equations, and continuation fails only when that control package or the high-order energy breaks down.
+
+That is the correct next step after the explicit-completion note. The branch now has more than a recorded reduced system; it has its first local existence and continuation argument. The next burden is therefore no longer the existence of a local theorem at all, but whether the present local control can be upgraded into a coercive longer-time bootstrap and eventually into a genuine nonlinear stability theorem for the surviving quartic branch.
+
+\end{document}

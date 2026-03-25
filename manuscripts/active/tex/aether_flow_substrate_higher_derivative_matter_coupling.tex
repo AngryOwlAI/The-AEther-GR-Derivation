@@ -1,0 +1,415 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal{A}}
+\newcommand{\BridgeMetric}{\mathfrak{g}}
+\newcommand{\DeltaPerp}{\Delta_{\perp}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Higher-Derivative Quartic Branch Matter Coupling Through the Bridge Metric Alone}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This manuscript performs the next fixed gate after the positive flat-background quartic exact-closure test of the higher-derivative branch. The scope is narrow and explicit. The note does not yet address compatibility with the active exact-relativistic recovery line, and it does not yet promote the branch to curved-background continuation. It checks only whether the quartic branch preserves controlled matter coupling through the bridge metric alone.
+
+The result is positive at the present action-level and flat-branch quadratic scope. The higher-derivative quartic deformation
+\[
+\Delta S_4
+=
+-\frac{\lambda_4}{2M_*^2}
+\int_{\Sub} d^4X\,\sqrt{G}\,
+\bigl(\Delta_{\perp}S\bigr)^2
+\]
+modifies only the auxiliary substrate sector. It leaves unchanged the observer map, the bridge metric
+\(\BridgeMetric_{AB}=G_{AB}-2U_AU_B\), and the universal matter route
+\[
+S_{\mathrm{matter}}[\Xi^*\BridgeMetric,\psi]
+=
+S_{\mathrm{matter}}[g,\psi].
+\]
+Accordingly, at fixed bridge metric perturbation \(h_{\mu\nu}\), the matter action is independent of the nonmetric auxiliaries \((\sigma,\chi,V_T^i,q^I)\). On the decaying flat branch with positive-definite \(\widehat M_{IJ}\), the \(q^I\), \(\chi\), and \(V_T^i\) sectors remain auxiliary and the surviving \(\sigma\)-sector couples to matter only through the metric scalar \(\phi=-h_{00}/2\). Integrating out \(\sigma\) therefore produces only a metric self-energy correction,
+\[
+\Delta\mathcal L_{\phi,4}^{(2)}
+=
+-\frac{1}{2}\Pi_\phi^{(4)}(\omega,\mathbf{k})\,|\phi|^2,
+\qquad
+\Pi_\phi^{(4)}
+=
+m_S^2\sigma_0^2
+\frac{\lambda_4 k^4/M_*^2}
+{m_S^2\omega^2+\lambda_4 k^4/M_*^2},
+\]
+with no direct unsuppressed low-energy matter coupling to extra substrate variables. In that precise coefficient-level sense, the higher-derivative quartic branch passes the bridge-metric matter-coupling gate. The next gate is compatibility with the active exact-relativistic recovery line.
+\end{abstract}
+
+\section{Introduction}
+
+The active exact-closure line of \TheoryName{} is already fixed by the foundations, dynamics, consistency, relativistic-recovery, flow-geometry, and substrate-bridge manuscripts. On the derivational side, the higher-derivative collapsed-scalar branch has now achieved the first positive flat-background result of the post-no-go sequence: its minimal quartic representative passes the \(k^0/k^2\) exact-closure screen while retaining a strictly positive quartic scalar stiffness.
+
+That positive result was deliberately not treated as enough for promotion. The active sequence now imposes a stricter order. First the quartic branch must preserve controlled matter coupling through the bridge metric alone. Then it must be checked against the active exact-relativistic recovery line. Only after those two gates pass may the branch be promoted to local curved-background continuation.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays strictly within that boundary. It does not claim a completed Einsteinian derivation from substrate variables. It asks a narrower question: does the quartic branch keep matter and light coupled only through the single observer-accessible bridge metric, or does the higher-derivative completion reintroduce an unsuppressed direct low-energy coupling to extra substrate fields?
+
+\section{Controlled Matter Coupling Gate}
+
+\begin{definition}[Controlled matter coupling through the bridge metric alone]
+A candidate derivational branch is said to preserve controlled matter coupling through the bridge metric alone if both of the following hold.
+\begin{enumerate}
+    \item \textbf{Action-level single-metric route.} The observer-accessible matter action depends on the substrate variables only through the pullback metric
+    \begin{equation}
+    g_{\mu\nu}=\Xi^*\BridgeMetric_{AB},
+    \label{eq:gmatter}
+    \end{equation}
+    so that the matter action takes the form
+    \begin{equation}
+    S_{\mathrm{matter}}[\Xi^*\BridgeMetric,\psi]
+    =
+    S_{\mathrm{matter}}[g,\psi].
+    \label{eq:matterroute}
+    \end{equation}
+    \item \textbf{Observer-accessible elimination control.} After eliminating the nonmetric auxiliary sector on the branch under study, the reduced observer-accessible action can be written as
+    \begin{equation}
+    S_{\mathrm{obs}}[g,\psi]
+    =
+    S_{\mathrm{grav}}[g]
+    +
+    S_{\mathrm{matter}}[g,\psi]
+    +
+    \Delta S_{\mathrm{metric}}[g],
+    \label{eq:Sobsdef}
+    \end{equation}
+    with \(\Delta S_{\mathrm{metric}}\) independent of \(\psi\) and with no unsuppressed direct term of the forms
+    \begin{equation}
+    J_\mu u^\mu,
+    \qquad
+    \chi(S)\,\mathcal O_{\mathrm{matter}},
+    \qquad
+    q^I\mathcal O_I.
+    \label{eq:forbidden}
+    \end{equation}
+\end{enumerate}
+\end{definition}
+
+This definition is exactly the matter-side analogue of the exact-closure discipline already imposed on the bridge equation and the observer-accessible spectrum. It is not enough to say that matter couplings were not \emph{intended}. One has to show that the branch actually leaves the single-metric route intact at the scope being claimed.
+
+\section{Quartic Branch and Unchanged Matter Route}
+
+The higher-derivative quartic branch is defined by keeping the bridge metric
+\begin{equation}
+\BridgeMetric_{AB}=G_{AB}-2U_AU_B
+\label{eq:bridge}
+\end{equation}
+and the observer map \(\Xi\) unchanged while adjoining the projected quartic operator
+\begin{equation}
+\Delta S_4
+=
+-\frac{\lambda_4}{2M_*^2}
+\int_{\Sub} d^4X\,\sqrt{G}\,
+\bigl(\Delta_{\perp}S\bigr)^2,
+\qquad
+\Delta_{\perp}\equiv P^{AB}\nabla_A\nabla_B,
+\label{eq:S4}
+\end{equation}
+to the collapsed-scalar baseline
+\begin{equation}
+\kappa_S=\mu_{SI}=\mu_S^2=0,
+\qquad
+m_S^2>0,
+\qquad
+\widehat M_{IJ}\ \text{positive definite}.
+\label{eq:quarticbaseline}
+\end{equation}
+
+The complete branch action at the level relevant here is therefore of the form
+\begin{equation}
+S_{\mathrm{HD}}
+=
+S_{\mathrm{bridge}}[G,U,S,Q]
++
+\Delta S_4[G,U,S]
++
+S_{\mathrm{matter}}[\Xi^*\BridgeMetric,\psi],
+\label{eq:Shd}
+\end{equation}
+where \(S_{\mathrm{bridge}}\) denotes the preexisting bridge-sector candidate action restricted to the collapsed-scalar branch.
+
+\begin{proposition}[No new matter arguments are introduced by the quartic deformation]
+The higher-derivative quartic deformation \eqref{eq:S4} introduces no new observer-accessible matter-coupling argument beyond the bridge metric \(g_{\mu\nu}=\Xi^*\BridgeMetric_{AB}\).
+\end{proposition}
+
+\begin{proof}
+The deformation \eqref{eq:S4} depends only on the substrate fields \(G_{AB}\), \(U^A\), and \(S\). It contains no matter field \(\psi\), no new observer map, and no new metric-like tensor offered to matter as an independent argument. Therefore the matter action in \eqref{eq:Shd} is still exactly \(S_{\mathrm{matter}}[\Xi^*\BridgeMetric,\psi]\). The quartic branch changes the auxiliary gravitational sector, not the observer-accessible matter route.
+\end{proof}
+
+\begin{corollary}[Single-metric matter law at action level]
+At the action level of the quartic branch, matter and light still couple only to the single effective metric \(g_{\mu\nu}\). There is no second matter metric and no direct preferred-frame matter term inserted by the higher-derivative completion itself.
+\end{corollary}
+
+\begin{remark}
+This corollary is necessary but not yet sufficient. Controlled matter coupling also requires that auxiliary elimination not reappear as an unsuppressed direct low-energy matter coupling in the reduced observer-accessible theory.
+\end{remark}
+
+\section{Flat-Branch Quadratic Reduction at Fixed Bridge Metric}
+
+Use the same admissible homogeneous bridge background as in the quartic consistency note:
+\begin{equation}
+\bar G_{AB}=\delta_{AB},
+\qquad
+\bar U^A=\delta^A{}_0,
+\qquad
+\bar S=\sigma_0X^0,
+\qquad
+\bar Q^I=0,
+\label{eq:background}
+\end{equation}
+for which
+\begin{equation}
+\bar\BridgeMetric_{AB}=\eta_{AB}=\mathrm{diag}(-1,1,1,1).
+\label{eq:etabridge}
+\end{equation}
+Write perturbations as
+\begin{equation}
+G_{AB}=\delta_{AB}+H_{AB},
+\qquad
+U^A=\bar U^A+V^A,
+\qquad
+S=\sigma_0X^0+\sigma,
+\qquad
+Q^I=q^I,
+\label{eq:perturbations}
+\end{equation}
+and define the bridge metric perturbation \(h_{\mu\nu}\) by
+\begin{equation}
+h_{00}=-H_{00},
+\qquad
+h_{0i}=-H_{0i}-2V_i,
+\qquad
+h_{ij}=H_{ij}.
+\label{eq:bridgepert}
+\end{equation}
+As usual, write \(h_{00}=-2\phi\) and decompose
+\begin{equation}
+V_i=V_i^T+\partial_i\chi,
+\qquad
+\partial_iV_T^i=0.
+\label{eq:vdecomp}
+\end{equation}
+
+The quadratic observer-accessible matter coupling is then
+\begin{equation}
+\Delta\mathcal L_{\mathrm{matter}}^{(2)}
+=
+\frac{1}{2}h_{\mu\nu}T^{\mu\nu},
+\label{eq:matterint}
+\end{equation}
+with \(T^{\mu\nu}\) the matter stress tensor defined from \(S_{\mathrm{matter}}[g,\psi]\).
+
+\begin{remark}
+Equation \eqref{eq:matterint} should be read at fixed bridge perturbation \(h_{\mu\nu}\), not at fixed \(H_{AB}\) and \(V_i\) separately. That is the correct variable split for the matter-coupling question, because matter sees \(h_{\mu\nu}\) alone.
+\end{remark}
+
+At fixed \(h_{\mu\nu}\), the nonmetric auxiliary quadratic Lagrangian of the quartic branch is
+\begin{align}
+\mathcal L_{\mathrm{aux},4}^{(2)}
+=\;&
+-\frac{m_S^2}{2}\bigl(\partial_0\sigma-\sigma_0\phi\bigr)^2
+-\frac{\lambda_4}{2M_*^2}(\nabla^2\sigma)^2
+\nonumber\\
+&-\frac{1}{2}q^I\!\left((-\nabla^2)\delta_{IJ}+\widehat M_{IJ}\right)\!q^J
+-\frac{\kappa_\theta}{2}\left(\nabla^2\chi+\frac{1}{2}\partial_0H\right)^2
+\nonumber\\
+&-\frac{\kappa_\Omega}{4}\,
+\partial_{[i}\!\left(S_{j]}+V^T_{j]}\right)
+\partial^{[i}\!\left(S^{j]}+V_T^{j]}\right).
+\label{eq:Laux}
+\end{align}
+
+\begin{proposition}[Matter independence of the nonmetric auxiliaries at fixed \(h_{\mu\nu}\)]
+At fixed bridge metric perturbation \(h_{\mu\nu}\), the observer-accessible matter action is independent of \(q^I\), \(\chi\), \(V_T^i\), and \(\sigma\) except for the metric-mediated appearance of \(\phi=-h_{00}/2\) in the combination \((\partial_0\sigma-\sigma_0\phi)^2\).
+\end{proposition}
+
+\begin{proof}
+By \eqref{eq:matterroute} the matter action depends only on \(g_{\mu\nu}\), hence only on its perturbation \(h_{\mu\nu}\). Once \(h_{\mu\nu}\) is held fixed, the variables \(q^I\), \(\chi\), and \(V_T^i\) appear only in the auxiliary sector \eqref{eq:Laux}. The scalar \(\sigma\) also appears only in \eqref{eq:Laux}, and there only through its own quartic block and the metric-mediated combination \((\partial_0\sigma-\sigma_0\phi)^2\). Therefore there is no direct observer-accessible matter dependence on the nonmetric auxiliaries beyond their coupling through the metric perturbation itself.
+\end{proof}
+
+\section{Auxiliary Elimination and the Reduced Matter Route}
+
+\begin{proposition}[Elimination of \(q^I\), \(\chi\), and \(V_T^i\)]
+On the decaying flat branch with positive-definite \(\widehat M_{IJ}\), the equations of motion of \(q^I\), \(\chi\), and \(V_T^i\) are unchanged by the matter action at fixed \(h_{\mu\nu}\), and their reduced solutions remain
+\begin{equation}
+q^I=0,
+\qquad
+\nabla^2\chi=-\frac{1}{2}\partial_0H,
+\qquad
+V_T^i=-S^i.
+\label{eq:auxsolves}
+\end{equation}
+Consequently those sectors produce no direct reduced matter coupling.
+\end{proposition}
+
+\begin{proof}
+The \(q^I\), \(\chi\), and \(V_T^i\) variations of the total action at fixed \(h_{\mu\nu}\) receive contributions only from \eqref{eq:Laux}. Their equations are therefore exactly the same as in the quartic flat-background consistency analysis. Positive-definite \(\widehat M_{IJ}\) forces \(q^I=0\) on the decaying branch, while the \(\chi\) and \(V_T^i\) equations remain purely auxiliary and yield \eqref{eq:auxsolves}. Since the matter action never depended on these variables independently at fixed \(h_{\mu\nu}\), eliminating them cannot generate a direct nonmetric matter term.
+\end{proof}
+
+After eliminating \(q^I\), \(\chi\), and \(V_T^i\), the remaining reduced action is
+\begin{equation}
+S_{\mathrm{red}}^{(2)}[h,\sigma,\psi]
+=
+S_{\mathrm{EH}}^{(2)}[h]
++
+S_{\mathrm{matter}}^{(2)}[h,\psi]
++
+\int d^4x\,
+\mathcal L_{\sigma,\mathrm{eff},4}^{(2)},
+\label{eq:Sred}
+\end{equation}
+with
+\begin{equation}
+\mathcal L_{\sigma,\mathrm{eff},4}^{(2)}
+=
+-\frac{m_S^2}{2}\bigl(\partial_0\sigma-\sigma_0\phi\bigr)^2
+-\frac{1}{2}\sigma\,\mathcal B_4(-\nabla^2)\,\sigma,
+\qquad
+\mathcal B_4(-\nabla^2)=\frac{\lambda_4}{M_*^2}(-\nabla^2)^2.
+\label{eq:Lsigma}
+\end{equation}
+
+\begin{proposition}[The surviving branch correction is metric-mediated]
+Integrating out \(\sigma\) from \eqref{eq:Sred} yields a reduced observer-accessible action of the form
+\begin{equation}
+S_{\mathrm{obs}}^{(2)}[h,\psi]
+=
+S_{\mathrm{EH}}^{(2)}[h]
++
+S_{\mathrm{matter}}^{(2)}[h,\psi]
++
+\Delta S_{\mathrm{metric},4}^{(2)}[h],
+\label{eq:Sobs}
+\end{equation}
+where \(\Delta S_{\mathrm{metric},4}^{(2)}\) is independent of \(\psi\) and in Fourier space is
+\begin{equation}
+\Delta\mathcal L_{\mathrm{metric},4}^{(2)}
+=
+-\frac{1}{2}\Pi_\phi^{(4)}(\omega,\mathbf{k})\,|\phi(\omega,\mathbf{k})|^2,
+\label{eq:Deltametric}
+\end{equation}
+with
+\begin{equation}
+\Pi_\phi^{(4)}(\omega,\mathbf{k})
+=
+m_S^2\sigma_0^2
+\frac{\mathcal B_4(k^2)}
+{m_S^2\omega^2+\mathcal B_4(k^2)},
+\qquad
+\mathcal B_4(k^2)=\frac{\lambda_4}{M_*^2}k^4.
+\label{eq:Piphi}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+The \(\sigma\)-sector in \eqref{eq:Lsigma} is Gaussian and couples to the rest of the observer-accessible variables only through the metric scalar \(\phi\). Eliminating \(\sigma\) therefore yields the same tree-level self-energy expression as in the quartic consistency note, namely \eqref{eq:Deltametric}--\eqref{eq:Piphi}. Because \(S_{\mathrm{matter}}^{(2)}\) depended only on \(h_{\mu\nu}\) to begin with and \(\sigma\) never appeared there independently, the elimination produces a metric correction term only. No term linear in a separate nonmetric substrate field times a matter operator can survive.
+\end{proof}
+
+\begin{corollary}[Derivative suppression of the surviving matter-facing correction]
+The only observer-accessible correction induced by the quartic branch at this scope is a metric self-energy beginning at quartic spatial order,
+\begin{equation}
+\Pi_\phi^{(4)}(\omega,\mathbf{k})
+=
+\mathcal O\!\left(\frac{k^4}{M_*^2}\right)
+\quad
+\text{for low spatial momentum at fixed nonzero }\omega,
+\label{eq:kscaling}
+\end{equation}
+and therefore it does not constitute an unsuppressed direct low-energy matter coupling to extra substrate variables.
+\end{corollary}
+
+\begin{remark}
+The point of \eqref{eq:kscaling} is not that the quartic branch has no observer-accessible effect whatsoever. The point is narrower: the effect that survives at this gate is metric-mediated and derivative-suppressed, not a second matter metric or a direct preferred-frame matter interaction.
+\end{remark}
+
+\section{Matter-Coupling Gate Result}
+
+\begin{theorem}[Quartic branch matter-coupling gate]
+Assume the higher-derivative quartic branch defined by \eqref{eq:bridge}--\eqref{eq:Shd} on the flat decaying branch, together with the baseline conditions \eqref{eq:quarticbaseline}. Then, at the present action-level and flat-branch quadratic scope, the branch preserves controlled matter coupling through the bridge metric alone.
+\end{theorem}
+
+\begin{proof}
+The action-level single-metric route in Definition 1 follows from Proposition 1 and Corollary 1. The observer-accessible elimination control in Definition 1 follows from Proposition 2, Proposition 3, and Proposition 4: after eliminating the nonmetric auxiliaries, the reduced observer-accessible action has the form \eqref{eq:Sobs}, with the surviving branch correction \(\Delta S_{\mathrm{metric},4}^{(2)}[h]\) depending only on the metric perturbation and not on the matter fields. Corollary 2 then shows that the surviving correction is derivative-suppressed and not an unsuppressed direct matter coupling to extra substrate variables. Therefore the quartic branch passes the bridge-metric matter-coupling gate at the stated scope.
+\end{proof}
+
+\begin{corollary}[Negative statement implied by the gate result]
+At the scope of the present note, the higher-derivative quartic branch does not introduce a second universal matter metric, a direct preferred-frame matter term, or a direct unsuppressed coupling of matter to \(q^I\), \(\chi\), \(V_T^i\), or \(\sigma\).
+\end{corollary}
+
+\section{What This Result Does and Does Not Establish}
+
+The present note establishes the following.
+\begin{enumerate}
+    \item The quartic deformation changes the auxiliary substrate sector without changing the observer-accessible matter arguments.
+    \item At fixed bridge metric, the matter action is independent of the nonmetric auxiliary variables.
+    \item After auxiliary elimination on the decaying flat branch, the only surviving observer-accessible branch correction is a metric self-energy beginning at quartic spatial order.
+    \item The higher-derivative quartic branch therefore passes the bridge-metric matter-coupling gate at the current coefficient-level scope.
+\end{enumerate}
+
+The note does not establish the following.
+\begin{enumerate}
+    \item It does not yet prove compatibility with the active exact-relativistic recovery line.
+    \item It does not yet promote the quartic branch to a local curved-background continuation.
+    \item It does not yet address nonlinear stability or radiative stability of the matter-coupling result.
+    \item It does not prove that every possible nonlinear completion of the quartic branch preserves this same clean matter route; it proves it only for the branch defined here and only at the present scope.
+\end{enumerate}
+
+\begin{remark}
+The third point matters. A tree-level coefficient-level matter-coupling gate is exactly the correct next burden in the current sequence, but it is not the final burden. The next task remains to check whether the same quartic branch is compatible with the active exact-relativistic recovery line already fixed in the exact-closure manuscripts.
+\end{remark}
+
+\section{Conclusion}
+
+The higher-derivative quartic branch was not allowed to proceed directly from a positive flat-background exact-closure test to curved-background promotion. The next gate had to be matter coupling. The present note now supplies that answer at the current disciplined scope.
+
+The answer is positive. The quartic higher-derivative deformation leaves unchanged the observer map, the bridge metric, and the universal matter route \(S_{\mathrm{matter}}[\Xi^*\BridgeMetric,\psi]\). At fixed bridge metric, matter does not couple directly to the nonmetric auxiliary sector. After auxiliary elimination on the decaying flat branch, the only surviving branch correction is a quartic-order metric self-energy in the scalar bridge channel. In that precise sense, matter and light remain coupled through the bridge metric alone.
+
+This is enough to pass the first Phase 4 gate of the quartic branch. It is not enough to declare the branch fully benchmark-compatible. The next manuscript task is now the second gate: determine whether the same branch remains compatible with the active exact-relativistic recovery line before any local curved-background continuation is attempted.
+
+\end{document}

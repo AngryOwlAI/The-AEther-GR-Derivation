@@ -1,0 +1,793 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal{A}}
+\newcommand{\BridgeMetric}{\mathfrak g}
+\newcommand{\ObserverMap}{\Xi}
+\newcommand{\ProjSub}{P}
+\newcommand{\SpatialD}{\mathcal D}
+\newcommand{\LapPerp}{\Delta_\perp}
+\newcommand{\FlowPot}{\Phi_\Omega}
+\newcommand{\FlowPotReg}{\Phi_\Omega^{\mathrm{reg}}}
+\newcommand{\CoulPot}{U_\Omega}
+\newcommand{\BalanceField}{\Pi_\Omega}
+\newcommand{\BalMult}{\Lambda_\Pi}
+\newcommand{\SourceDensity}{\varrho_\Omega}
+\newcommand{\SourceDensityRed}{\varrho_\Omega^{\mathrm{red}}}
+\newcommand{\SourceCurrent}{\mathcal J^{(\Omega)}}
+\newcommand{\SourceCurrentRed}{\mathcal J^{(\Omega,\mathrm{red})}}
+\newcommand{\ConstCurrent}{\mathcal C}
+\newcommand{\ContMult}{\Lambda_{\mathrm c}}
+\newcommand{\CurrentMult}{\Lambda}
+\newcommand{\ConstGamma}{\Gamma}
+\newcommand{\CurvQMult}{\mathscr P}
+\newcommand{\CurvChiMult}{\mathscr X}
+\newcommand{\CurvTransMult}{\mathscr Y}
+\newcommand{\SourceFlux}{\mathcal E}
+\newcommand{\HamChargeOmega}{\mathfrak m_\Omega}
+\newcommand{\SigmaIER}{\Sigma^{\mathrm{IER}}}
+\newcommand{\SigmaDressSch}{\Sigma^{\mathrm{Sch}}}
+\newcommand{\SigmaRegPol}{\Sigma^{\mathrm{pol,reg}}}
+\newcommand{\LiftIER}{\widehat\Sigma^{\mathrm{IER}}}
+\newcommand{\AuxPol}{\mathbb K}
+\newcommand{\CandAction}{S_{\mathrm{cand}}}
+\newcommand{\CurvAction}{S_{\mathrm{cand}}^{\mathrm{loc.curv+cur+aux}}}
+\newcommand{\CurvSeed}{\Theta_{\mathrm{br}}}
+\newcommand{\CurvSeedMult}{\Upsilon_{\mathrm{br}}}
+\newcommand{\CurvScale}{\ell_{\mathrm{br}}}
+\newcommand{\CurvProfile}{F_{\mathrm{br}}}
+\newcommand{\CurvOneI}{\mathfrak K}
+\newcommand{\CurvOneChi}{\mathfrak L}
+\newcommand{\CurvOneW}{\mathfrak M}
+\newcommand{\ReOff}{\widetilde{\mathcal R}_{\mu\nu}^{\mathrm{off}}}
+\newcommand{\ReLongThree}{\widetilde{\mathcal R}_{\mu\nu}^{(\chi,3)}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Nonlocal Bridge Self-Response Explicit Local Bridge-Curvature-Density Note}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The positive quotient reduced-system, theorem, decay, and asymptotic line remains closed and is not reopened here. The constitutive source-current note is already canonized at disciplined constitutive scope, and the constitutive-current curvature-action note is now canonized at disciplined integrated-action scope after hard review: it remains on the active line as an equivalent integrated curvature-response realization of the constitutive carrier sector, not as a unique ultraviolet density claim.
+
+The present manuscript pushes one layer deeper again. It replaces the abstract integrated curvature-response one-forms of the previous note by an explicit local bridge-curvature-density representative tied directly to the candidate substrate action of the substrate-kinematics manuscript. The anchor is the bridge-curvature scalar already present there,
+\[
+R[\BridgeMetric]-2\Lambda_{\Sub},
+\]
+from which the note builds a nondegenerate local bridge-curvature seed
+\[
+\CurvSeed=\CurvProfile\!\bigl(R[\BridgeMetric]-2\Lambda_{\Sub}\bigr),
+\qquad
+\CurvProfile(x)=1+\CurvScale^4x^2.
+\]
+The three explicit projected bridge-curvature one-forms are then
+\[
+\CurvOneI_A^I=\CurvSeed\,\lambda_I\SpatialD_AQ^I,
+\qquad
+\CurvOneChi_A=\CurvSeed\,\lambda_\chi\SpatialD_A\chi,
+\qquad
+\CurvOneW_A=\CurvSeed\,\lambda_WW_A^T.
+\]
+They are inserted into a fully local density with algebraic multipliers and a normalized current readout
+\[
+\ConstCurrent_A
+=
+\nu_I\CurvSeed^{-1}\CurvOneI_A^I
++\nu_\chi\CurvSeed^{-1}\CurvOneChi_A
++\nu_W\CurvSeed^{-1}\CurvOneW_A,
+\]
+so the bridge-curvature seed cancels out of the reduced current itself. Consequently,
+\[
+\ConstCurrent_A
+=
+\mathfrak c_I\SpatialD_AQ^I
++\mathfrak c_\chi\SpatialD_A\chi
++\mathfrak c_WW_A^T,
+\qquad
+\mathfrak c_I=\nu_I\lambda_I,
+\qquad
+\mathfrak c_\chi=\nu_\chi\lambda_\chi,
+\qquad
+\mathfrak c_W=\nu_W\lambda_W.
+\]
+
+The same enlarged local action then reproduces the same reduced current, the same Hamiltonian-charge flux, the same continuity/Gauss-Poisson package, the same exterior Coulomb tail, the same surviving dressed bridge map, and the same matter-free/off-longitudinal/cubic/quartic gain package as the previous two notes. The disciplined verdict is also sharper: the explicit local bridge-curvature density is now written, but it is not uniquely forced at current scope. What is forced is the carrier basis and coefficient triple; the density itself is fixed only up to an equivalence class generated by positive scalar bridge-curvature profiles, slice divergences, and Bianchi-exact local rearrangements that leave the eliminated current sector unchanged.
+\end{abstract}
+
+\section{Introduction}
+
+The live burden after the constitutive-current curvature-action note was no longer to reopen another observer-level dressing screen. It was to decide whether that integrated-action note was disciplined enough to remain on the active line and, if so, to replace its abstract equivalent integrated curvature-response block by an explicit local bridge-curvature density tied directly to the candidate substrate action.
+
+The first half of that burden is now settled. The constitutive-current curvature-action note passes hard scope review at disciplined integrated-action scope: it remains canonized as an equivalent integrated curvature-response realization of the constitutive-current sector, not as a unique ultraviolet completion. The present manuscript addresses the second half. It writes one explicit local representative density whose carrier block is anchored directly in the bridge Ricci scalar already present in the candidate action of the substrate-kinematics manuscript.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+This note stays strictly inside that boundary. It does not claim a unique ultraviolet curvature density. It does not reopen the already-positive quotient PDE line. It does not alter the already-positive observer-side dressed bridge map. Its narrower positive result is that the equivalent integrated curvature-response action can now be replaced by an explicit local bridge-curvature-density representative tied directly to the candidate substrate action while preserving the same eliminated downstream package.
+
+\section{Target Package and Fixed Local Variables}
+
+\begin{definition}[Surviving dressed gain package]
+\label{def:gains}
+The \emph{surviving dressed gain package} consists of the four already-recorded features that the deeper bridge-curvature plus source-current plus polarization sector must preserve:
+\begin{enumerate}
+    \item \textbf{matter-free activity:} the bridge correction remains active on matter-free reduced data;
+    \item \textbf{off-longitudinal \(Q/W\) cancellation:} the full currently recorded off-longitudinal remainder \(\ReOff\) is canceled;
+    \item \textbf{explicit cubic longitudinal completion:} the first surviving cubic longitudinal tensor \(\ReLongThree\) is canceled by the same lower-order inverse-response correction;
+    \item \textbf{quartic Coulomb self-response absorption:} on the decisive matter-free rotational exterior regime, the isolated quartic Coulomb self-response is pushed to \(\mathcal O(r^{-5})\).
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Observer-side target already fixed]
+\label{def:target}
+The observer-side dressed bridge map to be reproduced remains
+\begin{equation}
+g_{\mu\nu}^{\mathrm{dressed}}
+=
+g_{\mu\nu}^{\mathrm{br}}
++\SigmaIER_{\mu\nu}
++\SigmaDressSch{}_{\mu\nu}
++\SigmaRegPol{}_{\mu\nu},
+\label{eq:targetmetric}
+\end{equation}
+where the charge-carrying Coulomb piece is
+\begin{equation}
+\CoulPot(r)\equiv \frac{G_N\,\HamChargeOmega}{r},
+\label{eq:coulpot}
+\end{equation}
+and
+\begin{equation}
+\SigmaDressSch{}_{00}=-2\CoulPot^2,
+\qquad
+\SigmaDressSch{}_{0i}=0,
+\qquad
+\SigmaDressSch{}_{ij}=\frac32\CoulPot^2\,\delta_{ij},
+\label{eq:schdress}
+\end{equation}
+while the regular completion satisfies
+\begin{equation}
+\SigmaRegPol=\mathcal O(r^{-3}),
+\qquad
+\partial\SigmaRegPol=\mathcal O(r^{-4})
+\label{eq:reg}
+\end{equation}
+on the exterior charge sector.
+\end{definition}
+
+\begin{definition}[Active local slice variables]
+\label{def:activeslice}
+At the present scope the deeper current-forcing layer is built from the already-recorded active reduced slice variables \((Q^I,\chi,W_A^T)\), where
+\begin{equation}
+W_A=\SpatialD_A\chi+W_A^T,
+\qquad
+U^AW_A^T=0,
+\qquad
+\SpatialD^AW_A^T=0.
+\label{eq:Wdecomp}
+\end{equation}
+As in the previous two notes, the present manuscript treats \(Q^I\), \(\chi\), and \(W_A^T\) parametrically inside the new local action. Their previously recorded reduced equations are not reopened here.
+\end{definition}
+
+\begin{remark}
+The present note therefore changes only the local realization of the constitutive-current layer. It does not change the already-fixed reduced variables or the already-fixed observer-side target.
+\end{remark}
+
+\section{Candidate-Action Curvature Seed and Explicit Projected One-Forms}
+
+The substrate-kinematics manuscript fixed the candidate bridge action
+\begin{equation}
+\CandAction
+=
+\frac{c^3}{16\pi G_N}
+\int_{\Sub} d^4X\,\sqrt{G}\,\bigl(R[\BridgeMetric]-2\Lambda_{\Sub}\bigr)
++\text{(auxiliary substrate sector)}
++S_{\mathrm{matter}}[\ObserverMap^\ast\BridgeMetric,\psi].
+\label{eq:candanchor}
+\end{equation}
+At the present local derivative order, the bridge Ricci scalar in \eqref{eq:candanchor} is the unique explicit bridge-curvature scalar already fixed by the active candidate action.
+
+\begin{definition}[Nondegenerate bridge-curvature seed]
+\label{def:seed}
+Fix a bridge-curvature length scale \(\CurvScale>0\) and define
+\begin{equation}
+\CurvProfile(x)\equiv 1+\CurvScale^4x^2.
+\label{eq:Fdef}
+\end{equation}
+The \emph{bridge-curvature seed} is the positive scalar
+\begin{equation}
+\CurvSeed
+\equiv
+\CurvProfile\!\bigl(R[\BridgeMetric]-2\Lambda_{\Sub}\bigr)
+=
+1+\CurvScale^4\bigl(R[\BridgeMetric]-2\Lambda_{\Sub}\bigr)^2.
+\label{eq:seed}
+\end{equation}
+\end{definition}
+
+\begin{remark}
+The positive profile \(\CurvProfile\) is chosen only to give a nondegenerate local representative on branches that include the exact flat benchmark. It is part of the explicit representative choice made in this note, not a claim of ultraviolet uniqueness.
+\end{remark}
+
+\begin{proposition}[Only three projected bridge-curvature one-form slots survive at current scope]
+\label{prop:basis}
+Let \(V_A[Q,W,\chi]\) be a spatial one-form satisfying
+\begin{equation}
+U^AV_A=0
+\label{eq:spatialV}
+\end{equation}
+and assume that \(V_A\) is local on the local experiential slice, linear in the active reduced variables, and uses the bridge-curvature anchor \eqref{eq:candanchor} only through a scalar local factor built from \(R[\BridgeMetric]-2\Lambda_{\Sub}\) and no higher bridge-curvature derivatives. Then there exists a scalar local bridge-curvature profile \(f\bigl(R[\BridgeMetric]-2\Lambda_{\Sub}\bigr)\) and unique coefficients \(a_I\), \(a_\chi\), and \(a_W\) such that
+\begin{equation}
+V_A
+=
+f\bigl(R[\BridgeMetric]-2\Lambda_{\Sub}\bigr)
+\bigl(
+a_I\SpatialD_AQ^I
++a_\chi\SpatialD_A\chi
++a_WW_A^T
+\bigr).
+\label{eq:basisdecomp}
+\end{equation}
+Hence the explicit local bridge-curvature layer still admits exactly three one-form slots at the present scope: the \(Q\)-gradient slot, the \(\chi\)-gradient slot, and the transverse \(W^T\)-slot.
+\end{proposition}
+
+\begin{proof}
+The previous constitutive-current curvature-action note already fixed the one-form slot count at the present local derivative order: once \eqref{eq:Wdecomp} is imposed, every admissible local spatial one-form linear in the active reduced variables is a unique combination of \(\SpatialD_AQ^I\), \(\SpatialD_A\chi\), and \(W_A^T\). The present note adds only the requirement that the coefficient multiplying those slots be tied directly to the bridge-curvature scalar already appearing in \eqref{eq:candanchor}. Because no higher bridge-curvature derivatives are admitted at current scope, that extra dependence can enter only through a scalar local profile \(f\bigl(R[\BridgeMetric]-2\Lambda_{\Sub}\bigr)\). Equation \eqref{eq:basisdecomp} follows.
+\end{proof}
+
+\begin{definition}[Explicit projected bridge-curvature one-forms]
+\label{def:curvoneforms}
+Fix nonzero constants
+\begin{equation}
+\lambda_I\neq 0,
+\qquad
+\lambda_\chi\neq 0,
+\qquad
+\lambda_W\neq 0.
+\label{eq:lambdas}
+\end{equation}
+The explicit projected bridge-curvature one-forms are
+\begin{equation}
+\CurvOneI_A^I\equiv \CurvSeed\,\lambda_I\SpatialD_AQ^I,
+\qquad
+\CurvOneChi_A\equiv \CurvSeed\,\lambda_\chi\SpatialD_A\chi,
+\qquad
+\CurvOneW_A\equiv \CurvSeed\,\lambda_WW_A^T.
+\label{eq:curvoneforms}
+\end{equation}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:curvoneforms} is the explicit local replacement for the abstract curvature-response one-forms of the previous note. The one-form slots are the same; what is now explicit is the bridge-curvature scalar that dresses them.
+\end{remark}
+
+\begin{definition}[Current-readout couplings]
+\label{def:coeffs}
+Fix nonzero readout couplings
+\begin{equation}
+\nu_I,
+\qquad
+\nu_\chi,
+\qquad
+\nu_W.
+\label{eq:nus}
+\end{equation}
+Define
+\begin{equation}
+\mathfrak c_I\equiv \nu_I\lambda_I,
+\qquad
+\mathfrak c_\chi\equiv \nu_\chi\lambda_\chi,
+\qquad
+\mathfrak c_W\equiv \nu_W\lambda_W.
+\label{eq:cdefs}
+\end{equation}
+\end{definition}
+
+\section{Explicit Local Bridge-Curvature Density}
+
+\begin{definition}[Intrinsic source-current variables]
+\label{def:sourcevars}
+The \emph{intrinsic source-current sector} is the same one used in the source-current-sector, constitutive source-current, and constitutive-current curvature-action notes:
+\begin{enumerate}
+    \item a scalar substrate source density \(\SourceDensity\);
+    \item a spatial substrate source current \(\SourceCurrent_A\) satisfying
+    \begin{equation}
+    U^A\SourceCurrent_A=0;
+    \label{eq:spatialcurrent}
+    \end{equation}
+    \item a spatial source flux \(\SourceFlux_A\) satisfying
+    \begin{equation}
+    U^A\SourceFlux_A=0;
+    \label{eq:spatialflux}
+    \end{equation}
+    \item the potential \(\FlowPot\), treated as an independent substrate field;
+    \item a scalar continuity multiplier \(\ContMult\);
+    \item a spatial current multiplier \(\CurrentMult_A\).
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Explicit local bridge-curvature density]
+\label{def:action}
+The \emph{explicit local bridge-curvature plus source-current plus polarization sector} is the enlarged action
+\begin{equation}
+\CurvAction
+\equiv
+\CandAction
++
+\int_{\Sub} d^4X\,\sqrt{G}\,
+\bigl(
+\mathcal L_{\mathrm{loc.curv}}
++\mathcal L_{\mathrm{src,cur}}
++\mathcal L_{\mathrm{pol,aux}}
+\bigr),
+\label{eq:fullaction}
+\end{equation}
+with explicit local bridge-curvature density
+\begin{align}
+\mathcal L_{\mathrm{loc.curv}}
+=\;&
+\CurvSeedMult\Bigl(
+\CurvSeed-\CurvProfile\!\bigl(R[\BridgeMetric]-2\Lambda_{\Sub}\bigr)
+\Bigr)
+\nonumber\\
+&+\CurvQMult^{AI}\bigl(\CurvOneI_A^I-\CurvSeed\,\lambda_I\SpatialD_AQ^I\bigr)
++\CurvChiMult^A\bigl(\CurvOneChi_A-\CurvSeed\,\lambda_\chi\SpatialD_A\chi\bigr)
+\nonumber\\
+&+\CurvTransMult^A\bigl(\CurvOneW_A-\CurvSeed\,\lambda_WW_A^T\bigr)
++\ConstGamma^A\bigl(
+\ConstCurrent_A
+-\nu_I\CurvSeed^{-1}\CurvOneI_A^I
+-\nu_\chi\CurvSeed^{-1}\CurvOneChi_A
+-\nu_W\CurvSeed^{-1}\CurvOneW_A
+\bigr),
+\label{eq:lloccurv}
+\end{align}
+source-current density
+\begin{equation}
+\mathcal L_{\mathrm{src,cur}}
+=
+\SourceFlux^A\SpatialD_A\FlowPot
+-\frac12 \SourceFlux_A\SourceFlux^A
+-4\pi G_N\,\SourceDensity\,\FlowPot
++\ContMult\bigl(\SourceDensity+\SpatialD^A\SourceCurrent_A\bigr)
++\CurrentMult^A\bigl(\SourceCurrent_A-\ConstCurrent_A\bigr),
+\label{eq:lcur}
+\end{equation}
+and polarization density
+\begin{align}
+\mathcal L_{\mathrm{pol,aux}}
+=\;&
+\BalMult\bigl(\BalanceField-\FlowPot^2\bigr)
+-\frac{\mu_t^2}{2}\bigl(\alpha+2\BalanceField\bigr)^2
+-\frac{\mu_s^2}{2}\bigl(\beta-\tfrac32\BalanceField\bigr)^2
+\nonumber\\
+&-\frac{\mu_v^2}{2}\,\mathcal V_A\mathcal V^A
+-\frac{\mu_{\mathrm{tf}}^2}{2}\,\mathcal T_{AB}\mathcal T^{AB},
+\label{eq:laux}
+\end{align}
+where the independent symmetric auxiliary tensor \(\AuxPol_{AB}\) is decomposed as
+\begin{equation}
+\AuxPol_{AB}
+=
+\alpha\,U_AU_B
++2U_{(A}\mathcal V_{B)}
++\mathcal T_{AB}
++\beta\,\ProjSub_{AB},
+\label{eq:Kdecomp}
+\end{equation}
+with
+\begin{equation}
+U^A\mathcal V_A=0,
+\qquad
+U^A\mathcal T_{AB}=0,
+\qquad
+\ProjSub^{AB}\mathcal T_{AB}=0,
+\label{eq:TVcond}
+\end{equation}
+and
+\begin{equation}
+\mu_t^2>0,
+\qquad
+\mu_s^2>0,
+\qquad
+\mu_v^2>0,
+\qquad
+\mu_{\mathrm{tf}}^2>0.
+\label{eq:masses}
+\end{equation}
+\end{definition}
+
+\begin{remark}
+The only place where the bridge metric enters the new local density is the algebraic multiplier term \(\CurvSeedMult(\CurvSeed-\CurvProfile(R[\BridgeMetric]-2\Lambda_{\Sub}))\). On shell, \(\CurvSeedMult=0\), so the explicit local representative does not reopen the lower-order bridge equation.
+\end{remark}
+
+\section{Elimination Back to the Same Reduced Current and Source Package}
+
+\begin{proposition}[Euler--Lagrange system of the explicit local bridge-curvature sector]
+\label{prop:EL}
+The Euler--Lagrange equations of \eqref{eq:fullaction} give
+\begin{equation}
+\CurvSeed
+=
+\CurvProfile\!\bigl(R[\BridgeMetric]-2\Lambda_{\Sub}\bigr),
+\qquad
+\CurvSeedMult=0,
+\label{eq:seedeqs}
+\end{equation}
+\begin{equation}
+\CurvOneI_A^I=\CurvSeed\,\lambda_I\SpatialD_AQ^I,
+\qquad
+\CurvOneChi_A=\CurvSeed\,\lambda_\chi\SpatialD_A\chi,
+\qquad
+\CurvOneW_A=\CurvSeed\,\lambda_WW_A^T,
+\label{eq:curvrels}
+\end{equation}
+\begin{equation}
+\ConstCurrent_A
+=
+\nu_I\CurvSeed^{-1}\CurvOneI_A^I
++\nu_\chi\CurvSeed^{-1}\CurvOneChi_A
++\nu_W\CurvSeed^{-1}\CurvOneW_A
+=
+\mathfrak c_I\SpatialD_AQ^I
++\mathfrak c_\chi\SpatialD_A\chi
++\mathfrak c_WW_A^T
+\equiv
+\SourceCurrentRed_A,
+\label{eq:constitutivecarrier}
+\end{equation}
+\begin{equation}
+\SourceCurrent_A=\ConstCurrent_A=\SourceCurrentRed_A,
+\qquad
+\SourceDensity=-\SpatialD^A\SourceCurrent_A=-\SpatialD^A\SourceCurrentRed_A\equiv \SourceDensityRed,
+\label{eq:currenteqs}
+\end{equation}
+\begin{equation}
+\ContMult=4\pi G_N\,\FlowPot,
+\qquad
+\CurrentMult_A=\ConstGamma_A=\SpatialD_A\ContMult,
+\qquad
+\SourceFlux_A=\SpatialD_A\FlowPot,
+\label{eq:multflux}
+\end{equation}
+\begin{equation}
+\CurvQMult_A{}^{I}=\nu_I\CurvSeed^{-1}\ConstGamma_A,
+\qquad
+\CurvChiMult_A=\nu_\chi\CurvSeed^{-1}\ConstGamma_A,
+\qquad
+\CurvTransMult_A=\nu_W\CurvSeed^{-1}\ConstGamma_A,
+\label{eq:curv_mults}
+\end{equation}
+\begin{equation}
+-\LapPerp\FlowPot=4\pi G_N\,\SourceDensity,
+\label{eq:poisson}
+\end{equation}
+and
+\begin{equation}
+\BalanceField=\FlowPot^2,
+\qquad
+\alpha=-2\BalanceField,
+\qquad
+\beta=\frac32\BalanceField,
+\qquad
+\mathcal V_A=0,
+\qquad
+\mathcal T_{AB}=0,
+\qquad
+\BalMult=0.
+\label{eq:poleqs}
+\end{equation}
+Consequently,
+\begin{equation}
+\AuxPol_{AB}^{\mathrm{elim}}
+=
+-2\FlowPot^2U_AU_B
++\frac32\FlowPot^2\ProjSub_{AB}.
+\label{eq:Kelim}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Variation with respect to \(\CurvSeedMult\) gives the first identity in \eqref{eq:seedeqs}. Variation with respect to \(\CurvQMult^{AI}\), \(\CurvChiMult^A\), and \(\CurvTransMult^A\) gives \eqref{eq:curvrels}. Variation with respect to \(\ConstGamma^A\) gives the first equality in \eqref{eq:constitutivecarrier}. Substituting \eqref{eq:curvrels} and Definition \ref{def:coeffs} yields the second equality in \eqref{eq:constitutivecarrier}.
+
+Variation with respect to \(\CurvOneI_A^I\), \(\CurvOneChi_A\), and \(\CurvOneW_A\) gives \eqref{eq:curv_mults}. Variation with respect to \(\CurvSeed\) yields
+\[
+\CurvSeedMult
+-\lambda_I\CurvQMult^{AI}\SpatialD_AQ^I
+-\lambda_\chi\CurvChiMult^A\SpatialD_A\chi
+-\lambda_W\CurvTransMult^AW_A^T
++\nu_I\CurvSeed^{-2}\ConstGamma^A\CurvOneI_A^I
++\nu_\chi\CurvSeed^{-2}\ConstGamma^A\CurvOneChi_A
++\nu_W\CurvSeed^{-2}\ConstGamma^A\CurvOneW_A
+=0.
+\]
+Using \eqref{eq:curvrels} and \eqref{eq:curv_mults}, the last three terms cancel the middle three terms exactly, so \(\CurvSeedMult=0\). This gives the second identity in \eqref{eq:seedeqs}.
+
+Variation with respect to \(\CurrentMult_A\) gives \(\SourceCurrent_A=\ConstCurrent_A\). Variation with respect to \(\ContMult\) gives \(\SourceDensity+\SpatialD^A\SourceCurrent_A=0\). Combining those identities with \eqref{eq:constitutivecarrier} yields \eqref{eq:currenteqs}. Variation with respect to \(\SourceDensity\) gives \(\ContMult=4\pi G_N\FlowPot\). Variation with respect to \(\SourceCurrent_A\) and integration by parts on the local experiential slice yield \(\CurrentMult_A-\SpatialD_A\ContMult=0\), giving the remaining identities in \eqref{eq:multflux}. Variation with respect to \(\SourceFlux_A\) gives \(\SourceFlux_A=\SpatialD_A\FlowPot\), and variation with respect to \(\FlowPot\) gives \eqref{eq:poisson} after using \(\BalMult=0\), which is obtained exactly as in the previous note.
+
+The polarization variations are unchanged from the previous two notes and therefore give \eqref{eq:poleqs}. Substituting \eqref{eq:poleqs} into \eqref{eq:Kdecomp} yields \eqref{eq:Kelim}.
+\end{proof}
+
+\begin{corollary}[Same reduced current and Hamiltonian-charge flux package]
+\label{cor:currentflux}
+The eliminated explicit local bridge-curvature density yields the same reduced current law and Hamiltonian-charge flux package already fixed downstream:
+\begin{equation}
+\SourceCurrentRed_A
+=
+\mathfrak c_I\SpatialD_AQ^I
++\mathfrak c_\chi\SpatialD_A\chi
++\mathfrak c_WW_A^T,
+\qquad
+\SourceDensityRed=-\SpatialD^A\SourceCurrentRed_A,
+\label{eq:currentdensity}
+\end{equation}
+\begin{equation}
+\HamChargeOmega
+\equiv
+\int_{\Sigma_t}\SourceDensityRed\,d\mu_P
+=
+-\lim_{r\to\infty}\int_{S_r}n^A\SourceCurrentRed_A\,dA.
+\label{eq:charge}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+Equation \eqref{eq:currentdensity} is exactly \eqref{eq:constitutivecarrier} and \eqref{eq:currenteqs}. Integrating \(\SourceDensity=-\SpatialD^A\SourceCurrent\) over the local experiential slice and using \(\SourceCurrent=\SourceCurrentRed\) gives \eqref{eq:charge}.
+\end{proof}
+
+\begin{corollary}[Continuity/Gauss-Poisson package]
+\label{cor:continuity}
+The explicit local bridge-curvature sector derives the same continuity/Gauss-Poisson package that fed the previous notes:
+\begin{equation}
+\SourceDensity+\SpatialD^A\SourceCurrent_A=0,
+\label{eq:continuity}
+\end{equation}
+\begin{equation}
+-\SpatialD_A\SourceFlux^A=4\pi G_N\,\SourceDensity,
+\qquad
+\SourceFlux_A=\SpatialD_A\FlowPot.
+\label{eq:gausspoisson}
+\end{equation}
+Hence, for every ball \(B_r\) containing the charge core,
+\begin{equation}
+\int_{B_r}\SourceDensity\,d\mu_P
+=
+-\int_{S_r}n^A\SourceCurrent_A\,dA
+=
+-\int_{S_r}n^A\SourceCurrentRed_A\,dA
+=
+-\frac{1}{4\pi G_N}\int_{S_r}n^A\SourceFlux_A\,dA.
+\label{eq:doublegauss}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+Equations \eqref{eq:continuity} and \eqref{eq:gausspoisson} are exactly \eqref{eq:currenteqs}, \eqref{eq:multflux}, and \eqref{eq:poisson}. Integrating each divergence relation over \(B_r\) and using the divergence theorem yields \eqref{eq:doublegauss}.
+\end{proof}
+
+\begin{corollary}[Derived exterior Coulomb profile after the explicit local bridge-curvature block]
+\label{cor:coulomb}
+Assume the exterior condition
+\begin{equation}
+\SpatialD^A\SourceCurrentRed_A=0
+\qquad
+\text{for } r>R_\ast.
+\label{eq:exteriorcurrent}
+\end{equation}
+Then on the source-free exterior region \(r>R_\ast\),
+\begin{equation}
+\FlowPot
+=
+\CoulPot+\FlowPotReg,
+\qquad
+\CoulPot(r)=\frac{G_N\,\HamChargeOmega}{r},
+\qquad
+\FlowPotReg=\mathcal O(r^{-2}),
+\qquad
+\partial\FlowPotReg=\mathcal O(r^{-3}).
+\label{eq:potdecomp}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+By Proposition \ref{prop:EL},
+\[
+\SourceDensity
+=
+-\SpatialD^A\SourceCurrentRed_A
+=
+0
+\qquad
+\text{for } r>R_\ast.
+\]
+Therefore \(\LapPerp\FlowPot=0\) on the exterior region. Standard harmonic expansion on the asymptotically Euclidean local experiential slice gives
+\[
+\FlowPot=\frac{A}{r}+\mathcal O(r^{-2})
+\]
+for the unique decaying branch. By \eqref{eq:doublegauss},
+\begin{equation}
+-\int_{S_r}n^A\SpatialD_A\FlowPot\,dA
+=
+4\pi G_N\int_{B_r}\SourceDensity\,d\mu_P
+=
+-4\pi G_N\int_{S_r}n^A\SourceCurrentRed_A\,dA
+=
+4\pi G_N\,\HamChargeOmega.
+\label{eq:gauss}
+\end{equation}
+For the harmonic monopole \(A/r\), the left-hand side of \eqref{eq:gauss} is \(4\pi A\). Hence \(A=G_N\HamChargeOmega\), which gives \eqref{eq:potdecomp}.
+\end{proof}
+
+\section{Same Dressed Bridge Map and Same Gain Package}
+
+\begin{definition}[Dressed bridge reconstruction after full elimination]
+\label{def:bridge}
+Let \(\LiftIER_{AB}\) be a substrate tensor whose observer pullback is the already-fixed lower-order inverse-response correction,
+\begin{equation}
+\ObserverMap^\ast\LiftIER_{AB}=\SigmaIER_{\mu\nu}.
+\label{eq:liftier}
+\end{equation}
+After eliminating the full explicit local bridge-curvature plus source-current plus polarization sector, define the reconstructed bridge metric by
+\begin{equation}
+\BridgeMetric_{AB}^{\mathrm{loc.curv+cur+aux}}
+=
+G_{AB}
+-2U_AU_B
++\LiftIER_{AB}
++\AuxPol_{AB}^{\mathrm{elim}}.
+\label{eq:bridge}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[Observer pullback of the full eliminated explicit local sector]
+\label{prop:pullback}
+In a substrate-adapted local observer chart in which \(U^A\) is the unit temporal direction and \(\ObserverMap^\ast\ProjSub_{AB}\) reduces to the spatial Euclidean metric at leading order, one has
+\begin{equation}
+\bigl(\ObserverMap^\ast\AuxPol^{\mathrm{elim}}\bigr)_{00}
+=
+-2\FlowPot^2,
+\qquad
+\bigl(\ObserverMap^\ast\AuxPol^{\mathrm{elim}}\bigr)_{0i}
+=
+0,
+\qquad
+\bigl(\ObserverMap^\ast\AuxPol^{\mathrm{elim}}\bigr)_{ij}
+=
+\frac32\FlowPot^2\,\delta_{ij}.
+\label{eq:pullK}
+\end{equation}
+Therefore, on the exterior charge sector where \eqref{eq:potdecomp} holds,
+\begin{equation}
+\ObserverMap^\ast \BridgeMetric_{AB}^{\mathrm{loc.curv+cur+aux}}
+=
+g_{\mu\nu}^{\mathrm{br}}
++\SigmaIER_{\mu\nu}
++\SigmaDressSch{}_{\mu\nu}
++\SigmaRegPol{}_{\mu\nu},
+\label{eq:targetrecovered}
+\end{equation}
+with \(\SigmaDressSch\) exactly as in \eqref{eq:schdress} and \(\SigmaRegPol\) satisfying \eqref{eq:reg}.
+\end{proposition}
+
+\begin{proof}
+The pullback identities for \(U_AU_B\) and \(\ProjSub_{AB}\) are the same ones used in the previous note. Applying them to \eqref{eq:Kelim} yields \eqref{eq:pullK}. Substituting \eqref{eq:potdecomp} into \eqref{eq:pullK} splits the eliminated tensor into the pure Coulomb square and the faster \(\mathcal O(r^{-3})\) remainder, giving exactly \(\SigmaDressSch\) and \(\SigmaRegPol\). Combining those identities with \eqref{eq:bridge} and \eqref{eq:liftier} yields \eqref{eq:targetrecovered}.
+\end{proof}
+
+\begin{theorem}[Preservation of the same gain package]
+\label{thm:gains}
+The explicit local bridge-curvature plus source-current plus polarization sector preserves the full surviving dressed gain package of Definition \ref{def:gains}.
+\end{theorem}
+
+\begin{proof}
+By Corollaries \ref{cor:currentflux}, \ref{cor:continuity}, and \ref{cor:coulomb}, the explicit local bridge-curvature density yields exactly the same reduced current, Hamiltonian-charge flux, continuity/Gauss-Poisson package, and exterior Coulomb tail as the integrated-action note. By Proposition \ref{prop:pullback}, the observer pullback of the eliminated deeper sector is exactly the same dressed bridge map already tested positively in the dressing-candidate note. Therefore the same matter-free activity, off-longitudinal \(Q/W\) cancellation, explicit cubic longitudinal completion, and quartic Coulomb self-response absorption survive verbatim.
+\end{proof}
+
+\begin{corollary}[No reopening of the lower-order quotient line]
+\label{cor:nopde}
+The explicit local bridge-curvature representative does not reopen the already-positive quotient reduced-system, theorem, decay, or asymptotic line.
+\end{corollary}
+
+\begin{proof}
+The only bridge-metric dependence of the new local density lies in the algebraic seed relation enforced by \(\CurvSeedMult\), and Proposition \ref{prop:EL} gives \(\CurvSeedMult=0\) on shell. The eliminated current, Poisson, and polarization equations are therefore exactly the same slice-wise nonpropagating package as before, and their first observer imprint remains the same quartic \(\FlowPot^2\) dressing. Hence the lower-order quotient PDE line is unchanged.
+\end{proof}
+
+\section{Forced Data Versus Equivalence-Class Freedom}
+
+\begin{theorem}[Representative-equivalence-class verdict]
+\label{thm:equivalence}
+At the present disciplined scope, the explicit local bridge-curvature density is not uniquely forced by the current candidate substrate action. What is forced is:
+\begin{enumerate}
+    \item the three allowed one-form slots \(\SpatialD_AQ^I\), \(\SpatialD_A\chi\), and \(W_A^T\);
+    \item the coefficient triple \((\mathfrak c_I,\mathfrak c_\chi,\mathfrak c_W)\);
+    \item the eliminated reduced current, Hamiltonian-charge flux, continuity/Gauss-Poisson package, exterior Coulomb tail, surviving dressed bridge map, and gain package.
+\end{enumerate}
+The explicit local density itself is fixed only up to an equivalence class generated by:
+\begin{enumerate}
+    \item replacing the profile \(\CurvProfile(x)=1+\CurvScale^4x^2\) by any smooth positive local bridge-curvature profile \(\widetilde{\CurvProfile}(x)>0\);
+    \item adding local slice divergences to \(\mathcal L_{\mathrm{loc.curv}}\);
+    \item adding Bianchi-exact local bridge-curvature terms whose Euler--Lagrange contribution vanishes after \(\CurvSeedMult=0\).
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Proposition \ref{prop:basis} fixes the carrier-slot structure. Proposition \ref{prop:EL} then shows that the normalized readout
+\[
+\nu_I\CurvSeed^{-1}\CurvOneI_A^I
++\nu_\chi\CurvSeed^{-1}\CurvOneChi_A
++\nu_W\CurvSeed^{-1}\CurvOneW_A
+\]
+cancels the bridge-curvature seed and leaves the coefficient triple \((\mathfrak c_I,\mathfrak c_\chi,\mathfrak c_W)\) unchanged. Corollaries \ref{cor:currentflux}, \ref{cor:continuity}, and \ref{cor:coulomb}, together with Proposition \ref{prop:pullback} and Theorem \ref{thm:gains}, fix the eliminated downstream package.
+
+Now replace \(\CurvProfile\) by any smooth positive \(\widetilde{\CurvProfile}\). The proof of Proposition \ref{prop:EL} goes through verbatim with \(\CurvSeed=\widetilde{\CurvProfile}(R[\BridgeMetric]-2\Lambda_{\Sub})\), because the readout still uses the inverse seed and therefore still reduces to \(\ConstCurrent_A=\mathfrak c_I\SpatialD_AQ^I+\mathfrak c_\chi\SpatialD_A\chi+\mathfrak c_WW_A^T\). Adding local slice divergences does not change the Euler--Lagrange equations, and Bianchi-exact additions vanish once \(\CurvSeedMult=0\) is imposed. Therefore the explicit local density is not unique at current scope, even though the eliminated constitutive-current sector is fixed.
+\end{proof}
+
+\begin{remark}
+Theorem \ref{thm:equivalence} is the precise answer to the current manuscript burden. The present note does not claim that the candidate substrate action has already selected one unique ultraviolet density. It claims something narrower and sufficient for the active line: an explicit local bridge-curvature-density representative now exists, is tied directly to the candidate action, and reproduces exactly the same downstream current and dressed-bridge package as the integrated-action note.
+\end{remark}
+
+\section{Conclusion}
+
+The live burden at this stage was first to decide whether the constitutive-current curvature-action note belonged on the active line and then to replace its equivalent integrated action by an explicit local bridge-curvature density tied directly to the candidate substrate action. Both steps are now complete at disciplined scope.
+
+\begin{enumerate}
+    \item The previous integrated-action note remains canonized on the active line, but only at disciplined integrated-action scope.
+    \item The present note replaces its abstract curvature-response one-forms by the explicit local projected bridge-curvature one-forms \eqref{eq:curvoneforms}, tied directly to the bridge Ricci scalar already present in the candidate action of the substrate-kinematics manuscript.
+    \item The normalized current readout in \eqref{eq:lloccurv} collapses those explicit invariants back to the same coefficient triple
+    \[
+    \mathfrak c_I=\nu_I\lambda_I,
+    \qquad
+    \mathfrak c_\chi=\nu_\chi\lambda_\chi,
+    \qquad
+    \mathfrak c_W=\nu_W\lambda_W,
+    \]
+    so the constitutive current remains
+    \[
+    \SourceCurrentRed_A
+    =
+    \mathfrak c_I\SpatialD_AQ^I
+    +\mathfrak c_\chi\SpatialD_A\chi
+    +\mathfrak c_WW_A^T.
+    \]
+    \item Eliminating the full deeper sector rederives the same reduced current, Hamiltonian-charge flux, continuity/Gauss-Poisson package, exterior Coulomb tail, surviving dressed bridge map, and \(r^{-2}\) gain package.
+    \item The explicit local density is not uniquely forced at current scope. It should be read as one explicit representative of an equivalence class rather than as the unique ultraviolet completion of the current sector.
+\end{enumerate}
+
+The next honest burden is therefore narrower again. It is no longer to search for some local bridge-curvature density at all. It is to decide whether any further substrate principle, symmetry, or variational criterion collapses the explicit equivalence class of local bridge-curvature representatives to a preferred canonical choice without altering the already-fixed downstream package.
+
+\end{document}

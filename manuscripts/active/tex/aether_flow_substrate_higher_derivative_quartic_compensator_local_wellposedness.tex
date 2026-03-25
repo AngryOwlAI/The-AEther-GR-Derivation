@@ -1,0 +1,960 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal{A}}
+\newcommand{\BridgeMetric}{\mathfrak{g}}
+\newcommand{\Ell}{\mathcal{L}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Higher-Derivative Quartic Compensator Branch First Local Well-Posedness, Full Slice Closure, and First Coercive Bootstrap}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The tuned-compensator reduced-system note fixed the next honest theorem target for the active derivational line: prove the first local well-posedness and continuation result for the explicit unit-lapse weighted/homogeneous tuned branch, close the full nonpropagating slice package \((\beta,Q^I,\chi,W_i^T,Y)\) inside that proof, and then test the first corrected \(T\sim\varepsilon^{-1}\) coercive bootstrap for the mixed Einstein--trace/Stueckelberg-like momentum system. The present manuscript performs exactly that theorem step.
+
+The key structural fact is favorable and explicit. After the tuned algebraic solve
+\[
+Y=\frac{\sqrt{\lambda_4}}{M_*M_Y}\Delta_\perp S,
+\]
+the exact-square compensator block vanishes identically and the propagating equations reduce to the collapsed-scalar baseline rather than to the old Einstein--quartic-scalar system. The nonpropagating variables are then determined slice by slice by the same repaired unit-lapse weighted/homogeneous package for \((\beta,Q^I,\chi,W_i^T)\), together with the algebraic reconstruction
+\[
+Y=
+\frac{\sqrt{\lambda_4}}{M_*M_Y}
+\left(
+\Delta_\gamma\sigma+\sigma_0\Delta_\gamma\chi+\mathcal N_{\Delta S}
+\right).
+\]
+Because the propagating equations are derived after eliminating the exact square, this \(Y\)-formula does not feed a hidden quartic operator or a differentiated compensator term back into the evolution. The full nonpropagating package therefore closes with no derivative loss and no new observer-side obstruction.
+
+For \(N\ge 6\), the closed weighted/homogeneous control energy
+\[
+\mathfrak E_N^{\mathrm{tc}}
+=
+\|\gamma-\delta\|_{H^N}^2
++\|\Sigma\|_{H^{N-1}}^2
++\|K\|_{H^{N-1}}^2
++\|\sigma\|_{H^N}^2
++\frac{1}{m_S^2}\|\pi_\sigma\|_{H^{N-1}}^2
++\mathcal E_N^{\mathrm{matter}}
++\|\beta\|_{H^{N+1}}^2
++\|Q\|_{H^N}^2
++\|\chi\|_{\mathcal X_\chi^N}^2
++\|W^T\|_{H^N}^2
+\]
+obeys the local a priori estimate
+\[
+\frac{d}{dt}\mathfrak E_N^{\mathrm{tc}}(t)
+\le
+C_N\bigl(1+\mathfrak E_N^{\mathrm{tc}}(t)^{1/2}\bigr)\mathfrak E_N^{\mathrm{tc}}(t).
+\]
+This yields a first local well-posedness and continuation theorem in the tuned weighted/homogeneous class with \(Y\) reconstructed algebraically on each slice.
+
+The first post-local test is also positive. The low-frequency longitudinal source still couples to the trace sector through the same linear trace--longitudinal subsystem as on the repaired unit-lapse route, while the scalar correction is now built only from the transport/momentum pair \((\sigma,\pi_\sigma)\). The corrected functional
+\[
+\mathfrak F_N^{\mathrm{tc}}
+=
+\mathfrak E_N^{\mathrm{tc}}+\mathfrak C_N^{\mathrm{tc}}
+\]
+is equivalent to \(\mathfrak E_N^{\mathrm{tc}}\) and satisfies
+\[
+\frac{d}{dt}\mathfrak F_N^{\mathrm{tc}}(t)
+\le
+C_N\bigl(\mathfrak F_N^{\mathrm{tc}}(t)\bigr)^{3/2}.
+\]
+Consequently the first corrected tuned-compensator coercive bootstrap closes on times \(T\sim\varepsilon^{-1}\) without the old quartic scalar channel. At the present disciplined scope, the tuned branch therefore clears the local/coercive burden that was left open by the reduced-system note. Decay and asymptotic questions remain later work.
+\end{abstract}
+
+\section{Introduction}
+
+The tuned exact-square compensator branch is no longer missing an explicit nonlinear architecture. The active sequence has already fixed one definite tuned completion, derived its unit-lapse spatial-harmonic reduced system, identified the replacement scalar control pair \((\sigma,\pi_\sigma)\), and stated the narrowest honest theorem target. That changed the status of the next burden again. The missing step is no longer another branch-selection discussion and no longer another return to the old quartic side program. It is the first actual theorem on the explicit tuned branch already on record.
+
+That theorem burden has three parts, and each of them is now unavoidable. First, one must prove local well-posedness and continuation in the repaired weighted/homogeneous unit-lapse class. Second, one must close the full nonpropagating slice package \((\beta,Q^I,\chi,W_i^T,Y)\) without reintroducing hidden higher derivatives through the algebraic compensator recovery. Third, one must test the first corrected coercive bootstrap for the mixed Einstein--trace/Stueckelberg-like momentum system that remains once the old quartic scalar channel is intentionally removed.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays within that boundary. It proves the first local/coercive theorem on the explicit tuned branch in the strict unit-lapse weighted/homogeneous regime. It does not prove a decay theorem, an asymptotic theorem, or a broader admissible-background theorem. It also does not treat the degenerate side-branch archival question, which remains editorial work outside the present theorem step.
+
+\section{Gauge-Fixed Tuned Reduced System}
+
+The explicit tuned-compensator completion eliminates the exact square algebraically. After that elimination the nonlinear propagating equations are those of the collapsed-scalar baseline, while the compensator is reconstructed only after the slice solve.
+
+\begin{definition}[Unit-lapse spatial-harmonic gauge and reduced variables]
+\label{def:gauge}
+Work in the gauge
+\begin{equation}
+N\equiv 1,
+\qquad
+V^i(\gamma)\equiv \gamma^{mn}\bigl(\Gamma^i_{mn}[\gamma]-\Gamma^i_{mn}[\delta]\bigr)=0,
+\label{eq:gauge}
+\end{equation}
+with asymptotics \(\beta^i\to 0\) at spatial infinity. Write the observer metric as
+\begin{equation}
+g_{\mu\nu}dx^\mu dx^\nu
+=
+-dt^2
++\gamma_{ij}(dx^i+\beta^idt)(dx^j+\beta^jdt),
+\label{eq:ADM}
+\end{equation}
+decompose
+\begin{equation}
+K_{ij}
+=
+\Sigma_{ij}+\frac13\gamma_{ij}K,
+\qquad
+\gamma^{ij}\Sigma_{ij}=0,
+\label{eq:Ksplit}
+\end{equation}
+and set
+\begin{equation}
+S=\sigma_0 t+\sigma,
+\qquad
+\pi_\sigma\equiv m_S^2\bigl(n^\mu\nabla_\mu S-\sigma_0\bigr),
+\label{eq:pidef}
+\end{equation}
+with \(n^\mu=(1,-\beta^i)\). The reduced propagating unknowns are
+\begin{equation}
+(\gamma_{ij},\Sigma_{ij},K;\beta^i;\sigma,\pi_\sigma;\psi,\pi_\psi),
+\label{eq:unknowns}
+\end{equation}
+while the nonpropagating slice variables are \(Q^I\), the ordered-flow decomposition
+\begin{equation}
+W_i=D_i\chi+W_i^T,
+\qquad
+D^iW_i^T=0,
+\label{eq:Wdecomp}
+\end{equation}
+and the algebraic compensator \(Y\).
+\end{definition}
+
+\begin{proposition}[Full slice package for the tuned branch]
+\label{prop:auxpackage}
+For the explicit tuned completion, the nonpropagating variables are determined slice by slice by
+\begin{align}
+-\Delta_\gamma\beta^i
+-\frac13 D^iD_j\beta^j
++R^i{}_j[\gamma]\beta^j
+&=
+\mathcal S_\beta^i[\gamma,\Sigma,K,\sigma,\pi_\sigma,Q,\chi,W^T,\psi,\pi_\psi],
+\label{eq:betaeq}
+\\
+\bigl((-\Delta_\gamma)\delta_{IJ}+\widehat M_{IJ}\bigr)Q^J
+&=
+\mathcal N_I^{(Q)}[\gamma,\Sigma,K,\beta,\sigma,\pi_\sigma,Q,\chi,W^T,\psi,\pi_\psi],
+\label{eq:Qeq}
+\\
+\kappa_\theta\Delta_\gamma\chi
+&=
+-K+\mathcal N_\chi[\gamma,\Sigma,K,\beta,\sigma,\pi_\sigma,Q,\chi,W^T,\psi,\pi_\psi],
+\label{eq:chieq}
+\\
+\kappa_\Omega(-\Delta_\gamma)W_i^T
+&=
+\mathcal N_i^{(T)}[\gamma,\Sigma,K,\beta,\sigma,\pi_\sigma,Q,\chi,W^T,\psi,\pi_\psi],
+\label{eq:WTeq}
+\\
+Y
+&=
+\frac{\sqrt{\lambda_4}}{M_*M_Y}
+\left(
+\Delta_\gamma\sigma+\sigma_0\Delta_\gamma\chi+\mathcal N_{\Delta S}[\gamma,\Sigma,K,\beta,\sigma,\pi_\sigma,\chi,W^T]
+\right).
+\label{eq:Yrec}
+\end{align}
+All nonlinear source terms vanish on the flat exact-closure background and are lower-order relative to the displayed elliptic operators or the explicit algebraic solve.
+\end{proposition}
+
+\begin{proof}
+The shift, \(Q\)-sector, and ordered-flow equations are the same unit-lapse spatial-harmonic auxiliary equations already recorded on the repaired weighted/homogeneous route, because the tuned algebraic elimination does not alter the bridge metric, the \(Q\)-sector blocks, or the divergence/vorticity ordered-flow structure. For the compensator, the exact-square Euler--Lagrange equation gives \(Y=(\sqrt{\lambda_4}/(M_*M_Y))\Delta_\perp S\). In unit-lapse \(3+1\) variables, \(\Delta_\perp S\) has principal linear part \(\Delta_\gamma\sigma+\sigma_0\Delta_\gamma\chi\), while the remaining metric, shift, and lower-order ordered-flow terms are absorbed into \(\mathcal N_{\Delta S}\). This yields \eqref{eq:betaeq}--\eqref{eq:Yrec}.
+\end{proof}
+
+\begin{proposition}[Reduced Einstein--trace/Stueckelberg-like momentum system]
+\label{prop:reducedsystem}
+After eliminating the exact square, the tuned branch evolution is
+\begin{align}
+(\partial_t-\Ell_\beta)\gamma_{ij}
+&=
+-2\Sigma_{ij}-\frac23\gamma_{ij}K,
+\label{eq:gammadt}
+\\
+(\partial_t-\Ell_\beta)\Sigma_{ij}
+&=
+\bigl(R_{ij}[\gamma]\bigr)^{\mathrm{TF}}
+-2\Sigma_i{}^k\Sigma_{kj}
+-\frac13 K\Sigma_{ij}
++\Theta_{ij}^{\mathrm{TF,St}},
+\label{eq:Sigmadt}
+\\
+(\partial_t-\Ell_\beta)K
+&=
+R[\gamma]+\Sigma_{ij}\Sigma^{ij}+\frac13K^2+\Theta_K^{\mathrm{St}},
+\label{eq:Kdt}
+\\
+(\partial_t-\Ell_\beta)\sigma
+&=
+\frac{\pi_\sigma}{m_S^2},
+\label{eq:sigmadt}
+\\
+(\partial_t-\Ell_\beta)\pi_\sigma
+&=
+\mathcal N_\pi[\gamma,\Sigma,K,\beta,\sigma,\pi_\sigma,Q,\chi,W^T,\psi,\pi_\psi],
+\label{eq:pidt}
+\end{align}
+subject to the Einstein constraints
+\begin{align}
+R[\gamma]+\frac23K^2-\Sigma_{ij}\Sigma^{ij}
+&=
+16\pi G_N\bigl(\rho^{\mathrm{matter}}+\rho_{\mathrm{St}}\bigr),
+\label{eq:Hconstraint}
+\\
+D^j\Sigma_{ij}-\frac23D_iK
+&=
+8\pi G_N\bigl(J_i^{\mathrm{matter}}+J_i^{\mathrm{St}}\bigr).
+\label{eq:Mconstraint}
+\end{align}
+Here
+\begin{equation}
+\rho_{\mathrm{St}}
+=
+\frac{1}{2m_S^2}\pi_\sigma^2+\mathcal O_{\mathrm{l.o.t.}},
+\qquad
+J_i^{\mathrm{St}}
+=
+-\pi_\sigma D_i\sigma+\mathcal O_{\mathrm{l.o.t.}},
+\label{eq:ststress}
+\end{equation}
+while \(\Theta_{ij}^{\mathrm{TF,St}}\), \(\Theta_K^{\mathrm{St}}\), and \(\mathcal N_\pi\) vanish on the flat exact-closure background and contain no quartic scalar principal operator.
+\end{proposition}
+
+\begin{proof}
+After substituting the algebraic compensator equation back into the exact square, the tuned completion reduces exactly to the collapsed-scalar baseline rather than the old quartic completion. The Einstein equations therefore keep the same ADM unit-lapse form, but their completion-specific source is now the Stueckelberg-like momentum sector rather than a quartic scalar stress tensor. Equation \eqref{eq:sigmadt} is simply the definition of \(\pi_\sigma\) with \(N\equiv 1\). Since the exact square vanishes identically after algebraic elimination, the \(\pi_\sigma\)-equation has no surviving term of the form \(-(\lambda_4/M_*^2)\Delta_\gamma^2\sigma\); what remains is the lower-order nonlinear remainder \(\mathcal N_\pi\) generated by the metric, matter, and auxiliary couplings of the collapsed-scalar baseline. This gives \eqref{eq:gammadt}--\eqref{eq:ststress}.
+\end{proof}
+
+\begin{definition}[Strict tuned auxiliary-elliptic regime]
+\label{def:strict}
+Fix \(N\ge 6\). A solution of the tuned branch lies in the \emph{strict tuned auxiliary-elliptic regime} if
+\begin{equation}
+\widehat M_{IJ}\xi^I\xi^J\ge m_{Q,\min}^2|\xi|^2,
+\qquad
+M_Y^2\ge M_{Y,\min}^2>0,
+\qquad
+\kappa_\theta\ge \kappa_{\theta,\min}>0,
+\qquad
+\kappa_\Omega\ge \kappa_{\Omega,\min}>0,
+\label{eq:strict}
+\end{equation}
+the spatial metric remains uniformly equivalent to \(\delta_{ij}\), and the unit-lapse spatial-harmonic gauge conditions are preserved.
+\end{definition}
+
+\section{Derivative-Safe Closure of the Full Nonpropagating Package}
+
+The first genuine burden specific to the tuned branch is to show that closing the full nonpropagating package does not accidentally recreate the removed quartic channel or a hidden zeroth-order longitudinal obstruction.
+
+\begin{definition}[Low- and high-frequency projectors]
+\label{def:projectors}
+Choose a smooth radial cutoff \(\varphi_{\mathrm{lo}}\in C_c^\infty(\mathbb R^3)\) such that
+\[
+0\le \varphi_{\mathrm{lo}}\le 1,
+\qquad
+\varphi_{\mathrm{lo}}(\xi)=1 \text{ for } |\xi|\le 1,
+\qquad
+\varphi_{\mathrm{lo}}(\xi)=0 \text{ for } |\xi|\ge 2.
+\]
+Define Fourier multipliers
+\begin{equation}
+\widehat{\mathbf P_{\mathrm{lo}}f}(\xi)
+\equiv
+\varphi_{\mathrm{lo}}(\xi)\widehat f(\xi),
+\qquad
+\mathbf P_{\mathrm{hi}}\equiv I-\mathbf P_{\mathrm{lo}}.
+\label{eq:projectors}
+\end{equation}
+\end{definition}
+
+\begin{definition}[Weighted/homogeneous longitudinal norm]
+\label{def:Xchi}
+For the longitudinal source
+\begin{equation}
+F_\chi
+\equiv
+K-\mathcal N_\chi[\gamma,\Sigma,K,\beta,\sigma,\pi_\sigma,Q,\chi,W^T,\psi,\pi_\psi],
+\label{eq:Fchi}
+\end{equation}
+define
+\begin{equation}
+\mathfrak L_\chi(F_\chi)^2
+\equiv
+\int_{\mathbb R^3}
+\varphi_{\mathrm{lo}}(\xi)^2
+|\xi|^{-2}
+|\widehat{F_\chi}(\xi)|^2\,d\xi
+=
+\|\mathbf P_{\mathrm{lo}}F_\chi\|_{\dot H^{-1}}^2
+\label{eq:Lchi}
+\end{equation}
+and
+\begin{equation}
+\|\chi\|_{\mathcal X_\chi^N}^2
+\equiv
+\|\nabla\chi\|_{L^2}^2
++\|\mathbf P_{\mathrm{hi}}\chi\|_{H^N}^2
++\mathfrak L_\chi(F_\chi)^2.
+\label{eq:Xchi}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[Derivative-safe occurrence of \texorpdfstring{\(\chi\)}{chi} and algebraic recovery of \texorpdfstring{\(Y\)}{Y}]
+\label{prop:derivative}
+At the present recorded scope of the explicit tuned branch:
+\begin{enumerate}
+    \item every occurrence of the longitudinal variable \(\chi\) in the recorded reduced system is derivative-level, namely through \(D_i\chi\), \(\Delta_\gamma\chi\), or lower-order contractions of the same ordered-flow tensors;
+    \item the compensator \(Y\) is absent from the propagating equations \eqref{eq:gammadt}--\eqref{eq:pidt} after algebraic elimination, and is reconstructed only afterwards by \eqref{eq:Yrec};
+    \item in the small-data regime,
+    \begin{equation}
+    \|Y\|_{H^{N-2}}
+    \le
+    C_N
+    \Bigl(
+    \|\sigma\|_{H^N}
+    +\|\chi\|_{\mathcal X_\chi^N}
+    +\mathfrak E_{N,\mathrm{prop}}^{\mathrm{tc}}{}^{1/2}
+    \bigl(
+    \|\sigma\|_{H^N}+\|\chi\|_{\mathcal X_\chi^N}
+    \bigr)
+    \Bigr),
+    \label{eq:Ybound}
+    \end{equation}
+    where
+    \begin{equation}
+    \mathfrak E_{N,\mathrm{prop}}^{\mathrm{tc}}
+    \equiv
+    \|\gamma-\delta\|_{H^N}^2
+    +\|\Sigma\|_{H^{N-1}}^2
+    +\|K\|_{H^{N-1}}^2
+    +\|\sigma\|_{H^N}^2
+    +\frac{1}{m_S^2}\|\pi_\sigma\|_{H^{N-1}}^2
+    +\mathcal E_N^{\mathrm{matter}};
+    \label{eq:Eprop}
+    \end{equation}
+    \item consequently the full nonpropagating package does not reintroduce a hidden quartic principal operator, a differentiated compensator equation, or a new zeroth-order longitudinal obstruction.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+The first point is the same structural fact already isolated on the repaired unit-lapse weighted/homogeneous route: the ordered-flow perturbation enters through \(W_i=D_i\chi+W_i^T\), through the slice equation \eqref{eq:chieq}, and through lower-order contractions of the divergence and vorticity tensors. No separate zeroth-order \(\chi\)-potential or mass term is present.
+
+For the second point, the compensator has already been eliminated before writing the propagating reduced system. The exact-square block vanishes identically after the algebraic solve, so \eqref{eq:gammadt}--\eqref{eq:pidt} are the equations of the collapsed-scalar baseline, not equations containing differentiated \(Y\). The compensator is recovered only by \eqref{eq:Yrec}.
+
+For the bound \eqref{eq:Ybound}, equation \eqref{eq:Yrec} expresses \(Y\) directly in terms of \(\Delta_\gamma\sigma\), \(\Delta_\gamma\chi\), and lower-order geometric corrections. Since \(\sigma\in H^N\), the term \(\Delta_\gamma\sigma\) lies in \(H^{N-2}\). The weighted/homogeneous norm \eqref{eq:Xchi} controls \(\nabla\chi\), its high-frequency \(H^N\)-piece, and the low-frequency source seminorm needed to recover \(\Delta_\gamma\chi\) through the slice elliptic equation. The remainder \(\mathcal N_{\Delta S}\) is lower-order in the same small-data class, so it is bounded by the right-hand side of \eqref{eq:Ybound}. This proves the third point.
+
+The final claim follows immediately. Because \(\chi\) enters only through derivative-level ordered-flow quantities and \(Y\) is not part of the propagating system after elimination, reinserting the slice solves cannot regenerate the removed quartic operator or a hidden differentiated compensator equation. The only low-frequency linear coupling that remains is the already-recorded trace--longitudinal one carried by \(F_\chi\).
+\end{proof}
+
+\begin{definition}[Closed tuned-compensator control energy]
+\label{def:Etc}
+For \(N\ge 6\), define
+\begin{align}
+\mathfrak E_N^{\mathrm{tc}}(t)
+\equiv\;&
+\|\gamma-\delta\|_{H^N(\Sigma_t)}^2
++\|\Sigma\|_{H^{N-1}(\Sigma_t)}^2
++\|K\|_{H^{N-1}(\Sigma_t)}^2
++\|\sigma\|_{H^N(\Sigma_t)}^2
++\frac{1}{m_S^2}\|\pi_\sigma\|_{H^{N-1}(\Sigma_t)}^2
+\nonumber\\
+&+\mathcal E_N^{\mathrm{matter}}(t)
++\|\beta\|_{H^{N+1}(\Sigma_t)}^2
++\|Q\|_{H^N(\Sigma_t)}^2
++\|\chi\|_{\mathcal X_\chi^N(\Sigma_t)}^2
++\|W^T\|_{H^N(\Sigma_t)}^2.
+\label{eq:Etc}
+\end{align}
+Also set
+\begin{align}
+\mathfrak A_N^{\mathrm{tc}}(t)
+\equiv\;&
+\|\beta\|_{H^{N+1}(\Sigma_t)}^2
++\|Q\|_{H^N(\Sigma_t)}^2
++\|\chi\|_{\mathcal X_\chi^N(\Sigma_t)}^2
++\|W^T\|_{H^N(\Sigma_t)}^2
++\|Y\|_{H^{N-2}(\Sigma_t)}^2.
+\label{eq:Atc}
+\end{align}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:Etc} differs from the old quartic unit-lapse energy in exactly one structural way: the quartic scalar slot has disappeared. The scalar channel is carried only by \((\sigma,\pi_\sigma)\), while \(Y\) is reconstructed algebraically and recorded in the auxiliary package \eqref{eq:Atc} rather than promoted to a new propagating energy direction.
+\end{remark}
+
+\begin{proposition}[Full slice closure of the nonpropagating package]
+\label{prop:fullell}
+Fix \(N\ge 6\). There exists \(\varepsilon_{\mathrm{tc,ell}}>0\) such that if
+\begin{equation}
+\mathfrak E_{N,\mathrm{prop}}^{\mathrm{tc}}(t)
+\le
+\varepsilon_{\mathrm{tc,ell}}^2
+\label{eq:ellsmall}
+\end{equation}
+and the slice lies in the strict tuned auxiliary-elliptic regime \eqref{eq:strict}, then the subsystem \eqref{eq:betaeq}--\eqref{eq:Yrec} has a unique decaying solution satisfying
+\begin{equation}
+\mathfrak A_N^{\mathrm{tc}}(t)
+\le
+C_N\,\mathfrak E_N^{\mathrm{tc}}(t).
+\label{eq:fullslice}
+\end{equation}
+In particular, the complete slice package \((\beta,Q^I,\chi,W_i^T,Y)\) is closed by the same weighted/homogeneous control energy with no derivative loss.
+\end{proposition}
+
+\begin{proof}
+The shift, \(Q\)-sector, and transverse ordered-flow equations are the same uniformly elliptic equations already used in the repaired unit-lapse weighted/homogeneous theorem architecture, so their estimates are unchanged. The longitudinal solve is also the same one already closed in the weighted/homogeneous norm \(\mathcal X_\chi^N\): the flat-model low-frequency seminorm \(\mathfrak L_\chi(F_\chi)\) replaces the false unweighted \(H^N\)-bound, and the derivative-level occurrence of \(\chi\) is exactly the content of Proposition \ref{prop:derivative}.
+
+What is new is only the compensator. But \(Y\) is not solved from an elliptic equation competing with the rest of the slice package; it is reconstructed explicitly from \eqref{eq:Yrec}. Proposition \ref{prop:derivative} gives the bound \eqref{eq:Ybound}, so once \((\beta,Q,\chi,W^T)\) are controlled by the repaired weighted/homogeneous package, \(Y\) is controlled algebraically in \(H^{N-2}\). Summing the old elliptic estimates with \eqref{eq:Ybound} yields \eqref{eq:fullslice}. Uniqueness follows from uniqueness of the decaying solutions to the elliptic subsystem together with the pointwise formula \eqref{eq:Yrec}.
+\end{proof}
+
+\begin{corollary}[Energy equivalence]
+\label{cor:equiv}
+Under the hypotheses of Proposition \ref{prop:fullell} and for \(\varepsilon_{\mathrm{tc,ell}}\) sufficiently small,
+\begin{equation}
+\mathfrak E_{N,\mathrm{prop}}^{\mathrm{tc}}(t)
+\le
+\mathfrak E_N^{\mathrm{tc}}(t)
+\le
+C_N\,\mathfrak E_{N,\mathrm{prop}}^{\mathrm{tc}}(t).
+\label{eq:energyequiv}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+The left inequality is immediate from Definition \ref{def:Etc}. The right inequality is Proposition \ref{prop:fullell} inserted into \eqref{eq:Etc}.
+\end{proof}
+
+\section{First Local Well-Posedness and Continuation Result}
+
+Once the full slice package is closed, the local theorem architecture is the same mixed hyperbolic--elliptic scheme already used on the repaired unit-lapse route, except that the quartic scalar block is replaced by the transport/momentum pair \((\sigma,\pi_\sigma)\).
+
+\begin{proposition}[High-order a priori estimate]
+\label{prop:apriori}
+Let \(N\ge 6\), and let a smooth solution of the tuned reduced system exist on \([0,T]\) while remaining in the strict tuned auxiliary-elliptic regime. Then
+\begin{equation}
+\frac{d}{dt}\mathfrak E_N^{\mathrm{tc}}(t)
+\le
+C_N\bigl(1+\mathfrak E_N^{\mathrm{tc}}(t)^{1/2}\bigr)\mathfrak E_N^{\mathrm{tc}}(t)
+\label{eq:apriori}
+\end{equation}
+for all \(t\in[0,T]\).
+\end{proposition}
+
+\begin{proof}
+The metric part of \(\mathfrak E_N^{\mathrm{tc}}\) is estimated by the standard unit-lapse spatial-harmonic Einstein energy argument: commute spatial derivatives through \eqref{eq:gammadt}--\eqref{eq:Kdt}, integrate by parts in the Ricci principal terms, and use Sobolev multiplication in dimension three for the commutators, Ricci remainders, transport by \(\beta\), and matter source terms.
+
+The scalar block is simpler than on the old quartic route because there is no surviving quartic principal operator. One commutes \(|\alpha|\le N-1\) through \eqref{eq:sigmadt}--\eqref{eq:pidt}, pairs the differentiated transport equation against \(\partial^\alpha\sigma\), and pairs the differentiated momentum equation against \(\partial^\alpha\pi_\sigma/m_S^2\). Since \(\mathcal N_\pi\) contains no quartic scalar principal term and vanishes on the flat background, the only uncancelled linear contribution is the harmless first-order pairing between \(\sigma\) and \(\pi_\sigma\), while the remaining terms are lower-order commutators and source insertions. The \(H^N\)-regularity of \(\sigma\) is then propagated in the standard mixed-order way from the transport equation together with the \(H^{N-1}\)-control of \(\pi_\sigma\) and the initial \(H^N\)-data.
+
+Finally, the nonpropagating variables are not differentiated through independent evolution equations. Proposition \ref{prop:fullell} re-inserts \(\beta\), \(Q\), \(\chi\), \(W^T\), and \(Y\) at the slice level. Proposition \ref{prop:derivative} is decisive here: no differentiated \(Y\) and no zeroth-order longitudinal term need to be estimated in addition to the closed energy. Summing the differentiated Einstein, scalar, and matter inequalities yields \eqref{eq:apriori}.
+\end{proof}
+
+\begin{corollary}[Short-time persistence of the strict regime]
+\label{cor:persist}
+There exists \(\varepsilon_*>0\) such that if \(\mathfrak E_N^{\mathrm{tc}}(0)\le \varepsilon_*^2\), then for some \(T_*=T_*(\varepsilon_*,N)>0\) the solution remains in the strict tuned auxiliary-elliptic regime on \([0,T_*]\).
+\end{corollary}
+
+\begin{proof}
+Proposition \ref{prop:apriori} and Gronwall imply
+\[
+\sup_{0\le t\le T}\mathfrak E_N^{\mathrm{tc}}(t)
+\le
+\mathfrak E_N^{\mathrm{tc}}(0)
+\exp\!\Bigl(C_NT\bigl(1+\sup_{0\le s\le T}\mathfrak E_N^{\mathrm{tc}}(s)^{1/2}\bigr)\Bigr).
+\]
+For \(\mathfrak E_N^{\mathrm{tc}}(0)\) small and \(T\) sufficiently short, this stays below the threshold used in Definition \ref{def:strict} and Proposition \ref{prop:fullell}. Sobolev embedding then preserves the metric equivalence and the fixed positive lower bounds.
+\end{proof}
+
+\begin{definition}[Compatible tuned initial data]
+\label{def:init}
+Initial data for the tuned theorem consist of asymptotically flat fields
+\begin{equation}
+(\gamma_{ij}^{(0)},\Sigma_{ij}^{(0)},K^{(0)};\sigma^{(0)},\pi_\sigma^{(0)};\psi^{(0)},\pi_\psi^{(0)})
+\label{eq:initdata}
+\end{equation}
+on \(\Sigma_0\simeq\mathbb R^3\) such that:
+\begin{enumerate}
+    \item the Einstein Hamiltonian and momentum constraints \eqref{eq:Hconstraint}--\eqref{eq:Mconstraint} hold at \(t=0\);
+    \item the unit-lapse spatial-harmonic gauge conditions \eqref{eq:gauge} hold at \(t=0\);
+    \item the slice equations \eqref{eq:betaeq}--\eqref{eq:WTeq} admit decaying solutions at \(t=0\);
+    \item the compensator is initialized by the algebraic relation \eqref{eq:Yrec};
+    \item the data lie in the Sobolev classes appearing in Definition \ref{def:Etc};
+    \item the strict tuned auxiliary-elliptic regime holds initially.
+\end{enumerate}
+\end{definition}
+
+\begin{theorem}[First tuned-compensator local well-posedness with full slice closure]
+\label{thm:local}
+Fix \(N\ge 6\). There exists \(\varepsilon_{\mathrm{wp}}>0\) with the following property. Let compatible tuned initial data \eqref{eq:initdata} satisfy
+\begin{equation}
+\mathfrak E_N^{\mathrm{tc}}(0)\le \varepsilon_{\mathrm{wp}}^2.
+\label{eq:wpsmall}
+\end{equation}
+Then the explicit tuned-compensator branch admits a unique solution on some interval \([0,T_{\mathrm{loc}}]\), \(T_{\mathrm{loc}}>0\), such that
+\begin{align}
+\gamma-\delta &\in C([0,T_{\mathrm{loc}}],H^N)\cap C^1([0,T_{\mathrm{loc}}],H^{N-1}),
+\label{eq:reggamma}
+\\
+\Sigma,\ K,\ \pi_\sigma &\in C([0,T_{\mathrm{loc}}],H^{N-1}),
+\label{eq:regsigmakpi}
+\\
+\sigma &\in C([0,T_{\mathrm{loc}}],H^N)\cap C^1([0,T_{\mathrm{loc}}],H^{N-1}),
+\label{eq:regsigma}
+\\
+\beta &\in C([0,T_{\mathrm{loc}}],H^{N+1}),
+\label{eq:regbeta}
+\\
+Q,\ W^T &\in C([0,T_{\mathrm{loc}}],H^N),
+\label{eq:regaux}
+\\
+\nabla\chi &\in C([0,T_{\mathrm{loc}}],H^{N-1}),
+\qquad
+\mathbf P_{\mathrm{hi}}\chi\in C([0,T_{\mathrm{loc}}],H^N),
+\label{eq:regchi}
+\\
+Y &\in C([0,T_{\mathrm{loc}}],H^{N-2}),
+\label{eq:regY}
+\end{align}
+and the following hold:
+\begin{enumerate}
+    \item the Einstein constraints propagate;
+    \item the gauge conditions \eqref{eq:gauge} are preserved;
+    \item the full nonpropagating package remains the unique decaying solution of \eqref{eq:betaeq}--\eqref{eq:Yrec} on every slice;
+    \item the solution stays in the strict tuned auxiliary-elliptic regime on \([0,T_{\mathrm{loc}}]\);
+    \item the closed energy satisfies
+    \begin{equation}
+    \sup_{0\le t\le T_{\mathrm{loc}}}\mathfrak E_N^{\mathrm{tc}}(t)
+    \le
+    2\,\mathfrak E_N^{\mathrm{tc}}(0).
+    \label{eq:localbound}
+    \end{equation}
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Construct a quasilinear iteration by freezing the coefficients from the previous iterate, solving the slice subsystem \eqref{eq:betaeq}--\eqref{eq:Yrec} on each time slice, and then solving the resulting mixed Einstein--trace/Stueckelberg-like momentum evolution for \((\gamma,\Sigma,K,\sigma,\pi_\sigma;\psi,\pi_\psi)\). Proposition \ref{prop:fullell} supplies uniform slice solvability of the full nonpropagating package, and Proposition \ref{prop:apriori} supplies the uniform high-order estimate. Choosing \(T_{\mathrm{loc}}\) so that the Gronwall factor remains below \(2\) yields \eqref{eq:localbound}. Standard difference estimates for the same mixed hyperbolic--elliptic system then show contraction on a shorter interval if necessary, so the iteration converges to a unique solution with regularity \eqref{eq:reggamma}--\eqref{eq:regY}.
+
+Constraint propagation is the usual consequence of the contracted Bianchi identities together with the matter equations. Gauge preservation holds because \(\beta\) is solved from the gauge-preservation equation and \(N\equiv 1\) is imposed identically. The full slice package propagates as a slice-wise determination because \((\beta,Q,\chi,W^T)\) are redefined at each time by the unique decaying elliptic solutions of \eqref{eq:betaeq}--\eqref{eq:WTeq}, while \(Y\) is redefined by the algebraic formula \eqref{eq:Yrec}. Corollary \ref{cor:persist} gives persistence of the strict regime when the initial norm is sufficiently small.
+\end{proof}
+
+\begin{theorem}[Continuation criterion]
+\label{thm:cont}
+Let \([0,T_{\max})\) be the maximal interval of existence of the solution from Theorem \ref{thm:local}. If
+\begin{equation}
+\sup_{0\le t<T_{\max}}\mathfrak E_N^{\mathrm{tc}}(t)<\infty
+\label{eq:Enbounded}
+\end{equation}
+and the strict tuned auxiliary-elliptic regime persists on \([0,T_{\max})\), then the solution extends beyond \(T_{\max}\). Equivalently, finite-time breakdown can occur only if at least one of the following happens:
+\begin{enumerate}
+    \item \(\mathfrak E_N^{\mathrm{tc}}(t)\) becomes unbounded;
+    \item the spatial metric ceases to remain uniformly equivalent to \(\delta_{ij}\);
+    \item one of the lower bounds in \eqref{eq:strict} fails;
+    \item the slice subsystem \eqref{eq:betaeq}--\eqref{eq:Yrec} loses invertibility or algebraic control.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Assume \eqref{eq:Enbounded} and persistence of the strict regime. Then the coefficients of the mixed hyperbolic--elliptic system remain bounded in the Sobolev classes of Theorem \ref{thm:local}, and Proposition \ref{prop:fullell} continues to provide uniform slice estimates for \((\beta,Q,\chi,W^T,Y)\) on every slice. Restart the local argument at any time \(t_0<T_{\max}\) using the bounded data at that slice. The same construction then yields a further interval of existence beyond \(t_0\) with length depending only on the uniform control bounds, contradicting maximality if \(T_{\max}<\infty\). Therefore any finite-time breakdown must come from loss of one of the listed control mechanisms.
+\end{proof}
+
+\section{Corrected Coercive Energy on the Tuned Branch}
+
+The local theorem closes the tuned-compensator Cauchy problem. The next honest question is post-local: does the corrected energy close a \(T\sim\varepsilon^{-1}\) coercive bootstrap once the scalar control is carried by \((\sigma,\pi_\sigma)\) rather than by the old quartic channel?
+
+\begin{definition}[Bootstrap interval]
+\label{def:boot}
+Fix \(0<\varepsilon\ll 1\). An interval \([0,T]\) is said to lie in the \emph{tuned-compensator coercive bootstrap regime} if:
+\begin{enumerate}
+    \item the strict tuned auxiliary-elliptic regime \eqref{eq:strict} holds on every slice;
+    \item the tuned energy satisfies
+    \begin{equation}
+    \sup_{0\le t\le T}\mathfrak E_N^{\mathrm{tc}}(t)\le 4\varepsilon^2.
+    \label{eq:bootenergy}
+    \end{equation}
+\end{enumerate}
+No separate quartic scalar dominance condition is imposed, because the tuned branch no longer carries a quartic scalar principal slot.
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:boot} records the first structural gain of the tuned branch at coercive level. The old quartic non-ultrasoft bookkeeping is not part of the bootstrap assumptions because the old quartic channel has been removed rather than merely renormalized.
+\end{remark}
+
+For the corrected coercive functional, set
+\begin{equation}
+h_{ij}\equiv \gamma_{ij}-\delta_{ij},
+\qquad
+\mathbb K_{ij}\equiv \Sigma_{ij}+\frac13\delta_{ij}K,
+\label{eq:hk}
+\end{equation}
+and define the low-frequency trace variable
+\begin{equation}
+\vartheta \equiv \frac12\operatorname{tr}_\delta(\gamma-\delta)
+=
+\frac12\delta^{ij}h_{ij}.
+\label{eq:vartheta}
+\end{equation}
+
+\begin{definition}[Corrected tuned-compensator coercive functional]
+\label{def:F}
+For \(N\ge 6\), define
+\begin{align}
+\mathfrak C_N^{\mathrm{tc}}(t)
+\equiv\;&
+\sum_{|\alpha|\le N-1} c_\alpha^{(g)}
+\int_{\Sigma_t}
+\partial^\alpha h^{ij}\,
+\partial^\alpha \mathbb K_{ij}\,d\mu_\gamma
+\nonumber\\
+&+
+\sum_{|\alpha|\le N-1} c_\alpha^{(\sigma)}
+\int_{\Sigma_t}
+\partial^\alpha \sigma\,
+\partial^\alpha\!\left(\frac{\pi_\sigma}{m_S^2}\right)d\mu_\gamma,
+\label{eq:Ctc}
+\end{align}
+where the coefficients \(c_\alpha^{(g)}\), \(c_\alpha^{(\sigma)}\) are fixed sufficiently small depending only on \(N\) and the flat background normalization. The \emph{corrected tuned-compensator coercive functional} is
+\begin{equation}
+\mathfrak F_N^{\mathrm{tc}}(t)
+\equiv
+\mathfrak E_N^{\mathrm{tc}}(t)+\mathfrak C_N^{\mathrm{tc}}(t).
+\label{eq:Ftc}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[Coercive equivalence]
+\label{prop:Fequiv}
+There exists \(\varepsilon_{\mathrm{coer}}>0\) such that if \([0,T]\) lies in the tuned-compensator coercive bootstrap regime with \(\varepsilon\le \varepsilon_{\mathrm{coer}}\), then
+\begin{equation}
+\frac12\mathfrak E_N^{\mathrm{tc}}(t)
+\le
+\mathfrak F_N^{\mathrm{tc}}(t)
+\le
+\frac32\mathfrak E_N^{\mathrm{tc}}(t)
+\label{eq:Fequiv}
+\end{equation}
+for all \(t\in[0,T]\).
+\end{proposition}
+
+\begin{proof}
+By Cauchy--Schwarz and Sobolev embedding,
+\[
+|\mathfrak C_N^{\mathrm{tc}}(t)|
+\le
+C_N\Bigl(
+\|h\|_{H^N}\|\mathbb K\|_{H^{N-1}}
++
+\|\sigma\|_{H^{N-1}}\frac{1}{m_S}\|\pi_\sigma\|_{H^{N-1}}
+\Bigr).
+\]
+Absorb these pairings into \(\mathfrak E_N^{\mathrm{tc}}\) with sufficiently small coefficients \(c_\alpha^{(g)}\), \(c_\alpha^{(\sigma)}\), and then use \eqref{eq:bootenergy}.
+\end{proof}
+
+\begin{proposition}[Trace--longitudinal source subsystem]
+\label{prop:trace}
+On every tuned-compensator coercive bootstrap interval, the low-frequency trace variable \(\vartheta\) and the longitudinal source \(F_\chi\) satisfy
+\begin{align}
+(\partial_t-\Ell_\beta)\vartheta
+&=
+-F_\chi+\mathcal Q_\vartheta,
+\label{eq:varthetadt}
+\\
+(\partial_t-\Ell_\beta)F_\chi
+&=
+-\Delta_\delta \vartheta+\mathcal R_\chi,
+\label{eq:Fdt}
+\end{align}
+where the remainders obey
+\begin{equation}
+\|\mathcal Q_\vartheta(t)\|_{L^2}
++\|\mathbf P_{\mathrm{lo}}\mathcal R_\chi(t)\|_{\dot H^{-1}}
+\le
+C_N\,\mathfrak E_N^{\mathrm{tc}}(t)
+\label{eq:tracebounds}
+\end{equation}
+for all \(t\in[0,T]\).
+\end{proposition}
+
+\begin{proof}
+Take the \(\delta\)-trace of \eqref{eq:gammadt}. Since \(\gamma^{ij}\Sigma_{ij}=0\), one has \(\delta^{ij}\Sigma_{ij}=\mathcal O(h\Sigma)\), so
+\[
+(\partial_t-\Ell_\beta)\vartheta
+=
+-K+\mathcal Q_{\mathrm{tr}}
+\]
+with \(\|\mathcal Q_{\mathrm{tr}}\|_{L^2}\le C_N\mathfrak E_N^{\mathrm{tc}}\). Since \(F_\chi=K-\mathcal N_\chi\) and \(\mathcal N_\chi\) vanishes at least quadratically around the flat exact-closure background, the first equation becomes \eqref{eq:varthetadt} with
+\[
+\mathcal Q_\vartheta=\mathcal Q_{\mathrm{tr}}+\mathcal N_\chi.
+\]
+
+For the second equation, differentiate \eqref{eq:Fchi} along \((\partial_t-\Ell_\beta)\). The trace evolution \eqref{eq:Kdt} gives
+\[
+(\partial_t-\Ell_\beta)K
+=
+R[\gamma]+\Sigma_{ij}\Sigma^{ij}+\frac13K^2+\Theta_K^{\mathrm{St}}.
+\]
+In spatial-harmonic gauge, the flat-model linearization of the scalar curvature is
+\[
+R[\gamma]=-\Delta_\delta \vartheta+\mathcal Q_R,
+\]
+with \(\|\mathbf P_{\mathrm{lo}}\mathcal Q_R\|_{\dot H^{-1}}\le C_N\mathfrak E_N^{\mathrm{tc}}\). The terms \(\Sigma_{ij}\Sigma^{ij}\), \(K^2\), \(\Theta_K^{\mathrm{St}}\), the transport commutators, and \((\partial_t-\Ell_\beta)\mathcal N_\chi\) are all quadratic on the bootstrap interval because the Stueckelberg stress vanishes at linear order and \(\mathcal N_\chi\) depends only on derivative-level quantities already controlled by the closed tuned energy. Collecting these terms yields \eqref{eq:Fdt}--\eqref{eq:tracebounds}.
+\end{proof}
+
+\begin{theorem}[Propagation of the low-frequency longitudinal seminorm]
+\label{thm:lowprop}
+Fix \(N\ge 6\). There exists \(C_N>0\) such that every smooth solution in the tuned-compensator coercive bootstrap regime satisfies
+\begin{equation}
+\frac{d}{dt}
+\Bigl(
+\|\mathbf P_{\mathrm{lo}}\vartheta(t)\|_{L^2}^2
++\mathfrak L_\chi(F_\chi(t))^2
+\Bigr)
+\le
+C_N\bigl(\mathfrak E_N^{\mathrm{tc}}(t)\bigr)^{3/2}
+\label{eq:lowprop}
+\end{equation}
+for all \(t\in[0,T]\). Consequently,
+\begin{equation}
+\mathfrak L_\chi(F_\chi(t))^2
+\le
+\|\mathbf P_{\mathrm{lo}}\vartheta(0)\|_{L^2}^2
++\mathfrak L_\chi(F_\chi(0))^2
++C_N\int_0^t
+\bigl(\mathfrak E_N^{\mathrm{tc}}(s)\bigr)^{3/2}\,ds.
+\label{eq:lowpropint}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Apply \(\mathbf P_{\mathrm{lo}}\) to \eqref{eq:varthetadt} and take the \(L^2\)-inner product with \(\mathbf P_{\mathrm{lo}}\vartheta\). This gives
+\begin{equation}
+\frac12\frac{d}{dt}\|\mathbf P_{\mathrm{lo}}\vartheta\|_{L^2}^2
+=
+-\langle \mathbf P_{\mathrm{lo}}\vartheta,\mathbf P_{\mathrm{lo}}F_\chi\rangle
++\mathcal E_\vartheta,
+\label{eq:thetader}
+\end{equation}
+where
+\[
+|\mathcal E_\vartheta|
+\le
+C_N\|\mathbf P_{\mathrm{lo}}\vartheta\|_{L^2}\|\mathcal Q_\vartheta\|_{L^2}
++C_N\|\beta\|_{H^{N+1}}\|\mathbf P_{\mathrm{lo}}\vartheta\|_{L^2}^2
+\le
+C_N\bigl(\mathfrak E_N^{\mathrm{tc}}\bigr)^{3/2}.
+\]
+
+Next, apply \(|\nabla|^{-1}\mathbf P_{\mathrm{lo}}\) to \eqref{eq:Fdt} and take the \(L^2\)-inner product with \(|\nabla|^{-1}\mathbf P_{\mathrm{lo}}F_\chi\). Since \(|\nabla|^{-1}(-\Delta_\delta)=|\nabla|\), one obtains
+\begin{equation}
+\frac12\frac{d}{dt}\mathfrak L_\chi(F_\chi)^2
+=
+\langle |\nabla|^{-1}\mathbf P_{\mathrm{lo}}F_\chi,\,
+|\nabla|\mathbf P_{\mathrm{lo}}\vartheta\rangle
++\mathcal E_F,
+\label{eq:Lder}
+\end{equation}
+with
+\[
+|\mathcal E_F|
+\le
+C_N\mathfrak L_\chi(F_\chi)\,
+\|\mathbf P_{\mathrm{lo}}\mathcal R_\chi\|_{\dot H^{-1}}
++C_N\|\beta\|_{H^{N+1}}\mathfrak L_\chi(F_\chi)^2
+\le
+C_N\bigl(\mathfrak E_N^{\mathrm{tc}}\bigr)^{3/2}.
+\]
+The linear terms in \eqref{eq:thetader} and \eqref{eq:Lder} cancel exactly because
+\[
+\langle \mathbf P_{\mathrm{lo}}\vartheta,\mathbf P_{\mathrm{lo}}F_\chi\rangle
+=
+\langle |\nabla|\mathbf P_{\mathrm{lo}}\vartheta,\,
+|\nabla|^{-1}\mathbf P_{\mathrm{lo}}F_\chi\rangle.
+\]
+This proves \eqref{eq:lowprop}; integrating in time yields \eqref{eq:lowpropint}.
+\end{proof}
+
+\begin{proposition}[Quadratic remainder structure on the tuned branch]
+\label{prop:quadratic}
+On the flat exact-closure background and in unit-lapse spatial-harmonic gauge, every nonprincipal remainder term left after commuting derivatives through the propagating Einstein--trace/Stueckelberg-like momentum system, inserting the slice estimates of Proposition \ref{prop:fullell}, and using Proposition \ref{prop:trace} is at least quadratic in the perturbation size measured by \(\bigl(\mathfrak E_N^{\mathrm{tc}}\bigr)^{1/2}\).
+\end{proposition}
+
+\begin{proof}
+The background is an exact solution of the tuned reduced system, so every source term vanishes there. The only linear propagating terms are the Einstein tracefree/trace block, the transport equation \eqref{eq:sigmadt}, and the trace--longitudinal low-frequency coupling already isolated in Proposition \ref{prop:trace}. There is no surviving quartic scalar principal operator and no differentiated compensator equation. By Proposition \ref{prop:fullell}, the nonpropagating package is inserted only through the slice-wise weighted/homogeneous estimates, and Proposition \ref{prop:derivative} removes any hidden differentiated \(Y\) or zeroth-order \(\chi\)-loss. What remains after those extractions is made of variable-coefficient commutators, Ricci corrections, transport by \(\beta\), matter insertions, Stueckelberg-stress lower-order terms, and differentiated nonlinear auxiliary sources. Each such term contains at least one perturbative coefficient factor and one controlled differentiated unknown, so it is quadratic in the bootstrap size.
+\end{proof}
+
+\begin{theorem}[Improved tuned-compensator coercive energy estimate]
+\label{thm:ineq}
+Fix \(N\ge 6\). There exist \(\varepsilon_{\mathrm{boot}}>0\) and \(C_N>0\) such that every smooth solution in the tuned-compensator coercive bootstrap regime with \(\varepsilon\le \varepsilon_{\mathrm{boot}}\) satisfies
+\begin{equation}
+\frac{d}{dt}\mathfrak F_N^{\mathrm{tc}}(t)
+\le
+C_N\bigl(\mathfrak F_N^{\mathrm{tc}}(t)\bigr)^{3/2}
+\label{eq:quadraticineq}
+\end{equation}
+for all \(t\in[0,T]\).
+\end{theorem}
+
+\begin{proof}
+Differentiate the propagating part of \(\mathfrak E_N^{\mathrm{tc}}\) exactly as in the local tuned theorem architecture. The tracefree Einstein block is paired against the metric correction term in \(\mathfrak C_N^{\mathrm{tc}}\), removing the purely linear transport pieces in the same way as on the earlier repaired unit-lapse route.
+
+For the scalar block, the leading linear contribution to the time derivative of
+\[
+\|\sigma\|_{H^N}^2+\frac{1}{m_S^2}\|\pi_\sigma\|_{H^{N-1}}^2
+\]
+is the first-order pairing between \(\sigma\) and \(\pi_\sigma\) coming from \eqref{eq:sigmadt}. Because \eqref{eq:pidt} has no linear quartic principal term and \(\mathcal N_\pi\) vanishes on the flat background, the time derivative of the scalar correction term in \eqref{eq:Ctc} cancels that linear pairing up to quadratic remainders. This is the tuned replacement of the old quartic scalar correction: one keeps the transport/momentum pairing and discards the removed quartic slot.
+
+For the longitudinal sector, one again does not differentiate \(\chi\) directly in the high-order energy. Proposition \ref{prop:fullell} controls the derivative-level longitudinal slot pointwise by the closed tuned energy, while Theorem \ref{thm:lowprop} supplies the missing time-propagation estimate for the low-frequency seminorm \(\mathfrak L_\chi(F_\chi(t))\). The low-frequency linear terms cancel against the trace sector exactly as before.
+
+After those cancellations, Proposition \ref{prop:quadratic} shows that all remaining commutators and source terms are quadratic. Sobolev multiplication in dimension three bounds each of them by \(C_N(\mathfrak E_N^{\mathrm{tc}})^{3/2}\). Proposition \ref{prop:fullell} controls the nonpropagating package by the same energy, and Proposition \ref{prop:Fequiv} converts \(\mathfrak E_N^{\mathrm{tc}}\) to \(\mathfrak F_N^{\mathrm{tc}}\). This yields \eqref{eq:quadraticineq}.
+\end{proof}
+
+\section{Closure of the First Corrected \texorpdfstring{\(T\sim\varepsilon^{-1}\)}{T~eps^-1} Bootstrap}
+
+\begin{theorem}[First tuned-compensator coercive bootstrap]
+\label{thm:bootstrap}
+Fix \(N\ge 6\). There exist \(\varepsilon_\sharp>0\) and \(c_N>0\) such that the following holds. Let compatible tuned initial data satisfy the hypotheses of Theorem \ref{thm:local} together with
+\begin{equation}
+\mathfrak F_N^{\mathrm{tc}}(0)\le \varepsilon^2,
+\qquad
+0<\varepsilon\le \varepsilon_\sharp.
+\label{eq:initsmall}
+\end{equation}
+Assume that on some interval \([0,T]\) the corresponding solution lies in the tuned-compensator coercive bootstrap regime. If
+\begin{equation}
+T\le c_N\,\varepsilon^{-1},
+\label{eq:Tbootstrap}
+\end{equation}
+then
+\begin{equation}
+\sup_{0\le t\le T}\mathfrak F_N^{\mathrm{tc}}(t)\le 2\varepsilon^2,
+\qquad
+\sup_{0\le t\le T}\mathfrak E_N^{\mathrm{tc}}(t)\le 3\varepsilon^2,
+\label{eq:bootstrapimprove}
+\end{equation}
+and consequently
+\begin{equation}
+\sup_{0\le t\le T}\mathfrak A_N^{\mathrm{tc}}(t)\le C_N\varepsilon^2.
+\label{eq:auximprove}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Let
+\[
+M(T)\equiv \sup_{0\le t\le T}\mathfrak F_N^{\mathrm{tc}}(t).
+\]
+By Theorem \ref{thm:ineq},
+\[
+\mathfrak F_N^{\mathrm{tc}}(t)
+\le
+\mathfrak F_N^{\mathrm{tc}}(0)
++C_N\int_0^t
+\bigl(\mathfrak F_N^{\mathrm{tc}}(s)\bigr)^{3/2}\,ds
+\le
+\varepsilon^2+C_NT\,M(T)^{3/2}.
+\]
+The bootstrap assumption \eqref{eq:bootenergy} and coercive equivalence \eqref{eq:Fequiv} imply \(M(T)\le 6\varepsilon^2\). Therefore
+\[
+\mathfrak F_N^{\mathrm{tc}}(t)
+\le
+\varepsilon^2+C_N 6^{3/2}T\,\varepsilon^3.
+\]
+Taking the supremum over \(t\in[0,T]\) gives
+\[
+M(T)\le \varepsilon^2+C_N 6^{3/2}T\,\varepsilon^3.
+\]
+Choose \(c_N>0\) so that \(C_N6^{3/2}c_N\le 1\). Then \eqref{eq:Tbootstrap} implies \(M(T)\le 2\varepsilon^2\), which is a strict improvement of the bootstrap bound for sufficiently small \(\varepsilon\). Equation \eqref{eq:bootstrapimprove} follows from \eqref{eq:Fequiv}, and \eqref{eq:auximprove} follows from Proposition \ref{prop:fullell}.
+\end{proof}
+
+\begin{corollary}[Bootstrap lifespan lower bound]
+\label{cor:lifespan}
+Under the hypotheses of Theorem \ref{thm:bootstrap}, the maximal existence interval of Theorem \ref{thm:local} satisfies
+\begin{equation}
+T_{\max}\ge c_N\,\varepsilon^{-1},
+\label{eq:lifespan}
+\end{equation}
+provided the strict tuned auxiliary-elliptic regime holds initially with the fixed positive lower bounds.
+\end{corollary}
+
+\begin{proof}
+The local theorem continues the solution as long as the closed tuned energy stays finite and the strict tuned auxiliary-elliptic regime persists. Theorem \ref{thm:bootstrap} supplies exactly those bounds on every subinterval of length at most \(c_N\varepsilon^{-1}\).
+\end{proof}
+
+\begin{corollary}[No first coercive obstruction on the tuned branch]
+\label{cor:noobstruction}
+At the present recorded scope of the explicit tuned-compensator branch, the first corrected coercive bootstrap closes. The first genuine remaining open burden is therefore beyond the coercive stage rather than inside it.
+\end{corollary}
+
+\begin{proof}
+Theorem \ref{thm:bootstrap} closes the \(T\sim\varepsilon^{-1}\) bootstrap with no derivative loss and with the full slice package controlled by \eqref{eq:auximprove}. Therefore the tuned branch does not encounter its first new obstruction at the coercive level.
+\end{proof}
+
+\section{What This Step Establishes}
+
+The present manuscript establishes the following.
+\begin{enumerate}
+    \item It proves the first local well-posedness and continuation theorem for the explicit tuned-compensator reduced system in the repaired unit-lapse weighted/homogeneous class.
+    \item It closes the full nonpropagating slice package \((\beta,Q^I,\chi,W_i^T,Y)\) and shows that \(Y\) is reconstructed algebraically rather than promoted to a new propagating channel.
+    \item It proves that the full slice package is derivative-safe: the repaired weighted/homogeneous longitudinal control remains sufficient and the algebraic \(Y\)-recovery does not reintroduce the removed quartic operator or a hidden differentiated compensator equation.
+    \item It rebuilds the corrected coercive functional around the surviving scalar control pair \((\sigma,\pi_\sigma)\) rather than around the old quartic scalar channel.
+    \item It proves that the first corrected tuned-compensator coercive bootstrap closes on times \(T\sim\varepsilon^{-1}\).
+\end{enumerate}
+
+It does not establish the following.
+\begin{enumerate}
+    \item It does not prove a decay theorem or asymptotic stability statement on the tuned branch.
+    \item It does not weaken the strict positive lower bounds in \eqref{eq:strict}.
+    \item It does not decide the archival status of the derivative-mixing or constraint-assisted side branches.
+    \item It does not decide the later editorial placement of the standalone exact-closure note.
+    \item It does not claim a completed first-principles substrate derivation.
+\end{enumerate}
+
+\section{Conclusion}
+
+The tuned-compensator reduced-system note fixed the right next question. The present manuscript answers it at the narrowest honest scope. The explicit tuned branch is locally well posed in the repaired unit-lapse weighted/homogeneous class, its full nonpropagating slice package closes without derivative loss, and the algebraic recovery of \(Y\) does not feed the removed quartic operator back into the propagating system.
+
+That local theorem is not the end of the story, but it does change the status of the branch again. The first corrected coercive bootstrap also closes, now with scalar control carried only by the Stueckelberg-like pair \((\sigma,\pi_\sigma)\) and the same low-frequency trace--longitudinal mechanism already familiar from the repaired unit-lapse route. At the present disciplined scope, the tuned branch therefore clears the full local/coercive burden that was explicitly left open by the reduced-system manuscript.
+
+The next honest questions are later ones: decay, integrability, and asymptotic behavior on this tuned branch, together with the separate editorial decisions already tracked elsewhere in the repository. Those are genuinely downstream of the theorem step proved here.
+
+\end{document}

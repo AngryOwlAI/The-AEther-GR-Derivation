@@ -1,0 +1,576 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal{A}}
+\newcommand{\BridgeMetric}{\mathfrak{g}}
+\newcommand{\AY}{\mathcal A_Y}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Broader Replacement Redesign: Exhaustion of the Fixed-Route Momentum-Compensator Program}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The double exact-square architecture obstruction closed the smallest replacement candidate sharply: one new algebraic momentum compensator \(Z\) can kill the generic infrared bridge tensor \(8\pi G_NT_{\mu\nu}^{\mathrm{St}}\) at coefficient level, but only by exact-squaring away the remaining ordered-flow equation itself. That verdict is enough to stop reduced-system and theorem work on that branch, but it still leaves one disciplined broader question before the bridge metric or the single-metric matter route is changed: does any least-drift fixed-route generalization of that same momentum-compensator idea fare better?
+
+This note answers that question negatively for the whole finite algebraic/gapped momentum-compensator class. Keep the bridge metric and single-metric matter route fixed. Keep the tuned quartic exact-square block that already removes the old quartic observer correction. Replace the single field \(Z\) by an arbitrary finite vector of gapped auxiliary scalars \(\bm Z=(Z^1,\dots,Z^N)^T\) coupled linearly to the same ordered-flow momentum combination
+\[
+\Psi\equiv U^A\nabla_A S-\sigma_0.
+\]
+The nonlinear momentum block is then
+\[
+\mathcal L_{\Psi Z}
+=
+-\frac12 m_S^2\Psi^2
++\Psi\,\bm\alpha^T\bm Z
+-\frac12 \bm Z^T\mathbf M^2\bm Z,
+\qquad
+\mathbf M^2>0.
+\]
+After algebraic elimination of \(\bm Z\), the whole broader class collapses to one effective coefficient
+\[
+\Lambda_{\mathrm{mom}}
+\equiv
+m_S^2-\bm\alpha^T(\mathbf M^2)^{-1}\bm\alpha.
+\]
+On the flat admissible background, after the same tuned quartic elimination and the same longitudinal ordered-flow solve, the complete reduced scalar bridge channel is
+\[
+\mathcal L_{\hat\sigma,\mathrm{eff}}^{(2)}
+=
+-\frac{\Lambda_{\mathrm{mom}}}{2}
+\bigl(\partial_0\hat\sigma-\sigma_0\Phi_h\bigr)^2.
+\]
+Its explicit coefficient-level observer correction tensor is therefore
+\[
+\rho_{\mathrm{fr}}
+=
+\frac{\Lambda_{\mathrm{mom}}}{2}
+\bigl(\partial_0\hat\sigma-\sigma_0\Phi_h\bigr)^2,
+\qquad
+J_i^{\mathrm{fr}}
+=
+-\Lambda_{\mathrm{mom}}
+\bigl(\partial_0\hat\sigma-\sigma_0\Phi_h\bigr)\partial_i\hat\sigma,
+\]
+with every remaining spatial component proportional to \(\Lambda_{\mathrm{mom}}\). Thus the whole broader fixed-route class kills the explicit coefficient-level observer tensor if and only if
+\[
+\Lambda_{\mathrm{mom}}=0.
+\]
+
+But that same condition is the full exhaustion locus. Writing \(\mathbf M\) for the positive square root of \(\mathbf M^2\), the nonlinear momentum block becomes
+\[
+\mathcal L_{\Psi Z}
+=
+-\frac12
+\left|
+\mathbf M\bm Z-\mathbf M^{-1}\bm\alpha\,\Psi
+\right|^2
+-\frac12\Lambda_{\mathrm{mom}}\Psi^2.
+\]
+Hence on \(\Lambda_{\mathrm{mom}}=0\) the \(\bm Z\)-equations are algebraic, the whole momentum block vanishes after substitution, and the tuned \(Y\)-block has already removed the quartic scalar block. The full action therefore again becomes independent of \(S\), the ordered-flow equation collapses to an identity, and the same infinite-dimensional substrate fiber reappears over the same observer solution.
+
+The conclusion is the smallest honest fixed-route exhaustion result now available. The least-drift momentum-compensator program is broader than the old single-\(Z\) note, but it still succeeds only by annihilating the ordered-flow equation. The active next burden is therefore no longer another algebraic/gapped momentum-compensator candidate with the same bridge and matter route. Any future candidate that still tries to keep those fixed must leave this class by introducing genuinely new structural input, or else the bridge metric or matter route must eventually be reconsidered.
+\end{abstract}
+
+\section{Introduction}
+
+The double exact-square architecture obstruction settled one branch but not yet one whole mechanism class. The failed branch was the smallest least-drift replacement beyond the tuned infrared bridge verdict: keep the bridge metric fixed, keep the single-metric matter route fixed, keep the quartic exact-square compensator \(Y\), and add one new algebraic momentum compensator \(Z\) coupled to \(U^A\nabla_AS-\sigma_0\). At flat-background coefficient level that move works. At nonlinear architecture level it fails because, after the algebraic solves, the full action forgets \(S\) altogether.
+
+The correct next question is therefore broader but still disciplined. Before one changes the bridge metric or the matter route, does any larger fixed-route momentum-compensator design survive? In other words, if one stays inside the same least-drift philosophy but allows \emph{more than one} algebraic/gapped momentum compensator, does the coefficient-level success stop being architecturally degenerate?
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays within that boundary. It does not claim that every conceivable fixed-route redesign is impossible in principle. It performs a narrower and more honest task: enlarge the old single-\(Z\) replacement note to the full finite algebraic/gapped momentum-compensator class, compute its flat-background quadratic reduction and explicit observer correction tensor, and decide whether that whole least-drift class is already exhausted before a more structural departure is attempted.
+
+\section{Broader Fixed-Route Momentum-Compensator Class}
+
+\begin{definition}[Fixed-route momentum-compensator completion]
+\label{def:frclass}
+The \emph{fixed-route momentum-compensator completion} consists of the action
+\begin{equation}
+S_{\mathrm{fr}}
+=
+\frac{c^3}{16\pi G_N}
+\int_{\Sub} d^4X\,\sqrt{G}\,\bigl(R[\BridgeMetric]-2\Lambda_{\Sub}\bigr)
++\int_{\Sub} d^4X\,\sqrt{G}\,\mathcal L_{\mathrm{aux,fr}}
++S_{\mathrm{matter}}[\Xi^*\BridgeMetric,\psi],
+\label{eq:Sfr}
+\end{equation}
+with bridge metric
+\begin{equation}
+\BridgeMetric_{AB}=G_{AB}-2U_AU_B,
+\qquad
+P_{AB}=G_{AB}-U_AU_B,
+\label{eq:bridge}
+\end{equation}
+and auxiliary Lagrangian
+\begin{align}
+\mathcal L_{\mathrm{aux,fr}}
+=\;&
+\lambda_U\bigl(G_{AB}U^AU^B-1\bigr)
+-\frac12
+\left(
+\frac{\sqrt{\lambda_4}}{M_*}\Delta_\perp S-M_YY
+\right)^2
+\nonumber\\
+&-\frac12 m_S^2\Psi^2
++\Psi\,\bm\alpha^T\bm Z
+-\frac12 \bm Z^T\mathbf M^2\bm Z
+-\frac12\delta_{IJ}P^{AB}(D_AQ^I)(D_BQ^J)
+\nonumber\\
+&-\frac12\widehat M_{IJ}Q^IQ^J
+-\frac{\kappa_\theta}{2}(\nabla_AU^A)^2
+-\frac{\kappa_\Omega}{4}\Omega_{AB}\Omega^{AB},
+\label{eq:Lfr}
+\end{align}
+where
+\begin{equation}
+\Psi\equiv U^A\nabla_A S-\sigma_0,
+\qquad
+\Delta_\perp S\equiv \nabla_A(P^{AB}\nabla_BS),
+\qquad
+\Omega_{AB}\equiv P_A{}^CP_B{}^D\nabla_{[C}U_{D]},
+\label{eq:defs}
+\end{equation}
+\(\bm Z=(Z^1,\dots,Z^N)^T\) is a finite auxiliary vector,
+\begin{equation}
+\bm\alpha=(\alpha_1,\dots,\alpha_N)^T,
+\qquad
+\mathbf M^2=(M_{ab}^2)_{1\le a,b\le N}
+\label{eq:matrix}
+\end{equation}
+is a symmetric positive-definite mass matrix, and
+\begin{equation}
+m_S^2>0,
+\qquad
+\lambda_4>0,
+\qquad
+M_Y^2>0,
+\qquad
+\mathbf M^2>0,
+\qquad
+\widehat M_{IJ}>0,
+\qquad
+\kappa_\theta>0,
+\qquad
+\kappa_\Omega>0.
+\label{eq:positivity}
+\end{equation}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:frclass} is broader than the old double exact-square note in only one direction: the single momentum compensator \(Z\) is replaced by an arbitrary finite algebraic/gapped family \(\bm Z\). Nothing else is changed. The bridge metric, the single-metric matter route, the tuned quartic exact-square block, and the positive auxiliary philosophy all remain fixed.
+\end{remark}
+
+\begin{proposition}[Algebraic elimination of the momentum compensators]
+\label{prop:Zsolve}
+The \(\bm Z\)-equations are algebraic and read
+\begin{equation}
+\mathbf M^2\bm Z=\bm\alpha\,\Psi.
+\label{eq:Zsolve}
+\end{equation}
+After substituting \eqref{eq:Zsolve} into \eqref{eq:Lfr}, the full momentum block reduces to
+\begin{equation}
+\mathcal L_{\Psi,\mathrm{red}}
+=
+-\frac12\Lambda_{\mathrm{mom}}\Psi^2,
+\qquad
+\Lambda_{\mathrm{mom}}
+\equiv
+m_S^2-\bm\alpha^T(\mathbf M^2)^{-1}\bm\alpha.
+\label{eq:Lmomred}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Varying \eqref{eq:Lfr} with respect to \(\bm Z\) gives \eqref{eq:Zsolve}. Since \(\mathbf M^2\) is positive definite, it is invertible, and
+\[
+\bm Z=(\mathbf M^2)^{-1}\bm\alpha\,\Psi.
+\]
+Substituting this into the momentum block gives
+\[
+\Psi\,\bm\alpha^T\bm Z-\frac12\bm Z^T\mathbf M^2\bm Z
+=
+\frac12\bm\alpha^T(\mathbf M^2)^{-1}\bm\alpha\,\Psi^2,
+\]
+which combines with \(-\frac12m_S^2\Psi^2\) to yield \eqref{eq:Lmomred}.
+\end{proof}
+
+\begin{remark}
+Proposition \ref{prop:Zsolve} is the first exhaustion signal. No matter how many finite algebraic/gapped momentum compensators are added, the whole broader class still collapses to one effective coefficient \(\Lambda_{\mathrm{mom}}\). At this level the larger family is equivalent to the old single-\(Z\) mechanism with \(m_S^2\) replaced by \(\Lambda_{\mathrm{mom}}\).
+\end{remark}
+
+\begin{corollary}[Matrix exact-square form]
+\label{cor:square}
+Let \(\mathbf M\) denote the positive square root of \(\mathbf M^2\). Then the momentum block of Definition \ref{def:frclass} can be written as
+\begin{equation}
+\mathcal L_{\Psi Z}
+=
+-\frac12
+\left|
+\mathbf M\bm Z-\mathbf M^{-1}\bm\alpha\,\Psi
+\right|^2
+-\frac12\Lambda_{\mathrm{mom}}\Psi^2.
+\label{eq:square}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+Expand the square in \eqref{eq:square} and use
+\[
+\left(\mathbf M^{-1}\bm\alpha\right)^T
+\left(\mathbf M^{-1}\bm\alpha\right)
+=
+\bm\alpha^T(\mathbf M^2)^{-1}\bm\alpha.
+\]
+The result is exactly the momentum block of \eqref{eq:Lfr}.
+\end{proof}
+
+\section{Flat-Background Quadratic Reduction}
+
+Use the same admissible homogeneous flat background as in the tuned compensator and double exact-square notes:
+\begin{equation}
+\bar G_{AB}=\delta_{AB},
+\qquad
+\bar U^A=\delta^A{}_0,
+\qquad
+\bar S=\sigma_0X^0,
+\qquad
+\bar Q^I=0,
+\qquad
+\bar Y=0,
+\qquad
+\bar{\bm Z}=0.
+\label{eq:background}
+\end{equation}
+Write perturbations as
+\begin{equation}
+G_{AB}=\delta_{AB}+H_{AB},
+\qquad
+U^A=\bar U^A+V^A,
+\qquad
+S=\sigma_0X^0+\sigma,
+\qquad
+Y=y,
+\qquad
+\bm Z=\bm z,
+\label{eq:perturb}
+\end{equation}
+with scalar metric variables
+\begin{equation}
+h_{00}=-2\phi=-H_{00},
+\qquad
+h_{0i}=S_i+\partial_iB=-H_{0i}-2V_i,
+\qquad
+V_i=V_i^T+\partial_i\chi.
+\label{eq:metricpert}
+\end{equation}
+
+\begin{proposition}[Linearized scalar blocks]
+\label{prop:lin}
+On the background \eqref{eq:background},
+\begin{equation}
+\Psi^{(1)}
+=
+\partial_0\sigma-\sigma_0\phi,
+\label{eq:linPsi}
+\end{equation}
+\begin{equation}
+\bigl(\Delta_\perp S\bigr)^{(1)}
+=
+\nabla^2\sigma+\sigma_0\nabla^2(B+\chi).
+\label{eq:linXi}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+These are exactly the linearized scalar blocks already derived in the tuned compensator and double exact-square reduction notes. The present broader class changes only the number of algebraic momentum compensators.
+\end{proof}
+
+\begin{proposition}[Complete flat-background quadratic scalar channel]
+\label{prop:quad}
+At fixed bridge perturbation \(h_{\mu\nu}\), the complete flat-background quadratic nonmetric scalar action of the broader class is
+\begin{align}
+\mathcal L_{\mathrm{aux,fr}}^{(2)}
+=\;&
+-\frac12 q^I\!\left((-\nabla^2)\delta_{IJ}+\widehat M_{IJ}\right)\!q^J
+-\frac{\kappa_\theta}{2}
+\left(
+\nabla^2\chi+\frac12\partial_0H
+\right)^2
+\nonumber\\
+&-\frac12
+\left(
+\frac{\sqrt{\lambda_4}}{M_*}\Xi-M_Yy
+\right)^2
+-\frac12 m_S^2\Psi_h^2
++\Psi_h\,\bm\alpha^T\bm z
+-\frac12\bm z^T\mathbf M^2\bm z
+\label{eq:quadL}
+\end{align}
+with
+\begin{equation}
+\Xi\equiv \nabla^2\sigma+\sigma_0\nabla^2(B+\chi),
+\qquad
+\Psi_h\equiv \partial_0\sigma-\sigma_0\phi.
+\label{eq:Xipsi}
+\end{equation}
+On the tuned quartic branch, after eliminating \(y\) and \(\chi\) exactly as in the previous tuned notes, the reduced scalar bridge channel is
+\begin{equation}
+\mathcal L_{\hat\sigma,\mathrm{eff}}^{(2)}
+=
+-\frac{\Lambda_{\mathrm{mom}}}{2}
+\bigl(\partial_0\hat\sigma-\sigma_0\Phi_h\bigr)^2,
+\label{eq:Leff}
+\end{equation}
+where
+\begin{equation}
+\Phi_h\equiv \phi+\partial_0\nabla^{-2}\Psi_{\!h}^{\mathrm{long}},
+\qquad
+\hat\sigma\equiv \sigma+\sigma_0\nabla^{-2}\Psi_{\!h}^{\mathrm{long}},
+\qquad
+\Psi_{\!h}^{\mathrm{long}}\equiv \nabla^2B-\frac12\partial_0H.
+\label{eq:redefs}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Equation \eqref{eq:quadL} is just the quadratic expansion of Definition \ref{def:frclass} using Proposition \ref{prop:lin}. The broader \(\bm Z\)-sector couples only to the same linearized ordered-flow momentum scalar \(\Psi_h\), so Proposition \ref{prop:Zsolve} applies directly at quadratic level and replaces \(m_S^2\) by \(\Lambda_{\mathrm{mom}}\). On the tuned quartic branch, the whole \(Y\)-block vanishes after algebraic elimination, and the \(\chi\)-solve is exactly the old tuned one because the broader momentum-compensator sector contains no \(\chi\). The same field redefinitions \eqref{eq:redefs} therefore yield \eqref{eq:Leff}.
+\end{proof}
+
+\begin{remark}
+Proposition \ref{prop:quad} is the explicit flat-background quadratic reduction requested by the tracking layer. The broader class produces no new scalar structure at this scope beyond one renormalized momentum coefficient. Once the old quartic block is kept tuned away, every finite algebraic/gapped fixed-route enlargement is still only a \(\Psi_h^2\)-theory.
+\end{remark}
+
+\section{Explicit Observer-Equation Correction Tensor}
+
+\begin{definition}[Fixed-route momentum-compensator correction tensor]
+\label{def:Tfr}
+At the present flat-background quadratic scope, define the \emph{fixed-route correction tensor} \(T_{\mu\nu}^{\mathrm{fr}}\) by
+\begin{equation}
+T_{\mu\nu}^{\mathrm{fr}}
+=
+\rho_{\mathrm{fr}}\,n_\mu n_\nu
++2n_{(\mu}J_{\nu)}^{\mathrm{fr}}
++S_{\mu\nu}^{\mathrm{fr}},
+\label{eq:Tfr}
+\end{equation}
+where \(J_\mu^{\mathrm{fr}}n^\mu=0\), \(S_{\mu\nu}^{\mathrm{fr}}n^\nu=0\), and the leading source projections of \eqref{eq:Leff} are
+\begin{equation}
+\rho_{\mathrm{fr}}
+=
+\frac{\Lambda_{\mathrm{mom}}}{2}
+\bigl(\partial_0\hat\sigma-\sigma_0\Phi_h\bigr)^2,
+\label{eq:rhofr}
+\end{equation}
+\begin{equation}
+J_i^{\mathrm{fr}}
+=
+-\Lambda_{\mathrm{mom}}
+\bigl(\partial_0\hat\sigma-\sigma_0\Phi_h\bigr)\partial_i\hat\sigma,
+\label{eq:Jfr}
+\end{equation}
+with every remaining spatial component of \(S_{\mu\nu}^{\mathrm{fr}}\) proportional to \(\Lambda_{\mathrm{mom}}\). The associated observer-equation correction tensor is
+\begin{equation}
+\mathcal C_{\mu\nu}^{\mathrm{fr,br}}
+=
+8\pi G_N\,T_{\mu\nu}^{\mathrm{fr}}.
+\label{eq:Cfr}
+\end{equation}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:Tfr} is explicit and coefficient-level, just as in the earlier double exact-square replacement note. The only difference is that the single coefficient \(m_S^2-\alpha_Z^2/M_Z^2\) is replaced by the matrix-reduced coefficient \(\Lambda_{\mathrm{mom}}\).
+\end{remark}
+
+\begin{theorem}[Coefficient-level verdict for the broader fixed-route class]
+\label{thm:coeff}
+For the fixed-route momentum-compensator class of Definition \ref{def:frclass}, the following are equivalent:
+\begin{enumerate}
+    \item \(\mathcal C_{\mu\nu}^{\mathrm{fr,br}}\equiv 0\) at flat-background quadratic scope;
+    \item \(T_{\mu\nu}^{\mathrm{fr}}\equiv 0\) at that scope;
+    \item \(\Lambda_{\mathrm{mom}}=0\).
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+By Definition \ref{def:Tfr}, every displayed component of \(T_{\mu\nu}^{\mathrm{fr}}\) is proportional to \(\Lambda_{\mathrm{mom}}\), and every remaining spatial component is also proportional to \(\Lambda_{\mathrm{mom}}\). Hence item (3) implies items (2) and (1). Conversely, if \(T_{\mu\nu}^{\mathrm{fr}}\equiv 0\), then in particular \(\rho_{\mathrm{fr}}\equiv 0\). Since
+\[
+\rho_{\mathrm{fr}}
+=
+\frac{\Lambda_{\mathrm{mom}}}{2}
+\bigl(\partial_0\hat\sigma-\sigma_0\Phi_h\bigr)^2
+\]
+for generic small data and the square factor is not identically zero on the unrestricted branch, one must have \(\Lambda_{\mathrm{mom}}=0\). The equivalence of items (1) and (2) is immediate from \eqref{eq:Cfr}.
+\end{proof}
+
+\begin{corollary}[What the broader quadratic computation adds]
+\label{cor:adds}
+The broader fixed-route computation does \emph{not} uncover a new coefficient-level cancellation mechanism. It shows instead that every finite algebraic/gapped momentum-compensator enlargement still reaches the same cancellation target only by tuning one effective coefficient \(\Lambda_{\mathrm{mom}}\) to zero.
+\end{corollary}
+
+\begin{proof}
+This is exactly the content of Propositions \ref{prop:Zsolve}, \ref{prop:quad}, and Theorem \ref{thm:coeff}.
+\end{proof}
+
+\section{Architecture Consequence on the Exhaustion Locus}
+
+\begin{theorem}[Full nonlinear fixed-route exhaustion]
+\label{thm:exhaustion}
+Assume the tuned quartic exact-square block and the broader fixed-route momentum-compensator class of Definition \ref{def:frclass}. On the exhaustion locus
+\begin{equation}
+\Lambda_{\mathrm{mom}}=0,
+\label{eq:exhaustion}
+\end{equation}
+the full nonlinear action becomes independent of \(S\) after algebraic elimination of \(Y\) and \(\bm Z\). Equivalently:
+\begin{enumerate}
+    \item the full ordered-flow equation collapses to an identity;
+    \item for every solution of the reduced \(S\)-free observer system and every smooth \(S\), the algebraic formulas
+    \begin{equation}
+    Y=\frac{\sqrt{\lambda_4}}{M_YM_*}\Delta_\perp S,
+    \qquad
+    \bm Z=(\mathbf M^2)^{-1}\bm\alpha\,
+    \bigl(U^A\nabla_A S-\sigma_0\bigr)
+    \label{eq:reconstruct}
+    \end{equation}
+    produce a full solution with the same observer metric and the same matter route;
+    \item the branch therefore has an infinite-dimensional substrate fiber over the same observer solution.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Corollary \ref{cor:square} gives the nonlinear momentum block
+\[
+\mathcal L_{\Psi Z}
+=
+-\frac12
+\left|
+\mathbf M\bm Z-\mathbf M^{-1}\bm\alpha\,\Psi
+\right|^2
+-\frac12\Lambda_{\mathrm{mom}}\Psi^2.
+\]
+On \(\Lambda_{\mathrm{mom}}=0\), the \(\bm Z\)-equations are precisely \eqref{eq:Zsolve}, equivalently \eqref{eq:reconstruct} for \(\bm Z\), and substitution makes the whole momentum block vanish identically. The tuned \(Y\)-equation is likewise algebraic and gives the first formula in \eqref{eq:reconstruct}; substituting it back makes the whole quartic block vanish identically as well. Therefore the reduced action is
+\begin{equation}
+S_{\mathrm{deg}}
+=
+\frac{c^3}{16\pi G_N}
+\int_{\Sub} d^4X\,\sqrt{G}\,\bigl(R[\BridgeMetric]-2\Lambda_{\Sub}\bigr)
++\int_{\Sub} d^4X\,\sqrt{G}\,\mathcal L_{\mathrm{aux,deg}}
++S_{\mathrm{matter}}[\Xi^*\BridgeMetric,\psi],
+\label{eq:Sdeg}
+\end{equation}
+with
+\begin{equation}
+\mathcal L_{\mathrm{aux,deg}}
+=
+\lambda_U(G_{AB}U^AU^B-1)
+-\frac12\delta_{IJ}P^{AB}(D_AQ^I)(D_BQ^J)
+-\frac12\widehat M_{IJ}Q^IQ^J
+-\frac{\kappa_\theta}{2}(\nabla_AU^A)^2
+-\frac{\kappa_\Omega}{4}\Omega_{AB}\Omega^{AB},
+\label{eq:Ldeg}
+\end{equation}
+which contains no \(S\)-dependence at all. The Euler--Lagrange equation obtained by varying \(S\) is therefore the identity \(0=0\), proving item (1). Item (2) follows directly from the reconstruction formulas \eqref{eq:reconstruct}. Since \(S\) can then be chosen arbitrarily while the observer solution remains unchanged, item (3) follows.
+\end{proof}
+
+\begin{remark}
+Theorem \ref{thm:exhaustion} is the broader fixed-route analogue of the old single-\(Z\) architecture obstruction. The new point is that the obstruction is not specific to one compensator. It is inherited by the entire finite algebraic/gapped momentum-compensator class because that class still only renormalizes one coefficient and still removes the whole ordered-flow sector when that coefficient is tuned away.
+\end{remark}
+
+\section{Program Consequence}
+
+\begin{corollary}[Smallest honest fixed-route exhaustion result]
+\label{cor:program}
+At current disciplined scope, the least-drift fixed-route momentum-compensator program is exhausted:
+\begin{enumerate}
+    \item every finite algebraic/gapped enlargement of the old \(Z\)-mechanism collapses to the same effective coefficient \(\Lambda_{\mathrm{mom}}\);
+    \item removing the explicit coefficient-level observer tensor requires \(\Lambda_{\mathrm{mom}}=0\);
+    \item on that same locus the full ordered-flow equation disappears and the branch acquires an infinite-dimensional substrate fiber;
+    \item therefore no reduced-system, local-coercive, or broader theorem work should be reopened on this entire class.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+Items (1) and (2) are Propositions \ref{prop:Zsolve}, \ref{prop:quad}, and Theorem \ref{thm:coeff}. Item (3) is Theorem \ref{thm:exhaustion}. Item (4) follows because a branch with no genuine ordered-flow equation and no full-branch local uniqueness is not a viable nonlinear derivational candidate at current scope.
+\end{proof}
+
+\begin{proposition}[What the next broader search must change]
+\label{prop:next}
+If one still wishes to keep the bridge metric and the single-metric matter route fixed, the next candidate must leave the fixed-route momentum-compensator class of Definition \ref{def:frclass}. In particular, it must introduce at least one genuinely new structural ingredient not present in the exhausted class, such as:
+\begin{enumerate}
+    \item a non-algebraic momentum completion that does not reduce to a single compensator-renormalized \(\Psi^2\) block;
+    \item an explicit symmetry or quotient principle making the ordered-flow label physically redundant;
+    \item or, if neither can be made to work, a later reconsideration of the bridge metric or of the matter route themselves.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Corollary \ref{cor:program} rules out every candidate still belonging to Definition \ref{def:frclass}. Therefore any surviving future candidate must leave that class. The listed possibilities are exactly the smallest structural departures not already covered by the exhausted class.
+\end{proof}
+
+\begin{remark}
+Proposition \ref{prop:next} is intentionally cautious. The present note does not select the next successful branch. It records only the smallest precise reason the current fixed-route momentum-compensator program is exhausted before the bridge metric or single-metric matter route are actually changed.
+\end{remark}
+
+\section{Conclusion}
+
+The present manuscript broadens the post-double-exact-square question in the narrowest honest way. Rather than testing one more isolated compensator, it enlarges the least-drift replacement mechanism to the whole finite algebraic/gapped momentum-compensator class while keeping the bridge metric, the single-metric matter route, and the tuned quartic exact-square removal of the old quartic observer correction fixed.
+
+That broader class still collapses immediately. After algebraic elimination of the compensators, every such redesign depends only on the single effective coefficient
+\[
+\Lambda_{\mathrm{mom}}
+=
+m_S^2-\bm\alpha^T(\mathbf M^2)^{-1}\bm\alpha.
+\]
+Its flat-background quadratic reduction is therefore explicit:
+\[
+\mathcal L_{\hat\sigma,\mathrm{eff}}^{(2)}
+=
+-\frac{\Lambda_{\mathrm{mom}}}{2}
+\bigl(\partial_0\hat\sigma-\sigma_0\Phi_h\bigr)^2,
+\]
+and its explicit observer-equation correction tensor vanishes if and only if \(\Lambda_{\mathrm{mom}}=0\).
+
+But that same condition is exactly the exhaustion locus. Once \(\Lambda_{\mathrm{mom}}=0\), the nonlinear momentum block is an exact square that disappears after algebraic elimination, the tuned quartic block has already disappeared the same way, and the full action forgets \(S\) altogether. The ordered-flow equation collapses, and the same infinite-dimensional substrate fiber returns over the same observer solution.
+
+The active next burden is therefore sharper than before. The live problem is no longer to search for another algebraic/gapped momentum-compensator candidate while keeping the same least-drift fixed route. That whole mechanism class is now closed. Any future branch that still tries to keep the bridge metric and single-metric matter route fixed must introduce genuinely new structural input beyond that exhausted class, or else the program must eventually reconsider one of those two fixed ingredients.
+
+\end{document}

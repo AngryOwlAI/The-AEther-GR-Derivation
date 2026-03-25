@@ -1,0 +1,481 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal{A}}
+\newcommand{\BridgeMetric}{\mathfrak{g}}
+\newcommand{\Ell}{\mathcal{L}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Higher-Derivative Quartic Compensator Branch First Decay/Integrability Test and Neutral Scalar-Momentum Obstruction}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The tuned-compensator branch has now cleared the first explicit theorem burden left by the reduced-system note: the active sequence already contains one explicit tuned completion, one full slice-closure/local-well-posedness theorem, and one corrected \(T\sim\varepsilon^{-1}\) coercive bootstrap for the mixed Einstein--trace/Stueckelberg-like momentum system. The next honest question is therefore exactly the one postponed there: before reopening any broader asymptotic or nonlinear-stability claim, does the same tuned branch pass a first decay/integrability test?
+
+This note performs that test at the same disciplined scope. The geometric post-coercive picture is favorable. The low-frequency trace--longitudinal pair
+\[
+\Theta\equiv \mathbf P_{\mathrm{lo}}\vartheta,
+\qquad
+G_\chi\equiv |\nabla|^{-1}\mathbf P_{\mathrm{lo}}F_\chi,
+\qquad
+\vartheta=\frac12\operatorname{tr}_\delta(\gamma-\delta),
+\]
+still forms the same first-order wave subsystem as on the repaired unit-lapse route, and the high-frequency Einstein block keeps the ordinary spatial-harmonic wave structure. If the tuned branch had also retained an integrable scalar channel, these geometric sectors would not have been the first post-coercive obstruction.
+
+The decisive issue is the scalar pair created by the exact-square tuning itself. After algebraic elimination of the compensator, the flat linearized tuned scalar equations are
+\[
+\partial_t \sigma = \frac{\pi_\sigma}{m_S^2},
+\qquad
+\partial_t\pi_\sigma = 0.
+\]
+Hence the Stueckelberg-like momentum profile is frozen rather than dispersive:
+\[
+\pi_\sigma^{\mathrm{lin}}(t,x)=\pi_\sigma^{(0)}(x),
+\qquad
+\sigma^{\mathrm{lin}}(t,x)
+=
+\sigma^{(0)}(x)
++\frac{t}{m_S^2}\pi_\sigma^{(0)}(x).
+\]
+The tuned branch therefore no longer carries the old Schr\"odinger-decaying quartic scalar channel; it carries a neutral transport mode with generic linear-in-time drift.
+
+That neutral mode is already enough to fail the unrenormalized decay/integrability test. The leading observer-side Stueckelberg source terms remain
+\[
+\rho_{\mathrm{St}}
+=
+\frac{1}{2m_S^2}\pi_\sigma^2+\mathcal O_{\mathrm{l.o.t.}},
+\qquad
+J_i^{\mathrm{St}}
+=
+-\pi_\sigma D_i\sigma+\mathcal O_{\mathrm{l.o.t.}},
+\]
+so for any nontrivial scalar-momentum profile the quadratic source coefficient is not \(L_t^1\), and for generic profiles the momentum density grows at least linearly in time. The tuned branch therefore does \emph{not} yet pass a direct decay/integrability test for asymptotic decay back to the exact flat background in the unrenormalized variables. The first post-coercive obstruction is not the repaired weighted/homogeneous slice package, not the low-frequency longitudinal wave pair, and not the Einstein wave sector. It is the neutral scalar-momentum channel created when the quartic operator is removed.
+
+At current disciplined scope, the repository should therefore \emph{not} reopen broader asymptotic claims on this branch yet. The next honest theorem burden, if the tuned branch remains active, is a renormalized asymptotic test for the frozen scalar-momentum profile or a narrower momentum-suppressed sub-branch, not a direct decay bootstrap back to the exact flat background.
+\end{abstract}
+
+\section{Introduction}
+
+The tuned-compensator branch is no longer waiting on an explicit nonlinear architecture, no longer waiting on closure of the repaired weighted/homogeneous slice package, and no longer waiting on its first coercive theorem. Those steps have now been recorded explicitly. That changes the meaning of the next burden again. The missing theorem question is no longer local/coercive. It is the first post-coercive one: does the same tuned branch admit a genuine decay/integrability mechanism strong enough to justify reopening any broader asymptotic claim?
+
+This note performs exactly that next test and nothing broader. It does not return to branch design. It does not reopen the derivative-mixing or constraint-assisted side programs. It does not yet claim a nonlinear-stability theorem or asymptotic closure on the tuned branch. It asks the narrower question that now has to be answered first: if one keeps the explicit tuned completion, the same unit-lapse spatial-harmonic gauge, and the same repaired weighted/homogeneous slice package, does the branch even pass the first direct decay/integrability check?
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays within that boundary. It does not prove a tuned asymptotic theorem. It does not prove that the tuned branch can never be repaired asymptotically. It performs only the first direct decay/integrability test beyond the local/coercive theorem and records the narrow verdict forced by that test.
+
+\section{Straightforward Post-Coercive Test Regime}
+
+Retain the same reduced variables and weighted/homogeneous notation as in the tuned local/coercive note:
+\begin{equation}
+h_{ij}\equiv \gamma_{ij}-\delta_{ij},
+\qquad
+\vartheta\equiv \frac12\delta^{ij}h_{ij},
+\qquad
+F_\chi\equiv K-\mathcal N_\chi.
+\label{eq:basicdefs}
+\end{equation}
+Choose the same smooth low-frequency cutoff \(\varphi_{\mathrm{lo}}\) and Fourier multipliers
+\begin{equation}
+\widehat{\mathbf P_{\mathrm{lo}}f}(\xi)
+\equiv
+\varphi_{\mathrm{lo}}(\xi)\widehat f(\xi),
+\qquad
+\mathbf P_{\mathrm{hi}}\equiv I-\mathbf P_{\mathrm{lo}}.
+\label{eq:projectors}
+\end{equation}
+Define the low-frequency trace--longitudinal variables
+\begin{equation}
+\Theta\equiv \mathbf P_{\mathrm{lo}}\vartheta,
+\qquad
+G_\chi\equiv |\nabla|^{-1}\mathbf P_{\mathrm{lo}}F_\chi.
+\label{eq:ThetaG}
+\end{equation}
+
+\begin{definition}[Corrected tuned coercive functional]
+\label{def:Ftc}
+Let \(\mathfrak F_N^{\mathrm{tc}}(t)\) denote the corrected tuned-compensator coercive functional from the preceding local/coercive note. For \(N\ge 6\), it is equivalent there to the closed tuned energy \(\mathfrak E_N^{\mathrm{tc}}(t)\) and controls the full repaired weighted/homogeneous slice package together with the propagating Einstein--trace/Stueckelberg-like momentum variables.
+\end{definition}
+
+\begin{definition}[Straightforward tuned decay-test regime]
+\label{def:decaytest}
+Fix \(N\ge 6\), \(0<\varepsilon\ll 1\), and \(C_\ast\ge 1\). A solution on \([0,T]\) is said to lie in the \emph{straightforward tuned decay-test regime} if:
+\begin{enumerate}
+    \item the strict tuned auxiliary-elliptic regime from the local/coercive note holds on every slice;
+    \item the corrected tuned coercive functional obeys
+    \begin{equation}
+    \sup_{0\le t\le T}\mathfrak F_N^{\mathrm{tc}}(t)\le 4\varepsilon^2;
+    \label{eq:Fboot}
+    \end{equation}
+    \item the low-frequency trace--longitudinal norm
+    \begin{equation}
+    \mathfrak D_{\mathrm{TL}}(t)
+    \equiv
+    \|\nabla\Theta(t)\|_{W^{1,\infty}}
+    + \|G_\chi(t)\|_{W^{1,\infty}}
+    \label{eq:DTL}
+    \end{equation}
+    satisfies
+    \begin{equation}
+    \mathfrak D_{\mathrm{TL}}(t)\le 2C_\ast\varepsilon(1+t)^{-1};
+    \label{eq:DTLboot}
+    \end{equation}
+    \item the high-frequency Einstein norm
+    \begin{equation}
+    \mathfrak D_{\mathrm{Ein,hi}}(t)
+    \equiv
+    \|\partial \mathbf P_{\mathrm{hi}}h(t)\|_{W^{2,\infty}}
+    + \|\mathbf P_{\mathrm{hi}}\Sigma(t)\|_{W^{1,\infty}}
+    + \|\mathbf P_{\mathrm{hi}}K(t)\|_{W^{1,\infty}}
+    \label{eq:DEin}
+    \end{equation}
+    satisfies
+    \begin{equation}
+    \mathfrak D_{\mathrm{Ein,hi}}(t)\le 2C_\ast\varepsilon(1+t)^{-1}.
+    \label{eq:DEinboot}
+    \end{equation}
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:decaytest} is deliberately narrower than the earlier weighted/homogeneous decay bootstrap on the old quartic route. No scalar decay assumption is imposed here, because the first real post-coercive question on the tuned branch is whether the Stueckelberg-like scalar pair admits any direct decay/integrability mechanism at all once the quartic operator has been removed.
+\end{remark}
+
+\section{Geometric Sectors That Are Not the First Obstruction}
+
+The repaired low-frequency longitudinal package survives the tuned reduction unchanged at linear level, and the high-frequency Einstein block still has the standard wave character.
+
+\begin{proposition}[Low-frequency trace--longitudinal wave subsystem]
+\label{prop:TLwave}
+On every interval in the straightforward tuned decay-test regime,
+\begin{align}
+(\partial_t-\Ell_\beta)\Theta
+&=
+-|\nabla|G_\chi + \mathbf P_{\mathrm{lo}}\mathcal Q_\vartheta,
+\label{eq:Thetadt}
+\\
+(\partial_t-\Ell_\beta)G_\chi
+&=
+|\nabla|\Theta + |\nabla|^{-1}\mathbf P_{\mathrm{lo}}\mathcal R_\chi,
+\label{eq:Gdt}
+\end{align}
+where the remainders \(\mathcal Q_\vartheta\), \(\mathcal R_\chi\) vanish on the flat exact-closure background. At the flat linear level, \(\beta=0\) and the remainders drop out, so
+\begin{equation}
+\partial_t\Theta = -|\nabla|G_\chi,
+\qquad
+\partial_tG_\chi = |\nabla|\Theta,
+\label{eq:linearTL}
+\end{equation}
+hence
+\begin{equation}
+\partial_t^2\Theta-\Delta_\delta\Theta = 0,
+\qquad
+\partial_t^2G_\chi-\Delta_\delta G_\chi = 0.
+\label{eq:TLwave2}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+The tuned local/coercive note already isolated the same trace--longitudinal subsystem before any scalar-dispersive question entered. Apply \(\mathbf P_{\mathrm{lo}}\) to the trace equation and \(|\nabla|^{-1}\mathbf P_{\mathrm{lo}}\) to the propagated longitudinal-source equation. Since \(|\nabla|^{-1}(-\Delta_\delta)=|\nabla|\), one obtains \eqref{eq:Thetadt}--\eqref{eq:Gdt}. Linearizing at the flat background gives \eqref{eq:linearTL}--\eqref{eq:TLwave2}.
+\end{proof}
+
+\begin{corollary}[Linear-compatible decay of the low-frequency pair]
+\label{cor:TLdecay}
+The natural linear-compatible pointwise decay for \((\Theta,G_\chi)\) remains the ordinary three-dimensional wave rate
+\begin{equation}
+\mathfrak D_{\mathrm{TL}}(t)\lesssim \varepsilon(1+t)^{-1}.
+\label{eq:TLrate}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+Equation \eqref{eq:TLwave2} is the standard wave equation for both variables.
+\end{proof}
+
+\begin{proposition}[High-frequency Einstein wave block]
+\label{prop:Einwave}
+For the tuned-compensator reduced system in unit-lapse spatial-harmonic gauge, the flat linearization of the high-frequency Einstein block reduces to the usual spatial-harmonic wave system. In particular, after projection by \(\mathbf P_{\mathrm{hi}}\), each metric component of the propagating Einstein sector satisfies
+\begin{equation}
+\partial_t^2 \mathbf P_{\mathrm{hi}}h_{\mu\nu}
+-\Delta_\delta \mathbf P_{\mathrm{hi}}h_{\mu\nu}
+=0
+\label{eq:Einwave}
+\end{equation}
+up to the already-recorded gauge-preserving algebraic constraints.
+\end{proposition}
+
+\begin{proof}
+After algebraic elimination of the compensator, the tuned branch keeps the same Einstein principal part as the collapsed-scalar baseline. Linearizing the reduced equations at the flat background therefore yields the usual spatial-harmonic linearized Einstein system, and high-frequency projection removes the low-frequency trace--longitudinal bookkeeping.
+\end{proof}
+
+\begin{corollary}[Linear-compatible high-frequency Einstein decay]
+\label{cor:Eindecay}
+The natural linear-compatible decay for the high-frequency Einstein block is the wave rate
+\begin{equation}
+\mathfrak D_{\mathrm{Ein,hi}}(t)\lesssim \varepsilon(1+t)^{-1}.
+\label{eq:Einrate}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+This is the standard three-dimensional pointwise decay compatible with \eqref{eq:Einwave}.
+\end{proof}
+
+\begin{remark}
+Propositions \ref{prop:TLwave} and \ref{prop:Einwave} show that the post-coercive tuned obstruction, if one exists, should not be blamed first on the repaired weighted/homogeneous longitudinal package or on the Einstein wave sector. The decisive new issue has to come from the scalar pair created by removing the quartic operator.
+\end{remark}
+
+\section{Flat Linear Tuned Scalar Sector}
+
+The tuned branch differs sharply from the old quartic route at exactly this point: the compensator removes the quartic principal operator rather than renormalizing it.
+
+\begin{proposition}[Neutral Stueckelberg-like scalar linearization]
+\label{prop:scalarlin}
+On the flat exact-closure background, the linearized tuned scalar equations are
+\begin{equation}
+\partial_t \sigma = \frac{\pi_\sigma}{m_S^2},
+\qquad
+\partial_t\pi_\sigma = 0.
+\label{eq:scalarlin}
+\end{equation}
+Hence for initial data \((\sigma^{(0)},\pi_\sigma^{(0)})\),
+\begin{equation}
+\pi_\sigma^{\mathrm{lin}}(t,x)=\pi_\sigma^{(0)}(x),
+\qquad
+\sigma^{\mathrm{lin}}(t,x)
+=
+\sigma^{(0)}(x)
++\frac{t}{m_S^2}\pi_\sigma^{(0)}(x).
+\label{eq:linearsolution}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+The tuned reduced system already records
+\[
+(\partial_t-\Ell_\beta)\sigma=\frac{\pi_\sigma}{m_S^2},
+\qquad
+(\partial_t-\Ell_\beta)\pi_\sigma=\mathcal N_\pi,
+\]
+with \(\mathcal N_\pi\) vanishing on the flat exact-closure background and containing no quartic principal operator. At the flat linear level one has \(\beta=0\) and \(\mathcal N_\pi=0\), yielding \eqref{eq:scalarlin}. Integrating in time gives \eqref{eq:linearsolution}.
+\end{proof}
+
+\begin{corollary}[Absence of unrenormalized scalar decay]
+\label{cor:noscalardecay}
+The tuned scalar pair does not admit direct decay back to the exact flat background in the unrenormalized variables on generic small data:
+\begin{enumerate}
+    \item if \(\pi_\sigma^{(0)}\not\equiv 0\), then
+    \begin{equation}
+    \|\pi_\sigma^{\mathrm{lin}}(t)\|_{W^{1,\infty}}
+    =
+    \|\pi_\sigma^{(0)}\|_{W^{1,\infty}}
+    \label{eq:pinodecay}
+    \end{equation}
+    for all \(t\);
+    \item if \(\nabla\pi_\sigma^{(0)}\not\equiv 0\), then
+    \begin{equation}
+    \|\nabla\sigma^{\mathrm{lin}}(t)\|_{L^\infty}
+    \ge
+    \frac{t}{m_S^2}\|\nabla\pi_\sigma^{(0)}\|_{L^\infty}
+    - \|\nabla\sigma^{(0)}\|_{L^\infty},
+    \label{eq:sigmagrowth}
+    \end{equation}
+    so the scalar profile has generic linear-in-time drift.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+Equation \eqref{eq:pinodecay} is immediate from \eqref{eq:linearsolution}. Differentiating the second formula in \eqref{eq:linearsolution} gives
+\[
+\nabla\sigma^{\mathrm{lin}}(t)
+=
+\nabla\sigma^{(0)}
++\frac{t}{m_S^2}\nabla\pi_\sigma^{(0)},
+\]
+which yields \eqref{eq:sigmagrowth} by the triangle inequality.
+\end{proof}
+
+\begin{remark}
+Corollary \ref{cor:noscalardecay} is the central structural difference between the tuned branch and the earlier fixed quartic route. The old branch carried a Schr\"odinger-decaying quartic scalar mode. The tuned branch removes that mode and replaces it by a neutral transport/momentum pair. The present constraints do not force \(\pi_\sigma^{(0)}\equiv 0\), so this is a genuine post-coercive issue on the active tuned branch rather than a removable bookkeeping choice.
+\end{remark}
+
+\section{Failure of the Direct Decay/Integrability Test}
+
+The first direct decay/integrability question is not whether every nonlinear term can already be estimated globally. It is whether the branch even passes the flat linear test strongly enough to justify reopening a broader asymptotic claim. The answer is negative.
+
+\begin{definition}[Leading tuned scalar source coefficient]
+\label{def:MSt}
+Define the quadratic scalar source size
+\begin{equation}
+\mathfrak M_{\mathrm{St}}(t)
+\equiv
+\|\pi_\sigma(t)\|_{W^{1,\infty}}^2
++ \|\pi_\sigma(t)\|_{W^{1,\infty}}\|\nabla\sigma(t)\|_{W^{1,\infty}}.
+\label{eq:MSt}
+\end{equation}
+This is the natural coefficient controlling the leading observer-side Stueckelberg source terms
+\begin{equation}
+\rho_{\mathrm{St}}
+=
+\frac{1}{2m_S^2}\pi_\sigma^2+\mathcal O_{\mathrm{l.o.t.}},
+\qquad
+J_i^{\mathrm{St}}
+=
+-\pi_\sigma D_i\sigma+\mathcal O_{\mathrm{l.o.t.}}.
+\label{eq:ststress}
+\end{equation}
+\end{definition}
+
+\begin{theorem}[Failure of the straightforward unrenormalized decay/integrability test]
+\label{thm:failure}
+Consider the flat linearized tuned scalar system \eqref{eq:scalarlin} with initial data \((\sigma^{(0)},\pi_\sigma^{(0)})\).
+\begin{enumerate}
+    \item If \(\pi_\sigma^{(0)}\not\equiv 0\), then
+    \begin{equation}
+    \int_0^T \mathfrak M_{\mathrm{St}}^{\mathrm{lin}}(t)\,dt
+    \ge
+    T\,\|\pi_\sigma^{(0)}\|_{L^\infty}^2
+    \label{eq:constantlower}
+    \end{equation}
+    for every \(T>0\), so \(\mathfrak M_{\mathrm{St}}^{\mathrm{lin}}\notin L_t^1([0,\infty))\).
+    \item If, in addition, \(\nabla\pi_\sigma^{(0)}\not\equiv 0\), then for all sufficiently large \(T\),
+    \begin{equation}
+    \int_0^T \mathfrak M_{\mathrm{St}}^{\mathrm{lin}}(t)\,dt
+    \ge
+    \frac{1}{4m_S^2}
+    \|\pi_\sigma^{(0)}\|_{L^\infty}
+    \|\nabla\pi_\sigma^{(0)}\|_{L^\infty}
+    T^2.
+    \label{eq:growthlower}
+    \end{equation}
+\end{enumerate}
+Consequently the tuned-compensator branch does \emph{not} pass a direct unrenormalized decay/integrability test for asymptotic decay back to the exact flat background on generic small data. Before any broader asymptotic claim can be reopened, one needs an additional mechanism beyond the present unrenormalized tuned variables.
+\end{theorem}
+
+\begin{proof}
+By Proposition \ref{prop:scalarlin},
+\[
+\pi_\sigma^{\mathrm{lin}}(t)=\pi_\sigma^{(0)}
+\]
+for all \(t\). Therefore
+\[
+\mathfrak M_{\mathrm{St}}^{\mathrm{lin}}(t)
+\ge
+\|\pi_\sigma^{(0)}\|_{L^\infty}^2,
+\]
+which immediately gives \eqref{eq:constantlower}. This already proves failure of \(L_t^1\)-integrability whenever \(\pi_\sigma^{(0)}\not\equiv 0\).
+
+If \(\nabla\pi_\sigma^{(0)}\not\equiv 0\), then Corollary \ref{cor:noscalardecay} yields
+\[
+\|\nabla\sigma^{\mathrm{lin}}(t)\|_{L^\infty}
+\ge
+\frac{t}{m_S^2}\|\nabla\pi_\sigma^{(0)}\|_{L^\infty}
+- \|\nabla\sigma^{(0)}\|_{L^\infty}.
+\]
+Hence for all \(t\ge T_0\), with
+\[
+T_0
+\equiv
+\frac{2m_S^2\|\nabla\sigma^{(0)}\|_{L^\infty}}
+{\|\nabla\pi_\sigma^{(0)}\|_{L^\infty}},
+\]
+one has
+\[
+\|\nabla\sigma^{\mathrm{lin}}(t)\|_{L^\infty}
+\ge
+\frac{t}{2m_S^2}\|\nabla\pi_\sigma^{(0)}\|_{L^\infty}.
+\]
+Therefore
+\[
+\mathfrak M_{\mathrm{St}}^{\mathrm{lin}}(t)
+\ge
+\frac{t}{2m_S^2}
+\|\pi_\sigma^{(0)}\|_{L^\infty}
+\|\nabla\pi_\sigma^{(0)}\|_{L^\infty}
+\]
+for \(t\ge T_0\), and integrating from \(T_0\) to \(T\) yields \eqref{eq:growthlower} for all sufficiently large \(T\).
+
+Finally, the source terms \eqref{eq:ststress} are exactly the observer-side quadratic terms carried by the tuned scalar sector after the quartic operator has been removed. If their linearized coefficient already fails \(L_t^1\), then a direct asymptotic claim around the exact flat background in the unrenormalized tuned variables is not yet mathematically justified. Some further renormalized asymptotic mechanism or data restriction is required first.
+\end{proof}
+
+\begin{corollary}[First post-coercive obstruction on the tuned branch]
+\label{cor:obstruction}
+At current disciplined scope, the first obstruction to reopening broader asymptotic claims on the tuned-compensator branch is the neutral Stueckelberg-like scalar-momentum sector. More precisely, once the quartic scalar operator is removed, \(\pi_\sigma\) ceases to disperse, so the unrenormalized observer-side tuned scalar source does not become time-integrable on generic small data.
+\end{corollary}
+
+\begin{proof}
+This is exactly the content of Theorem \ref{thm:failure}.
+\end{proof}
+
+\begin{remark}
+Corollary \ref{cor:obstruction} should be read narrowly. It does not say that the tuned branch is asymptotically impossible in principle. It says only that the \emph{direct} post-coercive route back to the exact flat background in the unrenormalized variables fails already at the first decay/integrability test. A future successful route would need at least one new ingredient, for example a renormalized asymptotic scalar unknown that removes the linear drift, a restricted momentum-suppressed sub-branch, or another same-branch mechanism that makes the observer-side scalar source integrable.
+\end{remark}
+
+\section{What This Step Establishes}
+
+The present manuscript establishes the following.
+\begin{enumerate}
+    \item It performs the first tuned-compensator decay/integrability test after the local/coercive theorem, rather than leaving that step only as a planning entry.
+    \item It shows that the low-frequency trace--longitudinal subsystem and the high-frequency Einstein block still carry the expected wave-type linear structure on the tuned branch.
+    \item It proves that the tuned scalar pair is neutral rather than dispersive at flat linear level: \(\pi_\sigma\) is frozen and \(\sigma\) carries generic linear-in-time drift.
+    \item It shows that the unrenormalized observer-side tuned scalar source is not time-integrable on generic small data.
+    \item It records the disciplined verdict that broader asymptotic claims should not yet be reopened on the tuned branch.
+\end{enumerate}
+
+It does not establish the following.
+\begin{enumerate}
+    \item It does not prove that no future renormalized asymptotic theorem can exist on the tuned branch.
+    \item It does not choose a new completion, a new gauge, or a new branch family.
+    \item It does not decide the editorial archival status of the derivative-mixing or constraint-assisted side branches.
+    \item It does not decide whether the standalone exact-closure note should later be folded into the main sequence.
+    \item It does not claim a completed first-principles substrate derivation.
+\end{enumerate}
+
+\section{Conclusion}
+
+The next post-coercive theorem burden has now been tested rather than merely named. On the tuned-compensator branch, the repaired low-frequency trace--longitudinal package and the high-frequency Einstein block still display the expected wave-type linear behavior. The first obstruction does not come from those sectors, and it does not come from the algebraic compensator recovery itself.
+
+It comes from the structural price of the tuning. Removing the quartic scalar operator also removes the old dispersive scalar channel, leaving instead a neutral Stueckelberg-like momentum profile. That profile is frozen at flat linear level, the scalar variable acquires generic linear drift, and the associated observer-side quadratic source does not become time-integrable in the unrenormalized tuned variables. At current disciplined scope, the tuned branch therefore fails the first direct decay/integrability test for asymptotic decay back to the exact flat background.
+
+That verdict sharpens the repository’s next burden materially. The correct follow-on is not yet a broader tuned asymptotic claim. It is a narrower same-branch theorem test that first deals with the frozen scalar-momentum profile, whether by renormalized asymptotic variables or by a specially restricted momentum-suppressed sub-branch. Only after such a step would reopening a broader asymptotic claim become mathematically disciplined.
+
+\end{document}

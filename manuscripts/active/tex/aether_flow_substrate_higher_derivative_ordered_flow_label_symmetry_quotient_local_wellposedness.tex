@@ -1,0 +1,927 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal{A}}
+\newcommand{\BridgeMetric}{\mathfrak{g}}
+\newcommand{\Ell}{\mathcal{L}}
+\newcommand{\AY}{\mathcal A_Y}
+\newcommand{\AZ}{\mathcal A_Z}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Ordered-Flow Label Symmetry/Quotient Branch: First Local Well-Posedness, Continuation, and Corrected Coercive Bootstrap}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The positive quotient local/coercive note fixed the next live burden sharply: remain on the same unit-lapse spatial-harmonic quotient field space, keep
+\[
+\AY=\AZ=0
+\]
+imposed from the outset, and prove the first actual quotient theorem rather than write another setup note. The present manuscript performs exactly that step.
+
+The branch is written directly on the quotient variables
+\[
+(\gamma_{ij},\Sigma_{ij},K;\beta^i;Q^I,\chi,W_i^T;\psi,\pi_\psi),
+\]
+where \((\gamma_{ij},\Sigma_{ij},K;\psi,\pi_\psi)\) are the propagating Einstein--matter variables and \((\beta^i,Q^I,\chi,W_i^T)\) are reconstructed slice by slice through the quotient elliptic package. No representative ordered-flow variables are ever used as physical or analytic free data. In particular, \(S\), \(Y\), and \(Z\) do not re-enter either the Cauchy data or the a priori estimates.
+
+For \(N\ge 6\), the weighted/homogeneous quotient control energy
+\[
+\mathfrak E_N^{\mathrm{quot}}
+=
+\|\gamma-\delta\|_{H^N}^2
++\|\Sigma\|_{H^{N-1}}^2
++\|K\|_{H^{N-1}}^2
++\mathcal E_N^{\mathrm{matter}}
++\|\beta\|_{H^{N+1}}^2
++\|Q\|_{H^N}^2
++\|\chi\|_{\mathcal X_\chi^N}^2
++\|W^T\|_{H^N}^2
+\]
+closes the full quotient slice package and obeys the local a priori estimate
+\[
+\frac{d}{dt}\mathfrak E_N^{\mathrm{quot}}(t)
+\le
+C_N\bigl(1+\mathfrak E_N^{\mathrm{quot}}(t)^{1/2}\bigr)\mathfrak E_N^{\mathrm{quot}}(t).
+\]
+This yields the first local well-posedness and continuation theorem for asymptotically flat compatible quotient data in the same strict unit-lapse spatial-harmonic quotient class already fixed by the setup note.
+
+The first corrected coercive bootstrap is also positive. The corrected quotient functional is
+\[
+\mathfrak F_N^{\mathrm{quot}}
+=
+\mathfrak E_N^{\mathrm{quot}}
++\mathfrak C_N^{\mathrm{geom}}
++\mathfrak C_N^{\chi},
+\]
+where \(\mathfrak C_N^{\mathrm{geom}}\) is the standard unit-lapse spatial-harmonic geometric correction and
+\[
+\mathfrak C_N^{\chi}
+=
+c_\chi\Bigl(
+\|\mathbf P_{\mathrm{lo}}\vartheta\|_{L^2}^2
++\mathfrak L_\chi(F_\chi)^2
+\Bigr)
+\]
+is the trace/longitudinal low-frequency correction. There is no scalar correction channel because no propagating ordered-flow scalar survives on the quotient branch. The corrected energy satisfies
+\[
+\frac{d}{dt}\mathfrak F_N^{\mathrm{quot}}(t)
+\le
+C_N\bigl(\mathfrak F_N^{\mathrm{quot}}(t)\bigr)^{3/2},
+\]
+and therefore the quotient small-data bootstrap closes on times \(T\sim \varepsilon^{-1}\).
+
+At the present disciplined scope, this is the first actual quotient theorem note. The quotient branch now has a proved local well-posedness/continuation result and a proved corrected coercive bootstrap on the same quotient physical field space, with \(\AY=\AZ=0\) imposed from the outset and with no physical or analytic \(S,Y,Z\) data reintroduced. No reconsideration of the bridge metric or the single-metric matter route is forced at this theorem step.
+\end{abstract}
+
+\section{Introduction}
+
+The ordered-flow-label symmetry/quotient line has already passed the candidate, architecture, reduced-system, and local/coercive setup stages. The explicit quotient candidate showed that the flat-background observer-equation correction tensor vanishes at coefficient level while the bridge metric and the single-metric matter route remain fixed. The quotient-architecture screen then showed that the old infinite-dimensional ordered-flow-label fiber is pure gauge rather than revived physical underdetermination. The quotient reduced-system note reopened the \(3+1\) system directly on the quotient physical field space, imposed \(\AY=\AZ=0\), and showed that no physical \(S,Y,Z\) free data or propagating ordered-flow scalar survive. Finally, the quotient local/coercive note closed the slice package in the repaired weighted/homogeneous class and identified the precise theorem burden left open.
+
+That open burden is no longer ambiguous. The next manuscript cannot honestly be another setup note, another reduced-system placeholder, or another bridge-redesign discussion. It must prove the first quotient local well-posedness and continuation theorem and the first corrected \(T\sim\varepsilon^{-1}\) coercive bootstrap on the same quotient field space and in the same unit-lapse spatial-harmonic gauge. The present note does exactly that and nothing broader.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present manuscript stays inside that boundary. It proves a local theorem and a first coercive bootstrap on the quotient branch. It does not prove a decay theorem, an asymptotic theorem, a broader admissible-background theorem, or a completed substrate derivation. It also does not reopen any failed bridge/completion redesign route, because the quotient theorem step itself is positive.
+
+\section{Gauge-Fixed Quotient Reduced System}
+
+The theorem is posed directly on the quotient branch and never on representative ordered-flow variables.
+
+\begin{definition}[Unit-lapse spatial-harmonic quotient gauge]
+\label{def:gauge}
+Work in the observer gauge
+\begin{equation}
+N\equiv 1,
+\qquad
+V^i(\gamma)\equiv \gamma^{mn}\bigl(\Gamma^i_{mn}[\gamma]-\Gamma^i_{mn}[\delta]\bigr)=0,
+\label{eq:gauge}
+\end{equation}
+with \(\beta^i\to 0\) at spatial infinity. Write the observer metric as
+\begin{equation}
+g_{\mu\nu}dx^\mu dx^\nu
+=
+-dt^2
++\gamma_{ij}(dx^i+\beta^idt)(dx^j+\beta^jdt),
+\label{eq:ADM}
+\end{equation}
+so the future unit normal is
+\begin{equation}
+n^\mu=(1,-\beta^i).
+\label{eq:normal}
+\end{equation}
+Decompose the extrinsic curvature by
+\begin{equation}
+K_{ij}
+=
+\Sigma_{ij}+\frac13\gamma_{ij}K,
+\qquad
+\gamma^{ij}\Sigma_{ij}=0,
+\label{eq:Ksplit}
+\end{equation}
+and decompose the ordered-flow geometry by
+\begin{equation}
+W_i=D_i\chi+W_i^T,
+\qquad
+D^iW_i^T=0.
+\label{eq:Wdecomp}
+\end{equation}
+\end{definition}
+
+\begin{definition}[Actual quotient theorem variables]
+\label{def:variables}
+In the gauge of Definition \ref{def:gauge}, the quotient theorem variables are
+\begin{equation}
+(\gamma_{ij},\Sigma_{ij},K;\beta^i;Q^I,\chi,W_i^T;\psi,\pi_\psi).
+\label{eq:variables}
+\end{equation}
+Among these:
+\begin{enumerate}
+    \item \((\gamma_{ij},\Sigma_{ij},K;\psi,\pi_\psi)\) are the propagating Einstein--matter variables;
+    \item \(\beta^i\), \(Q^I\), \(\chi\), and \(W_i^T\) are slice-wise nonpropagating quotient variables determined by elliptic equations;
+    \item \(\AY=\AZ=0\) are imposed identically as branch equations and are not analytic variables of the theorem;
+    \item no physical or analytic free data associated with \(S\), \(Y\), or \(Z\) are admitted.
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}[Quotient slice package]
+\label{prop:auxpackage}
+With \(\AY=\AZ=0\) imposed from the outset, the quotient slice variables satisfy
+\begin{align}
+-\Delta_\gamma\beta^i
+-\frac13D^iD_j\beta^j
++R^i{}_j[\gamma]\beta^j
+&=
+\mathcal S_\beta^i[\gamma,\Sigma,K,Q,\chi,W^T,\psi,\pi_\psi],
+\label{eq:betaeq}
+\\
+\bigl((-\Delta_\gamma)\delta_{IJ}+\widehat M_{IJ}\bigr)Q^J
+&=
+\mathcal N_I^{(Q)}[\gamma,\Sigma,K,\beta,Q,\chi,W^T,\psi,\pi_\psi],
+\label{eq:Qeq}
+\\
+\kappa_\theta\Delta_\gamma\chi
+&=
+-F_\chi,
+\qquad
+F_\chi
+\equiv
+K-\mathcal N_\chi[\gamma,\Sigma,K,\beta,Q,\chi,W^T,\psi,\pi_\psi],
+\label{eq:chieq}
+\\
+\kappa_\Omega(-\Delta_\gamma)W_i^T
+&=
+\mathcal N_i^{(T)}[\gamma,\Sigma,K,\beta,Q,\chi,W^T,\psi,\pi_\psi].
+\label{eq:WTeq}
+\end{align}
+All nonlinear source terms vanish on the flat exact-closure background and are lower-order relative to the displayed elliptic operators.
+\end{proposition}
+
+\begin{proof}
+This is exactly the on-shell quotient elliptic package already isolated by the quotient reduced-system and quotient local/coercive notes, now written directly on the theorem variables \eqref{eq:variables}. Once \(\AY=\AZ=0\) is imposed identically, no representative exact-square field survives as an analytic unknown. The shift, gapped \(Q\)-sector, and longitudinal/transverse ordered-flow geometry are then determined by \eqref{eq:betaeq}--\eqref{eq:WTeq}.
+\end{proof}
+
+\begin{proposition}[Quotient Einstein evolution and constraints]
+\label{prop:reduced}
+After imposing \(\AY=\AZ=0\), the quotient branch evolution in the gauge of Definition \ref{def:gauge} is
+\begin{align}
+(\partial_t-\Ell_\beta)\gamma_{ij}
+&=
+-2\Sigma_{ij}-\frac23\gamma_{ij}K,
+\label{eq:gammadt}
+\\
+(\partial_t-\Ell_\beta)\Sigma_{ij}
+&=
+\bigl(R_{ij}[\gamma]\bigr)^{\mathrm{TF}}
+-2\Sigma_i{}^k\Sigma_{kj}
+-\frac13K\Sigma_{ij}
++\Theta_{ij}^{\mathrm{TF,quot}},
+\label{eq:Sigmadt}
+\\
+(\partial_t-\Ell_\beta)K
+&=
+R[\gamma]+\Sigma_{ij}\Sigma^{ij}+\frac13K^2+\Theta_K^{\mathrm{quot}},
+\label{eq:Kdt}
+\end{align}
+subject to the Einstein constraints
+\begin{align}
+R[\gamma]+\frac23K^2-\Sigma_{ij}\Sigma^{ij}
+&=
+16\pi G_N\bigl(\rho^{\mathrm{matter}}+\rho_{\mathrm{quot}}\bigr),
+\label{eq:Hconstraint}
+\\
+D^j\Sigma_{ij}-\frac23D_iK
+&=
+8\pi G_N\bigl(J_i^{\mathrm{matter}}+J_i^{\mathrm{quot}}\bigr).
+\label{eq:Mconstraint}
+\end{align}
+Here \(\Theta_{ij}^{\mathrm{TF,quot}}\), \(\Theta_K^{\mathrm{quot}}\), \(\rho_{\mathrm{quot}}\), and \(J_i^{\mathrm{quot}}\) are the stress contributions generated by the quotient \(Q\)- and \(U\)-sector fields after solving \eqref{eq:Qeq}--\eqref{eq:WTeq}. They vanish on the flat exact-closure background and contain no propagating ordered-flow scalar channel.
+\end{proposition}
+
+\begin{proof}
+This is the quotient reduced Einstein system already recorded at reduced-system scope, now taken as the propagating part of the theorem problem. The bridge part of the action is unchanged, so the observer equations retain the standard unit-lapse spatial-harmonic \(3+1\) structure. The only completion-dependent source terms come from the quotient auxiliary fields and from matter. Since \(\AY=\AZ=0\) are imposed identically and no representative scalar remains on shell, there is no extra evolution equation analogous to the earlier transport/momentum pair.
+\end{proof}
+
+\begin{corollary}[No representative ordered-flow variables in the theorem problem]
+\label{cor:norep}
+The theorem problem on the quotient branch uses no physical or analytic free data attached to \(S\), \(Y\), or \(Z\). The only free data are the asymptotically flat Einstein--matter data compatible with \eqref{eq:Hconstraint}--\eqref{eq:Mconstraint}, with \((\beta^i,Q^I,\chi,W_i^T)\) reconstructed slice by slice from \eqref{eq:betaeq}--\eqref{eq:WTeq}.
+\end{corollary}
+
+\begin{proof}
+Definition \ref{def:variables} contains no representative ordered-flow variables, and Proposition \ref{prop:auxpackage} determines the full nonpropagating quotient package slice by slice.
+\end{proof}
+
+\begin{definition}[Strict quotient auxiliary-elliptic regime]
+\label{def:strict}
+Fix \(N\ge 6\). A quotient solution lies in the \emph{strict quotient auxiliary-elliptic regime} if
+\begin{equation}
+\widehat M_{IJ}\xi^I\xi^J\ge m_{Q,\min}^2|\xi|^2,
+\qquad
+\kappa_\theta\ge \kappa_{\theta,\min}>0,
+\qquad
+\kappa_\Omega\ge \kappa_{\Omega,\min}>0,
+\label{eq:strict}
+\end{equation}
+the spatial metric remains uniformly equivalent to \(\delta_{ij}\), and the gauge conditions \eqref{eq:gauge} are preserved.
+\end{definition}
+
+\section{Weighted/Homogeneous Slice Closure on the Quotient Branch}
+
+The quotient theorem uses exactly the same repaired weighted/homogeneous longitudinal class already fixed by the local/coercive setup note.
+
+\begin{definition}[Low- and high-frequency projectors]
+\label{def:projectors}
+Choose a smooth radial cutoff \(\varphi_{\mathrm{lo}}\in C_c^\infty(\mathbb R^3)\) such that
+\[
+0\le \varphi_{\mathrm{lo}}\le 1,
+\qquad
+\varphi_{\mathrm{lo}}(\xi)=1 \text{ for } |\xi|\le 1,
+\qquad
+\varphi_{\mathrm{lo}}(\xi)=0 \text{ for } |\xi|\ge 2.
+\]
+Define Fourier multipliers
+\begin{equation}
+\widehat{\mathbf P_{\mathrm{lo}}f}(\xi)
+\equiv
+\varphi_{\mathrm{lo}}(\xi)\widehat f(\xi),
+\qquad
+\mathbf P_{\mathrm{hi}}\equiv I-\mathbf P_{\mathrm{lo}}.
+\label{eq:projectors}
+\end{equation}
+\end{definition}
+
+\begin{definition}[Weighted/homogeneous longitudinal norm]
+\label{def:Xchi}
+For the quotient longitudinal source \(F_\chi\) in \eqref{eq:chieq}, define
+\begin{equation}
+\mathfrak L_\chi(F_\chi)^2
+\equiv
+\int_{\mathbb R^3}
+\varphi_{\mathrm{lo}}(\xi)^2
+|\xi|^{-2}
+|\widehat{F_\chi}(\xi)|^2\,d\xi
+=
+\|\mathbf P_{\mathrm{lo}}F_\chi\|_{\dot H^{-1}}^2
+\label{eq:Lchi}
+\end{equation}
+and
+\begin{equation}
+\|\chi\|_{\mathcal X_\chi^N}^2
+\equiv
+\|\nabla\chi\|_{L^2(\mathbb R^3)}^2
++\|\mathbf P_{\mathrm{hi}}\chi\|_{H^N(\mathbb R^3)}^2
++\mathfrak L_\chi(F_\chi)^2.
+\label{eq:Xchi}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[Derivative-level occurrence of \texorpdfstring{\(\chi\)}{chi}]
+\label{prop:derivative}
+At the present recorded scope of the quotient branch:
+\begin{enumerate}
+    \item every occurrence of the longitudinal variable \(\chi\) is derivative-level, namely through \(D_i\chi\), \(\Delta_\gamma\chi\), or lower-order contractions of the same ordered-flow tensors;
+    \item the quotient Einstein evolution/constraints and the slice equations \eqref{eq:betaeq}--\eqref{eq:WTeq} contain no analytic variables associated with representative ordered-flow data;
+    \item consequently the norm \(\|\chi\|_{\mathcal X_\chi^N}\) is natural for the quotient theorem problem and no additional zeroth-order anchor for \(\chi\) is forced.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+The ordered-flow geometry enters only through the spatial decomposition \eqref{eq:Wdecomp}, the longitudinal slice equation \eqref{eq:chieq}, the transverse equation \eqref{eq:WTeq}, and lower-order contractions of the same divergence/vorticity tensors. All such occurrences are derivative-level in \(\chi\). Meanwhile, once \(\AY=\AZ=0\) is imposed from the outset, the quotient reduced system contains no representative ordered-flow variables at either physical or analytic level. This is exactly the derivative-safe quotient structure isolated by the local/coercive setup note.
+\end{proof}
+
+\begin{definition}[Propagating and closed quotient energies]
+\label{def:E}
+For \(N\ge 6\), define the propagating quotient energy
+\begin{equation}
+\mathfrak E_{N,\mathrm{prop}}^{\mathrm{quot}}(t)
+\equiv
+\|\gamma-\delta\|_{H^N(\Sigma_t)}^2
++\|\Sigma\|_{H^{N-1}(\Sigma_t)}^2
++\|K\|_{H^{N-1}(\Sigma_t)}^2
++\mathcal E_N^{\mathrm{matter}}(t),
+\label{eq:Eprop}
+\end{equation}
+the full closed quotient control energy
+\begin{align}
+\mathfrak E_N^{\mathrm{quot}}(t)
+\equiv\;&
+\mathfrak E_{N,\mathrm{prop}}^{\mathrm{quot}}(t)
++\|\beta\|_{H^{N+1}(\Sigma_t)}^2
++\|Q\|_{H^N(\Sigma_t)}^2
++\|\chi\|_{\mathcal X_\chi^N(\Sigma_t)}^2
++\|W^T\|_{H^N(\Sigma_t)}^2,
+\label{eq:Equot}
+\end{align}
+and the auxiliary package
+\begin{equation}
+\mathfrak A_N^{\mathrm{quot}}(t)
+\equiv
+\|\beta\|_{H^{N+1}(\Sigma_t)}^2
++\|Q\|_{H^N(\Sigma_t)}^2
++\|\chi\|_{\mathcal X_\chi^N(\Sigma_t)}^2
++\|W^T\|_{H^N(\Sigma_t)}^2.
+\label{eq:Aquot}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[Full quotient slice closure]
+\label{prop:fullell}
+Fix \(N\ge 6\). There exists \(\varepsilon_{\mathrm{quot,ell}}>0\) such that if
+\begin{equation}
+\mathfrak E_{N,\mathrm{prop}}^{\mathrm{quot}}(t)
+\le
+\varepsilon_{\mathrm{quot,ell}}^2
+\label{eq:ellsmall}
+\end{equation}
+and the slice lies in the strict quotient auxiliary-elliptic regime \eqref{eq:strict}, then the subsystem \eqref{eq:betaeq}--\eqref{eq:WTeq} has a unique decaying solution satisfying
+\begin{equation}
+\mathfrak A_N^{\mathrm{quot}}(t)
+\le
+C_N\,\mathfrak E_N^{\mathrm{quot}}(t).
+\label{eq:fullslice}
+\end{equation}
+In particular, the full quotient slice package \((\beta,Q^I,\chi,W_i^T)\) closes in the repaired weighted/homogeneous class with no derivative loss and with no analytic representative-data leakage.
+\end{proposition}
+
+\begin{proof}
+The shift, \(Q\)-sector, and transverse ordered-flow equations are the same uniformly elliptic slice equations already controlled on the repaired unit-lapse route, now with fewer source terms because no propagating ordered-flow scalar survives on the quotient branch. For the longitudinal variable, the weighted/homogeneous estimate of the setup note applies directly to \eqref{eq:chieq}. Proposition \ref{prop:derivative} is decisive: because \(\chi\) appears only at derivative level and no representative variables re-enter the sources, the slice estimates close by the same control norm \eqref{eq:Equot} with no derivative loss and with no new low-frequency obstruction beyond \(\mathfrak L_\chi(F_\chi)\). Summing the slice estimates gives \eqref{eq:fullslice}.
+\end{proof}
+
+\begin{corollary}[Energy equivalence]
+\label{cor:equiv}
+Under the hypotheses of Proposition \ref{prop:fullell} and for \(\varepsilon_{\mathrm{quot,ell}}\) sufficiently small,
+\begin{equation}
+\mathfrak E_{N,\mathrm{prop}}^{\mathrm{quot}}(t)
+\le
+\mathfrak E_N^{\mathrm{quot}}(t)
+\le
+C_N\,\mathfrak E_{N,\mathrm{prop}}^{\mathrm{quot}}(t).
+\label{eq:energyequiv}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+The left inequality is immediate from Definition \ref{def:E}. The right inequality is exactly Proposition \ref{prop:fullell} inserted into \eqref{eq:Equot}.
+\end{proof}
+
+\section{First Quotient Local Well-Posedness and Continuation Result}
+
+Once the quotient slice package is closed, the local theorem is the mixed Einstein--matter hyperbolic evolution with slice-wise elliptic reconstruction and no representative ordered-flow variables.
+
+\begin{proposition}[High-order a priori estimate]
+\label{prop:apriori}
+Let \(N\ge 6\), and let a smooth quotient solution exist on \([0,T]\) while remaining in the strict quotient auxiliary-elliptic regime. Then
+\begin{equation}
+\frac{d}{dt}\mathfrak E_N^{\mathrm{quot}}(t)
+\le
+C_N\bigl(1+\mathfrak E_N^{\mathrm{quot}}(t)^{1/2}\bigr)\mathfrak E_N^{\mathrm{quot}}(t)
+\label{eq:apriori}
+\end{equation}
+for all \(t\in[0,T]\).
+\end{proposition}
+
+\begin{proof}
+Commute spatial derivatives through the quotient Einstein evolution \eqref{eq:gammadt}--\eqref{eq:Kdt}, integrate by parts in the Ricci principal terms, and use Sobolev multiplication in dimension three for the commutators, Ricci remainders, transport by \(\beta\), and matter or auxiliary insertions. Because the quotient branch has no propagating ordered-flow scalar equation, there is no additional scalar transport or momentum block to estimate.
+
+The nonpropagating variables are not differentiated through independent evolution equations. Instead, Proposition \ref{prop:fullell} re-inserts \(\beta\), \(Q\), \(\chi\), and \(W^T\) slice by slice. Proposition \ref{prop:derivative} then guarantees that the longitudinal variable enters only at derivative level, so the weighted/homogeneous \(\chi\)-norm closes exactly as on the local/coercive setup note. All nonlinear terms vanish on the flat exact-closure background and are at least linear in the perturbation size, which yields \eqref{eq:apriori}.
+\end{proof}
+
+\begin{corollary}[Short-time persistence of the strict quotient regime]
+\label{cor:persist}
+There exists \(\varepsilon_*>0\) such that if \(\mathfrak E_N^{\mathrm{quot}}(0)\le \varepsilon_*^2\), then for some \(T_*=T_*(\varepsilon_*,N)>0\) the solution remains in the strict quotient auxiliary-elliptic regime on \([0,T_*]\).
+\end{corollary}
+
+\begin{proof}
+Proposition \ref{prop:apriori} and Gronwall imply
+\[
+\sup_{0\le t\le T}\mathfrak E_N^{\mathrm{quot}}(t)
+\le
+\mathfrak E_N^{\mathrm{quot}}(0)
+\exp\!\Bigl(C_NT\bigl(1+\sup_{0\le s\le T}\mathfrak E_N^{\mathrm{quot}}(s)^{1/2}\bigr)\Bigr).
+\]
+For sufficiently small initial energy and sufficiently short \(T\), this stays below the threshold used in Definition \ref{def:strict} and Proposition \ref{prop:fullell}. Sobolev embedding then preserves the metric equivalence and the fixed positive lower bounds.
+\end{proof}
+
+\begin{definition}[Compatible quotient initial data]
+\label{def:init}
+Compatible quotient initial data consist of asymptotically flat Einstein--matter fields
+\begin{equation}
+(\gamma_{ij}^{(0)},\Sigma_{ij}^{(0)},K^{(0)};\psi^{(0)},\pi_\psi^{(0)})
+\label{eq:initdata}
+\end{equation}
+on \(\Sigma_0\simeq\mathbb R^3\) such that:
+\begin{enumerate}
+    \item the Einstein Hamiltonian and momentum constraints \eqref{eq:Hconstraint}--\eqref{eq:Mconstraint} hold at \(t=0\);
+    \item the unit-lapse spatial-harmonic gauge conditions \eqref{eq:gauge} hold at \(t=0\);
+    \item the quotient slice equations \eqref{eq:betaeq}--\eqref{eq:WTeq} admit unique decaying solutions \((\beta^{(0)},Q^{(0)},\chi^{(0)},W^{T,(0)})\);
+    \item the regularity classes appearing in Definition \ref{def:E} are satisfied;
+    \item the strict quotient auxiliary-elliptic regime holds initially;
+    \item \(\AY=\AZ=0\) are imposed identically as branch conditions, so no representative ordered-flow datum is part of \eqref{eq:initdata}.
+\end{enumerate}
+\end{definition}
+
+\begin{theorem}[First quotient local well-posedness with full slice closure]
+\label{thm:local}
+Fix \(N\ge 6\). There exists \(\varepsilon_{\mathrm{wp}}>0\) with the following property. Let compatible quotient initial data \eqref{eq:initdata} satisfy
+\begin{equation}
+\mathfrak E_N^{\mathrm{quot}}(0)\le \varepsilon_{\mathrm{wp}}^2.
+\label{eq:wpsmall}
+\end{equation}
+Then the ordered-flow quotient branch admits a unique solution on some interval \([0,T_{\mathrm{loc}}]\), \(T_{\mathrm{loc}}>0\), such that
+\begin{align}
+\gamma-\delta &\in C([0,T_{\mathrm{loc}}],H^N)\cap C^1([0,T_{\mathrm{loc}}],H^{N-1}),
+\label{eq:reggamma}
+\\
+\Sigma,\ K &\in C([0,T_{\mathrm{loc}}],H^{N-1}),
+\label{eq:regsigmak}
+\\
+\beta &\in C([0,T_{\mathrm{loc}}],H^{N+1}),
+\label{eq:regbeta}
+\\
+Q,\ W^T &\in C([0,T_{\mathrm{loc}}],H^N),
+\label{eq:regaux}
+\\
+\nabla\chi &\in C([0,T_{\mathrm{loc}}],H^{N-1}),
+\qquad
+\mathbf P_{\mathrm{hi}}\chi\in C([0,T_{\mathrm{loc}}],H^N),
+\label{eq:regchi}
+\end{align}
+with the matter variables lying in the regularity class underlying \(\mathcal E_N^{\mathrm{matter}}\), and such that:
+\begin{enumerate}
+    \item the Einstein constraints propagate;
+    \item the gauge conditions \eqref{eq:gauge} are preserved;
+    \item the full quotient slice package remains the unique decaying solution of \eqref{eq:betaeq}--\eqref{eq:WTeq} on every slice;
+    \item \(\AY=\AZ=0\) remain imposed identically and no physical or analytic \(S,Y,Z\) data are introduced at later times;
+    \item the solution stays in the strict quotient auxiliary-elliptic regime on \([0,T_{\mathrm{loc}}]\);
+    \item the closed energy satisfies
+    \begin{equation}
+    \sup_{0\le t\le T_{\mathrm{loc}}}\mathfrak E_N^{\mathrm{quot}}(t)
+    \le
+    2\,\mathfrak E_N^{\mathrm{quot}}(0).
+    \label{eq:localbound}
+    \end{equation}
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Construct a quasilinear iteration by freezing the coefficients from the previous iterate, solving the slice subsystem \eqref{eq:betaeq}--\eqref{eq:WTeq} on each time slice, and then solving the resulting Einstein--matter evolution for \((\gamma,\Sigma,K;\psi,\pi_\psi)\) in unit-lapse spatial-harmonic gauge. Proposition \ref{prop:fullell} supplies uniform slice solvability of the full nonpropagating quotient package, and Proposition \ref{prop:apriori} supplies the high-order energy estimate. Choosing \(T_{\mathrm{loc}}\) so that the Gronwall factor remains below \(2\) yields \eqref{eq:localbound}. Standard difference estimates for the same mixed hyperbolic--elliptic system then show contraction on a shorter interval if necessary, so the iteration converges to a unique solution with regularity \eqref{eq:reggamma}--\eqref{eq:regchi}.
+
+Constraint propagation is the usual consequence of the contracted Bianchi identities together with the matter equations. Gauge preservation holds because \(N\equiv 1\) is imposed identically and \(\beta\) is solved from the spatial-harmonic preservation equation. The full quotient slice package propagates as a slice-wise determination because \((\beta,Q,\chi,W^T)\) are redefined on every slice by the unique decaying elliptic solutions of \eqref{eq:betaeq}--\eqref{eq:WTeq}. Finally, \(\AY=\AZ=0\) are not dynamic unknowns but branch equations imposed from the outset, so no representative ordered-flow data can re-enter during the iteration. Corollary \ref{cor:persist} gives persistence of the strict regime when the initial norm is sufficiently small.
+\end{proof}
+
+\begin{theorem}[Continuation criterion]
+\label{thm:cont}
+Let \([0,T_{\max})\) be the maximal interval of existence of the solution from Theorem \ref{thm:local}. If
+\begin{equation}
+\sup_{0\le t<T_{\max}}\mathfrak E_N^{\mathrm{quot}}(t)<\infty
+\label{eq:Enbounded}
+\end{equation}
+and the strict quotient auxiliary-elliptic regime persists on \([0,T_{\max})\), then the solution extends beyond \(T_{\max}\). Equivalently, finite-time breakdown can occur only if at least one of the following happens:
+\begin{enumerate}
+    \item \(\mathfrak E_N^{\mathrm{quot}}(t)\) becomes unbounded;
+    \item the spatial metric ceases to remain uniformly equivalent to \(\delta_{ij}\);
+    \item one of the lower bounds in \eqref{eq:strict} fails;
+    \item the slice subsystem \eqref{eq:betaeq}--\eqref{eq:WTeq} loses invertibility.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Assume \eqref{eq:Enbounded} and persistence of the strict regime. Then the coefficients of the mixed Einstein--matter hyperbolic and quotient slice elliptic system remain bounded in the Sobolev classes of Theorem \ref{thm:local}, and Proposition \ref{prop:fullell} continues to provide uniform slice control on every time slice. Restart the local argument at any time \(t_0<T_{\max}\) using the bounded quotient data at that slice. The same construction then yields an extension beyond \(t_0\) with lifespan depending only on the uniform control bounds, contradicting maximality if \(T_{\max}<\infty\). Therefore finite-time breakdown can occur only through loss of one of the listed control mechanisms.
+\end{proof}
+
+\section{Corrected Quotient Coercive Functional}
+
+The local theorem removes the Cauchy-problem obstruction. The next burden is to strengthen the local estimate into the first corrected \(T\sim\varepsilon^{-1}\) bootstrap on the same quotient field space and with no scalar correction channel.
+
+\begin{definition}[Bootstrap interval]
+\label{def:boot}
+Fix \(0<\varepsilon\ll 1\). An interval \([0,T]\) is said to lie in the \emph{quotient coercive bootstrap regime} if:
+\begin{enumerate}
+    \item the strict quotient auxiliary-elliptic regime \eqref{eq:strict} holds on every slice;
+    \item the quotient energy satisfies
+    \begin{equation}
+    \sup_{0\le t\le T}\mathfrak E_N^{\mathrm{quot}}(t)\le 4\varepsilon^2.
+    \label{eq:bootenergy}
+    \end{equation}
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Geometric and low-frequency trace variables]
+\label{def:trace}
+Set
+\begin{equation}
+h_{ij}\equiv \gamma_{ij}-\delta_{ij},
+\qquad
+\mathbb K_{ij}\equiv \Sigma_{ij}+\frac13\delta_{ij}K,
+\label{eq:hk}
+\end{equation}
+and define the low-frequency trace variable
+\begin{equation}
+\vartheta
+\equiv
+\frac12\operatorname{tr}_\delta(\gamma-\delta)
+=
+\frac12\delta^{ij}h_{ij}.
+\label{eq:vartheta}
+\end{equation}
+\end{definition}
+
+\begin{definition}[Corrected quotient coercive functional]
+\label{def:F}
+For \(N\ge 6\), define the geometric correction
+\begin{align}
+\mathfrak C_N^{\mathrm{geom}}(t)
+\equiv\;&
+\sum_{|\alpha|\le N-1} c_\alpha^{(g)}
+\int_{\Sigma_t}
+\partial^\alpha h^{ij}\,
+\partial^\alpha \mathbb K_{ij}\,d\mu_\gamma,
+\label{eq:Cgeom}
+\end{align}
+where the coefficients \(c_\alpha^{(g)}\) are fixed sufficiently small depending only on \(N\) and the flat background normalization. Define the trace/longitudinal low-frequency correction by
+\begin{equation}
+\mathfrak C_N^{\chi}(t)
+\equiv
+c_\chi
+\Bigl(
+\|\mathbf P_{\mathrm{lo}}\vartheta(t)\|_{L^2}^2
++\mathfrak L_\chi(F_\chi(t))^2
+\Bigr),
+\label{eq:Cchi}
+\end{equation}
+with \(0<c_\chi\ll 1\) fixed. The \emph{corrected quotient coercive functional} is
+\begin{equation}
+\mathfrak F_N^{\mathrm{quot}}(t)
+\equiv
+\mathfrak E_N^{\mathrm{quot}}(t)
++\mathfrak C_N^{\mathrm{geom}}(t)
++\mathfrak C_N^{\chi}(t).
+\label{eq:Fquot}
+\end{equation}
+There is no scalar correction term.
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:F} contains exactly the two correction channels forecast by the quotient local/coercive setup note and no more. The geometric correction is the standard unit-lapse spatial-harmonic one. The second correction isolates the trace/longitudinal low-frequency block already encoded by \(\mathfrak L_\chi(F_\chi)\). No scalar correction channel survives because no propagating ordered-flow scalar survives on the quotient branch.
+\end{remark}
+
+\begin{proposition}[Coercive equivalence]
+\label{prop:Fequiv}
+There exists \(\varepsilon_{\mathrm{coer}}>0\) such that if \([0,T]\) lies in the quotient coercive bootstrap regime with \(\varepsilon\le \varepsilon_{\mathrm{coer}}\), then
+\begin{equation}
+\frac12\mathfrak E_N^{\mathrm{quot}}(t)
+\le
+\mathfrak F_N^{\mathrm{quot}}(t)
+\le
+\frac32\mathfrak E_N^{\mathrm{quot}}(t)
+\label{eq:Fequiv}
+\end{equation}
+for all \(t\in[0,T]\).
+\end{proposition}
+
+\begin{proof}
+By Cauchy--Schwarz and Sobolev embedding,
+\[
+|\mathfrak C_N^{\mathrm{geom}}(t)|
+\le
+C_N\|h\|_{H^N}\|\mathbb K\|_{H^{N-1}}
+\le
+\frac14\mathfrak E_N^{\mathrm{quot}}(t)
+\]
+after choosing the coefficients \(c_\alpha^{(g)}\) sufficiently small. Also,
+\[
+\|\mathbf P_{\mathrm{lo}}\vartheta\|_{L^2}^2
+\le
+C_N\|h\|_{L^2}^2,
+\qquad
+\mathfrak L_\chi(F_\chi)^2
+\le
+\|\chi\|_{\mathcal X_\chi^N}^2,
+\]
+so choosing \(c_\chi\) sufficiently small gives
+\[
+|\mathfrak C_N^\chi(t)|
+\le
+\frac14\mathfrak E_N^{\mathrm{quot}}(t).
+\]
+Summing these bounds yields \eqref{eq:Fequiv}.
+\end{proof}
+
+\begin{proposition}[Trace/longitudinal source subsystem]
+\label{prop:trace}
+On every quotient coercive bootstrap interval, the low-frequency trace variable \(\vartheta\) and the longitudinal source \(F_\chi\) satisfy
+\begin{align}
+(\partial_t-\Ell_\beta)\vartheta
+&=
+-F_\chi+\mathcal Q_\vartheta,
+\label{eq:varthetadt}
+\\
+(\partial_t-\Ell_\beta)F_\chi
+&=
+-\Delta_\delta \vartheta+\mathcal R_\chi,
+\label{eq:Fdt}
+\end{align}
+where the remainders obey
+\begin{equation}
+\|\mathcal Q_\vartheta(t)\|_{L^2}
++\|\mathbf P_{\mathrm{lo}}\mathcal R_\chi(t)\|_{\dot H^{-1}}
+\le
+C_N\,\mathfrak E_N^{\mathrm{quot}}(t)
+\label{eq:tracebounds}
+\end{equation}
+for all \(t\in[0,T]\).
+\end{proposition}
+
+\begin{proof}
+Take the \(\delta\)-trace of \eqref{eq:gammadt}. Since \(\gamma^{ij}\Sigma_{ij}=0\), one has \(\delta^{ij}\Sigma_{ij}=\mathcal O(h\Sigma)\), so
+\[
+(\partial_t-\Ell_\beta)\vartheta
+=
+-K+\mathcal Q_{\mathrm{tr}}
+\]
+with \(\|\mathcal Q_{\mathrm{tr}}\|_{L^2}\le C_N\mathfrak E_N^{\mathrm{quot}}\). Since \(F_\chi=K-\mathcal N_\chi\) and \(\mathcal N_\chi\) vanishes at least quadratically around the flat exact-closure background, the first equation becomes \eqref{eq:varthetadt} with
+\[
+\mathcal Q_\vartheta=\mathcal Q_{\mathrm{tr}}+\mathcal N_\chi.
+\]
+
+For the second equation, differentiate \eqref{eq:chieq} along \((\partial_t-\Ell_\beta)\). The trace evolution \eqref{eq:Kdt} gives
+\[
+(\partial_t-\Ell_\beta)K
+=
+R[\gamma]+\Sigma_{ij}\Sigma^{ij}+\frac13K^2+\Theta_K^{\mathrm{quot}}.
+\]
+In spatial-harmonic gauge, the flat-model linearization of the scalar curvature is
+\[
+R[\gamma]=-\Delta_\delta\vartheta+\mathcal Q_R,
+\]
+with \(\|\mathbf P_{\mathrm{lo}}\mathcal Q_R\|_{\dot H^{-1}}\le C_N\mathfrak E_N^{\mathrm{quot}}\). The terms \(\Sigma_{ij}\Sigma^{ij}\), \(K^2\), \(\Theta_K^{\mathrm{quot}}\), the transport commutators, and \((\partial_t-\Ell_\beta)\mathcal N_\chi\) are all quadratic on the bootstrap interval because the quotient auxiliary stresses vanish at linear order and \(\mathcal N_\chi\) depends only on derivative-level quantities already controlled by \(\mathfrak E_N^{\mathrm{quot}}\). Collecting these terms yields \eqref{eq:Fdt}--\eqref{eq:tracebounds}.
+\end{proof}
+
+\begin{theorem}[Propagation of the quotient low-frequency correction]
+\label{thm:lowprop}
+Fix \(N\ge 6\). There exists \(C_N>0\) such that every smooth solution in the quotient coercive bootstrap regime satisfies
+\begin{equation}
+\frac{d}{dt}
+\Bigl(
+\|\mathbf P_{\mathrm{lo}}\vartheta(t)\|_{L^2}^2
++\mathfrak L_\chi(F_\chi(t))^2
+\Bigr)
+\le
+C_N\bigl(\mathfrak E_N^{\mathrm{quot}}(t)\bigr)^{3/2}
+\label{eq:lowprop}
+\end{equation}
+for all \(t\in[0,T]\). Consequently,
+\begin{equation}
+\mathfrak C_N^\chi(t)
+\le
+\mathfrak C_N^\chi(0)
++C_N\int_0^t
+\bigl(\mathfrak E_N^{\mathrm{quot}}(s)\bigr)^{3/2}\,ds.
+\label{eq:lowpropint}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Apply \(\mathbf P_{\mathrm{lo}}\) to \eqref{eq:varthetadt} and take the \(L^2\)-inner product with \(\mathbf P_{\mathrm{lo}}\vartheta\). This gives
+\begin{equation}
+\frac12\frac{d}{dt}\|\mathbf P_{\mathrm{lo}}\vartheta\|_{L^2}^2
+=
+-\langle \mathbf P_{\mathrm{lo}}\vartheta,\mathbf P_{\mathrm{lo}}F_\chi\rangle
++\mathcal E_\vartheta,
+\label{eq:thetader}
+\end{equation}
+where
+\[
+|\mathcal E_\vartheta|
+\le
+C_N\|\mathbf P_{\mathrm{lo}}\vartheta\|_{L^2}\|\mathcal Q_\vartheta\|_{L^2}
++C_N\|\beta\|_{H^{N+1}}\|\mathbf P_{\mathrm{lo}}\vartheta\|_{L^2}^2
+\le
+C_N\bigl(\mathfrak E_N^{\mathrm{quot}}\bigr)^{3/2}.
+\]
+
+Next, apply \(|\nabla|^{-1}\mathbf P_{\mathrm{lo}}\) to \eqref{eq:Fdt} and take the \(L^2\)-inner product with \(|\nabla|^{-1}\mathbf P_{\mathrm{lo}}F_\chi\). Since \(|\nabla|^{-1}(-\Delta_\delta)=|\nabla|\), one obtains
+\begin{equation}
+\frac12\frac{d}{dt}\mathfrak L_\chi(F_\chi)^2
+=
+\langle |\nabla|^{-1}\mathbf P_{\mathrm{lo}}F_\chi,\,
+|\nabla|\mathbf P_{\mathrm{lo}}\vartheta\rangle
++\mathcal E_F,
+\label{eq:Lder}
+\end{equation}
+with
+\[
+|\mathcal E_F|
+\le
+C_N\mathfrak L_\chi(F_\chi)\,
+\|\mathbf P_{\mathrm{lo}}\mathcal R_\chi\|_{\dot H^{-1}}
++C_N\|\beta\|_{H^{N+1}}\mathfrak L_\chi(F_\chi)^2
+\le
+C_N\bigl(\mathfrak E_N^{\mathrm{quot}}\bigr)^{3/2}.
+\]
+The linear terms in \eqref{eq:thetader} and \eqref{eq:Lder} cancel exactly because
+\[
+\langle \mathbf P_{\mathrm{lo}}\vartheta,\mathbf P_{\mathrm{lo}}F_\chi\rangle
+=
+\langle |\nabla|\mathbf P_{\mathrm{lo}}\vartheta,\,
+|\nabla|^{-1}\mathbf P_{\mathrm{lo}}F_\chi\rangle.
+\]
+This proves \eqref{eq:lowprop}. Multiplying the resulting bound by \(c_\chi\) gives \eqref{eq:lowpropint}.
+\end{proof}
+
+\section{Improved Quotient Coercive Estimate and Bootstrap Closure}
+
+\begin{proposition}[Quadratic remainder structure on the quotient branch]
+\label{prop:quadratic}
+On the flat exact-closure background and in unit-lapse spatial-harmonic gauge, every nonprincipal remainder term left after commuting derivatives through the quotient Einstein--matter evolution, inserting the slice estimates of Proposition \ref{prop:fullell}, and using Proposition \ref{prop:trace} is at least quadratic in the perturbation size measured by \(\bigl(\mathfrak E_N^{\mathrm{quot}}\bigr)^{1/2}\).
+\end{proposition}
+
+\begin{proof}
+The background is an exact solution of the full quotient system, so every source term vanishes there. The only linear propagating terms are the Einstein tracefree/trace block and the trace/longitudinal low-frequency coupling already isolated in Proposition \ref{prop:trace}. There is no propagating ordered-flow scalar equation and therefore no scalar linear channel to correct. By Proposition \ref{prop:fullell}, the nonpropagating package is inserted only through slice-wise elliptic estimates, and Proposition \ref{prop:derivative} removes any hidden representative-variable loss. What remains after these extractions is made of variable-coefficient commutators, Ricci corrections, transport by \(\beta\), matter insertions, quotient auxiliary-stress lower-order terms, and differentiated nonlinear slice sources. Each such term contains at least one perturbative coefficient factor and one controlled differentiated unknown, so it is quadratic in the bootstrap size.
+\end{proof}
+
+\begin{theorem}[Improved quotient coercive energy estimate]
+\label{thm:ineq}
+Fix \(N\ge 6\). There exist \(\varepsilon_{\mathrm{boot}}>0\) and \(C_N>0\) such that every smooth solution in the quotient coercive bootstrap regime with \(\varepsilon\le \varepsilon_{\mathrm{boot}}\) satisfies
+\begin{equation}
+\frac{d}{dt}\mathfrak F_N^{\mathrm{quot}}(t)
+\le
+C_N\bigl(\mathfrak F_N^{\mathrm{quot}}(t)\bigr)^{3/2}
+\label{eq:quadraticineq}
+\end{equation}
+for all \(t\in[0,T]\).
+\end{theorem}
+
+\begin{proof}
+Differentiate the propagating Einstein--matter part of \(\mathfrak E_N^{\mathrm{quot}}\) as in the local theorem. The tracefree Einstein block is paired against the geometric correction \(\mathfrak C_N^{\mathrm{geom}}\), removing the purely linear transport pieces in the standard unit-lapse spatial-harmonic way.
+
+For the longitudinal sector, one again does not differentiate \(\chi\) directly in the hyperbolic energy. Proposition \ref{prop:fullell} controls the derivative-level longitudinal slot pointwise by the closed quotient energy, while Theorem \ref{thm:lowprop} supplies the missing time-propagation estimate for the low-frequency trace/longitudinal correction \(\mathfrak C_N^\chi\). This is exactly the second correction channel retained in Definition \ref{def:F}.
+
+No scalar correction channel appears because no propagating ordered-flow scalar survives on the quotient branch. After the geometric and low-frequency corrections are handled, Proposition \ref{prop:quadratic} shows that all remaining commutators and source terms are quadratic. Sobolev multiplication in dimension three bounds each of them by \(C_N(\mathfrak E_N^{\mathrm{quot}})^{3/2}\). Proposition \ref{prop:Fequiv} then converts \(\mathfrak E_N^{\mathrm{quot}}\) to \(\mathfrak F_N^{\mathrm{quot}}\), which yields \eqref{eq:quadraticineq}.
+\end{proof}
+
+\begin{theorem}[First quotient corrected coercive bootstrap]
+\label{thm:bootstrap}
+Fix \(N\ge 6\). There exist \(\varepsilon_\sharp>0\) and \(c_N>0\) such that the following holds. Let compatible quotient initial data satisfy the hypotheses of Theorem \ref{thm:local} together with
+\begin{equation}
+\mathfrak F_N^{\mathrm{quot}}(0)\le \varepsilon^2,
+\qquad
+0<\varepsilon\le \varepsilon_\sharp.
+\label{eq:initsmall}
+\end{equation}
+Assume that on some interval \([0,T]\) the corresponding solution lies in the quotient coercive bootstrap regime. If
+\begin{equation}
+T\le c_N\,\varepsilon^{-1},
+\label{eq:Tbootstrap}
+\end{equation}
+then
+\begin{equation}
+\sup_{0\le t\le T}\mathfrak F_N^{\mathrm{quot}}(t)\le 2\varepsilon^2,
+\qquad
+\sup_{0\le t\le T}\mathfrak E_N^{\mathrm{quot}}(t)\le 3\varepsilon^2,
+\label{eq:bootstrapimprove}
+\end{equation}
+and consequently
+\begin{equation}
+\sup_{0\le t\le T}\mathfrak A_N^{\mathrm{quot}}(t)\le C_N\varepsilon^2.
+\label{eq:auximprove}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Let
+\[
+M(T)\equiv \sup_{0\le t\le T}\mathfrak F_N^{\mathrm{quot}}(t).
+\]
+By Theorem \ref{thm:ineq},
+\[
+\mathfrak F_N^{\mathrm{quot}}(t)
+\le
+\mathfrak F_N^{\mathrm{quot}}(0)
++C_N\int_0^t
+\bigl(\mathfrak F_N^{\mathrm{quot}}(s)\bigr)^{3/2}\,ds
+\le
+\varepsilon^2+C_NT\,M(T)^{3/2}.
+\]
+The bootstrap assumption \eqref{eq:bootenergy} and coercive equivalence \eqref{eq:Fequiv} imply \(M(T)\le 6\varepsilon^2\). Therefore
+\[
+\mathfrak F_N^{\mathrm{quot}}(t)
+\le
+\varepsilon^2+C_N 6^{3/2}T\,\varepsilon^3.
+\]
+Taking the supremum over \(t\in[0,T]\) gives
+\[
+M(T)\le \varepsilon^2+C_N 6^{3/2}T\,\varepsilon^3.
+\]
+Choose \(c_N>0\) so that \(C_N6^{3/2}c_N\le 1\). Then \eqref{eq:Tbootstrap} implies \(M(T)\le 2\varepsilon^2\), which is a strict improvement of the bootstrap bound for sufficiently small \(\varepsilon\). Equation \eqref{eq:bootstrapimprove} follows from \eqref{eq:Fequiv}, and \eqref{eq:auximprove} follows from Proposition \ref{prop:fullell}.
+\end{proof}
+
+\begin{corollary}[Bootstrap lifespan lower bound]
+\label{cor:lifespan}
+Under the hypotheses of Theorem \ref{thm:bootstrap}, the maximal existence interval of Theorem \ref{thm:local} satisfies
+\begin{equation}
+T_{\max}\ge c_N\,\varepsilon^{-1},
+\label{eq:lifespan}
+\end{equation}
+provided the strict quotient auxiliary-elliptic regime holds initially with the fixed positive lower bounds.
+\end{corollary}
+
+\begin{proof}
+The local theorem continues the solution as long as the closed quotient energy stays finite and the strict quotient auxiliary-elliptic regime persists. Theorem \ref{thm:bootstrap} supplies exactly those bounds on every subinterval of length at most \(c_N\varepsilon^{-1}\).
+\end{proof}
+
+\begin{corollary}[No coercive failure at the quotient theorem step]
+\label{cor:nofail}
+At the present recorded scope of the quotient branch, the first corrected coercive bootstrap closes with only the geometric correction and the trace/longitudinal low-frequency correction. In particular, the theorem step itself does not force any reconsideration of the bridge metric or the single-metric matter route.
+\end{corollary}
+
+\begin{proof}
+Theorem \ref{thm:bootstrap} proves the \(T\sim\varepsilon^{-1}\) bootstrap with no scalar correction channel and with the full quotient slice package controlled by \eqref{eq:auximprove}. Therefore the quotient branch does not fail at the theorem step that the tracking layer singled out as decisive.
+\end{proof}
+
+\section{What This Step Establishes}
+
+The present manuscript establishes the following.
+\begin{enumerate}
+    \item It proves the first local well-posedness and continuation theorem on the ordered-flow quotient branch in the same unit-lapse spatial-harmonic weighted/homogeneous class fixed by the local/coercive setup note.
+    \item It closes the full quotient slice package \((\beta,Q^I,\chi,W_i^T)\) on every slice with no derivative loss.
+    \item It keeps \(\AY=\AZ=0\) imposed from the outset and never allows \(S\), \(Y\), or \(Z\) to re-enter as physical or analytic free data.
+    \item It proves that the corrected quotient coercive functional requires exactly two correction channels, \(\mathfrak C_N^{\mathrm{geom}}\) and \(\mathfrak C_N^\chi\), and no scalar correction channel.
+    \item It proves that the first corrected quotient bootstrap closes on times \(T\sim\varepsilon^{-1}\).
+\end{enumerate}
+
+It does not establish the following.
+\begin{enumerate}
+    \item It does not prove a decay theorem, an asymptotic theorem, or a global nonlinear-stability theorem on the quotient branch.
+    \item It does not weaken the strict positivity assumptions in \eqref{eq:strict}.
+    \item It does not claim a completed first-principles substrate derivation.
+    \item It does not reopen any bridge-metric or single-metric matter-route redesign, because the quotient theorem step is itself positive.
+\end{enumerate}
+
+\section{Conclusion}
+
+The quotient local/coercive note left one honest immediate burden: prove the actual theorem on the same quotient physical field space rather than merely describing its setup. The present manuscript answers that burden positively.
+
+It does so while keeping every branch discipline that the setup note demanded. The theorem is written directly on the quotient variables in unit-lapse spatial-harmonic gauge. The quotient equations \(\AY=\AZ=0\) are imposed from the outset. No physical or analytic \(S,Y,Z\) data are introduced. The full slice package closes in the same repaired weighted/homogeneous class. The corrected quotient coercive functional uses only the geometric correction and the trace/longitudinal low-frequency correction, with no scalar correction channel because no propagating ordered-flow scalar survives.
+
+That is the actual quotient theorem result the active sequence needed. The quotient branch now has its first local well-posedness/continuation theorem and its first corrected \(T\sim\varepsilon^{-1}\) coercive bootstrap on the same fixed branch architecture. At this theorem step, nothing forces a retreat to the bridge metric or to the single-metric matter route.
+
+\end{document}

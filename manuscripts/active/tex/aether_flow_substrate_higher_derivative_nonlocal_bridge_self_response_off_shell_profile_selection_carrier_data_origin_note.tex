@@ -1,0 +1,572 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal{A}}
+\newcommand{\BridgeMetric}{\mathfrak g}
+\newcommand{\SpatialD}{\mathcal D}
+\newcommand{\LapPerp}{\Delta_\perp}
+\newcommand{\FlowPot}{\Phi_\Omega}
+\newcommand{\CoulPot}{U_\Omega}
+\newcommand{\SourceDensityRed}{\varrho_\Omega^{\mathrm{red}}}
+\newcommand{\ConstCurrent}{\mathcal C}
+\newcommand{\ConstGamma}{\Gamma}
+\newcommand{\CurvQMult}{\mathscr P}
+\newcommand{\CurvChiMult}{\mathscr X}
+\newcommand{\CurvTransMult}{\mathscr Y}
+\newcommand{\HamChargeOmega}{\mathfrak m_\Omega}
+\newcommand{\SigmaIER}{\Sigma^{\mathrm{IER}}}
+\newcommand{\SigmaDressSch}{\Sigma^{\mathrm{Sch}}}
+\newcommand{\SigmaRegPol}{\Sigma^{\mathrm{pol,reg}}}
+\newcommand{\CurvSeed}{\Theta_{\mathrm{br}}}
+\newcommand{\CurvSeedMult}{\Upsilon_{\mathrm{br}}}
+\newcommand{\CurvScale}{\ell_{\mathrm{br}}}
+\newcommand{\CurvProfile}{F_{\mathrm{br}}}
+\newcommand{\CurvProfileCan}{F_{\mathrm{br}}^{\mathrm{can}}}
+\newcommand{\CurvOneI}{\mathfrak K}
+\newcommand{\CurvOneChi}{\mathfrak L}
+\newcommand{\CurvOneW}{\mathfrak M}
+\newcommand{\BridgeCurv}{\mathcal R_{\mathrm{br}}}
+\newcommand{\DownPkg}{\mathscr P_{\mathrm{down}}}
+\newcommand{\ProfWeight}{\varpi_{\mathrm{br}}}
+\newcommand{\RespSus}{\Sigma_{\mathrm{br}}}
+\newcommand{\RespSusEq}{\Sigma_{\mathrm{br}}^{\ast}}
+\newcommand{\RespCarrier}{Y_{\mathrm{br}}}
+\newcommand{\RespFlux}{J_{\mathrm{br}}}
+\newcommand{\RespCompat}{\Lambda_{\mathrm{br}}}
+\newcommand{\RespNorm}{\mathcal N_{\mathrm{br}}}
+\newcommand{\RespFluxCoeff}{\gamma_{\mathrm{br}}}
+\newcommand{\RespGap}{m_{\mathrm{br}}}
+\newcommand{\RespBias}{h_{\mathrm{br}}}
+\newcommand{\RespCarrierEq}{Y_{\mathrm{br}}^{\ast}}
+\newcommand{\RespCarrierEnergy}{\mathscr E_{\mathrm{br}}^{\mathrm{car}}}
+\newcommand{\RespMicro}{X_{\mathrm{br}}}
+\newcommand{\RespMicroEq}{X_{\mathrm{br}}^{\ast}}
+\newcommand{\RespMicroRef}{X_{\mathrm{br}}^{\mathrm{ref}}}
+\newcommand{\RespMicroFluxCoeff}{\Gamma_{\mathrm{br}}^{\mathrm{mic}}}
+\newcommand{\RespMicroGap}{\mu_{\mathrm{br}}}
+\newcommand{\RespMicroEnergy}{\mathscr E_{\mathrm{br}}^{\mathrm{micro}}}
+\newcommand{\RespMicroAuxEnergy}{\widehat{\mathscr E}_{\mathrm{br}}^{\mathrm{micro}}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Nonlocal Bridge Self-Response Off-Shell Profile-Selection Carrier-Data-Origin Note}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The positive quotient reduced-system, theorem, decay, and asymptotic line remains closed and is not reopened here. The explicit local bridge-curvature-density note, the canonical bridge-curvature-density selection note, the off-shell profile-selection principle note, the selector-justification note, and the susceptibility-origin note have already fixed the current scope sharply: the downstream package is profile-blind, the continuation side has been chosen, the selector has been justified one layer deeper, and the susceptibility sector has been realized by the explicit carrier block \((\RespCarrier,\RespFlux,\RespCompat)\). One narrower derivational gap remains. The carrier data \((\RespNorm,\RespFluxCoeff,\RespGap,\RespBias)\) are still inserted as primitive response parameters rather than recovered from a deeper substrate action, equilibrium symmetry, or normalization law.
+
+The present manuscript supplies the smallest honest next step. It introduces a still deeper positive microscopic bridge-response amplitude \(\RespMicro(x)\) on the internal bridge-curvature line \(x=\BridgeCurv\), together with a normalization amplitude \(\RespMicroRef>0\), an equilibrium amplitude \(\RespMicroEq>0\), a positive microscopic gradient stiffness \(\RespMicroFluxCoeff>0\), and a positive microscopic gap \(\RespMicroGap>0\). The deeper sector is governed by
+\[
+\RespMicroEnergy[\RespMicro]
+=
+\int_{\mathbb R}\ProfWeight(x)\Bigl[
+\frac{\RespMicroFluxCoeff}{2}\abs{\RespMicro'(x)}^2
++
+\frac{\RespMicroGap^2}{2}\abs{\RespMicro(x)-\RespMicroEq}^2
+\Bigr]dx,
+\]
+while the bridge-curvature response susceptibility is normalized by
+\[
+\RespSus(x)=\frac{\RespMicro(x)}{\RespMicroRef}.
+\]
+Introducing the first-order auxiliary realization
+\begin{align*}
+\RespCarrier&\equiv\RespMicro,
+\\
+\RespMicroAuxEnergy[\RespCarrier,\RespFlux,\RespCompat]
+&=
+\int_{\mathbb R}\ProfWeight(x)\Bigl[
+\frac{\RespMicroFluxCoeff}{2}\RespFlux^2
+\!+\!
+\RespCompat\bigl(\RespFlux-\RespCarrier'(x)\bigr)
+\!+\!
+\frac{\RespMicroGap^2}{2}\abs{\RespCarrier(x)-\RespMicroEq}^2
+\Bigr]dx
+\end{align*}
+shows that the old carrier block is an auxiliary first-order realization of the deeper sector rather than independent microphysical input. Expanding the shifted quadratic well then recovers exactly the susceptibility-origin carrier action with the identifications
+\[
+\RespNorm=\frac{1}{\RespMicroRef},
+\qquad
+\RespFluxCoeff=\RespMicroFluxCoeff,
+\qquad
+\RespGap=\RespMicroGap,
+\qquad
+\RespBias=\RespMicroGap^2\RespMicroEq.
+\]
+Hence the carrier bias is no longer primitive; it is fixed by the equilibrium-reflection symmetry of the deeper potential about \(\RespMicroEq\). The pinned equilibrium susceptibility becomes
+\[
+\RespSusEq=\frac{\RespMicroEq}{\RespMicroRef}
+=
+\RespNorm\frac{\RespBias}{\RespGap^2},
+\]
+so the response scale is recovered one layer deeper as
+\[
+\CurvScale^4=\RespSusEq=\RespNorm\frac{\RespBias}{\RespGap^2}.
+\]
+The unique ground state again yields the quadratic canonical profile
+\[
+\CurvProfileCan(x)=1+\RespSusEq x^2.
+\]
+Because the local bridge-curvature family remains profile-blind, substituting \(\CurvProfileCan\) back into that family preserves the same reduced current, Hamiltonian-charge flux, continuity/Gauss-Poisson package, exterior Coulomb tail, surviving dressed bridge map, and matter-free/off-longitudinal/cubic/quartic gain package as before. The claim boundary is strict: the note does not yet derive \((\RespMicroRef,\RespMicroFluxCoeff,\RespMicroGap,\RespMicroEq)\) from a unique ultraviolet substrate completion. Its narrower positive result is that the previously primitive carrier data are now reduced to deeper normalization, stiffness, gap, and equilibrium-amplitude data.
+\end{abstract}
+
+\section{Introduction}
+
+The susceptibility-origin note changed the burden of the bridge-curvature-density sequence sharply. The selector is no longer left as free profile-space input, and the equilibrium scale \(\RespSusEq\) is no longer inserted directly at susceptibility level. What remains open is deeper and narrower: the carrier data \((\RespNorm,\RespFluxCoeff,\RespGap,\RespBias)\) that produced that susceptibility sector are themselves still primitive.
+
+That is the exact burden of the present manuscript. It does not reopen another observer-level repair note. It does not alter the already-positive self-response-dressed bridge map. It does not search for a new bridge metric, a new matter route, or another selector-level repair. It acts only on the remaining derivational gap left by the previous note: whether the carrier block \((\RespCarrier,\RespFlux,\RespCompat)\) can itself be recovered as a reduced or auxiliary realization of a still deeper substrate sector, and whether the carrier data can therefore be derived or constrained rather than postulated.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+This note stays strictly inside that boundary. Its positive claim is not that a unique ultraviolet completion has already been isolated. Its positive claim is narrower and more disciplined: once one introduces the smallest deeper microscopic bridge-response amplitude sector together with a normalization law and a symmetry-selected equilibrium amplitude, the old carrier block becomes an auxiliary first-order realization, the carrier data are no longer primitive, the equilibrium susceptibility and response scale are recovered again from deeper origin data, and the same downstream package and dressed bridge map stay fixed.
+
+\section{Fixed Local Family and Downstream Package}
+
+\begin{definition}[Bridge-curvature anchor and local family]
+\label{def:family}
+Let
+\begin{equation}
+\BridgeCurv \equiv R[\BridgeMetric]-2\Lambda_{\Sub}
+\label{eq:anchor}
+\end{equation}
+be the bridge-curvature scalar already present in the candidate substrate action. For every smooth positive profile
+\begin{equation}
+\CurvProfile:\mathbb R\to\mathbb R_{>0},
+\label{eq:positiveprofile}
+\end{equation}
+define the seed
+\begin{equation}
+\CurvSeed=\CurvProfile(\BridgeCurv)
+\label{eq:seed}
+\end{equation}
+and the local bridge-curvature density
+\begin{align}
+\mathcal L_{\mathrm{loc.curv}}[\CurvProfile]
+=\;&
+\CurvSeedMult\bigl(\CurvSeed-\CurvProfile(\BridgeCurv)\bigr)
+\nonumber\\
+&+\CurvQMult^{AI}\bigl(\CurvOneI_A^I-\CurvSeed\,\lambda_I\SpatialD_AQ^I\bigr)
++\CurvChiMult^A\bigl(\CurvOneChi_A-\CurvSeed\,\lambda_\chi\SpatialD_A\chi\bigr)
+\nonumber\\
+&+\CurvTransMult^A\bigl(\CurvOneW_A-\CurvSeed\,\lambda_WW_A^T\bigr)
++\ConstGamma^A\bigl(
+\ConstCurrent_A
+-\nu_I\CurvSeed^{-1}\CurvOneI_A^I
+-\nu_\chi\CurvSeed^{-1}\CurvOneChi_A
+-\nu_W\CurvSeed^{-1}\CurvOneW_A
+\bigr).
+\label{eq:locfamily}
+\end{align}
+\end{definition}
+
+\begin{definition}[Fixed downstream package]
+\label{def:downstream}
+The \emph{fixed downstream package} \(\DownPkg\) consists of:
+\begin{enumerate}
+    \item the reduced current and reduced density
+    \begin{equation}
+    \ConstCurrent_A
+    =
+    \mathfrak c_I\SpatialD_AQ^I
+    +\mathfrak c_\chi\SpatialD_A\chi
+    +\mathfrak c_WW_A^T,
+    \qquad
+    \SourceDensityRed=-\SpatialD^A\ConstCurrent_A;
+    \label{eq:pkgcurrent}
+    \end{equation}
+    \item the Hamiltonian-charge flux and continuity/Gauss-Poisson package
+    \begin{equation}
+    \HamChargeOmega
+    =
+    \int_{\Sigma_t}\SourceDensityRed\,d\mu_P
+    =
+    -\lim_{r\to\infty}\int_{S_r} n^A\ConstCurrent_A\,dA,
+    \label{eq:pkgcharge}
+    \end{equation}
+    \begin{equation}
+    -\LapPerp\FlowPot=4\pi G_N\,\SourceDensityRed,
+    \qquad
+    \SpatialD_A\FlowPot=\mathcal E_A;
+    \label{eq:pkgpoisson}
+    \end{equation}
+    \item the exterior Coulomb tail
+    \begin{equation}
+    \FlowPot
+    =
+    \CoulPot+\mathcal O(r^{-2}),
+    \qquad
+    \CoulPot(r)=\frac{G_N\,\HamChargeOmega}{r};
+    \label{eq:pkgcoul}
+    \end{equation}
+    \item the surviving dressed bridge map
+    \begin{equation}
+    g_{\mu\nu}^{\mathrm{dressed}}
+    =
+    g_{\mu\nu}^{\mathrm{br}}
+    +\SigmaIER_{\mu\nu}
+    +\SigmaDressSch{}_{\mu\nu}
+    +\SigmaRegPol{}_{\mu\nu},
+    \label{eq:pkgmetric}
+    \end{equation}
+    with the same matter-free activity, off-longitudinal \(Q/W\) cancellation, explicit cubic longitudinal completion, and quartic Coulomb self-response absorption already recorded in the explicit local note.
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}[The downstream package is profile-blind]
+\label{prop:profileblind}
+For every smooth positive profile \(\CurvProfile\), eliminating the local sector \eqref{eq:locfamily} yields the same downstream package \(\DownPkg\).
+\end{proposition}
+
+\begin{proof}
+Variation with respect to \(\CurvQMult^{AI}\), \(\CurvChiMult^A\), and \(\CurvTransMult^A\) gives
+\begin{equation}
+\CurvOneI_A^I=\CurvSeed\,\lambda_I\SpatialD_AQ^I,
+\qquad
+\CurvOneChi_A=\CurvSeed\,\lambda_\chi\SpatialD_A\chi,
+\qquad
+\CurvOneW_A=\CurvSeed\,\lambda_WW_A^T.
+\label{eq:carrierrels}
+\end{equation}
+Variation with respect to \(\ConstGamma^A\) gives
+\begin{equation}
+\ConstCurrent_A
+=
+\nu_I\CurvSeed^{-1}\CurvOneI_A^I
++\nu_\chi\CurvSeed^{-1}\CurvOneChi_A
++\nu_W\CurvSeed^{-1}\CurvOneW_A.
+\label{eq:readout}
+\end{equation}
+Substituting \eqref{eq:carrierrels} into \eqref{eq:readout} cancels \(\CurvSeed=\CurvProfile(\BridgeCurv)\) identically and yields the same forced constitutive current
+\begin{equation}
+\ConstCurrent_A
+=
+\mathfrak c_I\SpatialD_AQ^I
++\mathfrak c_\chi\SpatialD_A\chi
++\mathfrak c_WW_A^T,
+\qquad
+\mathfrak c_I=\nu_I\lambda_I,
+\qquad
+\mathfrak c_\chi=\nu_\chi\lambda_\chi,
+\qquad
+\mathfrak c_W=\nu_W\lambda_W.
+\label{eq:forcedcurrent}
+\end{equation}
+The reduced density, Hamiltonian-charge flux, continuity/Gauss-Poisson package, exterior Coulomb tail, and surviving dressed bridge map are therefore independent of the chosen positive profile.
+\end{proof}
+
+\begin{remark}
+Proposition \ref{prop:profileblind} is the structural reason this note can act only on the deeper carrier-data origin. Once a positive profile \(\CurvProfile\) is chosen, no further change is forced downstream.
+\end{remark}
+
+\section{Microscopic Bridge-Response Amplitude Sector}
+
+\begin{definition}[Microscopic amplitude sector and normalization law]
+\label{def:micro}
+Fix positive constants
+\begin{equation}
+\RespMicroRef>0,
+\qquad
+\RespMicroFluxCoeff>0,
+\qquad
+\RespMicroGap>0,
+\qquad
+\RespMicroEq>0,
+\label{eq:microconstants}
+\end{equation}
+and the same smooth positive integrable weight
+\begin{equation}
+\ProfWeight:\mathbb R\to\mathbb R_{>0},
+\qquad
+\int_{\mathbb R}\ProfWeight(x)\,dx<\infty.
+\label{eq:weight}
+\end{equation}
+The \emph{deeper microscopic bridge-response sector} consists of smooth positive amplitudes
+\begin{equation}
+\RespMicro\in C^\infty(\mathbb R),
+\qquad
+\RespMicro(x)>0\ \text{for all }x,
+\label{eq:microfield}
+\end{equation}
+with energy
+\begin{equation}
+\RespMicroEnergy[\RespMicro]
+\equiv
+\int_{\mathbb R}\ProfWeight(x)\Bigl[
+\frac{\RespMicroFluxCoeff}{2}\abs{\RespMicro'(x)}^2
++
+\frac{\RespMicroGap^2}{2}\abs{\RespMicro(x)-\RespMicroEq}^2
+\Bigr]dx
+\label{eq:microenergy}
+\end{equation}
+and susceptibility readout
+\begin{equation}
+\RespSus(x)\equiv\frac{\RespMicro(x)}{\RespMicroRef}.
+\label{eq:readoutsigma}
+\end{equation}
+\end{definition}
+
+\begin{remark}
+Equation \eqref{eq:readoutsigma} is the normalization principle fixing the susceptibility readout: one unit of bridge-curvature response susceptibility is defined as the response produced by the reference microscopic amplitude \(\RespMicroRef\). At the present disciplined scope, \(\RespMicroFluxCoeff\) is the deeper gradient stiffness, \(\RespMicroGap\) is the microscopic gap, and \(\RespMicroEq\) is the symmetry-selected equilibrium amplitude of the microscopic bridge-response sector.
+\end{remark}
+
+\begin{remark}
+The quadratic well in \eqref{eq:microenergy} is the minimal positive representative of an equilibrium-reflection symmetry about \(\RespMicroEq\):
+\[
+V_{\mathrm{br}}(\RespMicroEq+\eta)=V_{\mathrm{br}}(\RespMicroEq-\eta).
+\]
+At current scope the note keeps only the first nontrivial positive term in that symmetric expansion. This is sufficient to constrain the old carrier bias and to recover the pinned response scale, without claiming that the full ultraviolet potential has already been derived.
+\end{remark}
+
+\section{Carrier Block as Auxiliary First-Order Realization}
+
+\begin{definition}[Auxiliary first-order realization]
+\label{def:auxiliary}
+Introduce smooth fields
+\begin{equation}
+\RespCarrier,\RespFlux,\RespCompat\in C^\infty(\mathbb R)
+\label{eq:carrierfields}
+\end{equation}
+and define the first-order auxiliary energy
+\begin{align}
+\RespMicroAuxEnergy[\RespCarrier,\RespFlux,\RespCompat]
+\equiv
+\int_{\mathbb R}\ProfWeight(x)\Bigl[
+&\frac{\RespMicroFluxCoeff}{2}\abs{\RespFlux(x)}^2
++\RespCompat(x)\bigl(\RespFlux(x)-\RespCarrier'(x)\bigr)
+\nonumber\\
+&+\frac{\RespMicroGap^2}{2}\abs{\RespCarrier(x)-\RespMicroEq}^2
+\Bigr]dx.
+\label{eq:auxenergy}
+\end{align}
+\end{definition}
+
+\begin{proposition}[The old carrier block is an auxiliary realization of the deeper sector]
+\label{prop:auxiliary}
+If one identifies
+\begin{equation}
+\RespCarrier\equiv\RespMicro,
+\label{eq:identifyY}
+\end{equation}
+then the Euler--Lagrange equations of \eqref{eq:auxenergy} with respect to \((\RespFlux,\RespCompat)\) are
+\begin{equation}
+\RespFlux(x)=\RespCarrier'(x),
+\qquad
+\RespCompat(x)=-\RespMicroFluxCoeff\,\RespCarrier'(x).
+\label{eq:fluxresolution}
+\end{equation}
+Substituting \eqref{eq:fluxresolution} into \eqref{eq:auxenergy} yields
+\begin{equation}
+\RespMicroAuxEnergy[\RespCarrier,\RespFlux,\RespCompat]
+=
+\RespMicroEnergy[\RespCarrier].
+\label{eq:auxequalsmicro}
+\end{equation}
+Therefore the block \((\RespCarrier,\RespFlux,\RespCompat)\) is an auxiliary first-order realization of the deeper microscopic amplitude sector rather than independent microphysical input.
+\end{proposition}
+
+\begin{proof}
+Varying \eqref{eq:auxenergy} with respect to \(\RespCompat\) gives \(\RespFlux=\RespCarrier'\). Varying with respect to \(\RespFlux\) gives \(\RespMicroFluxCoeff\,\RespFlux+\RespCompat=0\), hence \(\RespCompat=-\RespMicroFluxCoeff\,\RespCarrier'\). Substituting these identities into \eqref{eq:auxenergy} gives
+\[
+\RespMicroAuxEnergy
+=
+\int_{\mathbb R}\ProfWeight(x)\Bigl[
+\frac{\RespMicroFluxCoeff}{2}\abs{\RespCarrier'(x)}^2
++
+\frac{\RespMicroGap^2}{2}\abs{\RespCarrier(x)-\RespMicroEq}^2
+\Bigr]dx,
+\]
+which is exactly \eqref{eq:microenergy} with \(\RespCarrier\equiv\RespMicro\).
+\end{proof}
+
+\begin{corollary}[Derived carrier-data identification]
+\label{cor:carrierdata}
+Expanding the shifted quadratic well in \eqref{eq:auxenergy} gives
+\begin{align}
+\RespMicroAuxEnergy[\RespCarrier,\RespFlux,\RespCompat]
+=
+\int_{\mathbb R}\ProfWeight(x)\Bigl[
+&\frac{\RespMicroFluxCoeff}{2}\abs{\RespFlux(x)}^2
++\RespCompat(x)\bigl(\RespFlux(x)-\RespCarrier'(x)\bigr)
+\nonumber\\
+&+\frac{\RespMicroGap^2}{2}\abs{\RespCarrier(x)}^2
+-\RespMicroGap^2\RespMicroEq\,\RespCarrier(x)
+\Bigr]dx
+\nonumber\\
+&+\frac{\RespMicroGap^2(\RespMicroEq)^2}{2}\int_{\mathbb R}\ProfWeight(x)\,dx.
+\label{eq:expandedaux}
+\end{align}
+Hence the susceptibility-origin carrier action is recovered, up to the irrelevant additive constant in \eqref{eq:expandedaux}, by the explicit identifications
+\begin{equation}
+\RespNorm=\frac{1}{\RespMicroRef},
+\qquad
+\RespFluxCoeff=\RespMicroFluxCoeff,
+\qquad
+\RespGap=\RespMicroGap,
+\qquad
+\RespBias=\RespMicroGap^2\RespMicroEq.
+\label{eq:dataidentification}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+Equation \eqref{eq:expandedaux} is the direct expansion of
+\[
+\frac{\RespMicroGap^2}{2}\abs{\RespCarrier-\RespMicroEq}^2.
+\]
+Comparing the resulting integrand with the carrier-level energy of the susceptibility-origin note gives \eqref{eq:dataidentification}. The readout normalization \(\RespNorm=\frac{1}{\RespMicroRef}\) is immediate from \eqref{eq:readoutsigma}.
+\end{proof}
+
+\begin{remark}
+Corollary \ref{cor:carrierdata} is the precise sense in which the old primitive carrier data cease to be primitive. The flux coefficient \(\RespFluxCoeff\) is the deeper gradient stiffness, the gap \(\RespGap\) is the deeper microscopic gap, the readout normalization \(\RespNorm\) is fixed by the susceptibility normalization law, and the carrier bias is constrained by
+\[
+\RespBias=\RespGap^2\RespMicroEq.
+\]
+In particular, the old bias is not an independent coupling once the deeper sector is written in symmetry-centered variables.
+\end{remark}
+
+\section{Equilibrium Susceptibility and Response Scale}
+
+\begin{theorem}[Unique microscopic ground state]
+\label{thm:ground}
+The energies \eqref{eq:microenergy} and \eqref{eq:auxenergy} have the same unique minimizer,
+\begin{equation}
+\RespMicro(x)\equiv\RespMicroEq,
+\qquad
+\RespCarrier(x)\equiv\RespCarrierEq=\RespMicroEq,
+\label{eq:groundstate}
+\end{equation}
+with
+\begin{equation}
+\RespFlux(x)\equiv0,
+\qquad
+\RespCompat(x)\equiv0.
+\label{eq:fluxground}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Because \(\ProfWeight>0\), \(\RespMicroFluxCoeff>0\), and \(\RespMicroGap>0\), the two integrands in \eqref{eq:microenergy} are nonnegative. Hence \(\RespMicroEnergy\) is minimized exactly when
+\[
+\RespMicro'(x)=0,
+\qquad
+\RespMicro(x)-\RespMicroEq=0
+\]
+for all \(x\), which forces \(\RespMicro\equiv\RespMicroEq\). Equation \eqref{eq:groundstate} for \(\RespCarrier\) then follows from \eqref{eq:identifyY}, and \eqref{eq:fluxground} follows from \eqref{eq:fluxresolution}.
+\end{proof}
+
+\begin{corollary}[Recovered equilibrium susceptibility and response scale]
+\label{cor:sigmaeq}
+On the unique ground state,
+\begin{equation}
+\RespSusEq
+\equiv
+\frac{\RespMicroEq}{\RespMicroRef}
+=
+\RespNorm\,\RespCarrierEq
+=
+\RespNorm\frac{\RespBias}{\RespGap^2}.
+\label{eq:sigmaeq}
+\end{equation}
+Hence
+\begin{equation}
+\CurvScale^4=\RespSusEq=\RespNorm\frac{\RespBias}{\RespGap^2}.
+\label{eq:scaleeq}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+Equation \eqref{eq:sigmaeq} follows from the readout \eqref{eq:readoutsigma}, the ground state \eqref{eq:groundstate}, and the carrier-data identification \eqref{eq:dataidentification}. Equation \eqref{eq:scaleeq} is the pinned-branch scale identification already fixed by the selector-justification and susceptibility-origin notes.
+\end{proof}
+
+\begin{definition}[Profile reconstructed from susceptibility]
+\label{def:profilereconstruction}
+Given a susceptibility \(\RespSus\), define the associated bridge-curvature profile by the normalization conditions
+\begin{equation}
+\CurvProfile(0)=1,
+\qquad
+\CurvProfile'(0)=0,
+\qquad
+\frac12\CurvProfile''(x)=\RespSus(x).
+\label{eq:profilereconstruction}
+\end{equation}
+\end{definition}
+
+\begin{corollary}[Canonical profile on the carrier-data-origin branch]
+\label{cor:canonicalprofile}
+On the microscopic ground state,
+\begin{equation}
+\CurvProfileCan(x)=1+\RespSusEq x^2
+=
+1+\CurvScale^4x^2.
+\label{eq:canonicalprofile}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+The ground state \eqref{eq:groundstate} implies that \(\RespSus(x)\equiv\RespSusEq\) is constant. Integrating \eqref{eq:profilereconstruction} twice with the imposed normalization conditions gives \eqref{eq:canonicalprofile}.
+\end{proof}
+
+\section{Fixed Downstream Package and Dressed Bridge Map}
+
+\begin{theorem}[The downstream package and dressed bridge map stay fixed]
+\label{thm:fixedpackage}
+Substituting the canonical profile \eqref{eq:canonicalprofile} into the local bridge-curvature family \eqref{eq:locfamily} preserves the same downstream package \(\DownPkg\), including the same reduced current, Hamiltonian-charge flux, continuity/Gauss-Poisson package, exterior Coulomb tail, surviving dressed bridge map, and matter-free/off-longitudinal/cubic/quartic gain package.
+\end{theorem}
+
+\begin{proof}
+By Corollary \ref{cor:canonicalprofile}, the carrier-data-origin branch selects the same quadratic canonical profile shape as the earlier selector-justification and susceptibility-origin notes. Proposition \ref{prop:profileblind} then implies immediately that inserting \(\CurvProfileCan\) into \eqref{eq:locfamily} leaves the entire downstream package unchanged.
+\end{proof}
+
+\begin{remark}
+The positive result of this note is therefore exactly the one required at current scope: the previously primitive carrier data are pushed one layer deeper without reopening any downstream observer-level burden.
+\end{remark}
+
+\section{Claim Boundary}
+
+This note does not claim that the microscopic amplitude sector \eqref{eq:microenergy} is the unique ultraviolet completion of the bridge-curvature response line. It does not claim that every conceivable deeper potential must truncate to the harmonic representative used here, and it does not claim that \((\RespMicroRef,\RespMicroFluxCoeff,\RespMicroGap,\RespMicroEq)\) have already been derived from still deeper substrate variables. Its narrower positive result is that the old carrier block \((\RespCarrier,\RespFlux,\RespCompat)\) is now understood as an auxiliary first-order realization of a deeper microscopic amplitude sector, that the carrier data satisfy the explicit identifications \eqref{eq:dataidentification}, and that the equilibrium susceptibility and response scale are therefore recovered from deeper normalization and equilibrium data while the same downstream package and surviving dressed bridge map stay fixed.
+
+\section{Conclusion}
+
+The positive result of this note is that the previously primitive carrier-data layer is reduced to a deeper microscopic amplitude sector. At the present disciplined scope the carrier block \((\RespCarrier,\RespFlux,\RespCompat)\) is understood as an auxiliary first-order realization, the carrier data satisfy the explicit identifications derived above, and the same equilibrium susceptibility, response scale, and downstream dressed bridge map remain fixed.
+
+That result is not a claim of final substrate origin. The harmonic microscopic representative used here is still a deeper inserted sector rather than a uniquely forced endpoint. The next honest burden is therefore one layer deeper again: whether the microscopic amplitude data \((\RespMicroRef,\RespMicroFluxCoeff,\RespMicroGap,\RespMicroEq)\) can themselves be derived or uniquely selected from still more primitive substrate structure.
+
+\end{document}

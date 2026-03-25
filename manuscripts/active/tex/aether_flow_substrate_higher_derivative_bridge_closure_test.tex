@@ -1,0 +1,276 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal{A}}
+\newcommand{\BridgeMetric}{\mathfrak{g}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Higher-Derivative Quartic Branch Derivational Bridge-Closure Test}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The fixed-completion higher-derivative quartic branch has now passed the coefficient-level flat-background exact-closure screen, the bridge-metric matter-coupling gate, the recovery-compatibility gate, the admissible-background theorem route at its current disciplined boundary, the explicit-completion local and coercive small-data stages, the weighted/homogeneous gauge-first repair line, and the same-class asymptotic/nonlinear-stability closure test. The next honest burden is therefore no longer another stability repair. It is derivational: does the surviving branch actually close back onto the exact Einsteinian observer-accessible line, or does it remain only a stable recovery-compatible candidate completion?
+
+This note records that next proof-or-failure test in the narrowest disciplined form. It defines the \emph{bridge correction tensor} \(\mathcal C_{\mu\nu}^{\mathrm{br}}\) by the reduced observer equation
+\[
+G_{\mu\nu}[g]
+=
+8\pi G_N\,T_{\mu\nu}^{\mathrm{matter}}
++ \mathcal C_{\mu\nu}^{\mathrm{br}},
+\]
+where \(g_{\mu\nu}=\Xi^\ast\BridgeMetric_{AB}\) is the single operational metric already fixed in the active exact-closure line. The current manuscript sequence already supplies four strong restrictions on \(\mathcal C_{\mu\nu}^{\mathrm{br}}\): it is metric-mediated rather than a direct matter coupling to extra substrate variables; at the present flat-branch quadratic scope it contributes no unsuppressed \(k^0\) or \(k^2\) observer-accessible deformation; on the surviving fixed completion its small-data dynamics are globally controlled in the same weighted/homogeneous class; and along that route no first genuine asymptotic obstruction appears.
+
+Those results are favorable but not yet a derivation. Smallness, infrared suppression, and same-class nonlinear stability do not by themselves imply exact closure. The remaining derivational question is therefore exact and sharp: does the bridge correction tensor vanish identically, or reduce to a pure gauge/constraint-exact term with no observer-accessible content, on the surviving branch in the intended recovery regime? This note shows that this condition is now the precise remaining bridge-closure criterion. If it is proved, the surviving quartic branch enters the active derivational line. If it fails, the branch remains a stable recovery-compatible candidate but not a completed substrate derivation of Einsteinian gravity.
+\end{abstract}
+
+\section{Introduction}
+
+The active manuscript sequence of \TheoryName{} now has both a fixed observer-accessible exact-relativistic line and a much sharper candidate derivational branch than before. The observer-accessible line is already fixed by adoption: Einsteinian gravity with universal matter coupling through a single operational metric. The derivational side is no longer only a schematic bridge either. The higher-derivative quartic branch has survived the flat-background exact-closure screen, preserved single-metric matter coupling at the present action-level and quadratic scope, remained compatible with the active recovery line in its stated infrared regime, and now passed the same-class asymptotic/nonlinear-stability route for one explicit fixed completion.
+
+That changes the next burden again. The remaining question is no longer whether the branch is immediately destabilized by the old lapse obstruction, by the first unit-lapse trace/auxiliary failure, or by the weighted/homogeneous post-local dispersive argument. Those steps are now on record. The next question is derivational: does the surviving branch close back onto the exact Einsteinian observer equation, or does some residual observer-accessible bridge correction survive even on the now-stable branch?
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays within that boundary. It does not claim that Einsteinian gravity has already been derived from substrate microphysics. It does not claim that the surviving quartic branch already proves the exact observer equation in full nonlinear generality. It performs the next narrower test: define the exact remaining bridge-closure burden now that the surviving fixed-completion route is both recovery-compatible and same-class asymptotically stable.
+
+\section{What the Current Sequence Already Controls}
+
+The current branch data needed for the present note are already fixed elsewhere in the sequence.
+
+\begin{definition}[Current surviving quartic branch data]
+\label{def:branch}
+The \emph{current surviving quartic branch data} consist of:
+\begin{enumerate}
+    \item the bridge metric
+    \begin{equation}
+    \BridgeMetric_{AB}=G_{AB}-2U_AU_B
+    \label{eq:bridge}
+    \end{equation}
+    and the observer metric
+    \begin{equation}
+    g_{\mu\nu}=\Xi^\ast\BridgeMetric_{AB}
+    \label{eq:obsmetric}
+    \end{equation}
+    \item the universal matter route
+    \begin{equation}
+    S_{\mathrm{matter}}[\Xi^\ast\BridgeMetric,\psi]
+    =
+    S_{\mathrm{matter}}[g,\psi]
+    \label{eq:matterroute}
+    \end{equation}
+    \item the higher-derivative collapsed-scalar quartic branch with
+    \begin{equation}
+    \kappa_S=\mu_{SI}=\mu_S^2=0,
+    \qquad
+    m_S^2>0,
+    \qquad
+    \lambda_4>0,
+    \label{eq:quarticbaseline}
+    \end{equation}
+    together with positive-definite \(Q\)-sector and ordered-flow auxiliary blocks
+    \item the explicit fixed completion \(S_{\mathrm{min},4}\) and its unit-lapse weighted/homogeneous same-class asymptotic closure route.
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}[Current sequence restrictions on the surviving branch]
+\label{prop:restrictions}
+At the present disciplined scope, the active manuscript sequence already yields all of the following for the branch data of Definition \ref{def:branch}:
+\begin{enumerate}
+    \item \textbf{single-metric matter coupling:} matter and light couple only through \(g_{\mu\nu}\)
+    \item \textbf{flat-branch \(k^0/k^2\) exact-closure compatibility:} the reduced observer-accessible scalar correction contributes no unsuppressed \(k^0\) or \(k^2\) term
+    \item \textbf{recovery compatibility:} the branch preserves the benchmark null cone, proper-time rule, and local-SR structure in the stated long-wavelength non-ultrasoft infrared regime
+    \item \textbf{same-class nonlinear control:} on the fixed-completion unit-lapse weighted/homogeneous route, the small-data dynamics close globally with a mild transport-dressed asymptotic profile and no first genuine same-class obstruction.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Item (1) is the matter-coupling gate result. Item (2) is the flat-background higher-derivative consistency result together with the recovery-compatibility note, which shows that the only recorded observer-accessible quadratic branch correction is quartic in spatial momentum. Item (3) is exactly the content of the recovery-compatibility note. Item (4) is exactly the content of the weighted/homogeneous local, coercive-bootstrap, decay/integrability, and asymptotic/nonlinear-stability closure notes on the fixed completion \(S_{\mathrm{min},4}\).
+\end{proof}
+
+\begin{remark}
+Proposition \ref{prop:restrictions} is strong enough to rule out several earlier routes to failure, but it is intentionally weaker than a derivation. It does not say that the branch correction vanishes identically. It says only that every currently recorded observer-accessible correction is tightly constrained and dynamically controlled on the surviving branch.
+\end{remark}
+
+\section{Bridge Correction Tensor and Exact Closure on the Surviving Branch}
+
+The exact derivational burden is best stated at the level of the reduced observer equation.
+
+\begin{definition}[Bridge correction tensor]
+\label{def:C}
+For the surviving quartic branch, define the \emph{bridge correction tensor} \(\mathcal C_{\mu\nu}^{\mathrm{br}}\) by the reduced observer equation
+\begin{equation}
+G_{\mu\nu}[g]
+=
+8\pi G_N\,T_{\mu\nu}^{\mathrm{matter}}
++ \mathcal C_{\mu\nu}^{\mathrm{br}}[g;\Sub,U,S,Q].
+\label{eq:bridgeeq}
+\end{equation}
+Here \(G_{\mu\nu}[g]\) is the Einstein tensor of the single operational metric \(g_{\mu\nu}\), and \(T_{\mu\nu}^{\mathrm{matter}}\) is the stress tensor derived from the matter route \eqref{eq:matterroute}. The tensor \(\mathcal C_{\mu\nu}^{\mathrm{br}}\) is defined after eliminating the nonmetric substrate variables through their branch equations and constraint structure.
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:C} is not a claim that \(\mathcal C_{\mu\nu}^{\mathrm{br}}\) is already known explicitly at full nonlinear order. It only records the exact object whose vanishing or nonvanishing decides derivational closure on the surviving branch.
+\end{remark}
+
+\begin{definition}[Pure gauge/constraint-exact remainder]
+\label{def:pure}
+The bridge correction tensor is said to be \emph{pure gauge/constraint exact} on a branch if there exist a one-form \(Y_\mu\) and a collection of reduced constraint quantities \(\mathcal H\), \(\mathcal M_\mu\), \(\mathcal A_a\) such that
+\begin{equation}
+\mathcal C_{\mu\nu}^{\mathrm{br}}
+=
+\nabla_{(\mu}Y_{\nu)}
++ \mathcal P_{\mu\nu}\mathcal H
++ \mathcal P_{\mu\nu}{}^\rho \mathcal M_\rho
++ \sum_a \mathcal P_{\mu\nu}^{(a)}\mathcal A_a,
+\label{eq:pure}
+\end{equation}
+where every term on the right vanishes on solutions of the reduced observer-accessible system modulo the usual diffeomorphism freedom of \(g_{\mu\nu}\).
+\end{definition}
+
+\begin{definition}[Derivational bridge closure on the surviving branch]
+\label{def:closure}
+The surviving quartic branch is said to satisfy \emph{derivational bridge closure} in a stated regime if, after branch reduction, either
+\begin{equation}
+\mathcal C_{\mu\nu}^{\mathrm{br}}\equiv 0
+\label{eq:zero}
+\end{equation}
+or \(\mathcal C_{\mu\nu}^{\mathrm{br}}\) is pure gauge/constraint exact in the sense of Definition \ref{def:pure}.
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:closure} is the correct exact-closure condition at the observer-equation level. Recovery compatibility and nonlinear stability are necessary preparatory results, but neither is by itself sufficient. Exact derivation requires the residual branch correction to disappear from the observer-accessible equation itself, not merely to remain small or infrared-suppressed.
+\end{remark}
+
+\section{Reduction of the Remaining Derivational Burden}
+
+The point of the present note is that the current repository is now strong enough to isolate the remaining burden to the tensor \(\mathcal C_{\mu\nu}^{\mathrm{br}}\) itself.
+
+\begin{proposition}[What has already been removed from the derivational burden]
+\label{prop:removed}
+For the surviving quartic branch, the current sequence already removes the following as immediate reasons to reject derivational closure:
+\begin{enumerate}
+    \item a direct low-energy matter coupling to extra substrate variables
+    \item an unsuppressed \(k^0\) or \(k^2\) weak-field deformation at the present flat-branch quadratic scope
+    \item a first same-class asymptotic instability on the fixed completion \(S_{\mathrm{min},4}\)
+    \item a first immediate need for a different gauge, deeper completion, or auxiliary redesign before testing the observer equation itself.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Item (1) is excluded by the bridge-metric matter-coupling gate. Item (2) is excluded by the higher-derivative consistency and recovery-compatibility notes. Item (3) is excluded by the weighted/homogeneous asymptotic/nonlinear-stability closure note. Item (4) follows because that same-class route closes positively rather than failing at the asymptotic stage.
+\end{proof}
+
+\begin{theorem}[Exact proof-or-failure criterion for the next derivational step]
+\label{thm:criterion}
+Assume the branch data of Definition \ref{def:branch} and the currently recorded results summarized in Proposition \ref{prop:restrictions}. Then the remaining derivational question for the surviving quartic branch is equivalent to the following exact proof-or-failure test:
+\begin{quote}
+Determine whether the reduced observer equation \eqref{eq:bridgeeq} satisfies the bridge-closure condition of Definition \ref{def:closure} in the intended recovery regime.
+\end{quote}
+More precisely:
+\begin{enumerate}
+    \item if \(\mathcal C_{\mu\nu}^{\mathrm{br}}\equiv 0\) or is pure gauge/constraint exact, then the surviving quartic branch closes onto the exact Einsteinian observer-accessible line in that regime
+    \item if \(\mathcal C_{\mu\nu}^{\mathrm{br}}\) contains any nonzero observer-accessible remainder not of the form \eqref{eq:pure}, then the branch remains only a stable recovery-compatible candidate completion rather than a completed substrate derivation.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+By Proposition \ref{prop:removed}, the current sequence has already ruled out the earlier direct matter-coupling failure, the earlier low-order weak-field deformation, and the earlier first stability-level obstruction on the fixed completion. Therefore the remaining unresolved issue is no longer whether the branch can be kept alive mathematically at the current disciplined scope. The unresolved issue is whether any residual observer-accessible branch correction survives in \eqref{eq:bridgeeq}.
+
+If \(\mathcal C_{\mu\nu}^{\mathrm{br}}\equiv 0\), then \eqref{eq:bridgeeq} is exactly the Einstein equation with universal matter coupling, so the branch closes onto the exact relativistic line. If \(\mathcal C_{\mu\nu}^{\mathrm{br}}\) is pure gauge/constraint exact, then it carries no observer-accessible content on reduced solutions and the same conclusion follows. Conversely, if a nonzero observer-accessible remainder survives, then the branch does not derive the exact adopted observer equation even though it may remain recovery-compatible and dynamically stable. This is exactly the distinction between derivation and stable candidate dynamics in the active manuscript sequence.
+\end{proof}
+
+\begin{corollary}[Next manuscript burden]
+\label{cor:next}
+The next honest manuscript after the present note is not another same-class stability repair. It is the explicit evaluation or reduction of \(\mathcal C_{\mu\nu}^{\mathrm{br}}\) on the surviving quartic branch.
+\end{corollary}
+
+\begin{proof}
+This is immediate from Theorem \ref{thm:criterion}.
+\end{proof}
+
+\section{Immediate Structure of the Next Computation}
+
+The exact bridge-closure test can now be decomposed into a finite list of concrete burdens.
+
+\begin{definition}[Bridge-closure work package]
+\label{def:package}
+The \emph{bridge-closure work package} for the surviving quartic branch consists of:
+\begin{enumerate}
+    \item deriving the full reduced observer equation on the surviving branch after auxiliary elimination
+    \item identifying the exact tensor \(\mathcal C_{\mu\nu}^{\mathrm{br}}\) in \eqref{eq:bridgeeq}
+    \item testing whether the recovered tensor is identically zero, pure gauge/constraint exact, or genuinely observer-accessible
+    \item deciding whether the stable quartic branch should therefore enter the active derivational line or remain only a stable candidate side program.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:package} is deliberately narrower than ``derive GR from the substrate.'' The current repository is not yet at that global claim. It is now at the point where the exact remaining tensor to compute has been isolated cleanly.
+\end{remark}
+
+\section{What This Step Establishes}
+
+The present manuscript establishes the following.
+\begin{enumerate}
+    \item It records that the same fixed-completion weighted/homogeneous unit-lapse route now has a positive same-class asymptotic/nonlinear-stability closure result.
+    \item It defines the bridge correction tensor \(\mathcal C_{\mu\nu}^{\mathrm{br}}\) as the exact remaining derivational object on the surviving quartic branch.
+    \item It distinguishes recovery compatibility and same-class nonlinear stability from true derivational bridge closure.
+    \item It proves that the next derivational proof-or-failure test is exactly whether \(\mathcal C_{\mu\nu}^{\mathrm{br}}\) vanishes or is only pure gauge/constraint exact.
+    \item It identifies the explicit bridge-closure work package that should now follow.
+\end{enumerate}
+
+It does not establish the following.
+\begin{enumerate}
+    \item It does not yet compute the full nonlinear tensor \(\mathcal C_{\mu\nu}^{\mathrm{br}}\).
+    \item It does not yet prove that the surviving quartic branch derives the Einstein equation from substrate variables.
+    \item It does not yet decide whether the surviving quartic branch belongs permanently in the active derivational line.
+    \item It does not weaken the current strict ordered-flow positivity assumptions or broaden the recovery regime beyond the recorded disciplined scope.
+\end{enumerate}
+
+\section{Conclusion}
+
+The higher-derivative quartic branch has now reached a different kind of next step. The fixed-completion unit-lapse weighted/homogeneous route no longer stops at coercive control, at decay/integrability, or at asymptotic closure. Those steps now exist and close positively. The branch is therefore no longer blocked first by a stability-level obstruction.
+
+That does not mean the derivational program is complete. It means the remaining burden has finally become exact. The question is now whether the reduced observer equation carries any residual branch correction once the surviving branch is written in its proper reduced form. This note records that exact burden by defining the bridge correction tensor \(\mathcal C_{\mu\nu}^{\mathrm{br}}\) and by stating the proof-or-failure criterion it must satisfy.
+
+At current disciplined scope, that is what we need to do next. If the bridge correction tensor vanishes, or is only gauge/constraint exact, the surviving quartic branch closes onto the exact Einsteinian line in the stated regime. If it does not, then the branch remains a stable recovery-compatible candidate but not a completed substrate derivation. The next manuscript should therefore compute or reduce that tensor directly rather than reopening a stability problem that the present sequence has already cleared.
+
+\end{document}

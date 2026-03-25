@@ -1,0 +1,929 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal{A}}
+\newcommand{\BridgeMetric}{\mathfrak g}
+\newcommand{\SpatialD}{\mathcal D}
+\newcommand{\LapPerp}{\Delta_\perp}
+\newcommand{\FlowPot}{\Phi_\Omega}
+\newcommand{\CoulPot}{U_\Omega}
+\newcommand{\SourceDensityRed}{\varrho_\Omega^{\mathrm{red}}}
+\newcommand{\ConstCurrent}{\mathcal C}
+\newcommand{\ConstGamma}{\Gamma}
+\newcommand{\CurvQMult}{\mathscr P}
+\newcommand{\CurvChiMult}{\mathscr X}
+\newcommand{\CurvTransMult}{\mathscr Y}
+\newcommand{\HamChargeOmega}{\mathfrak m_\Omega}
+\newcommand{\SigmaIER}{\Sigma^{\mathrm{IER}}}
+\newcommand{\SigmaDressSch}{\Sigma^{\mathrm{Sch}}}
+\newcommand{\SigmaRegPol}{\Sigma^{\mathrm{pol,reg}}}
+\newcommand{\CurvSeed}{\Theta_{\mathrm{br}}}
+\newcommand{\CurvSeedMult}{\Upsilon_{\mathrm{br}}}
+\newcommand{\CurvScale}{\ell_{\mathrm{br}}}
+\newcommand{\CurvProfile}{F_{\mathrm{br}}}
+\newcommand{\CurvProfileCan}{F_{\mathrm{br}}^{\mathrm{can}}}
+\newcommand{\CurvOneI}{\mathfrak K}
+\newcommand{\CurvOneChi}{\mathfrak L}
+\newcommand{\CurvOneW}{\mathfrak M}
+\newcommand{\BridgeCurv}{\mathcal R_{\mathrm{br}}}
+\newcommand{\DownPkg}{\mathscr P_{\mathrm{down}}}
+\newcommand{\ProfWeight}{\varpi_{\mathrm{br}}}
+\newcommand{\RespSusEq}{\Sigma_{\mathrm{br}}^{\ast}}
+\newcommand{\RespNorm}{\mathcal N_{\mathrm{br}}}
+\newcommand{\RespFluxCoeff}{\gamma_{\mathrm{br}}}
+\newcommand{\RespGap}{m_{\mathrm{br}}}
+\newcommand{\RespBias}{h_{\mathrm{br}}}
+\newcommand{\RespMicroRef}{X_{\mathrm{br}}^{\mathrm{ref}}}
+\newcommand{\RespMicroFluxCoeff}{\Gamma_{\mathrm{br}}^{\mathrm{mic}}}
+\newcommand{\RespMicroGap}{\mu_{\mathrm{br}}}
+\newcommand{\RespMicroEq}{X_{\mathrm{br}}^{\ast}}
+\newcommand{\RespOrderField}{\bm Z_{\mathrm{br}}}
+\newcommand{\RespOrderReadout}{\Xi_{\mathrm{br}}}
+\newcommand{\RespOrderRef}{Z_{\mathrm{br}}^{\mathrm{ref}}}
+\newcommand{\RespOrderStiff}{\Gamma_{\mathrm{br}}^{\mathrm{ord}}}
+\newcommand{\RespOrderQuartic}{\Lambda_{\mathrm{br}}}
+\newcommand{\RespOrderEq}{Z_{\mathrm{br}}^{\ast}}
+\newcommand{\RespOrderCurrent}{\mathcal I_{\mathrm{br}}^{\mathrm{ord}}}
+\newcommand{\RespDeepReadout}{\mathfrak X_{\mathrm{br}}}
+\newcommand{\RespDeepDensityRef}{\mathcal Z_{\mathrm{br}}^{\mathrm{ref}}}
+\newcommand{\RespDeepTrack}{\mathfrak a_{\mathrm{br}}}
+\newcommand{\RespDeepRelax}{\mathfrak b_{\mathrm{br}}}
+\newcommand{\RespDeepWell}{\mathfrak l_{\mathrm{br}}}
+\newcommand{\RespDeepDensityEq}{\mathcal Z_{\mathrm{br}}^{\ast}}
+\newcommand{\RespVacAmp}{U_{\mathrm{br}}}
+\newcommand{\RespVacRef}{U_{\mathrm{br}}^{\mathrm{ref}}}
+\newcommand{\RespVacEq}{U_{\mathrm{br}}^{\ast}}
+\newcommand{\RespVacPhase}{\phi_{\mathrm{br}}}
+\newcommand{\RespVacCarrier}{V_{\mathrm{br}}}
+\newcommand{\RespVacReadout}{q_{\mathrm{br}}}
+\newcommand{\RespVacCov}{\kappa_{\mathrm{br}}}
+\newcommand{\RespVacRelax}{\rho_{\mathrm{br}}}
+\newcommand{\RespVacWell}{\lambda_{\mathrm{br}}}
+\newcommand{\RespVacIso}{\eta_{\mathrm{br}}}
+\newcommand{\RespVacEnergy}{\mathscr E_{\mathrm{br}}^{\mathrm{vac}}}
+\newcommand{\RespScaleEq}{S_{\mathrm{br}}^{\ast}}
+\newcommand{\RespScaleReadout}{\bar q_{\mathrm{br}}}
+\newcommand{\RespScaleAmpRef}{\bar A_{\mathrm{br}}^{\mathrm{ref}}}
+\newcommand{\RespScaleCov}{\bar\kappa_{\mathrm{br}}}
+\newcommand{\RespScaleRelax}{\bar\rho_{\mathrm{br}}}
+\newcommand{\RespScaleWell}{\bar\lambda_{\mathrm{br}}}
+\newcommand{\RespScaleAmpEq}{\bar A_{\mathrm{br}}^{\ast}}
+\newcommand{\RespScaleIso}{\bar\eta_{\mathrm{br}}}
+\newcommand{\RespRawReadout}{\widehat q_{\mathrm{br}}}
+\newcommand{\RespRawRef}{\widehat U_{\mathrm{br}}^{\mathrm{ref}}}
+\newcommand{\RespRawCov}{\widehat\kappa_{\mathrm{br}}}
+\newcommand{\RespRawRelax}{\widehat\rho_{\mathrm{br}}}
+\newcommand{\RespRawWell}{\widehat\lambda_{\mathrm{br}}}
+\newcommand{\RespRawEq}{\widehat U_{\mathrm{br}}^{\ast}}
+\newcommand{\RespRawIso}{\widehat\eta_{\mathrm{br}}}
+\newcommand{\RespRawEnergy}{\widehat{\mathscr E}_{\mathrm{br}}^{\mathrm{vac}}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Nonlocal Bridge Self-Response Off-Shell Profile-Selection Bridge-Order Calibration-Modulus-Origin Note}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The positive quotient reduced-system, theorem, decay, and asymptotic line remains closed and is not reopened here. The bridge-order-vacuum-amplitude/current-carrier-origin note has already pushed the derivational burden one layer deeper by introducing a calibration-modulus lift below the primitive vacuum-amplitude/current-carrier sector, recovering
+\[
+(\RespVacReadout,\RespVacRef,\RespVacCov,\RespVacRelax,\RespVacWell,\RespVacEq)
+\]
+from a scale-free normalized vacuum block together with one positive calibration modulus while preserving the same density/current block, the same composite primitive bridge-order block, the same phase-neutral minimizing branch, the same canonical profile, and the same downstream dressed bridge map. One narrower question remained. That scale-free normalized block plus calibration modulus were still chosen as a representative rather than forced by a deeper principle.
+
+The present manuscript supplies the smallest honest next step. It introduces a deeper raw positive vacuum tuple
+\[
+(\RespRawReadout,\RespRawRef,\RespRawCov,\RespRawRelax,\RespRawWell,\RespRawEq)
+\]
+with
+\[
+\RespRawIso\equiv\frac{\RespRawCov\,\RespRawRelax}{\RespRawCov+\RespRawRelax},
+\]
+and the raw vacuum energy
+\begin{align*}
+\RespRawEnergy[\RespVacAmp,\RespVacPhase,\RespVacCarrier]
+=\;&
+\int_{\mathbb R}\ProfWeight(x)\Bigl[
+\frac{\RespRawIso}{2}\abs{\RespVacAmp'(x)}^2
++
+\frac{\RespRawCov}{2}\RespVacAmp(x)^2\abs{\RespVacPhase'(x)-\RespVacCarrier(x)}^2
+\Bigr]dx
+\nonumber\\
+&+
+\int_{\mathbb R}\ProfWeight(x)\Bigl[
+\frac{\RespRawRelax}{2}\RespVacAmp(x)^2\abs{\RespVacCarrier(x)}^2
++
+\frac{\RespRawWell}{8}\bigl(\RespVacAmp(x)^2-(\RespRawEq)^2\bigr)^2
+\Bigr]dx.
+\end{align*}
+It then asks for an admissible factorization of that raw tuple into one positive calibration modulus \(\RespScaleEq\) and a scale-free normalized vacuum block
+\[
+(\RespScaleReadout,\RespScaleAmpRef,\RespScaleCov,\RespScaleRelax,\RespScaleWell,\RespScaleAmpEq).
+\]
+Requiring that the response scale \(\RespRawEq/\RespRawRef\), the microscopic stiffness \(\RespRawIso/\RespRawReadout^2\), and the microscopic gap \(\sqrt{\RespRawWell}\,\RespRawEq/\RespRawReadout\) remain calibration-invariant, while the normalization-type amplitudes \(\RespRawReadout\,\RespRawRef\) and \(\RespRawReadout\,\RespRawEq\) carry the whole calibration weight, forces the calibration weights uniquely up to a trivial reparametrization of \(\RespScaleEq\):
+\[
+\RespRawReadout=\RespScaleEq\,\RespScaleReadout,\qquad
+\RespRawRef=\RespScaleEq\,\RespScaleAmpRef,\qquad
+\RespRawCov=(\RespScaleEq)^2\RespScaleCov,
+\]
+\[
+\RespRawRelax=(\RespScaleEq)^2\RespScaleRelax,\qquad
+\RespRawWell=\RespScaleWell,\qquad
+\RespRawEq=\RespScaleEq\,\RespScaleAmpEq.
+\]
+Choosing the canonical normalization slice \(\RespScaleAmpRef=1\) then gives a unique normalized representative on every positive orbit:
+\[
+\RespScaleEq=\RespRawRef,\qquad
+\RespScaleReadout=\frac{\RespRawReadout}{\RespRawRef},\qquad
+\RespScaleCov=\frac{\RespRawCov}{(\RespRawRef)^2},
+\]
+\[
+\RespScaleRelax=\frac{\RespRawRelax}{(\RespRawRef)^2},\qquad
+\RespScaleWell=\RespRawWell,\qquad
+\RespScaleAmpEq=\frac{\RespRawEq}{\RespRawRef}.
+\]
+Hence the deeper normalized vacuum block plus calibration modulus are no longer free scale-splitting data. They are the unique canonical normalized slice of the raw positive vacuum orbit compatible with the same downstream chain.
+
+Identifying the raw tuple with the physical vacuum tuple immediately reproduces the same recovered density/current block,
+\[
+(\RespDeepReadout,\RespDeepDensityRef,\RespDeepTrack,\RespDeepRelax,\RespDeepWell,\RespDeepDensityEq)
+=(\RespRawReadout,(\RespRawRef)^2,\RespRawCov,\RespRawRelax,\RespRawWell,(\RespRawEq)^2),
+\]
+the same composite primitive bridge-order block,
+\[
+(\RespOrderReadout,\RespOrderRef,\RespOrderStiff,\RespOrderQuartic,\RespOrderEq)
+=(\RespRawReadout,\RespRawRef,\RespRawIso,\RespRawWell,\RespRawEq),
+\]
+the same phase-neutral minimizing branch
+\[
+\RespVacAmp(x)\equiv \RespRawEq,\qquad
+\RespVacCarrier(x)\equiv0,\qquad
+\RespVacPhase(x)\equiv\phi_0,
+\]
+the same response scale
+\[
+\CurvScale^4=\RespSusEq=\frac{\RespRawEq}{\RespRawRef},
+\]
+the same canonical profile
+\[
+\CurvProfileCan(x)=1+\frac{\RespRawEq}{\RespRawRef}x^2,
+\]
+and therefore the same downstream package and surviving dressed bridge map. The deeper positive scale orbit acts only on radial calibration weights. It supplies neither anisotropic locking nor an angle quotient, so the global \(O(2)\) vacuum angle remains honestly residual.
+\end{abstract}
+
+\section{Introduction}
+
+The bridge-order-vacuum-amplitude/current-carrier-origin note changed the burden sharply again. The primitive vacuum-amplitude/current-carrier tuple is no longer primitive; it is already the calibrated image of a deeper scale-free normalized vacuum block together with one positive calibration modulus. What remains open is deeper and narrower: whether that calibration split is itself merely a convenient representative or whether it is forced by a still deeper principle below the calibration lift.
+
+That is the exact burden of the present manuscript. It does not reopen another observer-level repair note. It does not alter the already-positive self-response-dressed bridge map. It does not introduce another same-layer selector, carrier-data, microscopic-amplitude, primitive-order, density/current, or vacuum-block sector. Instead it asks the next structural question one layer lower: can the deeper normalized vacuum block plus calibration modulus themselves be derived or uniquely constrained as the canonical normalized representative of still more primitive raw positive vacuum data?
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+This note stays strictly inside that boundary. Its positive claim is not that a unique ultraviolet completion has already been isolated. Its positive claim is narrower and more disciplined: once one asks for the smallest deeper factorization that preserves the already-fixed bridge-order, microscopic, carrier, and profile data, the calibration-modulus lift is uniquely constrained as the canonical normalized slice of a raw positive vacuum orbit. The same downstream chain survives unchanged, and the global \(O(2)\) vacuum angle remains residual because the deeper structure introduced here acts only on positive radial scaling.
+
+\section{Fixed Local Family and Downstream Package}
+
+\begin{definition}[Bridge-curvature anchor and local family]
+\label{def:family}
+Let
+\begin{equation}
+\BridgeCurv \equiv R[\BridgeMetric]-2\Lambda_{\Sub}
+\label{eq:anchor}
+\end{equation}
+be the bridge-curvature scalar already present in the candidate substrate action. For every smooth positive profile
+\begin{equation}
+\CurvProfile:\mathbb R\to\mathbb R_{>0},
+\label{eq:positiveprofile}
+\end{equation}
+define the seed
+\begin{equation}
+\CurvSeed=\CurvProfile(\BridgeCurv)
+\label{eq:seed}
+\end{equation}
+and the local bridge-curvature density
+\begin{align}
+\mathcal L_{\mathrm{loc.curv}}[\CurvProfile]
+=\;&
+\CurvSeedMult\bigl(\CurvSeed-\CurvProfile(\BridgeCurv)\bigr)
+\nonumber\\
+&+\CurvQMult^{AI}\bigl(\CurvOneI_A^I-\CurvSeed\,\lambda_I\SpatialD_AQ^I\bigr)
++\CurvChiMult^A\bigl(\CurvOneChi_A-\CurvSeed\,\lambda_\chi\SpatialD_A\chi\bigr)
+\nonumber\\
+&+\CurvTransMult^A\bigl(\CurvOneW_A-\CurvSeed\,\lambda_WW_A^T\bigr)
++\ConstGamma^A\bigl(
+\ConstCurrent_A
+-\nu_I\CurvSeed^{-1}\CurvOneI_A^I
+-\nu_\chi\CurvSeed^{-1}\CurvOneChi_A
+-\nu_W\CurvSeed^{-1}\CurvOneW_A
+\bigr).
+\label{eq:locfamily}
+\end{align}
+\end{definition}
+
+\begin{definition}[Fixed downstream package]
+\label{def:downstream}
+The \emph{fixed downstream package} \(\DownPkg\) consists of:
+\begin{enumerate}
+    \item the reduced current and reduced density
+    \begin{equation}
+    \ConstCurrent_A
+    =
+    \mathfrak c_I\SpatialD_AQ^I
+    +\mathfrak c_\chi\SpatialD_A\chi
+    +\mathfrak c_WW_A^T,
+    \qquad
+    \SourceDensityRed=-\SpatialD^A\ConstCurrent_A;
+    \label{eq:pkgcurrent}
+    \end{equation}
+    \item the Hamiltonian-charge flux and continuity/Gauss-Poisson package
+    \begin{equation}
+    \HamChargeOmega
+    =
+    \int_{\Sigma_t}\SourceDensityRed\,d\mu_P
+    =
+    -\lim_{r\to\infty}\int_{S_r} n^A\ConstCurrent_A\,dA,
+    \label{eq:pkgcharge}
+    \end{equation}
+    \begin{equation}
+    -\LapPerp\FlowPot=4\pi G_N\,\SourceDensityRed,
+    \qquad
+    \SpatialD_A\FlowPot=\mathcal E_A;
+    \label{eq:pkgpoisson}
+    \end{equation}
+    \item the exterior Coulomb tail
+    \begin{equation}
+    \FlowPot
+    =
+    \CoulPot+\mathcal O(r^{-2}),
+    \qquad
+    \CoulPot(r)=\frac{G_N\,\HamChargeOmega}{r};
+    \label{eq:pkgcoul}
+    \end{equation}
+    \item the surviving dressed bridge map
+    \begin{equation}
+    g_{\mu\nu}^{\mathrm{dressed}}
+    =
+    g_{\mu\nu}^{\mathrm{br}}
+    +\SigmaIER_{\mu\nu}
+    +\SigmaDressSch{}_{\mu\nu}
+    +\SigmaRegPol{}_{\mu\nu},
+    \label{eq:pkgmetric}
+    \end{equation}
+    with the same matter-free activity, off-longitudinal \(Q/W\) cancellation, explicit cubic longitudinal completion, and quartic Coulomb self-response absorption already fixed in the earlier explicit candidate sequence.
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}[The downstream package is profile-blind]
+\label{prop:profileblind}
+For every smooth positive profile \(\CurvProfile\), eliminating the local sector \eqref{eq:locfamily} yields the same downstream package \(\DownPkg\).
+\end{proposition}
+
+\begin{proof}
+Variation with respect to \(\CurvQMult^{AI}\), \(\CurvChiMult^A\), and \(\CurvTransMult^A\) gives
+\[
+\CurvOneI_A^I=\CurvSeed\,\lambda_I\SpatialD_AQ^I,
+\qquad
+\CurvOneChi_A=\CurvSeed\,\lambda_\chi\SpatialD_A\chi,
+\qquad
+\CurvOneW_A=\CurvSeed\,\lambda_WW_A^T.
+\]
+Substituting these relations into the \(\ConstGamma^A\)-equation in \eqref{eq:locfamily} cancels every factor of \(\CurvSeed=\CurvProfile(\BridgeCurv)\) and forces
+\[
+\ConstCurrent_A
+=
+\nu_I\lambda_I\SpatialD_AQ^I
++\nu_\chi\lambda_\chi\SpatialD_A\chi
++\nu_W\lambda_WW_A^T.
+\]
+Therefore the reduced density, Hamiltonian-charge flux, continuity/Gauss-Poisson package, exterior Coulomb tail, and surviving dressed bridge map are independent of the chosen positive profile.
+\end{proof}
+
+\begin{remark}
+Proposition \ref{prop:profileblind} is the structural reason the present manuscript can act only on the origin of the already-selected calibration split. Once the continuation-side positive profile is recovered, no further change is forced downstream.
+\end{remark}
+
+\section{Raw Positive Vacuum Orbit Below the Calibration Lift}
+
+\begin{definition}[Raw positive vacuum tuple]
+\label{def:rawtuple}
+Fix positive constants
+\begin{equation}
+\RespRawReadout>0,
+\qquad
+\RespRawRef>0,
+\qquad
+\RespRawCov>0,
+\qquad
+\RespRawRelax>0,
+\qquad
+\RespRawWell>0,
+\qquad
+\RespRawEq>0,
+\label{eq:rawconstants}
+\end{equation}
+and set
+\begin{equation}
+\RespRawIso\equiv\frac{\RespRawCov\,\RespRawRelax}{\RespRawCov+\RespRawRelax}.
+\label{eq:rawiso}
+\end{equation}
+Let
+\begin{equation}
+\RespVacAmp\in C^\infty(\mathbb R,\mathbb R_{>0}),
+\qquad
+\RespVacPhase\in C^\infty(\mathbb R,\mathbb R),
+\qquad
+\RespVacCarrier\in C^\infty(\mathbb R,\mathbb R).
+\label{eq:rawfields}
+\end{equation}
+Define the raw vacuum energy
+\begin{align}
+\RespRawEnergy[\RespVacAmp,\RespVacPhase,\RespVacCarrier]
+\equiv\;&
+\int_{\mathbb R}\ProfWeight(x)\Bigl[
+\frac{\RespRawIso}{2}\abs{\RespVacAmp'(x)}^2
++
+\frac{\RespRawCov}{2}\RespVacAmp(x)^2\abs{\RespVacPhase'(x)-\RespVacCarrier(x)}^2
+\Bigr]dx
+\nonumber\\
+&+
+\int_{\mathbb R}\ProfWeight(x)\Bigl[
+\frac{\RespRawRelax}{2}\RespVacAmp(x)^2\abs{\RespVacCarrier(x)}^2
++
+\frac{\RespRawWell}{8}\bigl(\RespVacAmp(x)^2-(\RespRawEq)^2\bigr)^2
+\Bigr]dx.
+\label{eq:rawenergy}
+\end{align}
+\end{definition}
+
+\begin{remark}
+The raw tuple \eqref{eq:rawconstants} is one layer below the calibration-modulus lift. At this deeper scope the positive vacuum data are not yet split into a scale-free normalized block plus a calibration modulus. The present note asks whether that split is forced by the already-fixed downstream chain rather than inserted as an extra choice.
+\end{remark}
+
+\begin{definition}[Admissible calibration factorization]
+\label{def:factorization}
+An \emph{admissible calibration factorization} of the raw tuple \eqref{eq:rawconstants} consists of a positive calibration modulus \(\RespScaleEq>0\), a positive normalized block
+\[
+(\RespScaleReadout,\RespScaleAmpRef,\RespScaleCov,\RespScaleRelax,\RespScaleWell,\RespScaleAmpEq),
+\]
+and real weights
+\[
+a_q,\ a_{\mathrm{ref}},\ a_\kappa,\ a_\rho,\ a_\lambda,\ a_\ast
+\]
+such that
+\begin{equation}
+\RespRawReadout=(\RespScaleEq)^{a_q}\RespScaleReadout,
+\qquad
+\RespRawRef=(\RespScaleEq)^{a_{\mathrm{ref}}}\RespScaleAmpRef,
+\qquad
+\RespRawCov=(\RespScaleEq)^{a_\kappa}\RespScaleCov,
+\label{eq:genfactorA}
+\end{equation}
+\begin{equation}
+\RespRawRelax=(\RespScaleEq)^{a_\rho}\RespScaleRelax,
+\qquad
+\RespRawWell=(\RespScaleEq)^{a_\lambda}\RespScaleWell,
+\qquad
+\RespRawEq=(\RespScaleEq)^{a_\ast}\RespScaleAmpEq,
+\label{eq:genfactorB}
+\end{equation}
+and the following downstream quantities are calibration-invariant:
+\begin{equation}
+\frac{\RespRawEq}{\RespRawRef},
+\qquad
+\frac{\RespRawIso}{\RespRawReadout^2},
+\qquad
+\frac{\sqrt{\RespRawWell}\,\RespRawEq}{\RespRawReadout}.
+\label{eq:calinvariants}
+\end{equation}
+Moreover the normalization-type microscopic amplitudes
+\begin{equation}
+\RespMicroRef=\RespRawReadout\,\RespRawRef,
+\qquad
+\RespMicroEq=\RespRawReadout\,\RespRawEq
+\label{eq:microampweights}
+\end{equation}
+must carry the full calibration weight.
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:factorization} is the strict meaning of ``below the calibration lift'' used here. The response scale, the microscopic stiffness, and the microscopic gap are the scale-free data already identified in the earlier sequence, while \(\RespMicroRef\) and \(\RespMicroEq\) are the normalization-type amplitudes that are allowed to carry the positive calibration modulus.
+\end{remark}
+
+\begin{proposition}[Unique compatible calibration weights up to reparametrization]
+\label{prop:weights}
+Let \eqref{eq:genfactorA}--\eqref{eq:genfactorB} be an admissible calibration factorization in the sense of Definition \ref{def:factorization}. Then
+\begin{equation}
+a_\rho=a_\kappa=2a_{\mathrm{ref}},
+\qquad
+a_q=a_{\mathrm{ref}},
+\qquad
+a_\ast=a_{\mathrm{ref}},
+\qquad
+a_\lambda=0.
+\label{eq:weightsolution}
+\end{equation}
+Hence the weight pattern is unique up to the trivial reparametrization \(\RespScaleEq\mapsto(\RespScaleEq)^c\), which rescales all nonzero exponents by the same factor \(c^{-1}\).
+\end{proposition}
+
+\begin{proof}
+Because \(\RespRawIso\) is the harmonic mean
+\[
+\RespRawIso=\frac{\RespRawCov\,\RespRawRelax}{\RespRawCov+\RespRawRelax},
+\]
+it carries a single well-defined calibration weight only if
+\[
+a_\kappa=a_\rho.
+\]
+Write that common weight as \(a_\eta\).
+
+The response-scale invariant \(\RespRawEq/\RespRawRef\) in \eqref{eq:calinvariants} gives
+\[
+a_\ast-a_{\mathrm{ref}}=0.
+\]
+The microscopic-stiffness invariant \(\RespRawIso/\RespRawReadout^2\) gives
+\[
+a_\eta-2a_q=0.
+\]
+The microscopic-gap invariant \(\sqrt{\RespRawWell}\,\RespRawEq/\RespRawReadout\) gives
+\[
+\frac{a_\lambda}{2}+a_\ast-a_q=0.
+\]
+
+It remains to identify the basic calibration weight. By Definition \ref{def:factorization}, the normalization-type amplitudes \(\RespMicroRef=\RespRawReadout\,\RespRawRef\) and \(\RespMicroEq=\RespRawReadout\,\RespRawEq\) carry the full calibration weight. Since they are bilinear in one readout factor and one amplitude factor, their common weight is twice the basic amplitude weight \(a_{\mathrm{ref}}\). Therefore
+\[
+a_q+a_{\mathrm{ref}}=2a_{\mathrm{ref}},
+\qquad
+a_q+a_\ast=2a_{\mathrm{ref}}.
+\]
+Using \(a_\ast=a_{\mathrm{ref}}\), both equations give
+\[
+a_q=a_{\mathrm{ref}}.
+\]
+Substituting this into the earlier relations yields
+\[
+a_\eta=2a_q=2a_{\mathrm{ref}},
+\qquad
+a_\lambda=2(a_q-a_\ast)=0.
+\]
+Since \(a_\eta=a_\kappa=a_\rho\), we obtain \eqref{eq:weightsolution}. Multiplying all nonzero exponents by the same constant is equivalent to replacing \(\RespScaleEq\) by a positive power of itself, so the pattern is unique only up to that trivial modulus reparametrization.
+\end{proof}
+
+\begin{corollary}[Canonical amplitude normalization]
+\label{cor:canonicalslice}
+Choose the canonical modulus parametrization
+\begin{equation}
+a_{\mathrm{ref}}=1.
+\label{eq:amplitudegauge}
+\end{equation}
+Then every admissible factorization takes the unique form
+\begin{equation}
+\RespRawReadout=\RespScaleEq\,\RespScaleReadout,
+\qquad
+\RespRawRef=\RespScaleEq\,\RespScaleAmpRef,
+\qquad
+\RespRawCov=(\RespScaleEq)^2\RespScaleCov,
+\label{eq:forcedfactorA}
+\end{equation}
+\begin{equation}
+\RespRawRelax=(\RespScaleEq)^2\RespScaleRelax,
+\qquad
+\RespRawWell=\RespScaleWell,
+\qquad
+\RespRawEq=\RespScaleEq\,\RespScaleAmpEq.
+\label{eq:forcedfactorB}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+This is Proposition \ref{prop:weights} with the canonical choice \eqref{eq:amplitudegauge}.
+\end{proof}
+
+\begin{theorem}[Unique canonical normalized representative]
+\label{thm:uniquerepresentative}
+Every positive raw tuple \eqref{eq:rawconstants} admits a unique canonical normalized representative satisfying
+\begin{equation}
+\RespScaleAmpRef=1.
+\label{eq:slicenormalization}
+\end{equation}
+It is given explicitly by
+\begin{equation}
+\RespScaleEq=\RespRawRef,
+\qquad
+\RespScaleReadout=\frac{\RespRawReadout}{\RespRawRef},
+\qquad
+\RespScaleCov=\frac{\RespRawCov}{(\RespRawRef)^2},
+\label{eq:canonicaldataA}
+\end{equation}
+\begin{equation}
+\RespScaleRelax=\frac{\RespRawRelax}{(\RespRawRef)^2},
+\qquad
+\RespScaleWell=\RespRawWell,
+\qquad
+\RespScaleAmpEq=\frac{\RespRawEq}{\RespRawRef},
+\label{eq:canonicaldataB}
+\end{equation}
+with
+\begin{equation}
+\RespScaleIso=\frac{\RespScaleCov\,\RespScaleRelax}{\RespScaleCov+\RespScaleRelax}
+=
+\frac{\RespRawIso}{(\RespRawRef)^2}.
+\label{eq:canonicaliso}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+By Corollary \ref{cor:canonicalslice}, every admissible factorization has the form \eqref{eq:forcedfactorA}--\eqref{eq:forcedfactorB}. Imposing \eqref{eq:slicenormalization} forces
+\[
+\RespScaleEq=\RespRawRef.
+\]
+Substituting this back into \eqref{eq:forcedfactorA}--\eqref{eq:forcedfactorB} yields \eqref{eq:canonicaldataA}--\eqref{eq:canonicaldataB}. The harmonic-mean identity \eqref{eq:canonicaliso} follows immediately:
+\[
+\RespScaleIso
+=
+\frac{\RespScaleCov\,\RespScaleRelax}{\RespScaleCov+\RespScaleRelax}
+=
+\frac{\RespRawCov\,\RespRawRelax/(\RespRawRef)^4}
+     {(\RespRawCov+\RespRawRelax)/(\RespRawRef)^2}
+=
+\frac{\RespRawIso}{(\RespRawRef)^2}.
+\]
+Uniqueness is immediate because the slice condition \(\RespScaleAmpRef=1\) fixes \(\RespScaleEq\) uniquely as \(\RespRawRef\).
+\end{proof}
+
+\begin{remark}
+Theorem \ref{thm:uniquerepresentative} is the precise positive result of the present note. The deeper normalized vacuum block plus calibration modulus are no longer inserted as free scale-splitting data. They are the unique canonical normalized slice of the raw positive vacuum orbit compatible with the already-fixed downstream chain.
+\end{remark}
+
+\section{Recovered Calibration Lift and Same Downstream Chain}
+
+\begin{proposition}[Exact recovery of the earlier calibration-modulus lift]
+\label{prop:recoverlift}
+On the canonical slice \eqref{eq:slicenormalization}, the raw vacuum energy \eqref{eq:rawenergy} takes exactly the calibrated form
+\begin{align}
+\RespRawEnergy[\RespVacAmp,\RespVacPhase,\RespVacCarrier]
+=\;&
+\int_{\mathbb R}\ProfWeight(x)\Bigl[
+\frac{(\RespScaleEq)^2\RespScaleIso}{2}\abs{\RespVacAmp'(x)}^2
++
+\frac{(\RespScaleEq)^2\RespScaleCov}{2}\RespVacAmp(x)^2\abs{\RespVacPhase'(x)-\RespVacCarrier(x)}^2
+\Bigr]dx
+\nonumber\\
+&+
+\int_{\mathbb R}\ProfWeight(x)\Bigl[
+\frac{(\RespScaleEq)^2\RespScaleRelax}{2}\RespVacAmp(x)^2\abs{\RespVacCarrier(x)}^2
++
+\frac{\RespScaleWell}{8}\bigl(\RespVacAmp(x)^2-(\RespScaleEq)^2(\RespScaleAmpEq)^2\bigr)^2
+\Bigr]dx,
+\label{eq:recoveredlift}
+\end{align}
+with \(\RespScaleAmpRef=1\). Therefore the earlier calibration-modulus lift is recovered as the unique canonical normalized representative of the raw positive vacuum orbit.
+\end{proposition}
+
+\begin{proof}
+Substitute \eqref{eq:canonicaldataA}--\eqref{eq:canonicaliso} into \eqref{eq:rawenergy}. The identities
+\[
+\RespRawIso=(\RespScaleEq)^2\RespScaleIso,
+\qquad
+\RespRawCov=(\RespScaleEq)^2\RespScaleCov,
+\qquad
+\RespRawRelax=(\RespScaleEq)^2\RespScaleRelax,
+\]
+\[
+\RespRawWell=\RespScaleWell,
+\qquad
+\RespRawEq=\RespScaleEq\,\RespScaleAmpEq
+\]
+give \eqref{eq:recoveredlift} directly.
+\end{proof}
+
+\begin{corollary}[Same recovered vacuum tuple]
+\label{cor:samevacuumtuple}
+Identifying the raw tuple with the physical vacuum tuple yields
+\begin{equation}
+\RespVacReadout=\RespRawReadout,
+\qquad
+\RespVacRef=\RespRawRef,
+\qquad
+\RespVacCov=\RespRawCov,
+\label{eq:physicalrawA}
+\end{equation}
+\begin{equation}
+\RespVacRelax=\RespRawRelax,
+\qquad
+\RespVacWell=\RespRawWell,
+\qquad
+\RespVacEq=\RespRawEq.
+\label{eq:physicalrawB}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+This is exactly the identification made by Proposition \ref{prop:recoverlift}.
+\end{proof}
+
+\begin{corollary}[Same recovered density/current block]
+\label{cor:samedeepblock}
+The same deeper density/current block is recovered:
+\begin{equation}
+\RespDeepReadout=\RespRawReadout,
+\qquad
+\RespDeepDensityRef=(\RespRawRef)^2,
+\qquad
+\RespDeepTrack=\RespRawCov,
+\label{eq:deepfromrawA}
+\end{equation}
+\begin{equation}
+\RespDeepRelax=\RespRawRelax,
+\qquad
+\RespDeepWell=\RespRawWell,
+\qquad
+\RespDeepDensityEq=(\RespRawEq)^2.
+\label{eq:deepfromrawB}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+The bridge-order-density/current-origin note identifies
+\[
+\RespDeepReadout=\RespVacReadout,
+\qquad
+\RespDeepDensityRef=(\RespVacRef)^2,
+\qquad
+\RespDeepTrack=\RespVacCov,
+\]
+\[
+\RespDeepRelax=\RespVacRelax,
+\qquad
+\RespDeepWell=\RespVacWell,
+\qquad
+\RespDeepDensityEq=(\RespVacEq)^2.
+\]
+Using Corollary \ref{cor:samevacuumtuple} gives \eqref{eq:deepfromrawA}--\eqref{eq:deepfromrawB}.
+\end{proof}
+
+\begin{corollary}[Same composite primitive bridge-order block]
+\label{cor:sameorderblock}
+Eliminating \(\RespVacCarrier\) from \eqref{eq:rawenergy} yields the same composite primitive bridge-order field
+\begin{equation}
+\RespOrderField(x)
+=
+\RespVacAmp(x)
+\begin{pmatrix}
+\cos\RespVacPhase(x)\\
+\sin\RespVacPhase(x)
+\end{pmatrix},
+\label{eq:raworderfield}
+\end{equation}
+with the same recovered primitive bridge-order data
+\begin{equation}
+\RespOrderReadout=\RespRawReadout,
+\qquad
+\RespOrderRef=\RespRawRef,
+\qquad
+\RespOrderStiff=\RespRawIso,
+\label{eq:orderfromrawA}
+\end{equation}
+\begin{equation}
+\RespOrderQuartic=\RespRawWell,
+\qquad
+\RespOrderEq=\RespRawEq.
+\label{eq:orderfromrawB}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+The bridge-order-density/current-origin note shows that eliminating \(\RespVacCarrier\) from the primitive vacuum sector recovers the composite primitive bridge-order block with
+\[
+\RespOrderReadout=\RespVacReadout,
+\qquad
+\RespOrderRef=\RespVacRef,
+\qquad
+\RespOrderStiff=\RespVacIso,
+\qquad
+\RespOrderQuartic=\RespVacWell,
+\qquad
+\RespOrderEq=\RespVacEq.
+\]
+Now \(\RespVacIso=\RespRawIso\) by Corollary \ref{cor:samevacuumtuple} and \eqref{eq:rawiso}, so \eqref{eq:orderfromrawA}--\eqref{eq:orderfromrawB} follow.
+\end{proof}
+
+\begin{corollary}[Same microscopic and carrier data]
+\label{cor:samemicroscopic}
+The same microscopic and carrier data are recovered from the raw tuple:
+\begin{equation}
+\RespMicroRef=\RespRawReadout\,\RespRawRef,
+\qquad
+\RespMicroFluxCoeff=\frac{\RespRawIso}{\RespRawReadout^2},
+\qquad
+\RespMicroGap=\frac{\sqrt{\RespRawWell}\,\RespRawEq}{\RespRawReadout},
+\qquad
+\RespMicroEq=\RespRawReadout\,\RespRawEq,
+\label{eq:microfromraw}
+\end{equation}
+\begin{equation}
+\RespNorm=\frac{1}{\RespRawReadout\,\RespRawRef},
+\qquad
+\RespFluxCoeff=\frac{\RespRawIso}{\RespRawReadout^2},
+\qquad
+\RespGap=\frac{\sqrt{\RespRawWell}\,\RespRawEq}{\RespRawReadout},
+\qquad
+\RespBias=\frac{\RespRawWell\,(\RespRawEq)^3}{\RespRawReadout}.
+\label{eq:carrierfromraw}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+Substitute \eqref{eq:orderfromrawA}--\eqref{eq:orderfromrawB} into the already-fixed microscopic relations
+\[
+\RespMicroRef=\RespOrderReadout\,\RespOrderRef,
+\qquad
+\RespMicroFluxCoeff=\frac{\RespOrderStiff}{\RespOrderReadout^2},
+\]
+\[
+\RespMicroGap=\frac{\sqrt{\RespOrderQuartic}\,\RespOrderEq}{\RespOrderReadout},
+\qquad
+\RespMicroEq=\RespOrderReadout\,\RespOrderEq.
+\]
+This gives \eqref{eq:microfromraw}. The carrier relations
+\[
+\RespNorm=\frac{1}{\RespMicroRef},
+\qquad
+\RespFluxCoeff=\RespMicroFluxCoeff,
+\qquad
+\RespGap=\RespMicroGap,
+\qquad
+\RespBias=\RespMicroGap^2\RespMicroEq
+\]
+then yield \eqref{eq:carrierfromraw}.
+\end{proof}
+
+\begin{theorem}[Same phase-neutral minimizing branch]
+\label{thm:rawminimizers}
+The minimizers of the raw vacuum energy \eqref{eq:rawenergy} are exactly
+\begin{equation}
+\RespVacAmp(x)\equiv\RespRawEq,
+\qquad
+\RespVacCarrier(x)\equiv0,
+\qquad
+\RespVacPhase(x)\equiv\phi_0
+\label{eq:rawminimizers}
+\end{equation}
+for arbitrary constant \(\phi_0\in\mathbb R/2\pi\mathbb Z\). Therefore the same phase-neutral zero-current minimizing branch is preserved.
+\end{theorem}
+
+\begin{proof}
+Every term in the integrand of \eqref{eq:rawenergy} is nonnegative because \(\ProfWeight>0\), \(\RespVacAmp>0\), and all coefficients in \eqref{eq:rawconstants} are positive. Hence \(\RespRawEnergy\) is minimized exactly when
+\[
+\RespVacAmp'(x)=0,
+\qquad
+\RespVacPhase'(x)-\RespVacCarrier(x)=0,
+\qquad
+\RespVacCarrier(x)=0,
+\]
+\[
+\RespVacAmp(x)^2=(\RespRawEq)^2
+\]
+for all \(x\). Since \(\RespVacAmp>0\), the last relation forces \(\RespVacAmp(x)\equiv\RespRawEq\). The middle relations then force \(\RespVacPhase'(x)=0\), so \(\RespVacPhase(x)\equiv\phi_0\) is constant. This proves \eqref{eq:rawminimizers}. On that branch
+\[
+\RespOrderCurrent(x)=\RespVacAmp(x)^2\RespVacPhase'(x)=0,
+\]
+so the same phase-neutral zero-current branch is selected.
+\end{proof}
+
+\begin{corollary}[Same response scale and canonical profile]
+\label{cor:rawprofile}
+On the minimizing branch \eqref{eq:rawminimizers},
+\begin{equation}
+\RespSusEq
+=
+\frac{\RespRawEq}{\RespRawRef}
+=
+\frac{\RespOrderEq}{\RespOrderRef}
+=
+\frac{\RespMicroEq}{\RespMicroRef}.
+\label{eq:sigmafromraw}
+\end{equation}
+Hence
+\begin{equation}
+\CurvScale^4=\RespSusEq=\frac{\RespRawEq}{\RespRawRef},
+\label{eq:scalefromraw}
+\end{equation}
+and the canonical profile remains
+\begin{equation}
+\CurvProfileCan(x)=1+\RespSusEq x^2=1+\frac{\RespRawEq}{\RespRawRef}x^2.
+\label{eq:canonicalprofile}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+By Corollary \ref{cor:sameorderblock},
+\[
+\frac{\RespOrderEq}{\RespOrderRef}=\frac{\RespRawEq}{\RespRawRef},
+\]
+and by Corollary \ref{cor:samemicroscopic},
+\[
+\frac{\RespMicroEq}{\RespMicroRef}
+=
+\frac{\RespRawReadout\,\RespRawEq}{\RespRawReadout\,\RespRawRef}
+=
+\frac{\RespRawEq}{\RespRawRef}.
+\]
+This proves \eqref{eq:sigmafromraw}. Equation \eqref{eq:scalefromraw} is the already-fixed response-scale identification, and integrating the profile reconstruction law
+\[
+\CurvProfile''(x)=2\RespSusEq,
+\qquad
+\CurvProfile(0)=1,
+\qquad
+\CurvProfile'(0)=0
+\]
+gives \eqref{eq:canonicalprofile}.
+\end{proof}
+
+\begin{theorem}[The downstream package and dressed bridge map stay fixed]
+\label{thm:rawfixedpackage}
+Substituting the canonical profile \eqref{eq:canonicalprofile} obtained from the raw positive vacuum orbit into the local bridge-curvature family \eqref{eq:locfamily} reproduces the same downstream package \(\DownPkg\) and the same surviving dressed bridge map \eqref{eq:pkgmetric}.
+\end{theorem}
+
+\begin{proof}
+Corollary \ref{cor:rawprofile} gives the same continuation-side quadratic profile already selected in the earlier off-shell profile sequence, now written directly in terms of the raw ratio \(\RespRawEq/\RespRawRef\). Proposition \ref{prop:profileblind} then implies that the reduced current, Hamiltonian-charge flux, continuity/Gauss-Poisson package, exterior Coulomb tail, and surviving dressed bridge map are unchanged.
+\end{proof}
+
+\begin{remark}
+The present deeper step therefore preserves everything that had already become positive downstream. It changes only the origin story of the calibration-modulus lift by showing that the lift is the unique canonical normalized slice of a deeper raw positive vacuum orbit.
+\end{remark}
+
+\section{Vacuum-Angle Status on the Deeper Scale Orbit}
+
+\begin{theorem}[The deeper scale orbit leaves the global \(O(2)\) angle residual]
+\label{thm:angleresidual}
+The deeper structure introduced in Definitions \ref{def:rawtuple} and \ref{def:factorization} acts only on positive radial calibration data. It supplies neither an anisotropic locking term for \(\RespVacPhase\) nor a quotient identifying different constant vacuum angles. Consequently the global \(O(2)\) vacuum angle remains genuinely residual on the deeper scale-orbit branch.
+\end{theorem}
+
+\begin{proof}
+The raw vacuum energy \eqref{eq:rawenergy} depends on \(\RespVacPhase\) only through the derivative combination \(\RespVacPhase'-\RespVacCarrier\). By Theorem \ref{thm:rawminimizers}, the minimizing branch is
+\[
+\RespVacAmp(x)\equiv\RespRawEq,
+\qquad
+\RespVacCarrier(x)\equiv0,
+\qquad
+\RespVacPhase(x)\equiv\phi_0
+\]
+for arbitrary constant \(\phi_0\in\mathbb R/2\pi\mathbb Z\). The deeper calibration factorization \eqref{eq:forcedfactorA}--\eqref{eq:forcedfactorB} rescales only the positive radial tuple \((\RespRawReadout,\RespRawRef,\RespRawCov,\RespRawRelax,\RespRawWell,\RespRawEq)\). It introduces no term that singles out one distinguished \(\phi_0\), and no quotient data are adjoined that identify different constant angles. Therefore the deeper scale orbit changes neither the minimizing-angle family nor its status: the global \(O(2)\) vacuum angle remains residual.
+\end{proof}
+
+\begin{remark}
+Theorem \ref{thm:angleresidual} does not claim that no future deeper note can ever alter the angle verdict. It says only that the present deeper structure does not do so. If a later sector naturally supplies genuine angular locking or an actual angle quotient, then the verdict could change there. In the absence of such structure, the honest verdict remains residual.
+\end{remark}
+
+\section{Claim Boundary}
+
+This note does not claim that the raw positive vacuum orbit \eqref{eq:rawconstants} is the unique ultraviolet completion of the bridge-curvature response line. It does not claim that every conceivable deeper substrate continuation must reduce to the present raw representative, and it does not claim that the residual global \(O(2)\) vacuum angle has already been fixed or quotiented away. Its disciplined verdict is narrower: the calibration-modulus lift of the previous note is not a free scale split once one requires compatibility with the already-fixed downstream chain. It is the unique canonical normalized slice of the deeper raw positive vacuum orbit.
+
+Its positive result is therefore structural rather than observer-level. The deeper normalized vacuum block together with the positive calibration modulus are now uniquely constrained by the raw tuple \((\RespRawReadout,\RespRawRef,\RespRawCov,\RespRawRelax,\RespRawWell,\RespRawEq)\), the same recovered density/current block and the same composite primitive bridge-order block are preserved, the same phase-neutral minimizing branch remains selected, the same response scale and canonical profile are recovered, and the same downstream package and surviving dressed bridge map remain fixed.
+
+The next honest burden, if the derivational line continues, is no longer another same-layer calibration-modulus note. It is whether the raw positive vacuum orbit itself can be derived from still more primitive substrate structure, or whether the scale-orbit principle recorded here can be elevated from a canonical normalization principle to a genuinely deeper substrate redundancy. Unless such a future layer naturally supplies angular locking or a true angle quotient, the global \(O(2)\) vacuum angle should continue to be recorded honestly as residual.
+
+\section{Conclusion}
+
+The live burden below the calibration lift has now been narrowed in the intended way. The deeper normalized vacuum block plus positive calibration modulus are no longer left as a freely chosen representative: they are uniquely constrained as the canonical normalized slice of a deeper raw positive vacuum orbit. That is the positive result of this note.
+
+At the same time, the downstream derivational chain is unchanged. The same recovered density/current block, the same composite primitive bridge-order block, the same phase-neutral minimizing branch, the same canonical profile, and the same surviving dressed bridge map all persist exactly. The next open burden is therefore deeper again and honest: not another same-layer repair, but a first-principles origin of the raw positive vacuum orbit itself, with the global \(O(2)\) angle still residual unless genuinely deeper structure changes that verdict.
+
+\end{document}

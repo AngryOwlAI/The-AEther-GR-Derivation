@@ -1,0 +1,421 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal{A}}
+\newcommand{\BridgeMetric}{\mathfrak{g}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Higher-Derivative Branch Quadratic Consistency and Quartic Flat-Background Exact-Closure Test}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This manuscript carries the higher-derivative collapsed-scalar family through its next fixed task: a flat-background quadratic reduction and exact-closure test. The scope remains disciplined. The note does not claim a completed substrate derivation of Einsteinian gravity, and it does not yet supply a unique full nonlinear covariant completion of the higher-derivative branch. It tests only the minimal flat-background representative selected in the branch note.
+
+The result is the first positive flat-background branch result in the post-no-go sequence. Starting from the collapsed scalar baseline
+\[
+\kappa_S=\mu_{SI}=\mu_S^2=0,
+\]
+and adjoining the quartic spatial stabilizer
+\[
+\Delta\mathcal L_4^{(2)}
+=
+-\frac{\lambda_4}{2M_*^2}(\nabla^2\sigma)^2,
+\]
+the \(\chi\), \(V_T^i\), and \(q^I\) sectors remain auxiliary on the decaying flat branch, with \(q^I=0\) whenever \(\widehat M_{IJ}\) is positive definite. The reduced scalar bridge channel is therefore
+\[
+\mathcal L_{\sigma,\mathrm{eff},4}^{(2)}
+=
+-\frac{m_S^2}{2}\bigl(\partial_0\sigma-\sigma_0\phi\bigr)^2
+-\frac{1}{2}\sigma\,\mathcal B_4(-\nabla^2)\,\sigma,
+\qquad
+\mathcal B_4(-\nabla^2)=\frac{\lambda_4}{M_*^2}(-\nabla^2)^2.
+\]
+Hence
+\[
+\mathcal B_4(k^2)=\frac{\lambda_4}{M_*^2}k^4,
+\qquad
+\mathcal B_{4,0}=0,
+\qquad
+\mathcal B_{4,2}=0,
+\qquad
+\mathcal B_{4,4}=\frac{\lambda_4}{M_*^2}.
+\]
+Under the quartic-health conditions
+\[
+m_S^2>0,
+\qquad
+\lambda_4>0,
+\qquad
+\widehat M_{IJ}\ \text{positive definite},
+\]
+the higher-derivative branch therefore satisfies the flat-background coefficient-level exact-closure conditions automatically at orders \(k^0\) and \(k^2\), while retaining a strictly positive quartic spatial stiffness. The branch remains answerable to the exact-closure benchmark. With the bridge-metric matter-coupling gate now treated separately, the next remaining benchmark gate is compatibility with the active exact-relativistic recovery line, after which local curved-background continuation may be attempted. Nonlinear stability remains a later question.
+\end{abstract}
+
+\section{Introduction}
+
+The active exact-closure line of \TheoryName{} is already fixed by the foundations, dynamics, consistency, relativistic-recovery, flow-geometry, and substrate-bridge manuscripts. On the derivational side, the program has recently become much sharper. The minimal stable-sign branch has no healthy nondegenerate flat-background exact-closure solution. The derivative-mixing \(S/Q\) branch reaches exact closure only on a tuned semidefinite perfect-square branch. The constraint-assisted longitudinal \(U\)-sector family changes the elimination problem more substantially, but under the active positive-sign health gate it still collapses back to
+\[
+\kappa_S=\mu_{SI}=\mu_S^2=0.
+\]
+
+The higher-derivative branch-selection note drew the next research lesson from that pattern. Rather than spending another cycle trying to rescue a low-order scalar operator that the active sign discipline repeatedly removes, it proposed treating the collapsed scalar limit as the new baseline and asking whether the first healthy stabilizing structure belongs at quartic spatial derivative order instead.
+
+That proposal still needed its own Phase 3 test. The present manuscript performs exactly that test.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays within that boundary. It does not promote the higher-derivative branch to established theory. It determines only the flat-background quadratic status of its minimal quartic representative.
+
+\section{Selected Branch and Flat-Background Representative}
+
+The higher-derivative branch note selected a family built around the repeated collapsed scalar conditions
+\begin{equation}
+\kappa_S=0,
+\qquad
+\mu_{SI}=0,
+\qquad
+\mu_S^2=0.
+\label{eq:collapsed}
+\end{equation}
+For the present flat-background calculation, only the corresponding quadratic representative is required.
+
+\begin{definition}[Minimal quartic representative]
+The minimal flat-background representative of the higher-derivative branch is obtained by taking the minimal auxiliary quadratic Lagrangian on the collapsed baseline \eqref{eq:collapsed} and adjoining the quartic spatial term
+\begin{equation}
+\Delta\mathcal L_4^{(2)}
+=
+-\frac{\lambda_4}{2M_*^2}(\nabla^2\sigma)^2,
+\label{eq:L4}
+\end{equation}
+with constants
+\begin{equation}
+m_S^2>0,
+\qquad
+\lambda_4\in\mathbb R,
+\qquad
+M_*>0,
+\label{eq:branchparams}
+\end{equation}
+while keeping the \(Q\)-sector mass matrix
+\begin{equation}
+\widehat M_{IJ}\equiv M_{IJ}+\mu_{IJ}
+\label{eq:Mhat}
+\end{equation}
+arbitrary until a later health condition is imposed.
+\end{definition}
+
+\begin{remark}
+This note does not yet claim that \eqref{eq:L4} is the unique or final nonlinear covariant completion of the higher-derivative family. It tests the branch at the same coefficient level used to screen the previous candidates.
+\end{remark}
+
+Use the same admissible homogeneous bridge background as in the earlier flat-background notes:
+\begin{equation}
+\bar G_{AB}=\delta_{AB},
+\qquad
+\bar U^A=\delta^A{}_0,
+\qquad
+\bar S=\sigma_0X^0,
+\qquad
+\bar Q^I=0,
+\label{eq:background}
+\end{equation}
+for which
+\begin{equation}
+\bar\BridgeMetric_{AB}=\eta_{AB}=\mathrm{diag}(-1,1,1,1).
+\label{eq:etabridge}
+\end{equation}
+Write perturbations as
+\begin{equation}
+G_{AB}=\delta_{AB}+H_{AB},
+\qquad
+U^A=\bar U^A+V^A,
+\qquad
+S=\sigma_0X^0+\sigma,
+\qquad
+Q^I=q^I.
+\label{eq:perturbations}
+\end{equation}
+The unit constraint again gives
+\begin{equation}
+V^0=-\frac{1}{2}H_{00},
+\label{eq:V0}
+\end{equation}
+and the bridge perturbation is
+\begin{equation}
+h_{00}=-H_{00},
+\qquad
+h_{0i}=-H_{0i}-2V_i,
+\qquad
+h_{ij}=H_{ij},
+\label{eq:bridgepert}
+\end{equation}
+with
+\begin{equation}
+V_i=V_i^T+\partial_i\chi,
+\qquad
+\partial_iV_T^i=0.
+\label{eq:Vdecomp}
+\end{equation}
+
+\section{Quadratic Auxiliary Lagrangian of the Quartic Representative}
+
+\begin{proposition}[Quadratic auxiliary coefficients]
+On the flat background \eqref{eq:background}--\eqref{eq:etabridge}, the full quadratic auxiliary Lagrangian of the minimal quartic representative is
+\begin{align}
+\mathcal L_{\mathrm{aux},4}^{(2)}
+=\;&
+-\frac{m_S^2}{2}\bigl(\partial_0\sigma-\sigma_0\phi\bigr)^2
+-\frac{\lambda_4}{2M_*^2}(\nabla^2\sigma)^2
+\nonumber\\
+&-\frac{1}{2}q^I\!\left(-\nabla^2\delta_{IJ}+\widehat M_{IJ}\right)\!q^J
+-\frac{\kappa_\theta}{2}\left(\nabla^2\chi+\frac{1}{2}\partial_0H\right)^2
+\nonumber\\
+&-\frac{\kappa_\Omega}{4}\,
+\partial_{[i}\!\left(S_{j]}+V^T_{j]}\right)
+\partial^{[i}\!\left(S^{j]}+V_T^{j]}\right),
+\label{eq:Laux4}
+\end{align}
+with \(h_{00}=-2\phi\).
+\end{proposition}
+
+\begin{proof}
+The minimal quadratic coefficients were already derived in the coefficient-level linearized-consistency manuscript. On the collapsed branch \eqref{eq:collapsed}, the \(\kappa_S\), \(\mu_S^2\), and \(\mu_{SI}\) terms disappear. Adding the quartic spatial term \eqref{eq:L4} then yields \eqref{eq:Laux4}.
+\end{proof}
+
+\begin{remark}
+At this coefficient level, the quartic completion changes only the \(\sigma\)-sector. The \(Q\)-sector stays uncoupled from \(\sigma\), and the longitudinal and transverse \(U\)-sector blocks are unchanged from the minimal branch.
+\end{remark}
+
+\section{Elimination of the Auxiliary Sectors}
+
+\begin{proposition}[Unchanged \(U\)-sector elimination]
+On the decaying flat branch with no harmonic zero mode, the \(\chi\) and \(V_T^i\) Euler--Lagrange equations remain
+\begin{equation}
+\nabla^2\chi=-\frac{1}{2}\partial_0H,
+\qquad
+V_T^i=-S^i.
+\label{eq:Usolve}
+\end{equation}
+Consequently the \(\kappa_\theta\) and \(\kappa_\Omega\) sectors contribute no residual flat-background bridge self-energy at quadratic order.
+\end{proposition}
+
+\begin{proof}
+The quartic term \eqref{eq:L4} depends only on \(\sigma\). Therefore the variations with respect to \(\chi\) and \(V_T^i\) are exactly the same as in the minimal candidate action, and so are their on-shell solutions and vanishing quadratic contributions.
+\end{proof}
+
+The \(Q\)-sector equation derived from \eqref{eq:Laux4} is
+\begin{equation}
+\bigl((-\nabla^2)\delta_{IJ}+\widehat M_{IJ}\bigr)q^J=0.
+\label{eq:qeq}
+\end{equation}
+
+\begin{proposition}[Exact \(Q\)-sector elimination]
+If \(\widehat M_{IJ}\) is positive definite, then the decaying flat branch of \eqref{eq:qeq} is
+\begin{equation}
+q^I=0.
+\label{eq:qzero}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+On the flat branch, the operator \((-\nabla^2)\delta_{IJ}+\widehat M_{IJ}\) is strictly positive when \(\widehat M_{IJ}\) is positive definite. Therefore the only decaying solution of \eqref{eq:qeq} is \eqref{eq:qzero}.
+\end{proof}
+
+After eliminating \(\chi\), \(V_T^i\), and \(q^I\), the reduced scalar bridge channel becomes
+\begin{equation}
+\mathcal L_{\sigma,\mathrm{eff},4}^{(2)}
+=
+-\frac{m_S^2}{2}\bigl(\partial_0\sigma-\sigma_0\phi\bigr)^2
+-\frac{1}{2}\sigma\,\mathcal B_4(-\nabla^2)\,\sigma,
+\label{eq:Lsigmaeff4}
+\end{equation}
+with
+\begin{equation}
+\mathcal B_4(-\nabla^2)
+\equiv
+\frac{\lambda_4}{M_*^2}(-\nabla^2)^2.
+\label{eq:B4operator}
+\end{equation}
+
+\begin{remark}
+This is the quartic analogue of the earlier scalar reduction. The entire nontrivial flat-background auxiliary burden is again compressed to one scalar operator, but this time that operator starts directly at quartic spatial order.
+\end{remark}
+
+\section{Bridge Self-Energy and Quartic Exact-Closure Data}
+
+In Fourier space, with \(k^2\equiv |\mathbf{k}|^2\), \eqref{eq:B4operator} gives
+\begin{equation}
+\mathcal B_4(k^2)
+=
+\frac{\lambda_4}{M_*^2}k^4.
+\label{eq:B4k}
+\end{equation}
+Using the same scalar elimination step as in the earlier coefficient-level note then gives
+\begin{equation}
+\Delta\mathcal L_{\phi,4}^{(2)}(\omega,\mathbf{k})
+=
+-\frac{1}{2}\,
+\Pi_\phi^{(4)}(\omega,\mathbf{k})\,|\phi(\omega,\mathbf{k})|^2,
+\label{eq:Deltaphi4}
+\end{equation}
+with
+\begin{equation}
+\Pi_\phi^{(4)}(\omega,\mathbf{k})
+=
+m_S^2\sigma_0^2\,
+\frac{\mathcal B_4(k^2)}
+{m_S^2\omega^2+\mathcal B_4(k^2)}.
+\label{eq:Piphi4}
+\end{equation}
+
+\begin{proposition}[Only surviving flat-background correction channel]
+For the minimal quartic representative, after eliminating \(\chi\), \(V_T^i\), and \(q^I\), the only nonvanishing flat-background auxiliary correction to the bridge sector at quadratic order is the scalar self-energy channel \eqref{eq:Piphi4}. No independent tensor or transverse-vector bridge self-energy survives at this order.
+\end{proposition}
+
+\begin{proof}
+Equation \eqref{eq:Usolve} removes the longitudinal and transverse \(U\)-sector pieces without residual contribution, while \eqref{eq:qzero} removes the \(Q\)-sector entirely on the decaying branch. The quartic term changes only the \(\sigma\)-sector, so the only remaining nontrivial auxiliary correction is \eqref{eq:Piphi4}.
+\end{proof}
+
+Expand \eqref{eq:B4k} in the same low-momentum form used in the earlier branch tests:
+\begin{equation}
+\mathcal B_4(k^2)
+=
+\mathcal B_{4,0}
++\mathcal B_{4,2}k^2
++\mathcal B_{4,4}k^4
++\mathcal O(k^6),
+\label{eq:B4expand}
+\end{equation}
+with
+\begin{equation}
+\mathcal B_{4,0}=0,
+\qquad
+\mathcal B_{4,2}=0,
+\qquad
+\mathcal B_{4,4}=\frac{\lambda_4}{M_*^2}.
+\label{eq:B4coeffs}
+\end{equation}
+
+\begin{corollary}[Automatic flat-background exact-closure conditions]
+The coefficient-level flat-background exact-closure conditions of the earlier notes,
+\begin{equation}
+\mathcal B_0=0,
+\qquad
+\mathcal B_2=0,
+\label{eq:oldconditions}
+\end{equation}
+hold identically on the minimal quartic representative.
+\end{corollary}
+
+\begin{proof}
+Equation \eqref{eq:B4coeffs} shows directly that the \(k^0\) and \(k^2\) coefficients vanish identically.
+\end{proof}
+
+\begin{remark}
+The significance of \eqref{eq:B4coeffs} is not that all scalar structure disappears. It is that the flat-background exact-closure burden is shifted entirely to quartic order rather than forcing another tuned cancellation at \(k^0\) or \(k^2\).
+\end{remark}
+
+\section{Quartic-Health Branch and Flat-Background Result}
+
+\begin{definition}[Quartic-health branch]
+For the present flat-background analysis, the higher-derivative branch is said to satisfy the quartic-health gate if
+\begin{equation}
+m_S^2>0,
+\qquad
+\lambda_4>0,
+\qquad
+\widehat M_{IJ}\ \text{is positive definite}.
+\label{eq:quartichealth}
+\end{equation}
+\end{definition}
+
+The role of \eqref{eq:quartichealth} is transparent. The coefficient \(m_S^2\) keeps the existing time-derivative block under the same positive-sign discipline as before, \(\lambda_4>0\) makes the new quartic scalar stiffness positive, and positive-definite \(\widehat M_{IJ}\) prevents the spectator \(Q\)-sector from re-entering through a tachyonic flat-branch instability.
+
+\begin{theorem}[Healthy quartic flat-background branch]
+Assume the quartic-health gate \eqref{eq:quartichealth}. Then the minimal quartic representative has the following properties.
+\begin{enumerate}
+    \item The flat-background exact-closure conditions at orders \(k^0\) and \(k^2\) are satisfied identically.
+    \item The first nontrivial scalar exact-closure coefficient is strictly positive:
+    \begin{equation}
+    \mathcal B_{4,4}=\frac{\lambda_4}{M_*^2}>0.
+    \label{eq:B44positive}
+    \end{equation}
+    \item No unsuppressed auxiliary tensor or transverse-vector bridge correction survives.
+    \item The branch does not collapse back to the trivial scalar limit \(\lambda_4=0\); it retains a genuine quartic spatial stabilizer.
+\end{enumerate}
+Therefore the higher-derivative collapsed-scalar family admits a healthy noncollapsed flat-background exact-closure branch at the coefficient level of the present test.
+\end{theorem}
+
+\begin{proof}
+Item 1 is Corollary 1. Item 2 follows directly from \eqref{eq:B4coeffs} and \eqref{eq:quartichealth}. Item 3 is Proposition 3. Item 4 follows because \(\lambda_4>0\) keeps the quartic coefficient nonzero. Together these statements show that the branch passes the same flat-background \(k^0/k^2\) exact-closure filter that ruled out the earlier candidates, while retaining a nontrivial higher-order stabilizing operator.
+\end{proof}
+
+\begin{corollary}[Scientific status of the quartic branch]
+The higher-derivative collapsed-scalar family is the first branch in the current post-no-go sequence that survives the flat-background coefficient-level exact-closure test without requiring a tuned semidefinite degeneration of the previously tested low-order scalar operator.
+\end{corollary}
+
+\begin{remark}
+This is a positive branch result, but it is still only a Phase 3 result. The branch still has to be checked against the active exact-relativistic recovery line before it can be promoted to local and later global curved-background continuation. Nonlinear stability remains open beyond that.
+\end{remark}
+
+\section{What This Phase 3 Test Establishes}
+
+The flat-background status of the higher-derivative branch is now definite.
+\begin{enumerate}
+    \item The minimal quartic representative has been reduced explicitly to the scalar operator \(\mathcal B_4(-\nabla^2)=\lambda_4(-\nabla^2)^2/M_*^2\).
+    \item The \(\chi\), \(V_T^i\), and \(q^I\) sectors remain auxiliary on the decaying flat branch.
+    \item The coefficient-level exact-closure conditions at orders \(k^0\) and \(k^2\) hold automatically.
+    \item Under the quartic-health gate, the remaining quartic scalar stiffness is strictly positive.
+    \item The branch therefore survives the flat-background screening stage as a real candidate for further derivational work.
+\end{enumerate}
+
+This is precisely the disciplined answer the branch-selection note was meant to obtain. The next task is no longer to guess whether quartic stabilization might help. Once the matter-coupling gate is settled, the next remaining benchmark question is whether the branch is compatible with the active exact-relativistic recovery line before it is promoted to a local curved-background continuation.
+
+\section{Conclusion}
+
+The higher-derivative branch-selection note proposed a specific next move after the repeated low-order scalar collapse of the earlier branch tests: treat that collapse as baseline and test whether the first healthy stabilizing structure belongs at quartic spatial derivative order. The present manuscript now supplies the flat-background answer.
+
+For the minimal quartic representative, the answer is yes. The auxiliary reduction is explicit, the \(Q\)- and \(U\)-sector auxiliaries remain under control, the exact-closure conditions at orders \(k^0\) and \(k^2\) are satisfied identically, and the branch retains a strictly positive quartic scalar stiffness when \(\lambda_4>0\). In that precise coefficient-level sense, the higher-derivative collapsed-scalar family is the first post-no-go branch to survive the flat-background exact-closure filter as a noncollapsed candidate.
+
+This still falls short of a completed derivation. The next work is now narrower again: check compatibility with the active exact-relativistic recovery line and only then extend the quartic branch beyond Minkowski space through a local curved-background continuation. Nonlinear stability and any later global admissible-background statement remain subsequent burdens.
+
+\end{document}

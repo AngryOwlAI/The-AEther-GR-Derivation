@@ -1,0 +1,518 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal{A}}
+\newcommand{\BridgeMetric}{\mathfrak{g}}
+\newcommand{\Ell}{\mathcal{L}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Higher-Derivative Quartic Branch Explicit Minimal Nonlinear Completion and First Reduced 3+1 System}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The previous nonlinear-stability setup note fixed the correct logical burden for the surviving quartic branch: before any stability theorem can be asked honestly, one must choose one explicit quartic-compatible nonlinear completion and write the corresponding reduced evolution and auxiliary constraint system around the flat exact-closure background. This manuscript performs that first post-setup step.
+
+The completion chosen here is deliberately minimal. It keeps the same bridge metric and matter route,
+\[
+\BridgeMetric_{AB}=G_{AB}-2U_AU_B,
+\qquad
+S_{\mathrm{matter}}[\Xi^*\BridgeMetric,\psi],
+\]
+retains the collapsed-scalar baseline \(\kappa_S=\mu_{SI}=\mu_S^2=0\), preserves the positive \(Q\)-sector mass block \(\widehat M_{IJ}\), and adjoins only the covariant projected quartic operator
+\[
+\Delta S_{\mathrm{quartic}}
+=
+-\frac{\lambda_4}{2M_*^2}
+\int_{\Sub} d^4X\,\sqrt{G}\,
+\bigl(\nabla_A(P^{AB}\nabla_B S)\bigr)^2.
+\]
+No new ordered-flow principal term with more than two derivatives is introduced. Linearization about the flat admissible background therefore reproduces the already-recorded quartic quadratic branch, while the local curved-background reduction retains the same
+\[
+\frac{\lambda_4}{M_*^2}(-D^2)^2
++ \mathcal O\!\left(\frac{\mathcal R\,D^2}{M_*^2}\right)
++ \mathcal O\!\left(\frac{\nabla\mathcal R\,D}{M_*^3}\right)
++ \mathcal O\!\left(\frac{\mathcal R^2}{M_*^2}\right)
+\]
+hierarchy.
+
+Writing the observer metric in ADM form
+\[
+g=-N^2dt^2+\gamma_{ij}(dx^i+\beta^i dt)(dx^j+\beta^j dt),
+\]
+with \(S=\sigma_0 t+\sigma\) and
+\[
+\pi_\sigma
+\equiv
+m_S^2\bigl(n^\mu\nabla_\mu S-\sigma_0\bigr),
+\]
+the resulting reduced principal evolution is the Einstein \(3+1\) system coupled to one quartic scalar channel,
+\begin{align*}
+(\partial_t-\Ell_\beta)\gamma_{ij} &= -2N K_{ij},\\
+(\partial_t-\Ell_\beta)\sigma &= N\frac{\pi_\sigma}{m_S^2}+\sigma_0(N-1),\\
+(\partial_t-\Ell_\beta)\pi_\sigma
+&=
+-N\frac{\lambda_4}{M_*^2}\Delta_\gamma^2\sigma
++ \text{lower-order terms},
+\end{align*}
+subject to the ordinary Einstein constraints plus completion-dependent auxiliary elliptic constraints for the longitudinal \(U\)-sector and the gapped \(Q\)-sector. No additional observer-accessible tensor or transverse-vector propagating channel appears. This note does not prove local well-posedness. It records the explicit completion and reduced system that any first honest stability theorem must now analyze.
+\end{abstract}
+
+\section{Introduction}
+
+The higher-derivative quartic branch has already passed the flat-background exact-closure screen, the bridge-metric matter-coupling gate, the recovery-compatibility gate, the local curved-background continuation, the admissible-background theorem route, the obstruction note, the first negative finite-overlap weakening test, and the nonlinear-stability setup note. That sequence removed one ambiguity but left one missing input. The next work is no longer to ask \emph{whether} a nonlinear-stability problem should be posed. It is to say \emph{which nonlinear branch} is being posed and what its first reduced system actually is.
+
+The present manuscript makes that choice in the narrowest possible way. It does not attempt to enumerate all nonlinear quartic-compatible completions. It picks one explicit minimal completion that is already strongly suggested by the branch history: keep the bridge, keep the matter route, keep the already-recorded positive-sign auxiliary blocks, keep the collapsed-scalar baseline at low order, and covariantize only the quartic projected spatial operator. That is enough to remove the current ambiguity in the principal metric--scalar system while still staying within the disciplined claim boundary of the active sequence.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays within that boundary. It does not prove local well-posedness or nonlinear stability. It does not show that the chosen completion is uniquely preferred by deeper substrate physics. It does record one explicit quartic-compatible completion and the first reduced \(3+1\) system that follows from it.
+
+\section{Explicit Minimal Quartic-Compatible Completion}
+
+The candidate-model action class already fixed in the substrate-kinematics and linearized-consistency notes is
+\begin{equation}
+S_{\mathrm{cand}}
+=
+\frac{c^3}{16\pi G_N}
+\int_{\Sub} d^4X\,\sqrt{G}\,\bigl(R[\BridgeMetric]-2\Lambda_{\Sub}\bigr)
++ \int_{\Sub} d^4X\,\sqrt{G}\,\mathcal L_{\mathrm{aux}}
++ S_{\mathrm{matter}}[\Xi^*\BridgeMetric,\psi],
+\label{eq:Scand}
+\end{equation}
+with bridge metric
+\begin{equation}
+\BridgeMetric_{AB}=G_{AB}-2U_AU_B
+\label{eq:bridge}
+\end{equation}
+and projector
+\begin{equation}
+P_{AB}=G_{AB}-U_AU_B.
+\label{eq:projector}
+\end{equation}
+
+\begin{definition}[Explicit minimal quartic-compatible completion]
+The \emph{explicit minimal quartic-compatible completion} is the substrate action
+\begin{equation}
+S_{\mathrm{min},4}
+=
+\frac{c^3}{16\pi G_N}
+\int_{\Sub} d^4X\,\sqrt{G}\,\bigl(R[\BridgeMetric]-2\Lambda_{\Sub}\bigr)
++ \int_{\Sub} d^4X\,\sqrt{G}\,\mathcal L_{\mathrm{aux,min},4}
++ S_{\mathrm{matter}}[\Xi^*\BridgeMetric,\psi],
+\label{eq:Smin4}
+\end{equation}
+where
+\begin{align}
+\mathcal L_{\mathrm{aux,min},4}
+=\;&
+\lambda_U\bigl(G_{AB}U^AU^B-1\bigr)
+-\frac{m_S^2}{2}\bigl(U^A\nabla_A S-\sigma_0\bigr)^2
+-\frac{\lambda_4}{2M_*^2}\bigl(\Delta_\perp S\bigr)^2
+\nonumber\\
+&-\frac{1}{2}\delta_{IJ}P^{AB}(D_AQ^I)(D_BQ^J)
+-\frac{1}{2}\widehat M_{IJ}Q^IQ^J
+-\frac{\kappa_\theta}{2}\bigl(\nabla_AU^A\bigr)^2
+-\frac{\kappa_\Omega}{4}\Omega_{AB}\Omega^{AB},
+\label{eq:Lauxmin4}
+\end{align}
+with
+\begin{equation}
+\Delta_\perp S\equiv \nabla_A\!\left(P^{AB}\nabla_B S\right),
+\qquad
+\Omega_{AB}\equiv P_A{}^CP_B{}^D\nabla_{[C}U_{D]}.
+\label{eq:quarticdefs}
+\end{equation}
+The completion is assumed to satisfy
+\begin{equation}
+m_S^2>0,
+\qquad
+\lambda_4>0,
+\qquad
+\widehat M_{IJ}\ge m_{Q,\min}^2\delta_{IJ}>0,
+\qquad
+\kappa_\theta\ge 0,
+\qquad
+\kappa_\Omega\ge 0.
+\label{eq:positivity}
+\end{equation}
+\end{definition}
+
+\begin{remark}
+This completion is \emph{minimal} in the narrow sense relevant here. It adds no new direct \(S/Q\) interaction, no new \(U\)-sector kinetic structure beyond the blocks already present in the candidate-model line, and no new ordered-flow principal derivative beyond the existing \(m_S^2(U\cdot \nabla S-\sigma_0)^2\) term.
+\end{remark}
+
+\begin{proposition}[The chosen completion is quartic-compatible]
+The action \(S_{\mathrm{min},4}\) is quartic-compatible in the sense of the previous nonlinear-stability setup note.
+\end{proposition}
+
+\begin{proof}
+The bridge metric \eqref{eq:bridge} and matter route in \eqref{eq:Smin4} are identical to those already used throughout the quartic branch, so the single-metric observer-accessible matter coupling is unchanged. Linearize about the homogeneous admissible background
+\begin{equation}
+\bar G_{AB}=\delta_{AB},
+\qquad
+\bar U^A=\delta^A{}_0,
+\qquad
+\bar S=\sigma_0X^0,
+\qquad
+\bar Q^I=0.
+\label{eq:flatbackground}
+\end{equation}
+Then \(P^{AB}\) reduces to the spatial projector, \(\Delta_\perp S=\nabla^2\sigma+\mathcal O(2)\), and the new nonlinear term contributes exactly the previously recorded flat quadratic quartic block
+\begin{equation}
+\Delta\mathcal L^{(2)}_4
+=
+-\frac{\lambda_4}{2M_*^2}(\nabla^2\sigma)^2.
+\label{eq:flatquartic}
+\end{equation}
+Since the \(Q\)-sector remains massive and uncoupled at linear order, and the \(U\)-sector keeps the same divergence and vorticity blocks as the earlier candidate-model line, the flat reduction reproduces the already-recorded quartic quadratic branch with no unsuppressed \(k^0\) or \(k^2\) scalar remainder.
+
+On slowly varying admissible backgrounds, the operator \(\Delta_\perp\) is the covariant projected rest-space divergence of the projected gradient. Therefore \((\Delta_\perp)^2\) reduces locally to
+\begin{equation}
+\frac{\lambda_4}{M_*^2}(-D^2)^2
++ \mathcal O\!\left(\frac{\mathcal R\,D^2}{M_*^2}\right)
++ \mathcal O\!\left(\frac{\nabla\mathcal R\,D}{M_*^3}\right)
++ \mathcal O\!\left(\frac{\mathcal R^2}{M_*^2}\right),
+\label{eq:localquartic}
+\end{equation}
+which is the same local quartic hierarchy already recorded. Because the quartic term is built entirely from the projected operator \(\Delta_\perp\), it introduces no new observer-accessible principal term with more than two derivatives along the ordered flow. Finally, the positivity and gap assumptions \eqref{eq:positivity} are exactly the required uniform positivity data. Hence \(S_{\mathrm{min},4}\) is quartic-compatible.
+\end{proof}
+
+\section{First 3+1 Variables for the Chosen Completion}
+
+Let \(g_{\mu\nu}=\Xi^*\BridgeMetric_{AB}\) be the observer metric. For the first nonlinear-stability pass, write \(g_{\mu\nu}\) in ADM form,
+\begin{equation}
+g_{\mu\nu}dx^\mu dx^\nu
+=
+-N^2dt^2
++ \gamma_{ij}(dx^i+\beta^idt)(dx^j+\beta^jdt),
+\label{eq:ADM}
+\end{equation}
+with unit future normal
+\begin{equation}
+n^\mu = \frac{1}{N}(1,-\beta^i),
+\label{eq:normal}
+\end{equation}
+extrinsic curvature
+\begin{equation}
+K_{ij}=-\frac{1}{2}\Ell_n\gamma_{ij},
+\label{eq:Kij}
+\end{equation}
+and spatial Levi-Civita connection \(D_i\).
+
+Decompose the order scalar as
+\begin{equation}
+S=\sigma_0 t+\sigma.
+\label{eq:Sdecomp}
+\end{equation}
+Define the reduced scalar momentum variable
+\begin{equation}
+\pi_\sigma
+\equiv
+m_S^2\bigl(n^\mu\nabla_\mu S-\sigma_0\bigr),
+\label{eq:pisigma}
+\end{equation}
+and the rest-space Laplacian
+\begin{equation}
+\Delta_\gamma \equiv D^iD_i.
+\label{eq:Deltagamma}
+\end{equation}
+
+\begin{definition}[Reduced first-pass unknowns]
+For the explicit completion \(S_{\mathrm{min},4}\), the first reduced unknowns around the flat exact-closure background are
+\begin{equation}
+(\gamma_{ij},K_{ij};\sigma,\pi_\sigma;\psi,\pi_\psi)
+\label{eq:reducedunknowns}
+\end{equation}
+together with auxiliary variables \((Q^I,\chi,W_T^i)\) determined at each time by completion-dependent auxiliary constraints.
+\end{definition}
+
+\begin{remark}
+The pair \((\sigma,\pi_\sigma)\) is used instead of \((S,\Ell_n S)\) because it isolates the already-recorded quartic scalar channel and keeps the first reduced system close to the earlier nonlinear-stability setup note.
+\end{remark}
+
+\section{Auxiliary Constraints of the Explicit Completion}
+
+The chosen completion still contains nonmetric \(Q\)- and \(U\)-sector variables, but they are not allowed to become new observer-accessible propagating channels at the present scope. Their equations therefore appear in the reduced system as auxiliary constraints.
+
+\subsection{Gapped Q-Sector}
+
+\begin{proposition}[Reduced Q-sector constraint]
+For the explicit completion \(S_{\mathrm{min},4}\), the \(Q\)-sector satisfies an elliptic constraint of the form
+\begin{equation}
+\bigl((-\Delta_\gamma)\delta_{IJ}+\widehat M_{IJ}\bigr)Q^J
+=
+\mathcal N_I^{(Q)}[\gamma,K,N,\beta,\sigma,\pi_\sigma,Q],
+\label{eq:Qconstraint}
+\end{equation}
+where \(\mathcal N_I^{(Q)}\) vanishes at linear order about the flat background and begins at quadratic order in perturbations and derivatives.
+\end{proposition}
+
+\begin{proof}
+In the completion \(S_{\mathrm{min},4}\), the only \(Q\)-sector terms are the projected spatial kinetic block and the positive mass block in \eqref{eq:Lauxmin4}. Because the collapsed-scalar conditions remove the low-order \(S/Q\) mixing already ruled out in the earlier branch tests, the right-hand side of the \(Q\)-equation has no linear source on the flat branch. The principal operator is therefore exactly \((-\Delta_\gamma)\delta_{IJ}+\widehat M_{IJ}\), with the remaining geometry-dependent terms entering only through nonlinear lower-order couplings. This gives \eqref{eq:Qconstraint}.
+\end{proof}
+
+\begin{corollary}[Decaying flat-branch reduction]
+On the flat exact-closure background, the decaying branch of \eqref{eq:Qconstraint} is
+\begin{equation}
+Q^I=0.
+\label{eq:Qzero}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+When \(\gamma=\delta\), \(K=0\), \(N=1\), \(\beta=0\), \(\sigma=0\), and \(\pi_\sigma=0\), the source \(\mathcal N_I^{(Q)}\) vanishes and the positive operator \((-\Delta)\delta_{IJ}+\widehat M_{IJ}\) has only the trivial decaying solution.
+\end{proof}
+
+\subsection{Auxiliary Ordered-Flow Constraints}
+
+Decompose the spatial part of the ordered-flow perturbation into longitudinal and transverse pieces,
+\begin{equation}
+W_i=D_i\chi+W_i^T,
+\qquad
+D^iW_i^T=0.
+\label{eq:Wdecomp}
+\end{equation}
+The unit constraint in \(S_{\mathrm{min},4}\) fixes the time component algebraically, while the divergence and vorticity blocks determine \(\chi\) and \(W_i^T\).
+
+\begin{proposition}[Reduced U-sector constraints]
+At the first reduced 3+1 level, the explicit completion \(S_{\mathrm{min},4}\) yields auxiliary ordered-flow constraints of the schematic form
+\begin{align}
+\kappa_\theta\,\Delta_\gamma \chi
+&=
+-K + \mathcal N_\chi[\gamma,K,N,\beta,\sigma,\pi_\sigma,\chi,W^T],
+\label{eq:chiconstraint}
+\\
+\kappa_\Omega\,(-\Delta_\gamma)W_i^T
+&=
+\mathcal N_i^{(T)}[\gamma,K,N,\beta,\sigma,\pi_\sigma,\chi,W^T],
+\label{eq:WTconstraint}
+\end{align}
+where \(\mathcal N_\chi\) and \(\mathcal N_i^{(T)}\) vanish on the flat background and carry only lower-order nonlinear structure at the present scope.
+\end{proposition}
+
+\begin{proof}
+The completion \(S_{\mathrm{min},4}\) introduces no new \(U\)-sector block beyond the unit constraint, the divergence term \((\nabla_AU^A)^2\), and the vorticity term \(\Omega_{AB}\Omega^{AB}\). Consequently the spatial ordered-flow equations remain auxiliary rather than hyperbolic at the same scope as in the earlier candidate-model line. The divergence block controls the longitudinal variable \(\chi\), while the vorticity block controls the transverse piece \(W_i^T\). Around the flat exact-closure background, the principal part of the longitudinal relation is the same elliptic trace relation already seen in linear form, and the transverse equation remains elliptic with no new time derivative. This yields \eqref{eq:chiconstraint}--\eqref{eq:WTconstraint}.
+\end{proof}
+
+\begin{remark}
+Proposition 4 is exactly where the current note stops short of a local well-posedness theorem. The point at present scope is not to prove the elliptic theory. It is to record the explicit completion-dependent auxiliary constraints that must be solved at each time slice once \(S_{\mathrm{min},4}\) is chosen.
+\end{remark}
+
+\section{Reduced Einstein--Quartic-Scalar Evolution System}
+
+Once the auxiliary constraints are treated as slice-wise determinations of \((Q^I,\chi,W_i^T)\), the observer-accessible branch is governed by the Einstein \(3+1\) system coupled to one quartic scalar channel.
+
+\begin{proposition}[Reduced metric evolution]
+For the explicit completion \(S_{\mathrm{min},4}\), the reduced metric evolution takes the ADM form
+\begin{equation}
+(\partial_t-\Ell_\beta)\gamma_{ij}=-2N K_{ij},
+\label{eq:gammadt}
+\end{equation}
+\begin{align}
+(\partial_t-\Ell_\beta)K_{ij}
+=\;&
+-D_iD_jN
++N\!\left(R_{ij}[\gamma]+K K_{ij}-2K_i{}^kK_{kj}\right)
+\nonumber\\
+&-8\pi G_N N
+\left(
+S_{ij}^{\mathrm{matter}}
+-\frac{1}{2}\gamma_{ij}\bigl(S^{\mathrm{matter}}-\rho^{\mathrm{matter}}\bigr)
++\Theta_{ij}^{(\sigma)}
+\right),
+\label{eq:Kdt}
+\end{align}
+subject to the Hamiltonian and momentum constraints
+\begin{align}
+R[\gamma]+K^2-K_{ij}K^{ij}
+&=
+16\pi G_N\bigl(\rho^{\mathrm{matter}}+\rho_\sigma\bigr),
+\label{eq:Hconstraint}
+\\
+D^j\!\left(K_{ij}-\gamma_{ij}K\right)
+&=
+8\pi G_N\bigl(J_i^{\mathrm{matter}}+J_i^{(\sigma)}\bigr).
+\label{eq:Mconstraint}
+\end{align}
+Here the scalar source terms satisfy the leading-order expansions
+\begin{align}
+\rho_\sigma
+&=
+\frac{1}{2m_S^2}\pi_\sigma^2
++ \frac{\lambda_4}{2M_*^2}\bigl(\Delta_\gamma \sigma\bigr)^2
++ \mathcal O_{\mathrm{l.o.t.}},
+\label{eq:rhosigma}
+\\
+J_i^{(\sigma)}
+&=
+-\pi_\sigma D_i\sigma
++ \mathcal O_{\mathrm{l.o.t.}},
+\label{eq:Jsigma}
+\\
+\Theta_{ij}^{(\sigma)}
+&=
+\mathcal O\!\left(\frac{\lambda_4}{M_*^2}D_iD_j\sigma\,\Delta_\gamma \sigma\right)
++ \mathcal O_{\mathrm{l.o.t.}},
+\label{eq:Thetasigma}
+\end{align}
+where \(\mathcal O_{\mathrm{l.o.t.}}\) denotes lower-order terms relative to the principal metric--scalar hierarchy.
+\end{proposition}
+
+\begin{proof}
+The bridge part of \(S_{\mathrm{min},4}\) is still the Einstein--Hilbert action of the bridge metric, so the ADM metric equations are the standard Einstein equations with source given by matter plus the reduced quartic scalar channel. The only new completion-specific source is the quartic scalar stress. Its leading pieces are the kinetic contribution from \(\pi_\sigma\) and the quartic rest-space contribution from \((\Delta_\gamma\sigma)^2\), with geometry-dependent commutator terms entering below principal order. This gives \eqref{eq:gammadt}--\eqref{eq:Thetasigma}.
+\end{proof}
+
+\begin{proposition}[Reduced quartic scalar evolution]
+For the explicit completion \(S_{\mathrm{min},4}\), the scalar channel satisfies the first-order system
+\begin{align}
+(\partial_t-\Ell_\beta)\sigma
+&=
+N\frac{\pi_\sigma}{m_S^2}
++\sigma_0(N-1),
+\label{eq:sigmadt}
+\\
+(\partial_t-\Ell_\beta)\pi_\sigma
+&=
+-N\frac{\lambda_4}{M_*^2}\Delta_\gamma^2\sigma
++\mathcal N_\sigma[\gamma,K,N,\beta,\sigma,\pi_\sigma],
+\label{eq:pidt}
+\end{align}
+where the leading lower-order nonlinear remainder has the schematic structure
+\begin{align}
+\mathcal N_\sigma
+=\;&
+\mathcal O(NK\pi_\sigma)
++\mathcal O\!\left(\frac{\lambda_4}{M_*^2}\mathrm{Ric}[\gamma]\cdot D^2\sigma\right)
+\nonumber\\
+&+\mathcal O\!\left(\frac{\lambda_4}{M_*^2}D\,\mathrm{Ric}[\gamma]\cdot D\sigma\right)
++\mathcal O\!\left(\frac{\lambda_4}{M_*^2}\mathrm{Ric}[\gamma]^2\sigma\right)
++\mathcal O_{\ge 2}.
+\label{eq:Nsigma}
+\end{align}
+\end{proposition}
+
+\begin{proof}
+Equation \eqref{eq:sigmadt} is the definition of \(\pi_\sigma\) rewritten using \eqref{eq:normal} and \eqref{eq:Sdecomp}. The quartic term in \(S_{\mathrm{min},4}\) contributes the principal operator \(-(\lambda_4/M_*^2)\Delta_\gamma^2\sigma\), while the already-recorded local curved-background continuation shows that all other geometry-dependent corrections are of orders \(\mathrm{Ric}\cdot D^2\sigma\), \(D\mathrm{Ric}\cdot D\sigma\), and \(\mathrm{Ric}^2\sigma\) relative to the same \(M_*\)-suppressed hierarchy. The transport and volume terms contribute only lower-order factors such as \(K\pi_\sigma\). This yields \eqref{eq:pidt}--\eqref{eq:Nsigma}.
+\end{proof}
+
+\begin{corollary}[No new observer-accessible propagating channel]
+For the explicit completion \(S_{\mathrm{min},4}\), the reduced observer-accessible principal evolution contains the ordinary Einstein \(3+1\) metric sector plus one scalar channel with two time derivatives and four rest-space derivatives. No additional propagating tensor or transverse-vector channel appears.
+\end{corollary}
+
+\begin{proof}
+Propositions 3 and 4 show that the \(Q\)-sector and spatial ordered-flow variables are auxiliary, not new hyperbolic variables, at the present scope. Proposition 6 shows that the only new completion-specific principal evolution term is the quartic scalar operator in \eqref{eq:pidt}. Therefore the observer-accessible principal system contains only the Einstein metric sector and one quartic scalar channel.
+\end{proof}
+
+\section{Principal Energy and Continuation Bookkeeping}
+
+The previous nonlinear-stability setup note fixed the natural control norm abstractly. For the explicit completion \(S_{\mathrm{min},4}\), the same control quantity can now be attached to one definite reduced system.
+
+\begin{definition}[Explicit-completion energy]
+Fix an integer \(N\ge 6\). The natural high-order control quantity for the explicit completion \(S_{\mathrm{min},4}\) is
+\begin{align}
+\mathcal E_N^{\mathrm{min},4}(t)
+&\equiv
+\|\gamma-\delta\|_{H^N(\Sigma_t)}^2
++\|K\|_{H^{N-1}(\Sigma_t)}^2
+\nonumber\\
+&\quad
++\|\sigma\|_{H^{N-1}(\Sigma_t)}^2
++\frac{1}{m_S^2}\|\pi_\sigma\|_{H^{N-1}(\Sigma_t)}^2
++\frac{\lambda_4}{M_*^2}\|\Delta_\gamma \sigma\|_{H^{N-1}(\Sigma_t)}^2
++\mathcal E_N^{\mathrm{matter}}(t),
+\label{eq:ENmin}
+\end{align}
+supplemented by the slice-wise auxiliary bookkeeping
+\begin{equation}
+\|Q\|_{H^N(\Sigma_t)}^2
++\|\chi\|_{H^N(\Sigma_t)}^2
++\|W^T\|_{H^N(\Sigma_t)}^2
+\label{eq:auxbookkeeping}
+\end{equation}
+as quantities controlled through the elliptic constraints \eqref{eq:Qconstraint}, \eqref{eq:chiconstraint}, and \eqref{eq:WTconstraint} rather than by independent evolution equations.
+\end{definition}
+
+\begin{remark}
+The point of \eqref{eq:auxbookkeeping} is not to enlarge the propagating phase space. It is to record what must remain elliptically controlled if the first local well-posedness argument is ever to close for the explicit completion \(S_{\mathrm{min},4}\).
+\end{remark}
+
+\begin{proposition}[First honest continuation burden for the explicit completion]
+After fixing \(S_{\mathrm{min},4}\), the first honest local continuation problem is to show that for small asymptotically flat data satisfying the Einstein constraints and the auxiliary constraints,
+\begin{enumerate}
+    \item the reduced system \eqref{eq:gammadt}--\eqref{eq:pidt} is locally well posed,
+    \item the auxiliary constraints \eqref{eq:Qconstraint}, \eqref{eq:chiconstraint}, and \eqref{eq:WTconstraint} propagate as slice-wise determinations,
+    \item the positivity conditions \eqref{eq:positivity} persist, and
+    \item \(\mathcal E_N^{\mathrm{min},4}(t)\) obeys a continuation criterion of the same schematic kind as in the previous setup note.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+The previous setup note showed that no honest nonlinear-stability theorem can be asked before one explicit completion and one explicit reduced system are fixed. The present manuscript now fixes both. Therefore the next burden is no longer an abstract setup question. It is exactly the local well-posedness and continuation problem for the definite system written here.
+\end{proof}
+
+\section{What This Step Establishes}
+
+This manuscript establishes the following.
+\begin{enumerate}
+    \item It chooses one explicit minimal quartic-compatible nonlinear completion \(S_{\mathrm{min},4}\).
+    \item It shows why that completion reproduces the already-recorded flat and local curved quartic branch data.
+    \item It records the completion-dependent auxiliary constraints for the \(Q\)- and \(U\)-sectors.
+    \item It writes the first reduced Einstein--quartic-scalar 3+1 system tied to a definite completion.
+    \item It sharpens the next open burden from ``choose a completion'' to ``prove local well-posedness and a continuation criterion for this chosen completion.''
+\end{enumerate}
+
+It does not establish the following.
+\begin{enumerate}
+    \item It does not prove the elliptic auxiliary constraints are solvable on every small-data slice.
+    \item It does not prove local well-posedness.
+    \item It does not prove nonlinear stability.
+    \item It does not show that \(S_{\mathrm{min},4}\) is the unique or deepest substrate completion.
+    \item It does not reopen the admissible-background theorem route.
+\end{enumerate}
+
+\section{Conclusion}
+
+The quartic branch no longer lacks a concrete nonlinear target. The explicit minimal completion \(S_{\mathrm{min},4}\) now fixes one definite nonlinear branch that preserves the same bridge metric, the same matter route, the same quartic flat-background reduction, the same local curved-background operator hierarchy, and the same auxiliary positivity regime already recorded elsewhere in the active sequence.
+
+That choice makes the next burden narrower and more honest. The immediate task is no longer to speculate about what a nonlinear completion might look like. It is to analyze one explicit reduced Einstein--quartic-scalar system with auxiliary elliptic constraints and determine whether a first local well-posedness and continuation argument can actually be proved. Only after that would a genuine nonlinear-stability theorem become a disciplined target for the explicit completion chosen here.
+
+\end{document}

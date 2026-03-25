@@ -1,0 +1,268 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal{A}}
+\newcommand{\BridgeMetric}{\mathfrak{g}}
+\newcommand{\DeltaPerp}{\Delta_{\perp}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Next Candidate Family: Higher-Derivative Completion Around the Collapsed Scalar Branch}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The minimal stable-sign branch, the derivative-mixing \(S/Q\) branch, and the constraint-assisted longitudinal \(U\)-sector branch have now all been tested at the flat-background quadratic level. Under the active positive-sign discipline, none of them yields a healthy nondegenerate exact-closure branch. Two of the three results are even sharper: the minimal and constraint-assisted branches force the scalar coefficients
+\[
+\kappa_S=\mu_{SI}=\mu_S^2=0,
+\]
+while the derivative-mixing branch reaches exact closure only on a tuned semidefinite perfect-square locus whose remaining independent scalar structure is the Stueckelberg-like combination \((\partial_0\sigma-\sigma_0\phi)^2\).
+
+This note draws the branch-selection lesson from that pattern. The next candidate family should not spend another cycle trying to keep a healthy nonzero \(k^0\) or \(k^2\) scalar correction that the active sign discipline repeatedly collapses. It should instead treat the collapsed scalar limit as the new starting point and ask whether controlled higher spatial derivatives can provide the first nontrivial stabilizing structure without spoiling the exact-closure benchmark.
+
+Accordingly, the next candidate family selected for testing is a higher-derivative completion around the collapsed scalar branch. Its minimal representative adjoins the projected quartic operator
+\[
+\Delta\mathcal L_{4}
+=
+-\frac{\lambda_4}{2M_*^2}\bigl(\Delta_{\perp}S\bigr)^2,
+\qquad
+\Delta_{\perp}\equiv P^{AB}\nabla_A\nabla_B,
+\]
+to a branch whose leading two-derivative scalar coefficients already satisfy \(\kappa_S=\mu_{SI}=\mu_S^2=0\). On the flat admissible background this contributes
+\[
+\Delta\mathcal L_{4}^{(2)}
+=
+-\frac{\lambda_4}{2M_*^2}(\nabla^2\sigma)^2,
+\]
+so the first nontrivial scalar bridge correction begins at quartic spatial order rather than at \(k^0\) or \(k^2\). The note does not claim that this branch already succeeds. It identifies the next family worth testing and states the exact quadratic calculation that must now be done.
+\end{abstract}
+
+\section{Introduction}
+
+The active exact-closure line of \TheoryName{} is already fixed by the foundations, dynamics, consistency, relativistic-recovery, flow-geometry, and substrate-bridge manuscripts. On the derivational side, the project has now passed through three sharper branch tests. The minimal stable-sign candidate action has no nondegenerate flat-background exact-closure branch. The derivative-mixing completion of the \(S/Q\) sector changes the scalar obstruction but closes only on a tuned semidefinite exact-square branch. The constraint-assisted longitudinal \(U\)-sector family activates a genuinely new auxiliary channel, yet under the active positive-sign health gate it still collapses to the same scalar limit \(\kappa_S=\mu_{SI}=\mu_S^2=0\).
+
+That sequence changes what the next branch-selection step should mean. The task is no longer merely to look for another place where a new negative cross term might appear inside the already-tested \(k^0\) or \(k^2\) scalar burden. The more disciplined lesson is that the repeated collapsed-scalar structure itself may be the correct low-order baseline, so the next family should test whether the first healthy stabilizing information belongs at higher spatial derivative order.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays inside that boundary. It does not claim a completed Einsteinian derivation. It chooses the next candidate family and formulates it tightly enough that the next quadratic test can be posed without ambiguity.
+
+\section{What the Previous Three Branch Tests Jointly Show}
+
+The three completed branch tests do not merely produce three disconnected failures. Taken together, they isolate one structural lesson.
+
+\begin{proposition}[Repeated low-order collapse pattern]
+Under the active positive-sign discipline, the completed flat-background branch tests jointly imply the following.
+\begin{enumerate}
+    \item The minimal stable-sign branch cannot satisfy exact closure with a healthy nonzero low-order scalar operator; exact closure forces \(\kappa_S=\mu_{SI}=\mu_S^2=0\).
+    \item The derivative-mixing branch can evade the original minimal algebraic decomposition only by saturating a semidefinite perfect-square condition, after which the remaining independent scalar structure is again only the time-derivative combination \((\partial_0\sigma-\sigma_0\phi)^2\).
+    \item The constraint-assisted longitudinal \(U\)-sector branch changes the auxiliary elimination problem substantially, but its positive-sign exact-closure conditions still force \(\kappa_S=\mu_{SI}=\mu_S^2=0\).
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Each item is exactly the recorded outcome of an existing branch manuscript. The minimal stable-sign and constraint-assisted no-go notes both end in the collapsed scalar conditions \(\kappa_S=\mu_{SI}=\mu_S^2=0\). The derivative-mixing consistency note shows that exact closure survives only on the tuned semidefinite perfect-square branch, where the scalar gradient block saturates its bound and the remaining independent scalar piece is only the Stueckelberg-like time-derivative term. These results differ in mechanism, but they agree on the structural point relevant for branch selection: the active sign discipline repeatedly removes the low-order spatial scalar burden rather than supporting a healthy nonzero \(k^0\) or \(k^2\) branch.
+\end{proof}
+
+\begin{remark}
+This proposition does not prove that every future completion must behave the same way. It identifies the strongest common clue now available from the completed tests.
+\end{remark}
+
+\section{Selection Principle After the Constraint-Assisted No-Go Result}
+
+The original derivative-mixing branch-selection note listed three smallest nonminimal families worth considering: derivative mixing, constraint-assisted longitudinal completion, and higher-derivative completion. The first two have now been tested. The third remains the only small-drift family already identified in the manuscript line but not yet carried through a dedicated branch-selection note of its own.
+
+\begin{definition}[Admissible post-constraint-assisted branch]
+A post-constraint-assisted candidate branch is admissible for the active derivational program only if it satisfies all of the following.
+\begin{enumerate}
+    \item \textbf{Exact-closure answerability.} The branch must retain \TheoryName{} as the exact benchmark and admit a clean reversion route to the unique Einsteinian observer-accessible metric sector.
+    \item \textbf{Single-metric matter coupling.} Matter and light must continue to couple only through the bridge metric.
+    \item \textbf{Health discipline without higher-time-derivative instability.} Any new stabilizing operator must be testable under a sign discipline at least as explicit as the current one, while avoiding a gratuitous Ostrogradsky burden at the first quadratic stage.
+    \item \textbf{Minimal conceptual drift.} The modification should respond directly to the repeated collapse pattern rather than rewrite the public exact-closure claim.
+    \item \textbf{Computable next test.} The branch must admit an immediate flat-background quadratic elimination and bridge self-energy calculation.
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}[Next branch-selection result]
+The next candidate family worth testing after the constraint-assisted longitudinal \(U\)-sector no-go result is a higher-derivative completion around the collapsed scalar branch.
+\end{proposition}
+
+\begin{proof}
+The previous three branch tests jointly indicate that the active sign discipline keeps pushing exact closure away from a healthy nonzero low-order scalar operator and back toward the collapsed scalar limit. A sensible next family should therefore elevate that repeated limit from accidental failure to deliberate baseline and ask whether the first healthy stabilizing structure belongs at higher spatial derivative order.
+
+Among the family types already identified in the active manuscript line, only the higher-derivative option does that while still preserving the bridge metric, the single-metric matter route, and the public exact-closure benchmark. A projected higher-spatial-derivative operator also avoids introducing higher time derivatives at the first quadratic stage, so it remains immediately testable within the same flat-background methodology. It therefore best satisfies the admissibility criteria after the completed derivative-mixing and constraint-assisted tests.
+\end{proof}
+
+\section{Higher-Derivative Completion Around the Collapsed Scalar Branch}
+
+\subsection{Collapsed-Scalar Baseline}
+
+\begin{definition}[Collapsed-scalar baseline]
+For the purpose of the present branch selection, the collapsed-scalar baseline is the branch of the candidate auxiliary sector on which the leading quadratic scalar coefficients satisfy
+\begin{equation}
+\kappa_S=0,
+\qquad
+\mu_{SI}=0,
+\qquad
+\mu_S^2=0,
+\label{eq:collapsedbaseline}
+\end{equation}
+while the time-derivative coefficient and spectator \(Q\)-sector remain under the same positive-sign control,
+\begin{equation}
+m_S^2>0,
+\qquad
+\widehat M_{IJ}\ \text{positive definite}.
+\label{eq:baselinehealth}
+\end{equation}
+\end{definition}
+
+This baseline is not invented arbitrarily. It is the low-order scalar structure to which the existing no-go results repeatedly contract.
+
+\subsection{Minimal Higher-Derivative Completion}
+
+Define the projected spatial bi-Laplacian on the substrate by
+\begin{equation}
+\Delta_{\perp}
+\equiv
+P^{AB}\nabla_A\nabla_B.
+\label{eq:Deltaperp}
+\end{equation}
+The minimal higher-derivative completion selected for the next test is then
+\begin{equation}
+\Delta\mathcal L_{4}
+=
+-\frac{\lambda_4}{2M_*^2}\bigl(\Delta_{\perp}S\bigr)^2,
+\qquad
+\lambda_4>0,
+\qquad
+M_*>0,
+\label{eq:L4}
+\end{equation}
+added on top of the collapsed-scalar baseline \eqref{eq:collapsedbaseline}--\eqref{eq:baselinehealth}.
+
+\begin{definition}[Higher-derivative collapsed-scalar branch]
+The higher-derivative collapsed-scalar branch is the candidate derivational branch obtained by keeping the bridge metric \(\BridgeMetric_{AB}=G_{AB}-2U_AU_B\), the universal matter route \(S_{\mathrm{matter}}[\Xi^*\BridgeMetric,\psi]\), and the positive-sign baseline \eqref{eq:baselinehealth}, while imposing the collapsed-scalar leading conditions \eqref{eq:collapsedbaseline} and adjoining the quartic spatial operator \eqref{eq:L4}.
+\end{definition}
+
+\begin{remark}
+This is the smallest version of the higher-derivative family worth testing first. It does not yet introduce quartic \(Q\)-sector derivative mixing or a new propagating longitudinal \(U\)-sector field. Those larger higher-derivative variants can be deferred unless this first branch proves too restrictive.
+\end{remark}
+
+\subsection{Exact-Closure Reversion Route}
+
+The intended exact-closure reversion route is
+\begin{equation}
+\frac{\lambda_4}{M_*^2}\to 0.
+\label{eq:reversion}
+\end{equation}
+In that limit the branch contracts back to the already identified collapsed-scalar exact-closure baseline. The public exact-closure benchmark of \TheoryName{} is therefore not rewritten.
+
+\section{Flat-Background Quadratic Structure of the Selected Family}
+
+Use the same admissible homogeneous bridge background as in the previous flat-background notes:
+\begin{equation}
+\bar G_{AB}=\delta_{AB},
+\qquad
+\bar U^A=\delta^A{}_0,
+\qquad
+\bar S=\sigma_0X^0,
+\qquad
+\bar Q^I=0,
+\label{eq:background}
+\end{equation}
+with perturbation \(S=\sigma_0X^0+\sigma\). On that background,
+\begin{equation}
+\Delta_{\perp}S
+=
+\nabla^2\sigma+\mathcal O(2),
+\label{eq:Deltaperpflat}
+\end{equation}
+so the higher-derivative term contributes at quadratic order
+\begin{equation}
+\Delta\mathcal L_{4}^{(2)}
+=
+-\frac{\lambda_4}{2M_*^2}(\nabla^2\sigma)^2.
+\label{eq:L4flat}
+\end{equation}
+
+\begin{proposition}[Why the previous no-go decompositions do not transfer directly]
+On the higher-derivative collapsed-scalar branch, the low-momentum scalar bridge burden no longer begins at \(k^0\) or \(k^2\). Instead the first nontrivial scalar operator begins at quartic spatial order,
+\begin{equation}
+\mathcal B_{4}(k^2)
+=
+\frac{\lambda_4}{M_*^2}k^4+\mathcal O(k^6),
+\label{eq:B4}
+\end{equation}
+up to any additional higher-order corrections generated in the full elimination. Therefore the previous positive-decomposition no-go arguments for \(\mathcal B_2\) or \(\mathcal N_{C,2}\) do not apply unchanged.
+\end{proposition}
+
+\begin{proof}
+By branch definition, the leading two-derivative scalar coefficients obey \eqref{eq:collapsedbaseline}, so there is no \(k^0\) or \(k^2\) scalar operator left to test at the starting point. Equation \eqref{eq:L4flat} shows that the first explicit stabilizing contribution from the selected new family is proportional to \((\nabla^2\sigma)^2\), which in Fourier space is \(k^4\sigma^2\). Thus the immediate exact-closure burden shifts from the previously studied low-order coefficients to the sign, pole structure, and elimination of the quartic-order branch.
+\end{proof}
+
+\begin{remark}
+Because \eqref{eq:L4} contains only projected spatial derivatives of \(S\), it does not introduce higher time derivatives at the first quadratic stage. That does not by itself prove full health, but it keeps the first test inside a controllable class.
+\end{remark}
+
+\section{Immediate Research Tasks for This Family}
+
+Once the family is fixed by \eqref{eq:L4}, the next calculations are specific.
+\begin{enumerate}
+    \item derive the full quadratic auxiliary Lagrangian of the higher-derivative collapsed-scalar branch, including the \((\sigma,\chi,V_T^i,q^I)\) reduction on the flat admissible background
+    \item determine whether the reduced scalar bridge self-energy indeed begins at order \(k^4/M_*^2\) with no unsuppressed \(k^0\) or \(k^2\) remainder
+    \item check whether the quartic stabilizer yields a healthy observer-accessible scalar sector without introducing a new low-energy pole or gradient instability
+    \item determine whether the \(Q\)-sector remains a spectator on this branch or whether quartic \(S/Q\) derivative mixing is required already at the first higher-derivative stage
+    \item check whether the branch preserves controlled matter coupling through the bridge metric alone
+    \item check whether the branch remains compatible with the active exact-relativistic recovery line
+    \item state the corresponding local curved-background continuation only after the flat-background quartic branch and those two benchmark gates are under control
+\end{enumerate}
+
+\begin{remark}
+If this higher-derivative family also fails to produce a controlled branch, the case for pausing the derivational search pending a broader auxiliary-sector redesign becomes much stronger. That broader pause, however, should come after this last remaining small-drift family has been tested explicitly rather than before.
+\end{remark}
+
+\section{Conclusion}
+
+The branch-selection burden after the constraint-assisted no-go result was not simply to pick another arbitrary modification. It was to read the pattern exposed by the completed failures. That pattern is now clear enough to guide the next move.
+
+The next candidate family worth testing is a higher-derivative completion around the collapsed scalar branch. It is the remaining small-drift family already foreshadowed in the active manuscript line, it preserves the bridge metric and single-metric matter coupling, and it responds directly to the repeated lesson of the completed branch tests: under the active sign discipline, exact closure does not want a healthy nonzero low-order scalar operator. The next honest question is therefore whether the first healthy stabilizing structure can live at quartic spatial derivative order instead.
+
+This note does not claim that the answer is yes. It records only that this is now the correct next branch to test. The immediate manuscript task is the corresponding flat-background quadratic elimination of the higher-derivative collapsed-scalar family. If that test is positive, the next gates are controlled matter coupling through the bridge metric alone and compatibility with the active exact-relativistic recovery line. Only after those two checks pass should the quartic branch be promoted to a local curved-background continuation.
+
+\end{document}

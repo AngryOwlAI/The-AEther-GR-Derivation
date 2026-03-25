@@ -1,0 +1,389 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal{A}}
+\newcommand{\BridgeMetric}{\mathfrak{g}}
+\newcommand{\Ell}{\mathcal{L}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Higher-Derivative Quartic Compensator Branch Infrared Bridge-Tensor Reduction Test}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The post-restricted-verdict note fixed the next exact derivational burden on the tuned exact-square compensator branch: move beyond the settled same-branch asymptotic bookkeeping, test whether the tuned cancellations survive beyond the current flat/local packaged scope, derive the infrared Einsteinian metric equation on the viable branch, and decide whether exact bridge closure or a genuine observer-accessible remainder survives. This note performs that next step.
+
+The first answer is positive but narrow. The exact-square cancellation \emph{does} survive beyond the flat quadratic subsection in the only sense currently justified by the recorded nonlinear reduction: after algebraic elimination of the compensator \(Y\), the tuned completion reduces exactly to the collapsed-scalar baseline. Hence no quartic scalar principal operator, no propagating compensator mode, and no direct nonmetric matter coupling reappear at the recorded nonlinear reduced-system scope. The quartic observer correction remains removed.
+
+The second answer is the derivational verdict. After the same nonlinear elimination, the reduced observer equation on the tuned branch is not
+\[
+G_{\mu\nu}[g]=8\pi G_N\,T_{\mu\nu}^{\mathrm{matter}}
+\]
+on generic tuned data. It is
+\[
+G_{\mu\nu}[g]
+=
+8\pi G_N\left(
+T_{\mu\nu}^{\mathrm{matter}}
++T_{\mu\nu}^{\mathrm{St}}
+\right),
+\]
+where \(T_{\mu\nu}^{\mathrm{St}}\) is the completion-specific Stueckelberg-like momentum stress tensor carried by the pair \((\sigma,\pi_\sigma)\). In the reduced \(3+1\) system its leading infrared components are
+\[
+\rho_{\mathrm{St}}
+=
+\frac{1}{2m_S^2}\pi_\sigma^2+\mathcal O_{\mathrm{l.o.t.}},
+\qquad
+J_i^{\mathrm{St}}
+=
+-\pi_\sigma D_i\sigma+\mathcal O_{\mathrm{l.o.t.}}.
+\]
+The recorded generic-data renormalized same-branch note already shows that this observer-side source remains nonzero on generic tuned data through the transported frozen momentum profile, while the momentum-suppressed note shows that it vanishes identically only on the invariant restricted branch \(\pi_\sigma\equiv 0\).
+
+Therefore the infrared Einsteinian metric equation is exact only on the restricted momentum-suppressed side branch, not on the unrestricted viable tuned branch. The tuned branch answers the cancellation-survival question positively for the old quartic observer remainder, but it answers the generic bridge-closure question negatively: the surviving infrared bridge tensor is the Stueckelberg-like momentum stress tensor, and it is not pure gauge/constraint exact on generic tuned data. At current disciplined scope, the first unrestricted viable tuned branch therefore fails as an exact generic derivation of the adopted Einsteinian observer equation, and the replacement bridge/completion problem is genuinely reactivated.
+\end{abstract}
+
+\section{Introduction}
+
+The tuned exact-square compensator branch is the first branch in the active sequence that simultaneously passes the full flat-background observer-correction test and possesses an explicit nonlinear reduced-system theorem package. That is why the previous note classified it as the active viable derivational branch and why the next burden could no longer be another asymptotic repair. The tuned asymptotic ledger is already settled: generic tuned data remain closed negatively, while the invariant momentum-suppressed branch closes positively only as a restricted side theorem.
+
+The next question is therefore the bridge question again, now on the viable tuned branch itself. Does the exact-square cancellation that removes the quartic observer correction at flat quadratic scope persist strongly enough beyond the current packaged regime to produce the infrared Einsteinian observer equation on the unrestricted branch? Or does a different observer-accessible remainder survive after the quartic channel is gone?
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays within that boundary. It does not claim that the tuned branch already gives a completed substrate derivation. It does carry the derivational program through the next exact test: explicit reduction of the infrared observer equation on the tuned branch and an explicit verdict on whether the remaining bridge tensor vanishes, is only gauge/constraint exact, or leaves a genuine observer-accessible remainder.
+
+\section{What the Tuned Cancellation Still Removes Beyond the Packaged Flat Scope}
+
+\begin{definition}[Recorded tuned branch data]
+\label{def:branch}
+The \emph{recorded tuned branch data} consist of:
+\begin{enumerate}
+    \item the bridge metric
+    \begin{equation}
+    \BridgeMetric_{AB}=G_{AB}-2U_AU_B,
+    \qquad
+    g_{\mu\nu}=\Xi^\ast\BridgeMetric_{AB};
+    \label{eq:bridge}
+    \end{equation}
+    \item the universal matter route
+    \begin{equation}
+    S_{\mathrm{matter}}[\Xi^\ast\BridgeMetric,\psi]
+    =
+    S_{\mathrm{matter}}[g,\psi];
+    \label{eq:matterroute}
+    \end{equation}
+    \item the exact-square tuning
+    \begin{equation}
+    \frac{\alpha_Y^2}{M_Y^2}=\frac{\lambda_4}{M_*^2},
+    \qquad
+    M_Y^2>0,
+    \label{eq:tuning}
+    \end{equation}
+    together with the positive \(Q\)-sector and ordered-flow auxiliary blocks;
+    \item the explicit nonlinear tuned reduced-system/local-theorem package in unit-lapse spatial-harmonic gauge.
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}[Nonlinear survival of the exact-square cancellation]
+\label{prop:survival}
+For the tuned branch data of Definition \ref{def:branch}, the exact-square cancellation survives beyond the current flat quadratic packaged scope in the following precise sense:
+\begin{enumerate}
+    \item after algebraic elimination of \(Y\), the tuned completion reduces exactly to the collapsed-scalar baseline rather than to the old quartic completion;
+    \item no quartic scalar principal operator reappears in the reduced propagating system;
+    \item no propagating compensator mode reappears;
+    \item the matter route remains the single-metric route \eqref{eq:matterroute}.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+The tuned reduced-system note proves that the exact-square compensator is eliminated algebraically and that, after substitution of that algebraic solve, the tuned action reduces exactly to the collapsed-scalar baseline. The same note then derives the propagating reduced system and shows explicitly that the old quartic term \(-(\lambda_4/M_*^2)\Delta_\gamma^2\sigma\) is absent from the \(\pi_\sigma\)-equation, that \(Y\) is reconstructed only afterwards, and that matter still couples only through \(g_{\mu\nu}=\Xi^\ast\BridgeMetric_{AB}\). These are precisely items (1)--(4).
+\end{proof}
+
+\begin{remark}
+Proposition \ref{prop:survival} answers the cancellation-survival question only for the old quartic observer remainder. It says that the exact-square cancellation really removes the quartic observer correction beyond the isolated flat scalar subsection. It does \emph{not} yet say that the full tuned bridge tensor vanishes on the unrestricted branch.
+\end{remark}
+
+\section{Infrared Observer Equation on the Tuned Branch}
+
+The reduced system already records the completion-specific source that remains once the quartic observer correction is gone. The point of the present note is to rewrite that source directly as the tuned infrared bridge tensor.
+
+\begin{definition}[Tuned infrared Stueckelberg tensor]
+\label{def:Tst}
+Let \(n^\mu\) be the future unit normal of the unit-lapse spatial-harmonic \(3+1\) slicing and let \(\gamma_{\mu\nu}=g_{\mu\nu}+n_\mu n_\nu\). Define the \emph{tuned infrared Stueckelberg tensor} \(T_{\mu\nu}^{\mathrm{St}}\) by the standard \(3+1\) decomposition
+\begin{equation}
+T_{\mu\nu}^{\mathrm{St}}
+=
+\rho_{\mathrm{St}}\,n_\mu n_\nu
++2n_{(\mu}J_{\nu)}^{\mathrm{St}}
++S_{\mu\nu}^{\mathrm{St}},
+\label{eq:Tst}
+\end{equation}
+where \(J_\mu^{\mathrm{St}}n^\mu=0\), \(S_{\mu\nu}^{\mathrm{St}}n^\nu=0\), and
+\begin{equation}
+\rho_{\mathrm{St}}
+=
+n^\mu n^\nu T_{\mu\nu}^{\mathrm{St}},
+\qquad
+J_i^{\mathrm{St}}
+=
+-\gamma_i{}^\mu n^\nu T_{\mu\nu}^{\mathrm{St}},
+\label{eq:rhoJ}
+\end{equation}
+while the spatial stress is determined by the recorded reduced Einstein evolution sources through
+\begin{equation}
+\bigl(S_{ij}^{\mathrm{St}}\bigr)^{\mathrm{TF}}
+=
+-\frac{1}{8\pi G_N}\Theta_{ij}^{\mathrm{TF,St}},
+\qquad
+\gamma^{ij}S_{ij}^{\mathrm{St}}
+=
+\frac{1}{4\pi G_N}\Theta_K^{\mathrm{St}}-\rho_{\mathrm{St}}.
+\label{eq:Sij}
+\end{equation}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:Tst} uses only the source terms already present in the tuned reduced Einstein system. It introduces no new physics. It only repackages the completion-specific observer source into one symmetric observer tensor.
+\end{remark}
+
+\begin{proposition}[Infrared Einsteinian metric equation on the tuned branch]
+\label{prop:infrared}
+For the tuned branch data of Definition \ref{def:branch}, the reduced observer equation in the intended infrared regime is
+\begin{equation}
+G_{\mu\nu}[g]
+=
+8\pi G_N\left(
+T_{\mu\nu}^{\mathrm{matter}}
++T_{\mu\nu}^{\mathrm{St}}
+\right).
+\label{eq:infrared}
+\end{equation}
+Equivalently, the tuned bridge correction tensor is
+\begin{equation}
+\mathcal C_{\mu\nu}^{\mathrm{tc,br}}
+=
+8\pi G_N\,T_{\mu\nu}^{\mathrm{St}}.
+\label{eq:Ctc}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+The tuned reduced-system and theorem notes derive the mixed Einstein--trace/Stueckelberg-like momentum system in unit-lapse spatial-harmonic gauge. In that system the Hamiltonian and momentum constraints are
+\[
+R[\gamma]+\frac23K^2-\Sigma_{ij}\Sigma^{ij}
+=
+16\pi G_N\bigl(\rho^{\mathrm{matter}}+\rho_{\mathrm{St}}\bigr),
+\]
+\[
+D^j\Sigma_{ij}-\frac23D_iK
+=
+8\pi G_N\bigl(J_i^{\mathrm{matter}}+J_i^{\mathrm{St}}\bigr),
+\]
+while the Einstein evolution equations carry the completion-specific sources \(\Theta_{ij}^{\mathrm{TF,St}}\) and \(\Theta_K^{\mathrm{St}}\). Definition \ref{def:Tst} reconstructs the unique spatial stress tensor whose \(3+1\) projections reproduce exactly those source terms. Therefore the full reduced Einstein system is exactly \eqref{eq:infrared}. This is equivalent to \eqref{eq:Ctc}.
+\end{proof}
+
+\begin{proposition}[Leading infrared form of the tuned bridge tensor]
+\label{prop:leading}
+On the unrestricted tuned branch, the completion-specific infrared source has leading form
+\begin{equation}
+\rho_{\mathrm{St}}
+=
+\frac{1}{2m_S^2}\pi_\sigma^2+\mathcal O_{\mathrm{l.o.t.}},
+\qquad
+J_i^{\mathrm{St}}
+=
+-\pi_\sigma D_i\sigma+\mathcal O_{\mathrm{l.o.t.}},
+\label{eq:leading}
+\end{equation}
+while \(\Theta_{ij}^{\mathrm{TF,St}}\), \(\Theta_K^{\mathrm{St}}\), and the lower-order source terms vanish on the flat exact-closure background and contain no quartic scalar principal operator.
+\end{proposition}
+
+\begin{proof}
+This is exactly the observer-side tuned scalar source recorded in the tuned reduced-system, local-well-posedness, and momentum-suppressed same-branch notes after the exact-square block is eliminated algebraically.
+\end{proof}
+
+\begin{remark}
+Proposition \ref{prop:leading} is the tuned analogue of the old bridge-tensor reduction step, but the surviving tensor is now different. The quartic scalar self-energy is gone. The remaining bridge tensor is the Stueckelberg-like momentum stress carried by the pair \((\sigma,\pi_\sigma)\).
+\end{remark}
+
+\section{Verdict on Exact Closure Versus Generic Remainder}
+
+\begin{definition}[Generic nontrivial tuned infrared regime]
+\label{def:generic}
+The \emph{generic nontrivial tuned infrared regime} consists of small-data tuned solutions in the strict auxiliary-elliptic class for which the transported frozen momentum profile of the renormalized same-branch note is not identically zero, equivalently for which the unrestricted tuned branch is not confined to the invariant momentum-suppressed sub-branch \(\pi_\sigma\equiv 0\).
+\end{definition}
+
+\begin{definition}[Pure gauge/constraint-exact tuned remainder]
+\label{def:pure}
+The tuned bridge tensor \(\mathcal C_{\mu\nu}^{\mathrm{tc,br}}\) is said to be \emph{pure gauge/constraint exact} if there exist a one-form \(Y_\mu\) and reduced constraint quantities \(\mathcal H\), \(\mathcal M_\mu\), \(\mathcal A_a\) such that
+\begin{equation}
+\mathcal C_{\mu\nu}^{\mathrm{tc,br}}
+=
+\nabla_{(\mu}Y_{\nu)}
++\mathcal P_{\mu\nu}\mathcal H
++\mathcal P_{\mu\nu}{}^\rho\mathcal M_\rho
++\sum_a \mathcal P_{\mu\nu}^{(a)}\mathcal A_a,
+\label{eq:pure}
+\end{equation}
+with every term on the right vanishing on reduced solutions modulo the diffeomorphism freedom of \(g_{\mu\nu}\).
+\end{definition}
+
+\begin{theorem}[Generic tuned infrared bridge-tensor verdict]
+\label{thm:verdict}
+Assume the tuned branch data of Definition \ref{def:branch} in the generic nontrivial infrared regime of Definition \ref{def:generic}. Then:
+\begin{enumerate}
+    \item \(\mathcal C_{\mu\nu}^{\mathrm{tc,br}}\not\equiv 0\) on the unrestricted tuned branch;
+    \item \(\mathcal C_{\mu\nu}^{\mathrm{tc,br}}\) is not pure gauge/constraint exact;
+    \item the unrestricted tuned branch therefore does not satisfy exact generic derivational bridge closure at current disciplined scope.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Proposition \ref{prop:infrared} gives
+\[
+\mathcal C_{\mu\nu}^{\mathrm{tc,br}}
+=
+8\pi G_N\,T_{\mu\nu}^{\mathrm{St}}.
+\]
+By the recorded generic-data renormalized same-branch note, generic tuned data carry a nonzero transported frozen momentum profile and therefore a nonzero observer-side frozen-momentum source. In particular, even after renormalizing the scalar bookkeeping, the reduced observer-side density still contains the time-independent term
+\[
+\frac{1}{2m_S^2}\pi_{\mathrm{fr}}^2
+\]
+on generic tuned data. This is exactly the generic nontrivial regime of Definition \ref{def:generic}. Hence \(T_{\mu\nu}^{\mathrm{St}}\), and therefore \(\mathcal C_{\mu\nu}^{\mathrm{tc,br}}\), is not identically zero. This proves item (1).
+
+For item (2), suppose by contradiction that \(\mathcal C_{\mu\nu}^{\mathrm{tc,br}}\) were pure gauge/constraint exact. Then after imposing the reduced Einstein constraints and fixing the unit-lapse spatial-harmonic gauge, the completion-specific observer source would disappear from the reduced observer equation. But Proposition \ref{prop:infrared} shows that, on the reduced tuned system itself, the Hamiltonian and momentum constraints contain the explicit completion-specific densities \(\rho_{\mathrm{St}}\) and \(J_i^{\mathrm{St}}\), and the renormalized same-branch note shows that the generic tuned branch leaves a nonzero frozen-momentum density after those reductions are already made. Pure gauge terms disappear after gauge fixing, and pure constraint terms disappear once the reduced constraints have been imposed. The recorded generic nonzero frozen-momentum density therefore contradicts \eqref{eq:pure}. Hence \(\mathcal C_{\mu\nu}^{\mathrm{tc,br}}\) is not pure gauge/constraint exact.
+
+Item (3) is immediate: exact generic derivational bridge closure requires the tuned bridge tensor to vanish or be only pure gauge/constraint exact, and neither condition holds on the unrestricted tuned branch.
+\end{proof}
+
+\begin{remark}
+Theorem \ref{thm:verdict} is the tuned analogue of the old quartic bridge-tensor verdict, but with a different obstruction. The old obstruction was the quartic scalar self-energy \(\Pi_\phi^{(4)}\). The new one is the Stueckelberg-like momentum stress \(T_{\mu\nu}^{\mathrm{St}}\). The exact-square cancellation removes the former but not the latter on generic tuned data.
+\end{remark}
+
+\section{Restricted Exact Einsteinian Equation as a Side Result}
+
+\begin{theorem}[Restricted exact Einsteinian observer equation]
+\label{thm:restricted}
+On the invariant momentum-suppressed branch
+\begin{equation}
+\pi_\sigma|_{t=0}=0
+\quad\Longrightarrow\quad
+\pi_\sigma\equiv 0,
+\label{eq:restricted}
+\end{equation}
+the full completion-specific observer source vanishes identically:
+\begin{equation}
+T_{\mu\nu}^{\mathrm{St}}\equiv 0,
+\qquad
+\mathcal C_{\mu\nu}^{\mathrm{tc,br}}\equiv 0.
+\label{eq:Czero}
+\end{equation}
+Hence the reduced observer equation on that invariant sub-branch is exactly
+\begin{equation}
+G_{\mu\nu}[g]
+=
+8\pi G_N\,T_{\mu\nu}^{\mathrm{matter}}.
+\label{eq:Einrestricted}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+The momentum-suppressed same-branch note proves that \(\pi_\sigma|_{t=0}=0\) is an exact invariant restriction and that, on that branch, the full completion-specific Stueckelberg source vanishes:
+\[
+\rho_{\mathrm{St}}\equiv 0,
+\qquad
+J_i^{\mathrm{St}}\equiv 0,
+\qquad
+\Theta_K^{\mathrm{St}}\equiv 0,
+\qquad
+\Theta_{ij}^{\mathrm{TF,St}}\equiv 0.
+\]
+By Definition \ref{def:Tst}, this is exactly the statement \(T_{\mu\nu}^{\mathrm{St}}\equiv 0\). Proposition \ref{prop:infrared} then gives \eqref{eq:Czero} and hence \eqref{eq:Einrestricted}.
+\end{proof}
+
+\begin{corollary}[Why the restricted theorem does not settle the generic derivational claim]
+\label{cor:restricted}
+The exact Einsteinian observer equation \eqref{eq:Einrestricted} is a restricted positive side result, not the generic tuned-branch derivational verdict.
+\end{corollary}
+
+\begin{proof}
+Equation \eqref{eq:Einrestricted} holds only on the invariant sub-branch \eqref{eq:restricted}. Theorem \ref{thm:verdict} shows that the unrestricted tuned branch still carries a generic nonzero bridge tensor \( \mathcal C_{\mu\nu}^{\mathrm{tc,br}} \). Therefore the restricted exact Einsteinian equation does not extend to the generic tuned branch.
+\end{proof}
+
+\section{Program Consequence}
+
+\begin{corollary}[Current status of the tuned exact-square branch]
+\label{cor:status}
+At the present disciplined scope, the tuned exact-square branch is:
+\begin{enumerate}
+    \item \textbf{positive as a cancellation-survival result:} the quartic observer correction remains removed beyond flat quadratic scope at nonlinear reduced-system level;
+    \item \textbf{positive as a restricted side result:} the invariant momentum-suppressed sub-branch satisfies the exact Einsteinian observer equation;
+    \item \textbf{negative as a generic exact derivation result:} the unrestricted tuned branch leaves the genuine observer-accessible bridge tensor \(8\pi G_N T_{\mu\nu}^{\mathrm{St}}\).
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+Item (1) is Proposition \ref{prop:survival}. Item (2) is Theorem \ref{thm:restricted}. Item (3) is Theorem \ref{thm:verdict}.
+\end{proof}
+
+\begin{proposition}[What the next burden becomes after the tuned infrared verdict]
+\label{prop:next}
+If the active goal remains a generic first-principles derivation of the adopted Einsteinian observer equation, the next substantive burden is now beyond the unrestricted tuned exact-square branch: one must specify a replacement bridge/completion candidate that removes the Stueckelberg-like momentum remainder \(T_{\mu\nu}^{\mathrm{St}}\) rather than only the old quartic observer correction.
+\end{proposition}
+
+\begin{proof}
+The post-restricted-verdict criteria note fixed the rule for replacement. A new bridge/completion candidate becomes active only after the viable tuned branch is carried through the infrared observer-equation test and shown to leave a genuine observer-accessible remainder. Theorem \ref{thm:verdict} is exactly that failure verdict on the unrestricted tuned branch. Therefore the replacement-candidate problem is now genuinely active.
+\end{proof}
+
+\begin{remark}
+This is not a negative verdict on everything tuned. The restricted momentum-suppressed side theorem remains positive, and the exact-square cancellation really did remove the old quartic observer remainder. The negative verdict is narrower and stronger: the unrestricted tuned branch is not the completed generic derivation sought by the active exact-closure program.
+\end{remark}
+
+\section{Conclusion}
+
+The next derivational test on the tuned exact-square branch is now complete. The tuned cancellation-survival question has a disciplined positive answer: beyond the current flat quadratic packaged scope, the old quartic observer correction and the compensator channel remain gone after the nonlinear algebraic reduction. But the infrared bridge-closure question has a generic negative answer: the reduced observer equation still carries the Stueckelberg-like momentum stress tensor \(T_{\mu\nu}^{\mathrm{St}}\) on unrestricted tuned data.
+
+The tuned branch therefore splits sharply. On the invariant momentum-suppressed sub-branch, the completion-specific observer source vanishes identically and the reduced observer equation is exactly Einsteinian. On generic tuned data, however, the bridge tensor \( \mathcal C_{\mu\nu}^{\mathrm{tc,br}} = 8\pi G_N T_{\mu\nu}^{\mathrm{St}} \) is nonzero and not pure gauge/constraint exact. The unrestricted tuned branch is thus not the exact generic derivation of relativity sought by the strongest version of the program.
+
+At current disciplined scope, this is the correct next verdict. The active derivational burden no longer lies in tuned asymptotics. It now lies beyond the unrestricted tuned branch itself: the next substantive manuscript should specify a replacement bridge/completion candidate that removes the Stueckelberg-like infrared remainder while preserving the single-metric matter route and as much of the good auxiliary/stability architecture as possible.
+
+\end{document}

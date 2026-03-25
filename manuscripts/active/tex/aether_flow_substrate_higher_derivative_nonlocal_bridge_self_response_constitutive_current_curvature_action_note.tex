@@ -1,0 +1,1005 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal{A}}
+\newcommand{\BridgeMetric}{\mathfrak g}
+\newcommand{\ObserverMap}{\Xi}
+\newcommand{\ProjSub}{P}
+\newcommand{\SpatialD}{\mathcal D}
+\newcommand{\LapPerp}{\Delta_\perp}
+\newcommand{\FlowPot}{\Phi_\Omega}
+\newcommand{\FlowPotReg}{\Phi_\Omega^{\mathrm{reg}}}
+\newcommand{\CoulPot}{U_\Omega}
+\newcommand{\BalanceField}{\Pi_\Omega}
+\newcommand{\BalMult}{\Lambda_\Pi}
+\newcommand{\SourceDensity}{\varrho_\Omega}
+\newcommand{\SourceDensityRed}{\varrho_\Omega^{\mathrm{red}}}
+\newcommand{\SourceCurrent}{\mathcal J^{(\Omega)}}
+\newcommand{\SourceCurrentRed}{\mathcal J^{(\Omega,\mathrm{red})}}
+\newcommand{\ConstCurrent}{\mathcal C}
+\newcommand{\QCarrier}{\mathcal Q}
+\newcommand{\ChiCarrier}{\mathcal X}
+\newcommand{\TransCarrier}{\mathcal W}
+\newcommand{\ContMult}{\Lambda_{\mathrm c}}
+\newcommand{\CurrentMult}{\Lambda}
+\newcommand{\ConstGamma}{\Gamma}
+\newcommand{\CurvQMult}{\mathscr P}
+\newcommand{\CurvChiMult}{\mathscr X}
+\newcommand{\CurvTransMult}{\mathscr Y}
+\newcommand{\SourceFlux}{\mathcal E}
+\newcommand{\HamChargeOmega}{\mathfrak m_\Omega}
+\newcommand{\SigmaIER}{\Sigma^{\mathrm{IER}}}
+\newcommand{\SigmaDressSch}{\Sigma^{\mathrm{Sch}}}
+\newcommand{\SigmaRegPol}{\Sigma^{\mathrm{pol,reg}}}
+\newcommand{\LiftIER}{\widehat\Sigma^{\mathrm{IER}}}
+\newcommand{\AuxPol}{\mathbb K}
+\newcommand{\CandAction}{S_{\mathrm{cand}}}
+\newcommand{\CurvAction}{S_{\mathrm{cand}}^{\mathrm{curv+cur+aux}}}
+\newcommand{\ReOff}{\widetilde{\mathcal R}_{\mu\nu}^{\mathrm{off}}}
+\newcommand{\ReLongThree}{\widetilde{\mathcal R}_{\mu\nu}^{(\chi,3)}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Nonlocal Bridge Self-Response Constitutive-Current Curvature-Action Note}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The positive quotient reduced-system, theorem, decay, and asymptotic line remains closed and is not reopened here. The inverse-Einstein-response bridge map, the explicit Schwarzschild-type dressing candidate test, the substrate-origin note, the constrained auxiliary-sector note, the intrinsic source-sector note, the source-current-sector note, and the constitutive source-current note are also fixed in status. In particular, the constitutive source-current note has now passed review at disciplined scope: it remains canonized on the active line only as a local first-order realization of the reduced current \(\SourceCurrentRed_A[Q,W,\chi]\), while its carrier basis and coefficients were still constitutive input data.
+
+The present manuscript carries the derivation one layer deeper. It does not merely restate the constitutive note. Instead, it writes the constitutive-current sector as the elimination of an equivalent integrated local curvature-response action. At current disciplined scope, that is the sharpest local statement now justified by the markdown program: the raw ultraviolet curvature density need not yet be unique, but the local integrated action that forces the constitutive block can already be written explicitly. The new sector introduces integrated projected curvature-response one-forms
+\[
+\mathfrak R_A^I,
+\qquad
+\mathfrak R_A^\chi,
+\qquad
+\mathfrak R_A^W,
+\]
+together with curvature-response multipliers and the same source-current plus polarization variables used in the previous two notes. Local slice covariance and the already-fixed Hodge split
+\[
+W_A=\SpatialD_A\chi+W_A^T
+\]
+force the constitutive carrier basis at the present derivative order: the only local spatial one-form slots available on the active reduced branch are \(\SpatialD_AQ^I\), \(\SpatialD_A\chi\), and \(W_A^T\). The deeper curvature-response equations then give
+\[
+\mathfrak R_A^I=\lambda_I\SpatialD_AQ^I,
+\qquad
+\mathfrak R_A^\chi=\lambda_\chi\SpatialD_A\chi,
+\qquad
+\mathfrak R_A^W=\lambda_WW_A^T,
+\]
+and the current readout equation yields
+\[
+\ConstCurrent_A
+=
+\nu_I\mathfrak R_A^I
++\nu_\chi\mathfrak R_A^\chi
++\nu_W\mathfrak R_A^W.
+\]
+Hence, after introducing the derived first-order carriers
+\[
+\QCarrier_A^I\equiv \lambda_I^{-1}\mathfrak R_A^I,
+\qquad
+\ChiCarrier_A\equiv \lambda_\chi^{-1}\mathfrak R_A^\chi,
+\qquad
+\TransCarrier_A\equiv \lambda_W^{-1}\mathfrak R_A^W,
+\]
+the constitutive source-current law of the previous note is recovered with coefficients no longer left free:
+\[
+\ConstCurrent_A
+=
+\mathfrak c_I\QCarrier_A^I
++\mathfrak c_\chi\ChiCarrier_A
++\mathfrak c_W\TransCarrier_A
+=
+\mathfrak c_I\SpatialD_AQ^I
++\mathfrak c_\chi\SpatialD_A\chi
++\mathfrak c_WW_A^T,
+\]
+where
+\[
+\mathfrak c_I=\nu_I\lambda_I,
+\qquad
+\mathfrak c_\chi=\nu_\chi\lambda_\chi,
+\qquad
+\mathfrak c_W=\nu_W\lambda_W.
+\]
+
+The same enlarged variational system then yields
+\[
+\SourceCurrent_A=\ConstCurrent_A=\SourceCurrentRed_A,
+\qquad
+\SourceDensity=-\SpatialD^A\SourceCurrent_A=\SourceDensityRed,
+\]
+\[
+\SourceFlux_A=\SpatialD_A\FlowPot,
+\qquad
+-\LapPerp\FlowPot=4\pi G_N\,\SourceDensity.
+\]
+Therefore the same Hamiltonian-charge flux, the same continuity/Gauss-Poisson structure, and the same exterior Coulomb tail follow after eliminating the deeper curvature-action block. The auxiliary polarization equations are unchanged and again imply
+\[
+\BalanceField=\FlowPot^2,
+\qquad
+\AuxPol_{AB}^{\mathrm{elim}}
+=
+-2\FlowPot^2U_AU_B
++\frac32\FlowPot^2\ProjSub_{AB},
+\]
+so the observer pullback reproduces exactly the same Schwarzschild-type \(r^{-2}\) dressing together with the same \(\mathcal O(r^{-3})\) regular completion.
+
+Because the curvature-response block is slice-wise nonpropagating and reaches the bridge only through the same quartic combination \(\BalanceField=\FlowPot^2\), it does not reopen the lower-order quotient PDE line. The same matter-free activity, off-longitudinal \(Q/W\) cancellation, explicit cubic longitudinal completion, and quartic Coulomb self-response absorption therefore survive. The positive result of the present note is accordingly narrower than a unique microphysical ultraviolet completion but deeper than the constitutive note: the constitutive carrier basis is justified at current local derivative order, its coefficients are read off from explicit curvature-response couplings, and eliminating the deeper action reproduces the same reduced current, density/flux package, dressed bridge map, and gain package already fixed downstream.
+\end{abstract}
+
+\section{Introduction}
+
+The active sequence is now precise about what should happen next. The positive quotient reduced-system, theorem, decay, and asymptotic line is already recorded and remains closed at current scope. The observer-level redesign chain is also fixed in status: the inverse-Einstein-response bridge-map test already canceled the full off-longitudinal \(Q/W\) remainder and added an explicit cubic longitudinal completion, the quartic continuation note isolated the Coulomb self-response obstruction, and the explicit dressing-candidate test recorded the positive Schwarzschild-type \(r^{-2}\) closure. The substrate-origin, constrained auxiliary-sector, intrinsic source-sector, source-current-sector, and constitutive source-current notes then carried the reconstruction chain deeper by identifying the minimal polarization mechanism, embedding it variationally, internalizing the charge potential, internalizing the source current, and finally internalizing the reduced current law itself as a first-order constitutive carrier system.
+
+That constitutive note now has a sharp status. It should remain on the active line, but only under the disciplined constitutive reading fixed by the markdown files. Its carrier basis and coefficients were not rejected. They were retained provisionally as the correct first-order realization. But that same review also moved the live burden one layer deeper: the carrier basis and coefficients still had to be forced by a deeper local substrate curvature action, or by an equivalent integrated enlarged action, rather than being left as constitutive input data.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not reopen the already-positive quotient PDE line. It does not replace the already-positive observer-level dressing candidate. It does not claim that a unique ultraviolet curvature density has already been isolated. Its narrower positive result is the one now required by the active plan: an equivalent integrated local curvature action can be written whose eliminated constitutive block reproduces exactly the same reduced current law as the constitutive note, while deriving the carrier basis at the present local derivative order and expressing the coefficients as explicit curvature-response/readout couplings.
+
+\section{Fixed Target and Present Scope}
+
+\begin{definition}[Surviving dressed gain package]
+\label{def:gains}
+The \emph{surviving dressed gain package} consists of the four already-recorded features that the deeper curvature-current plus source-current plus polarization sector must preserve:
+\begin{enumerate}
+    \item \textbf{matter-free activity:} the bridge correction remains active on matter-free reduced data;
+    \item \textbf{off-longitudinal \(Q/W\) cancellation:} the full currently recorded off-longitudinal remainder \(\ReOff\) is canceled;
+    \item \textbf{explicit cubic longitudinal completion:} the first surviving cubic longitudinal tensor \(\ReLongThree\) is canceled by the same lower-order inverse-response correction;
+    \item \textbf{quartic Coulomb self-response absorption:} on the decisive matter-free rotational exterior regime, the isolated quartic Coulomb self-response is pushed to \(\mathcal O(r^{-5})\).
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Observer-side target already fixed]
+\label{def:target}
+The observer-side dressed bridge map to be reproduced remains
+\begin{equation}
+g_{\mu\nu}^{\mathrm{dressed}}
+=
+g_{\mu\nu}^{\mathrm{br}}
++\SigmaIER_{\mu\nu}
++\SigmaDressSch{}_{\mu\nu}
++\SigmaRegPol{}_{\mu\nu},
+\label{eq:targetmetric}
+\end{equation}
+where the charge-carrying Coulomb piece is
+\begin{equation}
+\CoulPot(r)\equiv \frac{G_N\,\HamChargeOmega}{r},
+\label{eq:coulpot}
+\end{equation}
+and
+\begin{equation}
+\SigmaDressSch{}_{00}=-2\CoulPot^2,
+\qquad
+\SigmaDressSch{}_{0i}=0,
+\qquad
+\SigmaDressSch{}_{ij}=\frac32\CoulPot^2\,\delta_{ij},
+\label{eq:schdress}
+\end{equation}
+while the regular completion satisfies
+\begin{equation}
+\SigmaRegPol=\mathcal O(r^{-3}),
+\qquad
+\partial\SigmaRegPol=\mathcal O(r^{-4})
+\label{eq:reg}
+\end{equation}
+on the exterior charge sector.
+\end{definition}
+
+\begin{remark}
+The present note does not replace the already-fixed lower-order inverse-response tensor \(\SigmaIER\). Its task is only to derive the constitutive-current sector from a deeper local curvature-response action and then check that the resulting full elimination still reproduces Definition \ref{def:target}.
+\end{remark}
+
+\section{Curvature-Forced Carrier Basis and Deeper Local Action}
+
+The substrate-kinematics manuscript already fixed the minimal substrate data
+\[
+(\Sub,G_{AB},U^A,S,Q),
+\]
+with \(G_{AB}\) positive definite, \(U^A\) the unit ordered-flow field, and
+\begin{equation}
+\ProjSub_{AB}=G_{AB}-U_AU_B
+\label{eq:projector}
+\end{equation}
+the local experiential projector orthogonal to \(U^A\). The present note appends only the deeper local variables needed to force the constitutive-current sector.
+
+\begin{definition}[Active local slice variables entering the deeper current sector]
+\label{def:activeslice}
+At the present scope the deeper current-forcing layer is built from the already-recorded active reduced slice variables \((Q^I,\chi,W_A^T)\), where
+\begin{equation}
+W_A=\SpatialD_A\chi+W_A^T,
+\qquad
+U^AW_A^T=0,
+\qquad
+\SpatialD^AW_A^T=0.
+\label{eq:Wdecomp}
+\end{equation}
+As in the previous two notes, the present manuscript treats \(Q^I\), \(\chi\), and \(W_A^T\) parametrically inside the new local action. Their previously recorded reduced equations are not reopened here.
+\end{definition}
+
+\begin{proposition}[Carrier basis forced by local slice covariance and the active Hodge split]
+\label{prop:basis}
+Let \(V_A[Q,W,\chi]\) be a spatial one-form satisfying
+\begin{equation}
+U^AV_A=0
+\label{eq:spatialV}
+\end{equation}
+and assume that \(V_A\) is local on the local experiential slice, linear in the active reduced variables, and of at most first slice-derivative order. Then there exist unique coefficients \(a_I\), \(a_\chi\), and \(a_W\) such that
+\begin{equation}
+V_A
+=
+a_I\SpatialD_AQ^I
++a_\chi\SpatialD_A\chi
++a_WW_A^T.
+\label{eq:basisdecomp}
+\end{equation}
+Hence the active constitutive current sector admits exactly three local one-form carrier slots at the present scope: the \(Q\)-gradient slot, the \(\chi\)-gradient slot, and the already-recorded transverse \(W^T\)-slot.
+\end{proposition}
+
+\begin{proof}
+Because \(V_A\) is local, linear in the active reduced variables, and of at most one slice derivative, scalar contributions may only enter through slice gradients of the already-active scalars \(Q^I\) and \(\chi\). The only already-recorded independent transverse one-form on the active branch is \(W_A^T\). Equation \eqref{eq:Wdecomp} states that the full one-form \(W_A\) contains no additional independent slot: its longitudinal part is already \(\SpatialD_A\chi\), while its remaining transverse part is \(W_A^T\). Therefore every spatial one-form of the stated class must take the form \eqref{eq:basisdecomp}. Uniqueness follows from the orthogonal gradient/transverse decomposition on the local experiential slice together with the already-fixed Euclidean \(Q\)-sector metric.
+\end{proof}
+
+\begin{remark}
+Proposition \ref{prop:basis} is the precise sense in which the present note \emph{justifies} the constitutive carrier basis without overclaiming absolute ultraviolet uniqueness. At the present local derivative order and with the quotient line held fixed, there simply is no fourth independent local one-form slot available to the constitutive current.
+\end{remark}
+
+\begin{definition}[Integrated curvature-response one-forms and derived first-order carriers]
+\label{def:curvfields}
+Fix nonzero curvature-response scales
+\begin{equation}
+\lambda_I\neq 0,
+\qquad
+\lambda_\chi\neq 0,
+\qquad
+\lambda_W\neq 0.
+\label{eq:lambdas}
+\end{equation}
+The deeper local current-forcing sector introduces spatial integrated curvature-response one-forms
+\begin{equation}
+\mathfrak R_A^I,
+\qquad
+\mathfrak R_A^\chi,
+\qquad
+\mathfrak R_A^W,
+\qquad
+U^A\mathfrak R_A^I=U^A\mathfrak R_A^\chi=U^A\mathfrak R_A^W=0,
+\label{eq:Rspatial}
+\end{equation}
+interpreted as local integrated representatives of the projected bridge-curvature slots associated with the three basis sectors of Proposition \ref{prop:basis}. The derived first-order constitutive carriers are
+\begin{equation}
+\QCarrier_A^I\equiv \lambda_I^{-1}\mathfrak R_A^I,
+\qquad
+\ChiCarrier_A\equiv \lambda_\chi^{-1}\mathfrak R_A^\chi,
+\qquad
+\TransCarrier_A\equiv \lambda_W^{-1}\mathfrak R_A^W.
+\label{eq:derivedcarriersdef}
+\end{equation}
+\end{definition}
+
+\begin{definition}[Curvature-derived constitutive coefficients]
+\label{def:cfromlambda}
+Fix current-readout couplings
+\begin{equation}
+\nu_I,
+\qquad
+\nu_\chi,
+\qquad
+\nu_W.
+\label{eq:nus}
+\end{equation}
+For each \(I\), define the constitutive coefficient
+\begin{equation}
+\mathfrak c_I\equiv \nu_I\lambda_I,
+\label{eq:cIdef}
+\end{equation}
+and likewise define
+\begin{equation}
+\mathfrak c_\chi\equiv \nu_\chi\lambda_\chi,
+\qquad
+\mathfrak c_W\equiv \nu_W\lambda_W.
+\label{eq:crestdef}
+\end{equation}
+These are the coefficients that will appear in the reduced current after eliminating the deeper curvature-response block.
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:cfromlambda} is the precise sense in which the present note goes beyond the constitutive source-current note. The coefficients \((\mathfrak c_I,\mathfrak c_\chi,\mathfrak c_W)\) are no longer bare constitutive input data. They are explicit products of local curvature-response couplings and current-readout couplings.
+\end{remark}
+
+\begin{definition}[Intrinsic source-current variables]
+\label{def:sourcevars}
+The \emph{intrinsic source-current sector} is the same one used in the source-current-sector and constitutive source-current notes:
+\begin{enumerate}
+    \item a scalar substrate source density \(\SourceDensity\);
+    \item a spatial substrate source current \(\SourceCurrent_A\) satisfying
+    \begin{equation}
+    U^A\SourceCurrent_A=0;
+    \label{eq:spatialcurrent}
+    \end{equation}
+    \item a spatial source flux \(\SourceFlux_A\) satisfying
+    \begin{equation}
+    U^A\SourceFlux_A=0;
+    \label{eq:spatialflux}
+    \end{equation}
+    \item the potential \(\FlowPot\), treated as an independent substrate field;
+    \item a scalar continuity multiplier \(\ContMult\);
+    \item a spatial current multiplier \(\CurrentMult_A\).
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Curvature-response multipliers]
+\label{def:curvmults}
+The deeper curvature-response layer is enforced by the spatial multipliers
+\begin{equation}
+\CurvQMult^{AI},
+\qquad
+\CurvChiMult^A,
+\qquad
+\CurvTransMult^A,
+\qquad
+\ConstGamma^A,
+\label{eq:curvmults}
+\end{equation}
+all orthogonal to \(U^A\).
+\end{definition}
+
+\begin{definition}[Projected source derivative]
+\label{def:projected}
+Let
+\begin{equation}
+\SpatialD_A\equiv \ProjSub_A{}^B\nabla_B,
+\qquad
+\LapPerp\equiv \SpatialD^A\SpatialD_A,
+\label{eq:projderiv}
+\end{equation}
+where \(\nabla_A\) is the Levi-Civita connection of \(G_{AB}\). Thus \(\SpatialD\) and \(\LapPerp\) act along the local experiential slice orthogonal to \(U^A\).
+\end{definition}
+
+\begin{definition}[Equivalent integrated local curvature-current plus source-current plus polarization action]
+\label{def:action}
+The \emph{deeper local curvature-current plus source-current plus polarization sector} is the enlarged action
+\begin{equation}
+\CurvAction
+\equiv
+\CandAction
++
+\int_{\Sub} d^4X\,\sqrt{G}\,
+\bigl(
+\mathcal L_{\mathrm{curv}}
++\mathcal L_{\mathrm{src,cur}}
++\mathcal L_{\mathrm{pol,aux}}
+\bigr),
+\label{eq:fullaction}
+\end{equation}
+with curvature-response Lagrangian
+\begin{align}
+\mathcal L_{\mathrm{curv}}
+=\;&
+\CurvQMult^{AI}\bigl(\mathfrak R_A^I-\lambda_I\SpatialD_AQ^I\bigr)
++\CurvChiMult^A\bigl(\mathfrak R_A^\chi-\lambda_\chi\SpatialD_A\chi\bigr)
+\nonumber\\
+&+\CurvTransMult^A\bigl(\mathfrak R_A^W-\lambda_WW_A^T\bigr)
++\ConstGamma^A\bigl(
+\ConstCurrent_A
+-\nu_I\mathfrak R_A^I
+-\nu_\chi\mathfrak R_A^\chi
+-\nu_W\mathfrak R_A^W
+\bigr),
+\label{eq:lcurv}
+\end{align}
+source-current Lagrangian
+\begin{equation}
+\mathcal L_{\mathrm{src,cur}}
+=
+\SourceFlux^A\SpatialD_A\FlowPot
+-\frac12 \SourceFlux_A\SourceFlux^A
+-4\pi G_N\,\SourceDensity\,\FlowPot
++\ContMult\bigl(\SourceDensity+\SpatialD^A\SourceCurrent_A\bigr)
++\CurrentMult^A\bigl(\SourceCurrent_A-\ConstCurrent_A\bigr),
+\label{eq:lcur}
+\end{equation}
+and polarization Lagrangian
+\begin{align}
+\mathcal L_{\mathrm{pol,aux}}
+=\;&
+\BalMult\bigl(\BalanceField-\FlowPot^2\bigr)
+-\frac{\mu_t^2}{2}\bigl(\alpha+2\BalanceField\bigr)^2
+-\frac{\mu_s^2}{2}\bigl(\beta-\tfrac32\BalanceField\bigr)^2
+\nonumber\\
+&-\frac{\mu_v^2}{2}\,\mathcal V_A\mathcal V^A
+-\frac{\mu_{\mathrm{tf}}^2}{2}\,\mathcal T_{AB}\mathcal T^{AB},
+\label{eq:laux}
+\end{align}
+where the independent symmetric auxiliary tensor \(\AuxPol_{AB}\) is decomposed as
+\begin{equation}
+\AuxPol_{AB}
+=
+\alpha\,U_AU_B
++2U_{(A}\mathcal V_{B)}
++\mathcal T_{AB}
++\beta\,\ProjSub_{AB},
+\label{eq:Kdecomp}
+\end{equation}
+with
+\begin{equation}
+U^A\mathcal V_A=0,
+\qquad
+U^A\mathcal T_{AB}=0,
+\qquad
+\ProjSub^{AB}\mathcal T_{AB}=0,
+\label{eq:TVcond}
+\end{equation}
+and
+\begin{equation}
+\mu_t^2>0,
+\qquad
+\mu_s^2>0,
+\qquad
+\mu_v^2>0,
+\qquad
+\mu_{\mathrm{tf}}^2>0.
+\label{eq:masses}
+\end{equation}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:action} is the precise sense in which the present manuscript uses the ``equivalent integrated enlarged action'' option allowed by the tracking layer. A raw local curvature density can still underlie \(\mathcal L_{\mathrm{curv}}\), but at disciplined scope that raw choice need not yet be unique. What matters here is that the integrated local curvature-response action is explicit, variational, local on the experiential slice, and strong enough to force the constitutive carrier basis and coefficients before the source-current and polarization eliminations are performed.
+\end{remark}
+
+\section{Elimination Back to the Same Reduced Current and Density/Flux Package}
+
+\begin{proposition}[Euler--Lagrange system of the deeper curvature-current plus source-current plus polarization sector]
+\label{prop:EL}
+The Euler--Lagrange equations of \eqref{eq:fullaction} give
+\begin{equation}
+\mathfrak R_A^I=\lambda_I\SpatialD_AQ^I,
+\qquad
+\mathfrak R_A^\chi=\lambda_\chi\SpatialD_A\chi,
+\qquad
+\mathfrak R_A^W=\lambda_WW_A^T,
+\label{eq:Rrels}
+\end{equation}
+\begin{equation}
+\QCarrier_A^I=\SpatialD_AQ^I,
+\qquad
+\ChiCarrier_A=\SpatialD_A\chi,
+\qquad
+\TransCarrier_A=W_A^T,
+\label{eq:carrierrels}
+\end{equation}
+\begin{equation}
+\ConstCurrent_A
+=
+\nu_I\mathfrak R_A^I
++\nu_\chi\mathfrak R_A^\chi
++\nu_W\mathfrak R_A^W
+=
+\mathfrak c_I\QCarrier_A^I
++\mathfrak c_\chi\ChiCarrier_A
++\mathfrak c_W\TransCarrier_A,
+\label{eq:constitutivecarrier}
+\end{equation}
+\begin{equation}
+\ConstCurrent_A
+=
+\mathfrak c_I\SpatialD_AQ^I
++\mathfrak c_\chi\SpatialD_A\chi
++\mathfrak c_WW_A^T
+\equiv
+\SourceCurrentRed_A,
+\label{eq:Jredexplicit}
+\end{equation}
+\begin{equation}
+\SourceCurrent_A=\ConstCurrent_A=\SourceCurrentRed_A,
+\qquad
+\SourceDensity=-\SpatialD^A\SourceCurrent_A=-\SpatialD^A\SourceCurrentRed_A\equiv \SourceDensityRed,
+\label{eq:currenteqs}
+\end{equation}
+\begin{equation}
+\ContMult=4\pi G_N\,\FlowPot,
+\qquad
+\CurrentMult_A=\ConstGamma_A=\SpatialD_A\ContMult,
+\qquad
+\SourceFlux_A=\SpatialD_A\FlowPot,
+\label{eq:multflux}
+\end{equation}
+\begin{equation}
+\CurvQMult_A{}^{I}=\nu_I\ConstGamma_A,
+\qquad
+\CurvChiMult_A=\nu_\chi\ConstGamma_A,
+\qquad
+\CurvTransMult_A=\nu_W\ConstGamma_A,
+\label{eq:curv_mults}
+\end{equation}
+\begin{equation}
+-\LapPerp\FlowPot=4\pi G_N\,\SourceDensity,
+\label{eq:poisson}
+\end{equation}
+and
+\begin{equation}
+\BalanceField=\FlowPot^2,
+\qquad
+\alpha=-2\BalanceField,
+\qquad
+\beta=\frac32\BalanceField,
+\qquad
+\mathcal V_A=0,
+\qquad
+\mathcal T_{AB}=0,
+\qquad
+\BalMult=0.
+\label{eq:poleqs}
+\end{equation}
+Consequently,
+\begin{equation}
+\AuxPol_{AB}^{\mathrm{elim}}
+=
+-2\FlowPot^2U_AU_B
++\frac32\FlowPot^2\ProjSub_{AB}.
+\label{eq:Kelim}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Variation with respect to \(\CurvQMult^{AI}\), \(\CurvChiMult^A\), and \(\CurvTransMult^A\) gives \eqref{eq:Rrels}. Definition \ref{def:curvfields} then gives \eqref{eq:carrierrels}. Variation with respect to \(\ConstGamma^A\) gives the first equality in \eqref{eq:constitutivecarrier}. Substituting \eqref{eq:Rrels}, \eqref{eq:carrierrels}, and Definitions \ref{def:cfromlambda} and \ref{def:curvfields} yields the remaining identities \eqref{eq:constitutivecarrier} and \eqref{eq:Jredexplicit}.
+
+Variation with respect to \(\CurrentMult_A\) gives \(\SourceCurrent_A=\ConstCurrent_A\). Variation with respect to \(\ContMult\) gives the slice continuity relation
+\[
+\SourceDensity+\SpatialD^A\SourceCurrent_A=0.
+\]
+Combining these identities with \eqref{eq:Jredexplicit} yields \eqref{eq:currenteqs}.
+
+Variation with respect to \(\SourceDensity\) gives \(\ContMult=4\pi G_N\FlowPot\). Variation with respect to \(\SourceCurrent_A\) and integration by parts on the local experiential slice yield
+\[
+\CurrentMult_A-\SpatialD_A\ContMult=0,
+\]
+which gives the second identity in \eqref{eq:multflux}. Variation with respect to \(\ConstCurrent_A\) gives
+\[
+\ConstGamma_A-\CurrentMult_A=0,
+\]
+so \(\ConstGamma_A=\CurrentMult_A\). Variation with respect to \(\mathfrak R_A^I\), \(\mathfrak R_A^\chi\), and \(\mathfrak R_A^W\) then yields \eqref{eq:curv_mults}. Variation with respect to the spatial source flux \(\SourceFlux_A\) gives \(\SourceFlux_A=\SpatialD_A\FlowPot\).
+
+Varying \(\FlowPot\) and integrating by parts on the local experiential slice yields
+\[
+-\SpatialD_A\SourceFlux^A-4\pi G_N\,\SourceDensity-2\BalMult\FlowPot=0.
+\]
+The variation of \(\BalanceField\) in \eqref{eq:laux} gives
+\[
+\BalMult
+-2\mu_t^2(\alpha+2\BalanceField)
++\frac32\mu_s^2\bigl(\beta-\tfrac32\BalanceField\bigr)=0.
+\]
+Variation with respect to \(\alpha\), \(\beta\), \(\mathcal V_A\), and \(\mathcal T_{AB}\) gives
+\[
+\alpha=-2\BalanceField,
+\qquad
+\beta=\frac32\BalanceField,
+\qquad
+\mathcal V_A=0,
+\qquad
+\mathcal T_{AB}=0.
+\]
+Substituting these into the \(\BalanceField\)-equation yields \(\BalMult=0\). The \(\FlowPot\)-equation therefore reduces to \eqref{eq:poisson}, and the multiplier equation gives \(\BalanceField=\FlowPot^2\). Substituting \eqref{eq:poleqs} into \eqref{eq:Kdecomp} yields \eqref{eq:Kelim}.
+\end{proof}
+
+\begin{corollary}[Constitutive source-current note recovered as the first-order reduction of the deeper action]
+\label{cor:firstorder}
+After eliminating the curvature-response one-forms \((\mathfrak R_A^I,\mathfrak R_A^\chi,\mathfrak R_A^W)\) and writing the derived carriers \eqref{eq:carrierrels}, the current law of the constitutive source-current note is recovered exactly:
+\begin{equation}
+\ConstCurrent_A
+=
+\mathfrak c_I\QCarrier_A^I
++\mathfrak c_\chi\ChiCarrier_A
++\mathfrak c_W\TransCarrier_A.
+\label{eq:oldconstrecovered}
+\end{equation}
+In this precise sense, the previous constitutive note is the first-order reduction of the present deeper local action.
+\end{corollary}
+
+\begin{proof}
+This is exactly \eqref{eq:constitutivecarrier} together with Definition \ref{def:cfromlambda}.
+\end{proof}
+
+\begin{corollary}[Same reduced current and Hamiltonian-charge flux package]
+\label{cor:currentflux}
+The eliminated deeper action yields the same reduced current law and Hamiltonian-charge flux package already fixed downstream:
+\begin{equation}
+\SourceCurrentRed_A
+=
+\mathfrak c_I\SpatialD_AQ^I
++\mathfrak c_\chi\SpatialD_A\chi
++\mathfrak c_WW_A^T,
+\qquad
+\SourceDensityRed=-\SpatialD^A\SourceCurrentRed_A,
+\label{eq:currentdensity}
+\end{equation}
+\begin{equation}
+\HamChargeOmega
+\equiv
+\int_{\Sigma_t}\SourceDensityRed\,d\mu_P
+=
+-\lim_{r\to\infty}\int_{S_r}n^A\SourceCurrentRed_A\,dA.
+\label{eq:charge}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+Equation \eqref{eq:currentdensity} is exactly \eqref{eq:Jredexplicit} and \eqref{eq:currenteqs}. Integrating \(\SourceDensity=-\SpatialD^A\SourceCurrent\) over the local experiential slice and using \(\SourceCurrent=\SourceCurrentRed\) gives \eqref{eq:charge}.
+\end{proof}
+
+\begin{corollary}[Continuity/Gauss-Poisson package]
+\label{cor:continuity}
+The deeper curvature-response sector derives the same continuity/Gauss-Poisson package that fed the previous two notes:
+\begin{equation}
+\SourceDensity+\SpatialD^A\SourceCurrent_A=0,
+\label{eq:continuity}
+\end{equation}
+\begin{equation}
+-\SpatialD_A\SourceFlux^A=4\pi G_N\,\SourceDensity,
+\qquad
+\SourceFlux_A=\SpatialD_A\FlowPot.
+\label{eq:gausspoisson}
+\end{equation}
+Hence, for every ball \(B_r\) containing the charge core,
+\begin{equation}
+\int_{B_r}\SourceDensity\,d\mu_P
+=
+-\int_{S_r}n^A\SourceCurrent_A\,dA
+=
+-\int_{S_r}n^A\SourceCurrentRed_A\,dA
+=
+-\frac{1}{4\pi G_N}\int_{S_r}n^A\SourceFlux_A\,dA.
+\label{eq:doublegauss}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+Equations \eqref{eq:continuity} and \eqref{eq:gausspoisson} are exactly \eqref{eq:currenteqs}, \eqref{eq:multflux}, and \eqref{eq:poisson}. Integrating each divergence relation over \(B_r\) and using the divergence theorem yields \eqref{eq:doublegauss}.
+\end{proof}
+
+\begin{corollary}[Derived exterior Coulomb profile after the deeper curvature block]
+\label{cor:coulomb}
+Assume the exterior condition
+\begin{equation}
+\SpatialD^A\SourceCurrentRed_A=0
+\qquad
+\text{for } r>R_\ast.
+\label{eq:exteriorcurrent}
+\end{equation}
+Then on the source-free exterior region \(r>R_\ast\),
+\begin{equation}
+\FlowPot
+=
+\CoulPot+\FlowPotReg,
+\qquad
+\CoulPot(r)=\frac{G_N\,\HamChargeOmega}{r},
+\qquad
+\FlowPotReg=\mathcal O(r^{-2}),
+\qquad
+\partial\FlowPotReg=\mathcal O(r^{-3}).
+\label{eq:potdecomp}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+By Proposition \ref{prop:EL},
+\[
+\SourceDensity
+=
+-\SpatialD^A\SourceCurrentRed_A
+=
+0
+\qquad
+\text{for } r>R_\ast.
+\]
+Therefore \(\LapPerp\FlowPot=0\) on the exterior region. Standard harmonic expansion on the asymptotically Euclidean local experiential slice gives
+\[
+\FlowPot=\frac{A}{r}+\mathcal O(r^{-2})
+\]
+for the unique decaying branch. By \eqref{eq:doublegauss},
+\begin{equation}
+-\int_{S_r}n^A\SpatialD_A\FlowPot\,dA
+=
+4\pi G_N\int_{B_r}\SourceDensity\,d\mu_P
+=
+-4\pi G_N\int_{S_r}n^A\SourceCurrentRed_A\,dA
+=
+4\pi G_N\,\HamChargeOmega.
+\label{eq:gauss}
+\end{equation}
+For the harmonic monopole \(A/r\), the left-hand side of \eqref{eq:gauss} is \(4\pi A\). Hence \(A=G_N\HamChargeOmega\), which gives \eqref{eq:potdecomp}.
+\end{proof}
+
+\begin{remark}
+Corollaries \ref{cor:currentflux}, \ref{cor:continuity}, and \ref{cor:coulomb} are the precise sense in which the deeper curvature-action note reproduces the same reduced current, Hamiltonian-charge flux, continuity/Gauss-Poisson structure, and exterior Coulomb tail. Nothing downstream changes when the constitutive block is forced from the deeper action rather than inserted by hand.
+\end{remark}
+
+\section{Elimination and Recovery of the Same \texorpdfstring{\(r^{-2}\)}{r^-2} Dressing}
+
+\begin{definition}[Dressed bridge reconstruction after full elimination]
+\label{def:bridge}
+Let \(\LiftIER_{AB}\) be a substrate tensor whose observer pullback is the already-fixed lower-order inverse-response correction,
+\begin{equation}
+\ObserverMap^\ast\LiftIER_{AB}=\SigmaIER_{\mu\nu}.
+\label{eq:liftier}
+\end{equation}
+After eliminating the full deeper curvature-current plus source-current plus polarization sector, define the reconstructed bridge metric by
+\begin{equation}
+\BridgeMetric_{AB}^{\mathrm{curv+cur+aux}}
+=
+G_{AB}
+-2U_AU_B
++\LiftIER_{AB}
++\AuxPol_{AB}^{\mathrm{elim}}.
+\label{eq:bridge}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[Coulomb-plus-regular split of the eliminated polarization tensor]
+\label{prop:split}
+On the exterior charge sector,
+\begin{equation}
+\AuxPol_{AB}^{\mathrm{elim}}
+=
+\AuxPol_{AB}^{\mathrm{Sch}}
++\AuxPol_{AB}^{\mathrm{reg}},
+\label{eq:Ksplit}
+\end{equation}
+where
+\begin{equation}
+\AuxPol_{AB}^{\mathrm{Sch}}
+=
+-2\CoulPot^2U_AU_B
++\frac32\CoulPot^2\ProjSub_{AB},
+\label{eq:Ksch}
+\end{equation}
+and
+\begin{align}
+\AuxPol_{AB}^{\mathrm{reg}}
+=\;&
+-2\bigl(2\CoulPot\FlowPotReg+(\FlowPotReg)^2\bigr)U_AU_B
+\nonumber\\
+&+\frac32\bigl(2\CoulPot\FlowPotReg+(\FlowPotReg)^2\bigr)\ProjSub_{AB}.
+\label{eq:Kreg}
+\end{align}
+Moreover,
+\begin{equation}
+\AuxPol_{AB}^{\mathrm{reg}}=\mathcal O(r^{-3}),
+\qquad
+\nabla\AuxPol_{AB}^{\mathrm{reg}}=\mathcal O(r^{-4}).
+\label{eq:Kregdecay}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Substitute \eqref{eq:potdecomp} into \eqref{eq:Kelim}:
+\[
+\FlowPot^2=\CoulPot^2+2\CoulPot\FlowPotReg+(\FlowPotReg)^2.
+\]
+Separating the pure Coulomb square from the faster remainder gives \eqref{eq:Ksplit}--\eqref{eq:Kreg}. Since \(\CoulPot=\mathcal O(r^{-1})\) and \(\FlowPotReg=\mathcal O(r^{-2})\), one has \(2\CoulPot\FlowPotReg+(\FlowPotReg)^2=\mathcal O(r^{-3})\), and the derivative estimate follows immediately.
+\end{proof}
+
+\begin{proposition}[Observer pullback of the full eliminated deeper sector]
+\label{prop:pullback}
+In a substrate-adapted local observer chart in which \(U^A\) is the unit temporal direction and \(\ObserverMap^\ast\ProjSub_{AB}\) reduces to the spatial Euclidean metric at leading order, one has
+\begin{equation}
+\bigl(\ObserverMap^\ast\AuxPol^{\mathrm{Sch}}\bigr)_{00}
+=
+-2\CoulPot^2,
+\qquad
+\bigl(\ObserverMap^\ast\AuxPol^{\mathrm{Sch}}\bigr)_{0i}
+=
+0,
+\qquad
+\bigl(\ObserverMap^\ast\AuxPol^{\mathrm{Sch}}\bigr)_{ij}
+=
+\frac32\CoulPot^2\,\delta_{ij},
+\label{eq:pullsch}
+\end{equation}
+and
+\begin{equation}
+\ObserverMap^\ast\AuxPol_{AB}^{\mathrm{reg}}
+=
+\SigmaRegPol{}_{\mu\nu},
+\qquad
+\SigmaRegPol=\mathcal O(r^{-3}),
+\qquad
+\partial\SigmaRegPol=\mathcal O(r^{-4}).
+\label{eq:pullreg}
+\end{equation}
+Therefore
+\begin{equation}
+\ObserverMap^\ast \BridgeMetric_{AB}^{\mathrm{curv+cur+aux}}
+=
+g_{\mu\nu}^{\mathrm{br}}
++\SigmaIER_{\mu\nu}
++\SigmaDressSch{}_{\mu\nu}
++\SigmaRegPol{}_{\mu\nu},
+\label{eq:targetrecovered}
+\end{equation}
+with \(\SigmaDressSch\) exactly as in \eqref{eq:schdress}.
+\end{proposition}
+
+\begin{proof}
+The pullback identities for \(U_AU_B\) and \(\ProjSub_{AB}\) are the same ones used in the substrate-origin, constrained auxiliary-sector, intrinsic source-sector, source-current-sector, and constitutive source-current notes. Applying them to \eqref{eq:Ksch} yields \eqref{eq:pullsch}, which is exactly the Schwarzschild-type \(r^{-2}\) dressing of Definition \ref{def:target}. Applying the same pullback to \eqref{eq:Kreg} and using \eqref{eq:Kregdecay} gives \eqref{eq:pullreg}. Combining those identities with \eqref{eq:bridge} and \eqref{eq:liftier} yields \eqref{eq:targetrecovered}.
+\end{proof}
+
+\begin{corollary}[Same observer output as the positive dressing test]
+\label{cor:sameoutput}
+Eliminating the full deeper curvature-current plus source-current plus polarization sector reproduces exactly the same observer-side dressed bridge map already fixed by the positive dressing-candidate test.
+\end{corollary}
+
+\begin{proof}
+This is precisely Proposition \ref{prop:pullback}.
+\end{proof}
+
+\section{Why the Same Gain Package Survives}
+
+\begin{proposition}[The deeper curvature-response block is slice-wise nonpropagating and reaches the bridge only through \texorpdfstring{\(\FlowPot^2\)}{Phi^2}]
+\label{prop:elliptic}
+At the present manuscript scope, the deeper curvature-response sector is nonpropagating on each local experiential slice. Its only observer-relevant scalar imprint is still the quartic combination
+\begin{equation}
+\BalanceField=\FlowPot^2.
+\label{eq:quarticentry}
+\end{equation}
+In particular, once the already-recorded reduced current law is recovered in the form \eqref{eq:Jredexplicit}, the deeper sector adds only:
+\begin{enumerate}
+    \item algebraic forcing of the constitutive-current basis and coefficients through \(\mathfrak R_A^I\), \(\mathfrak R_A^\chi\), and \(\mathfrak R_A^W\);
+    \item the same slice-wise elliptic continuity/Gauss-Poisson solve as in the previous two notes;
+    \item the same polarization solve \(\BalanceField=\FlowPot^2\) and therefore the same quartic bridge entry.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+The curvature-response equations \eqref{eq:Rrels} are algebraic on the local experiential slice, not propagating evolution equations. The current, density, and potential are then determined by \eqref{eq:currenteqs} and \eqref{eq:poisson}, which are the same slice-wise continuity/Gauss-Poisson system already used in the previous notes. Finally, \eqref{eq:poleqs} and \eqref{eq:Kelim} show that the full deeper sector reaches the bridge metric only through \(\BalanceField=\FlowPot^2\), exactly as before.
+\end{proof}
+
+\begin{corollary}[No reopening of the lower-order quotient line]
+\label{cor:nopde}
+The deeper curvature-action sector does not reopen the already-positive quotient reduced-system, theorem, decay, or asymptotic line.
+\end{corollary}
+
+\begin{proof}
+By Proposition \ref{prop:elliptic}, the new curvature-response variables add only a slice-wise algebraic forcing of the constitutive current together with the same slice-wise elliptic Poisson solve whose bridge imprint begins at quartic order. Therefore they do not alter the already-closed lower-order quotient equations or the estimates built on them.
+\end{proof}
+
+\begin{theorem}[Preservation of matter-free activity, off-longitudinal cancellation, and cubic completion]
+\label{thm:firstthree}
+The deeper curvature-current plus source-current plus polarization sector preserves items (1)--(3) of Definition \ref{def:gains}: matter-free activity, off-longitudinal \(Q/W\) cancellation, and explicit cubic longitudinal completion.
+\end{theorem}
+
+\begin{proof}
+The lower-order inverse-response tensor \(\SigmaIER\) is unchanged by Definition \ref{def:bridge}. Therefore the lower-order identities through which \(\SigmaIER\) cancels the full off-longitudinal remainder \(\ReOff\) and the cubic longitudinal tensor \(\ReLongThree\) remain exactly as before. Matter-free activity also survives: by Corollary \ref{cor:currentflux}, the same Hamiltonian charge \(\HamChargeOmega\) is carried by the asymptotic flux of the current derived from the deeper action and may still be nonzero on the decisive rotational matter-free regime. Corollary \ref{cor:coulomb} then gives the same nontrivial Coulomb tail even when ordinary matter vanishes. Since Proposition \ref{prop:elliptic} shows that the full deeper sector enters the observer map only at quartic order, none of these already-positive lower-order gains is disturbed.
+\end{proof}
+
+\begin{theorem}[Preservation of quartic Coulomb self-response absorption]
+\label{thm:quartic}
+On the decisive matter-free rotational exterior regime, the deeper curvature-current plus source-current plus polarization sector preserves item (4) of Definition \ref{def:gains}: the isolated quartic Coulomb self-response is structurally absorbed and the resulting quartic observer tensor is pushed to \(\mathcal O(r^{-5})\).
+\end{theorem}
+
+\begin{proof}
+By Proposition \ref{prop:pullback}, the observer tensor produced by eliminating the full deeper sector is exactly the same Schwarzschild-type \(r^{-2}\) dressing plus an \(\mathcal O(r^{-3})\) regular completion already tested positively in the dressing-candidate note. The Hamiltonian-projection cancellation and full tensor-level \(\mathcal O(r^{-5})\) verdict of that note therefore apply verbatim.
+\end{proof}
+
+\begin{corollary}[Deeper curvature-action verdict]
+\label{cor:verdict}
+At the present disciplined scope, the enlarged action of Definition \ref{def:action} is a valid next-step realization of the surviving dressed bridge map:
+\begin{enumerate}
+    \item Proposition \ref{prop:basis} justifies the constitutive carrier basis at the present local derivative order: only the \(Q\)-gradient, \(\chi\)-gradient, and transverse \(W^T\) one-form slots can appear.
+    \item Proposition \ref{prop:EL} and Definition \ref{def:cfromlambda} derive the constitutive coefficients from explicit local couplings,
+    \[
+    \mathfrak c_I=\nu_I\lambda_I,
+    \qquad
+    \mathfrak c_\chi=\nu_\chi\lambda_\chi,
+    \qquad
+    \mathfrak c_W=\nu_W\lambda_W,
+    \]
+    rather than leaving them as free constitutive input data.
+    \item Eliminating the deeper local action reproduces the same reduced current law, Hamiltonian-charge flux, continuity/Gauss-Poisson package, and exterior Coulomb tail already fixed downstream.
+    \item Eliminating the full deeper sector reproduces exactly the same Schwarzschild-type \(r^{-2}\) dressing and \(\mathcal O(r^{-3})\) regular completion.
+    \item The same matter-free/off-longitudinal/cubic/quartic gain package is preserved.
+\end{enumerate}
+In particular, the constitutive source-current note should now be read not merely as an admissible first-order ansatz, but as the first-order reduction of this deeper curvature-action layer. What is \emph{still} not claimed is a unique ultraviolet curvature density beyond the equivalent integrated local action written here.
+\end{corollary}
+
+\begin{proof}
+Item (1) is Proposition \ref{prop:basis}. Item (2) is Definition \ref{def:cfromlambda} together with Proposition \ref{prop:EL}. Item (3) is Corollaries \ref{cor:currentflux}, \ref{cor:continuity}, and \ref{cor:coulomb}. Item (4) is Proposition \ref{prop:pullback}. Item (5) is Theorems \ref{thm:firstthree} and \ref{thm:quartic}. The final sentence is exactly the disciplined-scope reading fixed by the markdown plan and claim-boundary files.
+\end{proof}
+
+\section{Conclusion}
+
+The active burden at this stage was no longer to defend \(\SourceCurrentRed_A\) as a constitutive law by itself. That work has now been canonized at disciplined scope. The live burden was to go one layer deeper and force that constitutive sector from a local action rather than leaving its basis and coefficients as input data. The present manuscript supplies that next step.
+
+\begin{enumerate}
+    \item The constitutive carrier basis is justified at the present local derivative order by Proposition \ref{prop:basis}: once the already-active reduced slice variables are fixed and the Hodge split \(W_A=\SpatialD_A\chi+W_A^T\) is used, the only local spatial one-form slots available to the constitutive current are \(\SpatialD_AQ^I\), \(\SpatialD_A\chi\), and \(W_A^T\).
+    \item The deeper local action is written explicitly in the equivalent integrated form \eqref{eq:fullaction}, using the integrated curvature-response one-forms \((\mathfrak R_A^I,\mathfrak R_A^\chi,\mathfrak R_A^W)\) together with the same source-current and polarization blocks already fixed downstream.
+    \item The Euler--Lagrange equations force
+    \[
+    \mathfrak R_A^I=\lambda_I\SpatialD_AQ^I,
+    \qquad
+    \mathfrak R_A^\chi=\lambda_\chi\SpatialD_A\chi,
+    \qquad
+    \mathfrak R_A^W=\lambda_WW_A^T,
+    \]
+    so the constitutive carriers of the previous note become derived first-order normalizations of explicit curvature-response variables.
+    \item The same equations then give
+    \[
+    \ConstCurrent_A
+    =
+    \nu_I\mathfrak R_A^I
+    +\nu_\chi\mathfrak R_A^\chi
+    +\nu_W\mathfrak R_A^W
+    =
+    \mathfrak c_I\SpatialD_AQ^I
+    +\mathfrak c_\chi\SpatialD_A\chi
+    +\mathfrak c_WW_A^T,
+    \]
+    with
+    \[
+    \mathfrak c_I=\nu_I\lambda_I,
+    \qquad
+    \mathfrak c_\chi=\nu_\chi\lambda_\chi,
+    \qquad
+    \mathfrak c_W=\nu_W\lambda_W.
+    \]
+    Thus the coefficients are no longer bare constitutive inputs.
+    \item The same enlarged variational system derives the source density as
+    \[
+    \SourceDensity
+    =
+    -\SpatialD^A\SourceCurrent_A
+    =
+    -\SpatialD^A\SourceCurrentRed_A
+    =
+    \SourceDensityRed,
+    \]
+    and it carries the same Hamiltonian charge by the same asymptotic current flux.
+    \item The same continuity/Gauss-Poisson package and the same exterior Coulomb profile for \(\FlowPot\) therefore follow after passing through the deeper curvature-action layer.
+    \item The same auxiliary polarization block still yields \(\BalanceField=\FlowPot^2\) and \(\AuxPol_{AB}^{\mathrm{elim}}=-2\FlowPot^2U_AU_B+\tfrac32\FlowPot^2\ProjSub_{AB}\).
+    \item On the exterior charge sector, that elimination again splits into the same Schwarzschild-type \(r^{-2}\) dressing plus an \(\mathcal O(r^{-3})\) regular completion, so the observer output is exactly the same dressed bridge map already fixed by the positive candidate test.
+    \item Because the deeper curvature-response layer is slice-wise nonpropagating and reaches the bridge only through the same quartic combination \(\FlowPot^2\), the already-positive matter-free activity, off-longitudinal \(Q/W\) cancellation, explicit cubic longitudinal completion, and quartic Coulomb self-response absorption are all preserved.
+\end{enumerate}
+
+This is the correct scope for the present note. It now removes the specific remaining defect recorded in the markdown plan: the constitutive carrier basis and coefficients are no longer left as free constitutive input data. They are forced by an explicit deeper local action, written in the equivalent integrated curvature-response form most justified at current scope. The manuscript still does not claim that the ultimate ultraviolet curvature density is already unique, but it does achieve the next live burden honestly: the constitutive note is now recovered as the first-order reduction of a deeper local action that preserves the same current, density/flux package, exterior Coulomb tail, surviving dressed bridge map, and \(r^{-2}\) gain package.
+
+\end{document}

@@ -1,0 +1,658 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal{A}}
+\newcommand{\BridgeMetric}{\mathfrak{g}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Constraint-Assisted \texorpdfstring{\(U\)}{U}-Sector Quadratic Elimination and Generalized Exact-Closure Conditions}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This manuscript carries the constraint-assisted longitudinal \(U\)-sector family through its next fixed derivational task: full flat-background quadratic elimination and extraction of the generalized exact-closure conditions. The scope remains disciplined. The note does not claim a completed substrate derivation of Einsteinian gravity. It computes only the quadratic status of the candidate family already selected in the active research plan.
+
+The new auxiliary scalar \(C\) changes the elimination problem in one precise way. After the coupled \((\chi,C)\) block is integrated out, the scalar source combination \(\alpha X+\beta_I q^I\), with \(X\equiv \partial_0\sigma-\sigma_0\phi\), feeds back into the \(Q\)-sector as a rank-one deformation of the operator \(k^2\delta_{IJ}+\widehat M_{IJ}\). Defining
+\[
+\Delta_C\equiv 1-\kappa_\theta M_C^2,
+\qquad
+\mathcal D_C(k^2)
+=
+\Delta_C
++
+\kappa_\theta\,\beta_I
+\bigl(k^2\delta+\widehat M\bigr)^{-1\,IJ}
+\beta_J,
+\]
+the reduced scalar bridge channel is governed by three momentum-dependent coefficients \(\mathcal M_C(k^2)\), \(\Gamma_C(k^2)\), and \(\mathcal B_C(k^2)\), and the observer-accessible scalar bridge self-energy becomes
+\[
+\Pi_\phi^{(C)}(\omega,\mathbf{k})
+=
+\sigma_0^2
+\frac{\mathcal N_C(k^2)}
+{\mathcal M_C(k^2)\omega^2+\mathcal B_C(k^2)},
+\qquad
+\mathcal N_C
+=
+\mathcal M_C\mathcal B_C-\Gamma_C^2.
+\]
+Hence the flat-background exact-closure burden is no longer carried by \(\mathcal B(k^2)\) alone. On the generic nonresonant branch, it is carried by the generalized numerator \(\mathcal N_C(k^2)\). Its infrared coefficients \(\mathcal N_{C,0}\) and \(\mathcal N_{C,2}\) give the generalized exact-closure conditions derived here. The separate question of whether those conditions admit a healthy nondegenerate solution is left to the next manuscript.
+\end{abstract}
+
+\section{Introduction}
+
+The active exact-closure line of \TheoryName{} is already fixed by the foundations, dynamics, consistency, relativistic-recovery, flow-geometry, and substrate-bridge manuscripts. On the derivational side, the project has now passed through three sharper filters. First, the minimal candidate action was written explicitly. Second, the coefficient-level linearized-consistency note reduced its flat-background exact-closure burden to the scalar operator \(\mathcal B(k^2)\). Third, the minimal stable-sign no-go note and the derivative-mixing branch consistency note showed that neither the minimal branch nor the first nonminimal \(S/Q\) derivative-mixing branch yields the sought nondegenerate flat-background exact-closure solution.
+
+That sequence fixed the next target. The branch-selection note for the constraint-assisted longitudinal \(U\)-sector family showed why the previous no-go decompositions no longer apply once the divergence of the ordered-flow field is sourced by the order and \(Q\) sectors through an auxiliary scalar \(C\). What that note deliberately did not do was the full Phase 3 elimination. The present manuscript performs that elimination.
+
+The result is the exact analogue of the earlier coefficient-level reductions, but with one decisive change. The exact-closure burden no longer collapses directly to the old scalar operator \(\mathcal B(k^2)\) or to the derivative-mixing generalization \(\mathcal B_\rho(k^2)\). Instead it is carried by a new generalized numerator built from the coupled longitudinal \(U\)-sector and \(Q\)-sector response.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays inside that boundary. It does not promote the constraint-assisted branch to established theory. It determines the branch's full quadratic elimination and the corresponding generalized exact-closure conditions.
+
+\section{Constraint-Assisted Branch and Background Variables}
+
+The constraint-assisted longitudinal \(U\)-sector family modifies the auxiliary sector by
+\begin{equation}
+\Delta\mathcal L_C
+=
+C\Bigl(\nabla_AU^A-\alpha\bigl(U^B\partial_BS-\sigma_0\bigr)-\beta_IQ^I\Bigr)
+-\frac{M_C^2}{2}C^2.
+\label{eq:LC}
+\end{equation}
+The full branch auxiliary sector is therefore
+\begin{equation}
+\mathcal L_{\mathrm{aux}}^{(C)}
+=
+\mathcal L_{\mathrm{aux}}
++\Delta\mathcal L_C,
+\label{eq:LauxC}
+\end{equation}
+where \(\mathcal L_{\mathrm{aux}}\) is the minimal auxiliary sector already defined in the substrate-bridge and coefficient-level notes.
+
+As in the previous flat-background analyses, use the admissible homogeneous bridge background
+\begin{equation}
+\bar G_{AB}=\delta_{AB},
+\qquad
+\bar U^A=\delta^A{}_0,
+\qquad
+\bar S=\sigma_0X^0,
+\qquad
+\bar Q^I=0,
+\label{eq:background}
+\end{equation}
+for which
+\begin{equation}
+\bar\BridgeMetric_{AB}=\eta_{AB}=\mathrm{diag}(-1,1,1,1).
+\label{eq:etabridge}
+\end{equation}
+Write perturbations as
+\begin{equation}
+G_{AB}=\delta_{AB}+H_{AB},
+\qquad
+U^A=\bar U^A+V^A,
+\qquad
+S=\sigma_0X^0+\sigma,
+\qquad
+Q^I=q^I.
+\label{eq:perturbations}
+\end{equation}
+The unit constraint again gives
+\begin{equation}
+V^0=-\frac{1}{2}H_{00},
+\label{eq:V0}
+\end{equation}
+and the bridge perturbation is
+\begin{equation}
+h_{00}=-H_{00},
+\qquad
+h_{0i}=-H_{0i}-2V_i,
+\qquad
+h_{ij}=H_{ij}.
+\label{eq:bridgepert}
+\end{equation}
+Decompose
+\begin{equation}
+V_i=V_i^T+\partial_i\chi,
+\qquad
+\partial_iV_T^i=0,
+\label{eq:Vdecomp}
+\end{equation}
+and define
+\begin{equation}
+X\equiv \partial_0\sigma-\sigma_0\phi,
+\qquad
+\Theta\equiv \nabla^2\chi+\frac{1}{2}\partial_0H,
+\label{eq:XTheta}
+\end{equation}
+with \(h_{00}=-2\phi\) and \(H=\delta^{ij}h_{ij}\).
+
+\section{Full Quadratic Auxiliary Lagrangian}
+
+\begin{proposition}[Quadratic auxiliary coefficients of the constraint-assisted branch]
+On the flat background \eqref{eq:background}--\eqref{eq:etabridge}, the full quadratic auxiliary Lagrangian is
+\begin{align}
+\mathcal L_{\mathrm{aux},C}^{(2)}
+=\;&
+-\frac{m_S^2}{2}X^2
+-\frac{\kappa_S}{2}\,\partial_i\sigma\,\partial_i\sigma
+-\frac{1}{2}\mu_S^2\sigma^2
+-\mu_{SI}\sigma q^I
+\nonumber\\
+&-\frac{1}{2}q^I\!\left(-\nabla^2\delta_{IJ}+\widehat M_{IJ}\right)\!q^J
+-\frac{\kappa_\theta}{2}\Theta^2
++C\bigl(\Theta-\alpha X-\beta_Iq^I\bigr)
+-\frac{M_C^2}{2}C^2
+\nonumber\\
+&-\frac{\kappa_\Omega}{4}\,
+\partial_{[i}\!\left(S_{j]}+V^T_{j]}\right)
+\partial^{[i}\!\left(S^{j]}+V_T^{j]}\right).
+\label{eq:Laux2C}
+\end{align}
+\end{proposition}
+
+\begin{proof}
+The coefficient-level linearized-consistency note already derived the minimal quadratic auxiliary sector, and the branch-selection note already derived the quadratic expansion of the new interaction \eqref{eq:LC}. At this order the only additional term is
+\[
+\Delta\mathcal L_C^{(2)}
+=
+C\bigl(\Theta-\alpha X-\beta_Iq^I\bigr)
+-\frac{M_C^2}{2}C^2.
+\]
+Adding that contribution to the previously derived minimal quadratic coefficients yields \eqref{eq:Laux2C}.
+\end{proof}
+
+\begin{remark}
+The tensor bridge sector remains the ordinary Fierz--Pauli sector of the bridge metric exactly as in the previous notes. All new quadratic structure is carried by the scalar longitudinal \(U\)-sector and its feedback into the \(Q\)-sector.
+\end{remark}
+
+\section{Exact Elimination of the Sourced Longitudinal \texorpdfstring{\(U\)}{U}-Sector}
+
+\begin{definition}[Generic nonresonant constraint-assisted branch]
+For the present quadratic elimination, the generic nonresonant branch is the part of parameter space satisfying
+\begin{equation}
+\Delta_C\equiv 1-\kappa_\theta M_C^2\neq 0.
+\label{eq:DeltaC}
+\end{equation}
+The locus \(\Delta_C=0\) is a separate degenerate branch and is not part of the generic elimination derived below.
+\end{definition}
+
+\begin{proposition}[On-shell elimination of the \((\chi,C)\) block]
+On the decaying flat branch with no harmonic zero mode and \(\Delta_C\neq0\), the coupled \((\chi,C)\) equations imply
+\begin{equation}
+\Theta
+=
+\frac{\alpha X+\beta_Iq^I}{\Delta_C},
+\qquad
+C
+=
+\frac{\kappa_\theta(\alpha X+\beta_Iq^I)}{\Delta_C}.
+\label{eq:ThetaCsolve}
+\end{equation}
+Substituting back into \eqref{eq:Laux2C} gives the on-shell longitudinal contribution
+\begin{equation}
+\mathcal L_{\Theta C,\mathrm{on\mbox{-}shell}}^{(2)}
+=
+-\frac{\kappa_\theta}{2\Delta_C}\,
+\bigl(\alpha X+\beta_Iq^I\bigr)^2.
+\label{eq:LThetaCon}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Varying \eqref{eq:Laux2C} with respect to \(C\) gives
+\begin{equation}
+\Theta-\alpha X-\beta_Iq^I-M_C^2C=0.
+\label{eq:Ceq}
+\end{equation}
+Varying with respect to \(\chi\) gives
+\begin{equation}
+\nabla^2\bigl(-\kappa_\theta\Theta+C\bigr)=0.
+\label{eq:chieq}
+\end{equation}
+On the decaying branch, \eqref{eq:chieq} implies \(C=\kappa_\theta\Theta\). Substituting into \eqref{eq:Ceq} yields
+\[
+\Delta_C\,\Theta=\alpha X+\beta_Iq^I,
+\]
+which gives \eqref{eq:ThetaCsolve}. Substituting \eqref{eq:ThetaCsolve} back into the \((\Theta,C)\) part of \eqref{eq:Laux2C} gives \eqref{eq:LThetaCon}.
+\end{proof}
+
+\begin{corollary}[Unchanged transverse \(U\)-sector elimination]
+On the same decaying branch, the transverse equation is unchanged:
+\begin{equation}
+V_T^i=-S^i.
+\label{eq:VTsolve}
+\end{equation}
+Consequently the \(\kappa_\Omega\) sector contributes no residual flat-background bridge self-energy at quadratic order.
+\end{corollary}
+
+\begin{proof}
+The new \(C\)-interaction contains no \(V_T^i\). Therefore the transverse \(U\)-sector variation is exactly the same as in the minimal and derivative-mixing branches.
+\end{proof}
+
+After eliminating \((\chi,C)\), the scalar/\(Q\) part of \eqref{eq:Laux2C} becomes
+\begin{align}
+\mathcal L_{\sigma q,C}^{(2)}
+=\;&
+-\frac{1}{2}\left(m_S^2+\frac{\alpha^2\kappa_\theta}{\Delta_C}\right)X^2
+-\frac{1}{2}\sigma\Bigl(\kappa_S(-\nabla^2)+\mu_S^2\Bigr)\sigma
+-\mu_{SI}\sigma q^I
+\nonumber\\
+&-\frac{1}{2}q^I
+\left[
+\mathcal A_{IJ}(-\nabla^2)
++\frac{\kappa_\theta}{\Delta_C}\beta_I\beta_J
+\right]
+q^J
+-\frac{\alpha\kappa_\theta}{\Delta_C}\,X\,\beta_Iq^I,
+\label{eq:LsigmaqC}
+\end{align}
+where
+\begin{equation}
+\mathcal A_{IJ}(-\nabla^2)
+\equiv
+(-\nabla^2)\delta_{IJ}+\widehat M_{IJ}.
+\label{eq:Aoperator}
+\end{equation}
+
+\section{Elimination of the \texorpdfstring{\(Q\)}{Q}-Sector and Reduced Scalar Action}
+
+\begin{definition}[Constraint-assisted response operators]
+Define the scalar operators
+\begin{align}
+\mathcal G(-\nabla^2)
+&\equiv
+\beta_I\mathcal A^{-1\,IJ}(-\nabla^2)\beta_J,
+\label{eq:Goperator}
+\\
+\mathcal Z(-\nabla^2)
+&\equiv
+\mu_{SI}\mathcal A^{-1\,IJ}(-\nabla^2)\beta_J,
+\label{eq:Zoperator}
+\\
+\Sigma_q(-\nabla^2)
+&\equiv
+\mu_{SI}\mathcal A^{-1\,IJ}(-\nabla^2)\mu_{SJ},
+\label{eq:Sigmaoperator}
+\\
+\mathcal B(-\nabla^2)
+&\equiv
+\kappa_S(-\nabla^2)+\mu_S^2-\Sigma_q(-\nabla^2),
+\label{eq:Boperator}
+\\
+\mathcal D_C(-\nabla^2)
+&\equiv
+\Delta_C+\kappa_\theta\mathcal G(-\nabla^2).
+\label{eq:DCoperator}
+\end{align}
+\end{definition}
+
+\begin{lemma}[Rank-one inverse of the deformed \(Q\)-operator]
+Let
+\begin{equation}
+\mathcal A^{(C)}_{IJ}(-\nabla^2)
+\equiv
+\mathcal A_{IJ}(-\nabla^2)
++\frac{\kappa_\theta}{\Delta_C}\beta_I\beta_J.
+\label{eq:ACoperator}
+\end{equation}
+On the generic nonresonant branch, its inverse is
+\begin{equation}
+\bigl(\mathcal A^{(C)}\bigr)^{-1\,IJ}
+=
+\mathcal A^{-1\,IJ}
+-\frac{\kappa_\theta}{\mathcal D_C}\,
+\mathcal A^{-1\,IK}\beta_K\beta_L\mathcal A^{-1\,LJ}.
+\label{eq:ACinverse}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Equation \eqref{eq:ACoperator} is a rank-one deformation of \(\mathcal A_{IJ}\). The Sherman--Morrison identity gives
+\[
+\bigl(\mathcal A^{(C)}\bigr)^{-1}
+=
+\mathcal A^{-1}
+-\frac{\frac{\kappa_\theta}{\Delta_C}\,\mathcal A^{-1}\beta\beta^\top\mathcal A^{-1}}
+{1+\frac{\kappa_\theta}{\Delta_C}\,\beta^\top\mathcal A^{-1}\beta}.
+\]
+Using \(\beta^\top\mathcal A^{-1}\beta=\mathcal G\) and \(\mathcal D_C=\Delta_C+\kappa_\theta\mathcal G\) yields \eqref{eq:ACinverse}.
+\end{proof}
+
+\begin{proposition}[Exact \(Q\)-sector elimination]
+The \(q^I\) Euler--Lagrange equation derived from \eqref{eq:LsigmaqC} is
+\begin{equation}
+\mathcal A_{IJ}^{(C)}(-\nabla^2)\,q^J
+=
+-\mu_{SI}\sigma
+-\frac{\alpha\kappa_\theta}{\Delta_C}\,\beta_I X.
+\label{eq:qeqC}
+\end{equation}
+Hence
+\begin{equation}
+q^I
+=
+-\mathcal A^{-1\,IJ}\mu_{SJ}\sigma
+-\frac{\kappa_\theta}{\mathcal D_C}\,
+\mathcal A^{-1\,IJ}\beta_J\bigl(\alpha X-\mathcal Z\,\sigma\bigr).
+\label{eq:qsolveC}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Equation \eqref{eq:qeqC} is immediate from \eqref{eq:LsigmaqC}. Applying \eqref{eq:ACinverse} to the source on the right-hand side gives \eqref{eq:qsolveC}.
+\end{proof}
+
+\begin{proposition}[Reduced scalar bridge channel]
+After eliminating \(q^I\), the scalar bridge sector becomes
+\begin{equation}
+\mathcal L_{\sigma,\mathrm{eff},C}^{(2)}
+=
+-\frac{1}{2}\,
+X\,\mathcal M_C(-\nabla^2)\,X
++\sigma\,\Gamma_C(-\nabla^2)\,X
+-\frac{1}{2}\,
+\sigma\,\mathcal B_C(-\nabla^2)\,\sigma,
+\label{eq:LsigmaeffC}
+\end{equation}
+with
+\begin{align}
+\mathcal M_C(-\nabla^2)
+&=
+m_S^2+\frac{\alpha^2\kappa_\theta}{\mathcal D_C(-\nabla^2)},
+\label{eq:Moperator}
+\\
+\Gamma_C(-\nabla^2)
+&=
+\frac{\alpha\kappa_\theta\,\mathcal Z(-\nabla^2)}
+{\mathcal D_C(-\nabla^2)},
+\label{eq:Gammaoperator}
+\\
+\mathcal B_C(-\nabla^2)
+&=
+\mathcal B(-\nabla^2)
++\frac{\kappa_\theta\,\mathcal Z(-\nabla^2)^2}
+{\mathcal D_C(-\nabla^2)}.
+\label{eq:BCoperator}
+\end{align}
+\end{proposition}
+
+\begin{proof}
+Substituting \eqref{eq:qsolveC} into \eqref{eq:LsigmaqC} and using \eqref{eq:ACinverse} gives
+\[
+\frac{1}{2}
+\bigl(\mu_{SI}\sigma+\tfrac{\alpha\kappa_\theta}{\Delta_C}\beta_I X\bigr)
+\bigl(\mathcal A^{(C)}\bigr)^{-1\,IJ}
+\bigl(\mu_{SJ}\sigma+\tfrac{\alpha\kappa_\theta}{\Delta_C}\beta_J X\bigr)
+\]
+for the on-shell \(Q\)-sector contribution. Evaluating the three resulting terms with \eqref{eq:ACinverse} yields the coefficients \eqref{eq:Moperator}--\eqref{eq:BCoperator}, which gives \eqref{eq:LsigmaeffC}.
+\end{proof}
+
+\begin{corollary}[Minimal-branch reversion]
+If \(\alpha=\beta_I=0\), then
+\begin{equation}
+\mathcal M_C=m_S^2,
+\qquad
+\Gamma_C=0,
+\qquad
+\mathcal B_C=\mathcal B,
+\label{eq:reversioncheck}
+\end{equation}
+so the reduced scalar bridge channel contracts back to the minimal coefficient-level result.
+\end{corollary}
+
+\section{Generalized Bridge Self-Energy and Exact-Closure Conditions}
+
+\begin{proposition}[Generalized scalar bridge self-energy]
+Up to a boundary term, the mixed term in \eqref{eq:LsigmaeffC} satisfies
+\begin{equation}
+\sigma\,\Gamma_C(-\nabla^2)\,X
+\simeq
+-\sigma_0\,\sigma\,\Gamma_C(-\nabla^2)\,\phi.
+\label{eq:boundarydrop}
+\end{equation}
+After integrating out \(\sigma\), the observer-accessible scalar bridge correction is therefore
+\begin{equation}
+\Delta\mathcal L_{\phi,C}^{(2)}(\omega,\mathbf{k})
+=
+-\frac{1}{2}\,
+\Pi_\phi^{(C)}(\omega,\mathbf{k})\,|\phi(\omega,\mathbf{k})|^2,
+\label{eq:DeltaphiC}
+\end{equation}
+with
+\begin{equation}
+\Pi_\phi^{(C)}(\omega,\mathbf{k})
+=
+\sigma_0^2\,
+\frac{\mathcal N_C(k^2)}
+{\mathcal M_C(k^2)\omega^2+\mathcal B_C(k^2)},
+\label{eq:PiphiC}
+\end{equation}
+where
+\begin{equation}
+\mathcal N_C(k^2)
+\equiv
+\mathcal M_C(k^2)\mathcal B_C(k^2)-\Gamma_C(k^2)^2.
+\label{eq:NCdef}
+\end{equation}
+Equivalently,
+\begin{equation}
+\mathcal N_C(k^2)
+=
+m_S^2\mathcal B(k^2)
++\frac{\kappa_\theta}
+{\mathcal D_C(k^2)}
+\Bigl(\alpha^2\mathcal B(k^2)+m_S^2\mathcal Z(k^2)^2\Bigr).
+\label{eq:NCcompact}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Because \(\Gamma_C(-\nabla^2)\) depends only on the spatial operator, it commutes with \(\partial_0\). Thus
+\[
+\sigma\,\Gamma_C\,\partial_0\sigma
+=
+\frac{1}{2}\partial_0\!\left(\sigma\,\Gamma_C\,\sigma\right),
+\]
+which is a boundary term, giving \eqref{eq:boundarydrop}. The remaining quadratic \(\sigma\)-action then has the same structure as in the earlier coefficient-level notes, but with the replacement
+\[
+m_S^2\mapsto \mathcal M_C,
+\qquad
+\mu_{SI}\mapsto \Gamma_C.
+\]
+Integrating out \(\sigma\) therefore yields \eqref{eq:PiphiC}. Expanding \(\mathcal N_C=\mathcal M_C\mathcal B_C-\Gamma_C^2\) with \eqref{eq:Moperator}--\eqref{eq:BCoperator} gives \eqref{eq:NCcompact}.
+\end{proof}
+
+\begin{remark}
+The exact-closure burden is now carried by the generalized numerator \(\mathcal N_C(k^2)\), not by \(\mathcal B(k^2)\) alone. This is the precise sense in which the constraint-assisted branch changes the Phase 3 problem.
+\end{remark}
+
+To extract the low-momentum conditions, expand
+\begin{align}
+\mathcal G(k^2)
+&=
+G_0-G_2k^2+\mathcal O(k^4),
+\label{eq:Gexpand}
+\\
+\mathcal Z(k^2)
+&=
+Z_0-Z_2k^2+\mathcal O(k^4),
+\label{eq:Zexpand}
+\\
+\mathcal B(k^2)
+&=
+\mathcal B_0+\mathcal B_2k^2+\mathcal O(k^4),
+\label{eq:Bexpand}
+\end{align}
+with
+\begin{align}
+G_0
+&=
+\beta_I\widehat M^{-1\,IJ}\beta_J,
+\qquad
+G_2
+=
+\beta_I\widehat M^{-2\,IJ}\beta_J,
+\label{eq:Gcoeffs}
+\\
+Z_0
+&=
+\mu_{SI}\widehat M^{-1\,IJ}\beta_J,
+\qquad
+Z_2
+=
+\mu_{SI}\widehat M^{-2\,IJ}\beta_J,
+\label{eq:Zcoeffs}
+\\
+\mathcal B_0
+&=
+\mu_S^2-\mu_{SI}\widehat M^{-1\,IJ}\mu_{SJ},
+\label{eq:B0}
+\\
+\mathcal B_2
+&=
+\kappa_S+\mu_{SI}\widehat M^{-2\,IJ}\mu_{SJ}.
+\label{eq:B2}
+\end{align}
+Define also
+\begin{equation}
+\mathcal D_{C,0}
+\equiv
+\Delta_C+\kappa_\theta G_0
+=
+1-\kappa_\theta M_C^2+\kappa_\theta\beta_I\widehat M^{-1\,IJ}\beta_J.
+\label{eq:DC0}
+\end{equation}
+
+\begin{proposition}[Infrared coefficients of the generalized numerator]
+On the branch with \(\mathcal D_{C,0}\neq0\), the generalized numerator expands as
+\begin{equation}
+\mathcal N_C(k^2)
+=
+\mathcal N_{C,0}
++\mathcal N_{C,2}k^2
++\mathcal O(k^4),
+\label{eq:NCexpand}
+\end{equation}
+where
+\begin{align}
+\mathcal N_{C,0}
+&=
+m_S^2\mathcal B_0
++\frac{\kappa_\theta}{\mathcal D_{C,0}}
+\bigl(\alpha^2\mathcal B_0+m_S^2Z_0^2\bigr),
+\label{eq:NC0}
+\\
+\mathcal N_{C,2}
+&=
+m_S^2\mathcal B_2
++\frac{\kappa_\theta}{\mathcal D_{C,0}}
+\bigl(\alpha^2\mathcal B_2-2m_S^2Z_0Z_2\bigr)
++\frac{\kappa_\theta^2G_2}{\mathcal D_{C,0}^2}
+\bigl(\alpha^2\mathcal B_0+m_S^2Z_0^2\bigr).
+\label{eq:NC2}
+\end{align}
+\end{proposition}
+
+\begin{proof}
+Using \eqref{eq:Gexpand} gives
+\[
+\mathcal D_C(k^2)
+=
+\mathcal D_{C,0}-\kappa_\theta G_2k^2+\mathcal O(k^4),
+\]
+and therefore
+\[
+\frac{1}{\mathcal D_C(k^2)}
+=
+\frac{1}{\mathcal D_{C,0}}
++\frac{\kappa_\theta G_2}{\mathcal D_{C,0}^2}k^2
++\mathcal O(k^4).
+\]
+Substituting this together with \eqref{eq:Gexpand}--\eqref{eq:Bexpand} into \eqref{eq:NCcompact} gives \eqref{eq:NC0} and \eqref{eq:NC2}.
+\end{proof}
+
+\begin{theorem}[Generalized flat-background exact-closure conditions]
+On the generic nonresonant constraint-assisted branch with \(\mathcal D_{C,0}\neq0\), quadratic infrared exact closure requires
+\begin{equation}
+\mathcal N_{C,0}=0,
+\qquad
+\mathcal N_{C,2}=0.
+\label{eq:NCconditions}
+\end{equation}
+Equivalently, the generalized coefficient conditions are
+\begin{equation}
+\bigl(m_S^2\mathcal D_{C,0}+\alpha^2\kappa_\theta\bigr)\mathcal B_0
++m_S^2\kappa_\theta Z_0^2
+=
+0,
+\label{eq:gencond0}
+\end{equation}
+and
+\begin{equation}
+\bigl(m_S^2\mathcal D_{C,0}+\alpha^2\kappa_\theta\bigr)\mathcal B_2
+-2m_S^2\kappa_\theta Z_0Z_2
+-m_S^2\kappa_\theta G_2\mathcal B_0
+=
+0.
+\label{eq:gencond2}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+If \(\mathcal N_{C,0}\neq0\), then \eqref{eq:PiphiC} contains an unsuppressed \(p^0\) scalar bridge correction. If \(\mathcal N_{C,0}=0\) but \(\mathcal N_{C,2}\neq0\), then an unsuppressed \(k^2\) non-Einsteinian scalar correction remains. Therefore quadratic infrared exact closure requires \eqref{eq:NCconditions}. Multiplying \eqref{eq:NC0}=0 by \(\mathcal D_{C,0}\) gives \eqref{eq:gencond0}. Then substituting \eqref{eq:gencond0} into \eqref{eq:NC2}=0 yields \eqref{eq:gencond2}.
+\end{proof}
+
+\begin{remark}
+Equations \eqref{eq:gencond0}--\eqref{eq:gencond2} complete the fixed task for the constraint-assisted branch: they are the generalized exact-closure conditions replacing the old \(\mathcal B_0=0\), \(\mathcal B_2=0\) pair. They do \emph{not} yet decide whether a healthy nondegenerate solution exists. That requires the next-stage sign and pole analysis of \(\mathcal D_C\), \(\mathcal M_C\), and \(\mathcal B_C\).
+\end{remark}
+
+\section{Conclusion}
+
+The constraint-assisted longitudinal \(U\)-sector family has now been carried through its full flat-background quadratic elimination. The \((\chi,C)\) sector does not collapse to a vanishing bracket as it did in the previous branches. Instead it feeds back into the scalar bridge channel as a rank-one deformation of the \(Q\)-sector operator.
+
+That change is now fully explicit. After elimination of the coupled auxiliary system, the scalar bridge self-energy is governed by the generalized numerator \(\mathcal N_C(k^2)\), not by the old operator \(\mathcal B(k^2)\) alone. On the generic nonresonant branch, the quadratic exact-closure conditions are the two infrared coefficient relations \eqref{eq:gencond0}--\eqref{eq:gencond2}.
+
+This completes the immediate derivational task that the branch-selection note left open. The next task is sharper and narrower: determine whether the new conditions admit any healthy nondegenerate branch or whether the sourced longitudinal \(U\)-sector again contracts onto a resonant or otherwise degenerate solution. Until that is settled, exact closure remains the benchmark and reversion theory of the project.
+
+\end{document}

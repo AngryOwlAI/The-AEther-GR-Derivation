@@ -1,0 +1,404 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal{A}}
+\newcommand{\BridgeMetric}{\mathfrak{g}}
+\newcommand{\Ell}{\mathcal{L}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Higher-Derivative Quartic Compensator Branch Renormalized Same-Branch Asymptotic Test}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The tuned-compensator decay/integrability note identified the first post-coercive obstruction on the explicit tuned branch: after the exact-square elimination, the scalar sector is no longer dispersive but carries the neutral Stueckelberg-like pair
+\[
+\partial_t\sigma=\frac{\pi_\sigma}{m_S^2},
+\qquad
+\partial_t\pi_\sigma=0
+\]
+at flat linear level, so the unrenormalized observer-side source is not \(L_t^1\) on generic small data. The next disciplined question is therefore narrower than any broad asymptotic claim: can one stay on the same tuned branch, preserve the existing local/coercive theorem, renormalize away the frozen scalar momentum and its induced linear drift, and then obtain an honest \(L_t^1\) observer-side remainder in the same repaired weighted/homogeneous class?
+
+This note performs exactly that same-branch test. It introduces the transported frozen-momentum profile
+\[
+(\partial_t-\Ell_\beta)\pi_{\mathrm{fr}}=0,
+\qquad
+\pi_{\mathrm{fr}}|_{t=0}=\pi_\sigma|_{t=0},
+\]
+defines the induced drift profile
+\[
+\sigma_{\mathrm{dr}}=\frac{t}{m_S^2}\pi_{\mathrm{fr}},
+\]
+and renormalizes the scalar sector by
+\[
+\widetilde{\pi}=\pi_\sigma-\pi_{\mathrm{fr}},
+\qquad
+\widetilde{\sigma}=\sigma-\sigma_{\mathrm{dr}}.
+\]
+At equation level this is the narrowest same-branch scalar renormalization that removes the frozen mode and linear drift without changing gauge, completion, auxiliary architecture, or the recorded local/coercive theorem.
+
+The leading tuned observer-side source becomes
+\[
+\rho_{\mathrm{St}}
+=
+\frac{1}{2m_S^2}\pi_{\mathrm{fr}}^2
++\frac{1}{m_S^2}\pi_{\mathrm{fr}}\widetilde{\pi}
++\frac{1}{2m_S^2}\widetilde{\pi}^2
++\mathcal O_{\mathrm{l.o.t.}},
+\]
+\[
+J_i^{\mathrm{St}}
+=
+-\frac{t}{m_S^2}\pi_{\mathrm{fr}}D_i\pi_{\mathrm{fr}}
+-\pi_{\mathrm{fr}}D_i\widetilde{\sigma}
+-\frac{t}{m_S^2}\widetilde{\pi}D_i\pi_{\mathrm{fr}}
+-\widetilde{\pi}D_i\widetilde{\sigma}
++\mathcal O_{\mathrm{l.o.t.}}.
+\]
+Thus the scalar renormalization removes the drift from \(\sigma\), but it does not remove the observer-side frozen-momentum stress itself. Already on the flat linearized tuned system one has \(\widetilde{\pi}=0\), \(\widetilde{\sigma}=\sigma^{(0)}\), so the renormalized source still contains the time-independent density \((2m_S^2)^{-1}(\pi_\sigma^{(0)})^2\) and generically a nonintegrable momentum term, either static or linearly growing.
+
+The verdict is therefore negative at the present disciplined scope. This first renormalized same-branch scalar test does \emph{not} produce an \(L_t^1\) observer-side remainder in the same repaired weighted/homogeneous class around the exact flat target on generic small data. The failure is not a loss of the tuned local/coercive architecture; that architecture is unchanged. The failure is that the frozen scalar momentum remains a genuine observer-side source even after the linear drift in \(\sigma\) is subtracted. The correct next fallback, if the tuned branch remains active, is therefore a narrower momentum-suppressed sub-branch test rather than any broader asymptotic or nonlinear-stability claim on the generic tuned branch.
+\end{abstract}
+
+\section{Introduction}
+
+The explicit tuned-compensator branch now has a fixed nonlinear completion, a reduced \(3+1\) unit-lapse system, a first local well-posedness/continuation theorem, a corrected \(T\sim\varepsilon^{-1}\) coercive bootstrap, and a first post-coercive decay/integrability note. That last note changed the next burden sharply. The geometric sectors were favorable: the low-frequency trace--longitudinal pair and the high-frequency Einstein block still had the expected wave character. The first obstruction came instead from the tuned scalar sector itself. Once the quartic principal operator is removed, the scalar pair becomes neutral rather than dispersive.
+
+The immediate next step is therefore not a broad asymptotic claim and not a redesign. It is a same-branch asymptotic bookkeeping test. If one keeps the same tuned completion, the same unit-lapse spatial-harmonic gauge, and the same repaired weighted/homogeneous class, can one renormalize the scalar sector so that the frozen \(\pi_\sigma\) mode and the linear drift in \(\sigma\) are removed first, leaving an observer-side remainder that is honest \(L_t^1\)?
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays within that boundary. It does not reopen a broad asymptotic theorem, a nonlinear-stability theorem, or a new branch-selection discussion. It performs only the first renormalized same-branch scalar test forced by the tuned decay/integrability obstruction and records the resulting narrow verdict.
+
+\section{Recorded Same-Branch Renormalized Scalar Test}
+
+The tuned reduced system already records
+\begin{equation}
+(\partial_t-\Ell_\beta)\sigma
+=
+\frac{\pi_\sigma}{m_S^2},
+\qquad
+(\partial_t-\Ell_\beta)\pi_\sigma
+=
+\mathcal N_\pi,
+\label{eq:tunedscalar}
+\end{equation}
+where \(\mathcal N_\pi\) vanishes on the flat exact-closure background and contains no quartic scalar principal part. The flat linearized obstruction comes from the frozen component of \(\pi_\sigma\). The first same-branch renormalization should therefore transport that frozen profile explicitly and subtract only the induced linear drift.
+
+\begin{definition}[Transported frozen-momentum profile]
+\label{def:pifr}
+On the explicit tuned branch, define the \emph{transported frozen-momentum profile} \(\pi_{\mathrm{fr}}\) by
+\begin{equation}
+(\partial_t-\Ell_\beta)\pi_{\mathrm{fr}}=0,
+\qquad
+\pi_{\mathrm{fr}}|_{t=0}=\pi_\sigma|_{t=0}.
+\label{eq:pifr}
+\end{equation}
+Define the associated drift profile
+\begin{equation}
+\sigma_{\mathrm{dr}}
+\equiv
+\frac{t}{m_S^2}\pi_{\mathrm{fr}}.
+\label{eq:sigmadr}
+\end{equation}
+Finally define the renormalized tuned scalar variables
+\begin{equation}
+\widetilde{\pi}\equiv \pi_\sigma-\pi_{\mathrm{fr}},
+\qquad
+\widetilde{\sigma}\equiv \sigma-\sigma_{\mathrm{dr}}.
+\label{eq:renvars}
+\end{equation}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:pifr} is deliberately narrow. It changes neither the completion nor the gauge, introduces no new slice variable, and subtracts only the transported frozen scalar momentum together with the linear drift it generates in \(\sigma\). It does not attempt to build a new observer-side background or a broader asymptotic target.
+\end{remark}
+
+\begin{proposition}[Exact renormalized scalar identities]
+\label{prop:reneq}
+The renormalized tuned scalar variables satisfy
+\begin{equation}
+(\partial_t-\Ell_\beta)\widetilde{\pi}
+=
+\mathcal N_\pi,
+\qquad
+(\partial_t-\Ell_\beta)\widetilde{\sigma}
+=
+\frac{\widetilde{\pi}}{m_S^2}.
+\label{eq:reneq}
+\end{equation}
+At flat linear level,
+\begin{equation}
+\pi_{\mathrm{fr}}(t,x)=\pi_\sigma^{(0)}(x),
+\qquad
+\widetilde{\pi}^{\mathrm{lin}}(t,x)=0,
+\qquad
+\widetilde{\sigma}^{\mathrm{lin}}(t,x)=\sigma^{(0)}(x).
+\label{eq:flatren}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Subtract \eqref{eq:pifr} from the \(\pi_\sigma\)-equation in \eqref{eq:tunedscalar} to obtain the first identity in \eqref{eq:reneq}. Next compute
+\[
+(\partial_t-\Ell_\beta)\sigma_{\mathrm{dr}}
+=
+\frac{1}{m_S^2}(\partial_t-\Ell_\beta)(t\pi_{\mathrm{fr}})
+=
+\frac{\pi_{\mathrm{fr}}}{m_S^2},
+\]
+because \((\partial_t-\Ell_\beta)\pi_{\mathrm{fr}}=0\). Subtract this from the \(\sigma\)-equation in \eqref{eq:tunedscalar} to obtain the second identity in \eqref{eq:reneq}. On the flat exact-closure background one has \(\beta=0\) and \(\mathcal N_\pi=0\), so \eqref{eq:pifr} gives \(\pi_{\mathrm{fr}}=\pi_\sigma^{(0)}\), while \eqref{eq:reneq} yields \(\widetilde{\pi}^{\mathrm{lin}}=0\) and \(\widetilde{\sigma}^{\mathrm{lin}}=\sigma^{(0)}\).
+\end{proof}
+
+\begin{proposition}[The tuned local/coercive architecture is unchanged]
+\label{prop:coercivepreserved}
+Definition \ref{def:pifr} preserves the existing tuned local/coercive theorem architecture from the tuned local-well-posedness note. In particular:
+\begin{enumerate}
+    \item no new differentiated propagating variable is introduced;
+    \item the nonpropagating slice package \((\beta,Q^I,\chi,W_i^T,Y)\) is unchanged;
+    \item the renormalized same-branch test is therefore purely post-coercive asymptotic bookkeeping.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+The map \((\sigma,\pi_\sigma)\mapsto (\widetilde{\sigma},\widetilde{\pi},\pi_{\mathrm{fr}})\) is defined by the transport equation \eqref{eq:pifr} and the pointwise algebraic substitutions \eqref{eq:sigmadr}--\eqref{eq:renvars}. It does not modify the reduced Einstein equations, the slice subsystem, or the already-recorded coercive energy functional. The test therefore leaves the local/coercive theorem untouched and acts only at the asymptotic bookkeeping level.
+\end{proof}
+
+\section{Leading Observer-Side Tuned Scalar Source in Renormalized Variables}
+
+The leading observer-side tuned scalar source on the explicit tuned branch is
+\begin{equation}
+\rho_{\mathrm{St}}
+=
+\frac{1}{2m_S^2}\pi_\sigma^2+\mathcal O_{\mathrm{l.o.t.}},
+\qquad
+J_i^{\mathrm{St}}
+=
+-\pi_\sigma D_i\sigma+\mathcal O_{\mathrm{l.o.t.}}.
+\label{eq:stsource}
+\end{equation}
+Insert \eqref{eq:renvars} into \eqref{eq:stsource}.
+
+\begin{definition}[Principal frozen-profile source terms]
+\label{def:frozensource}
+Define
+\begin{equation}
+\rho_{\mathrm{fr}}
+\equiv
+\frac{1}{2m_S^2}\pi_{\mathrm{fr}}^2,
+\qquad
+J_i^{\mathrm{fr}}
+\equiv
+-\frac{t}{m_S^2}\pi_{\mathrm{fr}}D_i\pi_{\mathrm{fr}}.
+\label{eq:frozensource}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[Renormalized source decomposition]
+\label{prop:sourcedecomp}
+In the renormalized variables of Definition \ref{def:pifr},
+\begin{align}
+\rho_{\mathrm{St}}
+=\;&
+\rho_{\mathrm{fr}}
++\frac{1}{m_S^2}\pi_{\mathrm{fr}}\widetilde{\pi}
++\frac{1}{2m_S^2}\widetilde{\pi}^2
++\mathcal O_{\mathrm{l.o.t.}},
+\label{eq:rhoren}
+\\
+J_i^{\mathrm{St}}
+=\;&
+J_i^{\mathrm{fr}}
+-\pi_{\mathrm{fr}}D_i\widetilde{\sigma}
+-\frac{t}{m_S^2}\widetilde{\pi}D_i\pi_{\mathrm{fr}}
+-\widetilde{\pi}D_i\widetilde{\sigma}
++\mathcal O_{\mathrm{l.o.t.}}.
+\label{eq:Jren}
+\end{align}
+\end{proposition}
+
+\begin{proof}
+Equation \eqref{eq:rhoren} is the algebraic identity
+\[
+\frac{1}{2m_S^2}(\pi_{\mathrm{fr}}+\widetilde{\pi})^2
+=
+\frac{1}{2m_S^2}\pi_{\mathrm{fr}}^2
++\frac{1}{m_S^2}\pi_{\mathrm{fr}}\widetilde{\pi}
++\frac{1}{2m_S^2}\widetilde{\pi}^2.
+\]
+For the momentum density, use
+\[
+\sigma
+=
+\widetilde{\sigma}
++\frac{t}{m_S^2}\pi_{\mathrm{fr}},
+\qquad
+\pi_\sigma
+=
+\widetilde{\pi}+\pi_{\mathrm{fr}},
+\]
+so
+\[
+-\pi_\sigma D_i\sigma
+=
+-(\widetilde{\pi}+\pi_{\mathrm{fr}})
+\left(
+D_i\widetilde{\sigma}
++\frac{t}{m_S^2}D_i\pi_{\mathrm{fr}}
+\right),
+\]
+which expands to \eqref{eq:Jren}. The displayed lower-order corrections remain in \(\mathcal O_{\mathrm{l.o.t.}}\).
+\end{proof}
+
+\begin{remark}
+Proposition \ref{prop:sourcedecomp} is the decisive observer-side rewrite. The scalar renormalization removes the linear drift from the \(\sigma\)-equation, but the frozen momentum still enters the observer equations directly through \(\rho_{\mathrm{fr}}\) and \(J_i^{\mathrm{fr}}\). The same-branch asymptotic question is therefore no longer whether \(\sigma\) drifts linearly, but whether those frozen-profile source terms can be treated as \(L_t^1\) remainders without changing the existing flat-target theorem architecture.
+\end{remark}
+
+\section{Same-Class Renormalized Integrability Test}
+
+The tuned decay/integrability note already identified the class kept fixed at current scope: the same unit-lapse spatial-harmonic formulation, the same repaired weighted/homogeneous slice package, and the same exact flat observer target. The present renormalized same-branch test should therefore be judged against that same target rather than against a new stationary or time-dependent observer background.
+
+\begin{definition}[Renormalized same-branch flat-target test]
+\label{def:flatarget}
+The renormalized same-branch scalar test is said to \emph{pass in the same repaired weighted/homogeneous flat-target class} if, after the scalar renormalization of Definition \ref{def:pifr}, the tuned observer-side source in \eqref{eq:rhoren}--\eqref{eq:Jren} is reduced to an \(L_t^1\) perturbative remainder around the same exact flat observer target used in the tuned local/coercive and decay/integrability notes.
+\end{definition}
+
+\begin{theorem}[Negative verdict for the first renormalized same-branch scalar test]
+\label{thm:negative}
+The renormalized same-branch scalar test of Definition \ref{def:pifr} does \emph{not} pass in the same repaired weighted/homogeneous flat-target class on generic small data. More precisely, for the flat linearized tuned scalar system:
+\begin{enumerate}
+    \item if \(\pi_\sigma^{(0)}\not\equiv 0\), then the renormalized observer energy density is
+    \begin{equation}
+    \rho_{\mathrm{St}}^{\mathrm{lin}}
+    =
+    \frac{1}{2m_S^2}\bigl(\pi_\sigma^{(0)}\bigr)^2,
+    \label{eq:rholin}
+    \end{equation}
+    hence
+    \begin{equation}
+    \int_0^T \|\rho_{\mathrm{St}}^{\mathrm{lin}}(t)\|_{L^\infty}\,dt
+    =
+    \frac{T}{2m_S^2}\|\pi_\sigma^{(0)}\|_{L^\infty}^2
+    \label{eq:rholinint}
+    \end{equation}
+    for every \(T>0\);
+    \item the renormalized observer momentum density is
+    \begin{equation}
+    J_i^{\mathrm{St,lin}}
+    =
+    -\frac{t}{m_S^2}\pi_\sigma^{(0)}\partial_i\pi_\sigma^{(0)}
+    -\pi_\sigma^{(0)}\partial_i\sigma^{(0)},
+    \label{eq:Jlin}
+    \end{equation}
+    so if \(\pi_\sigma^{(0)}\partial_i\sigma^{(0)}\not\equiv 0\), then \(J_i^{\mathrm{St,lin}}\notin L_t^1([0,\infty);L^\infty)\), and if \(\pi_\sigma^{(0)}\partial_i\pi_\sigma^{(0)}\not\equiv 0\), then
+    \begin{equation}
+    \int_0^T \|J^{\mathrm{St,lin}}(t)\|_{L^\infty}\,dt
+    \gtrsim
+    T^2
+    \label{eq:Jlinint}
+    \end{equation}
+    for all sufficiently large \(T\).
+\end{enumerate}
+Consequently subtracting the frozen scalar momentum and its induced linear drift does not yield an \(L_t^1\) observer-side remainder around the same exact flat target on generic small data.
+\end{theorem}
+
+\begin{proof}
+By Proposition \ref{prop:reneq}, the flat linearized renormalized variables satisfy \eqref{eq:flatren}. Insert \(\widetilde{\pi}^{\mathrm{lin}}=0\), \(\widetilde{\sigma}^{\mathrm{lin}}=\sigma^{(0)}\), and \(\pi_{\mathrm{fr}}=\pi_\sigma^{(0)}\) into Proposition \ref{prop:sourcedecomp}. This gives \eqref{eq:rholin} and \eqref{eq:Jlin}.
+
+Integrating \eqref{eq:rholin} in time yields \eqref{eq:rholinint}, so the renormalized observer energy density is not \(L_t^1\) whenever \(\pi_\sigma^{(0)}\not\equiv 0\).
+
+If \(\pi_\sigma^{(0)}\partial_i\sigma^{(0)}\not\equiv 0\), then the second term in \eqref{eq:Jlin} is already time-independent and nonintegrable. If \(\pi_\sigma^{(0)}\partial_i\pi_\sigma^{(0)}\not\equiv 0\), then the first term in \eqref{eq:Jlin} grows linearly in time, so the time integral grows quadratically as in \eqref{eq:Jlinint}. In either case the renormalized observer momentum density is not \(L_t^1\) in time on generic small data.
+
+Because the failure already occurs on the exact flat linearized tuned system, no broader same-class \(L_t^1\) remainder claim is justified at current scope.
+\end{proof}
+
+\begin{corollary}[Why the verdict is negative]
+\label{cor:whyneg}
+The negative verdict in Theorem \ref{thm:negative} is not caused by a loss of the tuned local/coercive theorem. It is caused by a simpler fact: the frozen scalar momentum is itself an observer-side source. Renormalizing \(\sigma\) removes the induced linear drift, but it does not eliminate the frozen scalar stress \(\rho_{\mathrm{fr}}\) and it does not eliminate the frozen-profile momentum flux \(J_i^{\mathrm{fr}}\).
+\end{corollary}
+
+\begin{proof}
+This is exactly the content of Propositions \ref{prop:coercivepreserved} and \ref{prop:sourcedecomp} together with Theorem \ref{thm:negative}.
+\end{proof}
+
+\begin{corollary}[Narrow fallback target]
+\label{cor:fallback}
+If the tuned-compensator branch remains the active derivational line after Theorem \ref{thm:negative}, the next fallback should be a narrower \emph{momentum-suppressed sub-branch test}, not a broader asymptotic claim on generic tuned data. In particular, the renormalized obstruction recorded here disappears only after the leading frozen profile is suppressed, beginning with
+\begin{equation}
+\pi_\sigma|_{t=0}=0
+\label{eq:momentumsuppressed}
+\end{equation}
+or an equivalent same-branch condition forcing \(\pi_{\mathrm{fr}}\equiv 0\).
+\end{corollary}
+
+\begin{proof}
+Theorem \ref{thm:negative} shows that every leading nonintegrable source term identified here is proportional to \(\pi_{\mathrm{fr}}\). Thus the next smallest same-branch repair is to test whether a momentum-suppressed sub-branch removes those terms while preserving the tuned local/coercive architecture already recorded. Any broader asymptotic redesign would go beyond the present disciplined scope.
+\end{proof}
+
+\section{What This Step Establishes}
+
+The present manuscript establishes the following.
+\begin{enumerate}
+    \item It records the first renormalized same-branch asymptotic test on the explicit tuned-compensator branch rather than leaving that step only in the tracking layer.
+    \item It defines the narrowest same-branch scalar renormalization that removes the transported frozen \(\pi_\sigma\) profile and the induced linear drift in \(\sigma\) without changing gauge, completion, or the existing local/coercive theorem.
+    \item It rewrites the leading observer-side tuned scalar source explicitly in those renormalized variables.
+    \item It proves that the resulting observer-side source is still not \(L_t^1\) around the same exact flat target on generic small data, with failure already visible on the flat linearized tuned system.
+    \item It records the disciplined next fallback: a momentum-suppressed sub-branch test before any broader asymptotic or nonlinear-stability claim is reconsidered.
+\end{enumerate}
+
+It does not establish the following.
+\begin{enumerate}
+    \item It does not prove that no more elaborate tuned asymptotic reformulation can exist in principle.
+    \item It does not build a new observer-side nonflat asymptotic target or a new branch completion.
+    \item It does not alter the tuned local/coercive theorem already recorded in the previous note.
+    \item It does not decide the separate editorial questions about archiving the derivative-mixing or constraint-assisted branches.
+    \item It does not decide whether \texttt{aether\_flow\_exact\_closure\_note.tex} remains standalone.
+\end{enumerate}
+
+\section{Conclusion}
+
+The next same-branch manuscript step has now been carried out in the narrow form required by the tracking docs. On the tuned-compensator branch, one can indeed subtract the transported frozen scalar momentum and the linear drift it induces in \(\sigma\) without disturbing the already-recorded local/coercive theorem. That is the correct first renormalized scalar test to try before changing branch.
+
+But the test is negative. The renormalized scalar variables remove the drift in \(\sigma\), not the observer-side stress created by the frozen momentum itself. The leading source terms \(\rho_{\mathrm{fr}}\) and \(J_i^{\mathrm{fr}}\) remain, and on generic small data they are already nonintegrable around the same exact flat target. At current disciplined scope, the tuned branch therefore still does not admit a broader same-class asymptotic claim on generic small data, even after this first scalar renormalization.
+
+The correct next fallback is now sharper than before. It is not a broad redesign of the tuned branch, and it is not a reopened asymptotic theorem attempt on the present generic data. It is a narrower momentum-suppressed sub-branch test that asks whether forcing the transported frozen scalar momentum to vanish can remove the source-level obstruction while preserving the tuned local/coercive architecture already on record.
+
+\end{document}

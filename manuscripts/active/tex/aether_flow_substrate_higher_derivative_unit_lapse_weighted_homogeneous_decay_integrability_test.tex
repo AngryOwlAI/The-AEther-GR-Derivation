@@ -1,0 +1,554 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal{A}}
+\newcommand{\BridgeMetric}{\mathfrak{g}}
+\newcommand{\Ell}{\mathcal{L}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Higher-Derivative Quartic Branch Unit-Lapse Weighted/Homogeneous Decay-Integrability Test}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The fixed-completion unit-lapse route has now passed the weighted/homogeneous local-closure and coercive-bootstrap stages. The next honest question is therefore exactly the post-coercive one postponed there: in the same fixed completion \(S_{\mathrm{min},4}\), in the same unit-lapse spatial-harmonic gauge, and in the same weighted/homogeneous function class, does the corrected \(T\sim \varepsilon^{-1}\) bootstrap upgrade to the expected decay/integrability package, or does the first genuine post-coercive obstruction appear at that stage?
+
+This note performs that test at the same disciplined scope. It first fixes the weighted/homogeneous decay bootstrap norms for the propagating Einstein--quartic-scalar variables together with the low-frequency trace--longitudinal pair
+\[
+\Theta \equiv \mathbf P_{\mathrm{lo}}\vartheta,
+\qquad
+G_\chi \equiv |\nabla|^{-1}\mathbf P_{\mathrm{lo}}F_\chi,
+\qquad
+\vartheta = \frac12\operatorname{tr}_\delta(\gamma-\delta),
+\]
+where \(F_\chi = K-\mathcal N_\chi\) is the longitudinal source already recorded in the weighted/homogeneous closure and coercive-bootstrap notes. At the flat linear level, \((\Theta,G_\chi)\) forms a first-order wave system, while the high-frequency Einstein variables retain the ordinary spatial-harmonic wave structure and the quartic scalar channel can be written as a Schr\"odinger-type evolution for
+\[
+u_\sigma
+\equiv
+\frac{\pi_\sigma}{m_S}
+i\frac{\sqrt{\lambda_4}}{M_*}\Delta_\delta\sigma.
+\]
+Hence the linear-compatible decay package is exactly the expected one:
+\[
+\mathfrak D_{\mathrm{TL}}(t)\lesssim \varepsilon (1+t)^{-1},
+\qquad
+\mathfrak D_{\mathrm{Ein,hi}}(t)\lesssim \varepsilon (1+t)^{-1},
+\qquad
+\mathfrak D_\sigma(t)\lesssim \varepsilon (1+t)^{-3/2}.
+\]
+
+The decisive point is then nonlinear. Using the same weighted/homogeneous elliptic estimates for \((\beta,Q,\chi,W^T)\), every quadratic and lower-order source term left after extracting the linear variable-coefficient wave/Schr\"odinger principal parts decays at least like \((1+t)^{-2}\) and is therefore time-integrable. The old strict-branch nonintegrable lapse forcing is absent because \(N\equiv 1\), and no new zeroth-order longitudinal forcing appears because \(\chi\) still enters only at derivative level. The conclusion is therefore positive but narrow: the fixed-completion weighted/homogeneous unit-lapse class passes the decay/integrability test, and the first genuine post-coercive obstruction does \emph{not} appear there. This note does not yet prove the full weighted/homogeneous nonlinear-stability theorem. It records only that a deeper completion or auxiliary redesign is not forced at the decay stage and that the next burden remains within the same fixed-completion formulation.
+\end{abstract}
+
+\section{Introduction}
+
+The fixed-completion gauge-first unit-lapse route has now been narrowed several times without yet forcing a deeper redesign. The straightforward unweighted \((K,\chi,\beta)\) package failed because the longitudinal auxiliary solve developed a trace-driven Coulomb tail. The two smallest attempts to repair that old unweighted architecture also failed: propagated trace-monopole cancellation is not presently derived or propagated, and Coulomb splitting does not restore unweighted \(H^N\) closure. The weighted/homogeneous reformulation then changed the picture again. In that new class, the unit-lapse longitudinal variable is controlled naturally through a derivative-level norm together with the explicit low-frequency seminorm \(\mathfrak L_\chi(F_\chi)\), the first local theorem architecture replays cleanly, and the corrected weighted/homogeneous energy closes a \(T\sim \varepsilon^{-1}\) coercive bootstrap on the same fixed completion \(S_{\mathrm{min},4}\).
+
+That shifts the decision tree again. The next burden is no longer to decide whether the fixed-completion unit-lapse route needs another local repair. It no longer does. The honest next burden is post-coercive and asymptotic: does the corrected weighted/homogeneous bootstrap upgrade to the expected decay/integrability package, or is the first genuine post-coercive obstruction encountered there?
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays within that boundary. It does not change the explicit completion \(S_{\mathrm{min},4}\). It does not change the unit-lapse spatial-harmonic gauge. It does not yet claim a full nonlinear-stability theorem or asymptotic completeness statement in the weighted/homogeneous class. It performs only the next narrower test: whether the expected linear-compatible decay package makes the nonlinear remainder integrable on the same fixed-completion route, or whether the first honest post-coercive obstruction appears already there.
+
+\section{Bootstrap Regime and Decay Norms}
+
+Work in the same unit-lapse spatial-harmonic gauge
+\begin{equation}
+N\equiv 1,
+\qquad
+V^i(\gamma)=0,
+\label{eq:gauge}
+\end{equation}
+with reduced unknowns
+\begin{equation}
+(\gamma_{ij},\Sigma_{ij},K;\beta^i;\sigma,\pi_\sigma;\psi,\pi_\psi)
+\label{eq:unknowns}
+\end{equation}
+and slice-wise auxiliary variables \((Q^I,\chi,W_i^T)\).
+
+As in the previous weighted/homogeneous notes, let
+\begin{equation}
+h_{ij}\equiv \gamma_{ij}-\delta_{ij},
+\qquad
+\vartheta \equiv \frac12\delta^{ij}h_{ij},
+\qquad
+F_\chi
+\equiv
+K-\mathcal N_\chi[\gamma,\Sigma,K,\beta,\sigma,\pi_\sigma,Q,\chi,W^T,\psi,\pi_\psi].
+\label{eq:basicdefs}
+\end{equation}
+Define the low-frequency trace--longitudinal variables
+\begin{equation}
+\Theta \equiv \mathbf P_{\mathrm{lo}}\vartheta,
+\qquad
+G_\chi \equiv |\nabla|^{-1}\mathbf P_{\mathrm{lo}}F_\chi,
+\label{eq:ThetaG}
+\end{equation}
+so that
+\[
+\|G_\chi\|_{L^2}^2 = \mathfrak L_\chi(F_\chi)^2.
+\]
+
+\begin{definition}[Weighted/homogeneous decay bootstrap interval]
+\label{def:decayboot}
+Fix \(N\ge 6\), \(0<\varepsilon\ll 1\), and \(C_\ast\ge 1\). An interval \([0,T]\) is said to lie in the \emph{weighted/homogeneous decay bootstrap regime} if:
+\begin{enumerate}
+    \item the strict positivity assumptions
+    \begin{equation}
+    \widehat M_{IJ}\xi^I\xi^J\ge m_{Q,\min}^2|\xi|^2,
+    \qquad
+    \kappa_\theta\ge \kappa_{\theta,\min}>0,
+    \qquad
+    \kappa_\Omega\ge \kappa_{\Omega,\min}>0
+    \label{eq:strict}
+    \end{equation}
+    hold on every slice
+    \item the corrected weighted/homogeneous coercive functional from the previous note satisfies
+    \begin{equation}
+    \sup_{0\le t\le T}\mathfrak F_N^{\mathrm{ul,wh}}(t)\le 4\varepsilon^2
+    \label{eq:energyboot}
+    \end{equation}
+    \item the low-frequency trace--longitudinal decay norm
+    \begin{equation}
+    \mathfrak D_{\mathrm{TL}}(t)
+    \equiv
+    \|\nabla\Theta(t)\|_{W^{1,\infty}}
+    + \|G_\chi(t)\|_{W^{1,\infty}}
+    \label{eq:DTL}
+    \end{equation}
+    obeys
+    \begin{equation}
+    \mathfrak D_{\mathrm{TL}}(t)\le 2C_\ast\varepsilon(1+t)^{-1}
+    \label{eq:DTLboot}
+    \end{equation}
+    \item the high-frequency Einstein decay norm
+    \begin{equation}
+    \mathfrak D_{\mathrm{Ein,hi}}(t)
+    \equiv
+    \|\partial \mathbf P_{\mathrm{hi}}h(t)\|_{W^{2,\infty}}
+    + \|\mathbf P_{\mathrm{hi}}\Sigma(t)\|_{W^{1,\infty}}
+    + \|\mathbf P_{\mathrm{hi}}K(t)\|_{W^{1,\infty}}
+    \label{eq:DEin}
+    \end{equation}
+    obeys
+    \begin{equation}
+    \mathfrak D_{\mathrm{Ein,hi}}(t)\le 2C_\ast\varepsilon(1+t)^{-1}
+    \label{eq:DEinboot}
+    \end{equation}
+    \item the quartic scalar decay norm
+    \begin{equation}
+    \mathfrak D_\sigma(t)
+    \equiv
+    \|\pi_\sigma(t)\|_{W^{1,\infty}}
+    + \|D^2\sigma(t)\|_{W^{1,\infty}}
+    \label{eq:Dsigma}
+    \end{equation}
+    obeys
+    \begin{equation}
+    \mathfrak D_\sigma(t)\le 2C_\ast\varepsilon(1+t)^{-3/2}.
+    \label{eq:Dsigmaboot}
+    \end{equation}
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:decayboot} is a \emph{test} bootstrap regime, just as the earlier strict-branch decay note fixed a linear-compatible decay package before asking whether it would be enough. The point here is not yet to prove \eqref{eq:DTLboot}--\eqref{eq:Dsigmaboot} from scratch. The point is to determine whether those are the correct linear-compatible decay rates and whether, under them, the nonlinear remainder is time-integrable.
+\end{remark}
+
+\begin{remark}
+Ordinary matter variables may be retained exactly as in the earlier reduced-system and local-theorem notes. Since their active exact-relativistic decay package is the same wave-type one already adopted in the exact-closure line, we suppress their standard \(t^{-1}\) decay norm in the displayed formulas and include all such small-data matter insertions inside the schematic remainder terms below.
+\end{remark}
+
+\section{Low-Frequency Trace--Longitudinal Decay}
+
+The previous coercive-bootstrap note already identified the low-frequency propagation subsystem
+\begin{align}
+(\partial_t-\Ell_\beta)\vartheta
+&=
+-F_\chi+\mathcal Q_\vartheta,
+\label{eq:varthetadt}
+\\
+(\partial_t-\Ell_\beta)F_\chi
+&=
+-\Delta_\delta\vartheta+\mathcal R_\chi,
+\label{eq:Fdt}
+\end{align}
+with quadratic remainder control. Projecting to low frequency and renormalizing the second variable by \(|\nabla|^{-1}\) gives the natural dispersive pair.
+
+\begin{proposition}[Low-frequency trace--longitudinal first-order wave system]
+\label{prop:TLwave}
+On every weighted/homogeneous decay bootstrap interval,
+\begin{align}
+(\partial_t-\Ell_\beta)\Theta
+&=
+-|\nabla|G_\chi + \mathbf P_{\mathrm{lo}}\mathcal Q_\vartheta,
+\label{eq:Thetadt}
+\\
+(\partial_t-\Ell_\beta)G_\chi
+&=
+|\nabla|\Theta + |\nabla|^{-1}\mathbf P_{\mathrm{lo}}\mathcal R_\chi.
+\label{eq:Gdt}
+\end{align}
+At the flat linear level \(\beta=0\), \(\mathcal Q_\vartheta=0\), \(\mathcal R_\chi=0\), one has
+\begin{equation}
+\partial_t\Theta = -|\nabla|G_\chi,
+\qquad
+\partial_tG_\chi = |\nabla|\Theta,
+\label{eq:linearTL}
+\end{equation}
+and hence
+\begin{equation}
+\partial_t^2\Theta-\Delta_\delta\Theta = 0,
+\qquad
+\partial_t^2G_\chi-\Delta_\delta G_\chi = 0.
+\label{eq:TLwave2}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Apply \(\mathbf P_{\mathrm{lo}}\) to \eqref{eq:varthetadt} and apply \(|\nabla|^{-1}\mathbf P_{\mathrm{lo}}\) to \eqref{eq:Fdt}. Since \(|\nabla|^{-1}(-\Delta_\delta)=|\nabla|\), this gives \eqref{eq:Thetadt}--\eqref{eq:Gdt}. Setting \(\beta=0\) and discarding the quadratic remainders produces \eqref{eq:linearTL}. Differentiating once more in time yields \eqref{eq:TLwave2}.
+\end{proof}
+
+\begin{corollary}[Linear-compatible decay for the low-frequency pair]
+\label{cor:TLdecay}
+The expected linear-compatible pointwise decay for \((\Theta,G_\chi)\) is the ordinary three-dimensional wave rate
+\begin{equation}
+\mathfrak D_{\mathrm{TL}}(t)\lesssim \varepsilon(1+t)^{-1}.
+\label{eq:TLrate}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+The flat linearized system \eqref{eq:TLwave2} is the standard three-dimensional wave equation for both variables. The norm \(\mathfrak D_{\mathrm{TL}}\) measures one spatial derivative of \(\Theta\) and the renormalized low-frequency longitudinal quantity \(G_\chi\), which is exactly the natural wave pair. Therefore the linear-compatible decay rate is the ordinary \(t^{-1}\) wave decay recorded in \eqref{eq:TLrate}.
+\end{proof}
+
+\begin{remark}
+Corollary \ref{cor:TLdecay} is one of the reasons the weighted/homogeneous class is the correct post-obstruction setting. The low-frequency longitudinal slot is not treated as a static Poisson defect anymore. After the \(|\nabla|^{-1}\)-renormalization already built into \(\mathfrak L_\chi(F_\chi)\), it participates in an honest wave-type subsystem with the trace variable.
+\end{remark}
+
+\section{High-Frequency Einstein--Quartic-Scalar Decay}
+
+The propagating observer-accessible system still consists of the Einstein metric block and one quartic scalar channel, with shift and ordered-flow variables solved slice by slice. At high frequency the metric block retains the standard spatial-harmonic wave character, while the quartic scalar channel can be diagonalized into a Schr\"odinger-type equation.
+
+\begin{proposition}[Linear high-frequency Einstein wave block]
+\label{prop:Einwave}
+For the fixed completion \(S_{\mathrm{min},4}\) in unit-lapse spatial-harmonic gauge, the flat linearization of the high-frequency Einstein sector reduces to the usual spatial-harmonic wave system. In particular, after projection by \(\mathbf P_{\mathrm{hi}}\), each metric component of the propagating Einstein block satisfies a linear wave equation of the form
+\begin{equation}
+\partial_t^2 \mathbf P_{\mathrm{hi}}h_{\mu\nu}
+-\Delta_\delta \mathbf P_{\mathrm{hi}}h_{\mu\nu}
+=0
+\label{eq:Einwave}
+\end{equation}
+up to the already-recorded gauge-preserving algebraic constraints.
+\end{proposition}
+
+\begin{proof}
+Linearizing the unit-lapse equations
+\[
+(\partial_t-\Ell_\beta)\gamma_{ij}
+=
+-2\Sigma_{ij}
+-\frac23\gamma_{ij}K,
+\qquad
+(\partial_t-\Ell_\beta)\Sigma_{ij}
+=
+\bigl(R_{ij}[\gamma]\bigr)^{\mathrm{TF}},
+\qquad
+(\partial_t-\Ell_\beta)K
+=
+R[\gamma]
+\]
+at the flat background gives \(\beta=0\) and the standard spatial-harmonic linearization of Ricci. In that gauge the linearized Ricci operator is the usual wave operator on the metric perturbation. Projecting to high frequency removes the weighted/homogeneous low-frequency longitudinal issue and leaves \eqref{eq:Einwave}.
+\end{proof}
+
+\begin{corollary}[Linear-compatible high-frequency Einstein decay]
+\label{cor:Eindecay}
+The expected linear-compatible decay for the high-frequency Einstein block is the wave rate
+\begin{equation}
+\mathfrak D_{\mathrm{Ein,hi}}(t)\lesssim \varepsilon(1+t)^{-1}.
+\label{eq:Einrate}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+This is the standard three-dimensional pointwise decay compatible with the linear wave equation \eqref{eq:Einwave}.
+\end{proof}
+
+\begin{proposition}[Schr\"odinger form of the quartic scalar channel]
+\label{prop:Schr}
+Let
+\begin{equation}
+c_4 \equiv \frac{\sqrt{\lambda_4}}{m_SM_*},
+\qquad
+u_\sigma
+\equiv
+\frac{\pi_\sigma}{m_S}
++ i\frac{\sqrt{\lambda_4}}{M_*}\Delta_\delta\sigma.
+\label{eq:usigma}
+\end{equation}
+At the flat linear level, the quartic scalar equations
+\begin{equation}
+\partial_t\sigma = \frac{\pi_\sigma}{m_S^2},
+\qquad
+\partial_t\pi_\sigma
+=
+-\frac{\lambda_4}{M_*^2}\Delta_\delta^2\sigma
+\label{eq:scalarl}
+\end{equation}
+are equivalent to
+\begin{equation}
+\partial_t u_\sigma = i c_4 \Delta_\delta u_\sigma.
+\label{eq:schr}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Differentiate \eqref{eq:usigma} in time and substitute \eqref{eq:scalarl}:
+\[
+\partial_tu_\sigma
+=
+-\frac{\lambda_4}{m_SM_*^2}\Delta_\delta^2\sigma
++ i\frac{\sqrt{\lambda_4}}{M_*}\Delta_\delta\left(\frac{\pi_\sigma}{m_S^2}\right).
+\]
+Since \(c_4=\sqrt{\lambda_4}/(m_SM_*)\), one has
+\[
+i c_4\Delta_\delta u_\sigma
+=
+i\frac{\sqrt{\lambda_4}}{m_SM_*}\Delta_\delta\left(\frac{\pi_\sigma}{m_S}\right)
+- \frac{\lambda_4}{m_SM_*^2}\Delta_\delta^2\sigma,
+\]
+which matches the previous display exactly. Therefore \eqref{eq:schr} holds.
+\end{proof}
+
+\begin{corollary}[Linear-compatible quartic scalar decay]
+\label{cor:scalardecay}
+The expected linear-compatible decay for the quartic scalar channel is the three-dimensional Schr\"odinger rate
+\begin{equation}
+\mathfrak D_\sigma(t)\lesssim \varepsilon(1+t)^{-3/2}.
+\label{eq:sigmarate}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+Equation \eqref{eq:schr} is the standard Schr\"odinger equation with dispersion relation \(\omega(\xi)=c_4|\xi|^2\). The quantities \(\pi_\sigma\) and \(D^2\sigma\) are recovered from \(u_\sigma\) by first-order Fourier multipliers, so they inherit the same \(t^{-3/2}\) pointwise decay.
+\end{proof}
+
+\section{Auxiliary Decay Inherited from the Same Class}
+
+The low-frequency longitudinal variable is now tracked by \(G_\chi\), while every actual appearance of \(\chi\) remains derivative-level. This is enough to recover the auxiliary decay package from the same fixed-completion weighted/homogeneous norms.
+
+\begin{definition}[Auxiliary decay norm]
+\begin{equation}
+\mathfrak D_{\mathrm{aux}}(t)
+\equiv
+\|\beta(t)\|_{W^{2,\infty}}
++ \|Q(t)\|_{W^{2,\infty}}
++ \|\nabla\chi(t)\|_{W^{1,\infty}}
++ \|W^T(t)\|_{W^{2,\infty}}.
+\label{eq:Daux}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[Auxiliary decay inheritance]
+\label{prop:auxdecay}
+There exists \(C_N>0\) such that every solution in the weighted/homogeneous decay bootstrap regime satisfies
+\begin{equation}
+\mathfrak D_{\mathrm{aux}}(t)
+\le
+C_N\Bigl(
+\mathfrak D_{\mathrm{TL}}(t)
++ \mathfrak D_{\mathrm{Ein,hi}}(t)
++ \mathfrak D_\sigma(t)
+\Bigr)
+\label{eq:auxdecay}
+\end{equation}
+for all \(t\in[0,T]\). In particular,
+\begin{equation}
+\mathfrak D_{\mathrm{aux}}(t)\lesssim \varepsilon(1+t)^{-1}.
+\label{eq:auxrate}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+The shift, \(Q\)-sector, and transverse ordered-flow equations are the same uniformly elliptic slice equations already used in the local and coercive weighted/homogeneous notes. Their sources depend on the propagating fields through derivative-level quantities, so standard elliptic \(L^\infty\)-estimates give decay of the same order as the source terms. For the longitudinal variable,
+\[
+\nabla\chi
+=
+\nabla(-\Delta_\delta)^{-1}\mathbf P_{\mathrm{hi}}F_\chi
++ \nabla(-\Delta_\delta)^{-1}\mathbf P_{\mathrm{lo}}F_\chi
++ \text{perturbative elliptic corrections}.
+\]
+The high-frequency part is controlled by the same elliptic regularity already used in the local note, while the low-frequency part is exactly the renormalized quantity \(G_\chi=|\nabla|^{-1}\mathbf P_{\mathrm{lo}}F_\chi\) up to bounded Fourier multipliers. Since every recorded occurrence of \(\chi\) is derivative-level, no zeroth-order longitudinal loss appears. This yields \eqref{eq:auxdecay}.
+\end{proof}
+
+\section{Time-Integrability of the Nonlinear Remainder}
+
+The previous sections identify the linear-compatible decay rates. The decay/integrability test itself is whether the quadratic and lower-order nonlinear terms left after extracting the linear variable-coefficient principal parts are then \(L_t^1\).
+
+\begin{proposition}[Quadratic and lower-order remainder bound]
+\label{prop:remainder}
+There exists \(C_N>0\) such that every solution in the weighted/homogeneous decay bootstrap regime satisfies
+\begin{equation}
+|\mathcal R_N^{\mathrm{ul,wh}}(t)|
+\le
+C_N\,\mathfrak M(t)\,\mathfrak F_N^{\mathrm{ul,wh}}(t),
+\label{eq:Rbound}
+\end{equation}
+where \(\mathcal R_N^{\mathrm{ul,wh}}(t)\) denotes the sum of all quadratic and lower-order source terms left after placing the linear variable-coefficient wave and Schr\"odinger blocks in the principal part, and
+\begin{align}
+\mathfrak M(t)
+\equiv\;&
+\mathfrak D_{\mathrm{TL}}(t)^2
++ \mathfrak D_{\mathrm{Ein,hi}}(t)^2
++ \mathfrak D_\sigma(t)^2
+\nonumber\\
+&+
+\mathfrak D_{\mathrm{aux}}(t)\Bigl(
+\mathfrak D_{\mathrm{TL}}(t)
++ \mathfrak D_{\mathrm{Ein,hi}}(t)
++ \mathfrak D_\sigma(t)
+\Bigr).
+\label{eq:Mdef}
+\end{align}
+In particular,
+\begin{equation}
+\mathfrak M(t)\le C_N C_\ast^2\varepsilon^2(1+t)^{-2}
+\label{eq:Mrate}
+\end{equation}
+for all \(t\in[0,T]\), and hence \(\mathfrak M\in L_t^1([0,T])\).
+\end{proposition}
+
+\begin{proof}
+Every remainder term in the weighted/homogeneous system vanishes on the flat exact-closure background. Once the linear trace--longitudinal wave pair \((\Theta,G_\chi)\), the high-frequency Einstein wave block, and the quartic scalar Schr\"odinger block are extracted, the remaining sources are exactly the familiar lower-order Ricci corrections, transport commutators, quartic scalar stress insertions, quadratic trace terms, and auxiliary substitutions already isolated in the earlier local and coercive notes. Each such term contains at least one perturbative coefficient factor and one controlled differentiated unknown.
+
+For the low-frequency trace--longitudinal subsystem, the quadratic remainders \(\mathcal Q_\vartheta\) and \(\mathcal R_\chi\) are already known from the coercive note to be at least quadratic in the weighted/homogeneous bootstrap size. For the high-frequency Einstein block, the Ricci and transport remainders carry one perturbative metric or shift coefficient together with one differentiated metric variable and are therefore bounded by the wave-type factors in \eqref{eq:Mdef}. For the quartic scalar block, the principal nonlinearity
+\[
+\Theta_{ij}^{(\sigma)}
+=
+\mathcal O\!\left(\frac{\lambda_4}{M_*^2}D_iD_j\sigma\,\Delta_\gamma\sigma\right)
++ \mathcal O_{\mathrm{l.o.t.}}
+\]
+contains two Schr\"odinger-decaying factors and therefore decays faster than \((1+t)^{-2}\). The same is true for all lower-order scalar curvature corrections. Finally, Proposition \ref{prop:auxdecay} inserts \((\beta,Q,\chi,W^T)\) with no worse rate than the propagating wave sector.
+
+Combining the decay bounds \eqref{eq:DTLboot}, \eqref{eq:DEinboot}, \eqref{eq:Dsigmaboot}, and \eqref{eq:auxrate} gives \eqref{eq:Mrate}. Since \((1+t)^{-2}\in L_t^1([0,\infty))\), \(\mathfrak M\) is time-integrable.
+\end{proof}
+
+\begin{corollary}[No nonintegrable quadratic source in the fixed unit-lapse class]
+\label{cor:noquadobs}
+Under the weighted/homogeneous decay bootstrap regime, every quadratic and lower-order nonlinear source term in the fixed-completion unit-lapse formulation is time-integrable.
+\end{corollary}
+
+\begin{proof}
+This is immediate from Proposition \ref{prop:remainder}.
+\end{proof}
+
+\begin{remark}
+The point of Corollary \ref{cor:noquadobs} is that the current failure mode is \emph{not} the one seen on the old strict maximal branch. There is no lapse perturbation because \(N\equiv 1\), so there is no analogue of the Coulombic \(\sigma_0(N-1)\) forcing. There is also no new zeroth-order longitudinal forcing because every recorded occurrence of \(\chi\) remains derivative-level in the weighted/homogeneous class. At this decay stage, those two previously dangerous channels are absent rather than merely renormalized.
+\end{remark}
+
+\section{Outcome of the Decay/Integrability Test}
+
+The previous proposition is exactly the decision point postponed by the weighted/homogeneous coercive-bootstrap note.
+
+\begin{theorem}[Weighted/homogeneous decay/integrability verdict]
+\label{thm:verdict}
+Assume that a smooth solution on \([0,T]\) lies in the weighted/homogeneous decay bootstrap regime of Definition \ref{def:decayboot}. Then:
+\begin{enumerate}
+    \item the low-frequency trace--longitudinal pair \((\Theta,G_\chi)\) carries the expected wave-type linear-compatible decay
+    \[
+    \mathfrak D_{\mathrm{TL}}(t)\lesssim \varepsilon(1+t)^{-1}
+    \]
+    \item the high-frequency Einstein block carries the expected wave-type decay
+    \[
+    \mathfrak D_{\mathrm{Ein,hi}}(t)\lesssim \varepsilon(1+t)^{-1}
+    \]
+    \item the quartic scalar channel carries the expected Schr\"odinger-type decay
+    \[
+    \mathfrak D_\sigma(t)\lesssim \varepsilon(1+t)^{-3/2}
+    \]
+    \item every quadratic and lower-order source term left after extracting those principal blocks is \(L_t^1\)
+    \item the first genuine post-coercive obstruction does \emph{not} appear at the decay/integrability stage for the same fixed completion \(S_{\mathrm{min},4}\), the same gauge, and the same weighted/homogeneous class.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Items (1)--(3) are exactly Corollary \ref{cor:TLdecay}, Corollary \ref{cor:Eindecay}, and Corollary \ref{cor:scalardecay}. Item (4) is Corollary \ref{cor:noquadobs}. Since the present note was designed precisely to isolate the first post-coercive obstruction if one appeared at the decay stage, the absence of any nonintegrable quadratic or lower-order source term implies item (5).
+\end{proof}
+
+\begin{corollary}[Deeper completion change is not forced at the decay stage]
+\label{cor:nodeeper}
+At the present disciplined scope, the next burden after the weighted/homogeneous decay/integrability test remains inside the same fixed-completion unit-lapse formulation. A deeper nonlinear-completion change or auxiliary redesign is not yet forced by the decay-stage analysis.
+\end{corollary}
+
+\begin{proof}
+This is the direct content of Theorem \ref{thm:verdict}.
+\end{proof}
+
+\begin{remark}
+Corollary \ref{cor:nodeeper} should be read narrowly. It does not say that the full same-class nonlinear-stability theorem is already proved. It says only that the decay/integrability test does not uncover the first obstruction. The remaining burden is therefore no longer another branch redesign, but the actual closure of the dispersive argument within the same fixed completion and the same weighted/homogeneous gauge-first framework.
+\end{remark}
+
+\section{What This Step Establishes}
+
+The present manuscript establishes the following.
+\begin{enumerate}
+    \item It fixes the weighted/homogeneous decay bootstrap norms for the propagating Einstein--quartic-scalar variables together with the low-frequency trace--longitudinal pair.
+    \item It derives the linear-compatible wave structure of the low-frequency trace--longitudinal subsystem and the linear-compatible wave/Schr\"odinger structure of the high-frequency Einstein--quartic-scalar sector.
+    \item It shows that the elliptic auxiliary variables inherit the same decay rates in the same fixed-completion weighted/homogeneous class.
+    \item It proves that every quadratic and lower-order nonlinear source term left after extracting the principal dispersive blocks is time-integrable.
+    \item It records the verdict that the first genuine post-coercive obstruction does not appear at the decay/integrability stage.
+\end{enumerate}
+
+It does not establish the following.
+\begin{enumerate}
+    \item It does not yet prove the full weighted/homogeneous nonlinear-stability theorem.
+    \item It does not yet prove the pointwise decay bootstrap \eqref{eq:DTLboot}--\eqref{eq:Dsigmaboot} from the coercive energy alone.
+    \item It does not yet produce a complete asymptotic description, modified scattering statement, or convergence theorem for the same fixed-completion unit-lapse class.
+    \item It does not claim that no future obstruction can appear at a later asymptotic-closure step.
+\end{enumerate}
+
+\section{Conclusion}
+
+The weighted/homogeneous unit-lapse route has now been tested at the next honest post-coercive stage rather than merely being named as the next task. In the same fixed completion \(S_{\mathrm{min},4}\), the same unit-lapse spatial-harmonic gauge, and the same weighted/homogeneous function class, the low-frequency trace--longitudinal pair behaves like a wave subsystem, the high-frequency Einstein sector keeps the expected wave decay, and the quartic scalar channel keeps the expected Schr\"odinger decay. Once those linear-compatible rates are inserted, the remaining quadratic and lower-order terms are time-integrable.
+
+That is the narrow but decisive verdict of this note. The first genuine post-coercive obstruction does not appear at the decay/integrability stage. The fixed-completion weighted/homogeneous route therefore does not yet force a deeper completion change or auxiliary redesign. The next burden remains internal to the same formulation: convert this now-consistent decay/integrability package into the actual same-class asymptotic or nonlinear-stability closure.
+
+\end{document}

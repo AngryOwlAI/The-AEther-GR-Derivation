@@ -1,0 +1,698 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal{A}}
+\newcommand{\BridgeMetric}{\mathfrak g}
+\newcommand{\SpatialD}{\mathcal D}
+\newcommand{\LapPerp}{\Delta_\perp}
+\newcommand{\FlowPot}{\Phi_\Omega}
+\newcommand{\CoulPot}{U_\Omega}
+\newcommand{\SourceDensityRed}{\varrho_\Omega^{\mathrm{red}}}
+\newcommand{\ConstCurrent}{\mathcal C}
+\newcommand{\ConstGamma}{\Gamma}
+\newcommand{\CurvQMult}{\mathscr P}
+\newcommand{\CurvChiMult}{\mathscr X}
+\newcommand{\CurvTransMult}{\mathscr Y}
+\newcommand{\HamChargeOmega}{\mathfrak m_\Omega}
+\newcommand{\SigmaIER}{\Sigma^{\mathrm{IER}}}
+\newcommand{\SigmaDressSch}{\Sigma^{\mathrm{Sch}}}
+\newcommand{\SigmaRegPol}{\Sigma^{\mathrm{pol,reg}}}
+\newcommand{\CurvSeed}{\Theta_{\mathrm{br}}}
+\newcommand{\CurvSeedMult}{\Upsilon_{\mathrm{br}}}
+\newcommand{\CurvScale}{\ell_{\mathrm{br}}}
+\newcommand{\CurvProfile}{F_{\mathrm{br}}}
+\newcommand{\CurvProfileCan}{F_{\mathrm{br}}^{\mathrm{can}}}
+\newcommand{\CurvOneI}{\mathfrak K}
+\newcommand{\CurvOneChi}{\mathfrak L}
+\newcommand{\CurvOneW}{\mathfrak M}
+\newcommand{\BridgeCurv}{\mathcal R_{\mathrm{br}}}
+\newcommand{\DownPkg}{\mathscr P_{\mathrm{down}}}
+\newcommand{\ProfWeight}{\varpi_{\mathrm{br}}}
+\newcommand{\RespSus}{\Sigma_{\mathrm{br}}}
+\newcommand{\RespSusEq}{\Sigma_{\mathrm{br}}^{\ast}}
+\newcommand{\RespCarrier}{Y_{\mathrm{br}}}
+\newcommand{\RespFlux}{J_{\mathrm{br}}}
+\newcommand{\RespCompat}{\Lambda_{\mathrm{br}}}
+\newcommand{\RespNorm}{\mathcal N_{\mathrm{br}}}
+\newcommand{\RespFluxCoeff}{\gamma_{\mathrm{br}}}
+\newcommand{\RespGap}{m_{\mathrm{br}}}
+\newcommand{\RespBias}{h_{\mathrm{br}}}
+\newcommand{\RespMicro}{X_{\mathrm{br}}}
+\newcommand{\RespMicroEq}{X_{\mathrm{br}}^{\ast}}
+\newcommand{\RespMicroRef}{X_{\mathrm{br}}^{\mathrm{ref}}}
+\newcommand{\RespMicroFluxCoeff}{\Gamma_{\mathrm{br}}^{\mathrm{mic}}}
+\newcommand{\RespMicroGap}{\mu_{\mathrm{br}}}
+\newcommand{\RespMicroEnergy}{\mathscr E_{\mathrm{br}}^{\mathrm{micro}}}
+\newcommand{\RespOrderField}{\bm Z_{\mathrm{br}}}
+\newcommand{\RespOrderAmp}{Z_{\mathrm{br}}}
+\newcommand{\RespOrderRef}{Z_{\mathrm{br}}^{\mathrm{ref}}}
+\newcommand{\RespOrderEq}{Z_{\mathrm{br}}^{\ast}}
+\newcommand{\RespOrderReadout}{\Xi_{\mathrm{br}}}
+\newcommand{\RespOrderStiff}{\Gamma_{\mathrm{br}}^{\mathrm{ord}}}
+\newcommand{\RespOrderQuartic}{\Lambda_{\mathrm{br}}}
+\newcommand{\RespOrderEnergy}{\mathscr E_{\mathrm{br}}^{\mathrm{ord}}}
+\newcommand{\RespOrderRadEnergy}{\mathscr E_{\mathrm{br}}^{\mathrm{rad}}}
+\newcommand{\RespOrderCurrent}{\mathcal I_{\mathrm{br}}^{\mathrm{ord}}}
+\newcommand{\RespOrderPhase}{\vartheta_{\mathrm{br}}}
+\newcommand{\RespOrderDir}{\bm n_0}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Nonlocal Bridge Self-Response Off-Shell Profile-Selection Microscopic-Amplitude-Origin Note}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The positive quotient reduced-system, theorem, decay, and asymptotic line remains closed and is not reopened here. The explicit local bridge-curvature-density note, the canonical bridge-curvature-density selection note, the off-shell profile-selection principle note, the selector-justification note, the susceptibility-origin note, and the carrier-data-origin note have already fixed the current scope sharply: the downstream package is profile-blind, the continuation side has been chosen, the selector has been justified one layer deeper, the susceptibility sector has been realized by the explicit carrier block \((\RespCarrier,\RespFlux,\RespCompat)\), and the previously primitive carrier data have been reduced to the microscopic bridge-response amplitude sector \((\RespMicroRef,\RespMicroFluxCoeff,\RespMicroGap,\RespMicroEq)\). One narrower derivational gap remains. Those microscopic data are still inserted as symmetry-normalized microphysical input rather than recovered from a still more primitive substrate sector.
+
+The present manuscript supplies the smallest honest next step. It introduces a deeper primitive bridge-order doublet
+\[
+\RespOrderField(x)\in\mathbb R^2,
+\]
+together with a positive readout coefficient \(\RespOrderReadout>0\), a positive reference radius \(\RespOrderRef>0\), a positive primitive gradient stiffness \(\RespOrderStiff>0\), a positive quartic radial stiffness \(\RespOrderQuartic>0\), and a positive equilibrium radius \(\RespOrderEq>0\). The deeper sector is governed by the \(O(2)\)-symmetric energy
+\[
+\RespOrderEnergy[\RespOrderField]
+=
+\int_{\mathbb R}\ProfWeight(x)\Bigl[
+\frac{\RespOrderStiff}{2}\abs{\RespOrderField'(x)}^2
++
+\frac{\RespOrderQuartic}{8}\Bigl(\abs{\RespOrderField(x)}^2-(\RespOrderEq)^2\Bigr)^2
+\Bigr]dx.
+\]
+Its readout to the microscopic amplitude line is
+\[
+\RespMicro(x)=\RespOrderReadout\,\abs{\RespOrderField(x)},
+\qquad
+\RespMicroRef=\RespOrderReadout\,\RespOrderRef.
+\]
+The unique zero-current positive branch is the phase-neutral radial reduction \(\RespOrderField(x)=\RespOrderAmp(x)\RespOrderDir\) with fixed unit vector \(\RespOrderDir\). On that branch,
+\[
+\RespOrderRadEnergy[\RespOrderAmp]
+=
+\int_{\mathbb R}\ProfWeight(x)\Bigl[
+\frac{\RespOrderStiff}{2}\abs{\RespOrderAmp'(x)}^2
++
+\frac{\RespOrderQuartic}{8}\Bigl(\RespOrderAmp(x)^2-(\RespOrderEq)^2\Bigr)^2
+\Bigr]dx.
+\]
+Writing \(\RespMicro=\RespOrderReadout\,\RespOrderAmp\) and \(\RespMicroEq=\RespOrderReadout\,\RespOrderEq\), the exact radial energy decomposes into the microscopic quadratic block plus explicit cubic and quartic remainders, so the previously primitive microscopic sector is recovered as the quadratic reduced branch of the deeper order sector, not as independent substrate input. The microscopic data are therefore derived as
+\[
+\RespMicroRef=\RespOrderReadout\,\RespOrderRef,
+\qquad
+\RespMicroFluxCoeff=\frac{\RespOrderStiff}{\RespOrderReadout^2},
+\qquad
+\RespMicroGap=\frac{\sqrt{\RespOrderQuartic}\,\RespOrderEq}{\RespOrderReadout},
+\qquad
+\RespMicroEq=\RespOrderReadout\,\RespOrderEq.
+\]
+Consequently
+\[
+\RespNorm=\frac{1}{\RespOrderReadout\,\RespOrderRef},
+\qquad
+\RespFluxCoeff=\frac{\RespOrderStiff}{\RespOrderReadout^2},
+\qquad
+\RespGap=\frac{\sqrt{\RespOrderQuartic}\,\RespOrderEq}{\RespOrderReadout},
+\qquad
+\RespBias=\frac{\RespOrderQuartic(\RespOrderEq)^3}{\RespOrderReadout},
+\]
+and the pinned equilibrium susceptibility becomes
+\[
+\RespSusEq=\frac{\RespMicroEq}{\RespMicroRef}=\frac{\RespOrderEq}{\RespOrderRef}.
+\]
+Hence the response scale is recovered one layer deeper as
+\[
+\CurvScale^4=\RespSusEq=\frac{\RespOrderEq}{\RespOrderRef}.
+\]
+The unique phase-neutral ground state again yields the quadratic canonical profile
+\[
+\CurvProfileCan(x)=1+\RespSusEq x^2.
+\]
+Because the local bridge-curvature family remains profile-blind, substituting \(\CurvProfileCan\) back into that family preserves the same reduced current, Hamiltonian-charge flux, continuity/Gauss-Poisson package, exterior Coulomb tail, surviving dressed bridge map, and matter-free/off-longitudinal/cubic/quartic gain package as before. The claim boundary is strict: the note does not claim that the primitive bridge-order sector is the unique ultraviolet completion of the bridge-curvature response line. Its narrower positive result is that the microscopic bridge-response amplitude sector is no longer primitive either; it is the uniquely selected phase-neutral quadratic reduction of a still deeper \(O(2)\)-symmetric primitive bridge-order sector.
+\end{abstract}
+
+\section{Introduction}
+
+The carrier-data-origin note changed the burden of the bridge-curvature-density sequence sharply. The carrier data \((\RespNorm,\RespFluxCoeff,\RespGap,\RespBias)\) are no longer primitive, and the response scale \(\CurvScale\) is no longer fixed only at carrier level. What remains open is deeper and narrower: the microscopic bridge-response amplitude sector that produced those carrier data is itself still postulated rather than derived.
+
+That is the exact burden of the present manuscript. It does not reopen another observer-level repair note. It does not alter the already-positive self-response-dressed bridge map. It does not search for a new bridge metric, a new matter route, or another selector-level repair. It acts only on the remaining derivational gap left by the previous note: whether the microscopic amplitude sector itself can be recovered as a reduced realization of a still more primitive substrate sector, and whether its data can therefore be written in terms of deeper readout, stiffness, and equilibrium parameters rather than inserted directly.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+This note stays strictly inside that boundary. Its positive claim is not that a unique ultraviolet completion has already been isolated. Its positive claim is narrower and more disciplined: once one introduces the smallest deeper primitive bridge-order sector compatible with the already-fixed bridge map and profile-blind downstream package, the old microscopic amplitude sector is recovered as the uniquely selected phase-neutral quadratic reduction, the microscopic data are derived from primitive order-sector constants, the carrier data and response scale are therefore recovered again one layer deeper, and the same downstream package and dressed bridge map stay fixed.
+
+\section{Fixed Local Family and Downstream Package}
+
+\begin{definition}[Bridge-curvature anchor and local family]
+\label{def:family}
+Let
+\begin{equation}
+\BridgeCurv \equiv R[\BridgeMetric]-2\Lambda_{\Sub}
+\label{eq:anchor}
+\end{equation}
+be the bridge-curvature scalar already present in the candidate substrate action. For every smooth positive profile
+\begin{equation}
+\CurvProfile:\mathbb R\to\mathbb R_{>0},
+\label{eq:positiveprofile}
+\end{equation}
+define the seed
+\begin{equation}
+\CurvSeed=\CurvProfile(\BridgeCurv)
+\label{eq:seed}
+\end{equation}
+and the local bridge-curvature density
+\begin{align}
+\mathcal L_{\mathrm{loc.curv}}[\CurvProfile]
+=\;&
+\CurvSeedMult\bigl(\CurvSeed-\CurvProfile(\BridgeCurv)\bigr)
+\nonumber\\
+&+\CurvQMult^{AI}\bigl(\CurvOneI_A^I-\CurvSeed\,\lambda_I\SpatialD_AQ^I\bigr)
++\CurvChiMult^A\bigl(\CurvOneChi_A-\CurvSeed\,\lambda_\chi\SpatialD_A\chi\bigr)
+\nonumber\\
+&+\CurvTransMult^A\bigl(\CurvOneW_A-\CurvSeed\,\lambda_WW_A^T\bigr)
++\ConstGamma^A\bigl(
+\ConstCurrent_A
+-\nu_I\CurvSeed^{-1}\CurvOneI_A^I
+-\nu_\chi\CurvSeed^{-1}\CurvOneChi_A
+-\nu_W\CurvSeed^{-1}\CurvOneW_A
+\bigr).
+\label{eq:locfamily}
+\end{align}
+\end{definition}
+
+\begin{definition}[Fixed downstream package]
+\label{def:downstream}
+The \emph{fixed downstream package} \(\DownPkg\) consists of:
+\begin{enumerate}
+    \item the reduced current and reduced density
+    \begin{equation}
+    \ConstCurrent_A
+    =
+    \mathfrak c_I\SpatialD_AQ^I
+    +\mathfrak c_\chi\SpatialD_A\chi
+    +\mathfrak c_WW_A^T,
+    \qquad
+    \SourceDensityRed=-\SpatialD^A\ConstCurrent_A;
+    \label{eq:pkgcurrent}
+    \end{equation}
+    \item the Hamiltonian-charge flux and continuity/Gauss-Poisson package
+    \begin{equation}
+    \HamChargeOmega
+    =
+    \int_{\Sigma_t}\SourceDensityRed\,d\mu_P
+    =
+    -\lim_{r\to\infty}\int_{S_r} n^A\ConstCurrent_A\,dA,
+    \label{eq:pkgcharge}
+    \end{equation}
+    \begin{equation}
+    -\LapPerp\FlowPot=4\pi G_N\,\SourceDensityRed,
+    \qquad
+    \SpatialD_A\FlowPot=\mathcal E_A;
+    \label{eq:pkgpoisson}
+    \end{equation}
+    \item the exterior Coulomb tail
+    \begin{equation}
+    \FlowPot
+    =
+    \CoulPot+\mathcal O(r^{-2}),
+    \qquad
+    \CoulPot(r)=\frac{G_N\,\HamChargeOmega}{r};
+    \label{eq:pkgcoul}
+    \end{equation}
+    \item the surviving dressed bridge map
+    \begin{equation}
+    g_{\mu\nu}^{\mathrm{dressed}}
+    =
+    g_{\mu\nu}^{\mathrm{br}}
+    +\SigmaIER_{\mu\nu}
+    +\SigmaDressSch{}_{\mu\nu}
+    +\SigmaRegPol{}_{\mu\nu},
+    \label{eq:pkgmetric}
+    \end{equation}
+    with the same matter-free activity, off-longitudinal \(Q/W\) cancellation, explicit cubic longitudinal completion, and quartic Coulomb self-response absorption already recorded in the explicit local note.
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}[The downstream package is profile-blind]
+\label{prop:profileblind}
+For every smooth positive profile \(\CurvProfile\), eliminating the local sector \eqref{eq:locfamily} yields the same downstream package \(\DownPkg\).
+\end{proposition}
+
+\begin{proof}
+Variation with respect to \(\CurvQMult^{AI}\), \(\CurvChiMult^A\), and \(\CurvTransMult^A\) gives
+\begin{equation}
+\CurvOneI_A^I=\CurvSeed\,\lambda_I\SpatialD_AQ^I,
+\qquad
+\CurvOneChi_A=\CurvSeed\,\lambda_\chi\SpatialD_A\chi,
+\qquad
+\CurvOneW_A=\CurvSeed\,\lambda_WW_A^T.
+\label{eq:carrierrels}
+\end{equation}
+Variation with respect to \(\ConstGamma^A\) gives
+\begin{equation}
+\ConstCurrent_A
+=
+\nu_I\CurvSeed^{-1}\CurvOneI_A^I
++\nu_\chi\CurvSeed^{-1}\CurvOneChi_A
++\nu_W\CurvSeed^{-1}\CurvOneW_A.
+\label{eq:readout}
+\end{equation}
+Substituting \eqref{eq:carrierrels} into \eqref{eq:readout} cancels \(\CurvSeed=\CurvProfile(\BridgeCurv)\) identically and yields the same forced constitutive current
+\begin{equation}
+\ConstCurrent_A
+=
+\mathfrak c_I\SpatialD_AQ^I
++\mathfrak c_\chi\SpatialD_A\chi
++\mathfrak c_WW_A^T,
+\qquad
+\mathfrak c_I=\nu_I\lambda_I,
+\qquad
+\mathfrak c_\chi=\nu_\chi\lambda_\chi,
+\qquad
+\mathfrak c_W=\nu_W\lambda_W.
+\label{eq:forcedcurrent}
+\end{equation}
+The reduced density, Hamiltonian-charge flux, continuity/Gauss-Poisson package, exterior Coulomb tail, and surviving dressed bridge map are therefore independent of the chosen positive profile.
+\end{proof}
+
+\begin{remark}
+Proposition \ref{prop:profileblind} is the structural reason this note can act only on the microscopic-amplitude origin. Once a positive profile \(\CurvProfile\) is chosen, no further change is forced downstream.
+\end{remark}
+
+\section{Primitive Bridge-Order Sector}
+
+\begin{definition}[Primitive bridge-order doublet and readout]
+\label{def:order}
+Fix positive constants
+\begin{equation}
+\RespOrderReadout>0,
+\qquad
+\RespOrderRef>0,
+\qquad
+\RespOrderStiff>0,
+\qquad
+\RespOrderQuartic>0,
+\qquad
+\RespOrderEq>0,
+\label{eq:orderconstants}
+\end{equation}
+and the same smooth positive integrable weight
+\begin{equation}
+\ProfWeight:\mathbb R\to\mathbb R_{>0},
+\qquad
+\int_{\mathbb R}\ProfWeight(x)\,dx<\infty.
+\label{eq:weight}
+\end{equation}
+The \emph{primitive bridge-order sector} consists of smooth maps
+\begin{equation}
+\RespOrderField\in C^\infty(\mathbb R,\mathbb R^2)
+\label{eq:orderfield}
+\end{equation}
+with energy
+\begin{equation}
+\RespOrderEnergy[\RespOrderField]
+\equiv
+\int_{\mathbb R}\ProfWeight(x)\Bigl[
+\frac{\RespOrderStiff}{2}\abs{\RespOrderField'(x)}^2
++
+\frac{\RespOrderQuartic}{8}\Bigl(\abs{\RespOrderField(x)}^2-(\RespOrderEq)^2\Bigr)^2
+\Bigr]dx.
+\label{eq:orderenergy}
+\end{equation}
+Its bridge-response readout is
+\begin{equation}
+\RespMicro(x)\equiv \RespOrderReadout\,\abs{\RespOrderField(x)},
+\qquad
+\RespMicroRef\equiv \RespOrderReadout\,\RespOrderRef,
+\qquad
+\RespSus(x)\equiv \frac{\RespMicro(x)}{\RespMicroRef}=\frac{\abs{\RespOrderField(x)}}{\RespOrderRef}.
+\label{eq:microreadout}
+\end{equation}
+\end{definition}
+
+\begin{remark}
+Equation \eqref{eq:orderenergy} is the smallest positive \(O(2)\)-symmetric primitive representative that can still distinguish a reference radius, a positive radial equilibrium, and a nontrivial radial Hessian. At the present disciplined scope, \(\RespOrderReadout\) is the order-to-microscopic transduction coefficient, \(\RespOrderRef\) is the primitive reference radius defining the susceptibility normalization, \(\RespOrderStiff\) is the primitive gradient stiffness, and \(\RespOrderQuartic\) fixes the radial Hessian about \(\RespOrderEq\).
+\end{remark}
+
+\begin{definition}[Internal current and phase-neutral branch]
+\label{def:neutral}
+Write the order doublet locally as
+\begin{equation}
+\RespOrderField(x)
+=
+\RespOrderAmp(x)
+\begin{pmatrix}
+\cos\RespOrderPhase(x)\\
+\sin\RespOrderPhase(x)
+\end{pmatrix},
+\qquad
+\RespOrderAmp(x)\ge 0.
+\label{eq:polar}
+\end{equation}
+Its internal order current is
+\begin{equation}
+\RespOrderCurrent(x)
+\equiv
+(\RespOrderField)_1(x)(\RespOrderField)_2'(x)-(\RespOrderField)_2(x)(\RespOrderField)_1'(x)
+=
+\RespOrderAmp(x)^2\RespOrderPhase'(x).
+\label{eq:ordercurrent}
+\end{equation}
+The \emph{phase-neutral branch} is the zero-current branch
+\begin{equation}
+\RespOrderCurrent\equiv 0,
+\label{eq:zerocurrent}
+\end{equation}
+equivalently
+\begin{equation}
+\RespOrderField(x)=\RespOrderAmp(x)\RespOrderDir
+\label{eq:neutralbranch}
+\end{equation}
+for some fixed unit vector \(\RespOrderDir\in\mathbb S^1\).
+\end{definition}
+
+\begin{proposition}[The microscopic line is read only from the phase-neutral radial branch]
+\label{prop:neutral}
+On the phase-neutral branch \eqref{eq:neutralbranch}, the primitive energy reduces to
+\begin{equation}
+\RespOrderRadEnergy[\RespOrderAmp]
+\equiv
+\int_{\mathbb R}\ProfWeight(x)\Bigl[
+\frac{\RespOrderStiff}{2}\abs{\RespOrderAmp'(x)}^2
++
+\frac{\RespOrderQuartic}{8}\Bigl(\RespOrderAmp(x)^2-(\RespOrderEq)^2\Bigr)^2
+\Bigr]dx.
+\label{eq:radialenergy}
+\end{equation}
+Moreover the readout \eqref{eq:microreadout} depends only on \(\RespOrderAmp\), so the phase angle is auxiliary for the present bridge-response sector.
+\end{proposition}
+
+\begin{proof}
+Substituting \eqref{eq:polar} into \(\abs{\RespOrderField'}^2\) gives
+\[
+\abs{\RespOrderField'}^2
+=
+\abs{\RespOrderAmp'}^2+\RespOrderAmp^2\abs{\RespOrderPhase'}^2.
+\]
+Equation \eqref{eq:zerocurrent} implies \(\RespOrderPhase'=0\) wherever \(\RespOrderAmp>0\), hence \(\RespOrderPhase\) is constant and \eqref{eq:neutralbranch} follows. Substituting that branch into \eqref{eq:orderenergy} gives \eqref{eq:radialenergy}. The readout \eqref{eq:microreadout} depends only on \(\abs{\RespOrderField}\), so it is blind to the constant internal phase.
+\end{proof}
+
+\begin{remark}
+Proposition \ref{prop:neutral} is the precise sense in which the deeper sector still carries one auxiliary direction. The present bridge-response line reads only the radial branch; the constant internal phase is invisible to \(\RespMicro\), \(\RespSus\), and the downstream package.
+\end{remark}
+
+\section{Microscopic Amplitude Sector as Reduced Primitive Branch}
+
+\begin{definition}[Recovered microscopic equilibrium]
+\label{def:microeq}
+On the phase-neutral branch define
+\begin{equation}
+\RespMicroEq\equiv \RespOrderReadout\,\RespOrderEq.
+\label{eq:microeqdef}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[Exact radial decomposition and quadratic microscopic sector]
+\label{prop:microdecomp}
+On the phase-neutral branch \eqref{eq:neutralbranch}, write
+\begin{equation}
+\RespMicro(x)=\RespOrderReadout\,\RespOrderAmp(x),
+\qquad
+\RespMicroEq=\RespOrderReadout\,\RespOrderEq.
+\label{eq:branchreadout}
+\end{equation}
+Then the exact radial energy \eqref{eq:radialenergy} becomes
+\begin{align}
+\RespOrderRadEnergy[\RespOrderAmp]
+=\;&
+\int_{\mathbb R}\ProfWeight(x)\Bigl[
+\frac{\RespOrderStiff}{2\RespOrderReadout^2}\abs{\RespMicro'(x)}^2
++
+\frac{\RespOrderQuartic(\RespOrderEq)^2}{2\RespOrderReadout^2}\abs{\RespMicro(x)-\RespMicroEq}^2
+\Bigr]dx
+\nonumber\\
+&+
+\int_{\mathbb R}\ProfWeight(x)\Bigl[
+\frac{\RespOrderQuartic\RespMicroEq}{2\RespOrderReadout^4}\bigl(\RespMicro(x)-\RespMicroEq\bigr)^3
++
+\frac{\RespOrderQuartic}{8\RespOrderReadout^4}\bigl(\RespMicro(x)-\RespMicroEq\bigr)^4
+\Bigr]dx.
+\label{eq:exactradialdecomp}
+\end{align}
+Hence the quadratic reduced microscopic sector is
+\begin{equation}
+\RespMicroEnergy[\RespMicro]
+\equiv
+\int_{\mathbb R}\ProfWeight(x)\Bigl[
+\frac{\RespMicroFluxCoeff}{2}\abs{\RespMicro'(x)}^2
++
+\frac{\RespMicroGap^2}{2}\abs{\RespMicro(x)-\RespMicroEq}^2
+\Bigr]dx
+\label{eq:recoveredmicroenergy}
+\end{equation}
+with the derived identifications
+\begin{equation}
+\RespMicroFluxCoeff=\frac{\RespOrderStiff}{\RespOrderReadout^2},
+\qquad
+\RespMicroGap=\frac{\sqrt{\RespOrderQuartic}\,\RespOrderEq}{\RespOrderReadout},
+\qquad
+\RespMicroEq=\RespOrderReadout\,\RespOrderEq.
+\label{eq:microidentification}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Substituting \(\RespOrderAmp=\RespMicro/\RespOrderReadout\) into \eqref{eq:radialenergy} gives
+\[
+\RespOrderRadEnergy
+=
+\int_{\mathbb R}\ProfWeight(x)\Bigl[
+\frac{\RespOrderStiff}{2\RespOrderReadout^2}\abs{\RespMicro'}^2
++
+\frac{\RespOrderQuartic}{8\RespOrderReadout^4}
+\bigl(\RespMicro^2-(\RespMicroEq)^2\bigr)^2
+\Bigr]dx.
+\]
+Since
+\[
+\bigl(\RespMicro^2-(\RespMicroEq)^2\bigr)^2
+=
+\bigl(\RespMicro-\RespMicroEq\bigr)^2\bigl(\RespMicro+\RespMicroEq\bigr)^2
+\]
+and
+\[
+\bigl(\RespMicro+\RespMicroEq\bigr)^2
+=
+\bigl(\RespMicro-\RespMicroEq\bigr)^2
++4\RespMicroEq\bigl(\RespMicro-\RespMicroEq\bigr)
++4(\RespMicroEq)^2,
+\]
+equation \eqref{eq:exactradialdecomp} follows directly. Reading off the quadratic terms gives \eqref{eq:microidentification}.
+\end{proof}
+
+\begin{corollary}[Recovered reference amplitude]
+\label{cor:microref}
+The microscopic reference amplitude is derived from the primitive readout and primitive reference radius by
+\begin{equation}
+\RespMicroRef=\RespOrderReadout\,\RespOrderRef.
+\label{eq:microrefident}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+Equation \eqref{eq:microrefident} is exactly the normalization law in \eqref{eq:microreadout}.
+\end{proof}
+
+\begin{remark}
+Proposition \ref{prop:microdecomp} and Corollary \ref{cor:microref} are the precise senses in which the old microscopic sector ceases to be primitive. The quadratic amplitude block of the carrier-data-origin note is recovered from the primitive order sector as the phase-neutral radial Hessian, while the cubic and quartic terms in \eqref{eq:exactradialdecomp} record the higher-order radial corrections that were invisible at the previous representative scope.
+\end{remark}
+
+\section{Recovered Carrier Data, Equilibrium Susceptibility, and Response Scale}
+
+\begin{corollary}[Recovered carrier data]
+\label{cor:carrierdata}
+The carrier data of the susceptibility-origin and carrier-data-origin notes are recovered one layer deeper as
+\begin{equation}
+\RespNorm=\frac{1}{\RespOrderReadout\,\RespOrderRef},
+\qquad
+\RespFluxCoeff=\frac{\RespOrderStiff}{\RespOrderReadout^2},
+\qquad
+\RespGap=\frac{\sqrt{\RespOrderQuartic}\,\RespOrderEq}{\RespOrderReadout},
+\qquad
+\RespBias=\frac{\RespOrderQuartic(\RespOrderEq)^3}{\RespOrderReadout}.
+\label{eq:carrierfromorder}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+The first three identities are exactly \eqref{eq:microrefident} and \eqref{eq:microidentification} together with the carrier-data-origin relations
+\[
+\RespNorm=\frac{1}{\RespMicroRef},
+\qquad
+\RespFluxCoeff=\RespMicroFluxCoeff,
+\qquad
+\RespGap=\RespMicroGap.
+\]
+The last identity follows from the carrier-data-origin formula
+\[
+\RespBias=\RespMicroGap^2\RespMicroEq
+\]
+and the derived identifications \eqref{eq:microidentification}.
+\end{proof}
+
+\begin{theorem}[Unique phase-neutral ground state]
+\label{thm:ground}
+On the phase-neutral branch \eqref{eq:neutralbranch}, the primitive order energy \eqref{eq:radialenergy} has the unique minimizer
+\begin{equation}
+\RespOrderAmp(x)\equiv\RespOrderEq,
+\qquad
+\RespOrderField(x)\equiv \RespOrderEq\,\RespOrderDir,
+\label{eq:orderground}
+\end{equation}
+for the fixed unit vector \(\RespOrderDir\). Consequently
+\begin{equation}
+\RespMicro(x)\equiv\RespMicroEq=\RespOrderReadout\,\RespOrderEq.
+\label{eq:microground}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Because \(\ProfWeight>0\), \(\RespOrderStiff>0\), and \(\RespOrderQuartic>0\), the two integrands in \eqref{eq:radialenergy} are nonnegative. Hence \(\RespOrderRadEnergy\) is minimized exactly when
+\[
+\RespOrderAmp'(x)=0,
+\qquad
+\RespOrderAmp(x)^2-(\RespOrderEq)^2=0
+\]
+for all \(x\). On the positive phase-neutral branch, this forces \(\RespOrderAmp\equiv\RespOrderEq\). Equation \eqref{eq:microground} then follows from the readout \eqref{eq:branchreadout}.
+\end{proof}
+
+\begin{corollary}[Recovered equilibrium susceptibility and response scale]
+\label{cor:sigmaeq}
+On the unique phase-neutral ground state,
+\begin{equation}
+\RespSusEq
+\equiv
+\frac{\RespMicroEq}{\RespMicroRef}
+=
+\frac{\RespOrderEq}{\RespOrderRef}
+=
+\RespNorm\frac{\RespBias}{\RespGap^2}.
+\label{eq:sigmaeq}
+\end{equation}
+Hence
+\begin{equation}
+\CurvScale^4=\RespSusEq=\frac{\RespOrderEq}{\RespOrderRef}.
+\label{eq:scaleeq}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+The first two equalities in \eqref{eq:sigmaeq} follow from \eqref{eq:microreadout}, \eqref{eq:microrefident}, and \eqref{eq:microground}. The last equality is exactly the carrier-data-origin relation
+\[
+\RespSusEq=\RespNorm\frac{\RespBias}{\RespGap^2}
+\]
+combined with \eqref{eq:carrierfromorder}. Equation \eqref{eq:scaleeq} is the pinned-branch scale identification already fixed by the selector-justification and susceptibility-origin notes.
+\end{proof}
+
+\begin{definition}[Profile reconstructed from susceptibility]
+\label{def:profilereconstruction}
+On the continuation side fixed by the profile-selection principle note, reconstruct the profile by
+\begin{equation}
+\CurvProfile''(x)=2\RespSus(x),
+\qquad
+\CurvProfile(0)=1,
+\qquad
+\CurvProfile'(0)=0.
+\label{eq:profilereconstruction}
+\end{equation}
+\end{definition}
+
+\begin{corollary}[Canonical profile on the microscopic-amplitude-origin branch]
+\label{cor:canonicalprofile}
+On the phase-neutral ground state,
+\begin{equation}
+\CurvProfileCan(x)=1+\RespSusEq x^2=1+\CurvScale^4x^2.
+\label{eq:canonicalprofile}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+The ground state \eqref{eq:microground} implies that \(\RespSus(x)\equiv\RespSusEq\) is constant. Integrating \eqref{eq:profilereconstruction} twice with the imposed normalization conditions gives \eqref{eq:canonicalprofile}.
+\end{proof}
+
+\begin{remark}
+At the present disciplined scope, the primitive bridge-order sector determines three nested layers at once:
+\[
+(\RespOrderReadout,\RespOrderRef,\RespOrderStiff,\RespOrderQuartic,\RespOrderEq)
+\Longrightarrow
+(\RespMicroRef,\RespMicroFluxCoeff,\RespMicroGap,\RespMicroEq)
+\Longrightarrow
+(\RespNorm,\RespFluxCoeff,\RespGap,\RespBias,\RespSusEq,\CurvScale^4).
+\]
+This is exactly the layer-by-layer reduction requested by the active derivational bridge program.
+\end{remark}
+
+\section{Fixed Downstream Package and Dressed Bridge Map}
+
+\begin{theorem}[The downstream package and dressed bridge map stay fixed]
+\label{thm:fixedpackage}
+Substituting the canonical profile \eqref{eq:canonicalprofile} obtained from the primitive bridge-order sector into the local bridge-curvature family \eqref{eq:locfamily} reproduces the same downstream package \(\DownPkg\) and the same surviving dressed bridge map \eqref{eq:pkgmetric}.
+\end{theorem}
+
+\begin{proof}
+By Corollary \ref{cor:canonicalprofile}, the primitive bridge-order sector yields the same quadratic canonical profile already selected in the earlier continuation-side notes, with the same response scale \(\CurvScale^4=\RespSusEq\). Proposition \ref{prop:profileblind} then implies that the reduced current, Hamiltonian-charge flux, continuity/Gauss-Poisson package, exterior Coulomb tail, and surviving dressed bridge map are unchanged.
+\end{proof}
+
+\begin{remark}
+The microscopic-amplitude-origin step therefore does not reopen any lower-level repair work. It only moves the origin of the same fixed continuation-side data one layer deeper.
+\end{remark}
+
+\section{Claim Boundary}
+
+This note does not claim that the primitive bridge-order sector \eqref{eq:orderenergy} is the unique ultraviolet completion of the bridge-curvature response line. It does not claim that every conceivable deeper substrate realization must reduce to the \(O(2)\)-symmetric quartic representative used here, and it does not claim that the constant internal phase on the full primitive vacuum manifold has already been forced by a still deeper substrate principle.
+
+Its narrower positive result is that the microscopic bridge-response amplitude sector is no longer primitive either. At the present disciplined scope it is recovered as the uniquely selected phase-neutral quadratic reduction of a still deeper primitive bridge-order sector, the microscopic data \((\RespMicroRef,\RespMicroFluxCoeff,\RespMicroGap,\RespMicroEq)\) are derived from the order-sector constants \((\RespOrderReadout,\RespOrderRef,\RespOrderStiff,\RespOrderQuartic,\RespOrderEq)\), the carrier data and equilibrium response scale are therefore recovered again from that deeper origin, and the same downstream package and surviving dressed bridge map remain fixed.
+
+\section{Conclusion}
+
+The positive result of this note is that the microscopic bridge-response amplitude sector is no longer left as primitive input. At disciplined current scope it is recovered as the uniquely selected phase-neutral quadratic reduction of a deeper primitive bridge-order sector, while the same carrier data, the same response scale, and the same downstream dressed bridge map remain fixed.
+
+The scope of that result is still limited. This note does not claim a unique ultraviolet completion of the bridge-curvature response line or a final substrate fixing of the full primitive vacuum manifold. The next honest burden is therefore one layer deeper again: whether the primitive bridge-order sector itself, together with the phase-neutral branch used here, can be derived or uniquely selected from still more primitive substrate structure.
+
+\end{document}

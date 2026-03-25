@@ -1,0 +1,410 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal{A}}
+\newcommand{\BridgeMetric}{\mathfrak g}
+\newcommand{\ObserverMap}{\Xi}
+\newcommand{\ProjSub}{P}
+\newcommand{\FlowPot}{\Phi_\Omega}
+\newcommand{\BalanceField}{\Pi_\Omega}
+\newcommand{\BalMult}{\Lambda_\Pi}
+\newcommand{\HamChargeOmega}{\mathfrak m_\Omega}
+\newcommand{\SigmaIER}{\Sigma^{\mathrm{IER}}}
+\newcommand{\SigmaRegPol}{\Sigma^{\mathrm{pol,reg}}}
+\newcommand{\SigmaDressSch}{\Sigma^{\mathrm{Sch}}}
+\newcommand{\LiftIER}{\widehat\Sigma^{\mathrm{IER}}}
+\newcommand{\LiftRegPol}{\widehat\Sigma^{\mathrm{pol,reg}}}
+\newcommand{\AuxPol}{\mathbb K}
+\newcommand{\CandAction}{S_{\mathrm{cand}}}
+\newcommand{\ExtAction}{S_{\mathrm{cand}}^{\mathrm{aux}}}
+\newcommand{\ReOff}{\widetilde{\mathcal R}_{\mu\nu}^{\mathrm{off}}}
+\newcommand{\ReLongThree}{\widetilde{\mathcal R}_{\mu\nu}^{(\chi,3)}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Nonlocal Bridge Self-Response Constrained Auxiliary-Sector Note}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The positive quotient reduced-system, theorem, decay, and asymptotic line remains closed and is not reopened here. The inverse-Einstein-response bridge map, the explicit Schwarzschild-type dressing candidate test, and the substrate-origin note are likewise fixed in status: the inverse-response correction already supplies matter-free activity, full off-longitudinal \(Q/W\) cancellation, and explicit cubic longitudinal completion; the dressing test records the positive observer-level \(r^{-2}\) closure; and the substrate-origin note identifies the minimal charge-balancing or polarization mechanism through the balance law \(\BalanceField=\FlowPot^2\) together with the isotropic substrate lift \(-2\BalanceField U_AU_B+\tfrac32\BalanceField\ProjSub_{AB}\).
+
+The present manuscript takes the next step actually required by that note. It embeds the balance law into a fuller constrained auxiliary sector and derives the bridge imprint from that sector rather than postulating it. The base candidate substrate action of the substrate-kinematics manuscript is kept fixed at the already-positive lower-order scope. On top of it, the present note adds a nonpropagating polarization sector consisting of the balance scalar \(\BalanceField\), a Lagrange multiplier \(\BalMult\), and an independent symmetric auxiliary tensor \(\AuxPol_{AB}\) decomposed into temporal, vector, spatial-trace, and tracefree-spatial pieces. The auxiliary Lagrangian is chosen so that the Euler--Lagrange equations give
+\[
+\BalanceField=\FlowPot^2,
+\qquad
+\AuxPol^{\mathrm{elim}}_{AB}
+=
+-2\FlowPot^2U_AU_B
++\frac32\FlowPot^2\ProjSub_{AB},
+\]
+with the vector and tracefree-spatial pieces forced to vanish. The eliminated bridge imprint is therefore derived from explicit substrate variables in a constrained sector rather than inserted directly at observer level.
+
+After observer pullback, the eliminated tensor is exactly the same Schwarzschild-type \(r^{-2}\) dressing already tested positively. Because the new sector is algebraic and begins only at quartic order in the reduced-data counting, it does not reopen the lower-order quotient PDE line, does not disturb matter-free activity, does not disturb off-longitudinal \(Q/W\) cancellation, and does not disturb the explicit cubic longitudinal completion. Since the eliminated observer tensor is again the same explicit dressed candidate, the same quartic Coulomb self-response absorption on the decisive rotational exterior regime follows verbatim.
+
+This note is still not a completed microphysical derivation of Einsteinian gravity from substrate first principles. It records the constrained auxiliary-sector realization that the active sequence now needed. The deeper remaining burden is then narrower: replace the still-given charge potential \(\FlowPot\) or the reconstruction-level constrained sector by a more intrinsic substrate action without losing the exact-closure benchmark already fixed by the active manuscripts.
+\end{abstract}
+
+\section{Introduction}
+
+The active sequence is now sharp about what should happen next. The positive quotient reduced-system, theorem, decay, and asymptotic line has already been recorded and remains closed at current scope. The bridge-first redesign, the matter-route-only redesign, the broader operational-metric redesign, the inverse-Einstein-response bridge-map test, the quartic continuation note, the nonlocal self-response redesign note, the explicit dressing-candidate test, and the substrate-origin note have all also done their jobs. None of those steps is reopened here.
+
+The live burden is narrower. The substrate-origin note already identified the minimal balance law
+\[
+\BalanceField=\FlowPot^2
+\]
+and the isotropic substrate tensor that reproduces the explicit Schwarzschild-type \(r^{-2}\) dressing after observer pullback. What that note explicitly did \emph{not} do was embed that relation into a fuller substrate action or constrained auxiliary sector. The present manuscript takes exactly that next step and no broader one.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays strictly within that boundary. It does not claim a finished local microphysical action for the full enlarged bridge variable. It does not prove the global existence of the self-response-dressed bridge solve. It does not reopen the already-positive lower-order PDE line. The narrower positive result is that the balance law and bridge imprint of the substrate-origin note can now be realized by a constrained auxiliary sector whose eliminated tensor is the surviving \(r^{-2}\) dressing.
+
+\section{Fixed Target and Present Scope}
+
+\begin{definition}[Surviving dressed gain package]
+\label{def:gains}
+The \emph{surviving dressed gain package} consists of the four already-recorded features that the fuller sector must preserve:
+\begin{enumerate}
+    \item \textbf{matter-free activity:} the bridge correction remains active on matter-free reduced data;
+    \item \textbf{off-longitudinal \(Q/W\) cancellation:} the full currently recorded off-longitudinal remainder \(\ReOff\) is canceled;
+    \item \textbf{explicit cubic longitudinal completion:} the first surviving cubic longitudinal tensor \(\ReLongThree\) is canceled by the same lower-order inverse-response correction;
+    \item \textbf{quartic Coulomb self-response absorption:} on the decisive matter-free rotational exterior regime, the isolated quartic Coulomb self-response is pushed to \(\mathcal O(r^{-5})\).
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Observer-side target already fixed]
+\label{def:target}
+The observer-side dressed bridge map to be reproduced remains
+\begin{equation}
+g_{\mu\nu}^{\mathrm{dressed}}
+=
+g_{\mu\nu}^{\mathrm{br}}
++\SigmaIER_{\mu\nu}
++\SigmaDressSch{}_{\mu\nu}
++\SigmaRegPol{}_{\mu\nu},
+\label{eq:targetmetric}
+\end{equation}
+with
+\begin{equation}
+\SigmaDressSch{}_{00}=-2\FlowPot^2,
+\qquad
+\SigmaDressSch{}_{0i}=0,
+\qquad
+\SigmaDressSch{}_{ij}=\frac32\FlowPot^2\,\delta_{ij},
+\label{eq:schdress}
+\end{equation}
+and
+\begin{equation}
+\FlowPot(r)=\frac{G_N\,\HamChargeOmega}{r}
+\label{eq:phiext}
+\end{equation}
+on the exterior Hamiltonian-charge sector. The regular completion satisfies
+\begin{equation}
+\SigmaRegPol=\mathcal O(r^{-3}),
+\qquad
+\partial\SigmaRegPol=\mathcal O(r^{-4}).
+\label{eq:reg}
+\end{equation}
+\end{definition}
+
+\begin{remark}
+The present note does not replace the already-fixed lower-order inverse-response tensor \(\SigmaIER\). It holds that tensor fixed and asks only for a constrained auxiliary-sector realization of the quartic \(r^{-2}\) dressing in Definition \ref{def:target}.
+\end{remark}
+
+\section{Constrained Auxiliary Polarization Sector}
+
+The substrate-kinematics manuscript already fixed the base candidate substrate action \(\CandAction\), the bridge metric \(G_{AB}-2U_AU_B\), and the universal matter route through the bridge metric alone. The present note does not rewrite that entire candidate model. It appends the narrowest honest extra sector needed by the substrate-origin note.
+
+\begin{definition}[Independent polarization variables]
+\label{def:decomp}
+Let \(\BalanceField\) be a scalar on the substrate \(\Sub\), let \(\BalMult\) be a scalar Lagrange multiplier, and let \(\AuxPol_{AB}\) be an independent symmetric auxiliary tensor decomposed relative to the ordered-flow field \(U^A\) and the local experiential projector
+\begin{equation}
+\ProjSub_{AB}=G_{AB}-U_AU_B
+\label{eq:projector}
+\end{equation}
+as
+\begin{equation}
+\AuxPol_{AB}
+=
+\alpha\,U_AU_B
++2U_{(A}\mathcal V_{B)}
++\mathcal T_{AB}
++\beta\,\ProjSub_{AB},
+\label{eq:Kdecomp}
+\end{equation}
+where the spatial vector and spatial tracefree tensor satisfy
+\begin{equation}
+U^A\mathcal V_A=0,
+\qquad
+U^A\mathcal T_{AB}=0,
+\qquad
+\ProjSub^{AB}\mathcal T_{AB}=0.
+\label{eq:TVcond}
+\end{equation}
+\end{definition}
+
+\begin{definition}[Constrained auxiliary-sector action]
+\label{def:action}
+The \emph{constrained auxiliary polarization sector} is the action
+\begin{equation}
+\ExtAction
+\equiv
+\CandAction
++
+\int_{\Sub} d^4X\,\sqrt{G}\,\mathcal L_{\mathrm{pol,aux}},
+\label{eq:extaction}
+\end{equation}
+with
+\begin{align}
+\mathcal L_{\mathrm{pol,aux}}
+=\;&
+\BalMult\bigl(\BalanceField-\FlowPot^2\bigr)
+-\frac{\mu_t^2}{2}\bigl(\alpha+2\BalanceField\bigr)^2
+-\frac{\mu_s^2}{2}\bigl(\beta-\tfrac32\BalanceField\bigr)^2
+\nonumber\\
+&-\frac{\mu_v^2}{2}\,\mathcal V_A\mathcal V^A
+-\frac{\mu_{\mathrm{tf}}^2}{2}\,\mathcal T_{AB}\mathcal T^{AB},
+\label{eq:laux}
+\end{align}
+where
+\begin{equation}
+\mu_t^2>0,
+\qquad
+\mu_s^2>0,
+\qquad
+\mu_v^2>0,
+\qquad
+\mu_{\mathrm{tf}}^2>0.
+\label{eq:masses}
+\end{equation}
+All contractions are taken with \(G_{AB}\) and \(\ProjSub_{AB}\). At the present manuscript scope, \(\FlowPot\) is the same already-fixed nonlocal Hamiltonian-charge potential used by the dressing-candidate and substrate-origin notes.
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:action} takes the constrained auxiliary-sector route rather than the still-harder route of promoting the enlarged bridge variable all the way back into the curvature action before elimination. That is deliberate. The active next burden was to embed the balance law variationally and derive the bridge imprint from explicit substrate variables without reopening the already-positive lower-order exact-closure benchmark.
+\end{remark}
+
+\begin{definition}[Bridge reconstruction after elimination]
+\label{def:bridge}
+Let \(\LiftIER_{AB}\) and \(\LiftRegPol_{AB}\) be substrate tensors whose observer pullbacks satisfy
+\begin{equation}
+\ObserverMap^*\LiftIER_{AB}=\SigmaIER_{\mu\nu},
+\qquad
+\ObserverMap^*\LiftRegPol_{AB}=\SigmaRegPol{}_{\mu\nu}.
+\label{eq:lifts}
+\end{equation}
+After eliminating the auxiliary sector, the reconstructed dressed bridge metric is
+\begin{equation}
+\BridgeMetric^{\mathrm{aux}}_{AB}
+=
+G_{AB}
+-2U_AU_B
++\LiftIER_{AB}
++\AuxPol^{\mathrm{elim}}_{AB}
++\LiftRegPol_{AB},
+\label{eq:bridgeaux}
+\end{equation}
+where \(\AuxPol^{\mathrm{elim}}_{AB}\) is the on-shell value of \(\AuxPol_{AB}\) determined by the Euler--Lagrange equations of \eqref{eq:laux}.
+\end{definition}
+
+\section{Elimination and Derived Bridge Imprint}
+
+\begin{proposition}[Euler--Lagrange elimination of the constrained sector]
+\label{prop:elim}
+The Euler--Lagrange equations of \eqref{eq:laux} are
+\begin{equation}
+\BalanceField=\FlowPot^2,
+\qquad
+\alpha=-2\BalanceField,
+\qquad
+\beta=\frac32\BalanceField,
+\qquad
+\mathcal V_A=0,
+\qquad
+\mathcal T_{AB}=0.
+\label{eq:aleqs}
+\end{equation}
+Consequently,
+\begin{equation}
+\AuxPol^{\mathrm{elim}}_{AB}
+=
+-2\FlowPot^2U_AU_B
++\frac32\FlowPot^2\ProjSub_{AB}.
+\label{eq:Kelim}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Variation with respect to \(\BalMult\) gives \(\BalanceField=\FlowPot^2\). Variation with respect to \(\alpha\), \(\beta\), \(\mathcal V_A\), and \(\mathcal T_{AB}\) gives the remaining equations in \eqref{eq:aleqs} because all coefficients in \eqref{eq:laux} are strictly positive. Substituting \eqref{eq:aleqs} into the decomposition \eqref{eq:Kdecomp} yields \eqref{eq:Kelim}. The \(\BalanceField\)-equation then fixes \(\BalMult=0\) on shell, but that value is not needed further.
+\end{proof}
+
+\begin{corollary}[Exterior charge profile]
+\label{cor:ext}
+On the exterior Hamiltonian-charge sector,
+\begin{equation}
+\BalanceField(r)=\frac{G_N^2\HamChargeOmega^2}{r^2},
+\label{eq:piext}
+\end{equation}
+and therefore
+\begin{equation}
+\AuxPol^{\mathrm{elim}}_{AB}
+=
+-2\frac{G_N^2\HamChargeOmega^2}{r^2}U_AU_B
++\frac32\frac{G_N^2\HamChargeOmega^2}{r^2}\ProjSub_{AB}.
+\label{eq:Kelimext}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+Equation \eqref{eq:piext} follows from \eqref{eq:aleqs} and \eqref{eq:phiext}. Equation \eqref{eq:Kelimext} is then immediate from \eqref{eq:Kelim}.
+\end{proof}
+
+\begin{proposition}[Observer pullback of the eliminated auxiliary tensor]
+\label{prop:pullback}
+In a substrate-adapted local observer chart in which \(U^A\) is the unit temporal direction and \(\ObserverMap^*\ProjSub_{AB}\) reduces to the spatial Euclidean metric at leading order, one has
+\begin{equation}
+\bigl(\ObserverMap^*\AuxPol^{\mathrm{elim}}\bigr)_{00}
+=
+-2\FlowPot^2,
+\qquad
+\bigl(\ObserverMap^*\AuxPol^{\mathrm{elim}}\bigr)_{0i}
+=
+0,
+\qquad
+\bigl(\ObserverMap^*\AuxPol^{\mathrm{elim}}\bigr)_{ij}
+=
+\frac32\FlowPot^2\,\delta_{ij}.
+\label{eq:pullback}
+\end{equation}
+Therefore
+\begin{equation}
+\ObserverMap^*\BridgeMetric^{\mathrm{aux}}_{AB}
+=
+g_{\mu\nu}^{\mathrm{br}}
++\SigmaIER_{\mu\nu}
++\SigmaDressSch{}_{\mu\nu}
++\SigmaRegPol{}_{\mu\nu},
+\label{eq:targetrecovered}
+\end{equation}
+with \(\SigmaDressSch\) exactly as in \eqref{eq:schdress}.
+\end{proposition}
+
+\begin{proof}
+The pullback identities for \(U_AU_B\) and \(\ProjSub_{AB}\) are the same ones used in the substrate-origin note. Applying them to \eqref{eq:Kelim} yields \eqref{eq:pullback}. Combining \eqref{eq:pullback} with \eqref{eq:lifts} and Definition \ref{def:bridge} gives \eqref{eq:targetrecovered}.
+\end{proof}
+
+\begin{remark}
+The eliminated bridge imprint is now derived from the constrained auxiliary sector: \(\AuxPol_{AB}\) is not inserted directly with the desired coefficients, but solved from the Euler--Lagrange equations of \eqref{eq:laux}. The resulting on-shell tensor is exactly the isotropic polarization lift identified one step earlier in the substrate-origin note.
+\end{remark}
+
+\section{Why the Same Gain Package Survives}
+
+\begin{proposition}[Algebraic and quartic character of the new sector]
+\label{prop:quartic}
+At the present manuscript order, the constrained auxiliary polarization sector is nonpropagating and begins only at quartic order in the reduced-data counting:
+\begin{equation}
+\BalanceField=\mathcal O_{\ge 4},
+\qquad
+\AuxPol^{\mathrm{elim}}=\mathcal O_{\ge 4}.
+\label{eq:quartic}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+No derivative term for \(\BalanceField\), \(\alpha\), \(\beta\), \(\mathcal V_A\), or \(\mathcal T_{AB}\) appears in \eqref{eq:laux}, so the sector is algebraic and nonpropagating. The already-fixed charge potential \(\FlowPot\) is quadratic in the reduced-data counting used in the inverse-response and dressing notes. Therefore \(\BalanceField=\FlowPot^2\) is quartic, and so is \(\AuxPol^{\mathrm{elim}}\), which is linear in \(\BalanceField\).
+\end{proof}
+
+\begin{corollary}[No reopening of the lower-order quotient line]
+\label{cor:nopde}
+The constrained auxiliary sector does not reopen the already-positive quotient reduced-system, theorem, decay, or asymptotic line.
+\end{corollary}
+
+\begin{proof}
+By Proposition \ref{prop:quartic}, the new sector is algebraic and begins only at quartic order. Therefore it does not change the already-closed lower-order quotient equations or the lower-order estimates built on them.
+\end{proof}
+
+\begin{theorem}[Preservation of matter-free activity, off-longitudinal cancellation, and cubic completion]
+\label{thm:firstthree}
+The constrained auxiliary sector preserves items (1)--(3) of Definition \ref{def:gains}: matter-free activity, off-longitudinal \(Q/W\) cancellation, and explicit cubic longitudinal completion.
+\end{theorem}
+
+\begin{proof}
+The already-fixed lower-order inverse-response tensor \(\SigmaIER\) remains untouched. By Proposition \ref{prop:quartic}, the new sector begins only at quartic order and therefore does not alter the lower-order identities through which \(\SigmaIER\) supplies matter-free activity, cancels the off-longitudinal remainder, and adds the explicit cubic longitudinal completion. Those three gains therefore survive exactly as before.
+\end{proof}
+
+\begin{theorem}[Preservation of quartic Coulomb self-response absorption]
+\label{thm:quarticabsorb}
+On the decisive matter-free rotational exterior regime, the constrained auxiliary sector preserves item (4) of Definition \ref{def:gains}: the isolated quartic Coulomb self-response is structurally absorbed and the resulting quartic observer tensor is pushed to \(\mathcal O(r^{-5})\).
+\end{theorem}
+
+\begin{proof}
+Proposition \ref{prop:pullback} shows that the eliminated observer tensor produced by the constrained auxiliary sector is exactly the same explicit Schwarzschild-type \(r^{-2}\) dressing already tested positively in the dressing-candidate note. The Hamiltonian projection cancellation and the full tensor-level \(\mathcal O(r^{-5})\) verdict of that note therefore apply verbatim.
+\end{proof}
+
+\begin{corollary}[Constrained auxiliary-sector verdict]
+\label{cor:verdict}
+At the present disciplined scope, the constrained auxiliary sector of Definition \ref{def:action} is a valid next-step realization of the surviving dressed bridge map:
+\begin{enumerate}
+    \item it embeds the balance law \(\BalanceField=\FlowPot^2\) into a fuller constrained auxiliary sector;
+    \item it derives the eliminated bridge imprint \(\AuxPol^{\mathrm{elim}}_{AB}\) from the Euler--Lagrange equations of that sector rather than postulating it directly;
+    \item its observer output is exactly the explicit Schwarzschild-type \(r^{-2}\) dressing already tested positively;
+    \item it preserves the same matter-free/off-longitudinal/cubic/quartic gain package.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+Item (1) is Definition \ref{def:action}. Item (2) is Proposition \ref{prop:elim}. Item (3) is Proposition \ref{prop:pullback}. Item (4) is Theorems \ref{thm:firstthree} and \ref{thm:quarticabsorb}.
+\end{proof}
+
+\section{Conclusion}
+
+The active problem at this stage was no longer another observer-level repair. It was to turn the balance law of the substrate-origin note into an actual substrate-side constrained sector and to derive the \(r^{-2}\) bridge imprint from that sector. The present manuscript supplies that next step.
+
+\begin{enumerate}
+    \item The balance scalar \(\BalanceField\) is now embedded variationally through the constrained auxiliary Lagrangian \eqref{eq:laux}.
+    \item The polarization tensor \(\AuxPol_{AB}\) is now an independent substrate auxiliary field whose eliminated value is determined by Euler--Lagrange equations.
+    \item The eliminated bridge imprint is exactly \(-2\FlowPot^2U_AU_B+\tfrac32\FlowPot^2\ProjSub_{AB}\), so the observer pullback reproduces the same Schwarzschild-type \(r^{-2}\) dressing already known to survive.
+    \item Because the new sector is algebraic and quartic, it leaves the already-positive matter-free activity, off-longitudinal \(Q/W\) cancellation, and cubic longitudinal completion untouched.
+    \item Because the eliminated observer tensor is the same as the positive candidate, the same quartic Coulomb self-response absorption on the decisive rotational exterior regime is preserved.
+\end{enumerate}
+
+This is the correct scope for the present note. It is a constrained auxiliary-sector realization, not yet a claim that the full enlarged bridge variable has been promoted consistently into a deeper local substrate curvature action, and not yet a claim that the Coulomb potential \(\FlowPot\) has itself been derived from a more intrinsic substrate charge carrier. The next downstream burden is therefore narrower but still real: either internalize the still-given charge potential \(\FlowPot\) into a more intrinsic substrate source sector, or promote the present reconstruction-level constrained sector into a more fully integrated substrate action, while preserving the exact-closure benchmark already fixed by the active sequence.
+
+\end{document}

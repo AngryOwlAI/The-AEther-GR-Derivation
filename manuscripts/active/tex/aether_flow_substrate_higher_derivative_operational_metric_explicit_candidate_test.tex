@@ -1,0 +1,570 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal{A}}
+\newcommand{\ReBridge}{g^{\mathrm{br}}}
+\newcommand{\OpMetric}{g^{\mathrm{op}}}
+\newcommand{\OpMetricStar}{g^{\mathrm{op}}_\star}
+\newcommand{\PiQ}{\Pi^{(Q)}}
+\newcommand{\PiOmega}{\Pi^{(\Omega)}}
+\newcommand{\SigmaOp}{\Sigma^{\mathrm{op}}}
+\newcommand{\SigmaOpStar}{\Sigma^{\mathrm{op}}_\star}
+\newcommand{\ReOff}{\widetilde{\mathcal R}_{\mu\nu}^{\mathrm{off}}}
+\newcommand{\ReOffTwo}{\widetilde{\mathcal R}_{\mu\nu}^{\mathrm{off},(2)}}
+\newcommand{\ReLong}{\widetilde{\mathcal R}_{\mu\nu}^{(\chi,\ge 3)}}
+\newcommand{\ReLongThree}{\widetilde{\mathcal R}_{\mu\nu}^{(\chi,3)}}
+\newcommand{\DeltaTStar}{\Delta T_{\mu\nu}^{\star}}
+\newcommand{\EinLin}{\mathcal E_{\ReBridge}}
+\newcommand{\EinLinFlat}{\mathcal E_{\eta}}
+\newcommand{\EinQuad}{\mathcal Q_{\ge 2}^{\mathrm{Ein}}}
+\newcommand{\AY}{\mathcal A_Y}
+\newcommand{\AZ}{\mathcal A_Z}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large First Explicit Operational-Metric Candidate Test}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The positive quotient reduced-system, theorem, decay, and asymptotic line remains closed and is not reopened here. The recent bridge-first and matter-route-only redesign notes also remain fixed in status: both are negative as full exact-closure repairs, and the broader operational-metric redesign note has already reduced the next burden to two explicit tests on matter-free reduced data.
+
+The present manuscript performs the first explicit test in that broader family. It chooses the concrete local operational-metric shift
+\[
+\SigmaOpStar{}_{\mu\nu}
+\equiv
+-\PiQ_{\mu\nu}-\kappa_\Omega\PiOmega_{\mu\nu},
+\qquad
+\OpMetricStar{}_{\mu\nu}
+\equiv
+\ReBridge_{\mu\nu}+\SigmaOpStar{}_{\mu\nu},
+\]
+with no added higher-order longitudinal completion. This is the sharpest local ``stress-lift'' candidate available at the present scope: it feeds the already-recorded quadratic matter-free off-longitudinal observer remainder directly into the sole operational metric without reopening the bridge-only or matter-route-only routes.
+
+Recomputing the eliminated observer equation gives
+\[
+G_{\mu\nu}[\OpMetricStar]
+=
+8\pi G_N\,T_{\mu\nu}^{\mathrm{matter}}[\OpMetricStar,\psi]
++\mathcal R_{\mu\nu}^{\star},
+\]
+with
+\[
+\mathcal R_{\mu\nu}^{\star}
+=
+\ReOff+\ReLong
+-\EinLin(\PiQ+\kappa_\Omega\PiOmega)_{\mu\nu}
++\EinQuad[-\PiQ-\kappa_\Omega\PiOmega]_{\mu\nu}
+-8\pi G_N\,\DeltaTStar.
+\]
+On matter-free reduced data, \(\DeltaTStar=0\).
+
+The verdict is negative. On the purely rotational matter-free regime
+\[
+K\equiv 0,
+\qquad
+Q^I\equiv 0,
+\qquad
+\Omega_{ij}^T\not\equiv 0,
+\qquad
+T_{\mu\nu}^{\mathrm{matter}}=0,
+\]
+the candidate reduces to \(\SigmaOpStar=-\kappa_\Omega\PiOmega\), while the quadratic off-longitudinal observer remainder is \(\ReOffTwo=\kappa_\Omega\PiOmega\). The Hamiltonian projection of the flat linearized Einstein response is a pure spatial divergence,
+\[
+2\,n^\mu n^\nu\EinLinFlat(H)_{\mu\nu}
+=
+\partial_i\partial_j H_{ij}
+-\Delta(\delta^{ij}H_{ij}),
+\]
+so its slice integral vanishes for every decaying local \(H_{\mu\nu}\). By contrast,
+\[
+\int_{\mathbb R^3}
+n^\mu n^\nu\ReOffTwo{}_{\mu\nu}\,d^3x
+=
+\frac{\kappa_\Omega}{4}
+\int_{\mathbb R^3}\abs{\Omega^T}^2\,d^3x
+>0.
+\]
+Hence the required identity
+\[
+\EinLin(\SigmaOpStar)_{\mu\nu}
+=
+-\ReOffTwo
+\]
+cannot hold even on the first decisive matter-free regime. Target 1 therefore fails.
+
+Target 2 also fails for this candidate. Because no explicit higher-order longitudinal completion is added, the only longitudinal contribution produced by the candidate beyond the already-recorded bridge remainder is the nonlinear Einstein term \(\EinQuad[\SigmaOpStar]\), which starts at quartic order. The redesigned-bridge note already isolates the surviving longitudinal remainder \(\ReLong\) as a genuinely higher-order sector generated by the nonlinear \(\vartheta-K\) relation, the nonlinear longitudinal slice source, and the nonlinear metric dependence of the eliminated longitudinal functional, all starting at cubic order. The present candidate therefore contributes no cubic longitudinal counterterm and supplies no new gauge/constraint-exact representation of that sector.
+
+Accordingly, the first explicit local operational-metric stress-lift candidate is negative: it does not cancel the matter-free off-longitudinal \(Q/W\) remainder and it does not resolve the higher-order longitudinal remainder. At the current disciplined scope, that negative verdict shifts the next live burden away from further PDE reopening or further matter-route-only repairs and toward a deeper bridge-map redesign.
+\end{abstract}
+
+\section{Introduction}
+
+The active sequence is now very sharp about what remains open. The explicit ordered-flow-label quotient candidate, the quotient-architecture screen, the quotient reduced-system note, the quotient local/coercive note, the quotient theorem note, and the quotient decay and asymptotic notes already closed the positive quotient reduced-system, theorem, decay, and asymptotic line at the recorded scope. None of that work is reopened here.
+
+The recent redesign chain is equally fixed. The minimal convergence-response bridge redesign removed only the old same-scope longitudinal slot and left a genuine higher-order or off-longitudinal observer remainder. The smallest honest matter-route-only redesign then remained negative because it was matter dependent and therefore inactive on matter-free reduced data. The broader operational-metric redesign note consequently opened the only remaining honest next branch at the present level: choose a concrete operational-metric shift active on matter-free reduced data and test it against the two explicit targets already recorded there.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not claim a completed substrate derivation. It does not reopen the positive quotient PDE line. It does not revisit the two failed minimal redesigns except to keep their status fixed. Its narrower task is the first explicit broader-redesign test: choose one concrete operational-metric shift, recompute the observer equation for that choice, and record the resulting verdict.
+
+\section{Current Branch and the Explicit Candidate}
+
+\begin{definition}[Current redesigned bridge branch]
+\label{def:current}
+The \emph{current redesigned bridge branch} is the branch already fixed by the redesigned-bridge closure/tensor-verdict note and the operational-metric redesign note:
+\begin{enumerate}
+    \item the quotient equations
+    \begin{equation}
+    \AY=0,
+    \qquad
+    \AZ=0,
+    \label{eq:AYAZ}
+    \end{equation}
+    are imposed from the outset;
+    \item the operational bridge metric is the redesigned metric \(\ReBridge_{\mu\nu}\);
+    \item the full eliminated observer equation on that branch is
+    \begin{equation}
+    G_{\mu\nu}[\ReBridge]
+    =
+    8\pi G_N\,T_{\mu\nu}^{\mathrm{matter}}[\ReBridge,\psi]
+    +\ReOff+\ReLong;
+    \label{eq:oldobs}
+    \end{equation}
+    \item \(\ReLong=\mathcal O_{\ge 3}\) is the surviving higher-order longitudinal remainder, while \(\ReOff\) is the genuine off-longitudinal \(Q/W\)-sector remainder.
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}[Quadratic off-longitudinal remainder]
+\label{def:offtwo}
+Let \(\ReOffTwo\) denote the first nontrivial eliminated order of \(\ReOff\). At that order,
+\begin{equation}
+\ReOffTwo
+=
+\PiQ+\kappa_\Omega\PiOmega,
+\label{eq:offtwo}
+\end{equation}
+where
+\begin{equation}
+\PiQ_{\mu\nu}
+\equiv
+D_\mu Q^I\,D_\nu Q_I
+-\frac12 \ReBridge_{\mu\nu}
+\left(
+D_\alpha Q^I\,D^\alpha Q_I+\widehat M_{IJ}Q^IQ^J
+\right),
+\label{eq:piQ}
+\end{equation}
+\begin{equation}
+\PiOmega_{\mu\nu}
+\equiv
+\Omega_{\mu\alpha}^T\Omega_\nu^{T\,\alpha}
+-\frac14 \ReBridge_{\mu\nu}\Omega_{\alpha\beta}^T\Omega^{T,\alpha\beta}.
+\label{eq:piOmega}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+The projected-spatial \(Q\)-sector enters the reduced auxiliary action with the standard quadratic block
+\[
+-\frac12\delta_{IJ}D_\alpha Q^I\,D^\alpha Q^J
+-\frac12\widehat M_{IJ}Q^IQ^J,
+\]
+so its metric variation is exactly \(\PiQ\). The redesigned-bridge closure/tensor-verdict note already computes the transverse-vorticity contribution as
+\[
+T_{\mu\nu}^{(W,\mathrm{br,eff},2)}
+=
+\kappa_\Omega\PiOmega_{\mu\nu}.
+\]
+Adding those two quadratic off-longitudinal pieces gives \eqref{eq:offtwo}.
+\end{proof}
+
+\begin{definition}[First explicit local operational-metric candidate]
+\label{def:candidate}
+Define the \emph{first explicit local operational-metric candidate} by
+\begin{equation}
+\SigmaOpStar{}_{\mu\nu}
+\equiv
+-\PiQ_{\mu\nu}
+-\kappa_\Omega\PiOmega_{\mu\nu},
+\qquad
+\OpMetricStar{}_{\mu\nu}
+\equiv
+\ReBridge_{\mu\nu}+\SigmaOpStar{}_{\mu\nu}.
+\label{eq:candidate}
+\end{equation}
+Equivalently, \(\SigmaOpStar=-\ReOffTwo\) at the first nontrivial eliminated order. No extra higher-order longitudinal completion is added:
+\begin{equation}
+\Sigma^{\mathrm{long},\star}_{\mu\nu}\equiv 0.
+\label{eq:sigmalong}
+\end{equation}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:candidate} is the sharpest local test available at the present scope. It does not introduce a new propagating field, a new inverse operator, or a further matter-route-only modification. It tries the direct local stress-lift of the full recorded quadratic matter-free off-longitudinal remainder into the sole operational metric.
+\end{remark}
+
+\section{Recomputed Observer Equation for the Explicit Candidate}
+
+\begin{definition}[Matter stress correction for the explicit candidate]
+\label{def:deltat}
+Let
+\begin{equation}
+\DeltaTStar
+\equiv
+T_{\mu\nu}^{\mathrm{matter}}[\OpMetricStar,\psi]
+-T_{\mu\nu}^{\mathrm{matter}}[\ReBridge,\psi].
+\label{eq:deltat}
+\end{equation}
+\end{definition}
+
+\begin{remark}
+On matter-free reduced data, \(\DeltaTStar=0\).
+\end{remark}
+
+\begin{proposition}[Observer equation for the explicit candidate]
+\label{prop:observer}
+On reduced solutions of the current redesigned bridge branch, the candidate of Definition \ref{def:candidate} satisfies
+\begin{equation}
+G_{\mu\nu}[\OpMetricStar]
+=
+8\pi G_N\,T_{\mu\nu}^{\mathrm{matter}}[\OpMetricStar,\psi]
++\mathcal R_{\mu\nu}^{\star},
+\label{eq:observer}
+\end{equation}
+where
+\begin{equation}
+\mathcal R_{\mu\nu}^{\star}
+=
+\ReOff+\ReLong
+-\EinLin(\PiQ+\kappa_\Omega\PiOmega)_{\mu\nu}
++\EinQuad[-\PiQ-\kappa_\Omega\PiOmega]_{\mu\nu}
+-8\pi G_N\,\DeltaTStar.
+\label{eq:observer2}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Apply the general observer-equation formula of the operational-metric redesign note with \(\SigmaOp=\SigmaOpStar\). Since \(\SigmaOpStar=-(\PiQ+\kappa_\Omega\PiOmega)\), equation \eqref{eq:observer2} follows immediately.
+\end{proof}
+
+\begin{corollary}[Matter-free reduced form]
+\label{cor:matterfree}
+On matter-free reduced data,
+\begin{equation}
+\mathcal R_{\mu\nu}^{\star}
+=
+\ReOff+\ReLong
+-\EinLin(\PiQ+\kappa_\Omega\PiOmega)_{\mu\nu}
++\EinQuad[-\PiQ-\kappa_\Omega\PiOmega]_{\mu\nu}.
+\label{eq:matterfree}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+Set \(T_{\mu\nu}^{\mathrm{matter}}=0\) in Definition \ref{def:deltat} and use Proposition \ref{prop:observer}.
+\end{proof}
+
+\section{Target 1: Matter-Free Off-Longitudinal Cancellation}
+
+\begin{definition}[Purely rotational matter-free test regime]
+\label{def:rot}
+A reduced solution is in the \emph{purely rotational matter-free regime} if
+\begin{equation}
+K\equiv 0,
+\qquad
+Q^I\equiv 0,
+\qquad
+\Omega_{ij}^T\not\equiv 0,
+\qquad
+T_{\mu\nu}^{\mathrm{matter}}=0.
+\label{eq:rot}
+\end{equation}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:rot} is the narrowest matter-free regime needed for the decisive off-longitudinal test. It is a specialization of the already-recorded convergence-free rotational regime used by the redesigned-bridge and matter-route redesign notes.
+\end{remark}
+
+\begin{proposition}[Candidate reduction on the purely rotational regime]
+\label{prop:rotreduce}
+On the regime of Definition \ref{def:rot},
+\begin{equation}
+\SigmaOpStar{}_{\mu\nu}
+=
+-\kappa_\Omega\PiOmega_{\mu\nu},
+\qquad
+\ReOffTwo{}_{\mu\nu}
+=
+\kappa_\Omega\PiOmega_{\mu\nu},
+\label{eq:rotreduce}
+\end{equation}
+and the quadratic observer remainder becomes
+\begin{equation}
+\mathcal R_{\mu\nu}^{\star,(2)}
+=
+\kappa_\Omega\PiOmega_{\mu\nu}
+-\kappa_\Omega\EinLinFlat(\PiOmega)_{\mu\nu}.
+\label{eq:rotobs}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+On the regime \eqref{eq:rot}, the \(Q\)-sector vanishes and the only quadratic off-longitudinal tensor is the vorticity contribution. Since \(\SigmaOpStar\) is already quadratic, \(\EinLin(\SigmaOpStar)\) reduces at the first nontrivial order to the flat linearized Einstein response \(\EinLinFlat(\SigmaOpStar)\), while \(\ReLong=\mathcal O_{\ge 3}\) and \(\EinQuad[\SigmaOpStar]=\mathcal O_{\ge 4}\). This yields \eqref{eq:rotobs}.
+\end{proof}
+
+\begin{definition}[Flat linearized Einstein response]
+\label{def:flat}
+For any symmetric tensor \(H_{\mu\nu}\), define
+\begin{equation}
+\EinLinFlat(H)_{\mu\nu}
+\equiv
+\left.
+\frac{d}{d\varepsilon}
+G_{\mu\nu}[\eta+\varepsilon H]
+\right|_{\varepsilon=0},
+\label{eq:einflat}
+\end{equation}
+where \(\eta\) is the flat exact-closure background metric.
+\end{definition}
+
+\begin{proposition}[Hamiltonian projection of the flat linearized Einstein response]
+\label{prop:ham}
+Let \(n^\mu=(1,0,0,0)\) be the future unit normal of the flat unit-lapse slicing. Then for every symmetric tensor \(H_{\mu\nu}\),
+\begin{equation}
+2\,n^\mu n^\nu \EinLinFlat(H)_{\mu\nu}
+=
+\partial_i\partial_j H_{ij}
+-\Delta(\delta^{ij}H_{ij}).
+\label{eq:ham}
+\end{equation}
+Consequently, if \(H_{\mu\nu}\) is decaying, then
+\begin{equation}
+\int_{\mathbb R^3}
+n^\mu n^\nu \EinLinFlat(H)_{\mu\nu}\,d^3x
+=
+0.
+\label{eq:hamint}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+The standard flat linearized Einstein tensor is
+\begin{align*}
+2\,\EinLinFlat(H)_{\mu\nu}
+=\;&
+-\Box H_{\mu\nu}
+-\partial_\mu\partial_\nu H
++\partial_\mu\partial^\alpha H_{\alpha\nu}
++\partial_\nu\partial^\alpha H_{\alpha\mu}
+\\
+&-\eta_{\mu\nu}
+\left(
+\partial^\alpha\partial^\beta H_{\alpha\beta}
+-\Box H
+\right),
+\end{align*}
+with \(H=\eta^{\alpha\beta}H_{\alpha\beta}\). Setting \(\mu=\nu=0\), the time-derivative terms cancel, leaving
+\[
+2\,\EinLinFlat(H)_{00}
+=
+\partial_i\partial_j H_{ij}
+-\Delta(\delta^{ij}H_{ij}),
+\]
+which is \eqref{eq:ham}. Integrating over \(\mathbb R^3\) and using decay at spatial infinity gives \eqref{eq:hamint}.
+\end{proof}
+
+\begin{theorem}[Target 1 fails for the explicit candidate]
+\label{thm:target1}
+The candidate of Definition \ref{def:candidate} does \emph{not} satisfy the off-longitudinal cancellation target of the operational-metric redesign note. More precisely, on the purely rotational matter-free regime of Definition \ref{def:rot},
+\begin{equation}
+\EinLin(\SigmaOpStar)_{\mu\nu}
+\neq
+-\ReOffTwo{}_{\mu\nu}.
+\label{eq:fail1}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+By Proposition \ref{prop:rotreduce},
+\[
+\SigmaOpStar=-\kappa_\Omega\PiOmega
+\]
+and
+\[
+\ReOffTwo=\kappa_\Omega\PiOmega
+\]
+at quadratic order on the regime \eqref{eq:rot}. If the target identity held, then after taking the Hamiltonian projection and integrating over a flat slice one would have
+\begin{equation}
+\int_{\mathbb R^3}
+n^\mu n^\nu\EinLinFlat(\SigmaOpStar)_{\mu\nu}\,d^3x
+=
+-\int_{\mathbb R^3}
+n^\mu n^\nu\ReOffTwo{}_{\mu\nu}\,d^3x.
+\label{eq:intid}
+\end{equation}
+The left-hand side vanishes by Proposition \ref{prop:ham}. The right-hand side is nonzero because the redesigned-bridge closure/tensor-verdict note already computes
+\[
+n^\mu n^\nu\ReOffTwo{}_{\mu\nu}
+=
+\rho_W^{\mathrm{br},(2)}
+=
+\frac{\kappa_\Omega}{4}\abs{\Omega^T}^2,
+\]
+so
+\begin{equation}
+\int_{\mathbb R^3}
+n^\mu n^\nu\ReOffTwo{}_{\mu\nu}\,d^3x
+=
+\frac{\kappa_\Omega}{4}
+\int_{\mathbb R^3}\abs{\Omega^T}^2\,d^3x
+>0.
+\label{eq:pos}
+\end{equation}
+Equation \eqref{eq:intid} is therefore impossible. Hence \eqref{eq:fail1} holds and Target 1 fails.
+\end{proof}
+
+\begin{corollary}[Manuscript-level consequence of Target 1 failure]
+\label{cor:target1}
+The first explicit local operational-metric stress-lift candidate already fails on the decisive matter-free off-longitudinal test. It therefore cannot close the observer equation on the current redesigned bridge branch.
+\end{corollary}
+
+\section{Target 2: Higher-Order Longitudinal Sector}
+
+\begin{proposition}[The explicit candidate adds no cubic longitudinal correction]
+\label{prop:nocubic}
+For the candidate of Definition \ref{def:candidate},
+\begin{equation}
+\EinQuad[\SigmaOpStar]_{\mu\nu}\Big|_{\mathrm{long}}
+=
+\mathcal O_{\ge 4}.
+\label{eq:nocubic}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+The shift \(\SigmaOpStar\) is quadratic in the reduced variables. The nonlinear Einstein remainder \(\EinQuad[\SigmaOpStar]\) is at least quadratic in \(\SigmaOpStar\), hence quartic in the reduced variables.
+\end{proof}
+
+\begin{proposition}[The recorded redesigned-bridge longitudinal remainder begins at cubic order]
+\label{prop:cubic}
+On the current redesigned bridge branch,
+\begin{equation}
+\ReLong
+=
+\ReLongThree+\mathcal O_{\ge 4},
+\label{eq:cubic}
+\end{equation}
+where \(\ReLongThree\) is generated by the nonlinear \(\vartheta-K\) relation, the nonlinear part of the longitudinal slice source, and the nonlinear metric dependence of the eliminated longitudinal functional.
+\end{proposition}
+
+\begin{proof}
+This is exactly the content of the longitudinal-remainder analysis already recorded in the redesigned-bridge closure/tensor-verdict note. That note identifies the remaining longitudinal sector as genuinely higher order after the same-scope quadratic cancellation and states that the surviving mechanisms all start at cubic order.
+\end{proof}
+
+\begin{corollary}[Target 2 also fails for the explicit candidate]
+\label{cor:target2}
+The candidate of Definition \ref{def:candidate} does \emph{not} resolve the higher-order longitudinal target. Its remaining longitudinal sector is
+\begin{equation}
+\mathcal L_{\mu\nu}^{\mathrm{long},\star}
+=
+\ReLongThree
++\mathcal O_{\ge 4},
+\label{eq:longstar}
+\end{equation}
+so the candidate supplies neither a cubic longitudinal counterterm nor a new gauge/constraint-exact explanation of the already-recorded higher-order longitudinal remainder.
+\end{corollary}
+
+\begin{proof}
+The higher-order longitudinal target in the operational-metric redesign note is
+\[
+\ReLong
++\EinLin(\Sigma^{\mathrm{long}})_{\mu\nu}
++\EinQuad[\SigmaOp]_{\mu\nu}\Big|_{\mathrm{long}}.
+\]
+For the present candidate, \(\Sigma^{\mathrm{long},\star}=0\) by \eqref{eq:sigmalong}. Propositions \ref{prop:nocubic} and \ref{prop:cubic} then give
+\[
+\mathcal L_{\mu\nu}^{\mathrm{long},\star}
+=
+\ReLongThree+\mathcal O_{\ge 4}.
+\]
+Thus the candidate leaves the first surviving higher-order longitudinal sector untouched at cubic order. Since it adds no explicit longitudinal completion at all, it also supplies no new factorization proving that this surviving cubic piece is only gauge/constraint exact. Hence Target 2 fails as well.
+\end{proof}
+
+\section{Verdict}
+
+\begin{theorem}[Negative verdict for the first explicit candidate]
+\label{thm:verdict}
+The first explicit local operational-metric candidate of Definition \ref{def:candidate} is negative for exact closure on the current redesigned bridge branch:
+\begin{enumerate}
+    \item it fails the matter-free off-longitudinal cancellation target of Theorem \ref{thm:target1};
+    \item it fails the higher-order longitudinal target by Corollary \ref{cor:target2};
+    \item consequently, the broader operational-metric redesign remains negative for this candidate.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Items (1) and (2) are exactly Theorem \ref{thm:target1} and Corollary \ref{cor:target2}. Item (3) then follows from the operational-metric redesign criterion already proved in the broader redesign note.
+\end{proof}
+
+\begin{corollary}[What the negative verdict changes]
+\label{cor:next}
+After the present negative verdict, the next live derivational burden is not another quotient PDE reopening, not another same-scope bridge-only repair, and not another matter-route-only tweak. It is a deeper bridge-map redesign, or an equivalent genuinely broader observer-map mechanism, capable of acting on matter-free reduced data without reducing merely to a local stress-lift of the existing off-longitudinal remainder.
+\end{corollary}
+
+\begin{proof}
+The positive quotient reduced-system, theorem, decay, and asymptotic line remains closed, while Theorem \ref{thm:verdict} shows that the first explicit local operational-metric candidate is still negative. The only honest next move is therefore a deeper redesign rather than a reopening of already-closed PDE work or another minimal matter-route repair.
+\end{proof}
+
+\section{Conclusion}
+
+The broader redesign program is now more explicit and also narrower. The first honest explicit candidate has been tested. It was the direct local operational-metric lift of the already-recorded quadratic matter-free off-longitudinal observer remainder,
+\[
+\SigmaOpStar
+=
+-\PiQ-\kappa_\Omega\PiOmega,
+\]
+with no new higher-order longitudinal completion. That choice is concrete, matter-free active, and as local as the broader operational-metric note allows.
+
+Its verdict is decisive and negative. On the purely rotational matter-free regime, the off-longitudinal target fails by an integrated Hamiltonian-projection obstruction: the linearized Einstein response of any decaying local metric shift has zero integrated Hamiltonian projection, while the vorticity remainder already carries strictly positive integrated Hamiltonian density. The candidate also does nothing to remove the first cubic higher-order longitudinal sector, because it adds no longitudinal completion and its nonlinear Einstein correction starts too late. Accordingly, the broader redesign remains unresolved at this first explicit candidate step, and the next honest burden is a deeper bridge-map redesign rather than another reopening of the already-positive quotient PDE line or another same-scope matter-route repair.
+
+The scope of that verdict is also disciplined. This note rules out the first explicit \emph{local} stress-lift candidate. It does not claim that every conceivable nonlocal or genuinely different bridge-map redesign has already failed. It does fix, however, that any viable next candidate must do more than feed the recorded quadratic off-longitudinal stress back into the operational metric with constant local coefficients.
+
+\end{document}

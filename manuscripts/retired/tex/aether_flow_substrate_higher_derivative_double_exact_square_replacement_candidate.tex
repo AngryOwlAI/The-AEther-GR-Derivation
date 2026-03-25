@@ -1,0 +1,665 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal{A}}
+\newcommand{\BridgeMetric}{\mathfrak{g}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Replacement Bridge/Completion Candidate: Double Exact-Square Removal of the Generic Stueckelberg-Like Infrared Remainder}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The tuned infrared bridge-tensor verdict changed the live burden of the active derivational program sharply. The old quartic observer correction is gone on the unrestricted tuned exact-square branch, but the generic observer equation still carries the completion-specific Stueckelberg-like remainder \(8\pi G_NT_{\mu\nu}^{\mathrm{St}}\). If the active goal remains a generic first-principles derivation of the adopted Einsteinian observer equation, the next note must therefore target that remainder itself rather than the already-removed quartic block.
+
+This manuscript writes the smallest new replacement bridge/completion candidate that does so while keeping the bridge metric and single-metric matter route fixed. It keeps the recorded quartic exact-square compensator \(Y\) and adjoins one additional gapped auxiliary scalar \(Z\) to the remaining ordered-flow momentum block:
+\[
+\Delta\mathcal L_Z
+=
+\alpha_Z Z\bigl(U^A\nabla_A S-\sigma_0\bigr)
+-\frac{M_Z^2}{2}Z^2,
+\qquad
+M_Z^2>0.
+\]
+The untuned remainder is
+\[
+\Lambda_Z \equiv m_S^2-\frac{\alpha_Z^2}{M_Z^2},
+\]
+so the new double exact-square locus is
+\[
+\Lambda_Y=0,
+\qquad
+\Lambda_Z=0.
+\]
+
+On the flat admissible background, after eliminating the algebraic compensators and the longitudinal ordered-flow auxiliary, the reduced scalar bridge channel is
+\[
+\mathcal L_{\hat\sigma,\mathrm{eff}}^{(2)}
+=
+-\frac{\Lambda_Z}{2}\bigl(\partial_0\hat\sigma-\sigma_0\Phi_h\bigr)^2
+-\frac{\Lambda_{\mathrm{red}}}{2}(\nabla^2\hat\sigma)^2,
+\qquad
+\Lambda_{\mathrm{red}}
+=
+\frac{\kappa_\theta\Lambda_Y}{\kappa_\theta+\sigma_0^2\Lambda_Y}.
+\]
+Integrating out \(\hat\sigma\) gives the flat metric self-energy
+\[
+\Pi_{\Phi}^{(4YZ)}(\omega,\mathbf{k})
+=
+\sigma_0^2\Lambda_Z
+\frac{\Lambda_{\mathrm{red}}k^4}{\Lambda_Z\omega^2+\Lambda_{\mathrm{red}}k^4}.
+\]
+But the infrared verdict showed that, at this stage of the program, the self-energy alone is not the correct stopping point. This note therefore computes the coefficient-level observer-equation correction tensor immediately. Its leading flat-background projections are
+\[
+\rho_{\mathrm{rep}}
+=
+\frac{\Lambda_Z}{2}\bigl(\partial_0\hat\sigma-\sigma_0\Phi_h\bigr)^2
++\frac{\Lambda_{\mathrm{red}}}{2}(\nabla^2\hat\sigma)^2,
+\qquad
+J_i^{\mathrm{rep}}
+=
+-\Lambda_Z\bigl(\partial_0\hat\sigma-\sigma_0\Phi_h\bigr)\partial_i\hat\sigma,
+\]
+with all remaining components proportional to \(\Lambda_Z\) or \(\Lambda_{\mathrm{red}}\). Hence the doubly tuned branch satisfies
+\[
+\Pi_{\Phi}^{(4YZ)}\equiv 0,
+\qquad
+T_{\mu\nu}^{\mathrm{rep}}\equiv 0,
+\qquad
+\mathcal C_{\mu\nu}^{\mathrm{rep,br}}\equiv 0
+\]
+already at the flat-background coefficient level. The smallest new replacement candidate therefore kills the generic Stueckelberg-like remainder at that level, but it does so by removing the remaining scalar momentum block itself. The note stops at that coefficient-level verdict and does not yet reopen reduced-system, local-coercive, or broader theorem work.
+\end{abstract}
+
+\section{Introduction}
+
+The unrestricted tuned exact-square branch now has two sharply different statuses. It remains positive as the branch that removes the old quartic observer correction while preserving the bridge metric and single-metric matter route. But it is negative as the generic derivational closure branch, because the infrared observer equation still carries the Stueckelberg-like momentum tensor \(T_{\mu\nu}^{\mathrm{St}}\) on generic tuned data.
+
+That distinction fixes the correct next step. The next manuscript should not redesign the matter route, should not modify the bridge metric before a smaller option is tested, and should not reopen theorem work before the new coefficient-level candidate is actually written down and reduced. The correct next burden is narrower: act directly on the block generating the generic Stueckelberg-like remainder.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays within that boundary. It does not claim that the new candidate has already passed a nonlinear health test, a reduced-system derivation, or a theorem sequence. It performs only the next disciplined task now forced by the tuned infrared verdict: write the smallest replacement candidate targeting the generic Stueckelberg-like remainder, carry it through the flat-background quadratic reduction, compute the explicit coefficient-level observer-equation correction tensor immediately, and stop at that verdict.
+
+\section{What the Infrared Verdict Forces}
+
+\begin{proposition}[The next redesign must act on the ordered-flow momentum block]
+\label{prop:actonmomentum}
+At the present disciplined scope, the smallest replacement bridge/completion candidate preserving the bridge metric and the single-metric matter route must modify the block
+\begin{equation}
+-\frac{m_S^2}{2}\bigl(U^A\nabla_A S-\sigma_0\bigr)^2
+\label{eq:momentumblock}
+\end{equation}
+that generates the generic Stueckelberg-like remainder, rather than reopening the already-removed quartic block, the bridge metric, or the matter route.
+\end{proposition}
+
+\begin{proof}
+The tuned infrared bridge-tensor note shows that the unrestricted tuned branch already removes the old quartic observer correction and that the surviving generic remainder is \(8\pi G_NT_{\mu\nu}^{\mathrm{St}}\). That remainder is carried by the ordered-flow momentum pair \((\sigma,\pi_\sigma)\), not by the old quartic operator and not by a nonmetric matter coupling. A gauge-only reformulation cannot remove a genuine observer-accessible completion-specific source that has already survived reduction. Altering the bridge metric or matter route would be a larger structural drift than necessary. Therefore the smallest admissible redesign acts directly on \eqref{eq:momentumblock}.
+\end{proof}
+
+\begin{corollary}[Least-drift replacement principle]
+\label{cor:leastdrift}
+The first replacement candidate beyond the unrestricted tuned exact-square branch should keep:
+\begin{enumerate}
+    \item the bridge metric \(\BridgeMetric_{AB}=G_{AB}-2U_AU_B\),
+    \item the single-metric matter route \(S_{\mathrm{matter}}[\Xi^\ast\BridgeMetric,\psi]\),
+    \item the already-recorded quartic exact-square cancellation,
+\end{enumerate}
+and should change only the remaining scalar/auxiliary block that sources \(T_{\mu\nu}^{\mathrm{St}}\).
+\end{corollary}
+
+\begin{proof}
+This is the precise least-drift reading of Proposition \ref{prop:actonmomentum}. The tuned infrared verdict already certified items (1)--(3) as positive at current scope. The live obstruction is narrower.
+\end{proof}
+
+\section{Double Exact-Square Replacement Candidate}
+
+\subsection{Branch Definition}
+
+\begin{definition}[Replacement candidate data]
+\label{def:branch}
+The \emph{double exact-square replacement candidate} keeps the bridge metric and matter route
+\begin{equation}
+\BridgeMetric_{AB}=G_{AB}-2U_AU_B,
+\qquad
+S_{\mathrm{matter}}[\Xi^\ast\BridgeMetric,\psi]
+=
+S_{\mathrm{matter}}[g,\psi],
+\label{eq:bridgeandmatter}
+\end{equation}
+keeps the collapsed-scalar low-order baseline
+\begin{equation}
+\kappa_S=\mu_{SI}=\mu_S^2=0,
+\qquad
+\widehat M_{IJ}>0,
+\qquad
+\kappa_\theta>0,
+\qquad
+\kappa_\Omega>0,
+\label{eq:baseline}
+\end{equation}
+keeps the quartic compensator block
+\begin{equation}
+\mathcal L_{4Y}
+=
+-\frac{\lambda_4}{2M_*^2}\bigl(\Delta_\perp S\bigr)^2
++\alpha_YY\,\Delta_\perp S
+-\frac{M_Y^2}{2}Y^2,
+\qquad
+M_Y^2>0,
+\label{eq:L4Y}
+\end{equation}
+and adjoins one additional gapped auxiliary scalar \(Z\) through
+\begin{equation}
+\Delta\mathcal L_Z
+=
+\alpha_Z Z\bigl(U^A\nabla_A S-\sigma_0\bigr)
+-\frac{M_Z^2}{2}Z^2,
+\qquad
+M_Z^2>0.
+\label{eq:LZ}
+\end{equation}
+\end{definition}
+
+\begin{definition}[Untuned remainders and double exact-square locus]
+\label{def:lambdas}
+Define
+\begin{equation}
+\Lambda_Y
+\equiv
+\frac{\lambda_4}{M_*^2}-\frac{\alpha_Y^2}{M_Y^2},
+\qquad
+\Lambda_Z
+\equiv
+m_S^2-\frac{\alpha_Z^2}{M_Z^2}.
+\label{eq:lambdas}
+\end{equation}
+The \emph{double exact-square locus} is
+\begin{equation}
+\Lambda_Y=0,
+\qquad
+\Lambda_Z=0.
+\label{eq:doubletuned}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[Exact-square form]
+\label{prop:square}
+On the locus \eqref{eq:doubletuned}, the scalar/auxiliary completion becomes
+\begin{align}
+\mathcal L_{4YZ}
+=\;&
+-\frac12
+\left(
+\frac{\sqrt{\lambda_4}}{M_*}\Delta_\perp S-M_YY
+\right)^2
+\nonumber\\
+&-\frac12
+\left(
+m_S\bigl(U^A\nabla_A S-\sigma_0\bigr)-M_ZZ
+\right)^2.
+\label{eq:doublesquare}
+\end{align}
+\end{proposition}
+
+\begin{proof}
+Insert \(\alpha_Y=(M_Y\sqrt{\lambda_4})/M_*\) and \(\alpha_Z=m_SM_Z\) into \eqref{eq:L4Y} and \eqref{eq:LZ}, then complete the two squares.
+\end{proof}
+
+\begin{remark}
+The role of \(Y\) is unchanged: it removes the old quartic observer correction. The role of \(Z\) is new and narrower: it acts directly on the remaining ordered-flow momentum block responsible for the generic Stueckelberg-like bridge remainder.
+\end{remark}
+
+\subsection{Flat Background and Linearized Scalar Blocks}
+
+Use the same admissible homogeneous flat background as in the earlier compensator notes:
+\begin{equation}
+\bar G_{AB}=\delta_{AB},
+\qquad
+\bar U^A=\delta^A{}_0,
+\qquad
+\bar S=\sigma_0X^0,
+\qquad
+\bar Q^I=0,
+\qquad
+\bar Y=0,
+\qquad
+\bar Z=0.
+\label{eq:background}
+\end{equation}
+Write perturbations as
+\begin{equation}
+G_{AB}=\delta_{AB}+H_{AB},
+\qquad
+U^A=\bar U^A+V^A,
+\qquad
+S=\sigma_0X^0+\sigma,
+\qquad
+Y=y,
+\qquad
+Z=z,
+\label{eq:perturbations}
+\end{equation}
+with
+\begin{equation}
+h_{00}=-2\phi=-H_{00},
+\qquad
+h_{0i}=S_i+\partial_iB=-H_{0i}-2V_i,
+\qquad
+V_i=V_i^T+\partial_i\chi,
+\qquad
+\partial^iV_i^T=\partial^iS_i=0.
+\label{eq:metricpert}
+\end{equation}
+
+\begin{proposition}[Linearized scalar sources]
+\label{prop:linops}
+On the flat background \eqref{eq:background}, the linearized scalar blocks are
+\begin{equation}
+\bigl(U^A\nabla_A S-\sigma_0\bigr)^{(1)}
+=
+\partial_0\sigma-\sigma_0\phi,
+\label{eq:Psilin}
+\end{equation}
+\begin{equation}
+\bigl(\Delta_\perp S\bigr)^{(1)}
+=
+\nabla^2\sigma+\sigma_0\nabla^2(B+\chi).
+\label{eq:Xilin}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Equation \eqref{eq:Psilin} is the same linearized ordered-flow momentum combination already recorded in the previous branch notes. Equation \eqref{eq:Xilin} is the full linearized projected divergence derived in the quartic compensator consistency note. No new \(Q\)-sector mixing appears on the collapsed-scalar baseline \eqref{eq:baseline}.
+\end{proof}
+
+\section{Flat-Background Quadratic Reduction}
+
+\begin{proposition}[Full quadratic auxiliary Lagrangian]
+\label{prop:fullL}
+At fixed bridge perturbation \(h_{\mu\nu}\), the complete flat-background quadratic nonmetric action of the replacement candidate is
+\begin{align}
+\mathcal L_{\mathrm{aux},4YZ}^{(2)}
+=\;&
+-\frac{m_S^2}{2}\Psi^2
+-\frac12 q^I\!\left((-\nabla^2)\delta_{IJ}+\widehat M_{IJ}\right)\!q^J
+\nonumber\\
+&-\frac{\kappa_\theta}{2}
+\left(
+\nabla^2\chi+\frac12\partial_0H
+\right)^2
+-\frac{\kappa_\Omega}{4}
+\partial_{[i}\!\left(S_{j]}+V_{j]}^T\right)
+\partial^{[i}\!\left(S^{j]}+V_T^{j]}\right)
+\nonumber\\
+&-\frac{\lambda_4}{2M_*^2}\Xi^2
++\alpha_Yy\,\Xi
+-\frac{M_Y^2}{2}y^2
++\alpha_Zz\,\Psi
+-\frac{M_Z^2}{2}z^2,
+\label{eq:fullL}
+\end{align}
+where
+\begin{equation}
+\Psi\equiv \partial_0\sigma-\sigma_0\phi,
+\qquad
+\Xi\equiv \nabla^2\sigma+\sigma_0\nabla^2(B+\chi).
+\label{eq:PsiXi}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Combine the already-recorded collapsed-scalar quadratic action with the new linearized blocks \eqref{eq:Psilin}--\eqref{eq:Xilin}. The only new term relative to the previous compensator consistency note is the \(z\)-coupling to \(\Psi\).
+\end{proof}
+
+\begin{proposition}[Pointwise compensator solves]
+\label{prop:yzsolve}
+The compensators are algebraic:
+\begin{equation}
+M_Y^2y=\alpha_Y\Xi,
+\qquad
+M_Z^2z=\alpha_Z\Psi.
+\label{eq:yzsolve}
+\end{equation}
+After substituting \eqref{eq:yzsolve} into \eqref{eq:fullL},
+\begin{align}
+\mathcal L_{\sigma\chi,\mathrm{pre}}^{(2)}
+=\;&
+-\frac{\Lambda_Z}{2}\Psi^2
+-\frac{\kappa_\theta}{2}
+\left(
+\nabla^2\chi+\frac12\partial_0H
+\right)^2
+\nonumber\\
+&-\frac{\Lambda_Y}{2}
+\left(
+\nabla^2\sigma+\sigma_0\nabla^2(B+\chi)
+\right)^2.
+\label{eq:Lpre}
+\end{align}
+\end{proposition}
+
+\begin{proof}
+Varying \eqref{eq:fullL} with respect to \(y\) and \(z\) gives \eqref{eq:yzsolve}. Substitution yields
+\[
+\alpha_Yy\Xi-\frac{M_Y^2}{2}y^2
+=
+\frac{\alpha_Y^2}{2M_Y^2}\Xi^2,
+\qquad
+\alpha_Zz\Psi-\frac{M_Z^2}{2}z^2
+=
+\frac{\alpha_Z^2}{2M_Z^2}\Psi^2,
+\]
+which combines with the untuned coefficients into \eqref{eq:Lpre}.
+\end{proof}
+
+\begin{remark}
+Both new auxiliary fields remain pointwise algebraic already before tuning. The gaps \(M_Y^2>0\) and \(M_Z^2>0\) therefore preserve the single-metric matter route without introducing new propagating compensator modes at this coefficient level.
+\end{remark}
+
+\begin{definition}[Metric scalar source for the longitudinal solve]
+\label{def:Psih}
+On the decaying branch define
+\begin{equation}
+\Psi_h
+\equiv
+\nabla^2B-\frac12\partial_0H.
+\label{eq:Psih}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[Longitudinal ordered-flow elimination]
+\label{prop:chisolve}
+Assume
+\begin{equation}
+\kappa_\theta+\sigma_0^2\Lambda_Y\neq 0.
+\label{eq:denom}
+\end{equation}
+Then
+\begin{equation}
+\nabla^2\chi
+=
+-\frac{
+\frac{\kappa_\theta}{2}\partial_0H
++\Lambda_Y\sigma_0\bigl(\nabla^2\sigma+\sigma_0\nabla^2B\bigr)
+}{
+\kappa_\theta+\sigma_0^2\Lambda_Y
+},
+\label{eq:chisolve}
+\end{equation}
+and the reduced scalar action becomes
+\begin{equation}
+\mathcal L_{\sigma,\mathrm{full}}^{(2)}
+=
+-\frac{\Lambda_Z}{2}\bigl(\partial_0\sigma-\sigma_0\phi\bigr)^2
+-\frac{\Lambda_{\mathrm{red}}}{2}
+\bigl(\nabla^2\sigma+\sigma_0\Psi_h\bigr)^2,
+\label{eq:Lsigmafull}
+\end{equation}
+with
+\begin{equation}
+\Lambda_{\mathrm{red}}
+\equiv
+\frac{\kappa_\theta\Lambda_Y}
+{\kappa_\theta+\sigma_0^2\Lambda_Y}.
+\label{eq:Lambdared}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+The \(\chi\)-equation depends only on the \(\kappa_\theta\)-block and the \(\Lambda_Y\)-block, exactly as in the earlier quartic compensator reduction. The new \(z\)-sector does not contain \(\chi\). Therefore the minimizing \(\chi\)-solve is identical to the previous one, and substitution yields \eqref{eq:Lsigmafull}--\eqref{eq:Lambdared}, with the time-derivative coefficient simply replaced by \(\Lambda_Z\).
+\end{proof}
+
+\begin{definition}[Reduced metric/scalar variables]
+\label{def:redefs}
+On the decaying branch define
+\begin{equation}
+\Phi_h
+\equiv
+\phi+\partial_0\nabla^{-2}\Psi_h,
+\qquad
+\hat\sigma
+\equiv
+\sigma+\sigma_0\nabla^{-2}\Psi_h.
+\label{eq:redefs}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[Reduced scalar bridge channel]
+\label{prop:hatsigma}
+In the variables \eqref{eq:redefs},
+\begin{equation}
+\mathcal L_{\hat\sigma,\mathrm{eff}}^{(2)}
+=
+-\frac{\Lambda_Z}{2}\bigl(\partial_0\hat\sigma-\sigma_0\Phi_h\bigr)^2
+-\frac{\Lambda_{\mathrm{red}}}{2}(\nabla^2\hat\sigma)^2.
+\label{eq:Lhatsigma}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+By construction,
+\[
+\nabla^2\hat\sigma=\nabla^2\sigma+\sigma_0\Psi_h,
+\qquad
+\partial_0\hat\sigma-\sigma_0\Phi_h=\partial_0\sigma-\sigma_0\phi.
+\]
+Insert these identities into \eqref{eq:Lsigmafull}.
+\end{proof}
+
+\section{Reduced Observer Correction and Explicit Correction Tensor}
+
+\begin{theorem}[Full flat-background reduced metric correction]
+\label{thm:metriccorr}
+After eliminating \(q^I\), \(V_T^i\), \(y\), \(z\), \(\chi\), and \(\hat\sigma\), the scalar metric correction at flat quadratic scope is
+\begin{equation}
+\Delta\mathcal L_{\mathrm{metric},4YZ}^{(2)}(\omega,\mathbf{k})
+=
+-\frac12\Pi_{\Phi}^{(4YZ)}(\omega,\mathbf{k})\,|\Phi_h(\omega,\mathbf{k})|^2,
+\label{eq:Deltametric}
+\end{equation}
+with
+\begin{equation}
+\Pi_{\Phi}^{(4YZ)}(\omega,\mathbf{k})
+=
+\sigma_0^2\Lambda_Z
+\frac{\Lambda_{\mathrm{red}}k^4}
+{\Lambda_Z\omega^2+\Lambda_{\mathrm{red}}k^4}.
+\label{eq:Piphi}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Equation \eqref{eq:Lhatsigma} is the same Gaussian scalar structure as in the previous flat-background consistency notes, but with the kinetic coefficient \(m_S^2\) replaced by \(\Lambda_Z\) and the spatial quartic coefficient replaced by \(\Lambda_{\mathrm{red}}\). Integrating out \(\hat\sigma\) therefore gives \eqref{eq:Deltametric}--\eqref{eq:Piphi}.
+\end{proof}
+
+\begin{corollary}[Why the observer-equation tensor must be computed immediately]
+\label{cor:needtensor}
+On the singly tuned branch \(\Lambda_Y=0\), one has
+\begin{equation}
+\Lambda_{\mathrm{red}}=0,
+\qquad
+\Pi_{\Phi}^{(4YZ)}(\omega,\mathbf{k})\equiv 0
+\label{eq:Pizero}
+\end{equation}
+for every \(\Lambda_Z\). Hence the flat metric self-energy alone cannot distinguish the old unrestricted tuned branch from a genuine removal of the Stueckelberg-like remainder.
+\end{corollary}
+
+\begin{proof}
+Insert \(\Lambda_Y=0\) into \eqref{eq:Lambdared} and then into \eqref{eq:Piphi}.
+\end{proof}
+
+\begin{remark}
+Corollary \ref{cor:needtensor} is exactly why the present note does not stop at \(\Pi_{\Phi}^{(4YZ)}\). The generic Stueckelberg-like remainder survives beyond the old flat quadratic self-energy test, so the observer-equation correction tensor has to be computed in the replacement note itself.
+\end{remark}
+
+\begin{definition}[Coefficient-level replacement correction tensor]
+\label{def:Trep}
+At the present flat-background quadratic scope, define the \emph{replacement correction tensor} \(T_{\mu\nu}^{\mathrm{rep}}\) by the standard \(3+1\) decomposition
+\begin{equation}
+T_{\mu\nu}^{\mathrm{rep}}
+=
+\rho_{\mathrm{rep}}\,n_\mu n_\nu
++2n_{(\mu}J_{\nu)}^{\mathrm{rep}}
++S_{\mu\nu}^{\mathrm{rep}},
+\label{eq:Trep}
+\end{equation}
+where \(J_\mu^{\mathrm{rep}}n^\mu=0\), \(S_{\mu\nu}^{\mathrm{rep}}n^\nu=0\), and the leading coefficient-level source projections of the reduced scalar channel \eqref{eq:Lhatsigma} are
+\begin{equation}
+\rho_{\mathrm{rep}}
+=
+\frac{\Lambda_Z}{2}\bigl(\partial_0\hat\sigma-\sigma_0\Phi_h\bigr)^2
++\frac{\Lambda_{\mathrm{red}}}{2}(\nabla^2\hat\sigma)^2,
+\label{eq:rhorep}
+\end{equation}
+\begin{equation}
+J_i^{\mathrm{rep}}
+=
+-\Lambda_Z\bigl(\partial_0\hat\sigma-\sigma_0\Phi_h\bigr)\partial_i\hat\sigma,
+\label{eq:Jrep}
+\end{equation}
+with every remaining component of \(S_{\mu\nu}^{\mathrm{rep}}\) proportional to \(\Lambda_Z\) or \(\Lambda_{\mathrm{red}}\). The associated observer-equation correction tensor is
+\begin{equation}
+\mathcal C_{\mu\nu}^{\mathrm{rep,br}}
+=
+8\pi G_N\,T_{\mu\nu}^{\mathrm{rep}}.
+\label{eq:Crep}
+\end{equation}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:Trep} is deliberately coefficient-level. It packages the completion-specific quadratic observer source into one symmetric tensor without claiming that the full nonlinear reduced system has already been derived for this new branch.
+\end{remark}
+
+\begin{proposition}[Singly tuned branch reproduces the old Stueckelberg-like source]
+\label{prop:single}
+On the branch \(\Lambda_Y=0\) but \(\Lambda_Z\neq 0\), the replacement correction tensor reduces to the pure momentum-source form
+\begin{equation}
+\rho_{\mathrm{rep}}
+=
+\frac{\Lambda_Z}{2}\bigl(\partial_0\hat\sigma-\sigma_0\Phi_h\bigr)^2,
+\qquad
+J_i^{\mathrm{rep}}
+=
+-\Lambda_Z\bigl(\partial_0\hat\sigma-\sigma_0\Phi_h\bigr)\partial_i\hat\sigma.
+\label{eq:single}
+\end{equation}
+In particular, for the recorded unrestricted tuned exact-square branch one has \(\Lambda_Z=m_S^2\), so \eqref{eq:single} is exactly the coefficient-level Stueckelberg-like momentum source that later survives as \(T_{\mu\nu}^{\mathrm{St}}\).
+\end{proposition}
+
+\begin{proof}
+Set \(\Lambda_Y=0\) in \eqref{eq:Lambdared}, so \(\Lambda_{\mathrm{red}}=0\). Then \eqref{eq:rhorep}--\eqref{eq:Jrep} reduce to \eqref{eq:single}. On the previously recorded tuned branch there was no \(Z\)-compensator, hence \(\alpha_Z=0\) and \(\Lambda_Z=m_S^2\).
+\end{proof}
+
+\begin{theorem}[Coefficient-level verdict for the replacement candidate]
+\label{thm:verdict}
+On the double exact-square locus \eqref{eq:doubletuned},
+\begin{equation}
+\mathcal L_{\hat\sigma,\mathrm{eff}}^{(2)}\equiv 0,
+\qquad
+\Pi_{\Phi}^{(4YZ)}(\omega,\mathbf{k})\equiv 0,
+\qquad
+T_{\mu\nu}^{\mathrm{rep}}\equiv 0,
+\qquad
+\mathcal C_{\mu\nu}^{\mathrm{rep,br}}\equiv 0.
+\label{eq:allzero}
+\end{equation}
+Therefore the smallest replacement candidate written in this note kills the generic Stueckelberg-like remainder at the coefficient level while preserving the bridge metric and the single-metric matter route.
+\end{theorem}
+
+\begin{proof}
+If \(\Lambda_Y=\Lambda_Z=0\), then \eqref{eq:Lambdared} gives \(\Lambda_{\mathrm{red}}=0\). Equation \eqref{eq:Lhatsigma} therefore vanishes identically, which proves the first statement of \eqref{eq:allzero}. The second statement follows from Theorem \ref{thm:metriccorr}. The third follows from Definition \ref{def:Trep}, because every component of \(T_{\mu\nu}^{\mathrm{rep}}\) is proportional to \(\Lambda_Z\) or \(\Lambda_{\mathrm{red}}\). Equation \eqref{eq:Crep} then gives the last statement.
+\end{proof}
+
+\begin{corollary}[Single-metric matter route is preserved at this scope]
+\label{cor:matter}
+At the present action-level and flat-background quadratic scope, the replacement candidate leaves the matter route unchanged. On the double exact-square locus \eqref{eq:doubletuned}, the reduced observer-accessible quadratic action is
+\begin{equation}
+S_{\mathrm{obs}}^{(2)}[h,\psi]
+=
+S_{\mathrm{EH}}^{(2)}[h]
++S_{\mathrm{matter}}^{(2)}[h,\psi],
+\label{eq:Sobs}
+\end{equation}
+with no residual completion-specific observer correction.
+\end{corollary}
+
+\begin{proof}
+By Definition \ref{def:branch}, matter depends only on \(g_{\mu\nu}=\Xi^\ast\BridgeMetric_{AB}\). The nonmetric fields \(q^I\), \(\chi\), \(V_T^i\), \(y\), \(z\), and \(\hat\sigma\) appear only in the auxiliary sector. Theorem \ref{thm:verdict} shows that the completion-specific observer correction vanishes on the double exact-square locus.
+\end{proof}
+
+\section{Program Consequence and Stop Rule}
+
+\begin{proposition}[What this verdict does and does not justify]
+\label{prop:stop}
+The coefficient-level verdict of Theorem \ref{thm:verdict} justifies exactly three conclusions:
+\begin{enumerate}
+    \item the smallest replacement candidate beyond the unrestricted tuned exact-square branch is a double exact-square completion rather than a new bridge metric or matter route;
+    \item that candidate removes both the old quartic observer correction and the generic Stueckelberg-like remainder at the coefficient level;
+    \item the note should stop here, before any reduced-system, local-coercive, or broader theorem work is reopened.
+\end{enumerate}
+It does \emph{not} yet justify a claim that the double exact-square branch has a satisfactory nonlinear architecture or a surviving theorem route.
+\end{proposition}
+
+\begin{proof}
+Items (1) and (2) are Proposition \ref{prop:actonmomentum} and Theorem \ref{thm:verdict}. Item (3) follows because the double exact-square tuning removes the remaining scalar momentum block itself:
+\[
+\mathcal L_{\hat\sigma,\mathrm{eff}}^{(2)}\equiv 0.
+\]
+That is a stronger scalar degeneracy than on the previous unrestricted tuned branch. Whether this degenerate replacement still supports an acceptable nonlinear reduced system, local well-posedness architecture, or same-class theorem route is a new question, not something settled by the present coefficient-level cancellation. The disciplined stopping point is therefore exactly the one requested in the tracking layer: stop at the coefficient-level verdict before reopening reduced-system or theorem work.
+\end{proof}
+
+\begin{remark}
+The present verdict is positive but narrow. It does not say that the derivational program is finished. It says that the smallest replacement candidate now on record really does target the correct obstruction and kills it at the coefficient level. What remains open is whether that doubly degenerate branch is viable beyond that level.
+\end{remark}
+
+\section{Conclusion}
+
+The tuned infrared bridge-tensor verdict reactivated the replacement problem on a precise target: remove the generic Stueckelberg-like remainder \(T_{\mu\nu}^{\mathrm{St}}\), not the already-removed quartic observer correction. This note has now written the smallest replacement candidate that does that while preserving the bridge metric and single-metric matter route.
+
+The new ingredient is minimal. Keep the recorded quartic exact-square compensator \(Y\), and add one new gapped auxiliary scalar \(Z\) coupled linearly to \(U^A\nabla_A S-\sigma_0\). After flat-background quadratic reduction, the full reduced scalar bridge channel is controlled by the two untuned remainders \(\Lambda_Y\) and \(\Lambda_Z\). The old quartic correction remains encoded in \(\Lambda_{\mathrm{red}}=\kappa_\theta\Lambda_Y/(\kappa_\theta+\sigma_0^2\Lambda_Y)\), while the remaining Stueckelberg-like source is encoded directly in \(\Lambda_Z\).
+
+The coefficient-level verdict is then sharp. The flat metric self-energy alone is still insufficient, because it already vanishes on the old singly tuned branch and would therefore miss the actual infrared obstruction. Once the explicit observer-equation correction tensor is computed, however, the replacement question becomes transparent: the singly tuned branch reproduces the old Stueckelberg-like source, while the double exact-square branch makes both the reduced metric correction and the full coefficient-level observer-equation tensor vanish identically.
+
+At current disciplined scope, this is the correct stopping point. The smallest new replacement bridge/completion candidate has been designed and written, and it kills the generic \(T_{\mu\nu}^{\mathrm{St}}\) remainder at coefficient level. The next question is no longer whether that remainder survives on this candidate. It is whether the resulting doubly degenerate branch has a viable nonlinear architecture. That is a separate manuscript burden and is not reopened here.
+
+\end{document}

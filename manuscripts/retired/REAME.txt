@@ -1,0 +1,123 @@
+Retired Research Archive
+Consolidated on 2026-03-14
+
+This note gathers the retired-file descriptions that were previously repeated
+across the workspace markdown files. The files in this folder are preserved for
+provenance, branch history, and structural comparison, but they are no longer
+part of the active manuscript listing.
+
+Sources consolidated here:
+- README.md
+- RESEARCH_PLAN.md
+- EXECUTION_CHECKLIST.md
+- The Aether Path from Ontology to Theory statement.md
+
+1. Derivative-mixing side branch
+
+Files:
+- aether_flow_substrate_derivative_mixing_branch.tex
+- aether_flow_substrate_derivative_mixing_branch.pdf
+
+Description:
+First nonminimal S/Q derivative-mixing branch selection and formulation.
+
+Status:
+Retired as an archived degenerate side branch after the flat-background
+quadratic test.
+
+Files:
+- aether_flow_substrate_derivative_mixing_consistency.tex
+- aether_flow_substrate_derivative_mixing_consistency.pdf
+
+Description:
+Full quadratic test showing that the derivative-mixing branch closes only on a
+tuned degenerate semidefinite or perfect-square branch, not on a healthy
+nondegenerate exact-closure branch.
+
+2. Constraint-assisted U-sector side branch
+
+Files:
+- aether_flow_substrate_constraint_assisted_u_branch.tex
+- aether_flow_substrate_constraint_assisted_u_branch.pdf
+
+Description:
+Candidate-family note selecting the C-mediated constraint-assisted longitudinal
+U-sector completion.
+
+Status:
+Retired as an archived degenerate side branch under the active positive-sign
+health standard.
+
+Files:
+- aether_flow_substrate_constraint_assisted_u_consistency.tex
+- aether_flow_substrate_constraint_assisted_u_consistency.pdf
+
+Description:
+Full quadratic elimination of the constraint-assisted longitudinal U-sector
+family together with its generalized exact-closure conditions.
+
+Files:
+- aether_flow_substrate_constraint_assisted_u_no_go.tex
+- aether_flow_substrate_constraint_assisted_u_no_go.pdf
+
+Description:
+Positive-sign health-gate no-go result showing that the family has no healthy
+nondegenerate flat-background exact-closure branch and collapses only to a
+degenerate scalar limit.
+
+3. Intermediate structural redesign archive
+
+Files:
+- aether_flow_substrate_higher_derivative_double_exact_square_replacement_candidate.tex
+- aether_flow_substrate_higher_derivative_double_exact_square_replacement_candidate.pdf
+
+Description:
+Replacement bridge or completion candidate that keeps the tuned quartic
+exact-square block, adds one exact-square momentum compensator, and removes the
+generic Stueckelberg-like observer remainder only at coefficient level.
+
+Files:
+- aether_flow_substrate_higher_derivative_double_exact_square_architecture_obstruction.tex
+- aether_flow_substrate_higher_derivative_double_exact_square_architecture_obstruction.pdf
+
+Description:
+Follow-up architecture verdict showing that the doubly tuned candidate becomes
+nonlinear-architecturally negative because exact-square elimination removes the
+ordered-flow equation and leaves an infinite-dimensional substrate fiber over
+the same observer solution.
+
+Files:
+- aether_flow_substrate_higher_derivative_fixed_route_momentum_compensator_exhaustion.tex
+- aether_flow_substrate_higher_derivative_fixed_route_momentum_compensator_exhaustion.pdf
+
+Description:
+Broader fixed-route redesign note enlarging the least-drift momentum-compensator
+mechanism to the full finite algebraic or gapped class and showing that the
+same fiber obstruction returns whenever the generic observer remainder is tuned
+away.
+
+Files:
+- aether_flow_substrate_higher_derivative_nonalgebraic_momentum_completion_candidate.tex
+- aether_flow_substrate_higher_derivative_nonalgebraic_momentum_completion_candidate.pdf
+
+Description:
+First honest non-algebraic momentum-completion candidate. It preserves a genuine
+ordered-flow equation but remains negative at coefficient level because the
+generic observer remainder vanishes only by collapsing back to the exhausted
+algebraic route.
+
+Status:
+These structural redesign notes are retired at structural scope. The active
+program moved on to the explicit ordered-flow symmetry or quotient route rather
+than reopening them as live derivational candidates.
+
+Why these files are retired
+- The derivative-mixing branch and the constraint-assisted U-sector family are
+  archived tested degenerate side branches.
+- The double exact-square redesign removes the coefficient-level observer
+  remainder only by eliminating the ordered-flow equation itself.
+- Broader fixed-route momentum-compensator enlargements reproduce the same
+  infinite-dimensional fiber obstruction.
+- The first non-algebraic momentum completion keeps a genuine ordered-flow
+  equation but still fails the generic observer-remainder test at coefficient
+  level.

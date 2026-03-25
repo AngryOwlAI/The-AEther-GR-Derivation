@@ -1,0 +1,620 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal{A}}
+\newcommand{\BridgeMetric}{\mathfrak g}
+\newcommand{\ObserverMap}{\Xi}
+\newcommand{\ProjSub}{P}
+\newcommand{\SpatialD}{\mathcal D}
+\newcommand{\LapPerp}{\Delta_\perp}
+\newcommand{\FlowPot}{\Phi_\Omega}
+\newcommand{\FlowPotReg}{\Phi_\Omega^{\mathrm{reg}}}
+\newcommand{\CoulPot}{U_\Omega}
+\newcommand{\BalanceField}{\Pi_\Omega}
+\newcommand{\BalMult}{\Lambda_\Pi}
+\newcommand{\SourceDensity}{\varrho_\Omega}
+\newcommand{\SourceDensityRed}{\varrho_\Omega^{\mathrm{red}}}
+\newcommand{\SourceMult}{\Lambda_\rho}
+\newcommand{\SourceFlux}{\mathcal E}
+\newcommand{\HamChargeOmega}{\mathfrak m_\Omega}
+\newcommand{\SigmaIER}{\Sigma^{\mathrm{IER}}}
+\newcommand{\SigmaDressSch}{\Sigma^{\mathrm{Sch}}}
+\newcommand{\SigmaRegPol}{\Sigma^{\mathrm{pol,reg}}}
+\newcommand{\LiftIER}{\widehat\Sigma^{\mathrm{IER}}}
+\newcommand{\AuxPol}{\mathbb K}
+\newcommand{\CandAction}{S_{\mathrm{cand}}}
+\newcommand{\IntrinsicAction}{S_{\mathrm{cand}}^{\mathrm{src+aux}}}
+\newcommand{\ReOff}{\widetilde{\mathcal R}_{\mu\nu}^{\mathrm{off}}}
+\newcommand{\ReLongThree}{\widetilde{\mathcal R}_{\mu\nu}^{(\chi,3)}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Nonlocal Bridge Self-Response Intrinsic Source-Sector Note}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The positive quotient reduced-system, theorem, decay, and asymptotic line remains closed and is not reopened here. The inverse-Einstein-response bridge map, the explicit Schwarzschild-type dressing candidate test, the substrate-origin note, and the constrained auxiliary-sector note are also fixed in status: the inverse-response correction already supplies matter-free activity, full off-longitudinal \(Q/W\) cancellation, and explicit cubic longitudinal completion; the dressing-candidate note records the positive observer-level \(r^{-2}\) closure; the substrate-origin note identifies the minimal polarization mechanism \(\BalanceField=\FlowPot^2\); and the constrained auxiliary-sector note derives the polarization tensor variationally. The remaining defect is narrower: \(\FlowPot\) is still treated there as already-given input data rather than as a field produced by an intrinsic substrate source sector.
+
+The present manuscript internalizes that still-given potential. It enlarges the same candidate substrate action by an intrinsic Hamiltonian-charge source sector consisting of an explicit substrate charge density \(\SourceDensity\), a spatial source flux \(\SourceFlux_A\), and a Lagrange multiplier \(\SourceMult\), together with the already-recorded polarization variables \((\BalanceField,\BalMult,\AuxPol_{AB})\). The new source Lagrangian yields, by Euler--Lagrange variation,
+\[
+\SourceDensity=\SourceDensityRed,
+\qquad
+\SourceFlux_A=\SpatialD_A\FlowPot,
+\qquad
+-\LapPerp \FlowPot=4\pi G_N\,\SourceDensity,
+\]
+where \(\SourceDensityRed\) is the same already-fixed reduced Hamiltonian-charge density functional whose slice integral gives \(\HamChargeOmega\). Hence \(\FlowPot\) is no longer prescribed externally: it is solved from an intrinsic substrate charge variable.
+
+On the source-free exterior region, the unique decaying harmonic solution with total charge \(\HamChargeOmega\) has the Coulomb profile
+\[
+\FlowPot
+=
+\frac{G_N\,\HamChargeOmega}{r}
++\FlowPotReg,
+\qquad
+\FlowPotReg=\mathcal O(r^{-2}),
+\qquad
+\partial \FlowPotReg=\mathcal O(r^{-3}).
+\]
+The auxiliary polarization block then yields the same eliminated tensor as before,
+\[
+\AuxPol_{AB}^{\mathrm{elim}}
+=
+-2\FlowPot^2U_AU_B
++\frac32\FlowPot^2\ProjSub_{AB},
+\]
+so its observer pullback reproduces exactly the same Schwarzschild-type \(r^{-2}\) dressing together with an \(\mathcal O(r^{-3})\) regular completion. The enlarged source-plus-polarization sector therefore gives the same observer output that already passed the positive dressing test.
+
+Because the source sector is elliptic and nonpropagating on each local experiential slice, and because it enters the bridge metric only through the quartic combination \(\BalanceField=\FlowPot^2\), it does not reopen the lower-order quotient PDE line. Matter-free activity survives because the same reduced Hamiltonian charge can be nonzero on the rotational matter-free regime; off-longitudinal \(Q/W\) cancellation and explicit cubic longitudinal completion survive because \(\SigmaIER\) is unchanged; and quartic Coulomb self-response absorption survives because the eliminated observer tensor is the same explicit dressed candidate already tested positively.
+
+This note is still not a completed microphysical derivation of Einsteinian gravity from substrate first principles. Its narrower positive result is the one the active sequence now required: the Hamiltonian-charge potential \(\FlowPot\) is internalized into an enlarged action by explicit substrate charge variables, its Coulomb tail is derived from a source equation, and the same \(r^{-2}\) dressed bridge output together with the same gain package is preserved.
+\end{abstract}
+
+\section{Introduction}
+
+The active sequence is now precise about what should happen next. The positive quotient reduced-system, theorem, decay, and asymptotic line is already recorded and remains closed at current scope. The observer-level redesign chain is also fixed in status: the inverse-Einstein-response bridge-map test already canceled the full off-longitudinal \(Q/W\) remainder and added an explicit cubic longitudinal completion, the quartic continuation note isolated the Coulomb self-response obstruction, the nonlocal self-response redesign note fixed the \(r^{-2}\) target, and the explicit dressing-candidate test recorded the positive Schwarzschild-type closure. The substrate-origin and constrained auxiliary-sector notes then took the next two reconstruction steps by identifying and variationally realizing the polarization mechanism
+\[
+\BalanceField=\FlowPot^2.
+\]
+
+That still leaves one real burden. In the constrained auxiliary-sector note, the polarization tensor is solved variationally, but the potential \(\FlowPot\) that sources it is still imported into the action as already-given nonlocal data. The present manuscript addresses exactly that defect and no broader one.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not reopen the already-positive quotient PDE line. It does not replace the already-positive observer-level dressing candidate. It does not claim that the full source density functional \(\SourceDensityRed\) has already been reduced to a unique local microphysical formula. Its narrower positive result is that the potential \(\FlowPot\) can now be solved inside an enlarged substrate action from an explicit Hamiltonian-charge source variable, and that eliminating the full source-plus-polarization sector reproduces the same \(r^{-2}\) dressed observer output already fixed by the positive dressing test.
+
+\section{Fixed Target and Present Scope}
+
+\begin{definition}[Surviving dressed gain package]
+\label{def:gains}
+The \emph{surviving dressed gain package} consists of the four already-recorded features that the enlarged source-plus-polarization sector must preserve:
+\begin{enumerate}
+    \item \textbf{matter-free activity:} the bridge correction remains active on matter-free reduced data;
+    \item \textbf{off-longitudinal \(Q/W\) cancellation:} the full currently recorded off-longitudinal remainder \(\ReOff\) is canceled;
+    \item \textbf{explicit cubic longitudinal completion:} the first surviving cubic longitudinal tensor \(\ReLongThree\) is canceled by the same lower-order inverse-response correction;
+    \item \textbf{quartic Coulomb self-response absorption:} on the decisive matter-free rotational exterior regime, the isolated quartic Coulomb self-response is pushed to \(\mathcal O(r^{-5})\).
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Observer-side target already fixed]
+\label{def:target}
+The observer-side dressed bridge map to be reproduced remains
+\begin{equation}
+g_{\mu\nu}^{\mathrm{dressed}}
+=
+g_{\mu\nu}^{\mathrm{br}}
++\SigmaIER_{\mu\nu}
++\SigmaDressSch{}_{\mu\nu}
++\SigmaRegPol{}_{\mu\nu},
+\label{eq:targetmetric}
+\end{equation}
+where the charge-carrying Coulomb piece is
+\begin{equation}
+\CoulPot(r)\equiv \frac{G_N\,\HamChargeOmega}{r},
+\label{eq:coulpot}
+\end{equation}
+and
+\begin{equation}
+\SigmaDressSch{}_{00}=-2\CoulPot^2,
+\qquad
+\SigmaDressSch{}_{0i}=0,
+\qquad
+\SigmaDressSch{}_{ij}=\frac32\CoulPot^2\,\delta_{ij},
+\label{eq:schdress}
+\end{equation}
+while the regular completion satisfies
+\begin{equation}
+\SigmaRegPol=\mathcal O(r^{-3}),
+\qquad
+\partial\SigmaRegPol=\mathcal O(r^{-4})
+\label{eq:reg}
+\end{equation}
+on the exterior charge sector.
+\end{definition}
+
+\begin{remark}
+The present note does not replace the already-fixed lower-order inverse-response tensor \(\SigmaIER\). Its task is to derive the Coulomb potential \(\FlowPot\) from an intrinsic source variable and then show that the resulting eliminated polarization block still reproduces Definition \ref{def:target}.
+\end{remark}
+
+\section{Intrinsic Hamiltonian Source Variables}
+
+The substrate-kinematics manuscript already fixed the minimal substrate data
+\[
+(\Sub,G_{AB},U^A,S,Q),
+\]
+with \(G_{AB}\) positive definite, \(U^A\) the unit ordered-flow field, and
+\begin{equation}
+\ProjSub_{AB}=G_{AB}-U_AU_B
+\label{eq:projector}
+\end{equation}
+the local experiential projector orthogonal to \(U^A\). The present note appends only the extra variables needed to internalize \(\FlowPot\).
+
+\begin{definition}[Reduced Hamiltonian source density]
+\label{def:redsource}
+Let
+\begin{equation}
+\SourceDensityRed=\SourceDensityRed[Q,W,\chi]
+\label{eq:redsource}
+\end{equation}
+denote the already-fixed reduced Hamiltonian-charge density functional on the active branch. Its exact coefficient-level formula is not reopened here. The only properties needed at the present scope are:
+\begin{enumerate}
+    \item \(\SourceDensityRed=\mathcal O_{\ge 2}\) in the reduced-data counting;
+    \item its slice integral defines the same Hamiltonian charge already used in the inverse-response and dressing notes,
+    \begin{equation}
+    \HamChargeOmega
+    \equiv
+    \int_{\Sigma_t}\SourceDensityRed\,d\mu_P;
+    \label{eq:charge}
+    \end{equation}
+    \item on the decisive rotational matter-free regime, \(\HamChargeOmega\) may be nonzero.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:redsource} is the precise point at which the present note stops short of a deeper microphysical claim. The source density that carries the Hamiltonian charge is now made into an explicit substrate variable, but the fully local derivation of the functional \(\SourceDensityRed[Q,W,\chi]\) itself is not yet claimed here.
+\end{remark}
+
+\begin{definition}[Intrinsic source variables]
+\label{def:sourcevars}
+The \emph{intrinsic Hamiltonian source sector} consists of:
+\begin{enumerate}
+    \item a scalar substrate charge density \(\SourceDensity\);
+    \item a spatial source flux \(\SourceFlux_A\) satisfying
+    \begin{equation}
+    U^A\SourceFlux_A=0;
+    \label{eq:spatialflux}
+    \end{equation}
+    \item the potential \(\FlowPot\), now treated as an independent substrate field rather than as fixed input data;
+    \item a scalar Lagrange multiplier \(\SourceMult\).
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Projected source derivative]
+\label{def:projected}
+Let
+\begin{equation}
+\SpatialD_A\equiv \ProjSub_A{}^B\nabla_B,
+\qquad
+\LapPerp\equiv \SpatialD^A\SpatialD_A,
+\label{eq:projderiv}
+\end{equation}
+where \(\nabla_A\) is the Levi-Civita connection of \(G_{AB}\). Thus \(\SpatialD\) and \(\LapPerp\) act along the local experiential slice orthogonal to \(U^A\).
+\end{definition}
+
+\begin{definition}[Intrinsic source-plus-polarization action]
+\label{def:action}
+The \emph{intrinsic source-plus-polarization sector} is the enlarged action
+\begin{equation}
+\IntrinsicAction
+\equiv
+\CandAction
++
+\int_{\Sub} d^4X\,\sqrt{G}\,
+\bigl(
+\mathcal L_{\mathrm{src}}
++\mathcal L_{\mathrm{pol,aux}}
+\bigr),
+\label{eq:fullaction}
+\end{equation}
+with source Lagrangian
+\begin{equation}
+\mathcal L_{\mathrm{src}}
+=
+\SourceFlux^A\SpatialD_A\FlowPot
+-\frac12 \SourceFlux_A\SourceFlux^A
+-4\pi G_N\,\SourceDensity\,\FlowPot
++\SourceMult\bigl(\SourceDensity-\SourceDensityRed\bigr),
+\label{eq:lsrc}
+\end{equation}
+and polarization Lagrangian
+\begin{align}
+\mathcal L_{\mathrm{pol,aux}}
+=\;&
+\BalMult\bigl(\BalanceField-\FlowPot^2\bigr)
+-\frac{\mu_t^2}{2}\bigl(\alpha+2\BalanceField\bigr)^2
+-\frac{\mu_s^2}{2}\bigl(\beta-\tfrac32\BalanceField\bigr)^2
+\nonumber\\
+&-\frac{\mu_v^2}{2}\,\mathcal V_A\mathcal V^A
+-\frac{\mu_{\mathrm{tf}}^2}{2}\,\mathcal T_{AB}\mathcal T^{AB},
+\label{eq:laux}
+\end{align}
+where the independent symmetric auxiliary tensor \(\AuxPol_{AB}\) is decomposed as
+\begin{equation}
+\AuxPol_{AB}
+=
+\alpha\,U_AU_B
++2U_{(A}\mathcal V_{B)}
++\mathcal T_{AB}
++\beta\,\ProjSub_{AB},
+\label{eq:Kdecomp}
+\end{equation}
+with
+\begin{equation}
+U^A\mathcal V_A=0,
+\qquad
+U^A\mathcal T_{AB}=0,
+\qquad
+\ProjSub^{AB}\mathcal T_{AB}=0,
+\label{eq:TVcond}
+\end{equation}
+and
+\begin{equation}
+\mu_t^2>0,
+\qquad
+\mu_s^2>0,
+\qquad
+\mu_v^2>0,
+\qquad
+\mu_{\mathrm{tf}}^2>0.
+\label{eq:masses}
+\end{equation}
+\end{definition}
+
+\begin{remark}
+Compared with the constrained auxiliary-sector note, the only conceptual change in Definition \ref{def:action} is that \(\FlowPot\) has been promoted from fixed input to a field solved from the intrinsic source variables \((\SourceDensity,\SourceFlux_A,\SourceMult)\). The already-positive lower-order candidate substrate action \(\CandAction\) and the already-positive lower-order inverse-response correction \(\SigmaIER\) are both kept fixed.
+\end{remark}
+
+\section{Variational Derivation of the Coulomb Potential}
+
+\begin{proposition}[Euler--Lagrange system of the enlarged source-plus-polarization sector]
+\label{prop:EL}
+The Euler--Lagrange equations of \eqref{eq:fullaction} are
+\begin{equation}
+\SourceDensity=\SourceDensityRed,
+\qquad
+\SourceMult=4\pi G_N\,\FlowPot,
+\qquad
+\SourceFlux_A=\SpatialD_A\FlowPot,
+\label{eq:sourceeqs}
+\end{equation}
+\begin{equation}
+-\LapPerp \FlowPot=4\pi G_N\,\SourceDensity,
+\label{eq:poisson}
+\end{equation}
+and
+\begin{equation}
+\BalanceField=\FlowPot^2,
+\qquad
+\alpha=-2\BalanceField,
+\qquad
+\beta=\frac32\BalanceField,
+\qquad
+\mathcal V_A=0,
+\qquad
+\mathcal T_{AB}=0,
+\qquad
+\BalMult=0.
+\label{eq:poleqs}
+\end{equation}
+Consequently,
+\begin{equation}
+\AuxPol_{AB}^{\mathrm{elim}}
+=
+-2\FlowPot^2U_AU_B
++\frac32\FlowPot^2\ProjSub_{AB}.
+\label{eq:Kelim}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Variation with respect to \(\SourceMult\) gives \(\SourceDensity=\SourceDensityRed\). Variation with respect to \(\SourceDensity\) gives \(\SourceMult=4\pi G_N\FlowPot\). Variation with respect to the spatial flux \(\SourceFlux_A\) gives \(\SourceFlux_A=\SpatialD_A\FlowPot\). Varying \(\FlowPot\) and integrating by parts on the local experiential slice yields
+\[
+-\SpatialD_A\SourceFlux^A-4\pi G_N\,\SourceDensity-2\BalMult\FlowPot=0.
+\]
+The variation of \(\BalanceField\) in \eqref{eq:laux} gives
+\[
+\BalMult
+-2\mu_t^2(\alpha+2\BalanceField)
++\frac32\mu_s^2\bigl(\beta-\tfrac32\BalanceField\bigr)=0.
+\]
+Variation with respect to \(\alpha\), \(\beta\), \(\mathcal V_A\), and \(\mathcal T_{AB}\) gives
+\[
+\alpha=-2\BalanceField,
+\qquad
+\beta=\frac32\BalanceField,
+\qquad
+\mathcal V_A=0,
+\qquad
+\mathcal T_{AB}=0.
+\]
+Substituting these into the \(\BalanceField\)-equation yields \(\BalMult=0\). The \(\FlowPot\)-equation therefore reduces to \eqref{eq:poisson}, and the multiplier equation gives \(\BalanceField=\FlowPot^2\). Substituting \eqref{eq:poleqs} into \eqref{eq:Kdecomp} yields \eqref{eq:Kelim}.
+\end{proof}
+
+\begin{corollary}[Derived exterior Coulomb profile]
+\label{cor:coulomb}
+Assume that \(\SourceDensityRed\) is supported in a bounded charge core \(r\le R_\ast\). Then on the source-free exterior region \(r>R_\ast\),
+\begin{equation}
+\FlowPot
+=
+\CoulPot+\FlowPotReg,
+\qquad
+\CoulPot(r)=\frac{G_N\,\HamChargeOmega}{r},
+\qquad
+\FlowPotReg=\mathcal O(r^{-2}),
+\qquad
+\partial\FlowPotReg=\mathcal O(r^{-3}).
+\label{eq:potdecomp}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+By Proposition \ref{prop:EL}, the exterior region satisfies
+\[
+\LapPerp\FlowPot=0
+\qquad
+\text{for } r>R_\ast.
+\]
+Standard harmonic expansion on the asymptotically Euclidean local experiential slice gives
+\[
+\FlowPot=\frac{A}{r}+\mathcal O(r^{-2})
+\]
+for the unique decaying branch. Integrating \eqref{eq:poisson} over a ball \(B_r\) containing the charge core and applying the divergence theorem yields
+\begin{equation}
+-\int_{S_r} n^A\SpatialD_A\FlowPot\,dA
+=
+4\pi G_N\int_{B_r}\SourceDensity\,d\mu_P
+=
+4\pi G_N\,\HamChargeOmega.
+\label{eq:gauss}
+\end{equation}
+For the harmonic monopole \(A/r\), the left-hand side of \eqref{eq:gauss} is \(4\pi A\). Hence \(A=G_N\HamChargeOmega\), which gives \eqref{eq:potdecomp}.
+\end{proof}
+
+\begin{remark}
+Corollary \ref{cor:coulomb} is the precise sense in which the enlarged action now derives the Coulomb profile rather than assuming it. The charge-carrying \(r^{-1}\) tail is fixed by the intrinsic source variable \(\SourceDensity\) through Gauss law, not inserted beforehand as external potential data.
+\end{remark}
+
+\section{Elimination and Recovery of the Same \(r^{-2}\) Dressing}
+
+\begin{definition}[Dressed bridge reconstruction after full elimination]
+\label{def:bridge}
+Let \(\LiftIER_{AB}\) be a substrate tensor whose observer pullback is the already-fixed lower-order inverse-response correction,
+\begin{equation}
+\ObserverMap^\ast\LiftIER_{AB}=\SigmaIER_{\mu\nu}.
+\label{eq:liftier}
+\end{equation}
+After eliminating the intrinsic source-plus-polarization sector, define the reconstructed bridge metric by
+\begin{equation}
+\BridgeMetric_{AB}^{\mathrm{src+aux}}
+=
+G_{AB}
+-2U_AU_B
++\LiftIER_{AB}
++\AuxPol_{AB}^{\mathrm{elim}}.
+\label{eq:bridge}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[Coulomb-plus-regular split of the eliminated polarization tensor]
+\label{prop:split}
+On the exterior charge sector,
+\begin{equation}
+\AuxPol_{AB}^{\mathrm{elim}}
+=
+\AuxPol_{AB}^{\mathrm{Sch}}
++\AuxPol_{AB}^{\mathrm{reg}},
+\label{eq:Ksplit}
+\end{equation}
+where
+\begin{equation}
+\AuxPol_{AB}^{\mathrm{Sch}}
+=
+-2\CoulPot^2U_AU_B
++\frac32\CoulPot^2\ProjSub_{AB},
+\label{eq:Ksch}
+\end{equation}
+and
+\begin{align}
+\AuxPol_{AB}^{\mathrm{reg}}
+=\;&
+-2\bigl(2\CoulPot\FlowPotReg+(\FlowPotReg)^2\bigr)U_AU_B
+\nonumber\\
+&+\frac32\bigl(2\CoulPot\FlowPotReg+(\FlowPotReg)^2\bigr)\ProjSub_{AB}.
+\label{eq:Kreg}
+\end{align}
+Moreover,
+\begin{equation}
+\AuxPol_{AB}^{\mathrm{reg}}=\mathcal O(r^{-3}),
+\qquad
+\nabla\AuxPol_{AB}^{\mathrm{reg}}=\mathcal O(r^{-4}).
+\label{eq:Kregdecay}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Substitute \eqref{eq:potdecomp} into \eqref{eq:Kelim}:
+\[
+\FlowPot^2=\CoulPot^2+2\CoulPot\FlowPotReg+(\FlowPotReg)^2.
+\]
+Separating the pure Coulomb square from the faster remainder gives \eqref{eq:Ksplit}--\eqref{eq:Kreg}. Since \(\CoulPot=\mathcal O(r^{-1})\) and \(\FlowPotReg=\mathcal O(r^{-2})\), one has \(2\CoulPot\FlowPotReg+(\FlowPotReg)^2=\mathcal O(r^{-3})\), and the derivative estimate follows immediately.
+\end{proof}
+
+\begin{proposition}[Observer pullback of the full eliminated source-plus-polarization sector]
+\label{prop:pullback}
+In a substrate-adapted local observer chart in which \(U^A\) is the unit temporal direction and \(\ObserverMap^\ast\ProjSub_{AB}\) reduces to the spatial Euclidean metric at leading order, one has
+\begin{equation}
+\bigl(\ObserverMap^\ast\AuxPol^{\mathrm{Sch}}\bigr)_{00}
+=
+-2\CoulPot^2,
+\qquad
+\bigl(\ObserverMap^\ast\AuxPol^{\mathrm{Sch}}\bigr)_{0i}
+=
+0,
+\qquad
+\bigl(\ObserverMap^\ast\AuxPol^{\mathrm{Sch}}\bigr)_{ij}
+=
+\frac32\CoulPot^2\,\delta_{ij},
+\label{eq:pullsch}
+\end{equation}
+and
+\begin{equation}
+\ObserverMap^\ast\AuxPol_{AB}^{\mathrm{reg}}
+=
+\SigmaRegPol{}_{\mu\nu},
+\qquad
+\SigmaRegPol=\mathcal O(r^{-3}),
+\qquad
+\partial\SigmaRegPol=\mathcal O(r^{-4}).
+\label{eq:pullreg}
+\end{equation}
+Therefore
+\begin{equation}
+\ObserverMap^\ast \BridgeMetric_{AB}^{\mathrm{src+aux}}
+=
+g_{\mu\nu}^{\mathrm{br}}
++\SigmaIER_{\mu\nu}
++\SigmaDressSch{}_{\mu\nu}
++\SigmaRegPol{}_{\mu\nu},
+\label{eq:targetrecovered}
+\end{equation}
+with \(\SigmaDressSch\) exactly as in \eqref{eq:schdress}.
+\end{proposition}
+
+\begin{proof}
+The pullback identities for \(U_AU_B\) and \(\ProjSub_{AB}\) are the same ones used in the substrate-origin and constrained auxiliary-sector notes. Applying them to \eqref{eq:Ksch} yields \eqref{eq:pullsch}, which is exactly the Schwarzschild-type \(r^{-2}\) dressing of Definition \ref{def:target}. Applying the same pullback to \eqref{eq:Kreg} and using \eqref{eq:Kregdecay} gives \eqref{eq:pullreg}. Combining those identities with \eqref{eq:bridge} and \eqref{eq:liftier} yields \eqref{eq:targetrecovered}.
+\end{proof}
+
+\begin{corollary}[Same observer output as the positive dressing test]
+\label{cor:sameoutput}
+Eliminating the intrinsic source-plus-polarization sector reproduces exactly the same observer-side dressed bridge map already fixed by the positive dressing-candidate test.
+\end{corollary}
+
+\begin{proof}
+This is precisely Proposition \ref{prop:pullback}.
+\end{proof}
+
+\section{Why the Same Gain Package Survives}
+
+\begin{proposition}[Source sector is elliptic and does not introduce new propagating observer modes]
+\label{prop:elliptic}
+At the present manuscript scope, the intrinsic Hamiltonian source sector is nonpropagating on each local experiential slice:
+\begin{equation}
+\SourceDensity=\mathcal O_{\ge 2},
+\qquad
+\FlowPot=\mathcal O_{\ge 2},
+\qquad
+\BalanceField=\FlowPot^2=\mathcal O_{\ge 4}.
+\label{eq:orders}
+\end{equation}
+Moreover, the source sector enters the bridge metric only through the quartic combination \(\BalanceField=\FlowPot^2\).
+\end{proposition}
+
+\begin{proof}
+Definition \ref{def:redsource} gives \(\SourceDensityRed=\mathcal O_{\ge 2}\), hence Proposition \ref{prop:EL} gives \(\SourceDensity=\mathcal O_{\ge 2}\). The elliptic solve \eqref{eq:poisson} is linear in \(\SourceDensity\), so \(\FlowPot=\mathcal O_{\ge 2}\) in the same reduced-data counting used in the inverse-response and dressing notes. Therefore \(\BalanceField=\FlowPot^2=\mathcal O_{\ge 4}\). Equation \eqref{eq:Kelim} shows that the source sector reaches the bridge metric only through \(\BalanceField\), hence only at quartic order.
+\end{proof}
+
+\begin{corollary}[No reopening of the lower-order quotient line]
+\label{cor:nopde}
+The intrinsic source sector does not reopen the already-positive quotient reduced-system, theorem, decay, or asymptotic line.
+\end{corollary}
+
+\begin{proof}
+By Proposition \ref{prop:elliptic}, the new source variables add only a slice-wise elliptic reconstruction whose bridge imprint begins at quartic order. Therefore they do not alter the already-closed lower-order quotient equations or the estimates built on them.
+\end{proof}
+
+\begin{theorem}[Preservation of matter-free activity, off-longitudinal cancellation, and cubic completion]
+\label{thm:firstthree}
+The intrinsic source-plus-polarization sector preserves items (1)--(3) of Definition \ref{def:gains}: matter-free activity, off-longitudinal \(Q/W\) cancellation, and explicit cubic longitudinal completion.
+\end{theorem}
+
+\begin{proof}
+The lower-order inverse-response tensor \(\SigmaIER\) is unchanged by Definition \ref{def:bridge}. Therefore the lower-order identities through which \(\SigmaIER\) cancels the full off-longitudinal remainder \(\ReOff\) and the cubic longitudinal tensor \(\ReLongThree\) remain exactly as before. Matter-free activity also survives: by Definition \ref{def:redsource}, the same reduced Hamiltonian charge \(\HamChargeOmega\) may be nonzero on the decisive rotational matter-free regime, so the elliptic solve \eqref{eq:poisson} produces the same nontrivial Coulomb tail even when ordinary matter vanishes. Since Proposition \ref{prop:elliptic} shows that the source-plus-polarization sector enters the observer map only at quartic order, none of these already-positive lower-order gains is disturbed.
+\end{proof}
+
+\begin{theorem}[Preservation of quartic Coulomb self-response absorption]
+\label{thm:quartic}
+On the decisive matter-free rotational exterior regime, the intrinsic source-plus-polarization sector preserves item (4) of Definition \ref{def:gains}: the isolated quartic Coulomb self-response is structurally absorbed and the resulting quartic observer tensor is pushed to \(\mathcal O(r^{-5})\).
+\end{theorem}
+
+\begin{proof}
+By Proposition \ref{prop:pullback}, the observer tensor produced by eliminating the full source-plus-polarization sector is exactly the same Schwarzschild-type \(r^{-2}\) dressing plus an \(\mathcal O(r^{-3})\) regular completion already tested positively in the dressing-candidate note. The Hamiltonian projection cancellation and full tensor-level \(\mathcal O(r^{-5})\) verdict of that note therefore apply verbatim.
+\end{proof}
+
+\begin{corollary}[Intrinsic source-sector verdict]
+\label{cor:verdict}
+At the present disciplined scope, the enlarged intrinsic source-plus-polarization sector of Definition \ref{def:action} is a valid next-step realization of the surviving dressed bridge map:
+\begin{enumerate}
+    \item it introduces an explicit substrate Hamiltonian charge variable \(\SourceDensity\) for the source of \(\FlowPot\);
+    \item it derives \(\FlowPot\) from the source equation \(-\LapPerp\FlowPot=4\pi G_N\SourceDensity\) instead of taking \(\FlowPot\) as fixed input;
+    \item it reproduces the same Schwarzschild-type \(r^{-2}\) dressing and \(\mathcal O(r^{-3})\) regular completion after eliminating the full source-plus-polarization sector;
+    \item it preserves the same matter-free/off-longitudinal/cubic/quartic gain package.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+Item (1) is Definition \ref{def:sourcevars}. Item (2) is Proposition \ref{prop:EL} together with Corollary \ref{cor:coulomb}. Item (3) is Proposition \ref{prop:pullback}. Item (4) is Theorems \ref{thm:firstthree} and \ref{thm:quartic}.
+\end{proof}
+
+\section{Conclusion}
+
+The active burden at this stage was no longer another observer-level repair, and it was no longer merely the constrained auxiliary-sector reconstruction either. It was to stop the Hamiltonian-charge potential \(\FlowPot\) from remaining an input. The present manuscript supplies that next step.
+
+\begin{enumerate}
+    \item The enlarged action now contains an explicit substrate Hamiltonian charge density \(\SourceDensity\), a spatial source flux \(\SourceFlux_A\), and a multiplier \(\SourceMult\), so the source of \(\FlowPot\) is now represented by explicit substrate variables.
+    \item The Euler--Lagrange equations derive the slice-wise Poisson equation \(-\LapPerp\FlowPot=4\pi G_N\SourceDensity\), so the Coulomb profile is now produced from the source sector rather than prescribed beforehand.
+    \item The same auxiliary polarization block still yields \(\BalanceField=\FlowPot^2\) and \(\AuxPol_{AB}^{\mathrm{elim}}=-2\FlowPot^2U_AU_B+\tfrac32\FlowPot^2\ProjSub_{AB}\).
+    \item On the exterior charge sector, that elimination splits into the same Schwarzschild-type \(r^{-2}\) dressing plus an \(\mathcal O(r^{-3})\) regular completion, so the observer output is exactly the same dressed bridge map already fixed by the positive candidate test.
+    \item Because the new source sector is elliptic and enters the bridge only through the quartic combination \(\FlowPot^2\), the already-positive matter-free activity, off-longitudinal \(Q/W\) cancellation, explicit cubic longitudinal completion, and quartic Coulomb self-response absorption are all preserved.
+\end{enumerate}
+
+This is the correct scope for the present note. It does not yet claim that the reduced Hamiltonian source density \(\SourceDensityRed[Q,W,\chi]\) has been derived from a unique deeper local microphysics, and it does not yet promote the full enlarged bridge variable into a deeper local substrate curvature action. The narrower positive result is the one the active sequence now required: the still-given potential \(\FlowPot\) has been internalized into an intrinsic substrate source sector without losing the same \(r^{-2}\) dressed bridge output or the same gain package.
+
+\end{document}

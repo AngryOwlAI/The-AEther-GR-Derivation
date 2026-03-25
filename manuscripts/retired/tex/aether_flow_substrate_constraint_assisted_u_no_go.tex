@@ -1,0 +1,492 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal{A}}
+\newcommand{\BridgeMetric}{\mathfrak{g}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Constraint-Assisted \texorpdfstring{\(U\)}{U}-Sector Health Gate and No-Go Result}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This note performs the next fixed task for the constraint-assisted longitudinal \(U\)-sector family: determine whether the generalized exact-closure conditions derived in the quadratic-elimination manuscript admit a healthy nondegenerate flat-background branch. The scope remains disciplined. The note does not claim a completed substrate derivation of Einsteinian gravity. It decides only the status of the already-written branch under the same positive-sign discipline used elsewhere in the derivational program.
+
+The result is negative. Assume the shifted \(Q\)-sector mass matrix \(\widehat M_{IJ}\) is positive definite, the order-sector time-derivative coefficient satisfies \(m_S^2>0\), the scalar spatial-gradient coefficient satisfies \(\kappa_S\ge 0\), and the sourced longitudinal \(U\)-sector obeys the positive-sign nonresonant conditions
+\[
+\kappa_\theta\ge 0,
+\qquad
+\Delta_C\equiv 1-\kappa_\theta M_C^2>0.
+\]
+Then the generalized exact-closure conditions force
+\[
+\kappa_S=0,
+\qquad
+\mu_{SI}=0,
+\qquad
+\mu_S^2=0.
+\]
+Therefore the constraint-assisted \(U\)-sector family has no healthy nondegenerate flat-background exact-closure branch. Exact closure survives only in the collapsed scalar limit where the generalized numerator \(\mathcal N_C(k^2)\) vanishes identically because the \(S\)-sector has lost its spatial-gradient term, potential curvature, and quadratic \(S\)--\(Q\) mixing. An additional tuned algebraic branch exists only if the positive-sign discipline is abandoned; it is recorded but not accepted as viable.
+\end{abstract}
+
+\section{Introduction}
+
+The active exact-closure line of \TheoryName{} is already fixed by the foundations, dynamics, consistency, relativistic-recovery, flow-geometry, substrate-bridge, and exact-closure manuscripts. On the derivational side, the recent sequence has become sharper. The minimal stable-sign branch was shown to have no nondegenerate flat-background exact-closure solution. The first nonminimal derivative-mixing branch improved that result only by replacing the old obstruction with a new tuned semidefinite branch. The next candidate family then targeted the one sector both previous branches had left inert: the longitudinal \(U\)-sector constraint structure.
+
+That family has now already passed its first required calculation stage. The quadratic-elimination manuscript derived the full coupled \((\chi,C,q^I,\sigma)\) reduction and showed that the observer-accessible scalar bridge self-energy is controlled by the generalized numerator \(\mathcal N_C(k^2)\). What remained open was the next decision step: whether those generalized exact-closure conditions leave room for a healthy nondegenerate branch, or whether the new family again contracts to degeneracy.
+
+The present note answers that question.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays inside that boundary. It does not demote exact closure. It does not promote the constraint-assisted branch to established theory. It records the precise obstruction implied by that branch's own generalized quadratic coefficients.
+
+\section{Generalized Exact-Closure Data}
+
+The quadratic-elimination note derived the generalized infrared exact-closure conditions
+\begin{equation}
+\Lambda_C\,\mathcal B_0
++m_S^2\kappa_\theta Z_0^2
+=
+0,
+\label{eq:gencond0}
+\end{equation}
+and
+\begin{equation}
+\Lambda_C\,\mathcal B_2
+-2m_S^2\kappa_\theta Z_0Z_2
+-m_S^2\kappa_\theta G_2\mathcal B_0
+=
+0,
+\label{eq:gencond2}
+\end{equation}
+where
+\begin{equation}
+\Lambda_C
+\equiv
+m_S^2\mathcal D_{C,0}+\alpha^2\kappa_\theta,
+\qquad
+\mathcal D_{C,0}
+=
+\Delta_C+\kappa_\theta G_0.
+\label{eq:LambdaC}
+\end{equation}
+The coefficient data are
+\begin{align}
+G_0
+&=
+\beta_I\widehat M^{-1\,IJ}\beta_J,
+\qquad
+G_2
+=
+\beta_I\widehat M^{-2\,IJ}\beta_J,
+\label{eq:Gcoeffs}
+\\
+Z_0
+&=
+\mu_{SI}\widehat M^{-1\,IJ}\beta_J,
+\qquad
+Z_2
+=
+\mu_{SI}\widehat M^{-2\,IJ}\beta_J,
+\label{eq:Zcoeffs}
+\\
+\mathcal B_0
+&=
+\mu_S^2-\mu_{SI}\widehat M^{-1\,IJ}\mu_{SJ},
+\label{eq:B0}
+\\
+\mathcal B_2
+&=
+\kappa_S+\mu_{SI}\widehat M^{-2\,IJ}\mu_{SJ}.
+\label{eq:B2}
+\end{align}
+
+\section{Positive-Sign Health Gate}
+
+\begin{definition}[Positive-sign constraint-assisted branch]
+For the present flat-background analysis, a constraint-assisted branch is said to satisfy the positive-sign health gate if
+\begin{equation}
+\widehat M_{IJ}\ \text{is positive definite},
+\qquad
+m_S^2>0,
+\qquad
+\kappa_S\ge 0,
+\qquad
+\kappa_\theta\ge 0,
+\qquad
+\Delta_C>0.
+\label{eq:positivebranch}
+\end{equation}
+\end{definition}
+
+This definition keeps the constraint-assisted family inside the same sign-discipline philosophy already enforced on the previous derivational branches. It also makes the sourced longitudinal block genuinely nonresonant.
+
+\begin{lemma}[Positivity of the sourced longitudinal denominator]
+On the positive-sign constraint-assisted branch,
+\begin{equation}
+\mathcal D_{C,0}>0,
+\qquad
+\Lambda_C>0.
+\label{eq:LambdaPositive}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Because \(\widehat M_{IJ}\) is positive definite,
+\[
+G_0=\beta_I\widehat M^{-1\,IJ}\beta_J\ge 0.
+\]
+With \(\Delta_C>0\) and \(\kappa_\theta\ge 0\), this gives
+\[
+\mathcal D_{C,0}=\Delta_C+\kappa_\theta G_0>0.
+\]
+Then
+\[
+\Lambda_C=m_S^2\mathcal D_{C,0}+\alpha^2\kappa_\theta>0
+\]
+because \(m_S^2>0\), \(\mathcal D_{C,0}>0\), and \(\alpha^2\kappa_\theta\ge 0\).
+\end{proof}
+
+\begin{remark}
+The positivity of \(\Lambda_C\) is the new sign fact that replaces the simpler \(\kappa_S\ge 0\) argument of the minimal branch and the Schur-complement argument of the derivative-mixing branch.
+\end{remark}
+
+\section{Positive Decomposition of the Generalized Conditions}
+
+Define
+\begin{equation}
+\gamma_I\equiv \widehat M^{-1\,IJ}\beta_J,
+\qquad
+\zeta_I\equiv \widehat M^{-1\,IJ}\mu_{SJ}.
+\label{eq:gammazeta}
+\end{equation}
+Then
+\begin{align}
+G_0&=\beta_I\gamma_I,
+\qquad
+G_2=\gamma_I\gamma_I,
+\label{eq:Ggamma}
+\\
+Z_0&=\beta_I\zeta_I,
+\qquad
+Z_2=\gamma_I\zeta_I,
+\label{eq:Zgamma}
+\\
+\mathcal B_2&=\kappa_S+\zeta_I\zeta_I.
+\label{eq:B2zeta}
+\end{align}
+
+\begin{lemma}[First generalized condition fixes the sign of \(\mathcal B_0\)]
+On the positive-sign branch, the condition \eqref{eq:gencond0} is equivalent to
+\begin{equation}
+\mathcal B_0
+=
+-\frac{m_S^2\kappa_\theta}{\Lambda_C}\,Z_0^2
+\le 0.
+\label{eq:B0sign}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+By Lemma~1, \(\Lambda_C>0\). Solving \eqref{eq:gencond0} for \(\mathcal B_0\) therefore gives \eqref{eq:B0sign}. The inequality follows because \(m_S^2>0\), \(\kappa_\theta\ge 0\), and \(Z_0^2\ge 0\).
+\end{proof}
+
+\begin{lemma}[Positive decomposition of the second generalized condition]
+Assume the positive-sign health gate \eqref{eq:positivebranch} and the first exact-closure condition \eqref{eq:gencond0}. Then the second exact-closure condition \eqref{eq:gencond2} is equivalent to
+\begin{equation}
+0
+=
+\Lambda_C\,\kappa_S
++\Lambda_C
+\left(
+\zeta_I-\frac{m_S^2\kappa_\theta Z_0}{\Lambda_C}\gamma_I
+\right)
+\left(
+\zeta_I-\frac{m_S^2\kappa_\theta Z_0}{\Lambda_C}\gamma_I
+\right).
+\label{eq:positiveDecomp}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Using \eqref{eq:B2zeta} and \eqref{eq:Zgamma}, the second condition \eqref{eq:gencond2} becomes
+\begin{equation}
+\Lambda_C\kappa_S
++\Lambda_C\,\zeta_I\zeta_I
+-2m_S^2\kappa_\theta Z_0\,\gamma_I\zeta_I
+-m_S^2\kappa_\theta G_2\mathcal B_0
+=
+0.
+\label{eq:gencond2expanded}
+\end{equation}
+Substituting \eqref{eq:B0sign} into the last term yields
+\[
+-m_S^2\kappa_\theta G_2\mathcal B_0
+=
+\frac{m_S^4\kappa_\theta^2}{\Lambda_C}Z_0^2\,\gamma_I\gamma_I.
+\]
+Equation \eqref{eq:gencond2expanded} therefore becomes
+\[
+0
+=
+\Lambda_C\kappa_S
++\Lambda_C\,\zeta_I\zeta_I
+-2m_S^2\kappa_\theta Z_0\,\gamma_I\zeta_I
++\frac{m_S^4\kappa_\theta^2}{\Lambda_C}Z_0^2\,\gamma_I\gamma_I,
+\]
+which is exactly \eqref{eq:positiveDecomp}.
+\end{proof}
+
+\section{No-Go Theorem for the Positive-Sign Branch}
+
+\begin{theorem}[No healthy nondegenerate constraint-assisted branch]
+\label{thm:constraint-nogo}
+Assume the positive-sign constraint-assisted branch \eqref{eq:positivebranch}. Then the generalized exact-closure conditions \eqref{eq:gencond0} and \eqref{eq:gencond2} imply
+\begin{equation}
+\kappa_S=0,
+\qquad
+\mu_{SI}=0,
+\qquad
+\mu_S^2=0.
+\label{eq:collapsedconditions}
+\end{equation}
+Therefore the constraint-assisted longitudinal \(U\)-sector family admits no healthy nondegenerate flat-background exact-closure branch.
+\end{theorem}
+
+\begin{proof}
+By Lemma~3, \eqref{eq:positiveDecomp} is a sum of nonnegative terms multiplied by \(\Lambda_C>0\). Therefore exact closure forces
+\begin{equation}
+\kappa_S=0,
+\qquad
+\zeta_I
+=
+\frac{m_S^2\kappa_\theta Z_0}{\Lambda_C}\gamma_I.
+\label{eq:kappaSzeta}
+\end{equation}
+
+Contract \eqref{eq:kappaSzeta} with \(\beta_I\). Using \(Z_0=\beta_I\zeta_I\) and \(G_0=\beta_I\gamma_I\) gives
+\begin{equation}
+Z_0
+=
+\frac{m_S^2\kappa_\theta G_0}{\Lambda_C}\,Z_0.
+\label{eq:Z0relation}
+\end{equation}
+But
+\begin{equation}
+\Lambda_C-m_S^2\kappa_\theta G_0
+=
+m_S^2\Delta_C+\alpha^2\kappa_\theta
+>
+0
+\label{eq:strictgap}
+\end{equation}
+on the positive-sign branch, because \(\Delta_C>0\), \(m_S^2>0\), and \(\alpha^2\kappa_\theta\ge 0\). Therefore the prefactor multiplying \(Z_0\) on the right-hand side of \eqref{eq:Z0relation} is strictly less than \(1\), so \eqref{eq:Z0relation} implies
+\begin{equation}
+Z_0=0.
+\label{eq:Z0zero}
+\end{equation}
+Equation \eqref{eq:kappaSzeta} then gives \(\zeta_I=0\), hence
+\begin{equation}
+\mu_{SI}=0
+\label{eq:muzero}
+\end{equation}
+because \(\widehat M_{IJ}\) is invertible.
+
+Finally, with \(Z_0=0\), the first exact-closure condition \eqref{eq:gencond0} gives \(\mathcal B_0=0\). Using \eqref{eq:B0} together with \(\mu_{SI}=0\) therefore yields
+\begin{equation}
+\mu_S^2=0.
+\label{eq:muSzero}
+\end{equation}
+Together with \(\kappa_S=0\), this proves \eqref{eq:collapsedconditions}.
+\end{proof}
+
+\begin{corollary}[Exclusion of a healthy noncollapsed branch]
+Within the positive-sign constraint-assisted family, there is no flat-background exact-closure branch with
+\[
+\kappa_S>0,
+\qquad
+\text{or}
+\qquad
+\mu_{SI}\neq 0,
+\qquad
+\text{or}
+\qquad
+\mu_S^2\neq 0.
+\]
+\end{corollary}
+
+\begin{remark}
+This result is stronger than the derivative-mixing outcome. There the exact-closure conditions left a tuned semidefinite perfect-square branch. Here the positive-sign health gate collapses even that possibility. The constraint-assisted branch falls all the way back to the same collapsed scalar limit already familiar from the minimal stable-sign obstruction.
+\end{remark}
+
+\section{Collapsed Exact-Closure Limit}
+
+\begin{proposition}[Exact closure on the collapsed scalar limit]
+When \eqref{eq:collapsedconditions} holds,
+\begin{equation}
+\mathcal B(k^2)=0,
+\qquad
+\mathcal Z(k^2)=0,
+\qquad
+\Gamma_C(k^2)=0,
+\qquad
+\mathcal B_C(k^2)=0,
+\qquad
+\mathcal N_C(k^2)=0
+\label{eq:collapsedzero}
+\end{equation}
+for all \(k^2\) at quadratic order. The reduced scalar bridge channel becomes
+\begin{equation}
+\mathcal L_{\sigma,\mathrm{eff},C}^{(2)}
+=
+-\frac{1}{2}\,
+\mathcal M_C(-\nabla^2)\,
+\bigl(\partial_0\sigma-\sigma_0\phi\bigr)^2,
+\label{eq:collapsedL}
+\end{equation}
+where
+\begin{equation}
+\mathcal M_C(-\nabla^2)
+=
+m_S^2+\frac{\alpha^2\kappa_\theta}{\mathcal D_C(-\nabla^2)}.
+\label{eq:collapsedM}
+\end{equation}
+Consequently the observer-accessible scalar bridge self-energy vanishes identically.
+\end{proposition}
+
+\begin{proof}
+If \(\mu_{SI}=0\), then \(\mathcal Z(k^2)=0\) and the induced \(Q\)-sector scalar self-energy \(\Sigma_q(k^2)\) vanishes. With \(\kappa_S=0\) and \(\mu_S^2=0\), this gives \(\mathcal B(k^2)=0\) for all \(k^2\). The definitions of \(\Gamma_C\), \(\mathcal B_C\), and \(\mathcal N_C\) derived in the quadratic-elimination note then immediately give \eqref{eq:collapsedzero}. Equation \eqref{eq:collapsedL} is the reduced action that remains once those vanishing coefficients are inserted into the general scalar bridge channel.
+\end{proof}
+
+\begin{remark}
+The branch \eqref{eq:collapsedconditions} still has exact quadratic closure in the observer-accessible bridge sector, but it is degenerate. The scalar spatial-gradient term, the quadratic \(S\)-sector potential curvature, and the quadratic \(S\)--\(Q\) mixing all disappear. What remains is only the Stueckelberg-like time-derivative structure \eqref{eq:collapsedL}.
+\end{remark}
+
+\section{Excluded Sign-Flipped Tuned Loophole}
+
+\begin{proposition}[Algebraic tuned branch outside the health gate]
+If the positive-sign health gate is abandoned, the generalized exact-closure conditions also admit the tuned branch
+\begin{equation}
+\kappa_S=0,
+\qquad
+\mu_{SI}=\lambda\,\beta_I,
+\qquad
+\mu_S^2=0,
+\qquad
+m_S^2\Delta_C+\alpha^2\kappa_\theta=0,
+\label{eq:signflipped}
+\end{equation}
+for which
+\begin{equation}
+\mathcal N_C(k^2)=0
+\label{eq:signflippedN}
+\end{equation}
+for all \(k^2\) at quadratic order.
+\end{proposition}
+
+\begin{proof}
+If \(\mu_{SI}=\lambda\beta_I\), then
+\[
+\mathcal Z(k^2)=\lambda\,\mathcal G(k^2),
+\qquad
+\mathcal B(k^2)=-\lambda^2\mathcal G(k^2)
+\]
+when \(\kappa_S=0\) and \(\mu_S^2=0\). Substituting these relations into the compact numerator formula
+\[
+\mathcal N_C
+=
+m_S^2\mathcal B
++\frac{\kappa_\theta}{\mathcal D_C}
+\bigl(\alpha^2\mathcal B+m_S^2\mathcal Z^2\bigr)
+\]
+gives
+\[
+\mathcal N_C(k^2)
+=
+-\lambda^2\mathcal G(k^2)\,
+\frac{m_S^2\Delta_C+\alpha^2\kappa_\theta}
+{\mathcal D_C(k^2)}.
+\]
+Hence \eqref{eq:signflipped} implies \eqref{eq:signflippedN}.
+\end{proof}
+
+\begin{remark}
+The branch \eqref{eq:signflipped} is not accepted as viable here. On every nonresonant branch with \(\alpha\neq 0\), the relation \(m_S^2\Delta_C+\alpha^2\kappa_\theta=0\) requires \(\kappa_\theta/\Delta_C<0\). That is exactly the sign pattern excluded by the positive-sign health gate \eqref{eq:positivebranch}. The present note therefore records \eqref{eq:signflipped} only as an algebraic loophole outside the active health standard, not as a surviving derivational candidate.
+\end{remark}
+
+\section{What This Note Establishes}
+
+The present note establishes the following.
+\begin{enumerate}
+    \item It identifies the positive-sign health gate appropriate to the constraint-assisted longitudinal \(U\)-sector family.
+    \item It rewrites the generalized exact-closure conditions into the positive decomposition \eqref{eq:positiveDecomp}.
+    \item It proves that, under that health gate, exact closure forces the collapsed scalar limit \eqref{eq:collapsedconditions}.
+    \item It proves that the constraint-assisted branch therefore has no healthy nondegenerate flat-background exact-closure solution.
+    \item It records the remaining exact-closure possibilities correctly: the collapsed scalar limit inside the health gate and the sign-flipped tuned loophole \eqref{eq:signflipped} outside it.
+\end{enumerate}
+
+The present note does \emph{not} establish the following.
+\begin{enumerate}
+    \item It does not prove that every possible nonminimal completion beyond the constraint-assisted family fails.
+    \item It does not promote the sign-flipped loophole as healthy or acceptable.
+    \item It does not upgrade the flat-background analysis to a curved-background theorem.
+    \item It does not solve the nonlinear stability problem for any later candidate branch.
+\end{enumerate}
+
+\section{Conclusion}
+
+The next decision step for the constraint-assisted longitudinal \(U\)-sector family was to determine whether its generalized exact-closure conditions actually leave room for a healthy nondegenerate branch. That question now has a clear answer.
+
+Under the same positive-sign discipline already imposed on the rest of the derivational program, the answer is no. The generalized conditions do not define a new nondegenerate tuning surface. They collapse the branch to
+\[
+\kappa_S=0,
+\qquad
+\mu_{SI}=0,
+\qquad
+\mu_S^2=0,
+\]
+so the only surviving exact-closure solution inside the health gate is the collapsed scalar limit with vanishing bridge self-energy.
+
+This makes the scientific status of the branch definite. The constraint-assisted \(U\)-sector family is a successful test branch in the limited sense that it exposed the next obstruction clearly. It is not the sought healthy nondegenerate derivational branch. The immediate implication for the research program is that the next candidate family must now be sought elsewhere unless the active health standard itself is to be relaxed and then rebuilt from the beginning.
+
+\end{document}

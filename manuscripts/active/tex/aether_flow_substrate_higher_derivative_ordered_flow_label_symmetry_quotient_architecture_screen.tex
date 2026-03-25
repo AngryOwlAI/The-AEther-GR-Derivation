@@ -1,0 +1,528 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal{A}}
+\newcommand{\BridgeMetric}{\mathfrak{g}}
+\newcommand{\AY}{\mathcal A_Y}
+\newcommand{\AZ}{\mathcal A_Z}
+\newcommand{\FieldSpace}{\mathscr F}
+\newcommand{\RepFieldSpace}{\FieldSpace_{\mathrm{rep}}}
+\newcommand{\PhysFieldSpace}{\FieldSpace_{\mathrm{phys}}}
+\newcommand{\GaugeGroup}{\mathscr G_{\mathrm{of}}}
+\newcommand{\Slice}{\Sigma_*}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Ordered-Flow Label Symmetry/Quotient Candidate: Architecture Screen}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The explicit ordered-flow label symmetry/quotient candidate has already passed the flat-background coefficient-level screen: the observer-equation correction tensor vanishes while the bridge metric and the single-metric matter route remain fixed. The next burden is narrower and genuinely nonlinear. One must decide whether that quotient is an honest branch-level redundancy or only a bookkeeping trick that hides the old infinite-dimensional fiber in another form.
+
+This note performs exactly that architecture screen and stops there. Start from the same tuned double exact-square candidate with
+\[
+\AY
+\equiv
+\frac{\sqrt{\lambda_4}}{M_*}\Delta_\perp S-M_YY,
+\qquad
+\AZ
+\equiv
+m_S\bigl(U^A\nabla_A S-\sigma_0\bigr)-M_ZZ,
+\]
+and the same local ordered-flow relabeling symmetry
+\[
+S\mapsto S+\eta,
+\qquad
+Y\mapsto Y+\frac{\sqrt{\lambda_4}}{M_YM_*}\Delta_\perp\eta,
+\qquad
+Z\mapsto Z+\frac{m_S}{M_Z}U^A\nabla_A\eta,
+\]
+with \(G_{AB}\), \(U^A\), \(Q^I\), and the bridge metric fixed. The first result is structural: the quotient field space is identified cleanly and globally. For any fixed reference ordered-flow label \(S_*\) in the chosen asymptotic class, every \(\GaugeGroup\)-orbit contains a unique representative with \(S=S_*\). Equivalently,
+\[
+\PhysFieldSpace
+\cong
+\left\{
+\bigl(G_{AB},U^A,Q^I,\lambda_U,\psi,\AY,\AZ\bigr)
+\right\},
+\]
+so the quotient has an explicit physical coordinate description.
+
+The second result is branch-level. The action descends exactly to the quotient action
+\[
+S_{4YZ}^{\mathrm{phys}}
+=
+\frac{c^3}{16\pi G_N}
+\int_{\Sub} d^4X\,\sqrt{G}\,\bigl(R[\BridgeMetric]-2\Lambda_{\Sub}\bigr)
++\int_{\Sub} d^4X\,\sqrt{G}\,\mathcal L_{\mathrm{aux,phys}}
++S_{\mathrm{matter}}[\Xi^*\BridgeMetric,\psi],
+\]
+with
+\[
+\begin{aligned}
+\mathcal L_{\mathrm{aux,phys}}
+=
+\lambda_U(G_{AB}U^AU^B-1)
+-\frac12\AY^2
+-\frac12\AZ^2
+\\
+&\quad
+-\frac12\delta_{IJ}P^{AB}(D_AQ^I)(D_BQ^J)
+-\frac12\widehat M_{IJ}Q^IQ^J
+-\frac{\kappa_\theta}{2}(\nabla_AU^A)^2
+-\frac{\kappa_\Omega}{4}\Omega_{AB}\Omega^{AB}.
+\end{aligned}
+\]
+Its quotient Euler--Lagrange equations are \(\AY=0\), \(\AZ=0\), together with the reduced \(S\)-free equations already encoded in the old degenerate action. On shell, the physical branch data are therefore just the reduced fields
+\[
+\bigl(G_{AB},U^A,Q^I,\lambda_U,\psi\bigr)
+\]
+modulo the already recorded geometric gauge choices. The old infinite-dimensional substrate fiber survives only as the family of gauge representatives of a single physical state.
+
+The architecture verdict is therefore positive at current disciplined scope. The ordered-flow relabeling is an honest physical redundancy of the branch, not merely a flat-background coefficient trick, and no revived fiber ambiguity survives after quotienting. This note still stops before any reduced-system, local-coercive, or theorem reopening. It records only that such a reopening is no longer blocked by the old branch-level underdetermination.
+\end{abstract}
+
+\section{Introduction}
+
+The explicit ordered-flow symmetry/quotient manuscript settled one task and left one sharper one. It showed that the doubly tuned exact-square branch can be reinterpreted by an exact local ordered-flow relabeling symmetry and that, at flat-background quadratic scope, the observer-equation correction tensor vanishes on that quotient branch. What it did not yet decide was whether that symmetry remains honest at full branch level.
+
+That is the immediate burden now. The present note does not ask for a reduced \(3+1\) system, a local theorem, or a coercive estimate. It asks only whether the quotient architecture is real. Concretely, three issues must be settled:
+\begin{enumerate}
+    \item what the physical field space actually is after quotienting by the ordered-flow relabeling symmetry;
+    \item whether the old infinite-dimensional substrate fiber becomes pure gauge rather than surviving as hidden physical ambiguity;
+    \item whether the quotient candidate therefore survives the branch-level architecture screen while the bridge metric and single-metric matter route remain fixed.
+\end{enumerate}
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present manuscript stays strictly inside that boundary. It does not claim a completed substrate derivation. It does not prove local well-posedness or slice closure. It performs only the quotient-architecture screen and stops at the corresponding verdict.
+
+\section{The Branch To Be Screened}
+
+\begin{definition}[Representative field space]
+\label{def:repfield}
+Let \(\RepFieldSpace\) denote the space of field tuples
+\[
+\bigl(G_{AB},U^A,S,Q^I,Y,Z,\lambda_U,\psi\bigr)
+\]
+obeying the same positivity assumptions, admissibility assumptions, and asymptotic ordered-flow profile as in the explicit quotient-candidate note. On \(\RepFieldSpace\), define
+\begin{equation}
+\BridgeMetric_{AB}=G_{AB}-2U_AU_B,
+\qquad
+P_{AB}=G_{AB}-U_AU_B,
+\label{eq:bridge}
+\end{equation}
+\begin{equation}
+\Delta_\perp S\equiv \nabla_A(P^{AB}\nabla_BS),
+\qquad
+\Omega_{AB}\equiv P_A{}^CP_B{}^D\nabla_{[C}U_{D]},
+\label{eq:defops}
+\end{equation}
+and
+\begin{equation}
+\AY
+\equiv
+\frac{\sqrt{\lambda_4}}{M_*}\Delta_\perp S-M_YY,
+\qquad
+\AZ
+\equiv
+m_S\bigl(U^A\nabla_A S-\sigma_0\bigr)-M_ZZ.
+\label{eq:AYAZ}
+\end{equation}
+\end{definition}
+
+\begin{definition}[Representative action]
+\label{def:repaction}
+The representative action on \(\RepFieldSpace\) is
+\begin{equation}
+S_{4YZ}^{\mathrm{rep}}
+=
+\frac{c^3}{16\pi G_N}
+\int_{\Sub} d^4X\,\sqrt{G}\,\bigl(R[\BridgeMetric]-2\Lambda_{\Sub}\bigr)
++\int_{\Sub} d^4X\,\sqrt{G}\,\mathcal L_{\mathrm{aux},4YZ}
++S_{\mathrm{matter}}[\Xi^*\BridgeMetric,\psi],
+\label{eq:Srep}
+\end{equation}
+with
+\begin{align}
+\mathcal L_{\mathrm{aux},4YZ}
+=\;&
+\lambda_U\bigl(G_{AB}U^AU^B-1\bigr)
+-\frac12\AY^2
+-\frac12\AZ^2
+\nonumber\\
+&-\frac12\delta_{IJ}P^{AB}(D_AQ^I)(D_BQ^J)
+-\frac12\widehat M_{IJ}Q^IQ^J
+-\frac{\kappa_\theta}{2}\bigl(\nabla_AU^A\bigr)^2
+-\frac{\kappa_\Omega}{4}\Omega_{AB}\Omega^{AB},
+\label{eq:Lrep}
+\end{align}
+where
+\begin{equation}
+m_S^2>0,
+\qquad
+\lambda_4>0,
+\qquad
+M_Y^2>0,
+\qquad
+M_Z^2>0,
+\qquad
+\widehat M_{IJ}>0,
+\qquad
+\kappa_\theta>0,
+\qquad
+\kappa_\Omega>0.
+\label{eq:positivity}
+\end{equation}
+\end{definition}
+
+\begin{definition}[Ordered-flow relabeling group]
+\label{def:gauge}
+Let \(\GaugeGroup\) denote the local transformation group generated by smooth parameters \(\eta\) preserving the chosen asymptotic ordered-flow profile. Its action on \(\RepFieldSpace\) is
+\begin{equation}
+\delta_\eta S=\eta,
+\qquad
+\delta_\eta Y=\frac{\sqrt{\lambda_4}}{M_YM_*}\Delta_\perp\eta,
+\qquad
+\delta_\eta Z=\frac{m_S}{M_Z}U^A\nabla_A\eta,
+\label{eq:gauge}
+\end{equation}
+with
+\begin{equation}
+\delta_\eta G_{AB}=0,
+\qquad
+\delta_\eta U^A=0,
+\qquad
+\delta_\eta Q^I=0,
+\qquad
+\delta_\eta \lambda_U=0,
+\qquad
+\delta_\eta\psi=0.
+\label{eq:gaugefixed}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[Exact invariance]
+\label{prop:invariant}
+The representative action \(S_{4YZ}^{\mathrm{rep}}\) is exactly invariant under \(\GaugeGroup\). In particular, \(\AY\), \(\AZ\), \(\BridgeMetric_{AB}\), the observer metric \(g_{\mu\nu}=\Xi^*\BridgeMetric_{AB}\), and the matter route are all invariant.
+\end{proposition}
+
+\begin{proof}
+Equation \eqref{eq:gauge} gives
+\[
+\delta_\eta(\Delta_\perp S)=\Delta_\perp\eta,
+\qquad
+\delta_\eta(U^A\nabla_A S)=U^A\nabla_A\eta,
+\]
+because \(G_{AB}\) and \(U^A\) are fixed under the relabeling. Substituting into \eqref{eq:AYAZ} gives \(\delta_\eta\AY=0\) and \(\delta_\eta\AZ=0\). The bridge metric depends only on \(G_{AB}\) and \(U^A\), so it is invariant as well. Every term of \eqref{eq:Srep}--\eqref{eq:Lrep} therefore depends only on invariant quantities.
+\end{proof}
+
+\section{Physical Field Space After Quotienting}
+
+\begin{definition}[Current quotient-architecture criterion]
+\label{def:criterion}
+At current disciplined scope, the ordered-flow quotient candidate passes its architecture screen if all three statements hold:
+\begin{enumerate}
+    \item the physical field space after quotienting is identified explicitly and without leftover representative ambiguity;
+    \item the action descends to that quotient field space as a well-defined physical action;
+    \item on shell, the old infinite-dimensional substrate fiber is exactly a gauge orbit rather than a surviving physical underdetermination.
+\end{enumerate}
+This criterion concerns branch-level physical data only. It does not yet ask for a reduced-system, local-coercive, or theorem package.
+\end{definition}
+
+\begin{proposition}[Orbit invariants classify representatives]
+\label{prop:classify}
+Define the orbit map
+\begin{equation}
+\pi:
+\RepFieldSpace\to
+\left\{
+\bigl(G_{AB},U^A,Q^I,\lambda_U,\psi,\AY,\AZ\bigr)
+\right\}
+\label{eq:orbitmap}
+\end{equation}
+by
+\[
+\pi\bigl(G,U,S,Q,Y,Z,\lambda_U,\psi\bigr)
+=
+\bigl(G,U,Q,\lambda_U,\psi,\AY,\AZ\bigr).
+\]
+Then:
+\begin{enumerate}
+    \item \(\pi\) is constant on \(\GaugeGroup\)-orbits;
+    \item two representatives have the same image under \(\pi\) if and only if they are related by an ordered-flow relabeling.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Item (1) is Proposition \ref{prop:invariant}. For item (2), suppose first that the two representatives are gauge related. Then they have the same \(G_{AB}\), \(U^A\), \(Q^I\), \(\lambda_U\), \(\psi\), \(\AY\), and \(\AZ\) by construction.
+
+Conversely, suppose
+\[
+\pi(G,U,S_1,Q,Y_1,Z_1,\lambda_U,\psi)
+=
+\pi(G,U,S_2,Q,Y_2,Z_2,\lambda_U,\psi).
+\]
+Then \(G\), \(U\), \(Q\), \(\lambda_U\), and \(\psi\) already agree, and equality of \(\AY\) and \(\AZ\) gives
+\[
+M_Y(Y_2-Y_1)
+=
+\frac{\sqrt{\lambda_4}}{M_*}\Delta_\perp(S_2-S_1),
+\]
+and
+\[
+M_Z(Z_2-Z_1)
+=
+m_SU^A\nabla_A(S_2-S_1).
+\]
+Setting \(\eta=S_2-S_1\), these are exactly the transformation laws \eqref{eq:gauge}. Hence the two representatives lie on the same \(\GaugeGroup\)-orbit.
+\end{proof}
+
+\begin{corollary}[Unique reference slice]
+\label{cor:slice}
+Fix any smooth scalar field \(S_*\) in the chosen asymptotic ordered-flow class, and define
+\begin{equation}
+\Slice
+\equiv
+\left\{
+\bigl(G,U,S,Q,Y,Z,\lambda_U,\psi\bigr)\in\RepFieldSpace:\ S=S_*
+\right\}.
+\label{eq:slice}
+\end{equation}
+Then every \(\GaugeGroup\)-orbit intersects \(\Slice\) in exactly one point.
+\end{corollary}
+
+\begin{proof}
+Given any representative with ordered-flow label \(S\), choose \(\eta=S_*-S\). Since \(S\) and \(S_*\) obey the same asymptotic ordered-flow condition, this \(\eta\) belongs to the allowed relabeling class. The transformed representative has \(S=S_*\), so every orbit meets \(\Slice\).
+
+If two points of the same orbit lie in \(\Slice\), then their ordered-flow labels both equal \(S_*\). But \(\delta_\eta S=\eta\), so the only relabeling preserving \(S_*\) is \(\eta=0\). Therefore the intersection is unique.
+\end{proof}
+
+\begin{definition}[Physical field space]
+\label{def:physfield}
+The physical field space of the quotient branch is
+\begin{equation}
+\PhysFieldSpace
+\equiv
+\RepFieldSpace/\GaugeGroup.
+\label{eq:physfield}
+\end{equation}
+By Proposition \ref{prop:classify} and Corollary \ref{cor:slice}, it can be represented equivalently either by the unique slice \(\Slice\) or by the invariant-coordinate space
+\begin{equation}
+\PhysFieldSpace
+\cong
+\left\{
+\bigl(G_{AB},U^A,Q^I,\lambda_U,\psi,\AY,\AZ\bigr)
+\right\}.
+\label{eq:physcoords}
+\end{equation}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:physfield} is the first new architecture result beyond the coefficient-level note. The quotient is not an abstract slogan. It has both a unique representative model \(S=S_*\) and a direct invariant-coordinate model \((G,U,Q,\lambda_U,\psi,\AY,\AZ)\).
+\end{remark}
+
+\section{The Quotient Action}
+
+\begin{theorem}[Action descends exactly]
+\label{thm:descend}
+There exists a unique action \(S_{4YZ}^{\mathrm{phys}}\) on \(\PhysFieldSpace\) whose pullback to \(\RepFieldSpace\) is \(S_{4YZ}^{\mathrm{rep}}\). In invariant coordinates \eqref{eq:physcoords}, it is
+\begin{equation}
+S_{4YZ}^{\mathrm{phys}}
+=
+\frac{c^3}{16\pi G_N}
+\int_{\Sub} d^4X\,\sqrt{G}\,\bigl(R[\BridgeMetric]-2\Lambda_{\Sub}\bigr)
++\int_{\Sub} d^4X\,\sqrt{G}\,\mathcal L_{\mathrm{aux,phys}}
++S_{\mathrm{matter}}[\Xi^*\BridgeMetric,\psi],
+\label{eq:Sphys}
+\end{equation}
+with
+\begin{align}
+\mathcal L_{\mathrm{aux,phys}}
+=\;&
+\lambda_U\bigl(G_{AB}U^AU^B-1\bigr)
+-\frac12\AY^2
+-\frac12\AZ^2
+\nonumber\\
+&-\frac12\delta_{IJ}P^{AB}(D_AQ^I)(D_BQ^J)
+-\frac12\widehat M_{IJ}Q^IQ^J
+-\frac{\kappa_\theta}{2}\bigl(\nabla_AU^A\bigr)^2
+-\frac{\kappa_\Omega}{4}\Omega_{AB}\Omega^{AB}.
+\label{eq:Lphys}
+\end{align}
+\end{theorem}
+
+\begin{proof}
+Proposition \ref{prop:invariant} shows that \(S_{4YZ}^{\mathrm{rep}}\) is constant on every \(\GaugeGroup\)-orbit. Therefore it descends uniquely to the orbit space \(\PhysFieldSpace\). Formula \eqref{eq:Sphys}--\eqref{eq:Lphys} is exactly the representative action rewritten in orbit coordinates, because every appearance of \(S\), \(Y\), and \(Z\) in \eqref{eq:Srep}--\eqref{eq:Lrep} is through the invariant combinations \(\AY\) and \(\AZ\).
+\end{proof}
+
+\begin{proposition}[Quotient equations for the ordered-flow sector]
+\label{prop:physAYAZ}
+The quotient Euler--Lagrange equations obtained by varying \(\AY\) and \(\AZ\) in \(S_{4YZ}^{\mathrm{phys}}\) are
+\begin{equation}
+\AY=0,
+\qquad
+\AZ=0.
+\label{eq:AYAZzero}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+In \eqref{eq:Lphys}, the invariant fields \(\AY\) and \(\AZ\) appear only through the algebraic exact squares \(-\frac12\AY^2\) and \(-\frac12\AZ^2\). Varying them gives \eqref{eq:AYAZzero}.
+\end{proof}
+
+\begin{corollary}[On-shell physical branch data]
+\label{cor:on-shell}
+On shell, the quotient branch is represented by
+\begin{equation}
+\bigl(G_{AB},U^A,Q^I,\lambda_U,\psi,\AY,\AZ\bigr)
+\quad\text{with}\quad
+\AY=\AZ=0.
+\label{eq:onshelldata}
+\end{equation}
+The remaining equations are exactly those obtained from the \(S\)-free reduced action
+\begin{equation}
+S_{\mathrm{deg}}
+=
+\frac{c^3}{16\pi G_N}
+\int_{\Sub} d^4X\,\sqrt{G}\,\bigl(R[\BridgeMetric]-2\Lambda_{\Sub}\bigr)
++\int_{\Sub} d^4X\,\sqrt{G}\,\mathcal L_{\mathrm{aux,deg}}
++S_{\mathrm{matter}}[\Xi^*\BridgeMetric,\psi],
+\label{eq:Sdeg}
+\end{equation}
+with
+\begin{align}
+\mathcal L_{\mathrm{aux,deg}}
+=\;&
+\lambda_U\bigl(G_{AB}U^AU^B-1\bigr)
+-\frac12\delta_{IJ}P^{AB}(D_AQ^I)(D_BQ^J)
+-\frac12\widehat M_{IJ}Q^IQ^J
+\nonumber\\
+&-\frac{\kappa_\theta}{2}\bigl(\nabla_AU^A\bigr)^2
+-\frac{\kappa_\Omega}{4}\Omega_{AB}\Omega^{AB}.
+\label{eq:Ldeg}
+\end{align}
+\end{corollary}
+
+\begin{proof}
+Proposition \ref{prop:physAYAZ} gives \(\AY=\AZ=0\). After imposing those two equations, the remaining terms of \eqref{eq:Sphys}--\eqref{eq:Lphys} are precisely \eqref{eq:Sdeg}--\eqref{eq:Ldeg}. Hence the remaining quotient equations are exactly the Euler--Lagrange equations of \(S_{\mathrm{deg}}\).
+\end{proof}
+
+\begin{remark}
+Corollary \ref{cor:on-shell} is the second essential architecture result. The old degenerate action no longer signals physical underdetermination, because the missing \(S\)-equation belongs to a field that is no longer physical on the quotient branch. What remains physically is the reduced \(S\)-free system together with the algebraic invariant conditions \(\AY=\AZ=0\).
+\end{remark}
+
+\section{No Revived Fiber Ambiguity}
+
+\begin{theorem}[The old infinite-dimensional fiber is pure gauge]
+\label{thm:fiber}
+Fix any on-shell quotient configuration \(\bigl(G,U,Q,\lambda_U,\psi,\AY,\AZ\bigr)\) with \(\AY=\AZ=0\). The full representative configurations projecting to it form exactly one \(\GaugeGroup\)-orbit. Equivalently, the old infinite-dimensional family of lifts indexed by \(S\) is not a family of distinct physical states.
+\end{theorem}
+
+\begin{proof}
+By Definition \ref{def:physfield}, a representative projects to the given quotient point precisely when it has the same \(G\), \(U\), \(Q\), \(\lambda_U\), \(\psi\), \(\AY\), and \(\AZ\). Proposition \ref{prop:classify} then says that any two such representatives are gauge related. Since the old lift family differed only by choices of \((S,Y,Z)\) holding \(G\), \(U\), \(Q\), \(\lambda_U\), \(\psi\), \(\AY\), and \(\AZ\) fixed, it is exactly one gauge orbit.
+\end{proof}
+
+\begin{corollary}[No revived physical underdetermination]
+\label{cor:nounder}
+After quotienting, the branch has no additional physical ambiguity associated with the ordered-flow label. The physical data of the on-shell branch are
+\begin{equation}
+\bigl(G_{AB},U^A,Q^I,\lambda_U,\psi\bigr)
+\label{eq:physicaldata}
+\end{equation}
+modulo the already recorded geometric gauge choices, and distinct representatives \((S,Y,Z)\) of the same data are gauge copies only.
+\end{corollary}
+
+\begin{proof}
+Corollary \ref{cor:on-shell} removes \(\AY\) and \(\AZ\) on shell. Theorem \ref{thm:fiber} then shows that any residual freedom in \(S\), \(Y\), and \(Z\) is pure gauge rather than a new physical fiber.
+\end{proof}
+
+\begin{remark}
+Corollary \ref{cor:nounder} is the exact answer to the question posed by the present manuscript. The quotient does not merely rename the old underdetermined branch. It removes the ordered-flow label from the physical state space.
+\end{remark}
+
+\section{Architecture Verdict and Stopping Point}
+
+\begin{theorem}[Positive quotient-architecture verdict]
+\label{thm:verdict}
+The explicit ordered-flow symmetry/quotient candidate passes the current branch-level architecture screen while the bridge metric and single-metric matter route remain fixed. More precisely:
+\begin{enumerate}
+    \item the physical field space after quotienting is identified explicitly by Definition \ref{def:physfield};
+    \item the action descends exactly to the quotient action \(S_{4YZ}^{\mathrm{phys}}\) of Theorem \ref{thm:descend};
+    \item the old infinite-dimensional substrate fiber is pure gauge by Theorem \ref{thm:fiber}, so no revived physical ambiguity survives modulo the ordered-flow relabeling symmetry.
+\end{enumerate}
+Hence the ordered-flow relabeling is an honest physical redundancy of the branch, not merely a coefficient-level bookkeeping device.
+\end{theorem}
+
+\begin{proof}
+Item (1) is Proposition \ref{prop:classify} together with Corollary \ref{cor:slice}. Item (2) is Theorem \ref{thm:descend}. Item (3) is Theorem \ref{thm:fiber} and Corollary \ref{cor:nounder}. These are exactly the three items required by Definition \ref{def:criterion}.
+\end{proof}
+
+\begin{corollary}[What this note does and does not justify]
+\label{cor:stop}
+The present note justifies exactly two programmatic conclusions:
+\begin{enumerate}
+    \item the quotient candidate survives honestly beyond the flat-background coefficient-level screen as a nonlinear branch-level architecture;
+    \item any future reduced-system reopening on this quotient branch is no longer blocked by the old ordered-flow fiber ambiguity.
+\end{enumerate}
+It does \emph{not} yet justify a reduced-system note, a local-coercive note, or any theorem claim on that branch.
+\end{corollary}
+
+\begin{proof}
+Item (1) is Theorem \ref{thm:verdict}. Item (2) follows because the branch-level ambiguity tested here was the only specific obstruction inherited from the old double exact-square architecture note once the quotient principle had been introduced. The last sentence is exactly the stopping rule built into Definition \ref{def:criterion}.
+\end{proof}
+
+\begin{remark}
+If the present architecture screen had failed while the bridge metric and single-metric matter route remained fixed, the next larger move would have been to reconsider one of those two ingredients. Theorem \ref{thm:verdict} shows that this contingency is not the current verdict. The next question, if the active line chooses to proceed, is whether a reduced-system note should now be reopened on the quotient branch.
+\end{remark}
+
+\section{Conclusion}
+
+The present manuscript performs the first nonlinear screen after the coefficient-level positive quotient verdict and stops exactly where it should.
+\begin{enumerate}
+    \item It identifies the true physical field space after quotienting by the ordered-flow relabeling symmetry.
+    \item It shows that the quotient action is well defined and that its ordered-flow-sector equations are simply \(\AY=\AZ=0\).
+    \item It proves that the old infinite-dimensional substrate fiber is exactly one gauge orbit and therefore no longer a physical underdetermination.
+    \item It records the resulting architecture verdict: the quotient candidate is honest at branch level while the bridge metric and single-metric matter route remain fixed.
+\end{enumerate}
+
+That is the correct stopping point. The quotient branch has passed the architecture screen, but no reduced-system, local-coercive, or theorem work is reopened here. This note records only that the old fiber ambiguity no longer blocks such a reopening in principle.
+
+\end{document}

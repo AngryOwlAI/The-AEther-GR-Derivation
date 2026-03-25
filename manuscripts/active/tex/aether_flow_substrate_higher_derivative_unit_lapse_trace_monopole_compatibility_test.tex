@@ -1,0 +1,440 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal{A}}
+\newcommand{\BridgeMetric}{\mathfrak{g}}
+\newcommand{\Ell}{\mathcal{L}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Higher-Derivative Quartic Branch Unit-Lapse Trace-Monopole Compatibility Test}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The fixed-completion unit-lapse spatial-harmonic route has already passed its first obstruction note: the straightforward unweighted decaying Sobolev \((K,\chi,\beta)\) package fails whenever the longitudinal source monopole
+\[
+\mathfrak m_\chi(t)
+=
+\int_{\mathbb R^3}\bigl(K-\mathcal N_\chi\bigr)(t,x)\,dx
+\]
+is nonzero. The smallest possible repair is therefore narrower than a weighted-space redesign. One should first ask whether the same fixed-completion formulation already forces
+\(\mathfrak m_\chi(0)=0\) from its existing constraints and gauge conditions and, if so, whether the unit-lapse evolution propagates that cancellation.
+
+This note performs exactly that test. The verdict is negative at the present recorded scope. First, the existing unit-lapse compatible-data conditions do not presently furnish a derivation of \(\mathfrak m_\chi(0)=0\): the Einstein Hamiltonian and momentum constraints, the unit-lapse spatial-harmonic gauge conditions, and decaying auxiliary solvability do not by themselves yield a global identity cancelling the trace monopole. Second, even if one imposes \(\mathfrak m_\chi(0)=0\) as an extra initial condition, the current unit-lapse evolution gives only a formal identity for \(\frac{d}{dt}\mathfrak m_\chi\), and that identity is not closed by any recorded cancellation law. In particular, no theorem-level relation presently ties the integral of the trace evolution to the material derivative of \(\mathcal N_\chi\).
+
+The conclusion is correspondingly narrow. The propagated trace-monopole cancellation route does not yet repair the unweighted \((K,\chi,\beta)\) architecture on the fixed completion \(S_{\mathrm{min},4}\). A vanishing trace monopole would be a new additional compatibility condition, and its persistence is not currently proved. Therefore the next smallest honest repair is the longitudinal auxiliary renormalization
+\[
+\chi=\chi_{\mathrm{Coul}}+\chi_{\mathrm{reg}},
+\]
+while the broader weighted or homogeneous reformulation should still be deferred until after that smaller fixed-completion route is tested.
+\end{abstract}
+
+\section{Introduction}
+
+The higher-derivative quartic branch has now reached a sharper fixed-completion decision point. The gauge-first unit-lapse spatial-harmonic reduction removed the old maximal-gauge lapse obstruction at the equation level, but the subsequent trace/auxiliary note showed that the direct unweighted decaying Sobolev replay of the old local and coercive architecture still fails: the longitudinal ordered-flow solve
+\begin{equation}
+\kappa_\theta \Delta_\gamma \chi
+=
+-K+\mathcal N_\chi
+\label{eq:chiell}
+\end{equation}
+generically produces a Coulomb \(1/|x|\) tail whenever the source monopole is nonzero.
+
+That failure left three smaller repair routes on the table:
+\begin{enumerate}
+    \item a propagated trace-monopole cancellation
+    \item a renormalized longitudinal auxiliary split
+    \item a weighted or homogeneous function-space reformulation.
+\end{enumerate}
+The present note tests only the first of these because it is the narrowest structural change. If the existing constraints, gauge conditions, and unit-lapse evolution already force
+\[
+\mathfrak m_\chi(t)=0,
+\]
+then the old unweighted theorem architecture could be replayed with the least possible alteration. If they do not, the next honest step is the Coulomb split rather than a larger analytical redesign.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays within that boundary. It does not claim that no deeper hidden identity could ever be found. It records only that, on the current fixed completion \(S_{\mathrm{min},4}\) and with the unit-lapse reduced system presently on record, the propagated trace-monopole cancellation route does not yet close.
+
+\section{The Repair to Be Tested}
+
+Work in the same asymptotically flat small-data setting and the same unit-lapse spatial-harmonic gauge
+\begin{equation}
+N\equiv 1,
+\qquad
+V^i(\gamma)=0,
+\label{eq:gauge}
+\end{equation}
+with reduced variables
+\begin{equation}
+(\gamma_{ij},\Sigma_{ij},K;\beta^i;\sigma,\pi_\sigma;\psi,\pi_\psi)
+\label{eq:unknowns}
+\end{equation}
+and slice-wise auxiliary unknowns \((Q^I,\chi,W_i^T)\). As in the previous unit-lapse notes, define
+\begin{equation}
+F_\chi
+\equiv
+K-\mathcal N_\chi[\gamma,\Sigma,K,\beta,\sigma,\pi_\sigma,Q,\chi,W^T,\psi,\pi_\psi].
+\label{eq:Fchi}
+\end{equation}
+Then \eqref{eq:chiell} becomes
+\begin{equation}
+\kappa_\theta\Delta_\gamma\chi = -F_\chi.
+\label{eq:chieq}
+\end{equation}
+
+\begin{definition}[Trace monopole]
+Assume \(F_\chi(t,\cdot)\in L^1(\mathbb R^3)\cap H^{N-2}(\mathbb R^3)\) on a slice. The corresponding \emph{trace monopole} is
+\begin{equation}
+\mathfrak m_\chi(t)
+\equiv
+\int_{\mathbb R^3}F_\chi(t,x)\,dx
+=
+\int_{\mathbb R^3}\bigl(K-\mathcal N_\chi\bigr)(t,x)\,dx,
+\label{eq:mchi}
+\end{equation}
+where \(dx\) denotes the asymptotically Cartesian coordinate volume measure used throughout the unit-lapse reduction.
+\end{definition}
+
+\begin{definition}[Propagated trace-monopole cancellation test]
+The \emph{propagated trace-monopole cancellation test} asks whether the current unit-lapse formulation already provides both of the following:
+\begin{enumerate}
+    \item a derivation of \(\mathfrak m_\chi(0)=0\) from the existing compatible-data requirements
+    \item a propagation law implying that \(\mathfrak m_\chi(0)=0\) forces \(\mathfrak m_\chi(t)=0\) for later times in the same regularity class.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition 2 is deliberately narrower than any weighted-space reformulation. If it closed, then the already-recorded unweighted local and coercive machinery would be the natural next theorem architecture to replay on the repaired package.
+\end{remark}
+
+\section{Initial-Slice Compatibility}
+
+The first question is whether the existing compatible-data conditions already force the monopole to vanish on the initial slice.
+
+\begin{proposition}[Decaying auxiliary solvability does not by itself force zero monopole]
+\label{prop:coulomb}
+Fix a slice in the flat-background small-data regime and assume \(F_\chi\in L^1(\mathbb R^3)\cap H^{N-2}(\mathbb R^3)\), \(N\ge 2\). Let \(\chi\) be the decaying solution of \eqref{eq:chieq}. Then
+\begin{equation}
+\chi(x)
+=
+-\frac{1}{4\pi\kappa_\theta}
+\int_{\mathbb R^3}\frac{F_\chi(y)}{|x-y|}\,dy
++ \mathcal R_\gamma(x),
+\label{eq:greenrep}
+\end{equation}
+where \(\mathcal R_\gamma(x)=o(|x|^{-1})\) in the small-data regime. In particular,
+\begin{equation}
+\chi(x)
+=
+-\frac{\mathfrak m_\chi}{4\pi\kappa_\theta |x|}
++ o(|x|^{-1})
+\qquad\text{as } |x|\to\infty.
+\label{eq:chiasy}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+In the small-data regime the spatial metric \(\gamma\) is a perturbation of the Euclidean metric, so standard perturbative elliptic potential theory represents \(\chi\) by the Euclidean Newton kernel plus a remainder whose contribution is \(o(|x|^{-1})\) at spatial infinity. Expanding
+\[
+\frac{1}{|x-y|}
+=
+\frac{1}{|x|}
++ \mathcal O\!\left(\frac{|y|}{|x|^2}\right)
+\]
+for large \(|x|\) and using \(F_\chi\in L^1\) yields
+\[
+\int_{\mathbb R^3}\frac{F_\chi(y)}{|x-y|}\,dy
+=
+\frac{1}{|x|}\int_{\mathbb R^3}F_\chi(y)\,dy
++ \mathcal O(|x|^{-2}).
+\]
+Substituting \eqref{eq:mchi} gives \eqref{eq:chiasy}.
+\end{proof}
+
+\begin{proposition}[The existing compatible-data conditions do not presently derive \(\mathfrak m_\chi(0)=0\)]
+\label{prop:initfail}
+At the present recorded scope, the unit-lapse compatible-data requirements do not furnish a derivation of the identity
+\begin{equation}
+\mathfrak m_\chi(0)=0.
+\label{eq:minitzero}
+\end{equation}
+More precisely, the currently displayed data conditions consist of:
+\begin{enumerate}
+    \item the Einstein Hamiltonian and momentum constraints
+    \item the unit-lapse spatial-harmonic gauge conditions
+    \item asymptotic flatness and decaying auxiliary solvability.
+\end{enumerate}
+Those conditions do not presently close a proof of \eqref{eq:minitzero}.
+\end{proposition}
+
+\begin{proof}
+The Einstein Hamiltonian and momentum constraints are local slice equations for \(R[\gamma]\) and \(D^j(K_{ij}-\gamma_{ij}K)\). The spatial-harmonic gauge is likewise a local condition on the coordinates and the shift equation used to preserve that gauge. None of the displayed initial conditions contains the global functional \(\int_{\mathbb R^3}(K-\mathcal N_\chi)\,dx\).
+
+Moreover, item (3) is strictly weaker than \eqref{eq:minitzero}. By Proposition \ref{prop:coulomb}, the longitudinal elliptic equation \eqref{eq:chieq} admits decaying solutions whose leading asymptotic behavior is Coulombic whenever \(\mathfrak m_\chi\neq 0\). Thus the already-recorded requirement that the auxiliary equation admit a decaying solution does not itself force the stronger cancellation \eqref{eq:minitzero}.
+
+Therefore a vanishing initial trace monopole is not currently derived from the existing compatibility package. At present it would have to be added as a new extra condition rather than read off from the old one.
+\end{proof}
+
+\begin{corollary}[A zero initial monopole would be a new compatibility condition]
+\label{cor:newcompat}
+If one wishes to enforce \(\mathfrak m_\chi(0)=0\) on the fixed-completion unit-lapse branch, that requirement is presently an additional global compatibility condition rather than a consequence of the existing unit-lapse constraints and gauge conditions.
+\end{corollary}
+
+\begin{proof}
+This is exactly Proposition \ref{prop:initfail}.
+\end{proof}
+
+\section{Formal Monopole Evolution Identity}
+
+The next question is whether the unit-lapse evolution nevertheless propagates the cancellation if it is imposed at \(t=0\).
+
+\begin{proposition}[Formal coordinate-volume evolution law for the trace monopole]
+\label{prop:midentity}
+Assume a sufficiently regular asymptotically flat solution of the unit-lapse reduced system on \([0,T]\) such that \(F_\chi\in C^1_tL^1_x\) and \(\beta\in C_t^0W^{1,\infty}_x\) with the boundary fluxes decaying sufficiently fast at spatial infinity. Then
+\begin{align}
+\frac{d}{dt}\mathfrak m_\chi(t)
+=\;&
+\int_{\mathbb R^3}
+\Bigl(
+(\partial_t-\Ell_\beta)K
+- (\partial_t-\Ell_\beta)\mathcal N_\chi
+- (\partial_i\beta^i)\,F_\chi
+\Bigr)\,dx
+\label{eq:midentity1}
+\\
+=\;&
+\int_{\mathbb R^3}
+\Bigl(
+R[\gamma]
++ \Sigma_{ij}\Sigma^{ij}
++ \frac{1}{3}K^2
++ \Theta_K
+- (\partial_t-\Ell_\beta)\mathcal N_\chi
+- (\partial_i\beta^i)\,F_\chi
+\Bigr)\,dx.
+\label{eq:midentity2}
+\end{align}
+\end{proposition}
+
+\begin{proof}
+Differentiate \eqref{eq:mchi} under the integral sign:
+\[
+\frac{d}{dt}\mathfrak m_\chi(t)
+=
+\int_{\mathbb R^3}\partial_tF_\chi\,dx.
+\]
+For any scalar \(f\),
+\[
+\partial_t f
+=
+(\partial_t-\Ell_\beta)f + \beta^i\partial_i f.
+\]
+Integrating the transport term by parts and using the assumed decay gives
+\[
+\int_{\mathbb R^3}\beta^i\partial_i f\,dx
+=
+-\int_{\mathbb R^3}(\partial_i\beta^i)f\,dx.
+\]
+Applying this to \(f=F_\chi\) yields \eqref{eq:midentity1}. The unit-lapse trace evolution equation
+\begin{equation}
+(\partial_t-\Ell_\beta)K
+=
+R[\gamma]
++ \Sigma_{ij}\Sigma^{ij}
++ \frac{1}{3}K^2
++ \Theta_K
+\label{eq:Kdt}
+\end{equation}
+then gives \eqref{eq:midentity2}.
+\end{proof}
+
+The Hamiltonian constraint rewrites the curvature term in \eqref{eq:midentity2}.
+
+\begin{proposition}[Constraint-reduced form of the monopole evolution identity]
+\label{prop:mconstraint}
+Using the Hamiltonian constraint
+\begin{equation}
+R[\gamma]+K^2-K_{ij}K^{ij}
+=
+16\pi G_N\bigl(\rho^{\mathrm{matter}}+\rho_\sigma\bigr)
+\label{eq:Hconstraint}
+\end{equation}
+and the decomposition
+\begin{equation}
+K_{ij}=\Sigma_{ij}+\frac{1}{3}\gamma_{ij}K,
+\qquad
+K_{ij}K^{ij}=\Sigma_{ij}\Sigma^{ij}+\frac{1}{3}K^2,
+\label{eq:Ksplit}
+\end{equation}
+equation \eqref{eq:midentity2} becomes
+\begin{align}
+\frac{d}{dt}\mathfrak m_\chi(t)
+=\;&
+\int_{\mathbb R^3}
+\Bigl(
+16\pi G_N\bigl(\rho^{\mathrm{matter}}+\rho_\sigma\bigr)
++ 2\Sigma_{ij}\Sigma^{ij}
+- \frac{1}{3}K^2
++ \Theta_K
+\Bigr)\,dx
+\nonumber\\
+&\qquad
+-\int_{\mathbb R^3}
+\Bigl(
+(\partial_t-\Ell_\beta)\mathcal N_\chi
++ (\partial_i\beta^i)\,F_\chi
+\Bigr)\,dx.
+\label{eq:midentity3}
+\end{align}
+\end{proposition}
+
+\begin{proof}
+From \eqref{eq:Hconstraint} and \eqref{eq:Ksplit},
+\[
+R[\gamma]
+=
+16\pi G_N\bigl(\rho^{\mathrm{matter}}+\rho_\sigma\bigr)
++ \Sigma_{ij}\Sigma^{ij}
+- \frac{2}{3}K^2.
+\]
+Insert this into \eqref{eq:midentity2}.
+\end{proof}
+
+\begin{remark}
+Equation \eqref{eq:midentity3} is the precise formal quantity one would need to reduce to zero in order to propagate the cancellation \(\mathfrak m_\chi(t)=0\) in the coordinate-volume sense used by \eqref{eq:mchi}.
+\end{remark}
+
+\section{Why the Propagation Test Does Not Close}
+
+The central issue is now clear: does the current architecture prove that the right-hand side of \eqref{eq:midentity3} vanishes when \(\mathfrak m_\chi=0\)?
+
+\begin{proposition}[The recorded unit-lapse equations do not presently close \(\frac{d}{dt}\mathfrak m_\chi=0\)]
+\label{prop:propfail}
+At the present recorded scope, the unit-lapse formulation does not provide a closed proof that
+\begin{equation}
+\mathfrak m_\chi(0)=0
+\qquad\Longrightarrow\qquad
+\mathfrak m_\chi(t)=0
+\quad\text{for } t>0.
+\label{eq:propgoal}
+\end{equation}
+More precisely, the current notes do not supply any identity reducing the right-hand side of \eqref{eq:midentity3} to zero from the existing constraints and gauge conditions alone.
+\end{proposition}
+
+\begin{proof}
+Proposition \ref{prop:mconstraint} shows that the formal derivative of \(\mathfrak m_\chi\) depends on two kinds of terms.
+
+First, there are explicit Einstein and matter densities:
+\[
+16\pi G_N\bigl(\rho^{\mathrm{matter}}+\rho_\sigma\bigr)
++ 2\Sigma_{ij}\Sigma^{ij}
+- \frac{1}{3}K^2
++ \Theta_K.
+\]
+These are not themselves constrained to integrate to zero by any currently displayed unit-lapse identity.
+
+Second, there are the terms
+\[
+(\partial_t-\Ell_\beta)\mathcal N_\chi,
+\qquad
+(\partial_i\beta^i)\,F_\chi,
+\]
+which involve the full lower-order auxiliary and shift structure. At the present manuscript scope, \(\mathcal N_\chi\) has been recorded only schematically as a lower-order nonlinear functional vanishing on the flat background. No theorem-level formula has been derived showing that its material derivative cancels the integral of the Einstein and matter densities above, and no gauge identity has been recorded that removes the shift-compressibility term in the coordinate-volume functional \eqref{eq:mchi}.
+
+Therefore the present architecture does not close a proof of \eqref{eq:propgoal}. It leaves the desired propagation law unproved.
+\end{proof}
+
+\begin{corollary}[The propagated trace-monopole cancellation repair does not presently close]
+\label{cor:noclose}
+Even if one imposes \(\mathfrak m_\chi(0)=0\) as an additional initial compatibility condition, the current unit-lapse equations do not yet justify using
+\[
+\mathfrak m_\chi(t)=0
+\]
+as a propagated slice-wise input to the unweighted \((K,\chi,\beta)\) closure argument.
+\end{corollary}
+
+\begin{proof}
+This is precisely Proposition \ref{prop:propfail}.
+\end{proof}
+
+\section{Verdict for the Unweighted Architecture}
+
+The point of the present note is not simply that a proof is incomplete. It is that the first proposed repair has now been tested at the right theorem level.
+
+\begin{theorem}[Verdict of the propagated trace-monopole cancellation test]
+\label{thm:verdict}
+Assume the fixed-completion unit-lapse spatial-harmonic reduced system for \(S_{\mathrm{min},4}\) in the same asymptotically flat small-data regime used by the previous unit-lapse obstruction note. Then, at the present recorded scope:
+\begin{enumerate}
+    \item the existing unit-lapse compatible-data conditions do not presently derive \(\mathfrak m_\chi(0)=0\)
+    \item imposing \(\mathfrak m_\chi(0)=0\) would amount to adding a new global compatibility condition
+    \item the recorded unit-lapse equations do not presently close a propagation proof for that added condition
+    \item therefore the propagated trace-monopole cancellation route does not yet repair the old unweighted local well-posedness, continuation, or coercive architecture for the \((K,\chi,\beta)\) package.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Items (1) and (2) are Proposition \ref{prop:initfail} and Corollary \ref{cor:newcompat}. Item (3) is Proposition \ref{prop:propfail}. Item (4) follows because the previous unweighted architecture requires a slice-wise \(H^N\) control of \(\chi\) throughout the evolution interval, not merely at one initial time. Since the cancellation condition is neither derived from the old data nor proved to propagate, the repaired unweighted closure package is not currently available.
+\end{proof}
+
+\begin{corollary}[Immediate next repair at the fixed completion]
+\label{cor:nextrepair}
+After Theorem \ref{thm:verdict}, the next smallest honest fixed-completion repair is the longitudinal auxiliary renormalization
+\begin{equation}
+\chi=\chi_{\mathrm{Coul}}+\chi_{\mathrm{reg}},
+\label{eq:chisplit}
+\end{equation}
+followed by a test of whether the regular part \(\chi_{\mathrm{reg}}\) closes in the old unweighted energy. The broader weighted or homogeneous reformulation should come only after that narrower route fails.
+\end{corollary}
+
+\begin{proof}
+Theorem \ref{thm:verdict} shows that the first and narrowest repair---propagated monopole cancellation within the existing architecture---does not presently close. The Coulomb split is therefore the next least invasive modification of the low-frequency longitudinal treatment while keeping the fixed completion \(S_{\mathrm{min},4}\), the same gauge, and the same basic theorem package as close as possible to the earlier one.
+\end{proof}
+
+\section{Conclusion}
+
+The previous unit-lapse trace/auxiliary obstruction note reduced the next task to three small repair routes. The present note tests the narrowest of them.
+
+Its verdict is disciplined and specific. The current unit-lapse compatible-data package does not presently imply \(\mathfrak m_\chi(0)=0\), and the current unit-lapse evolution does not presently prove that such a cancellation would propagate even if it were imposed. Thus the obstruction is not yet removed by a propagated trace-monopole cancellation inside the recorded formulation.
+
+That failure is still narrower than a weighted-space redesign. It says only that the first repair does not yet close. The next honest step is therefore the Coulomb decomposition \(\chi=\chi_{\mathrm{Coul}}+\chi_{\mathrm{reg}}\) and a direct test of whether the regular remainder closes in the old unweighted energy. Only after that smaller fixed-completion repair fails should the project move to the larger weighted or homogeneous function-space reformulation.
+
+\end{document}

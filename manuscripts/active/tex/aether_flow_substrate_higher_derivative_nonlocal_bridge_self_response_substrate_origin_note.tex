@@ -1,0 +1,361 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal{A}}
+\newcommand{\BridgeMetric}{\mathfrak g}
+\newcommand{\ReBridge}{g^{\mathrm{br}}}
+\newcommand{\OpMetricPol}{g^{\mathrm{pol}}}
+\newcommand{\SigmaIER}{\Sigma^{\mathrm{IER}}}
+\newcommand{\SigmaPol}{\Sigma^{\mathrm{pol}}}
+\newcommand{\SigmaDressSch}{\Sigma^{\mathrm{Sch}}}
+\newcommand{\SigmaRegPol}{\Sigma^{\mathrm{pol,reg}}}
+\newcommand{\LiftIER}{\widehat\Sigma^{\mathrm{IER}}}
+\newcommand{\LiftRegPol}{\widehat\Sigma^{\mathrm{pol,reg}}}
+\newcommand{\PolTen}{\mathbb P}
+\newcommand{\ObserverMap}{\Xi}
+\newcommand{\ProjSub}{P}
+\newcommand{\FlowPot}{\Phi_\Omega}
+\newcommand{\BalanceField}{\Pi_\Omega}
+\newcommand{\HamChargeOmega}{\mathfrak m_{\Omega}}
+\newcommand{\ReOff}{\widetilde{\mathcal R}_{\mu\nu}^{\mathrm{off}}}
+\newcommand{\ReLongThree}{\widetilde{\mathcal R}_{\mu\nu}^{(\chi,3)}}
+\newcommand{\Pfour}{\mathbf P_{\ge 4}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Nonlocal Bridge Self-Response Substrate-Origin Note}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The positive quotient reduced-system, theorem, decay, and asymptotic line remains closed and is not reopened here. The observer-level redesign sequence is also fixed in status: the inverse-Einstein-response bridge map already supplied matter-free activity, full off-longitudinal \(Q/W\) cancellation, and explicit cubic longitudinal completion, while the explicit dressing-candidate test then showed that the Schwarzschild-type \(r^{-2}\) dressing structurally absorbs the quartic Coulomb self-response on the decisive rotational exterior regime.
+
+The present note addresses the burden that those results leave behind. Its task is not another observer-level repair screen and not more PDE work. Its task is to explain how the surviving dressed bridge map could arise from explicit substrate variables. The note therefore introduces the smallest substrate-side mechanism compatible with the already-fixed gains: a nonpropagating charge-balancing or polarization scalar \(\BalanceField\), determined from the same Hamiltonian-charge potential \(\FlowPot\) by the leading balance relation
+\[
+\BalanceField=\FlowPot^2,
+\qquad
+\FlowPot(r)=\frac{G_N\,\HamChargeOmega}{r}
+\]
+on the exterior charge sector. That scalar is then lifted to the substrate bridge tensor by
+\[
+\PolTen_{AB}[\BalanceField]
+=
+-2\BalanceField\,U_AU_B
++\frac32\BalanceField\,\ProjSub_{AB},
+\qquad
+\ProjSub_{AB}=G_{AB}-U_AU_B,
+\]
+so that its observer pullback is exactly the Schwarzschild-type dressing already tested positively.
+
+Because \(\BalanceField\) is quadratic in the already-fixed charge potential, its bridge contribution begins only at quartic order in the reduced-data counting. Therefore it does not disturb the lower-order inverse-response package: matter-free activity remains, the off-longitudinal \(Q/W\) cancellation remains, and the explicit cubic longitudinal completion remains. On the decisive matter-free rotational exterior regime, the eliminated observer correction coincides with the positive candidate of the dressing test, so the same quartic Coulomb self-response absorption follows.
+
+The result is a substrate-origin note at disciplined scope, not a completed derivation theorem. The note does not prove a unique microscopic substrate action, a global fixed-point existence theorem for the dressed solve, or a full derivation of Einsteinian closure from substrate microphysics. It identifies the minimal mechanism type that the active sequence now needs: a nonpropagating charge-balancing or polarization sector whose eliminated bridge imprint is the explicit \(r^{-2}\) dressing already known to survive.
+\end{abstract}
+
+\section{Introduction}
+
+The active sequence is now sharp about what should happen next. The positive quotient reduced-system, theorem, decay, and asymptotic line is already recorded and remains closed at its current scope. The bridge-first redesign, the matter-route-only redesign, the broader inverse-response bridge-map test, the quartic continuation note, the nonlocal self-response redesign note, and the explicit dressing-candidate test have also already done their jobs. The first three observer-level burdens were: remove the old same-scope longitudinal remainder, act on matter-free reduced data, and cancel the full off-longitudinal \(Q/W\) source while adding an explicit cubic longitudinal completion. Those gains were achieved by the inverse-response map. The next burden was then to stop the Hamiltonian-charge Coulomb tail from returning as a quartic Einstein self-response. The explicit Schwarzschild-type \(r^{-2}\) dressing met that burden positively on the decisive rotational exterior regime.
+
+That changes the manuscript burden again. The live issue is no longer whether another observer-level repair test should be attempted. It is how the surviving dressed bridge map can arise from explicit substrate variables without sacrificing what has already been gained.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not reopen the already-positive quotient PDE line. It does not replace the explicit dressing-candidate test with a different observer-level ansatz. It does not prove the global existence of the dressed bridge solve. Its narrower result is to identify one concrete substrate-side charge-balancing or polarization mechanism whose eliminated observer output is exactly the surviving \(r^{-2}\) dressed bridge map.
+
+\section{Fixed Observer-Side Target}
+
+\begin{definition}[Surviving dressed gain package]
+\label{def:gains}
+The \emph{surviving dressed gain package} consists of the four features that must be preserved by any substrate-origin note for the dressed bridge map:
+\begin{enumerate}
+    \item \textbf{matter-free activity:} the bridge correction remains active on matter-free reduced data;
+    \item \textbf{off-longitudinal \(Q/W\) cancellation:} the full currently recorded off-longitudinal remainder \(\ReOff\) is canceled;
+    \item \textbf{explicit cubic longitudinal completion:} the first surviving cubic longitudinal tensor \(\ReLongThree\) is canceled by the same lower-order inverse-response correction;
+    \item \textbf{quartic Coulomb self-response absorption:} on the decisive matter-free rotational exterior regime, the isolated quartic Coulomb self-response is pushed to \(\mathcal O(r^{-5})\).
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Observer-side dressed bridge map to be explained]
+\label{def:target}
+The observer-side target fixed by the explicit dressing-candidate test is
+\begin{equation}
+\OpMetricPol_{\mu\nu}
+=
+\ReBridge_{\mu\nu}
++\SigmaIER_{\mu\nu}
++\SigmaPol_{\mu\nu},
+\label{eq:targetmetric}
+\end{equation}
+where
+\begin{equation}
+\SigmaPol_{\mu\nu}
+=
+\SigmaDressSch{}_{\mu\nu}
++\SigmaRegPol{}_{\mu\nu},
+\label{eq:targetsplit}
+\end{equation}
+with
+\begin{equation}
+\SigmaDressSch{}_{00}=-2\FlowPot^2,
+\qquad
+\SigmaDressSch{}_{0i}=0,
+\qquad
+\SigmaDressSch{}_{ij}=\frac32\FlowPot^2\,\delta_{ij},
+\label{eq:schdress}
+\end{equation}
+and
+\begin{equation}
+\FlowPot(r)=\frac{G_N\,\HamChargeOmega}{r}
+\label{eq:phiext}
+\end{equation}
+on the exterior charge sector. The regular completion \(\SigmaRegPol\) is assumed charge free and one power faster,
+\begin{equation}
+\SigmaRegPol=\mathcal O(r^{-3}),
+\qquad
+\partial\SigmaRegPol=\mathcal O(r^{-4}),
+\label{eq:reg}
+\end{equation}
+on the exterior region.
+\end{definition}
+
+\begin{remark}
+The present note does not need to re-derive the already-fixed lower-order tensor \(\SigmaIER\). Its task is to explain the new quartic dressing term \(\SigmaPol\) from substrate variables while leaving \(\SigmaIER\) in place as the same lower-order bridge correction that already carries items (1)--(3) of Definition \ref{def:gains}.
+\end{remark}
+
+\section{Minimal Substrate Polarization Sector}
+
+The substrate-kinematics manuscript already fixes the minimal substrate data
+\[
+(\Sub,G_{AB},U^A,S,Q),
+\]
+with \(G_{AB}\) positive definite, \(U^A\) the unit ordered-flow field, and
+\begin{equation}
+\ProjSub_{AB}=G_{AB}-U_AU_B
+\label{eq:projector}
+\end{equation}
+the local experiential projector orthogonal to \(U^A\). The present note adds only one new ingredient to that fixed substrate side.
+
+\begin{definition}[Charge potential and nonpropagating balance field]
+\label{def:balance}
+Let \(\FlowPot\) denote the same charge-carrying scalar potential already fixed by the inverse-response bridge screen, now viewed as a nonlocal functional of the reduced \(Q/W/\chi\) data and their Hamiltonian charge. On the exterior charge sector it has the asymptotic form \eqref{eq:phiext}. A \emph{minimal substrate charge-balancing or polarization sector} is a scalar field \(\BalanceField\) on \(\Sub\) with leading local balance functional
+\begin{equation}
+\mathcal L_{\mathrm{bal}}
+=
+\frac{\lambda_\Pi}{2}\bigl(\BalanceField-\FlowPot^2\bigr)^2,
+\qquad
+\lambda_\Pi>0,
+\label{eq:lbal}
+\end{equation}
+and no independent kinetic term at the present manuscript order.
+\end{definition}
+
+\begin{proposition}[Eliminated balance field]
+\label{prop:eliminate}
+The Euler--Lagrange equation of \eqref{eq:lbal} is
+\begin{equation}
+\BalanceField=\FlowPot^2.
+\label{eq:pibalance}
+\end{equation}
+Consequently, \(\BalanceField\) is nonpropagating, determined by the same reduced-data charge sector as \(\FlowPot\), and satisfies
+\begin{equation}
+\BalanceField(r)=\frac{G_N^2\,\HamChargeOmega^2}{r^2}
+\label{eq:piext}
+\end{equation}
+on the exterior charge sector.
+\end{proposition}
+
+\begin{proof}
+Varying \eqref{eq:lbal} with respect to \(\BalanceField\) gives
+\[
+\lambda_\Pi(\BalanceField-\FlowPot^2)=0,
+\]
+hence \eqref{eq:pibalance}. Because no derivative term appears, \(\BalanceField\) introduces no new propagating observer-accessible mode at this manuscript order. Equation \eqref{eq:piext} follows immediately from \eqref{eq:pibalance} and \eqref{eq:phiext}.
+\end{proof}
+
+\begin{remark}
+The algebraic balance law \eqref{eq:pibalance} is the minimal representative of the mechanism type fixed by the redesign note. A screened refinement such as
+\[
+(-\Delta_\perp+M_\Pi^2)\BalanceField=M_\Pi^2\FlowPot^2
+\]
+would have the same exterior leading term \eqref{eq:piext} while reintroducing a separate elliptic solve. The present note deliberately stays with the algebraic representative because the active burden is substrate origin, not another PDE screen.
+\end{remark}
+
+\section{Bridge Lift and Observer Pullback}
+
+\begin{definition}[Substrate polarization lift]
+\label{def:lift}
+Given the eliminated balance field \(\BalanceField\), define the \emph{substrate polarization tensor}
+\begin{equation}
+\PolTen_{AB}[\BalanceField]
+\equiv
+-2\BalanceField\,U_AU_B
++\frac32\BalanceField\,\ProjSub_{AB}.
+\label{eq:poltensor}
+\end{equation}
+Let \(\LiftIER_{AB}\) be any substrate tensor whose observer pullback is the already-fixed lower-order inverse-response correction,
+\begin{equation}
+\ObserverMap^*\LiftIER_{AB}=\SigmaIER_{\mu\nu},
+\label{eq:liftier}
+\end{equation}
+and let \(\LiftRegPol_{AB}\) be a charge-free regular completion with
+\begin{equation}
+\ObserverMap^*\LiftRegPol_{AB}=\SigmaRegPol{}_{\mu\nu}.
+\label{eq:liftreg}
+\end{equation}
+The dressed substrate bridge metric is then
+\begin{equation}
+\BridgeMetric^{\mathrm{pol}}_{AB}
+=
+G_{AB}
+-2U_AU_B
++\LiftIER_{AB}
++\PolTen_{AB}[\BalanceField]
++\LiftRegPol_{AB}.
+\label{eq:bridgepol}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[Observer output of the polarization lift]
+\label{prop:pullback}
+In a substrate-adapted local observer chart in which \(U^A\) is the unit temporal direction and \(\ObserverMap^*\ProjSub_{AB}\) reduces to the spatial Euclidean metric at leading order, the observer pullback of \(\PolTen_{AB}[\BalanceField]\) is
+\begin{equation}
+\bigl(\ObserverMap^*\PolTen\bigr)_{00}=-2\BalanceField,
+\qquad
+\bigl(\ObserverMap^*\PolTen\bigr)_{0i}=0,
+\qquad
+\bigl(\ObserverMap^*\PolTen\bigr)_{ij}=\frac32\BalanceField\,\delta_{ij}.
+\label{eq:pullbackpol}
+\end{equation}
+After eliminating \(\BalanceField\) by \eqref{eq:pibalance}, one therefore obtains
+\begin{equation}
+\SigmaPol_{00}=-2\FlowPot^2+\SigmaRegPol{}_{00},
+\qquad
+\SigmaPol_{0i}=\SigmaRegPol{}_{0i},
+\qquad
+\SigmaPol_{ij}=\frac32\FlowPot^2\,\delta_{ij}
++\SigmaRegPol{}_{ij},
+\label{eq:observerpol}
+\end{equation}
+which is exactly the explicit Schwarzschild-type dressing \eqref{eq:schdress} together with the admissible regular completion \eqref{eq:reg}.
+\end{proposition}
+
+\begin{proof}
+By construction, \(U_AU_B\) pulls back to the temporal rank-one tensor and \(\ProjSub_{AB}\) pulls back to the local experiential spatial metric. Therefore \eqref{eq:poltensor} yields \eqref{eq:pullbackpol}. Substituting \eqref{eq:pibalance} then gives \eqref{eq:observerpol}. Together with \eqref{eq:liftreg}, this is exactly the observer-side split \eqref{eq:targetsplit}.
+\end{proof}
+
+\begin{remark}
+The coefficients \(-2\) and \(3/2\) are not introduced freely at this stage. They are fixed by the observer-side target already tested positively. The point of the present note is that those same coefficients can be realized by a single scalar substrate polarization lift of the isotropic form \eqref{eq:poltensor}.
+\end{remark}
+
+\section{Why the Fixed Gain Package Is Preserved}
+
+\begin{proposition}[Quartic order of the polarization lift]
+\label{prop:quartic}
+The polarization field and its bridge lift begin at quartic order in the reduced-data counting:
+\begin{equation}
+\BalanceField=\mathcal O_{\ge 4},
+\qquad
+\ObserverMap^*\PolTen=\mathcal O_{\ge 4}.
+\label{eq:quartic}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+The charge potential \(\FlowPot\) is already fixed by the inverse-response screen and is quadratic in the reduced-data counting. Equation \eqref{eq:pibalance} then gives \(\BalanceField=\FlowPot^2=\mathcal O_{\ge 4}\). Since \(\PolTen_{AB}\) is linear in \(\BalanceField\), its observer pullback is also \(\mathcal O_{\ge 4}\).
+\end{proof}
+
+\begin{corollary}[No reopening of the lower-order quotient line]
+\label{cor:no_pde}
+At the present manuscript order, the added balance field does not reopen the already-positive quotient reduced-system, theorem, decay, or asymptotic line.
+\end{corollary}
+
+\begin{proof}
+By Proposition \ref{prop:eliminate}, \(\BalanceField\) is nonpropagating and solved after the same reduced-data charge sector has already been fixed. By Proposition \ref{prop:quartic}, its bridge contribution begins only at quartic order. Therefore it does not modify the lower-order quotient equations or the already-closed lower-order estimates built on them.
+\end{proof}
+
+\begin{theorem}[Preservation of the first three gains]
+\label{thm:preserve}
+The substrate polarization mechanism preserves items (1)--(3) of the surviving dressed gain package in Definition \ref{def:gains}: matter-free activity, off-longitudinal \(Q/W\) cancellation, and explicit cubic longitudinal completion.
+\end{theorem}
+
+\begin{proof}
+Definition \ref{def:target} leaves \(\SigmaIER\) unchanged as the lower-order inverse-response correction carrying those three gains. Proposition \ref{prop:quartic} shows that the added polarization lift begins only at quartic order. Therefore it does not alter the already-recorded lower-order identities canceled by \(\SigmaIER\), and items (1)--(3) remain exactly as before.
+\end{proof}
+
+\section{Quartic Coulomb Self-Response Absorption}
+
+\begin{theorem}[Preservation of the quartic absorption verdict]
+\label{thm:quartic}
+On the decisive matter-free rotational exterior regime, the eliminated observer correction produced by the substrate polarization mechanism preserves item (4) of Definition \ref{def:gains}: the isolated quartic Coulomb self-response is structurally absorbed and the resulting quartic observer tensor is pushed to \(\mathcal O(r^{-5})\).
+\end{theorem}
+
+\begin{proof}
+Proposition \ref{prop:pullback} shows that the observer output of the eliminated substrate sector is exactly the explicit Schwarzschild-type dressing \(\SigmaDressSch+\SigmaRegPol\) already tested in the dressing-candidate note. The quartic Hamiltonian cancellation and the full tensor-level \(\mathcal O(r^{-5})\) verdict of that note therefore apply verbatim to the present observer output. The present manuscript changes only the origin story of that correction, not its observer-level tensor.
+\end{proof}
+
+\begin{corollary}[Substrate-origin verdict for the surviving dressed bridge map]
+\label{cor:verdict}
+At the present disciplined scope, the minimal nonpropagating polarization sector of Definitions \ref{def:balance} and \ref{def:lift} provides a valid substrate-origin note for the surviving dressed bridge map:
+\begin{enumerate}
+    \item its eliminated observer effect is exactly the explicit \(r^{-2}\) dressing already known to survive;
+    \item it preserves matter-free activity, off-longitudinal \(Q/W\) cancellation, and explicit cubic longitudinal completion because it begins only at quartic order;
+    \item it preserves the quartic Coulomb self-response absorption because its observer output is the same dressed candidate already tested positively.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+Item (1) is Proposition \ref{prop:pullback}. Item (2) is Theorem \ref{thm:preserve}. Item (3) is Theorem \ref{thm:quartic}.
+\end{proof}
+
+\section{Conclusion}
+
+The active problem at this stage was to explain the surviving dressed bridge map from substrate variables without reopening observer-level repair work. The present note supplies the minimal answer currently needed.
+
+\begin{enumerate}
+    \item The new substrate ingredient is a nonpropagating charge-balancing or polarization scalar \(\BalanceField\), determined from the same Hamiltonian-charge potential by the balance law \(\BalanceField=\FlowPot^2\).
+    \item The bridge imprint of that field is the isotropic substrate polarization tensor \(-2\BalanceField U_AU_B+\tfrac32\BalanceField\ProjSub_{AB}\).
+    \item After observer pullback, that tensor is exactly the explicit Schwarzschild-type \(r^{-2}\) dressing already tested positively.
+    \item Because the mechanism begins only at quartic order, it leaves the already-positive matter-free activity, off-longitudinal \(Q/W\) cancellation, and cubic longitudinal completion untouched.
+    \item Because the eliminated observer tensor coincides with the positive candidate, the same quartic Coulomb self-response absorption is preserved on the decisive rotational exterior regime.
+\end{enumerate}
+
+This is the correct scope for the present manuscript. It is a substrate-origin note, not a claim that the full exact relativistic closure has already been derived from substrate microphysics. The next downstream burden, if the project chooses to continue along this line, is to embed the balance law \eqref{eq:pibalance} into a fuller substrate action or constrained auxiliary sector without disturbing the exact-closure benchmark already fixed by the active sequence.
+
+\end{document}

@@ -1,0 +1,380 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal{A}}
+\newcommand{\BridgeMetric}{\mathfrak{g}}
+\newcommand{\Ell}{\mathcal{L}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Higher-Derivative Quartic Branch Coercive Longer-Time Bootstrap on the Strict Auxiliary Elliptic-Control Branch}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The first local well-posedness note for the explicit minimal quartic-compatible completion \(S_{\mathrm{min},4}\) closed the reduced Einstein--quartic-scalar system only on a strict auxiliary elliptic-control branch, and only for a short local time. The next honest question is therefore narrower: can that same branch be strengthened into a genuinely coercive bootstrap before any full nonlinear-stability claim is attempted?
+
+This manuscript performs that strengthening at the same disciplined scope. It stays on asymptotically flat perturbations of the flat exact-closure background, keeps maximal spatial-harmonic gauge, and keeps the same strict auxiliary elliptic-control regime with
+\[
+m_S^2\ge m_{S,\min}^2>0,\qquad
+\lambda_4\ge \lambda_{4,\min}>0,\qquad
+\widehat M_{IJ}\xi^I\xi^J\ge m_{Q,\min}^2|\xi|^2,
+\]
+\[
+\kappa_\theta\ge \kappa_{\theta,\min}>0,
+\qquad
+\kappa_\Omega\ge \kappa_{\Omega,\min}>0.
+\]
+Within that regime the local energy can be sharpened to a corrected coercive functional
+\[
+\mathfrak F_N(t)=\mathfrak E_N(t)+\mathfrak C_N(t),
+\]
+equivalent to the local control energy \(\mathfrak E_N\) of the local well-posedness note and satisfying the improved estimate
+\[
+\frac{d}{dt}\mathfrak F_N(t)\le C_N\mathfrak F_N(t)^{3/2}
+\]
+for \(N\ge 6\). Hence every small-data solution in the strict branch obeys a bootstrap bound
+\[
+\sup_{0\le t\le T_\sharp(\varepsilon)}\mathfrak E_N(t)\le 2\varepsilon^2,
+\qquad
+T_\sharp(\varepsilon)\simeq c_N\varepsilon^{-1},
+\]
+provided \(\mathfrak F_N(0)\le \varepsilon^2\) and the usual compatibility conditions hold. The lapse, shift, \(Q\)-sector, longitudinal ordered-flow potential, and transverse ordered-flow part remain pointwise controlled by the same coercive functional throughout that interval.
+
+The result is deliberately intermediate. It is stronger than the first local theorem because it removes the spurious linear energy growth and yields a longer-time coercive bootstrap. It is weaker than nonlinear stability because it does not prove global existence, decay, scattering, or asymptotic convergence, and it does not alter the strict elliptic assumptions on which the current branch is solved.
+\end{abstract}
+
+\section{Introduction}
+
+The explicit minimal quartic-compatible completion \(S_{\mathrm{min},4}\) no longer lacks either a reduced \(3+1\) system or a first local theorem. The active question is therefore no longer whether a Cauchy problem exists at all. It is whether the same strict auxiliary elliptic-control branch supports an estimate stronger than the short-time Gronwall bound recorded in the first local well-posedness note.
+
+At current scope the right next step is not yet a full nonlinear-stability theorem. That would require global or asymptotic control not presently justified by the recorded estimates. The narrower and honest intermediate burden is to identify a coercive corrected energy for the fixed branch already on record and to show that the resulting small-data solution persists on a longer interval whose length scales inversely with the initial size.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays within that boundary. It does not claim a global theorem. It strengthens the already-recorded local theorem into a coercive longer-time bootstrap for the same explicit completion and the same strict auxiliary elliptic-control branch.
+
+\section{Bootstrap Regime}
+
+The first local theorem already fixed the gauge, the reduced variables, the elliptic subsystem, and the local control energy
+\begin{align}
+\mathfrak E_N
+=\;&
+\|\gamma-\delta\|_{H^N}^2
++\|K\|_{H^{N-1}}^2
++\|\sigma\|_{H^{N-1}}^2
++\frac{1}{m_S^2}\|\pi_\sigma\|_{H^{N-1}}^2
+\nonumber\\
+&+
+\frac{\lambda_4}{M_*^2}\|\Delta_\gamma\sigma\|_{H^{N-1}}^2
++\mathcal E_N^{\mathrm{matter}}
++\|N-1\|_{H^{N+1}}^2
++\|\beta\|_{H^{N+1}}^2
+\nonumber\\
+&+
+\|Q\|_{H^N}^2
++\|\chi\|_{H^N}^2
++\|W^T\|_{H^N}^2.
+\label{eq:EN}
+\end{align}
+The present note works in that same setting and adds only the bootstrap assumptions needed to remove the linear-in-\(\mathfrak E_N\) loss of the first local estimate.
+
+\begin{definition}[Bootstrap interval]
+Fix \(N\ge 6\), a small parameter \(0<\varepsilon\ll 1\), and a maximal-gauge solution of the explicit-completion system on \([0,T]\). The interval \([0,T]\) is said to lie in the \emph{coercive bootstrap regime} if:
+\begin{enumerate}
+    \item the strict auxiliary elliptic-control regime of the local well-posedness note holds on every slice
+    \item the energy satisfies
+    \begin{equation}
+    \sup_{0\le t\le T}\mathfrak E_N(t)\le 4\varepsilon^2
+    \label{eq:bootenergy}
+    \end{equation}
+    \item the norm-level non-ultrasoft dominance condition holds with
+    \begin{equation}
+    \frac{\lambda_4}{M_*^2}\|\Delta_\gamma\sigma(t)\|_{H^{N-1}}^2
+    \le
+    4\delta_0\,
+    \frac{1}{m_S^2}\|\pi_\sigma(t)\|_{H^{N-1}}^2,
+    \qquad
+    0<\delta_0\ll 1.
+    \label{eq:bootdominance}
+    \end{equation}
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Condition \eqref{eq:bootdominance} is not introduced to create a new branch. It keeps the same recovery-compatible quartic bookkeeping explicit while the longer-time estimate is closed.
+\end{remark}
+
+\begin{definition}[Auxiliary coercive package]
+On a bootstrap interval, define
+\begin{align}
+\mathfrak A_N(t)
+\equiv\;&
+\|N-1\|_{H^{N+1}}^2
++\|\beta\|_{H^{N+1}}^2
++\|Q\|_{H^N}^2
++\|\chi\|_{H^N}^2
++\|W^T\|_{H^N}^2.
+\label{eq:AN}
+\end{align}
+\end{definition}
+
+\begin{proposition}[Pointwise auxiliary coercivity]
+There exists \(C_N>0\) such that every solution in the coercive bootstrap regime satisfies
+\begin{equation}
+\mathfrak A_N(t)\le C_N\,\mathfrak E_N(t)
+\label{eq:Acoercive}
+\end{equation}
+for all \(t\in[0,T]\).
+\end{proposition}
+
+\begin{proof}
+The local well-posedness note already proved slice-wise elliptic control of \(N-1\), \(\beta\), \(Q\), \(\chi\), and \(W^T\) from the propagating Einstein--quartic-scalar variables on every slice in the strict auxiliary elliptic-control regime. Equation \eqref{eq:Acoercive} is exactly that estimate rewritten in the present notation.
+\end{proof}
+
+\section{Corrected Coercive Energy}
+
+The first local theorem used \(\mathfrak E_N\) directly and therefore retained a rough factor \(1+\mathfrak E_N^{1/2}\) in the differential inequality. On the flat exact-closure background the linear part of the gauge-fixed reduced system is symmetric up to lower-order gauge corrections, so one can sharpen the energy by the usual mixed pairings.
+
+\begin{definition}[Corrected coercive functional]
+For \(N\ge 6\), define
+\begin{align}
+\mathfrak C_N(t)
+\equiv\;&
+\sum_{|\alpha|\le N-1} c_\alpha^{(g)}
+\int_{\Sigma_t}
+\partial^\alpha(\gamma-\delta)^{ij}\,
+\partial^\alpha K_{ij}\,d\mu_\gamma
+\nonumber\\
+&+
+\sum_{|\alpha|\le N-1} c_\alpha^{(\sigma)}
+\int_{\Sigma_t}
+\partial^\alpha\sigma\,
+\partial^\alpha\!\left(\frac{\pi_\sigma}{m_S^2}\right)d\mu_\gamma,
+\label{eq:CN}
+\end{align}
+where the constants \(c_\alpha^{(g)}\) and \(c_\alpha^{(\sigma)}\) are fixed sufficiently small depending only on \(N\) and the flat background normalization. The \emph{corrected coercive functional} is
+\begin{equation}
+\mathfrak F_N(t)\equiv \mathfrak E_N(t)+\mathfrak C_N(t).
+\label{eq:FN}
+\end{equation}
+\end{definition}
+
+\begin{remark}
+The role of \(\mathfrak C_N\) is the standard one for quasilinear hyperbolic problems: it cancels the purely linear transport and gauge-preservation errors that were harmless for short-time local existence but too crude for a longer-time bootstrap. No new propagating degree of freedom is introduced by \eqref{eq:CN}.
+\end{remark}
+
+\begin{proposition}[Coercive equivalence]
+There exists \(\varepsilon_{\mathrm{coer}}>0\) such that if \([0,T]\) lies in the coercive bootstrap regime with \(\varepsilon\le \varepsilon_{\mathrm{coer}}\), then
+\begin{equation}
+\frac{1}{2}\mathfrak E_N(t)
+\le
+\mathfrak F_N(t)
+\le
+\frac{3}{2}\mathfrak E_N(t)
+\label{eq:Fequiv}
+\end{equation}
+for all \(t\in[0,T]\).
+\end{proposition}
+
+\begin{proof}
+By Cauchy--Schwarz and Sobolev embedding,
+\[
+|\mathfrak C_N(t)|
+\le
+C_N\Bigl(
+\|\gamma-\delta\|_{H^N}\|K\|_{H^{N-1}}
++
+\|\sigma\|_{H^{N-1}}\frac{1}{m_S}\|\pi_\sigma\|_{H^{N-1}}
+\Bigr).
+\]
+Absorbing these pairings into \(\mathfrak E_N\) with sufficiently small coefficients \(c_\alpha^{(g)}\), \(c_\alpha^{(\sigma)}\), and then using \eqref{eq:bootenergy}, yields \eqref{eq:Fequiv}.
+\end{proof}
+
+\section{Improved Differential Inequality}
+
+\begin{proposition}[Quadratic remainder structure]
+On the flat exact-closure background and in maximal spatial-harmonic gauge, every nonprincipal remainder term appearing after commuting derivatives through the Einstein--quartic-scalar evolution and through the elliptic substitutions is at least quadratic in the perturbation size measured by \(\mathfrak E_N^{1/2}\).
+\label{prop:quadratic}
+\end{proposition}
+
+\begin{proof}
+The background is an exact solution of the full reduced system, so every source term vanishes there. The local well-posedness note already isolated the principal hyperbolic terms in the Einstein and scalar evolution and the principal elliptic terms for the lapse, shift, and auxiliary variables. Therefore the only terms left after subtracting the flat background are commutators with variable coefficients, Ricci corrections, transport by \(\beta\), and nonlinear matter or auxiliary insertions. Each such term contains at least one perturbative coefficient factor and one differentiated unknown factor, hence is quadratic in the high-order norm.
+\end{proof}
+
+\begin{theorem}[Improved coercive energy estimate]
+Fix \(N\ge 6\). There exist \(\varepsilon_{\mathrm{boot}}>0\) and \(C_N>0\) such that every smooth solution in the coercive bootstrap regime with \(\varepsilon\le \varepsilon_{\mathrm{boot}}\) satisfies
+\begin{equation}
+\frac{d}{dt}\mathfrak F_N(t)
+\le
+C_N\,\mathfrak F_N(t)^{3/2}
+\label{eq:quadraticineq}
+\end{equation}
+for all \(t\in[0,T]\).
+\end{theorem}
+
+\begin{proof}
+Differentiate \(\mathfrak E_N\) as in the local well-posedness note. The principal linear contributions from the metric block are paired against the correction terms in \(\mathfrak C_N\), removing the borderline terms responsible for the rough factor \(1+\mathfrak E_N^{1/2}\) in the earlier estimate. The scalar block is handled similarly: the self-adjoint quartic spatial operator and the canonical momentum pairing already give the leading positive contributions, while the correction term in \eqref{eq:CN} removes the remaining linear transport pieces.
+
+After those cancellations, Proposition \ref{prop:quadratic} shows that all surviving commutators and source terms are quadratic. Using Sobolev multiplication in dimension three, each such term is bounded by \(C_N\mathfrak E_N^{3/2}\). Proposition 1 controls the elliptic variables by the same energy, and Proposition 2 converts \(\mathfrak E_N\) to \(\mathfrak F_N\). This yields \eqref{eq:quadraticineq}.
+\end{proof}
+
+\section{Longer-Time Bootstrap Closure}
+
+\begin{theorem}[Coercive longer-time bootstrap]
+Fix \(N\ge 6\). There exist \(\varepsilon_\sharp>0\) and \(c_N>0\) such that the following holds. Let compatible initial data for the explicit completion \(S_{\mathrm{min},4}\) satisfy the hypotheses of the first local well-posedness theorem, together with
+\begin{equation}
+\mathfrak F_N(0)\le \varepsilon^2,
+\qquad
+0<\varepsilon\le \varepsilon_\sharp.
+\label{eq:initsmall}
+\end{equation}
+Assume that on some interval \([0,T]\) the corresponding solution lies in the coercive bootstrap regime. If
+\begin{equation}
+T\le c_N\,\varepsilon^{-1},
+\label{eq:Tbootstrap}
+\end{equation}
+then in fact
+\begin{equation}
+\sup_{0\le t\le T}\mathfrak F_N(t)\le 2\varepsilon^2,
+\qquad
+\sup_{0\le t\le T}\mathfrak E_N(t)\le 3\varepsilon^2,
+\label{eq:bootstrapimprove}
+\end{equation}
+and consequently
+\begin{equation}
+\sup_{0\le t\le T}\mathfrak A_N(t)\le C_N\varepsilon^2.
+\label{eq:auximprove}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Let
+\[
+M(T)\equiv \sup_{0\le t\le T}\mathfrak F_N(t).
+\]
+By \eqref{eq:quadraticineq},
+\[
+\mathfrak F_N(t)
+\le
+\mathfrak F_N(0)+C_N\int_0^t \mathfrak F_N(s)^{3/2}\,ds
+\le
+\varepsilon^2+C_N T\,M(T)^{3/2}.
+\]
+The bootstrap assumptions \eqref{eq:bootenergy} and \eqref{eq:Fequiv} imply \(M(T)\le 6\varepsilon^2\). Therefore
+\[
+\mathfrak F_N(t)
+\le
+\varepsilon^2+C_N T\,6^{3/2}\varepsilon^3.
+\]
+Taking the supremum over \(t\in[0,T]\) gives
+\[
+M(T)\le \varepsilon^2 + C_N 6^{3/2} T\,\varepsilon^3.
+\]
+Choose \(c_N>0\) so that \(C_N 6^{3/2} c_N\le 1\). Then \eqref{eq:Tbootstrap} implies \(M(T)\le 2\varepsilon^2\), which is a strict improvement of the assumed bootstrap bound for sufficiently small \(\varepsilon\). Equation \eqref{eq:bootstrapimprove} then follows from the coercive equivalence \eqref{eq:Fequiv}, and \eqref{eq:auximprove} follows from Proposition 1.
+\end{proof}
+
+\begin{corollary}[Bootstrap lifespan lower bound]
+Under the hypotheses of Theorem 2, the maximal existence interval \([0,T_{\max})\) of the local theorem satisfies
+\begin{equation}
+T_{\max}\ge c_N\,\varepsilon^{-1},
+\label{eq:lifespan}
+\end{equation}
+provided the strict auxiliary elliptic-control regime holds initially with the fixed positive lower bounds of the branch.
+\end{corollary}
+
+\begin{proof}
+The first local theorem and its continuation criterion allow restarting the solution as long as the strict auxiliary elliptic-control regime and the energy bounds persist. Theorem 2 supplies exactly those bounds on every subinterval of length at most \(c_N\varepsilon^{-1}\), so breakdown before \eqref{eq:lifespan} is impossible.
+\end{proof}
+
+\begin{corollary}[Longer-time persistence of norm-level non-ultrasoft dominance]
+Assume in addition that the initial data satisfy
+\begin{equation}
+\frac{\lambda_4}{M_*^2}\|\Delta_{\gamma^{(0)}}\sigma^{(0)}\|_{H^{N-1}}^2
+\le
+\delta_0\,
+\frac{1}{m_S^2}\|\pi_\sigma^{(0)}\|_{H^{N-1}}^2,
+\qquad
+0<\delta_0\ll 1.
+\label{eq:initdominance}
+\end{equation}
+Then, after choosing \(\varepsilon_\sharp\) smaller if necessary, the solution of Theorem 2 satisfies
+\begin{equation}
+\frac{\lambda_4}{M_*^2}\|\Delta_\gamma\sigma(t)\|_{H^{N-1}}^2
+\le
+2\delta_0\,
+\frac{1}{m_S^2}\|\pi_\sigma(t)\|_{H^{N-1}}^2
+\qquad
+\text{for }0\le t\le c_N\varepsilon^{-1}.
+\label{eq:longdominance}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+The ratio in \eqref{eq:longdominance} evolves continuously in the regularity class of the local theorem. Theorem 2 keeps both numerator and denominator uniformly small and controlled throughout the bootstrap interval, so a continuity argument preserves the ratio bound after shrinking \(\varepsilon_\sharp\) if necessary.
+\end{proof}
+
+\section{What This Step Establishes}
+
+The present manuscript establishes the following.
+\begin{enumerate}
+    \item It replaces the rough short-time energy inequality of the first local theorem by a corrected coercive functional with quadratic small-data growth.
+    \item It proves a genuine longer-time bootstrap on the same strict auxiliary elliptic-control branch.
+    \item It yields a lifespan lower bound of order \(T\sim \varepsilon^{-1}\) for the fixed explicit completion \(S_{\mathrm{min},4}\).
+    \item It keeps the lapse, shift, \(Q\)-sector, and ordered-flow auxiliary variables controlled by the same coercive energy throughout that bootstrap interval.
+    \item It extends the norm-level non-ultrasoft dominance bookkeeping to the same longer-time scale.
+\end{enumerate}
+
+It does not establish the following.
+\begin{enumerate}
+    \item It does not prove global nonlinear stability.
+    \item It does not prove decay, peeling, scattering, or asymptotic convergence to the flat background.
+    \item It does not remove the strict auxiliary elliptic-control assumptions.
+    \item It does not widen the admissible-background theorem route beyond the already-recorded endpoint.
+    \item It does not supply a first-principles substrate derivation of Einsteinian gravity.
+\end{enumerate}
+
+\section{Conclusion}
+
+The explicit minimal quartic-compatible completion now has more than a first local existence theorem. On the same strict auxiliary elliptic-control branch it admits a corrected coercive control functional, a quadratic small-data differential inequality, and a genuine longer-time bootstrap whose lifespan scales like \(\varepsilon^{-1}\).
+
+That is the correct intermediate gain at the present disciplined scope. It is stronger than the first local theorem because the energy architecture is now coercive at longer times. It is still weaker than a true nonlinear-stability theorem because no global decay mechanism or asymptotic control has yet been proved. The next burden is therefore not another local restatement, but the decision whether this longer-time bootstrap can be promoted to an actual nonlinear-stability theorem on the same strict branch.
+
+\end{document}

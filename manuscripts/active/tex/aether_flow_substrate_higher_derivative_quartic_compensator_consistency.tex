@@ -1,0 +1,691 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal{A}}
+\newcommand{\BridgeMetric}{\mathfrak{g}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Higher-Derivative Quartic Compensator Branch Full Flat-Background Consistency and Reduction Test}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The previous branch-selection note chose the least-drift post-verdict candidate beyond the surviving quartic side program: adjoin one gapped auxiliary scalar \(Y\) so that the quartic block \((\Delta_\perp S)^2\) can be tuned into an exact square. That selection note proved only the isolated scalar subsection
+\[
+\Delta\mathcal L_{\sigma y}^{(2)}
+=
+-\frac{m_S^2}{2}\bigl(\partial_0\sigma-\sigma_0\phi\bigr)^2
+-\frac{1}{2}
+\left(
+\frac{\lambda_4}{M_*^2}
+-\frac{\alpha_Y^2}{M_Y^2}
+\right)
+(\nabla^2\sigma)^2,
+\]
+and therefore left open the real post-selection burden: does the tuned branch still remove the observer correction after the existing \(Q\)-sector and longitudinal ordered-flow auxiliaries are reduced at the same scope?
+
+This note performs that full flat-background quadratic reduction. The key new point is that the explicit nonlinear quartic completion uses
+\[
+\Delta_\perp S
+\equiv
+\nabla_A\!\left(P^{AB}\nabla_B S\right),
+\]
+so at linear order one has not only \(\nabla^2\sigma\) but
+\[
+(\Delta_\perp S)^{(1)}
+=
+\nabla^2\sigma+\sigma_0\nabla^2(B+\chi),
+\]
+where \(h_{0i}=S_i+\partial_iB\) and \(V_i=V_i^T+\partial_i\chi\). Thus the compensator branch mixes nontrivially with the longitudinal ordered-flow auxiliary \(\chi\), while the \(Q\)-sector remains exactly decoupled on the collapsed-scalar baseline.
+
+After eliminating \(q^I\), \(V_T^i\), \(y\), and \(\chi\), the full scalar bridge channel is
+\[
+\mathcal L_{\hat\sigma,\mathrm{eff}}^{(2)}
+=
+-\frac{m_S^2}{2}\bigl(\partial_0\hat\sigma-\sigma_0\Phi_h\bigr)^2
+-\frac{\Lambda_{\mathrm{red}}}{2}(\nabla^2\hat\sigma)^2,
+\qquad
+\Lambda_{\mathrm{red}}
+=
+\frac{\kappa_\theta\Lambda_Y}{\kappa_\theta+\sigma_0^2\Lambda_Y},
+\]
+with
+\[
+\Lambda_Y
+\equiv
+\frac{\lambda_4}{M_*^2}-\frac{\alpha_Y^2}{M_Y^2},
+\qquad
+\Phi_h
+\equiv
+\phi+\partial_0\nabla^{-2}\!\left(\nabla^2B-\frac{1}{2}\partial_0H\right).
+\]
+Hence the full reduced observer correction is
+\[
+\Delta\mathcal L_{\mathrm{metric},4Y}^{(2)}
+=
+-\frac{1}{2}\Pi_{\Phi}^{(4Y)}(\omega,\mathbf{k})\,|\Phi_h|^2,
+\qquad
+\Pi_{\Phi}^{(4Y)}
+=
+m_S^2\sigma_0^2
+\frac{\Lambda_{\mathrm{red}}k^4}
+{m_S^2\omega^2+\Lambda_{\mathrm{red}}k^4}.
+\]
+The isolated subsection was therefore incomplete: the untuned quartic coefficient is renormalized by the longitudinal solve. But the tuned exact-square branch still passes the full test, because
+\[
+\frac{\alpha_Y^2}{M_Y^2}=\frac{\lambda_4}{M_*^2}
+\quad\Longrightarrow\quad
+\Lambda_Y=\Lambda_{\mathrm{red}}=0,
+\]
+so the full reduced observer correction vanishes identically, not only its isolated \(\phi\)-subsection. The \(Q\)-sector remains \(q^I=0\) on the decaying branch, \(Y\) stays algebraic and uniformly gapped by \(M_Y^2>0\), and no new unsuppressed low-energy nonmetric mode is created by the compensator itself. Single-metric matter coupling is unchanged on the full branch.
+
+The price of this success is structural and explicit. On the tuned branch the quartic observer scalar channel disappears completely, so the first replacement local/coercive architecture is no longer the old Einstein--quartic-scalar one. The narrowest replacement is instead a tuned-compensator strict auxiliary-elliptic branch: \(Q^I\) remain uniformly gapped slice-wise elliptic variables, \(Y\) is algebraic, \((\chi,W_i^T)\) are solved slice by slice under \(\kappa_\theta>0\), \(\kappa_\Omega>0\), and the scalar sector is carried only by the Stueckelberg-like momentum variable rather than by a quartic coercive Schr\"odinger channel.
+\end{abstract}
+
+\section{Introduction}
+
+The quartic exact-square compensator branch was selected for one precise reason. The surviving quartic branch had already passed the matter-coupling gate, the recovery-compatibility gate, the admissible-background route, and the same-class nonlinear-stability route, yet its reduced observer equation still carried the nonzero scalar self-energy \(\Pi_\phi^{(4)}\). If exact derivation remains the active goal, the next branch must therefore do more than suppress that remainder. It must remove it.
+
+The previous compensator note chose the smallest admissible redesign and proved a first positive scalar-subsection result. But the project state recorded there also fixed the next burden explicitly: carry the compensator branch through the \emph{full} flat-background quadratic reduction, including the existing \(Q\)-sector and ordered-flow auxiliaries, before treating the branch as genuinely upgraded. That is the sole purpose of the present note.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays within that claim boundary. It does not claim a completed nonlinear theorem for the compensator branch. It does not claim a completed substrate derivation beyond flat-background quadratic scope. It does perform the exact next coefficient-level task forced by the selection note: full auxiliary elimination, full reduced observer correction, and a precise verdict on whether the tuned branch really removes the recorded observer remainder rather than only an isolated scalar slice of it.
+
+\section{Branch Data and the Missing Linearized Mixing}
+
+\begin{definition}[Compensator branch data]
+\label{def:branch}
+The flat-background compensator branch keeps the bridge metric and matter route
+\begin{equation}
+\BridgeMetric_{AB}=G_{AB}-2U_AU_B,
+\qquad
+S_{\mathrm{matter}}[\Xi^\ast\BridgeMetric,\psi]
+=
+S_{\mathrm{matter}}[g,\psi],
+\label{eq:bridgeandmatter}
+\end{equation}
+keeps the collapsed-scalar baseline
+\begin{equation}
+\kappa_S=\mu_{SI}=\mu_S^2=0,
+\qquad
+m_S^2>0,
+\qquad
+\widehat M_{IJ}>0,
+\label{eq:collapsed}
+\end{equation}
+and replaces the quartic scalar block by
+\begin{equation}
+\mathcal L_{4Y}
+=
+-\frac{\lambda_4}{2M_*^2}\bigl(\Delta_\perp S\bigr)^2
++\alpha_Y\,Y\,\Delta_\perp S
+-\frac{M_Y^2}{2}Y^2,
+\qquad
+M_Y^2>0,
+\label{eq:L4Y}
+\end{equation}
+with
+\begin{equation}
+\Delta_\perp S
+\equiv
+\nabla_A\!\left(P^{AB}\nabla_B S\right),
+\qquad
+P^{AB}=G^{AB}-U^AU^B.
+\label{eq:Deltaperp}
+\end{equation}
+\end{definition}
+
+Use the same admissible homogeneous flat background as in the previous linearized notes:
+\begin{equation}
+\bar G_{AB}=\delta_{AB},
+\qquad
+\bar U^A=\delta^A{}_0,
+\qquad
+\bar S=\sigma_0X^0,
+\qquad
+\bar Q^I=0,
+\qquad
+\bar Y=0.
+\label{eq:background}
+\end{equation}
+Write perturbations as
+\begin{equation}
+G_{AB}=\delta_{AB}+H_{AB},
+\qquad
+U^A=\bar U^A+V^A,
+\qquad
+S=\sigma_0X^0+\sigma,
+\qquad
+Q^I=q^I,
+\qquad
+Y=y,
+\label{eq:perturbations}
+\end{equation}
+with
+\begin{equation}
+V^0=-\frac{1}{2}H_{00},
+\qquad
+h_{00}=-2\phi=-H_{00},
+\qquad
+h_{0i}=S_i+\partial_iB=-H_{0i}-2V_i,
+\qquad
+h_{ij}=H_{ij},
+\label{eq:metricpert}
+\end{equation}
+and
+\begin{equation}
+V_i=V_i^T+\partial_i\chi,
+\qquad
+\partial^iV_i^T=0,
+\qquad
+H\equiv \delta^{ij}h_{ij}.
+\label{eq:Vdecomp}
+\end{equation}
+
+\begin{proposition}[Full linearized projected divergence]
+\label{prop:deltalin}
+On the flat background \eqref{eq:background}, the linearized compensator source is
+\begin{equation}
+(\Delta_\perp S)^{(1)}
+=
+\nabla^2\sigma+\sigma_0\nabla^2(B+\chi).
+\label{eq:deltalin}
+\end{equation}
+In particular, the compensator branch mixes at quadratic order with the longitudinal ordered-flow auxiliary \(\chi\), while no new linear mixing with the \(Q\)-sector appears on the collapsed-scalar baseline.
+\end{proposition}
+
+\begin{proof}
+Define \(X^A\equiv P^{AB}\nabla_BS\). On the background \eqref{eq:background}, one has \(\bar X^A=0\) because \(\bar P^{A0}=0\) and \(\partial_i\bar S=0\). Therefore
+\[
+(\Delta_\perp S)^{(1)}
+=
+\partial_A(\delta X^A).
+\]
+Since \(\delta X^A=\bar P^{AB}\partial_B\sigma+\sigma_0\,\delta P^{A0}\), it remains to compute \(\delta P^{A0}\). The unit constraint gives \(V^0=-H_{00}/2\), hence \(\delta P^{00}=0\). For spatial indices,
+\[
+\delta P^{i0}
+=
+-H_{0i}-V_i
+=
+h_{0i}+V_i
+=
+S_i+V_i^T+\partial_i(B+\chi).
+\]
+Taking the divergence and using \(\partial^iS_i=\partial^iV_i^T=0\) gives
+\[
+\partial_A\delta P^{A0}
+=
+\nabla^2(B+\chi).
+\]
+Together with \(\bar P^{ij}\partial_i\partial_j\sigma=\nabla^2\sigma\), this proves \eqref{eq:deltalin}. The collapsed-scalar baseline \eqref{eq:collapsed} sets \(\mu_{SI}=0\), and \eqref{eq:L4Y} contains no \(q^I\), so there is no new linear \(S/Q\) mixing.
+\end{proof}
+
+\begin{remark}
+This is the missing piece in the branch-selection note. The isolated subsection \((\Delta_\perp S)^{(1)}=\nabla^2\sigma\) is correct only after suppressing the scalar shift/longitudinal combination \(B+\chi\). The full flat reduction must keep \eqref{eq:deltalin}.
+\end{remark}
+
+\section{Complete Quadratic Auxiliary Action}
+
+\begin{proposition}[Full flat-background quadratic auxiliary Lagrangian]
+\label{prop:fullL}
+At fixed bridge perturbation \(h_{\mu\nu}\), the complete quadratic nonmetric action of the compensator branch is
+\begin{align}
+\mathcal L_{\mathrm{aux},4Y}^{(2)}
+=\;&
+-\frac{m_S^2}{2}\bigl(\partial_0\sigma-\sigma_0\phi\bigr)^2
+-\frac{1}{2}q^I\!\left((-\nabla^2)\delta_{IJ}+\widehat M_{IJ}\right)\!q^J
+\nonumber\\
+&-\frac{\kappa_\theta}{2}
+\left(\nabla^2\chi+\frac{1}{2}\partial_0H\right)^2
+-\frac{\kappa_\Omega}{4}\,
+\partial_{[i}\!\left(S_{j]}+V^T_{j]}\right)
+\partial^{[i}\!\left(S^{j]}+V_T^{j]}\right)
+\nonumber\\
+&-\frac{\lambda_4}{2M_*^2}\,\Xi^2
++\alpha_Y\,y\,\Xi
+-\frac{M_Y^2}{2}y^2,
+\label{eq:fullL}
+\end{align}
+where
+\begin{equation}
+\Xi
+\equiv
+\nabla^2\sigma+\sigma_0\nabla^2(B+\chi).
+\label{eq:Xidef}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+The kinetic, \(Q\)-sector, longitudinal ordered-flow, and transverse ordered-flow terms are exactly those already recorded on the collapsed quartic branch. Proposition \ref{prop:deltalin} supplies the only new ingredient. Substituting \eqref{eq:deltalin} into \eqref{eq:L4Y} gives the last line of \eqref{eq:fullL}.
+\end{proof}
+
+\begin{remark}
+Proposition \ref{prop:fullL} answers the first question posed by the branch-selection note. The \(Q\)-sector remains decoupled, the transverse ordered-flow block is unchanged, and the only genuinely new mixing is the scalar-longitudinal pair \((y,\chi)\) through \(\Xi\).
+\end{remark}
+
+\section{Complete Auxiliary Elimination}
+
+\subsection{Unchanged \texorpdfstring{\(Q\)}{Q} and Transverse Ordered-Flow Sectors}
+
+\begin{proposition}[Exact \(Q\)-sector and transverse elimination]
+\label{prop:qv}
+On the decaying flat branch with no harmonic zero mode and positive-definite \(\widehat M_{IJ}\), the \(Q\)-sector and transverse ordered-flow equations remain
+\begin{equation}
+q^I=0,
+\qquad
+V_T^i=-S^i,
+\label{eq:qvsolve}
+\end{equation}
+and contribute no residual quadratic observer correction.
+\end{proposition}
+
+\begin{proof}
+The compensator term \eqref{eq:L4Y} contains neither \(q^I\) nor \(V_T^i\). Therefore the Euler--Lagrange equations are unchanged from the earlier flat-background consistency notes. Positive-definite \(\widehat M_{IJ}\) gives \(q^I=0\), and the vorticity block gives \(V_T^i=-S^i\) on the decaying branch.
+\end{proof}
+
+\subsection{Compensator Elimination}
+
+\begin{definition}[Untuned compensator remainder]
+\label{def:LambdaY}
+Define
+\begin{equation}
+\Lambda_Y
+\equiv
+\frac{\lambda_4}{M_*^2}-\frac{\alpha_Y^2}{M_Y^2}.
+\label{eq:LambdaY}
+\end{equation}
+The tuned exact-square branch is \(\Lambda_Y=0\).
+\end{definition}
+
+\begin{proposition}[Pointwise compensator solve]
+\label{prop:ysolve}
+The compensator \(y\) is algebraic, with equation
+\begin{equation}
+M_Y^2y=\alpha_Y\,\Xi.
+\label{eq:ysolve}
+\end{equation}
+Substituting \eqref{eq:ysolve} into \eqref{eq:fullL} yields
+\begin{align}
+\mathcal L_{\sigma\chi,\mathrm{pre}}^{(2)}
+=\;&
+-\frac{m_S^2}{2}\bigl(\partial_0\sigma-\sigma_0\phi\bigr)^2
+-\frac{\kappa_\theta}{2}
+\left(\nabla^2\chi+\frac{1}{2}\partial_0H\right)^2
+\nonumber\\
+&-\frac{\Lambda_Y}{2}
+\left(
+\nabla^2\sigma+\sigma_0\nabla^2(B+\chi)
+\right)^2.
+\label{eq:Lprech}
+\end{align}
+\end{proposition}
+
+\begin{proof}
+Varying \eqref{eq:fullL} with respect to \(y\) gives \eqref{eq:ysolve}. Substitution gives
+\[
+\alpha_Yy\Xi-\frac{M_Y^2}{2}y^2
+=
+\frac{\alpha_Y^2}{2M_Y^2}\Xi^2,
+\]
+which combines with the old quartic term into \eqref{eq:Lprech}.
+\end{proof}
+
+\begin{remark}
+The compensator is therefore auxiliary already before the tuned limit. Its inverse quadratic operator is simply \(M_Y^{-2}\), so the new field is uniformly gapped as long as \(M_Y^2>0\).
+\end{remark}
+
+\subsection{Longitudinal Ordered-Flow Elimination}
+
+\begin{definition}[Metric scalar source for the longitudinal solve]
+\label{def:Psih}
+On the decaying branch define
+\begin{equation}
+\Psi_h
+\equiv
+\nabla^2B-\frac{1}{2}\partial_0H.
+\label{eq:Psih}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[Full longitudinal elimination]
+\label{prop:chisolve}
+Assume
+\begin{equation}
+\kappa_\theta+\sigma_0^2\Lambda_Y\neq 0.
+\label{eq:denomnonzero}
+\end{equation}
+Then the longitudinal auxiliary \(\chi\) is determined by
+\begin{equation}
+\nabla^2\chi
+=
+-\frac{
+\frac{\kappa_\theta}{2}\partial_0H
++\Lambda_Y\sigma_0\bigl(\nabla^2\sigma+\sigma_0\nabla^2B\bigr)
+}{
+\kappa_\theta+\sigma_0^2\Lambda_Y
+},
+\label{eq:chisolve}
+\end{equation}
+and substitution into \eqref{eq:Lprech} yields
+\begin{equation}
+\mathcal L_{\sigma,\mathrm{full}}^{(2)}
+=
+-\frac{m_S^2}{2}\bigl(\partial_0\sigma-\sigma_0\phi\bigr)^2
+-\frac{\Lambda_{\mathrm{red}}}{2}
+\bigl(\nabla^2\sigma+\sigma_0\Psi_h\bigr)^2,
+\label{eq:Lsigmafull}
+\end{equation}
+where
+\begin{equation}
+\Lambda_{\mathrm{red}}
+\equiv
+\frac{\kappa_\theta\Lambda_Y}
+{\kappa_\theta+\sigma_0^2\Lambda_Y}.
+\label{eq:Lambdared}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Let
+\[
+X\equiv \nabla^2\chi,
+\qquad
+h\equiv \frac{1}{2}\partial_0H,
+\qquad
+d\equiv \nabla^2\sigma+\sigma_0\nabla^2B.
+\]
+Then \eqref{eq:Lprech} becomes
+\[
+\mathcal L_{\sigma\chi,\mathrm{pre}}^{(2)}
+=
+-\frac{m_S^2}{2}\bigl(\partial_0\sigma-\sigma_0\phi\bigr)^2
+-\frac{1}{2}
+\left[
+\kappa_\theta(X+h)^2
++\Lambda_Y(d+\sigma_0X)^2
+\right].
+\]
+Variation with respect to \(\chi\) gives
+\[
+\nabla^2\!\left[
+\kappa_\theta(X+h)+\Lambda_Y\sigma_0(d+\sigma_0X)
+\right]=0.
+\]
+On the decaying branch with no harmonic zero mode the bracket vanishes, which is exactly \eqref{eq:chisolve}. Substituting the resulting minimizing value of \(X\) gives
+\[
+\kappa_\theta(X+h)^2+\Lambda_Y(d+\sigma_0X)^2
+=
+\frac{\kappa_\theta\Lambda_Y}
+{\kappa_\theta+\sigma_0^2\Lambda_Y}
+(d-\sigma_0h)^2.
+\]
+Since \(d-\sigma_0h=\nabla^2\sigma+\sigma_0\Psi_h\), this proves \eqref{eq:Lsigmafull}--\eqref{eq:Lambdared}.
+\end{proof}
+
+\begin{remark}
+The isolated scalar subsection of the branch-selection note saw \(\Lambda_Y\); the full reduction sees \(\Lambda_{\mathrm{red}}\). Longitudinal auxiliary elimination therefore genuinely renormalizes the untuned quartic coefficient. This is exactly the effect that had to be checked beyond the isolated subsection.
+\end{remark}
+
+\begin{corollary}[Tuned branch and the longitudinal denominator]
+\label{cor:tuneddenom}
+On the tuned exact-square branch \(\Lambda_Y=0\),
+\begin{equation}
+\Lambda_{\mathrm{red}}=0,
+\qquad
+\nabla^2\chi=-\frac{1}{2}\partial_0H.
+\label{eq:tunedchi}
+\end{equation}
+In particular, the tuned branch does not change the longitudinal elliptic coefficient: it is exactly the old \(\kappa_\theta\) solve.
+\end{corollary}
+
+\begin{proof}
+Insert \(\Lambda_Y=0\) into \eqref{eq:chisolve} and \eqref{eq:Lambdared}.
+\end{proof}
+
+\section{Full Reduced Observer Correction}
+
+\begin{definition}[Full scalar metric combination]
+\label{def:Phih}
+On the decaying branch with no harmonic zero mode, define
+\begin{equation}
+\Phi_h
+\equiv
+\phi+\partial_0\nabla^{-2}\Psi_h
+=
+\phi+\partial_0\nabla^{-2}
+\left(\nabla^2B-\frac{1}{2}\partial_0H\right).
+\label{eq:Phih}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[Field redefinition to the reduced scalar channel]
+\label{prop:hatsigma}
+Define
+\begin{equation}
+\hat\sigma
+\equiv
+\sigma+\sigma_0\nabla^{-2}\Psi_h.
+\label{eq:hatsigma}
+\end{equation}
+Then \eqref{eq:Lsigmafull} becomes
+\begin{equation}
+\mathcal L_{\hat\sigma,\mathrm{eff}}^{(2)}
+=
+-\frac{m_S^2}{2}\bigl(\partial_0\hat\sigma-\sigma_0\Phi_h\bigr)^2
+-\frac{\Lambda_{\mathrm{red}}}{2}(\nabla^2\hat\sigma)^2.
+\label{eq:Lhatsigma}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+By construction,
+\[
+\nabla^2\hat\sigma
+=
+\nabla^2\sigma+\sigma_0\Psi_h,
+\]
+which matches the second term of \eqref{eq:Lsigmafull}. Likewise
+\[
+\partial_0\hat\sigma-\sigma_0\Phi_h
+=
+\partial_0\sigma
++\sigma_0\partial_0\nabla^{-2}\Psi_h
+-\sigma_0\phi
+-\sigma_0\partial_0\nabla^{-2}\Psi_h
+=
+\partial_0\sigma-\sigma_0\phi.
+\]
+Substituting these identities into \eqref{eq:Lsigmafull} gives \eqref{eq:Lhatsigma}.
+\end{proof}
+
+\begin{theorem}[Full reduced observer correction]
+\label{thm:fullcorr}
+After eliminating \(q^I\), \(V_T^i\), \(y\), \(\chi\), and \(\hat\sigma\), the full flat-background reduced observer correction in the scalar bridge sector is
+\begin{equation}
+\Delta\mathcal L_{\mathrm{metric},4Y}^{(2)}(\omega,\mathbf{k})
+=
+-\frac{1}{2}\Pi_{\Phi}^{(4Y)}(\omega,\mathbf{k})\,|\Phi_h(\omega,\mathbf{k})|^2,
+\label{eq:Deltametricfull}
+\end{equation}
+with
+\begin{equation}
+\Pi_{\Phi}^{(4Y)}(\omega,\mathbf{k})
+=
+m_S^2\sigma_0^2
+\frac{\Lambda_{\mathrm{red}}k^4}
+{m_S^2\omega^2+\Lambda_{\mathrm{red}}k^4}.
+\label{eq:PiphiPhi}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Equation \eqref{eq:Lhatsigma} is exactly the same Gaussian scalar structure already used in the earlier flat-background consistency notes, with \(\phi\) replaced by \(\Phi_h\) and the quartic coefficient replaced by \(\Lambda_{\mathrm{red}}\). Integrating out \(\hat\sigma\) therefore yields the same tree-level self-energy formula, which is \eqref{eq:Deltametricfull}--\eqref{eq:PiphiPhi}.
+\end{proof}
+
+\begin{corollary}[Full tuned-branch removal of the observer correction]
+\label{cor:tunedfull}
+On the tuned exact-square branch
+\begin{equation}
+\frac{\alpha_Y^2}{M_Y^2}=\frac{\lambda_4}{M_*^2},
+\label{eq:tuned}
+\end{equation}
+the full flat-background reduced observer correction vanishes identically:
+\begin{equation}
+\Pi_{\Phi}^{(4Y)}(\omega,\mathbf{k})\equiv 0.
+\label{eq:Pizero}
+\end{equation}
+In particular, the tuned branch removes the recorded quartic observer remainder after \emph{complete} auxiliary elimination, not only on the isolated \(\phi\)-subsection of the earlier selection note.
+\end{corollary}
+
+\begin{proof}
+Equation \eqref{eq:tuned} is exactly \(\Lambda_Y=0\), so Corollary \ref{cor:tuneddenom} gives \(\Lambda_{\mathrm{red}}=0\). Substituting this into \eqref{eq:PiphiPhi} yields \eqref{eq:Pizero}.
+\end{proof}
+
+\begin{remark}
+The full-reduction answer is sharper than the isolated subsection in two directions. Untuned branches are changed nontrivially by the longitudinal solve through \(\Lambda_{\mathrm{red}}\), so the isolated subsection was not yet the full answer. But the exact-square tuning survives that extra reduction cleanly because zero stays zero under the full solve.
+\end{remark}
+
+\section{Mode Control and Matter Coupling on the Full Branch}
+
+\begin{proposition}[No new unsuppressed compensator mode]
+\label{prop:nolowmode}
+Assume
+\begin{equation}
+M_Y^2>0,
+\qquad
+\widehat M_{IJ}>0,
+\qquad
+\kappa_\theta>0,
+\qquad
+\kappa_\Omega>0.
+\label{eq:strictaux}
+\end{equation}
+Then the compensator branch introduces no new unsuppressed low-energy nonmetric observer mode at the present flat-background quadratic scope:
+\begin{enumerate}
+    \item \(q^I\) remain gapped and auxiliary by Proposition \ref{prop:qv};
+    \item \(y\) is algebraic with uniform gap \(M_Y^2\) by Proposition \ref{prop:ysolve};
+    \item the ordered-flow variables \(\chi\) and \(V_T^i\) remain slice-wise auxiliary, with the only possible new singular locus given by \(\kappa_\theta+\sigma_0^2\Lambda_Y=0\);
+    \item on the tuned branch \(\Lambda_Y=0\), that singular locus is absent and the \(\chi\)-solve reduces exactly to the preexisting elliptic relation \eqref{eq:tunedchi}.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Items (1) and (2) are Propositions \ref{prop:qv} and \ref{prop:ysolve}. Item (3) is Proposition \ref{prop:chisolve}, which shows that the longitudinal elimination is controlled precisely by the denominator \(\kappa_\theta+\sigma_0^2\Lambda_Y\). Item (4) is Corollary \ref{cor:tuneddenom}. Therefore the compensator itself does not create a new propagating low-energy mode, and on the tuned branch the longitudinal auxiliary architecture is exactly the old one.
+\end{proof}
+
+\begin{remark}
+What survives on the tuned branch is not a new compensator mode. It is only the already-known collapsed-scalar Stueckelberg-like structure carried by \((\partial_0\sigma-\sigma_0\phi)^2\). The compensator removes the quartic observer correction but does not by itself convert that old degenerate scalar limit into a new healthy propagating nonmetric channel.
+\end{remark}
+
+\begin{theorem}[Single-metric matter coupling on the full compensator branch]
+\label{thm:matter}
+At the present action-level and flat-background quadratic scope, the compensator branch preserves controlled matter coupling through the bridge metric alone. On the tuned branch \eqref{eq:tuned}, the reduced observer-accessible action is
+\begin{equation}
+S_{\mathrm{obs}}^{(2)}[h,\psi]
+=
+S_{\mathrm{EH}}^{(2)}[h]
++S_{\mathrm{matter}}^{(2)}[h,\psi],
+\label{eq:Sobsfinal}
+\end{equation}
+with no residual nonmetric observer correction at this scope.
+\end{theorem}
+
+\begin{proof}
+The action-level matter route is unchanged by Definition \ref{def:branch}: matter depends only on \(g_{\mu\nu}=\Xi^\ast\BridgeMetric_{AB}\). At fixed \(h_{\mu\nu}\), the fields \((q^I,\chi,V_T^i,\sigma,y)\) appear only in the auxiliary sector \eqref{eq:fullL}. Therefore there is no direct matter dependence on any nonmetric field beyond the metric itself. The complete auxiliary elimination performed above yields the reduced metric correction \eqref{eq:Deltametricfull}. On the tuned branch, Corollary \ref{cor:tunedfull} shows that this correction vanishes identically. Hence \eqref{eq:Sobsfinal} follows.
+\end{proof}
+
+\section{Narrowest Replacement Local/Coercive Architecture}
+
+The tuned branch passes the full flat-background reduction test, but it changes the dynamical architecture. The old quartic observer scalar channel is gone by design. The replacement local/coercive setup should therefore preserve only what survives that removal.
+
+\begin{definition}[Tuned-compensator strict auxiliary-elliptic branch]
+\label{def:strictcomp}
+The \emph{tuned-compensator strict auxiliary-elliptic branch} is the branch defined by
+\begin{equation}
+\frac{\alpha_Y^2}{M_Y^2}=\frac{\lambda_4}{M_*^2},
+\qquad
+M_Y^2>0,
+\qquad
+\widehat M_{IJ}>0,
+\qquad
+\kappa_\theta>0,
+\qquad
+\kappa_\Omega>0,
+\label{eq:strictcomp}
+\end{equation}
+in unit-lapse spatial-harmonic gauge. On this branch, \(Q^I\) remain the same uniformly positive elliptic/gapped sector as before, \(Y\) is solved algebraically, and \((\chi,W_i^T)\) are solved slice by slice by the same weighted/homogeneous elliptic package already used on the fixed-completion unit-lapse route.
+\end{definition}
+
+\begin{proposition}[Narrowest replacement architecture]
+\label{prop:architecture}
+At the present disciplined scope, the narrowest replacement local/coercive architecture for the tuned compensator branch is the one of Definition \ref{def:strictcomp}. Concretely:
+\begin{enumerate}
+    \item the bridge metric, matter route, and unit-lapse weighted/homogeneous longitudinal-control package are kept unchanged;
+    \item the \(Q\)-sector is kept as the same uniformly gapped elliptic block and the compensator \(Y\) as an algebraic slice-wise solve rather than as a new propagating channel;
+    \item the ordered-flow auxiliary equations are unchanged at principal level from the repaired unit-lapse route because \(\Lambda_Y=0\) restores the old \(\chi\)-solve exactly;
+    \item the scalar control variable is no longer the quartic Schr\"odinger energy \(\|\Delta_\gamma\sigma\|^2\), which has been intentionally neutralized, but the Stueckelberg-like momentum variable \(\pi_\sigma=m_S^2(n^\mu\nabla_\mu S-\sigma_0)\) together with the elliptically controlled auxiliary package.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Items (1)--(3) follow directly from Corollary \ref{cor:tuneddenom}, Proposition \ref{prop:nolowmode}, and the fact that the compensator branch does not alter the bridge metric or matter route. Item (4) is forced by Corollary \ref{cor:tunedfull}: once the tuned branch removes the quartic operator entirely, the old quartic coercive scalar channel no longer exists to support the previous Einstein--quartic-scalar architecture. The smallest honest replacement is therefore to keep the repaired auxiliary-elliptic gauge package that still applies, while downgrading the scalar sector to the surviving Stueckelberg-like momentum structure rather than inventing a new propagating nonmetric principal term.
+\end{proof}
+
+\begin{remark}
+Proposition \ref{prop:architecture} is a programmatic reduction verdict, not yet a theorem of local well-posedness. Its purpose is narrower: to state the smallest replacement architecture now justified by the full quadratic reduction. The next substantive manuscript, if this branch remains the active derivational candidate, should therefore be an explicit tuned-compensator completion/reduced-system note rather than another asymptotic note on the old quartic side program.
+\end{remark}
+
+\section{Conclusion}
+
+The immediate task after the compensator branch-selection note is now complete.
+\begin{enumerate}
+    \item The full flat-background quadratic action of the compensator branch has been derived, and the missing longitudinal mixing is explicit through \((\Delta_\perp S)^{(1)}=\nabla^2\sigma+\sigma_0\nabla^2(B+\chi)\).
+    \item The \(Q\)-sector remains exactly decoupled on the collapsed-scalar baseline, while the longitudinal ordered-flow auxiliary renormalizes the untuned quartic coefficient from \(\Lambda_Y\) to \(\Lambda_{\mathrm{red}}\).
+    \item After complete auxiliary elimination, the full reduced observer correction is the scalar-metric self-energy \(\Pi_{\Phi}^{(4Y)}\) of \eqref{eq:PiphiPhi}.
+    \item On the tuned exact-square branch, \(\Lambda_Y=\Lambda_{\mathrm{red}}=0\), so the full reduced observer correction vanishes identically. The tuned branch therefore really removes the recorded \(\Pi_\phi^{(4)}\) at the full reduction level.
+    \item The compensator remains algebraic and uniformly gapped, the branch introduces no new unsuppressed low-energy compensator mode, and single-metric matter coupling is untouched on the full branch.
+    \item The narrowest replacement local/coercive setup is no longer the old Einstein--quartic-scalar architecture but the tuned-compensator strict auxiliary-elliptic branch, in which the repaired unit-lapse weighted/homogeneous longitudinal package is preserved while the scalar channel is reduced to the Stueckelberg-like momentum structure.
+\end{enumerate}
+
+At the present disciplined scope, this is the correct post-selection verdict. The compensator branch survives the full quadratic reduction test and remains the active least-drift candidate beyond the old quartic side program. The next burden is therefore not another asymptotic repair of that old side program. It is to choose one explicit tuned-compensator nonlinear completion and write its first reduced system in the replacement auxiliary-elliptic architecture just identified here.
+
+\end{document}

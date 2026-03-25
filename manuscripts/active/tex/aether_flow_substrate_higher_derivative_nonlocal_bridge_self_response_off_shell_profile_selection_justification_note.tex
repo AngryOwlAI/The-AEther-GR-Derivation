@@ -1,0 +1,583 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal{A}}
+\newcommand{\BridgeMetric}{\mathfrak g}
+\newcommand{\SpatialD}{\mathcal D}
+\newcommand{\LapPerp}{\Delta_\perp}
+\newcommand{\FlowPot}{\Phi_\Omega}
+\newcommand{\CoulPot}{U_\Omega}
+\newcommand{\SourceDensityRed}{\varrho_\Omega^{\mathrm{red}}}
+\newcommand{\ConstCurrent}{\mathcal C}
+\newcommand{\ConstGamma}{\Gamma}
+\newcommand{\CurvQMult}{\mathscr P}
+\newcommand{\CurvChiMult}{\mathscr X}
+\newcommand{\CurvTransMult}{\mathscr Y}
+\newcommand{\HamChargeOmega}{\mathfrak m_\Omega}
+\newcommand{\SigmaIER}{\Sigma^{\mathrm{IER}}}
+\newcommand{\SigmaDressSch}{\Sigma^{\mathrm{Sch}}}
+\newcommand{\SigmaRegPol}{\Sigma^{\mathrm{pol,reg}}}
+\newcommand{\CurvSeed}{\Theta_{\mathrm{br}}}
+\newcommand{\CurvSeedMult}{\Upsilon_{\mathrm{br}}}
+\newcommand{\CurvScale}{\ell_{\mathrm{br}}}
+\newcommand{\CurvProfile}{F_{\mathrm{br}}}
+\newcommand{\CurvProfileCan}{F_{\mathrm{br}}^{\mathrm{can}}}
+\newcommand{\CurvOneI}{\mathfrak K}
+\newcommand{\CurvOneChi}{\mathfrak L}
+\newcommand{\CurvOneW}{\mathfrak M}
+\newcommand{\BridgeCurv}{\mathcal R_{\mathrm{br}}}
+\newcommand{\DownPkg}{\mathscr P_{\mathrm{down}}}
+\newcommand{\ProfWeight}{\varpi_{\mathrm{br}}}
+\newcommand{\ProfBend}{\mathscr B_{\mathrm{br}}}
+\newcommand{\ProfRule}{\mathscr S_{\mathrm{br}}^{\mathrm{off}}}
+\newcommand{\RespSus}{\Sigma_{\mathrm{br}}}
+\newcommand{\RespSusEq}{\Sigma_{\mathrm{br}}^{\ast}}
+\newcommand{\RespClass}{\mathscr C_{\mathrm{br}}}
+\newcommand{\RespEnergy}{\mathscr E_{\mathrm{br}}}
+\newcommand{\RespEnergyPin}{\mathscr E_{\mathrm{br}}^{\mathrm{pin}}}
+\newcommand{\RespStiff}{\kappa_{\mathrm{br}}}
+\newcommand{\RespPin}{\mu_{\mathrm{br}}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Nonlocal Bridge Self-Response Off-Shell Profile-Selection Justification Note}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The positive quotient reduced-system, theorem, decay, and asymptotic line remains closed and is not reopened here. The constitutive-current curvature-action note remains canonized at disciplined integrated-action scope, the explicit local bridge-curvature-density note remains canonized at disciplined representative scope, the canonical bridge-curvature-density selection note remains canonized at disciplined negative current scope, and the off-shell profile-selection principle note remains canonized only at conditional fixed-response-scale selection scope. The live burden is therefore narrower again: justify the selector itself from deeper substrate structure and, if uniqueness is still desired beyond fixed-scale selection, remove \(\CurvScale\) from the selector layer as well.
+
+The present manuscript supplies that next step at the smallest honest scope presently available. It introduces a deeper bridge-curvature response susceptibility
+\[
+\RespSus(x)\equiv \frac12 \CurvProfile''(x)
+\]
+living on the internal bridge-curvature response line \(x=\BridgeCurv\). Once the exact-flat normalization data
+\[
+\CurvProfile(0)=1,
+\qquad
+\CurvProfile'(0)=0,
+\qquad
+\RespSus(0)=\CurvScale^4
+\]
+are fixed, the first genuine off-shell datum distinguishing two positive profiles is no longer \(\CurvProfile\) itself but the susceptibility inhomogeneity
+\[
+\RespSus'(x)=\frac12\CurvProfile'''(x).
+\]
+That observation identifies the previous selector sharply: the old profile-bending functional is exactly the first positive quadratic homogeneity cost of the deeper susceptibility sector. More precisely, for
+\[
+\RespEnergy[\RespSus]
+\equiv
+\frac{\RespStiff}{2}\int_{\mathbb R}\ProfWeight(x)\,\abs{\RespSus'(x)}^2\,dx,
+\]
+one has
+\[
+\RespEnergy\!\left[\frac12\CurvProfile''\right]
+=
+\frac{\RespStiff}{8}\ProfBend[\CurvProfile],
+\qquad
+\ProfBend[\CurvProfile]
+=
+\int_{\mathbb R}\ProfWeight(x)\,\abs{\CurvProfile'''(x)}^2\,dx.
+\]
+Hence the fixed-scale off-shell minimal-bending rule is the profile-level reduction of a deeper substrate homogeneity principle rather than an unexplained extra postulate.
+
+The note then adds the smallest equilibrium pinning compatible with the same downstream package,
+\[
+\RespEnergyPin[\RespSus]
+\equiv
+\frac{\RespStiff}{2}\int_{\mathbb R}\ProfWeight\abs{\RespSus'}^2\,dx
++
+\frac{\RespPin}{2}\int_{\mathbb R}\ProfWeight\abs{\RespSus-\RespSusEq}^2\,dx,
+\]
+with \(\RespSusEq>0\). Its unique minimizer is the constant susceptibility \(\RespSus\equiv\RespSusEq\), so the unique compatible bridge-curvature profile is
+\[
+\CurvProfile(x)=1+\RespSusEq x^2,
+\qquad
+\CurvScale^4=\RespSusEq.
+\]
+Therefore the same deeper susceptibility sector both justifies the old selector and, on the stronger pinned branch, fixes the response scale as equilibrium substrate data rather than leaving it as selector data. The claim boundary is strict: this note does not claim that the old explicit local density already implied this deeper sector without new input, and it does not claim a completed ultraviolet derivation. Its narrower result is that the off-shell selector and its scale now arise from a disciplined deeper substrate homogeneity-plus-equilibrium principle while the bridge map and downstream package stay fixed.
+\end{abstract}
+
+\section{Introduction}
+
+After the canonical bridge-curvature-density selection note and the off-shell profile-selection principle note, the continuation side of the representative question is no longer open. The line already knows how to collapse the residual positive profile family at fixed response scale. What it does not yet know is why that selector should be regarded as anything more than a new postulate.
+
+That is the exact burden of the present manuscript. It does not reopen another observer-level repair note. It does not alter the already-positive self-response-dressed bridge map. It does not search for a broader bridge variable or a different matter route. It acts only on the remaining explanatory gap left by the previous note: why the residual profile sector should prefer the old minimal-bending rule, and whether the same deeper structural input can also move \(\CurvScale\) out of the selector layer.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+This note stays strictly inside that boundary. Its positive claim is not that the previously canonized explicit local density already forced the selector without new input. Its positive claim is narrower and more disciplined: once one adds the smallest deeper substrate susceptibility sector compatible with the already-fixed bridge map and profile-blind downstream package, the old off-shell selector is recovered as the reduced homogeneity energy of the first unfixed off-shell profile datum, and the same deeper sector has a natural pinned variant that fixes \(\CurvScale\) as equilibrium substrate data.
+
+\section{Fixed Local Family and the First Unfixed Off-Shell Datum}
+
+\begin{definition}[Bridge-curvature anchor and local family]
+\label{def:family}
+Let
+\begin{equation}
+\BridgeCurv \equiv R[\BridgeMetric]-2\Lambda_{\Sub}
+\label{eq:anchor}
+\end{equation}
+be the bridge-curvature scalar already present in the candidate substrate action. For every smooth positive profile
+\begin{equation}
+\CurvProfile:\mathbb R\to\mathbb R_{>0},
+\label{eq:positiveprofile}
+\end{equation}
+define the seed
+\begin{equation}
+\CurvSeed=\CurvProfile(\BridgeCurv)
+\label{eq:seed}
+\end{equation}
+and the local bridge-curvature density
+\begin{align}
+\mathcal L_{\mathrm{loc.curv}}[\CurvProfile]
+=\;&
+\CurvSeedMult\bigl(\CurvSeed-\CurvProfile(\BridgeCurv)\bigr)
+\nonumber\\
+&+\CurvQMult^{AI}\bigl(\CurvOneI_A^I-\CurvSeed\,\lambda_I\SpatialD_AQ^I\bigr)
++\CurvChiMult^A\bigl(\CurvOneChi_A-\CurvSeed\,\lambda_\chi\SpatialD_A\chi\bigr)
+\nonumber\\
+&+\CurvTransMult^A\bigl(\CurvOneW_A-\CurvSeed\,\lambda_WW_A^T\bigr)
++\ConstGamma^A\bigl(
+\ConstCurrent_A
+-\nu_I\CurvSeed^{-1}\CurvOneI_A^I
+-\nu_\chi\CurvSeed^{-1}\CurvOneChi_A
+-\nu_W\CurvSeed^{-1}\CurvOneW_A
+\bigr).
+\label{eq:locfamily}
+\end{align}
+\end{definition}
+
+\begin{definition}[Fixed downstream package]
+\label{def:downstream}
+The \emph{fixed downstream package} \(\DownPkg\) consists of:
+\begin{enumerate}
+    \item the reduced current and reduced density
+    \begin{equation}
+    \ConstCurrent_A
+    =
+    \mathfrak c_I\SpatialD_AQ^I
+    +\mathfrak c_\chi\SpatialD_A\chi
+    +\mathfrak c_WW_A^T,
+    \qquad
+    \SourceDensityRed=-\SpatialD^A\ConstCurrent_A;
+    \label{eq:pkgcurrent}
+    \end{equation}
+    \item the Hamiltonian-charge flux and continuity/Gauss-Poisson package
+    \begin{equation}
+    \HamChargeOmega
+    =
+    \int_{\Sigma_t}\SourceDensityRed\,d\mu_P
+    =
+    -\lim_{r\to\infty}\int_{S_r} n^A\ConstCurrent_A\,dA,
+    \label{eq:pkgcharge}
+    \end{equation}
+    \begin{equation}
+    -\LapPerp\FlowPot=4\pi G_N\,\SourceDensityRed,
+    \qquad
+    \SpatialD_A\FlowPot=\mathcal E_A;
+    \label{eq:pkgpoisson}
+    \end{equation}
+    \item the exterior Coulomb tail
+    \begin{equation}
+    \FlowPot
+    =
+    \CoulPot+\mathcal O(r^{-2}),
+    \qquad
+    \CoulPot(r)=\frac{G_N\,\HamChargeOmega}{r};
+    \label{eq:pkgcoul}
+    \end{equation}
+    \item the surviving dressed bridge map
+    \begin{equation}
+    g_{\mu\nu}^{\mathrm{dressed}}
+    =
+    g_{\mu\nu}^{\mathrm{br}}
+    +\SigmaIER_{\mu\nu}
+    +\SigmaDressSch{}_{\mu\nu}
+    +\SigmaRegPol{}_{\mu\nu},
+    \label{eq:pkgmetric}
+    \end{equation}
+    with the same matter-free activity, off-longitudinal \(Q/W\) cancellation, explicit cubic longitudinal completion, and quartic Coulomb self-response absorption already recorded in the explicit local note.
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}[The downstream package is profile-blind]
+\label{prop:profileblind}
+For every smooth positive profile \(\CurvProfile\), eliminating the local sector \eqref{eq:locfamily} yields the same downstream package \(\DownPkg\).
+\end{proposition}
+
+\begin{proof}
+Variation with respect to \(\CurvQMult^{AI}\), \(\CurvChiMult^A\), and \(\CurvTransMult^A\) gives
+\begin{equation}
+\CurvOneI_A^I=\CurvSeed\,\lambda_I\SpatialD_AQ^I,
+\qquad
+\CurvOneChi_A=\CurvSeed\,\lambda_\chi\SpatialD_A\chi,
+\qquad
+\CurvOneW_A=\CurvSeed\,\lambda_WW_A^T.
+\label{eq:carrierrels}
+\end{equation}
+Variation with respect to \(\ConstGamma^A\) gives
+\begin{equation}
+\ConstCurrent_A
+=
+\nu_I\CurvSeed^{-1}\CurvOneI_A^I
++\nu_\chi\CurvSeed^{-1}\CurvOneChi_A
++\nu_W\CurvSeed^{-1}\CurvOneW_A.
+\label{eq:readout}
+\end{equation}
+Substituting \eqref{eq:carrierrels} into \eqref{eq:readout} cancels \(\CurvSeed=\CurvProfile(\BridgeCurv)\) identically and yields the same forced constitutive current
+\begin{equation}
+\ConstCurrent_A
+=
+\mathfrak c_I\SpatialD_AQ^I
++\mathfrak c_\chi\SpatialD_A\chi
++\mathfrak c_WW_A^T,
+\qquad
+\mathfrak c_I=\nu_I\lambda_I,
+\qquad
+\mathfrak c_\chi=\nu_\chi\lambda_\chi,
+\qquad
+\mathfrak c_W=\nu_W\lambda_W.
+\label{eq:forcedcurrent}
+\end{equation}
+The reduced density, Hamiltonian-charge flux, continuity/Gauss-Poisson package, exterior Coulomb tail, and surviving dressed bridge map are therefore independent of the chosen positive profile.
+\end{proof}
+
+\begin{definition}[Bridge-curvature response susceptibility]
+\label{def:susceptibility}
+For every smooth positive profile \(\CurvProfile\), define its \emph{bridge-curvature response susceptibility} by
+\begin{equation}
+\RespSus(x)\equiv \frac12 \CurvProfile''(x).
+\label{eq:susceptibility}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[The first unfixed off-shell profile datum]
+\label{prop:firstdatum}
+Suppose \(\CurvProfile\in C^\infty(\mathbb R)\) satisfies
+\begin{equation}
+\CurvProfile(0)=1,
+\qquad
+\CurvProfile'(0)=0,
+\qquad
+\RespSus(0)=\CurvScale^4.
+\label{eq:jetdata}
+\end{equation}
+Then
+\begin{equation}
+\CurvProfile(x)
+=
+1+\CurvScale^4x^2
++2\int_0^x (x-s)\,\bigl(\RespSus(s)-\CurvScale^4\bigr)\,ds
+\label{eq:integralrep_sigma}
+\end{equation}
+and equivalently
+\begin{equation}
+\CurvProfile(x)
+=
+1+\CurvScale^4x^2
++\int_0^x (x-s)^2\,\RespSus'(s)\,ds
+=
+1+\CurvScale^4x^2
++\frac12\int_0^x (x-s)^2\,\CurvProfile'''(s)\,ds.
+\label{eq:integralrep_f3}
+\end{equation}
+Hence, once the flat value, vanishing linear onset, and quadratic response coefficient are fixed, the remaining off-shell profile freedom is carried exactly by \(\RespSus'=\frac12\CurvProfile'''\).
+\end{proposition}
+
+\begin{proof}
+By definition \(\CurvProfile''(x)=2\RespSus(x)\). Integrating twice and using \eqref{eq:jetdata} gives
+\[
+\CurvProfile'(x)=2\int_0^x\RespSus(s)\,ds,
+\]
+\[
+\CurvProfile(x)=1+2\int_0^x\int_0^u \RespSus(s)\,ds\,du.
+\]
+Splitting \(\RespSus(s)=\CurvScale^4+\bigl(\RespSus(s)-\CurvScale^4\bigr)\) and applying Fubini gives \eqref{eq:integralrep_sigma}. Integrating by parts once yields \eqref{eq:integralrep_f3}, and the identity \(\CurvProfile'''=2\RespSus'\) is immediate from \eqref{eq:susceptibility}.
+\end{proof}
+
+\begin{remark}
+Proposition \ref{prop:firstdatum} explains why the previous selector involved \(\CurvProfile'''\) rather than lower derivatives. The zeroth, first, and second jets are already fixed by exact-flat normalization and the quadratic response coefficient. The first genuinely unfixed local datum is therefore the susceptibility inhomogeneity \(\RespSus'=\frac12\CurvProfile'''\).
+\end{remark}
+
+\section{Deeper Susceptibility Homogeneity Sector}
+
+\begin{definition}[Fixed-scale susceptibility class]
+\label{def:respclass}
+Fix a positive equilibrium susceptibility \(\RespSusEq>0\), a smooth positive integrable weight
+\begin{equation}
+\ProfWeight:\mathbb R\to\mathbb R_{>0},
+\qquad
+\int_{\mathbb R}\ProfWeight(x)\,dx<\infty,
+\label{eq:weight}
+\end{equation}
+and a positive stiffness \(\RespStiff>0\). Define \(\RespClass(\RespSusEq,\ProfWeight)\) to be the set of all \(\RespSus\in C^\infty(\mathbb R)\) such that
+\begin{equation}
+\RespSus(x)>0\quad\text{for all }x,
+\qquad
+\RespSus(0)=\RespSusEq,
+\label{eq:respclassdata}
+\end{equation}
+and such that the homogeneity energy
+\begin{equation}
+\RespEnergy[\RespSus]
+\equiv
+\frac{\RespStiff}{2}\int_{\mathbb R}\ProfWeight(x)\,\abs{\RespSus'(x)}^2\,dx
+\label{eq:homenergy}
+\end{equation}
+is finite.
+\end{definition}
+
+\begin{remark}
+At the present disciplined scope, \(\RespSus\) is the deeper bridge-curvature response susceptibility of the hidden substrate sector along the internal bridge-curvature response line. The energy \eqref{eq:homenergy} penalizes inhomogeneous response susceptibility and is the smallest positive parity-even quadratic cost of the first unfixed off-shell datum identified in Proposition \ref{prop:firstdatum}. Because the downstream package is profile-blind, adding this sector does not force any change in the reduced current, Hamiltonian-charge flux, continuity/Gauss-Poisson package, exterior Coulomb tail, or dressed bridge map.
+\end{remark}
+
+\begin{proposition}[The old selector is the reduced homogeneity energy]
+\label{prop:recoverselector}
+Let \(\CurvProfile\in C^\infty(\mathbb R)\) satisfy
+\begin{equation}
+\CurvProfile(0)=1,
+\qquad
+\CurvProfile'(0)=0,
+\qquad
+\frac12\CurvProfile''(0)=\RespSusEq,
+\label{eq:fixedscaleprofile}
+\end{equation}
+and define \(\RespSus=\frac12\CurvProfile''\). Then
+\begin{equation}
+\RespEnergy[\RespSus]
+=
+\frac{\RespStiff}{8}\int_{\mathbb R}\ProfWeight(x)\,\abs{\CurvProfile'''(x)}^2\,dx
+=
+\frac{\RespStiff}{8}\ProfBend[\CurvProfile],
+\label{eq:selectorrecover}
+\end{equation}
+where
+\begin{equation}
+\ProfBend[\CurvProfile]
+\equiv
+\int_{\mathbb R}\ProfWeight(x)\,\abs{\CurvProfile'''(x)}^2\,dx.
+\label{eq:oldbending}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+By Definition \ref{def:susceptibility},
+\[
+\CurvProfile'''(x)=2\RespSus'(x).
+\]
+Substituting this identity into \eqref{eq:homenergy} gives \eqref{eq:selectorrecover}.
+\end{proof}
+
+\begin{theorem}[Unique fixed-scale ground state]
+\label{thm:fixedscale}
+For every fixed \((\RespSusEq,\ProfWeight,\RespStiff)\), the homogeneity energy \(\RespEnergy\) has a unique minimizer on \(\RespClass(\RespSusEq,\ProfWeight)\), namely
+\begin{equation}
+\RespSus(x)\equiv \RespSusEq.
+\label{eq:constantsigma}
+\end{equation}
+The corresponding profile satisfying \eqref{eq:fixedscaleprofile} is uniquely
+\begin{equation}
+\CurvProfile(x)=1+\RespSusEq x^2.
+\label{eq:quadraticprofileeq}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+The constant susceptibility \(\RespSus\equiv\RespSusEq\) lies in \(\RespClass(\RespSusEq,\ProfWeight)\) and satisfies \(\RespEnergy=0\). Since \(\ProfWeight>0\) and the integrand in \eqref{eq:homenergy} is nonnegative, one has \(\RespEnergy[\RespSus]\geq0\) for every admissible \(\RespSus\). Hence every minimizer must satisfy \(\RespSus'(x)=0\) for all \(x\), so every minimizer is constant. The condition \(\RespSus(0)=\RespSusEq\) then forces \(\RespSus\equiv\RespSusEq\). Integrating \(\CurvProfile''=2\RespSusEq\) together with \(\CurvProfile(0)=1\) and \(\CurvProfile'(0)=0\) yields \eqref{eq:quadraticprofileeq}. Uniqueness follows.
+\end{proof}
+
+\begin{corollary}[Justification of the fixed-scale off-shell selector]
+\label{cor:justifyselector}
+If one identifies
+\begin{equation}
+\RespSusEq=\CurvScale^4,
+\label{eq:lfromsigma}
+\end{equation}
+then the off-shell minimal-bending rule of the previous note is exactly the profile-level reduction of the deeper susceptibility homogeneity principle \eqref{eq:homenergy}. In particular, the selector \(\ProfRule\) is no longer an unexplained profile-space postulate once this deeper sector is admitted.
+\end{corollary}
+
+\begin{proof}
+Proposition \ref{prop:recoverselector} identifies the old bending functional with the deeper homogeneity energy up to the positive factor \(\RespStiff/8\). Theorem \ref{thm:fixedscale} then shows that their minimizers coincide and are uniquely quadratic.
+\end{proof}
+
+\section{Equilibrium Pinning and Response-Scale Fixing}
+
+\begin{definition}[Pinned susceptibility class and energy]
+\label{def:pinned}
+Fix \(\RespSusEq>0\), \(\RespStiff>0\), \(\RespPin>0\), and the same positive integrable weight \(\ProfWeight\). Define \(\RespClass^{\mathrm{pin}}(\RespSusEq,\ProfWeight)\) to be the set of all \(\RespSus\in C^\infty(\mathbb R)\) such that
+\begin{equation}
+\RespSus(x)>0\quad\text{for all }x,
+\label{eq:pinnedclass}
+\end{equation}
+and such that
+\begin{equation}
+\RespEnergyPin[\RespSus]
+\equiv
+\frac{\RespStiff}{2}\int_{\mathbb R}\ProfWeight(x)\,\abs{\RespSus'(x)}^2\,dx
++
+\frac{\RespPin}{2}\int_{\mathbb R}\ProfWeight(x)\,\abs{\RespSus(x)-\RespSusEq}^2\,dx
+\label{eq:pinnedenergy}
+\end{equation}
+is finite.
+\end{definition}
+
+\begin{remark}
+The added positive term in \eqref{eq:pinnedenergy} is the smallest equilibrium pinning compatible with the already-fixed downstream package. It acts only on the deeper susceptibility sector, not on the reduced current or dressed bridge map. At the present scope \(\RespSusEq\) should therefore be read as the equilibrium bridge-curvature response susceptibility of that deeper substrate sector.
+\end{remark}
+
+\begin{theorem}[Unique pinned ground state and scale fixing]
+\label{thm:pinned}
+For every fixed \((\RespSusEq,\ProfWeight,\RespStiff,\RespPin)\), the pinned energy \(\RespEnergyPin\) has a unique minimizer on \(\RespClass^{\mathrm{pin}}(\RespSusEq,\ProfWeight)\), namely
+\begin{equation}
+\RespSus(x)\equiv \RespSusEq.
+\label{eq:pinnedground}
+\end{equation}
+Consequently the unique profile satisfying
+\begin{equation}
+\CurvProfile(0)=1,
+\qquad
+\CurvProfile'(0)=0,
+\qquad
+\CurvProfile''(x)=2\RespSus(x)
+\label{eq:pinnedprofileconditions}
+\end{equation}
+is
+\begin{equation}
+\CurvProfile(x)=1+\RespSusEq x^2,
+\label{eq:pinnedprofile}
+\end{equation}
+and the bridge-curvature response scale is fixed by
+\begin{equation}
+\CurvScale^4=\RespSusEq.
+\label{eq:scalefixed}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Both terms in \eqref{eq:pinnedenergy} are nonnegative because \(\ProfWeight>0\), \(\RespStiff>0\), and \(\RespPin>0\). The constant susceptibility \(\RespSus\equiv\RespSusEq\) lies in \(\RespClass^{\mathrm{pin}}(\RespSusEq,\ProfWeight)\) and gives \(\RespEnergyPin=0\). Hence every minimizer must make both integrands vanish pointwise:
+\[
+\RespSus'(x)=0,
+\qquad
+\RespSus(x)-\RespSusEq=0.
+\]
+Therefore the unique minimizer is \(\RespSus\equiv\RespSusEq\). Integrating \(\CurvProfile''=2\RespSusEq\) together with the conditions in \eqref{eq:pinnedprofileconditions} yields \eqref{eq:pinnedprofile}. Equation \eqref{eq:scalefixed} is then immediate from comparing \eqref{eq:pinnedprofile} with the normalization \(\CurvProfile(x)=1+\CurvScale^4x^2\).
+\end{proof}
+
+\begin{corollary}[The response scale is no longer selector data]
+\label{cor:notselectordata}
+On the pinned susceptibility branch, \(\CurvScale\) is not free data of the selector \(\ProfRule\). It is the equilibrium response parameter of the deeper substrate susceptibility sector.
+\end{corollary}
+
+\begin{remark}
+This is the sharpest honest scope of the present note. The response scale has been moved one layer deeper than the off-shell selector and is now fixed by equilibrium susceptibility data of the deeper sector. A still deeper decomposition of \(\RespSusEq\) into more primitive gap/coupling parameters may be attempted later, but it is no longer necessary for the present selector-justification burden.
+\end{remark}
+
+\section{Canonical Profile and Preservation of the Downstream Package}
+
+\begin{definition}[Canonical profile from the justified deeper sector]
+\label{def:canonical}
+Under either the fixed-scale homogeneity principle of Theorem \ref{thm:fixedscale} or the pinned equilibrium principle of Theorem \ref{thm:pinned}, the canonical bridge-curvature profile is
+\begin{equation}
+\CurvProfileCan(x)\equiv 1+\RespSusEq x^2.
+\label{eq:canonical}
+\end{equation}
+On the pinned branch this is equivalently
+\begin{equation}
+\CurvProfileCan(x)=1+\CurvScale^4x^2.
+\label{eq:canonicalell}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[No downstream reopening]
+\label{prop:noreopen}
+Eliminating the local bridge-curvature density \(\mathcal L_{\mathrm{loc.curv}}[\CurvProfileCan]\) preserves the same downstream package \(\DownPkg\).
+\end{proposition}
+
+\begin{proof}
+The canonical profile \(\CurvProfileCan\) is a smooth positive member of the local family in Definition \ref{def:family}. Proposition \ref{prop:profileblind} therefore applies directly.
+\end{proof}
+
+\begin{corollary}[The selector-justification note does not reopen observer-level work]
+\label{cor:noobserver}
+The deeper susceptibility sector introduced in this note does not reopen the already-positive observer-level bridge-map redesign sector, the quotient PDE line, or the profile-blind downstream package.
+\end{corollary}
+
+\begin{proof}
+The deeper sector acts only on \(\RespSus=\frac12\CurvProfile''\), and Proposition \ref{prop:noreopen} shows that substituting the resulting canonical profile back into the local bridge-curvature family leaves \(\DownPkg\) unchanged.
+\end{proof}
+
+\section{Verdict and Remaining Boundary}
+
+The present note resolves the post-selection burden at the next honest layer and no further. Its verdict is:
+\begin{enumerate}
+    \item once the flat normalization data are fixed, the first genuine off-shell profile datum is the bridge-curvature susceptibility inhomogeneity \(\RespSus'=\frac12\CurvProfile'''\);
+    \item the old minimal-bending functional is exactly the profile-level reduction of the deeper positive-definite homogeneity energy \(\RespEnergy\);
+    \item if one stays on the fixed-scale branch, the old off-shell selector is thereby justified from deeper substrate structure rather than merely postulated at profile level;
+    \item if one passes to the pinned equilibrium branch, the same deeper susceptibility sector also fixes the response scale by \(\CurvScale^4=\RespSusEq\), so \(\CurvScale\) is no longer selector data.
+\end{enumerate}
+
+The remaining claim boundary is equally explicit:
+\begin{enumerate}
+    \item this deeper susceptibility sector is genuinely new structural input beyond the previously canonized explicit local bridge-curvature-density family;
+    \item the note does not claim that the old explicit local density already forced this sector without further enlargement;
+    \item the note does not yet claim a completed ultraviolet derivation of the equilibrium susceptibility \(\RespSusEq\) from still more primitive substrate microphysics;
+    \item the note changes nothing in the already-fixed downstream package and should not be read as reopening observer-level repair work.
+\end{enumerate}
+
+\section{Conclusion}
+
+The previous off-shell profile-selection principle note showed that, once a minimal selector is admitted, the residual positive bridge-curvature profile sector collapses to the quadratic benchmark at fixed response scale. The honest remaining question was why that selector should be taken seriously at all.
+
+This note answers that question at the next disciplined layer. The key move is to identify
+\[
+\RespSus(x)=\frac12\CurvProfile''(x)
+\]
+as the deeper bridge-curvature response susceptibility and to recognize that, after the flat normalization data are fixed, the first genuine off-shell profile datum is the susceptibility inhomogeneity
+\[
+\RespSus'(x)=\frac12\CurvProfile'''(x).
+\]
+The previous minimal-bending selector is then not an arbitrary extra variational rule: it is exactly the reduced positive-definite homogeneity energy of that deeper susceptibility sector. On the stronger pinned branch, the same deeper sector also fixes the response scale through the equilibrium susceptibility relation
+\[
+\CurvScale^4=\RespSusEq.
+\]
+
+The result should be read exactly at that scope. The bridge map and downstream package remain fixed. No observer-level repair screen is reopened. The present note does not claim that the old local density already contained the deeper sector automatically, and it does not yet claim a final ultraviolet derivation of \(\RespSusEq\). Its narrower positive conclusion is the one now needed by the active line: the off-shell profile-selection principle, and on the stronger pinned branch the scale \(\CurvScale\) itself, now arise from a disciplined deeper substrate homogeneity-plus-equilibrium structure rather than remaining merely profile-level selector data.
+
+\end{document}

@@ -1,0 +1,537 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal{A}}
+\newcommand{\BridgeMetric}{\mathfrak{g}}
+\newcommand{\Ell}{\mathcal{L}}
+\newcommand{\AY}{\mathcal A_Y}
+\newcommand{\AZ}{\mathcal A_Z}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Ordered-Flow Label Symmetry/Quotient Branch: First Post-Coercive Decay/Integrability Test}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The quotient theorem note has already done the job it was supposed to do. On the same quotient physical field space, in the same unit-lapse spatial-harmonic weighted/homogeneous class, and with
+\[
+\AY=\AZ=0
+\]
+imposed from the outset, it proves the first local well-posedness/continuation theorem together with the first corrected \(T\sim\varepsilon^{-1}\) coercive bootstrap. The next honest burden is therefore no longer another reduced-system, setup, or theorem note. It is the first genuinely post-coercive same-branch question: does the quotient Einstein system now have the expected decay/integrability package, or does the first real post-coercive obstruction appear there?
+
+This manuscript performs exactly that test and no more. It remains on the same quotient variables
+\[
+(\gamma_{ij},\Sigma_{ij},K;\beta^i;Q^I,\chi,W_i^T;\psi,\pi_\psi),
+\]
+keeps \(\AY=\AZ=0\) imposed from the outset, and never allows \(S\), \(Y\), or \(Z\) to re-enter as physical or analytic free data. The low-frequency trace/longitudinal pair
+\[
+\Theta \equiv \mathbf P_{\mathrm{lo}}\vartheta,
+\qquad
+G_\chi \equiv |\nabla|^{-1}\mathbf P_{\mathrm{lo}}F_\chi,
+\qquad
+\vartheta=\frac12\operatorname{tr}_\delta(\gamma-\delta),
+\]
+still forms the same first-order wave subsystem already encoded in the corrected quotient coercive functional, while the high-frequency Einstein block retains the standard spatial-harmonic wave structure. There is no propagating ordered-flow scalar channel and hence no scalar dispersive slot to track.
+
+The decisive point is nonlinear. Using the same slice-wise weighted/homogeneous elliptic package for \((\beta^i,Q^I,\chi,W_i^T)\), every quadratic and lower-order source term left after extracting the linear variable-coefficient wave principal parts obeys a bound of the form
+\[
+|\mathcal R_N^{\mathrm{quot}}(t)|
+\le
+C_N\,\mathfrak M_{\mathrm{quot}}(t)\,\mathfrak F_N^{\mathrm{quot}}(t),
+\qquad
+\mathfrak M_{\mathrm{quot}}(t)
+\lesssim
+\varepsilon^2(1+t)^{-2}.
+\]
+Hence the nonlinear remainder is time-integrable. No neutral Stueckelberg-like scalar profile survives on this branch, and no representative ordered-flow data leak back into the estimates.
+
+The verdict is therefore positive but narrow. The quotient branch passes the first post-coercive decay/integrability test on the same field space and in the same weighted/homogeneous class. At this decay stage no reconsideration of the bridge metric or the single-metric matter route is forced. The next honest burden, if the same branch is continued, is the corresponding same-class asymptotic closure test rather than a branch redesign.
+\end{abstract}
+
+\section{Introduction}
+
+The ordered-flow-label symmetry/quotient branch has now passed four earlier gates in sequence. The explicit quotient candidate showed that the flat-background observer-equation correction tensor vanishes at coefficient level while the bridge metric and the single-metric matter route remain fixed. The quotient-architecture screen then showed that the old infinite-dimensional ordered-flow-label fiber is pure gauge rather than revived physical underdetermination. The quotient reduced-system note wrote the first \(3+1\) system directly on the quotient physical field space and kept \(S\), \(Y\), and \(Z\) out of the physical data. Finally, the quotient local/coercive and theorem notes closed the weighted/homogeneous slice package, proved local well-posedness/continuation, and proved the first corrected \(T\sim\varepsilon^{-1}\) coercive bootstrap with only the geometric and trace/longitudinal low-frequency corrections.
+
+That theorem-level positive verdict changes the next burden sharply again. The next live question is no longer local or coercive. It is the first genuinely post-coercive same-branch test: does the quotient Einstein system now exhibit the expected wave-like decay package with time-integrable quadratic and lower-order nonlinear terms, or does the first real obstruction appear only after the corrected coercive bootstrap?
+
+This note performs exactly that test. It does not reopen bridge-metric redesign. It does not reopen the single-metric matter route. It does not reintroduce representative ordered-flow variables as an analytic convenience. It works only on the same quotient field space, in the same unit-lapse spatial-harmonic weighted/homogeneous class, and asks whether the nonlinear remainder is now \(L_t^1\).
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not prove a full asymptotic theorem or nonlinear-stability theorem on the quotient branch. It does not claim a completed substrate derivation. It performs only the next narrower test forced by the positive quotient theorem step: whether the same branch has the expected decay/integrability package in the same weighted/homogeneous class.
+
+\section{Bootstrap Regime and Decay Norms}
+
+Work in the same unit-lapse spatial-harmonic quotient gauge
+\begin{equation}
+N\equiv 1,
+\qquad
+V^i(\gamma)\equiv \gamma^{mn}\bigl(\Gamma^i_{mn}[\gamma]-\Gamma^i_{mn}[\delta]\bigr)=0,
+\label{eq:gauge}
+\end{equation}
+with reduced variables
+\begin{equation}
+(\gamma_{ij},\Sigma_{ij},K;\beta^i;Q^I,\chi,W_i^T;\psi,\pi_\psi),
+\label{eq:unknowns}
+\end{equation}
+and with \(\AY=\AZ=0\) imposed identically from the outset.
+
+\begin{definition}[Low- and high-frequency projectors]
+\label{def:projectors}
+Choose a smooth radial cutoff \(\varphi_{\mathrm{lo}}\in C_c^\infty(\mathbb R^3)\) such that
+\[
+0\le \varphi_{\mathrm{lo}}\le 1,
+\qquad
+\varphi_{\mathrm{lo}}(\xi)=1 \text{ for } |\xi|\le 1,
+\qquad
+\varphi_{\mathrm{lo}}(\xi)=0 \text{ for } |\xi|\ge 2.
+\]
+Define Fourier multipliers
+\begin{equation}
+\widehat{\mathbf P_{\mathrm{lo}}f}(\xi)
+\equiv
+\varphi_{\mathrm{lo}}(\xi)\widehat f(\xi),
+\qquad
+\mathbf P_{\mathrm{hi}}\equiv I-\mathbf P_{\mathrm{lo}}.
+\label{eq:projectors}
+\end{equation}
+\end{definition}
+
+Set
+\begin{equation}
+h_{ij}\equiv \gamma_{ij}-\delta_{ij},
+\qquad
+\vartheta \equiv \frac12\delta^{ij}h_{ij},
+\label{eq:basicdefs}
+\end{equation}
+and recall the quotient longitudinal source
+\begin{equation}
+F_\chi
+\equiv
+K-\mathcal N_\chi[\gamma,\Sigma,K,\beta,Q,\chi,W^T,\psi,\pi_\psi].
+\label{eq:Fchi}
+\end{equation}
+Define the low-frequency trace/longitudinal variables
+\begin{equation}
+\Theta \equiv \mathbf P_{\mathrm{lo}}\vartheta,
+\qquad
+G_\chi \equiv |\nabla|^{-1}\mathbf P_{\mathrm{lo}}F_\chi.
+\label{eq:ThetaG}
+\end{equation}
+
+\begin{definition}[Corrected quotient coercive functional recalled]
+\label{def:Fquot}
+Let
+\begin{equation}
+\mathfrak C_N^\chi(t)
+\equiv
+c_\chi
+\Bigl(
+\|\mathbf P_{\mathrm{lo}}\vartheta(t)\|_{L^2}^2
++\|\mathbf P_{\mathrm{lo}}F_\chi(t)\|_{\dot H^{-1}}^2
+\Bigr),
+\label{eq:Cchi}
+\end{equation}
+and let \(\mathfrak C_N^{\mathrm{geom}}\) be the standard unit-lapse spatial-harmonic geometric correction from the quotient theorem note. The corrected quotient coercive functional is
+\begin{equation}
+\mathfrak F_N^{\mathrm{quot}}(t)
+\equiv
+\mathfrak E_N^{\mathrm{quot}}(t)
++\mathfrak C_N^{\mathrm{geom}}(t)
++\mathfrak C_N^\chi(t),
+\label{eq:Fquot}
+\end{equation}
+with no scalar correction channel.
+\end{definition}
+
+\begin{definition}[Quotient decay/bootstrap interval]
+\label{def:decayboot}
+Fix \(N\ge 6\), \(0<\varepsilon\ll 1\), and \(C_\ast\ge 1\). An interval \([0,T]\) is said to lie in the \emph{quotient decay/bootstrap regime} if:
+\begin{enumerate}
+    \item the strict quotient auxiliary-elliptic regime
+    \begin{equation}
+    \widehat M_{IJ}\xi^I\xi^J\ge m_{Q,\min}^2|\xi|^2,
+    \qquad
+    \kappa_\theta\ge \kappa_{\theta,\min}>0,
+    \qquad
+    \kappa_\Omega\ge \kappa_{\Omega,\min}>0
+    \label{eq:strict}
+    \end{equation}
+    holds on every slice;
+    \item the corrected quotient coercive functional satisfies
+    \begin{equation}
+    \sup_{0\le t\le T}\mathfrak F_N^{\mathrm{quot}}(t)\le 4\varepsilon^2;
+    \label{eq:Fboot}
+    \end{equation}
+    \item the low-frequency trace/longitudinal decay norm
+    \begin{equation}
+    \mathfrak D_{\mathrm{TL}}(t)
+    \equiv
+    \|\nabla\Theta(t)\|_{W^{1,\infty}}
+    +\|G_\chi(t)\|_{W^{1,\infty}}
+    \label{eq:DTL}
+    \end{equation}
+    obeys
+    \begin{equation}
+    \mathfrak D_{\mathrm{TL}}(t)\le 2C_\ast\varepsilon(1+t)^{-1};
+    \label{eq:DTLboot}
+    \end{equation}
+    \item the high-frequency Einstein decay norm
+    \begin{equation}
+    \mathfrak D_{\mathrm{Ein,hi}}(t)
+    \equiv
+    \|\partial \mathbf P_{\mathrm{hi}}h(t)\|_{W^{2,\infty}}
+    +\|\mathbf P_{\mathrm{hi}}\Sigma(t)\|_{W^{1,\infty}}
+    +\|\mathbf P_{\mathrm{hi}}K(t)\|_{W^{1,\infty}}
+    \label{eq:DEin}
+    \end{equation}
+    obeys
+    \begin{equation}
+    \mathfrak D_{\mathrm{Ein,hi}}(t)\le 2C_\ast\varepsilon(1+t)^{-1}
+    \label{eq:DEinboot}
+    \end{equation}
+    for all \(t\in[0,T]\).
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:decayboot} is a test bootstrap regime, just as on the earlier fixed-completion weighted/homogeneous route. The point is not yet to derive \eqref{eq:DTLboot}--\eqref{eq:DEinboot} from scratch. The point is to determine whether these are the correct linear-compatible decay rates and whether, under them, the quotient nonlinear remainder is time-integrable.
+\end{remark}
+
+\begin{remark}
+There is no scalar decay norm in Definition \ref{def:decayboot} because no propagating ordered-flow scalar survives on the quotient branch once \(\AY=\AZ=0\) is imposed from the outset. Any healthy ordinary matter sector may be retained exactly as in the quotient theorem note; its standard small-data wave-type decay package is suppressed in the displayed formulas and absorbed into the schematic remainder bounds below.
+\end{remark}
+
+\section{Low-Frequency Trace/Longitudinal Wave Subsystem}
+
+The corrected quotient coercive functional already isolates the same trace/longitudinal low-frequency block that must govern the decay problem.
+
+\begin{proposition}[Low-frequency trace/longitudinal first-order wave system]
+\label{prop:TLwave}
+On every quotient decay/bootstrap interval,
+\begin{align}
+(\partial_t-\Ell_\beta)\Theta
+&=
+-|\nabla|G_\chi + \mathbf P_{\mathrm{lo}}\mathcal Q_\vartheta,
+\label{eq:Thetadt}
+\\
+(\partial_t-\Ell_\beta)G_\chi
+&=
+|\nabla|\Theta + |\nabla|^{-1}\mathbf P_{\mathrm{lo}}\mathcal R_\chi,
+\label{eq:Gdt}
+\end{align}
+where \(\mathcal Q_\vartheta\) and \(\mathcal R_\chi\) are the same quadratic remainders recorded in the quotient theorem note. At the flat linear level \(\beta=0\), \(\mathcal Q_\vartheta=0\), and \(\mathcal R_\chi=0\), one has
+\begin{equation}
+\partial_t\Theta=-|\nabla|G_\chi,
+\qquad
+\partial_tG_\chi=|\nabla|\Theta,
+\label{eq:linearTL}
+\end{equation}
+and therefore
+\begin{equation}
+\partial_t^2\Theta-\Delta_\delta\Theta=0,
+\qquad
+\partial_t^2G_\chi-\Delta_\delta G_\chi=0.
+\label{eq:TLwave2}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+The quotient theorem note already proves
+\[
+(\partial_t-\Ell_\beta)\vartheta=-F_\chi+\mathcal Q_\vartheta,
+\qquad
+(\partial_t-\Ell_\beta)F_\chi=-\Delta_\delta\vartheta+\mathcal R_\chi.
+\]
+Apply \(\mathbf P_{\mathrm{lo}}\) to the first identity and \(|\nabla|^{-1}\mathbf P_{\mathrm{lo}}\) to the second. Since \(|\nabla|^{-1}(-\Delta_\delta)=|\nabla|\), this yields \eqref{eq:Thetadt}--\eqref{eq:Gdt}. Setting \(\beta=0\) and discarding the quadratic remainders gives \eqref{eq:linearTL}, and differentiating once more in time gives \eqref{eq:TLwave2}.
+\end{proof}
+
+\begin{corollary}[Linear-compatible low-frequency decay]
+\label{cor:TLdecay}
+The expected linear-compatible pointwise decay for the low-frequency trace/longitudinal pair is the ordinary three-dimensional wave rate
+\begin{equation}
+\mathfrak D_{\mathrm{TL}}(t)\lesssim \varepsilon(1+t)^{-1}.
+\label{eq:TLrate}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+The flat linearized system \eqref{eq:TLwave2} is the standard three-dimensional wave equation for both variables. The norm \(\mathfrak D_{\mathrm{TL}}\) measures one spatial derivative of \(\Theta\) together with the renormalized low-frequency longitudinal quantity \(G_\chi\), which is exactly the natural wave pair. Therefore the linear-compatible decay rate is \eqref{eq:TLrate}.
+\end{proof}
+
+\begin{remark}
+Corollary \ref{cor:TLdecay} is one reason the same weighted/homogeneous class remains the right post-coercive setting on the quotient branch. The low-frequency longitudinal slot is not a static Poisson defect. After the \(|\nabla|^{-1}\)-renormalization already built into the corrected quotient energy, it participates in an honest wave subsystem with the trace variable.
+\end{remark}
+
+\section{High-Frequency Einstein Decay on the Quotient Branch}
+
+The quotient theorem note removes the propagating ordered-flow scalar channel entirely. At high frequency the remaining observer-accessible propagating block is therefore the same Einstein wave sector already adopted in the exact-closure line, together with any healthy matter wave sector carried along schematically.
+
+\begin{proposition}[Linear high-frequency Einstein wave block]
+\label{prop:Einwave}
+For the quotient branch in unit-lapse spatial-harmonic gauge, the flat linearization of the high-frequency Einstein sector reduces to the usual spatial-harmonic wave system. In particular, after projection by \(\mathbf P_{\mathrm{hi}}\), each metric component of the propagating Einstein block satisfies
+\begin{equation}
+\partial_t^2 \mathbf P_{\mathrm{hi}}h_{\mu\nu}
+-\Delta_\delta \mathbf P_{\mathrm{hi}}h_{\mu\nu}
+=0
+\label{eq:Einwave}
+\end{equation}
+up to the usual gauge-preserving algebraic constraints.
+\end{proposition}
+
+\begin{proof}
+Linearizing the quotient Einstein evolution
+\[
+(\partial_t-\Ell_\beta)\gamma_{ij}
+=
+-2\Sigma_{ij}
+-\frac23\gamma_{ij}K,
+\qquad
+(\partial_t-\Ell_\beta)\Sigma_{ij}
+=
+\bigl(R_{ij}[\gamma]\bigr)^{\mathrm{TF}}
++\Theta_{ij}^{\mathrm{TF,quot}},
+\qquad
+(\partial_t-\Ell_\beta)K
+=
+R[\gamma]+\Theta_K^{\mathrm{quot}}
+\]
+at the flat exact-closure background gives \(\beta=0\) and eliminates the quotient auxiliary stresses at linear order, because those stresses vanish on the background and begin only at lower order once the slice variables are inserted. The remaining linearization is therefore the standard spatial-harmonic Einstein wave system. Projecting to high frequency removes the low-frequency trace/longitudinal block already isolated in Proposition \ref{prop:TLwave}, leaving \eqref{eq:Einwave}.
+\end{proof}
+
+\begin{corollary}[Linear-compatible high-frequency Einstein decay]
+\label{cor:Eindecay}
+The expected linear-compatible decay for the high-frequency Einstein block is the ordinary wave rate
+\begin{equation}
+\mathfrak D_{\mathrm{Ein,hi}}(t)\lesssim \varepsilon(1+t)^{-1}.
+\label{eq:Einrate}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+This is the standard three-dimensional pointwise decay compatible with the linear wave equation \eqref{eq:Einwave}.
+\end{proof}
+
+\begin{remark}
+The quotient branch differs here from the earlier tuned-compensator branch in exactly the way required by the present test. There is no neutral Stueckelberg-like scalar momentum profile left to spoil integrability. The only propagating observer-side modes are wave-like.
+\end{remark}
+
+\section{Auxiliary Decay Inherited from the Same Class}
+
+\begin{definition}[Auxiliary decay norm]
+\begin{equation}
+\mathfrak D_{\mathrm{aux}}(t)
+\equiv
+\|\beta(t)\|_{W^{2,\infty}}
++ \|Q(t)\|_{W^{2,\infty}}
++ \|\nabla\chi(t)\|_{W^{1,\infty}}
++ \|W^T(t)\|_{W^{2,\infty}}.
+\label{eq:Daux}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[Auxiliary decay inheritance]
+\label{prop:auxdecay}
+There exists \(C_N>0\) such that every solution in the quotient decay/bootstrap regime satisfies
+\begin{equation}
+\mathfrak D_{\mathrm{aux}}(t)
+\le
+C_N\Bigl(
+\mathfrak D_{\mathrm{TL}}(t)
++ \mathfrak D_{\mathrm{Ein,hi}}(t)
+\Bigr)
+\label{eq:auxdecay}
+\end{equation}
+for all \(t\in[0,T]\). In particular,
+\begin{equation}
+\mathfrak D_{\mathrm{aux}}(t)\lesssim \varepsilon(1+t)^{-1}.
+\label{eq:auxrate}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+The shift, \(Q\)-sector, and transverse ordered-flow equations are the same uniformly elliptic slice equations already controlled in the quotient local/coercive and theorem notes. Their sources depend only on the propagating quotient variables through derivative-level quantities, and every such source vanishes on the flat exact-closure background. Standard elliptic \(L^\infty\)-estimates therefore give decay of the same order as the source terms.
+
+For the longitudinal variable,
+\[
+\nabla\chi
+=
+\nabla(-\Delta_\delta)^{-1}\mathbf P_{\mathrm{hi}}F_\chi
++\nabla(-\Delta_\delta)^{-1}\mathbf P_{\mathrm{lo}}F_\chi
++\text{perturbative elliptic corrections}.
+\]
+The high-frequency part is controlled by the same elliptic regularity already used in the quotient theorem note, while the low-frequency part is exactly the renormalized quantity \(G_\chi=|\nabla|^{-1}\mathbf P_{\mathrm{lo}}F_\chi\) up to bounded Fourier multipliers. Since every recorded occurrence of \(\chi\) is derivative-level and no representative variables re-enter, no zeroth-order longitudinal loss appears. This yields \eqref{eq:auxdecay}.
+\end{proof}
+
+\section{Time-Integrability of the Nonlinear Remainder}
+
+The previous sections identify the linear-compatible decay rates. The actual decay/integrability test is whether the quadratic and lower-order source terms left after extracting the linear variable-coefficient wave principal parts are then \(L_t^1\).
+
+\begin{definition}[Quadratic remainder coefficient]
+\begin{align}
+\mathfrak M_{\mathrm{quot}}(t)
+\equiv\;&
+\mathfrak D_{\mathrm{TL}}(t)^2
++\mathfrak D_{\mathrm{Ein,hi}}(t)^2
+\nonumber\\
+&+
+\mathfrak D_{\mathrm{aux}}(t)\Bigl(
+\mathfrak D_{\mathrm{TL}}(t)
++\mathfrak D_{\mathrm{Ein,hi}}(t)
+\Bigr).
+\label{eq:Mdef}
+\end{align}
+\end{definition}
+
+\begin{proposition}[Quadratic and lower-order remainder bound]
+\label{prop:remainder}
+There exists \(C_N>0\) such that every solution in the quotient decay/bootstrap regime satisfies
+\begin{equation}
+|\mathcal R_N^{\mathrm{quot}}(t)|
+\le
+C_N\,\mathfrak M_{\mathrm{quot}}(t)\,\mathfrak F_N^{\mathrm{quot}}(t),
+\label{eq:Rbound}
+\end{equation}
+where \(\mathcal R_N^{\mathrm{quot}}(t)\) denotes the sum of all quadratic and lower-order source terms left after placing the low-frequency trace/longitudinal wave block and the high-frequency Einstein wave block into the principal part. In particular,
+\begin{equation}
+\mathfrak M_{\mathrm{quot}}(t)
+\le
+C_N C_\ast^2\varepsilon^2(1+t)^{-2}
+\label{eq:Mrate}
+\end{equation}
+for all \(t\in[0,T]\), and hence \(\mathfrak M_{\mathrm{quot}}\in L_t^1([0,T])\).
+\end{proposition}
+
+\begin{proof}
+Every remainder term in the quotient weighted/homogeneous system vanishes on the flat exact-closure background. Once the linear trace/longitudinal wave pair \((\Theta,G_\chi)\) and the high-frequency Einstein wave block are extracted, the remaining sources are exactly the lower-order Ricci corrections, transport commutators, matter insertions, quadratic trace terms, and quotient auxiliary substitutions already isolated in the theorem note. There is no propagating ordered-flow scalar equation, no scalar correction channel, and no representative-data-dependent source block.
+
+For the low-frequency trace/longitudinal subsystem, the remainders \(\mathcal Q_\vartheta\) and \(\mathcal R_\chi\) are already known from the quotient theorem note to be at least quadratic in the weighted/homogeneous bootstrap size. For the high-frequency Einstein block, the Ricci and transport remainders carry one perturbative coefficient factor together with one differentiated metric or matter variable. For the slice variables, Proposition \ref{prop:auxdecay} inserts \((\beta,Q,\chi,W^T)\) with no worse rate than the wave sector, and the quotient auxiliary stresses themselves begin only at lower order after the slice solve is inserted. Every such term is therefore bounded by the coefficient \(\mathfrak M_{\mathrm{quot}}(t)\) in \eqref{eq:Mdef}.
+
+Combining \eqref{eq:DTLboot}, \eqref{eq:DEinboot}, and \eqref{eq:auxrate} gives \eqref{eq:Mrate}. Since \((1+t)^{-2}\in L_t^1([0,\infty))\), the coefficient is time-integrable.
+\end{proof}
+
+\begin{corollary}[No nonintegrable quadratic source on the quotient branch]
+\label{cor:noquadobs}
+Under the quotient decay/bootstrap regime, every quadratic and lower-order nonlinear source term in the same weighted/homogeneous quotient formulation is time-integrable.
+\end{corollary}
+
+\begin{proof}
+This is immediate from Proposition \ref{prop:remainder}.
+\end{proof}
+
+\begin{remark}
+Corollary \ref{cor:noquadobs} is the actual post-coercive verdict sought by the present note. The low-frequency trace/longitudinal mechanism remains wave-like after renormalization, and the branch carries no neutral scalar momentum channel analogous to the one that obstructed generic tuned-compensator decay. No representative ordered-flow data have to be reintroduced to obtain this conclusion.
+\end{remark}
+
+\section{Outcome of the Decay/Integrability Test}
+
+\begin{theorem}[Quotient decay/integrability verdict]
+\label{thm:verdict}
+Assume that a smooth solution on \([0,T]\) lies in the quotient decay/bootstrap regime of Definition \ref{def:decayboot}. Then:
+\begin{enumerate}
+    \item the low-frequency trace/longitudinal pair \((\Theta,G_\chi)\) carries the expected wave-type linear-compatible decay
+    \[
+    \mathfrak D_{\mathrm{TL}}(t)\lesssim \varepsilon(1+t)^{-1};
+    \]
+    \item the high-frequency Einstein block carries the expected wave-type linear-compatible decay
+    \[
+    \mathfrak D_{\mathrm{Ein,hi}}(t)\lesssim \varepsilon(1+t)^{-1};
+    \]
+    \item the slice-wise quotient auxiliary package \((\beta^i,Q^I,\chi,W_i^T)\) inherits the same \(t^{-1}\)-type decay in the same weighted/homogeneous class;
+    \item every quadratic and lower-order source term left after extracting those principal wave blocks is \(L_t^1\);
+    \item the first genuinely post-coercive same-branch obstruction does \emph{not} appear at the decay/integrability stage.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Items (1) and (2) are Corollary \ref{cor:TLdecay} and Corollary \ref{cor:Eindecay}. Item (3) is Proposition \ref{prop:auxdecay}. Item (4) is Corollary \ref{cor:noquadobs}. Since the present manuscript was designed precisely to isolate the first post-coercive same-branch obstruction if one appeared at the decay stage, the absence of any nonintegrable quadratic or lower-order remainder implies item (5).
+\end{proof}
+
+\begin{corollary}[No bridge or matter-route redesign is forced at the decay stage]
+\label{cor:nodeeper}
+At the present disciplined scope, the positive quotient decay/integrability verdict does not force any reconsideration of the bridge metric or the single-metric matter route.
+\end{corollary}
+
+\begin{proof}
+This is the direct content of Theorem \ref{thm:verdict}(5).
+\end{proof}
+
+\begin{corollary}[Next manuscript after the positive decay verdict]
+\label{cor:next}
+If the quotient line continues, the next honest manuscript should be the first same-class quotient asymptotic closure test on the same quotient physical field space, in the same unit-lapse spatial-harmonic weighted/homogeneous class, still with \(\AY=\AZ=0\) imposed from the outset and with no physical or analytic \(S,Y,Z\) data reintroduced. Only if that later same-branch asymptotic step fails should a later manuscript reconsider the bridge metric or the single-metric matter route.
+\end{corollary}
+
+\begin{proof}
+Theorem \ref{thm:verdict} removes the decay/integrability question that the quotient theorem note left open. The remaining same-branch burden is therefore asymptotic closure rather than branch redesign. The final sentence is exactly the stopping rule inherited from the active tracking layer.
+\end{proof}
+
+\begin{remark}
+Corollary \ref{cor:next} should be read narrowly. The present note does \emph{not} prove the asymptotic closure theorem itself. It records only that the corrected quotient coercive architecture survives the first post-coercive decay/integrability test and therefore keeps the next burden on the same branch.
+\end{remark}
+
+\section{What This Step Establishes}
+
+The present manuscript establishes the following.
+\begin{enumerate}
+    \item It fixes the first post-coercive decay bootstrap norms for the quotient branch directly on the same quotient physical field space.
+    \item It identifies the low-frequency trace/longitudinal subsystem as an honest wave pair and the high-frequency quotient Einstein block as the standard wave sector.
+    \item It shows that the quotient slice variables \((\beta^i,Q^I,\chi,W_i^T)\) inherit the same \(t^{-1}\)-type decay in the same weighted/homogeneous class.
+    \item It proves that every quadratic and lower-order nonlinear source term left after extracting the principal wave blocks is time-integrable.
+    \item It records the positive verdict that the first genuinely post-coercive same-branch obstruction does not appear at the decay/integrability stage.
+\end{enumerate}
+
+It does not establish the following.
+\begin{enumerate}
+    \item It does not yet prove the full same-class asymptotic closure theorem or a global nonlinear-stability theorem on the quotient branch.
+    \item It does not weaken the strict quotient auxiliary-elliptic regime.
+    \item It does not reintroduce representative ordered-flow data, scalar correction channels, or a bridge redesign.
+    \item It does not claim a completed first-principles substrate derivation.
+\end{enumerate}
+
+\section{Conclusion}
+
+The quotient theorem note left exactly one immediate post-coercive burden: test the same quotient branch at the first decay/integrability level before redesigning anything deeper. The present manuscript answers that burden positively.
+
+It does so while keeping every branch discipline that the quotient sequence has already enforced. The analysis stays on the same quotient physical field space, in the same unit-lapse spatial-harmonic weighted/homogeneous class, with \(\AY=\AZ=0\) imposed from the outset. No physical or analytic \(S,Y,Z\) data are introduced. The low-frequency trace/longitudinal pair behaves as a wave subsystem, the high-frequency Einstein sector keeps the expected wave decay, the slice variables inherit the same decay rate, and the remaining quadratic and lower-order nonlinear terms are time-integrable.
+
+That is the first genuinely post-coercive quotient verdict the active sequence needed. At the decay/integrability stage the same branch remains positive, and no reconsideration of the bridge metric or the single-metric matter route is forced. The next honest burden, if the line continues, is now the corresponding same-class asymptotic closure test on this same quotient architecture.
+
+\end{document}

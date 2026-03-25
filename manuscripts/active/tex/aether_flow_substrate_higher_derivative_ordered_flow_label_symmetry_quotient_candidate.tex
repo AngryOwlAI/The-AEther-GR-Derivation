@@ -1,0 +1,563 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal{A}}
+\newcommand{\BridgeMetric}{\mathfrak{g}}
+\newcommand{\AY}{\mathcal A_Y}
+\newcommand{\AZ}{\mathcal A_Z}
+\newcommand{\FieldSpace}{\mathscr F}
+\newcommand{\GaugeGroup}{\mathscr G_{\mathrm{of}}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Explicit Symmetry/Quotient Candidate for Ordered-Flow Label Redundancy}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The first honest post-exhaustion non-algebraic momentum-completion candidate has now been tested and found coefficient-level negative: it preserves a genuine ordered-flow equation, but its flat-background observer-equation correction tensor vanishes only by collapsing back to the already exhausted algebraic route. The next fixed-route burden is therefore not another momentum-completion note. It is the explicit symmetry/quotient route already identified in the tracking layer.
+
+This note writes that route in the smallest honest form presently available while keeping the bridge metric and the single-metric matter route fixed. Start from the doubly tuned exact-square completion with
+\[
+\AY
+\equiv
+\frac{\sqrt{\lambda_4}}{M_*}\Delta_\perp S-M_YY,
+\qquad
+\AZ
+\equiv
+m_S\bigl(U^A\nabla_A S-\sigma_0\bigr)-M_ZZ,
+\]
+and impose the local ordered-flow relabeling symmetry
+\[
+S\mapsto S+\eta,
+\qquad
+Y\mapsto Y+\frac{\sqrt{\lambda_4}}{M_YM_*}\Delta_\perp\eta,
+\qquad
+Z\mapsto Z+\frac{m_S}{M_Z}U^A\nabla_A\eta,
+\]
+with \(G_{AB}\), \(U^A\), \(Q^I\), and the bridge metric held fixed. The full tuned action and the observer map then depend only on the gauge-invariant combinations \(\AY\), \(\AZ\), and \(\BridgeMetric_{AB}\). In that explicit quotient interpretation, the previously recorded infinite-dimensional substrate fiber is no longer a physical underdetermination; it is the gauge orbit of the ordered-flow label.
+
+The note then performs the same immediate stopping test required everywhere else in the active sequence. On the admissible flat background, the scalar quadratic action depends only on the gauge-invariant linearized combinations
+\[
+\AY^{(1)}
+=
+\frac{\sqrt{\lambda_4}}{M_*}\Xi-M_Yy,
+\qquad
+\AZ^{(1)}
+=
+m_S\Psi_h-M_Zz,
+\]
+so the quadratic reduced scalar bridge channel vanishes identically after algebraic elimination:
+\[
+\mathcal L_{\mathrm{bridge,quot}}^{(2)}\equiv 0.
+\]
+The explicit flat-background observer-equation correction tensor is therefore
+\[
+\mathcal C_{\mu\nu}^{\mathrm{quot,br}}\equiv 0.
+\]
+
+This is a coefficient-level positive structural candidate, not a completed derivational verdict. The note stops exactly at the required point: the ordered-flow label has been made physically redundant by an explicit local quotient principle while the bridge metric and single-metric matter route remain fixed, and the flat-background observer-tensor test is passed on that quotient branch. No reduced-system, local-coercive, or theorem work is reopened here. If a later architecture screen were to show that this quotient interpretation cannot be implemented honestly beyond the present flat-background coefficient level, then the next larger move would be to reconsider the bridge metric or the matter route.
+\end{abstract}
+
+\section{Introduction}
+
+The double exact-square replacement candidate and its architecture-obstruction follow-up left the active derivational program in a very specific state. The coefficient-level observer remainder could be removed on the doubly tuned branch, but only at the price of eliminating the ordered-flow equation and leaving an infinite-dimensional substrate fiber over the same observer solution. The broader fixed-route momentum-compensator note then showed that no finite algebraic/gapped enlargement of that least-drift mechanism does better. The first honest non-algebraic post-exhaustion candidate changed that picture only partly: it preserved a genuine ordered-flow equation, but it still failed the flat-background observer-tensor test unless it collapsed back to the exhausted algebraic route.
+
+The remaining fixed-route direction is therefore the one already identified in the Markdown tracking layer: if one wants to keep the bridge metric and the single-metric matter route fixed, the next note must be an explicit symmetry/quotient note rather than another momentum-completion note. That is the task here.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays inside that boundary. It does not claim a completed microphysical derivation. It does not reopen reduced-system or theorem work. It performs the next structural candidate-selection task only: make the ordered-flow label physically redundant through an explicit local symmetry/quotient principle if that can be done honestly while keeping the bridge metric and single-metric matter route fixed, then stop again at flat-background quadratic reduction plus the explicit observer-equation correction tensor.
+
+\section{What Counts as an Honest Symmetry/Quotient Route}
+
+\begin{definition}[Honest ordered-flow quotient principle]
+\label{def:honest}
+An \emph{honest ordered-flow quotient principle} for a fixed-route candidate branch consists of:
+\begin{enumerate}
+    \item an explicit local field transformation group \(\GaugeGroup\) acting on the ordered-flow label variables while leaving the bridge metric and matter route unchanged;
+    \item exact invariance of the candidate action and observer map under that transformation;
+    \item a physical field space defined as the quotient \(\FieldSpace/\GaugeGroup\);
+    \item the property that the previously observed substrate fiber over a fixed observer solution is reinterpreted as a gauge orbit rather than as a genuine physical underdetermination.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:honest} is stronger than simply noticing that many substrate representatives project to the same observer metric. A true quotient principle has to identify those representatives as the same physical state by an explicit local symmetry, not merely leave them unexplained.
+\end{remark}
+
+\section{Explicit Ordered-Flow Relabeling Symmetry}
+
+\begin{definition}[Tuned exact-square quotient candidate]
+\label{def:candidate}
+The \emph{tuned exact-square quotient candidate} is the action
+\begin{equation}
+S_{4YZ}^{\mathrm{quot}}
+=
+\frac{c^3}{16\pi G_N}
+\int_{\Sub} d^4X\,\sqrt{G}\,\bigl(R[\BridgeMetric]-2\Lambda_{\Sub}\bigr)
++\int_{\Sub} d^4X\,\sqrt{G}\,\mathcal L_{\mathrm{aux},4YZ}
++S_{\mathrm{matter}}[\Xi^*\BridgeMetric,\psi],
+\label{eq:S4YZ}
+\end{equation}
+with bridge metric
+\begin{equation}
+\BridgeMetric_{AB}=G_{AB}-2U_AU_B,
+\qquad
+P_{AB}=G_{AB}-U_AU_B,
+\label{eq:bridge}
+\end{equation}
+and auxiliary Lagrangian
+\begin{align}
+\mathcal L_{\mathrm{aux},4YZ}
+=\;&
+\lambda_U\bigl(G_{AB}U^AU^B-1\bigr)
+-\frac12
+\left(
+\frac{\sqrt{\lambda_4}}{M_*}\Delta_\perp S-M_YY
+\right)^2
+\nonumber\\
+&-\frac12
+\left(
+m_S\bigl(U^A\nabla_A S-\sigma_0\bigr)-M_ZZ
+\right)^2
+-\frac12\delta_{IJ}P^{AB}(D_AQ^I)(D_BQ^J)
+\nonumber\\
+&-\frac12\widehat M_{IJ}Q^IQ^J
+-\frac{\kappa_\theta}{2}\bigl(\nabla_AU^A\bigr)^2
+-\frac{\kappa_\Omega}{4}\Omega_{AB}\Omega^{AB},
+\label{eq:L4YZ}
+\end{align}
+where
+\begin{equation}
+\Delta_\perp S\equiv \nabla_A(P^{AB}\nabla_BS),
+\qquad
+\Omega_{AB}\equiv P_A{}^CP_B{}^D\nabla_{[C}U_{D]},
+\label{eq:defops}
+\end{equation}
+and
+\begin{equation}
+m_S^2>0,
+\qquad
+\lambda_4>0,
+\qquad
+M_Y^2>0,
+\qquad
+M_Z^2>0,
+\qquad
+\widehat M_{IJ}>0,
+\qquad
+\kappa_\theta>0,
+\qquad
+\kappa_\Omega>0.
+\label{eq:positivity}
+\end{equation}
+\end{definition}
+
+\begin{definition}[Ordered-flow relabeling group]
+\label{def:gauge}
+Let \(\GaugeGroup\) denote the local transformation group generated by smooth relabeling parameters \(\eta\) that preserve the chosen asymptotic ordered-flow profile. Its action on the fields of Definition \ref{def:candidate} is
+\begin{equation}
+\delta_\eta S=\eta,
+\qquad
+\delta_\eta Y=\frac{\sqrt{\lambda_4}}{M_YM_*}\Delta_\perp\eta,
+\qquad
+\delta_\eta Z=\frac{m_S}{M_Z}U^A\nabla_A\eta,
+\label{eq:gauge}
+\end{equation}
+with
+\begin{equation}
+\delta_\eta G_{AB}=0,
+\qquad
+\delta_\eta U^A=0,
+\qquad
+\delta_\eta Q^I=0,
+\qquad
+\delta_\eta \lambda_U=0.
+\label{eq:gaugefixed}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[Gauge-invariant exact-square combinations]
+\label{prop:invariants}
+Under Definition \ref{def:gauge}, the combinations
+\begin{equation}
+\AY
+\equiv
+\frac{\sqrt{\lambda_4}}{M_*}\Delta_\perp S-M_YY,
+\qquad
+\AZ
+\equiv
+m_S\bigl(U^A\nabla_A S-\sigma_0\bigr)-M_ZZ
+\label{eq:AYAZ}
+\end{equation}
+are exactly invariant. So are the bridge metric \(\BridgeMetric_{AB}\), the observer metric \(g_{\mu\nu}=\Xi^*\BridgeMetric_{AB}\), and the matter route \(S_{\mathrm{matter}}[\Xi^*\BridgeMetric,\psi]\).
+\end{proposition}
+
+\begin{proof}
+Apply \eqref{eq:gauge}. Since \(G_{AB}\) and \(U^A\) are fixed under the symmetry, one has
+\[
+\delta_\eta\!\left(\Delta_\perp S\right)=\Delta_\perp\eta,
+\qquad
+\delta_\eta\!\left(U^A\nabla_A S\right)=U^A\nabla_A\eta.
+\]
+Therefore
+\[
+\delta_\eta \AY
+=
+\frac{\sqrt{\lambda_4}}{M_*}\Delta_\perp\eta
+-M_Y
+\left(
+\frac{\sqrt{\lambda_4}}{M_YM_*}\Delta_\perp\eta
+\right)
+=0,
+\]
+and similarly
+\[
+\delta_\eta \AZ
+=
+m_S U^A\nabla_A\eta
+-M_Z
+\left(
+\frac{m_S}{M_Z}U^A\nabla_A\eta
+\right)
+=0.
+\]
+Because \(\BridgeMetric_{AB}=G_{AB}-2U_AU_B\) depends only on \(G_{AB}\) and \(U^A\), it is invariant under \eqref{eq:gaugefixed}; hence \(g_{\mu\nu}\) and the matter route are invariant as well.
+\end{proof}
+
+\begin{theorem}[Exact symmetry and quotient interpretation]
+\label{thm:symmetry}
+The candidate action \(S_{4YZ}^{\mathrm{quot}}\) of Definition \ref{def:candidate} is exactly invariant under the ordered-flow relabeling group \(\GaugeGroup\). Consequently the physical field space may be defined as the quotient \(\FieldSpace/\GaugeGroup\), and on that quotient the ordered-flow label is physically redundant rather than merely underdetermined.
+\end{theorem}
+
+\begin{proof}
+By Proposition \ref{prop:invariants}, the bridge metric, the matter action, and the two exact-square combinations \(\AY\) and \(\AZ\) are invariant under \(\GaugeGroup\). Every term in \eqref{eq:S4YZ}--\eqref{eq:L4YZ} depends on the fields only through \(\BridgeMetric_{AB}\), \(\AY\), \(\AZ\), \(Q^I\), \(U^A\), and \(\lambda_U\), all of which are invariant. Hence the action is exactly invariant.
+
+Since the observer map depends only on \(\BridgeMetric_{AB}\), it is constant on \(\GaugeGroup\)-orbits. The same is true of the matter route. It is therefore consistent, at the present candidate-selection scope, to define the physical field space as the quotient \(\FieldSpace/\GaugeGroup\). On that quotient the ordered-flow label \(S\) is not an independent physical observable; it is a gauge representative.
+\end{proof}
+
+\begin{corollary}[The old infinite-dimensional fiber becomes gauge]
+\label{cor:fiber}
+On the exact-square locus
+\begin{equation}
+\AY=0,
+\qquad
+\AZ=0,
+\label{eq:locus}
+\end{equation}
+the infinite-dimensional substrate fiber recorded in the old architecture-obstruction note coincides with the \(\GaugeGroup\)-orbit through any representative.
+\end{corollary}
+
+\begin{proof}
+If \((S_1,Y_1,Z_1)\) and \((S_2,Y_2,Z_2)\) obey \eqref{eq:locus} for the same \(G_{AB}\), \(U^A\), and \(Q^I\), define \(\eta=S_2-S_1\). Then
+\[
+M_Y(Y_2-Y_1)
+=
+\frac{\sqrt{\lambda_4}}{M_*}\Delta_\perp(S_2-S_1)
+=
+\frac{\sqrt{\lambda_4}}{M_*}\Delta_\perp\eta,
+\]
+and similarly
+\[
+M_Z(Z_2-Z_1)
+=
+m_S U^A\nabla_A(S_2-S_1)
+=
+m_S U^A\nabla_A\eta.
+\]
+Thus \((S_2,Y_2,Z_2)\) is obtained from \((S_1,Y_1,Z_1)\) by the transformation \eqref{eq:gauge}. The previously recorded fiber is therefore the gauge orbit once the quotient principle is imposed explicitly.
+\end{proof}
+
+\begin{remark}
+Corollary \ref{cor:fiber} is the structural point of the present manuscript. Nothing has been changed in the bridge metric or the matter route. The new input is that the old multiplicity of ordered-flow labels is now identified as local gauge redundancy.
+\end{remark}
+
+\section{Flat-Background Quadratic Reduction}
+
+Use the same admissible homogeneous flat background as in the previous tuned and replacement notes:
+\begin{equation}
+\bar G_{AB}=\delta_{AB},
+\qquad
+\bar U^A=\delta^A{}_0,
+\qquad
+\bar S=\sigma_0X^0,
+\qquad
+\bar Q^I=0,
+\qquad
+\bar Y=0,
+\qquad
+\bar Z=0.
+\label{eq:background}
+\end{equation}
+Write perturbations as
+\begin{equation}
+G_{AB}=\delta_{AB}+H_{AB},
+\qquad
+U^A=\bar U^A+V^A,
+\qquad
+S=\sigma_0X^0+\sigma,
+\qquad
+Y=y,
+\qquad
+Z=z,
+\label{eq:perturb}
+\end{equation}
+with scalar metric variables
+\begin{equation}
+h_{00}=-2\phi=-H_{00},
+\qquad
+h_{0i}=S_i+\partial_iB=-H_{0i}-2V_i,
+\qquad
+V_i=V_i^T+\partial_i\chi.
+\label{eq:metricpert}
+\end{equation}
+
+\begin{proposition}[Linearized ordered-flow relabeling]
+\label{prop:linGauge}
+Around the flat background \eqref{eq:background}, the linearized symmetry generated by \(\eta\) is
+\begin{equation}
+\delta_\eta \sigma=\eta,
+\qquad
+\delta_\eta y=\frac{\sqrt{\lambda_4}}{M_YM_*}\nabla^2\eta,
+\qquad
+\delta_\eta z=\frac{m_S}{M_Z}\partial_0\eta,
+\label{eq:lingauge}
+\end{equation}
+with \(\delta_\eta h_{\mu\nu}=0\), \(\delta_\eta q^I=0\), and \(\delta_\eta\chi=0\).
+\end{proposition}
+
+\begin{proof}
+Linearize \eqref{eq:gauge} on the background \eqref{eq:background}. Since \(\bar U^A=\delta^A{}_0\) and \(\bar P^{ij}=\delta^{ij}\), one has
+\[
+\delta_\eta\!\left(\Delta_\perp S\right)^{(1)}=\nabla^2\eta,
+\qquad
+\delta_\eta\!\left(U^A\nabla_A S\right)^{(1)}=\partial_0\eta,
+\]
+which gives \eqref{eq:lingauge}.
+\end{proof}
+
+\begin{proposition}[Gauge-invariant linearized exact-square blocks]
+\label{prop:lininv}
+Define
+\begin{equation}
+\Psi_h\equiv \partial_0\sigma-\sigma_0\phi,
+\qquad
+\Xi\equiv \nabla^2\sigma+\sigma_0\nabla^2(B+\chi),
+\label{eq:psixi}
+\end{equation}
+and
+\begin{equation}
+\AY^{(1)}
+=
+\frac{\sqrt{\lambda_4}}{M_*}\Xi-M_Yy,
+\qquad
+\AZ^{(1)}
+=
+m_S\Psi_h-M_Zz.
+\label{eq:linearAYAZ}
+\end{equation}
+Then \(\AY^{(1)}\) and \(\AZ^{(1)}\) are invariant under the linearized symmetry \eqref{eq:lingauge}.
+\end{proposition}
+
+\begin{proof}
+Using Proposition \ref{prop:linGauge},
+\[
+\delta_\eta \Xi=\nabla^2\eta,
+\qquad
+\delta_\eta \Psi_h=\partial_0\eta.
+\]
+Substituting into \eqref{eq:linearAYAZ} gives \(\delta_\eta\AY^{(1)}=0\) and \(\delta_\eta\AZ^{(1)}=0\).
+\end{proof}
+
+\begin{proposition}[Quadratic scalar action on the quotient candidate]
+\label{prop:quad}
+At fixed bridge perturbation \(h_{\mu\nu}\), the complete flat-background quadratic nonmetric scalar action of Definition \ref{def:candidate} is
+\begin{align}
+\mathcal L_{\mathrm{aux},4YZ}^{(2)}
+=\;&
+-\frac12 q^I\!\left((-\nabla^2)\delta_{IJ}+\widehat M_{IJ}\right)\!q^J
+-\frac{\kappa_\theta}{2}
+\left(
+\nabla^2\chi+\frac12\partial_0H
+\right)^2
+\nonumber\\
+&-\frac12\bigl(\AY^{(1)}\bigr)^2
+-\frac12\bigl(\AZ^{(1)}\bigr)^2.
+\label{eq:quad}
+\end{align}
+\end{proposition}
+
+\begin{proof}
+Expand \eqref{eq:L4YZ} to quadratic order around \eqref{eq:background}. The \(Q\)- and \(\chi\)-blocks are the same as in the previous tuned notes. The two tuned scalar squares reduce exactly to \(-\frac12(\AY^{(1)})^2-\frac12(\AZ^{(1)})^2\). There is no other quadratic scalar term.
+\end{proof}
+
+\begin{remark}
+Proposition \ref{prop:quad} makes the quotient structure explicit at coefficient level: the scalar quadratic action depends on the ordered-flow variables only through the gauge-invariant combinations \(\AY^{(1)}\) and \(\AZ^{(1)}\).
+\end{remark}
+
+\begin{proposition}[Quadratic reduced scalar bridge channel]
+\label{prop:reduction}
+After algebraic elimination of \(y\) and \(z\), and after the same decaying-branch longitudinal solve
+\begin{equation}
+\nabla^2\chi=-\frac12\partial_0H,
+\label{eq:chisolve}
+\end{equation}
+the quadratic reduced scalar bridge channel of the quotient candidate vanishes identically:
+\begin{equation}
+\mathcal L_{\mathrm{bridge,quot}}^{(2)}\equiv 0.
+\label{eq:zero}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Varying \eqref{eq:quad} with respect to \(y\) and \(z\) gives the algebraic equations
+\begin{equation}
+M_Yy=\frac{\sqrt{\lambda_4}}{M_*}\Xi,
+\qquad
+M_Zz=m_S\Psi_h,
+\label{eq:yzsolve}
+\end{equation}
+equivalently
+\[
+\AY^{(1)}=0,
+\qquad
+\AZ^{(1)}=0.
+\]
+Substituting \eqref{eq:yzsolve} back into \eqref{eq:quad} removes both exact-square scalar blocks identically. The remaining \(\chi\)-equation is exactly \eqref{eq:chisolve}, as in the previous tuned notes, and it removes the old longitudinal auxiliary piece in the same way. No scalar bridge term remains. Hence \eqref{eq:zero} holds.
+\end{proof}
+
+\begin{corollary}[Gauge fixing of the ordered-flow perturbation]
+\label{cor:gaugefix}
+On the decaying perturbative branch one may choose the gauge \(\sigma=0\) by taking \(\eta=-\sigma\). In that gauge the vanishing \eqref{eq:zero} is manifest, but the result is gauge independent because \(\mathcal L_{\mathrm{bridge,quot}}^{(2)}\) was derived from the invariant quantities \(\AY^{(1)}\) and \(\AZ^{(1)}\).
+\end{corollary}
+
+\begin{proof}
+The gauge choice \(\sigma=0\) is allowed by Proposition \ref{prop:linGauge} for decaying \(\sigma\). Gauge independence follows from Proposition \ref{prop:lininv}.
+\end{proof}
+
+\section{Explicit Observer-Equation Correction Tensor}
+
+\begin{definition}[Quotient-branch correction tensor]
+\label{def:Cquot}
+At flat-background quadratic scope, define the \emph{quotient-branch observer-equation correction tensor} by
+\begin{equation}
+\mathcal C_{\mu\nu}^{\mathrm{quot,br}}
+=
+8\pi G_N\,T_{\mu\nu}^{\mathrm{quot}},
+\label{eq:Cquot}
+\end{equation}
+where
+\begin{equation}
+T_{\mu\nu}^{\mathrm{quot}}
+=
+\rho_{\mathrm{quot}}\,n_\mu n_\nu
++2n_{(\mu}J_{\nu)}^{\mathrm{quot}}
++S_{\mu\nu}^{\mathrm{quot}},
+\label{eq:Tquot}
+\end{equation}
+with \(J_\mu^{\mathrm{quot}}n^\mu=0\) and \(S_{\mu\nu}^{\mathrm{quot}}n^\nu=0\).
+\end{definition}
+
+\begin{theorem}[Flat-background observer-tensor verdict]
+\label{thm:verdict}
+For the quotient candidate of Definition \ref{def:candidate},
+\begin{equation}
+\rho_{\mathrm{quot}}=0,
+\qquad
+J_i^{\mathrm{quot}}=0,
+\qquad
+S_{ij}^{\mathrm{quot}}=0,
+\label{eq:components}
+\end{equation}
+and therefore
+\begin{equation}
+T_{\mu\nu}^{\mathrm{quot}}\equiv 0,
+\qquad
+\mathcal C_{\mu\nu}^{\mathrm{quot,br}}\equiv 0.
+\label{eq:verdict}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+By Proposition \ref{prop:reduction}, the reduced scalar bridge channel vanishes identically at the flat-background quadratic level. Hence there is no surviving scalar energy density, momentum density, or spatial stress contribution from that channel. Equations \eqref{eq:components} follow, and then \eqref{eq:verdict} is immediate from Definition \ref{def:Cquot}.
+\end{proof}
+
+\begin{remark}
+Theorem \ref{thm:verdict} is exactly the stopping test required by the tracking layer. At the present coefficient level, the explicit symmetry/quotient route does remove the flat-background observer-equation correction tensor while keeping the bridge metric and single-metric matter route fixed.
+\end{remark}
+
+\section{Current Status and Stopping Point}
+
+\begin{corollary}[Current coefficient-level status]
+\label{cor:status}
+At the present disciplined scope, the explicit symmetry/quotient route is an honest structural candidate and is coefficient-level positive on the flat admissible background.
+\end{corollary}
+
+\begin{proof}
+Theorem \ref{thm:symmetry} establishes that the ordered-flow label is physically redundant through an explicit local quotient principle rather than through mere underdetermination. Theorem \ref{thm:verdict} establishes that the same quotient candidate has vanishing flat-background observer-equation correction tensor while preserving the bridge metric and matter route. This is precisely the coefficient-level candidate-selection burden assigned to the present note.
+\end{proof}
+
+\begin{corollary}[What this note does not reopen]
+\label{cor:stop}
+The present manuscript does not by itself reopen reduced-system, local-coercive, or theorem work on the quotient candidate.
+\end{corollary}
+
+\begin{proof}
+The active tracking instructions require any new structural candidate to stop at flat-background quadratic reduction plus its explicit observer-equation correction tensor before broader nonlinear work is revisited. The present note has done exactly that and no more.
+\end{proof}
+
+\begin{remark}
+If a later architecture screen were to show that the quotient principle of Definition \ref{def:gauge} cannot be implemented honestly beyond the current flat-background coefficient level, then the next larger move would be to reconsider the bridge metric or the single-metric matter route. That contingency is recorded here, but it is not the current verdict.
+\end{remark}
+
+\section{Conclusion}
+
+The present manuscript records the next live structural step after the failed non-algebraic momentum-completion candidate.
+\begin{enumerate}
+    \item It writes an explicit local ordered-flow relabeling symmetry on the tuned double exact-square branch while keeping the bridge metric and the single-metric matter route fixed.
+    \item It shows that the previously recorded infinite-dimensional substrate fiber is thereby reinterpreted as a gauge orbit, so the ordered-flow label is physically redundant rather than merely underdetermined.
+    \item It carries that quotient candidate through the same required flat-background quadratic reduction and finds that the scalar bridge channel vanishes identically after algebraic elimination.
+    \item It computes the corresponding explicit observer-equation correction tensor and finds \(\mathcal C_{\mu\nu}^{\mathrm{quot,br}}\equiv0\) at that coefficient level.
+\end{enumerate}
+
+That is the honest stopping point requested by the tracking layer. The explicit symmetry/quotient route now exists as a concrete manuscript-level candidate. It passes the flat-background observer-tensor test while leaving the bridge metric and single-metric matter route fixed. No reduced-system or theorem work is reopened here.
+
+\end{document}

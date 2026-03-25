@@ -1,0 +1,455 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal{A}}
+\newcommand{\BridgeMetric}{\mathfrak g}
+\newcommand{\ObserverMap}{\Xi}
+\newcommand{\ProjSub}{P}
+\newcommand{\SpatialD}{\mathcal D}
+\newcommand{\LapPerp}{\Delta_\perp}
+\newcommand{\FlowPot}{\Phi_\Omega}
+\newcommand{\CoulPot}{U_\Omega}
+\newcommand{\BalanceField}{\Pi_\Omega}
+\newcommand{\BalMult}{\Lambda_\Pi}
+\newcommand{\SourceDensity}{\varrho_\Omega}
+\newcommand{\SourceDensityRed}{\varrho_\Omega^{\mathrm{red}}}
+\newcommand{\SourceCurrent}{\mathcal J^{(\Omega)}}
+\newcommand{\SourceCurrentRed}{\mathcal J^{(\Omega,\mathrm{red})}}
+\newcommand{\ConstCurrent}{\mathcal C}
+\newcommand{\ContMult}{\Lambda_{\mathrm c}}
+\newcommand{\CurrentMult}{\Lambda}
+\newcommand{\ConstGamma}{\Gamma}
+\newcommand{\CurvQMult}{\mathscr P}
+\newcommand{\CurvChiMult}{\mathscr X}
+\newcommand{\CurvTransMult}{\mathscr Y}
+\newcommand{\SourceFlux}{\mathcal E}
+\newcommand{\HamChargeOmega}{\mathfrak m_\Omega}
+\newcommand{\SigmaIER}{\Sigma^{\mathrm{IER}}}
+\newcommand{\SigmaDressSch}{\Sigma^{\mathrm{Sch}}}
+\newcommand{\SigmaRegPol}{\Sigma^{\mathrm{pol,reg}}}
+\newcommand{\LiftIER}{\widehat\Sigma^{\mathrm{IER}}}
+\newcommand{\AuxPol}{\mathbb K}
+\newcommand{\CandAction}{S_{\mathrm{cand}}}
+\newcommand{\CurvAction}{S_{\mathrm{cand}}^{\mathrm{loc.curv+cur+aux}}}
+\newcommand{\CurvSeed}{\Theta_{\mathrm{br}}}
+\newcommand{\CurvSeedMult}{\Upsilon_{\mathrm{br}}}
+\newcommand{\CurvScale}{\ell_{\mathrm{br}}}
+\newcommand{\CurvProfile}{F_{\mathrm{br}}}
+\newcommand{\CurvProfileCan}{F_{\mathrm{br}}^{\mathrm{can}}}
+\newcommand{\CurvOneI}{\mathfrak K}
+\newcommand{\CurvOneChi}{\mathfrak L}
+\newcommand{\CurvOneW}{\mathfrak M}
+\newcommand{\BridgeCurv}{\mathcal R_{\mathrm{br}}}
+\newcommand{\CurvFamily}{\mathscr F_{\mathrm{br}}^{+}}
+\newcommand{\DownPkg}{\mathscr P_{\mathrm{down}}}
+\newcommand{\ProfWeight}{\varpi_{\mathrm{br}}}
+\newcommand{\ProfClass}{\mathscr A_{\mathrm{br}}}
+\newcommand{\ProfBend}{\mathscr B_{\mathrm{br}}}
+\newcommand{\ProfRule}{\mathscr S_{\mathrm{br}}^{\mathrm{off}}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Nonlocal Bridge Self-Response Off-Shell Profile-Selection Principle Note}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The positive quotient reduced-system, theorem, decay, and asymptotic line remains closed and is not reopened here. The constitutive source-current note is already canonized at disciplined constitutive scope, the constitutive-current curvature-action note is already canonized at disciplined integrated-action scope, the explicit local bridge-curvature-density note is already canonized at disciplined representative scope, and the canonical bridge-curvature-density selection note is already canonized at a disciplined negative current-scope verdict. That negative verdict fixed the next honest fork sharply: either disciplined representative scope is accepted as sufficient, or uniqueness remains part of the derivational goal and the active line must add genuinely new structural input.
+
+The present manuscript takes the second route and records the smallest such input presently worth testing. It introduces a new off-shell profile-selection principle acting directly on the remaining positive bridge-curvature profile sector while leaving the bridge map, observer package, and local carrier slots unchanged. The principle is formulated at a fixed bridge-curvature response scale \(\CurvScale>0\): among all smooth positive profiles obeying exact-flat normalization,
+\[
+\CurvProfile(0)=1,
+\qquad
+\CurvProfile'(0)=0,
+\qquad
+\CurvProfile''(0)=2\CurvScale^4,
+\]
+the preferred representative is postulated to minimize the higher-profile-bending functional
+\[
+\ProfBend[\CurvProfile]
+\equiv
+\int_{\mathbb R}\ProfWeight(x)\,\abs{\CurvProfile'''(x)}^2\,dx,
+\]
+where \(\ProfWeight\) is any fixed smooth positive integrable weight.
+
+This new principle has a clean verdict. The quadratic benchmark profile
+\[
+\CurvProfileCan(x)=1+\CurvScale^4x^2
+\]
+lies in the admissible class and gives \(\ProfBend[\CurvProfileCan]=0\). Since \(\ProfBend\geq0\), every minimizer must satisfy \(\CurvProfile'''=0\), hence must be quadratic. The imposed normalization data then force the unique minimizer to be exactly \(\CurvProfileCan\). Therefore, once the new off-shell principle is admitted, the current positive profile sector collapses to a unique canonical representative at fixed response scale.
+
+Because the downstream package is already profile-blind, substituting \(\CurvProfileCan\) back into the explicit local bridge-curvature density preserves the same reduced current, Hamiltonian-charge flux, continuity/Gauss-Poisson package, exterior Coulomb tail, surviving dressed bridge map, and explicit \(r^{-2}\) gain package as before. The claim boundary is strict: this note does not derive the new selector from the old local action, does not reopen observer-level repair work, and does not yet derive the response scale \(\CurvScale\) from deeper substrate microphysics. Its result is conditional and narrower: if uniqueness remains part of the derivational goal, then a minimal off-shell profile-selection principle already suffices to select the quadratic bridge-curvature profile as the canonical representative at that fixed scale.
+\end{abstract}
+
+\section{Introduction}
+
+After the canonical bridge-curvature-density selection note, the live question is no longer whether the current line has some hidden built-in selector. That question has already been answered negatively. The live question is whether uniqueness should still be pursued at all.
+
+The present note records the smallest honest continuation if the answer is yes. It does not reopen another observer-level repair screen. It does not alter the already-positive self-response-dressed bridge map. It does not search for a broader new bridge variable or a different matter sector. Instead it acts directly on the only freedom that the canonical-selection note left unresolved: the positive bridge-curvature profile multiplying the already-forced carrier slots.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+This note stays strictly inside that boundary. Its new ingredient is explicit and conditional: a postulated off-shell selector \(\ProfRule\) on the profile family. The note does not claim that the old local bridge-curvature density already implied this selector, and it does not claim that the selector itself has already been derived from a deeper substrate mechanism. The note answers only the narrower question appropriate to the present fork: if uniqueness remains part of the derivational goal and one admits a minimal new off-shell principle acting directly on the residual profile freedom, does that principle select a canonical representative without changing the fixed downstream package? The answer is yes, at fixed response scale.
+
+\section{Fixed Local Family and Profile-Blind Downstream Package}
+
+\begin{definition}[Bridge-curvature anchor and local family]
+\label{def:family}
+Let
+\begin{equation}
+\BridgeCurv \equiv R[\BridgeMetric]-2\Lambda_{\Sub}
+\label{eq:anchor}
+\end{equation}
+be the bridge-curvature scalar already present in the candidate substrate action. For every smooth positive profile
+\begin{equation}
+\CurvProfile:\mathbb R\to\mathbb R_{>0},
+\label{eq:profilepositive}
+\end{equation}
+define the seed
+\begin{equation}
+\CurvSeed=\CurvProfile(\BridgeCurv)
+\label{eq:seed}
+\end{equation}
+and the local bridge-curvature density
+\begin{align}
+\mathcal L_{\mathrm{loc.curv}}[\CurvProfile]
+=\;&
+\CurvSeedMult\bigl(\CurvSeed-\CurvProfile(\BridgeCurv)\bigr)
+\nonumber\\
+&+\CurvQMult^{AI}\bigl(\CurvOneI_A^I-\CurvSeed\,\lambda_I\SpatialD_AQ^I\bigr)
++\CurvChiMult^A\bigl(\CurvOneChi_A-\CurvSeed\,\lambda_\chi\SpatialD_A\chi\bigr)
+\nonumber\\
+&+\CurvTransMult^A\bigl(\CurvOneW_A-\CurvSeed\,\lambda_WW_A^T\bigr)
++\ConstGamma^A\bigl(
+\ConstCurrent_A
+-\nu_I\CurvSeed^{-1}\CurvOneI_A^I
+-\nu_\chi\CurvSeed^{-1}\CurvOneChi_A
+-\nu_W\CurvSeed^{-1}\CurvOneW_A
+\bigr).
+\label{eq:locfamily}
+\end{align}
+\end{definition}
+
+\begin{definition}[Fixed downstream package]
+\label{def:downstream}
+The \emph{fixed downstream package} \(\DownPkg\) consists of:
+\begin{enumerate}
+    \item the reduced current and density
+    \begin{equation}
+    \SourceCurrentRed_A=\ConstCurrent_A,
+    \qquad
+    \SourceDensityRed=-\SpatialD^A\SourceCurrentRed_A;
+    \label{eq:pkgcurrent}
+    \end{equation}
+    \item the Hamiltonian-charge flux and continuity/Gauss-Poisson package
+    \begin{equation}
+    \HamChargeOmega
+    =
+    \int_{\Sigma_t}\SourceDensityRed\,d\mu_P
+    =
+    -\lim_{r\to\infty}\int_{S_r} n^A\SourceCurrentRed_A\,dA,
+    \label{eq:pkgcharge}
+    \end{equation}
+    \begin{equation}
+    -\LapPerp\FlowPot=4\pi G_N\,\SourceDensityRed,
+    \qquad
+    \SourceFlux_A=\SpatialD_A\FlowPot;
+    \label{eq:pkgpoisson}
+    \end{equation}
+    \item the exterior Coulomb tail
+    \begin{equation}
+    \FlowPot
+    =
+    \CoulPot+\mathcal O(r^{-2}),
+    \qquad
+    \CoulPot(r)=\frac{G_N\,\HamChargeOmega}{r};
+    \label{eq:pkgcoul}
+    \end{equation}
+    \item the surviving dressed bridge map
+    \begin{equation}
+    g_{\mu\nu}^{\mathrm{dressed}}
+    =
+    g_{\mu\nu}^{\mathrm{br}}
+    +\SigmaIER_{\mu\nu}
+    +\SigmaDressSch{}_{\mu\nu}
+    +\SigmaRegPol{}_{\mu\nu},
+    \label{eq:pkgmetric}
+    \end{equation}
+    with the same matter-free activity, off-longitudinal \(Q/W\) cancellation, explicit cubic longitudinal completion, and quartic Coulomb self-response absorption already recorded in the explicit local note.
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}[The fixed downstream package is profile-blind]
+\label{prop:profileblind}
+For every smooth positive profile \(\CurvProfile\), eliminating the local sector \eqref{eq:locfamily} yields exactly the same downstream package \(\DownPkg\).
+\end{proposition}
+
+\begin{proof}
+Variation with respect to \(\CurvQMult^{AI}\), \(\CurvChiMult^A\), and \(\CurvTransMult^A\) gives
+\begin{equation}
+\CurvOneI_A^I=\CurvSeed\,\lambda_I\SpatialD_AQ^I,
+\qquad
+\CurvOneChi_A=\CurvSeed\,\lambda_\chi\SpatialD_A\chi,
+\qquad
+\CurvOneW_A=\CurvSeed\,\lambda_WW_A^T.
+\label{eq:carrierrels}
+\end{equation}
+Variation with respect to \(\ConstGamma^A\) then gives
+\begin{equation}
+\ConstCurrent_A
+=
+\nu_I\CurvSeed^{-1}\CurvOneI_A^I
++\nu_\chi\CurvSeed^{-1}\CurvOneChi_A
++\nu_W\CurvSeed^{-1}\CurvOneW_A.
+\label{eq:readout}
+\end{equation}
+Substituting \eqref{eq:carrierrels} into \eqref{eq:readout} cancels the seed \(\CurvSeed=\CurvProfile(\BridgeCurv)\) identically and yields the same forced constitutive current
+\begin{equation}
+\ConstCurrent_A
+=
+\mathfrak c_I\SpatialD_AQ^I
++\mathfrak c_\chi\SpatialD_A\chi
++\mathfrak c_WW_A^T,
+\qquad
+\mathfrak c_I=\nu_I\lambda_I,
+\qquad
+\mathfrak c_\chi=\nu_\chi\lambda_\chi,
+\qquad
+\mathfrak c_W=\nu_W\lambda_W.
+\label{eq:forcedcurrent}
+\end{equation}
+The reduced density, Hamiltonian-charge flux, continuity/Gauss-Poisson package, exterior Coulomb tail, and eliminated polarization tensor therefore remain exactly the same as in the explicit local bridge-curvature-density note and the canonical-selection note. Hence \(\DownPkg\) is independent of the chosen positive profile.
+\end{proof}
+
+\begin{remark}
+Proposition \ref{prop:profileblind} is the key structural reason why an off-shell selector can be tested without reopening the already-fixed downstream package. The selector acts only on the remaining profile freedom.
+\end{remark}
+
+\section{A New Off-Shell Profile-Selection Principle}
+
+\begin{definition}[Admissible profile class at fixed response scale]
+\label{def:class}
+Fix a bridge-curvature response scale \(\CurvScale>0\) and a smooth positive integrable weight
+\begin{equation}
+\ProfWeight:\mathbb R\to\mathbb R_{>0},
+\qquad
+\int_{\mathbb R}\ProfWeight(x)\,dx<\infty.
+\label{eq:weight}
+\end{equation}
+Define \(\ProfClass(\CurvScale,\ProfWeight)\) to be the set of all \(\CurvProfile\in C^\infty(\mathbb R)\) such that
+\begin{equation}
+\CurvProfile(x)>0\quad\text{for all }x,
+\qquad
+\CurvProfile(0)=1,
+\qquad
+\CurvProfile'(0)=0,
+\qquad
+\CurvProfile''(0)=2\CurvScale^4,
+\label{eq:classdata}
+\end{equation}
+and such that the higher-profile-bending functional
+\begin{equation}
+\ProfBend[\CurvProfile]
+\equiv
+\int_{\mathbb R}\ProfWeight(x)\,\abs{\CurvProfile'''(x)}^2\,dx
+\label{eq:bending}
+\end{equation}
+is finite.
+\end{definition}
+
+\begin{remark}
+The data \eqref{eq:classdata} encode the smallest new structural choice needed to make the profile test sharp. The normalization \(\CurvProfile(0)=1\) keeps the exact flat benchmark fixed, the condition \(\CurvProfile'(0)=0\) forbids a sign-biased linear onset at flat bridge curvature, and \(\CurvProfile''(0)=2\CurvScale^4\) fixes the first nontrivial local response coefficient at the chosen response scale. None of these conditions followed from the old local action alone; they are part of the new off-shell principle being tested.
+\end{remark}
+
+\begin{definition}[Off-shell minimal-bending selector]
+\label{def:selector}
+The \emph{off-shell profile-selection principle} \(\ProfRule\) is the postulate that, at fixed \((\CurvScale,\ProfWeight)\), the preferred canonical bridge-curvature profile is the unique minimizer of \(\ProfBend\) on \(\ProfClass(\CurvScale,\ProfWeight)\).
+\end{definition}
+
+\begin{proposition}[The benchmark quadratic profile is admissible]
+\label{prop:benchmark}
+The profile
+\begin{equation}
+\CurvProfileCan(x)\equiv 1+\CurvScale^4x^2
+\label{eq:canonicalprofile}
+\end{equation}
+belongs to \(\ProfClass(\CurvScale,\ProfWeight)\) and satisfies
+\begin{equation}
+\ProfBend[\CurvProfileCan]=0.
+\label{eq:zerobend}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+The profile \(\CurvProfileCan\) is smooth and strictly positive. It obeys
+\[
+\CurvProfileCan(0)=1,
+\qquad
+\bigl(\CurvProfileCan\bigr)'(0)=0,
+\qquad
+\bigl(\CurvProfileCan\bigr)''(0)=2\CurvScale^4.
+\]
+Since \(\bigl(\CurvProfileCan\bigr)'''(x)\equiv0\), equation \eqref{eq:zerobend} follows immediately from \eqref{eq:bending}.
+\end{proof}
+
+\begin{theorem}[Unique minimizer of the off-shell selector]
+\label{thm:unique}
+For every fixed \((\CurvScale,\ProfWeight)\), the functional \(\ProfBend\) has a unique minimizer on \(\ProfClass(\CurvScale,\ProfWeight)\), namely
+\begin{equation}
+\CurvProfileCan(x)=1+\CurvScale^4x^2.
+\label{eq:uniqueprofile}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+By Proposition \ref{prop:benchmark}, the admissible class is nonempty and
+\[
+\inf_{\ProfClass(\CurvScale,\ProfWeight)}\ProfBend \leq \ProfBend[\CurvProfileCan]=0.
+\]
+Because \(\ProfWeight>0\) and the integrand in \eqref{eq:bending} is nonnegative, one also has \(\ProfBend[\CurvProfile]\geq0\) for every admissible profile. Hence the infimum is exactly \(0\), and every minimizer must satisfy
+\[
+\ProfWeight(x)\,\abs{\CurvProfile'''(x)}^2=0
+\quad\text{for all }x.
+\]
+Since \(\ProfWeight(x)>0\), this implies
+\begin{equation}
+\CurvProfile'''(x)=0
+\qquad
+\text{for all }x\in\mathbb R.
+\label{eq:thirdzero}
+\end{equation}
+Therefore every minimizer is a quadratic polynomial
+\begin{equation}
+\CurvProfile(x)=ax^2+bx+c.
+\label{eq:quadratic}
+\end{equation}
+The conditions \eqref{eq:classdata} then force
+\[
+c=\CurvProfile(0)=1,
+\qquad
+b=\CurvProfile'(0)=0,
+\qquad
+2a=\CurvProfile''(0)=2\CurvScale^4,
+\]
+so \(a=\CurvScale^4\). Thus every minimizer is exactly \(\CurvProfileCan(x)=1+\CurvScale^4x^2\). Uniqueness follows.
+\end{proof}
+
+\begin{corollary}[Conditional canonical representative at fixed response scale]
+\label{cor:conditional}
+If uniqueness remains part of the derivational goal and the new off-shell selector \(\ProfRule\) is admitted, then the present positive bridge-curvature profile sector collapses to the unique representative \eqref{eq:uniqueprofile} at fixed response scale \(\CurvScale\).
+\end{corollary}
+
+\begin{remark}
+Theorem \ref{thm:unique} is intentionally narrow. It shows that the profile shape ambiguity can be removed by a minimal off-shell selector once a response scale is fixed. It does not claim that the response scale itself has already been derived from the deeper substrate dynamics.
+\end{remark}
+
+\section{Canonical Density and Preserved Downstream Package}
+
+\begin{definition}[Canonical bridge-curvature seed and density]
+\label{def:canonicaldensity}
+Under the selector \(\ProfRule\), the canonical bridge-curvature seed is
+\begin{equation}
+\CurvSeed
+=
+\CurvProfileCan(\BridgeCurv)
+=
+1+\CurvScale^4\BridgeCurv^2.
+\label{eq:canonicalseed}
+\end{equation}
+The corresponding canonical local bridge-curvature density is
+\begin{equation}
+\mathcal L_{\mathrm{loc.curv}}^{\mathrm{can}}
+\equiv
+\mathcal L_{\mathrm{loc.curv}}[\CurvProfileCan].
+\label{eq:canonicaldensity}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[The canonical selector reproduces the explicit local benchmark]
+\label{prop:reproduce}
+The canonical density \(\mathcal L_{\mathrm{loc.curv}}^{\mathrm{can}}\) is exactly the explicit quadratic benchmark representative already written in the explicit local bridge-curvature-density note.
+\end{proposition}
+
+\begin{proof}
+Definition \ref{def:canonicaldensity} inserts the profile \(\CurvProfileCan(x)=1+\CurvScale^4x^2\) into the same local family \eqref{eq:locfamily}. This is exactly the benchmark choice used in the explicit local bridge-curvature-density note.
+\end{proof}
+
+\begin{theorem}[Preservation of the downstream package]
+\label{thm:preserve}
+Eliminating the canonical density \(\mathcal L_{\mathrm{loc.curv}}^{\mathrm{can}}\) preserves the same downstream package \(\DownPkg\).
+\end{theorem}
+
+\begin{proof}
+The canonical density is one member of the positive local family \eqref{eq:locfamily}. Proposition \ref{prop:profileblind} therefore applies directly and shows that eliminating \(\mathcal L_{\mathrm{loc.curv}}^{\mathrm{can}}\) yields the same reduced current, Hamiltonian-charge flux, continuity/Gauss-Poisson package, exterior Coulomb tail, and surviving dressed bridge map as every other positive representative. Hence the downstream package is preserved.
+\end{proof}
+
+\begin{corollary}[No observer-level reopening]
+\label{cor:noobserver}
+The off-shell profile-selection principle does not reopen the already-positive observer-level sector, bridge-map redesign sector, or quotient PDE line.
+\end{corollary}
+
+\begin{proof}
+By Theorem \ref{thm:preserve}, the selector changes only the representative chosen inside the already-profile-blind local bridge-curvature family. The downstream package \(\DownPkg\) remains unchanged, so no observer-level reopening occurs.
+\end{proof}
+
+\section{Verdict and Remaining Boundary}
+
+The post-selection fork is now resolved on the continuation side. Disciplined representative scope remains an honest stopping point for the line, but if one chooses not to stop there, the present note identifies a minimal next manuscript step that is actually sharp enough to do work. The new off-shell principle acts directly on the residual profile freedom and selects the quadratic benchmark profile uniquely at fixed response scale.
+
+Just as importantly, the remaining boundary is explicit rather than hidden:
+\begin{enumerate}
+    \item the selector is a new structural input, not something recovered from the previously recorded local bridge-curvature family alone;
+    \item the selector removes the residual profile-shape ambiguity but does not by itself derive the response scale \(\CurvScale\) from deeper substrate dynamics;
+    \item the downstream package remains exactly the same, so the note sharpens the derivational bridge only at the profile-selection layer and nowhere else.
+\end{enumerate}
+
+\section{Conclusion}
+
+The canonical bridge-curvature-density selection note showed that no built-in current-scope principle already present in the active line selects a unique representative. The honest next question was therefore conditional: if uniqueness still matters, what is the smallest genuinely new input worth testing?
+
+The answer recorded here is an off-shell profile-selection principle on the remaining positive bridge-curvature profile sector. At fixed bridge-curvature response scale, the principle selects the unique minimizer of the higher-profile-bending functional \(\ProfBend\), and that unique minimizer is the quadratic benchmark
+\[
+\CurvProfileCan(x)=1+\CurvScale^4x^2.
+\]
+Because the downstream package is profile-blind, this new selection sharpens the representative ambiguity without changing the same reduced current, Hamiltonian-charge flux, continuity/Gauss-Poisson package, exterior Coulomb tail, surviving dressed bridge map, or explicit \(r^{-2}\) gain package.
+
+The result should be read exactly at that scope. The note does not claim that the selector has already been derived from the deeper substrate action, and it does not claim that the response scale is already fixed by first principles. It records only the present conditional verdict: if uniqueness remains part of the derivational goal, then a minimal off-shell selector already collapses the residual positive profile sector to the quadratic canonical representative at fixed response scale.
+
+\end{document}

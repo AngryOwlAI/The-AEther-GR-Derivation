@@ -1,0 +1,750 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal{A}}
+\newcommand{\BridgeMetric}{\mathfrak g}
+\newcommand{\SpatialD}{\mathcal D}
+\newcommand{\LapPerp}{\Delta_\perp}
+\newcommand{\FlowPot}{\Phi_\Omega}
+\newcommand{\CoulPot}{U_\Omega}
+\newcommand{\SourceDensityRed}{\varrho_\Omega^{\mathrm{red}}}
+\newcommand{\ConstCurrent}{\mathcal C}
+\newcommand{\ConstGamma}{\Gamma}
+\newcommand{\CurvQMult}{\mathscr P}
+\newcommand{\CurvChiMult}{\mathscr X}
+\newcommand{\CurvTransMult}{\mathscr Y}
+\newcommand{\HamChargeOmega}{\mathfrak m_\Omega}
+\newcommand{\SigmaIER}{\Sigma^{\mathrm{IER}}}
+\newcommand{\SigmaDressSch}{\Sigma^{\mathrm{Sch}}}
+\newcommand{\SigmaRegPol}{\Sigma^{\mathrm{pol,reg}}}
+\newcommand{\CurvSeed}{\Theta_{\mathrm{br}}}
+\newcommand{\CurvSeedMult}{\Upsilon_{\mathrm{br}}}
+\newcommand{\CurvScale}{\ell_{\mathrm{br}}}
+\newcommand{\CurvProfile}{F_{\mathrm{br}}}
+\newcommand{\CurvProfileCan}{F_{\mathrm{br}}^{\mathrm{can}}}
+\newcommand{\CurvOneI}{\mathfrak K}
+\newcommand{\CurvOneChi}{\mathfrak L}
+\newcommand{\CurvOneW}{\mathfrak M}
+\newcommand{\BridgeCurv}{\mathcal R_{\mathrm{br}}}
+\newcommand{\DownPkg}{\mathscr P_{\mathrm{down}}}
+\newcommand{\ProfWeight}{\varpi_{\mathrm{br}}}
+\newcommand{\RespSus}{\Sigma_{\mathrm{br}}}
+\newcommand{\RespSusEq}{\Sigma_{\mathrm{br}}^{\ast}}
+\newcommand{\RespNorm}{\mathcal N_{\mathrm{br}}}
+\newcommand{\RespFluxCoeff}{\gamma_{\mathrm{br}}}
+\newcommand{\RespGap}{m_{\mathrm{br}}}
+\newcommand{\RespBias}{h_{\mathrm{br}}}
+\newcommand{\RespMicro}{X_{\mathrm{br}}}
+\newcommand{\RespMicroEq}{X_{\mathrm{br}}^{\ast}}
+\newcommand{\RespMicroRef}{X_{\mathrm{br}}^{\mathrm{ref}}}
+\newcommand{\RespMicroFluxCoeff}{\Gamma_{\mathrm{br}}^{\mathrm{mic}}}
+\newcommand{\RespMicroGap}{\mu_{\mathrm{br}}}
+\newcommand{\RespOrderField}{\bm Z_{\mathrm{br}}}
+\newcommand{\RespOrderRef}{Z_{\mathrm{br}}^{\mathrm{ref}}}
+\newcommand{\RespOrderEq}{Z_{\mathrm{br}}^{\ast}}
+\newcommand{\RespOrderReadout}{\Xi_{\mathrm{br}}}
+\newcommand{\RespOrderStiff}{\Gamma_{\mathrm{br}}^{\mathrm{ord}}}
+\newcommand{\RespOrderQuartic}{\Lambda_{\mathrm{br}}}
+\newcommand{\RespOrderEnergy}{\mathscr E_{\mathrm{br}}^{\mathrm{ord}}}
+\newcommand{\RespOrderCurrent}{\mathcal I_{\mathrm{br}}^{\mathrm{ord}}}
+\newcommand{\RespOrderPhase}{\vartheta_{\mathrm{br}}}
+\newcommand{\RespOrderDir}{\bm n_0}
+\newcommand{\RespDeepDensity}{\mathcal Z_{\mathrm{br}}}
+\newcommand{\RespDeepDensityRef}{\mathcal Z_{\mathrm{br}}^{\mathrm{ref}}}
+\newcommand{\RespDeepDensityEq}{\mathcal Z_{\mathrm{br}}^{\ast}}
+\newcommand{\RespDeepReadout}{\mathfrak X_{\mathrm{br}}}
+\newcommand{\RespDeepTrack}{\mathfrak a_{\mathrm{br}}}
+\newcommand{\RespDeepRelax}{\mathfrak b_{\mathrm{br}}}
+\newcommand{\RespDeepStiff}{\mathfrak g_{\mathrm{br}}}
+\newcommand{\RespDeepWell}{\mathfrak l_{\mathrm{br}}}
+\newcommand{\RespDeepAux}{\mathfrak J_{\mathrm{br}}}
+\newcommand{\RespDeepEnergy}{\mathscr E_{\mathrm{br}}^{\mathrm{deep}}}
+\newcommand{\RespVacAmp}{U_{\mathrm{br}}}
+\newcommand{\RespVacRef}{U_{\mathrm{br}}^{\mathrm{ref}}}
+\newcommand{\RespVacEq}{U_{\mathrm{br}}^{\ast}}
+\newcommand{\RespVacPhase}{\phi_{\mathrm{br}}}
+\newcommand{\RespVacCarrier}{V_{\mathrm{br}}}
+\newcommand{\RespVacReadout}{q_{\mathrm{br}}}
+\newcommand{\RespVacCov}{\kappa_{\mathrm{br}}}
+\newcommand{\RespVacRelax}{\rho_{\mathrm{br}}}
+\newcommand{\RespVacWell}{\lambda_{\mathrm{br}}}
+\newcommand{\RespVacIso}{\eta_{\mathrm{br}}}
+\newcommand{\RespVacEnergy}{\mathscr E_{\mathrm{br}}^{\mathrm{vac}}}
+\newcommand{\RespVacLock}{\mathscr V_{\mathrm{br}}^{\mathrm{lock}}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Nonlocal Bridge Self-Response Off-Shell Profile-Selection Bridge-Order-Density/Current-Origin Note}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The positive quotient reduced-system, theorem, decay, and asymptotic line remains closed and is not reopened here. The primitive-bridge-order-origin note has already pushed the derivational burden one layer deeper by introducing the deeper density/current sector
+\[
+(\RespDeepReadout,\RespDeepDensityRef,\RespDeepTrack,\RespDeepRelax,\RespDeepWell,\RespDeepDensityEq)
+\]
+below the primitive bridge-order block, recovering the same composite primitive order representative, selecting the phase-neutral zero-current minimizing branch, and preserving the same canonical profile, downstream package, and dressed bridge map. One narrower question remains. Those deeper constants are still inserted as the present deepest block, and the surviving global \(O(2)\) vacuum-angle degeneracy is still undecided beyond the statement that it survives on the minimizing branch.
+
+The present manuscript supplies the smallest honest next step. It introduces a still more primitive positive vacuum amplitude \(\RespVacAmp(x)\), a phase variable \(\RespVacPhase(x)\), and a real current carrier \(\RespVacCarrier(x)\), together with a positive readout coefficient \(\RespVacReadout>0\), a positive reference amplitude \(\RespVacRef>0\), a positive covariant phase stiffness \(\RespVacCov>0\), a positive carrier-relaxation coefficient \(\RespVacRelax>0\), a positive radial-well coefficient \(\RespVacWell>0\), and a positive equilibrium amplitude \(\RespVacEq>0\). Writing
+\[
+\RespVacIso\equiv \frac{\RespVacCov\,\RespVacRelax}{\RespVacCov+\RespVacRelax},
+\]
+the deeper energy is
+\begin{align*}
+\RespVacEnergy[\RespVacAmp,\RespVacPhase,\RespVacCarrier]
+=\;&
+\int_{\mathbb R}\ProfWeight(x)\Bigl[
+\frac{\RespVacIso}{2}\abs{\RespVacAmp'(x)}^2
++
+\frac{\RespVacCov}{2}\RespVacAmp(x)^2\abs{\RespVacPhase'(x)-\RespVacCarrier(x)}^2
+\Bigr]dx
+\nonumber\\
+&+
+\int_{\mathbb R}\ProfWeight(x)\Bigl[
+\frac{\RespVacRelax}{2}\RespVacAmp(x)^2\abs{\RespVacCarrier(x)}^2
++
+\frac{\RespVacWell}{8}\bigl(\RespVacAmp(x)^2-(\RespVacEq)^2\bigr)^2
+\Bigr]dx.
+\end{align*}
+Defining
+\[
+\RespDeepDensity=\RespVacAmp^2,
+\qquad
+\RespOrderPhase=\RespVacPhase,
+\qquad
+\RespDeepAux=\RespVacAmp^2\RespVacCarrier,
+\]
+one recovers exactly the deeper density/current sector of the primitive-bridge-order-origin note, with the derived identifications
+\[
+\RespDeepReadout=\RespVacReadout,
+\qquad
+\RespDeepDensityRef=(\RespVacRef)^2,
+\qquad
+\RespDeepTrack=\RespVacCov,
+\qquad
+\RespDeepRelax=\RespVacRelax,
+\qquad
+\RespDeepWell=\RespVacWell,
+\qquad
+\RespDeepDensityEq=(\RespVacEq)^2.
+\]
+Therefore the previously deepest constants are no longer primitive either: the reference and equilibrium densities are forced to be amplitude squares, the current-sector coefficients are fixed as the primitive phase/carrier couplings, and the primitive-order stiffness \(\RespOrderStiff\) is constrained again as their harmonic mean \(\RespVacIso\).
+
+Eliminating \(\RespVacCarrier\) yields exactly the same composite primitive bridge-order block,
+\[
+\RespOrderField(x)
+=
+\RespVacAmp(x)
+\begin{pmatrix}
+\cos\RespVacPhase(x)\\
+\sin\RespVacPhase(x)
+\end{pmatrix},
+\qquad
+(\RespOrderReadout,\RespOrderRef,\RespOrderStiff,\RespOrderQuartic,\RespOrderEq)
+=
+(\RespVacReadout,\RespVacRef,\RespVacIso,\RespVacWell,\RespVacEq),
+\]
+and hence the same microscopic data, carrier data, equilibrium susceptibility, response scale, and canonical profile,
+\[
+\CurvScale^4=\RespSusEq=\frac{\RespVacEq}{\RespVacRef},
+\qquad
+\CurvProfileCan(x)=1+\frac{\RespVacEq}{\RespVacRef}x^2.
+\]
+Substituting that profile back into the already-fixed local bridge-curvature family preserves the same reduced current, Hamiltonian-charge flux, continuity/Gauss-Poisson package, exterior Coulomb tail, surviving dressed bridge map, and matter-free/off-longitudinal/cubic/quartic gain package as before.
+
+The remaining global \(O(2)\) vacuum-angle question can now be decided at disciplined scope. Within the present minimal \(O(2)\)-symmetric vacuum-amplitude/current-carrier lift, the minimizers are exactly
+\[
+\RespVacAmp(x)\equiv \RespVacEq,
+\qquad
+\RespVacCarrier(x)\equiv0,
+\qquad
+\RespVacPhase(x)\equiv \phi_0
+\]
+for arbitrary constant \(\phi_0\in\mathbb R/2\pi\mathbb Z\). No locking term singles out one angle, and no additional quotient identifies different constant angles. Therefore the surviving global \(O(2)\) vacuum angle is \emph{genuinely residual} on the present deepest branch. The fixed-angle alternative would require an additional explicit anisotropic locking sector not forced by the preserved downstream package, while a gauge interpretation would require an additional quotient structure not contained in the present minimal lift. The claim boundary is strict: the note does not claim a unique ultraviolet completion of the bridge-curvature response line. Its narrower positive result is that the deeper density/current sector is now itself derived from a still more primitive vacuum-amplitude/current-carrier sector, the constants \((\RespDeepReadout,\RespDeepDensityRef,\RespDeepTrack,\RespDeepRelax,\RespDeepWell,\RespDeepDensityEq)\) are thereby derived or sharply constrained, and the residual global \(O(2)\) vacuum angle is identified honestly as a genuine residual modulus at this scope.
+\end{abstract}
+
+\section{Introduction}
+
+The primitive-bridge-order-origin note changed the bridge-curvature-density burden sharply. The primitive bridge-order block is no longer primitive, the zero-current phase-neutral branch is no longer inserted by hand, and the response scale is no longer fixed only at microscopic or primitive-order level. What remains open is deeper and narrower: the deeper density/current constants
+\[
+(\RespDeepReadout,\RespDeepDensityRef,\RespDeepTrack,\RespDeepRelax,\RespDeepWell,\RespDeepDensityEq)
+\]
+are themselves still terminal input data, and the residual global \(O(2)\) vacuum-angle degeneracy has not yet been classified as fixed, gauge, or genuinely residual.
+
+That is the exact burden of the present manuscript. It does not reopen another observer-level repair note. It does not alter the already-positive self-response-dressed bridge map. It does not search for a new bridge metric, a new matter route, a new selector, or another microscopic-amplitude or primitive-order repair note. It acts only on the next honest derivational gap left by the previous note: whether the deeper density/current sector itself can be realized as the reduction of still more primitive substrate variables, whether the current deepest constants can therefore be rewritten in terms of primitive amplitude/carrier data, and what status the surviving vacuum angle then actually has.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+This note stays strictly inside that boundary. Its positive claim is not that a unique ultraviolet completion has already been isolated. Its positive claim is narrower and more disciplined: once one introduces the smallest explicit \(O(2)\)-symmetric vacuum-amplitude/current-carrier lift below the density/current block, the current deepest constants are rewritten as primitive amplitude/carrier couplings and scales, the same composite primitive-order representative and canonical profile are recovered, the same downstream package and dressed bridge map stay fixed, and the surviving global \(O(2)\) vacuum angle can be classified honestly rather than left ambiguous.
+
+\section{Fixed Local Family and Downstream Package}
+
+\begin{definition}[Bridge-curvature anchor and local family]
+\label{def:family}
+Let
+\begin{equation}
+\BridgeCurv \equiv R[\BridgeMetric]-2\Lambda_{\Sub}
+\label{eq:anchor}
+\end{equation}
+be the bridge-curvature scalar already present in the candidate substrate action. For every smooth positive profile
+\begin{equation}
+\CurvProfile:\mathbb R\to\mathbb R_{>0},
+\label{eq:positiveprofile}
+\end{equation}
+define the seed
+\begin{equation}
+\CurvSeed=\CurvProfile(\BridgeCurv)
+\label{eq:seed}
+\end{equation}
+and the local bridge-curvature density
+\begin{align}
+\mathcal L_{\mathrm{loc.curv}}[\CurvProfile]
+=\;&
+\CurvSeedMult\bigl(\CurvSeed-\CurvProfile(\BridgeCurv)\bigr)
+\nonumber\\
+&+\CurvQMult^{AI}\bigl(\CurvOneI_A^I-\CurvSeed\,\lambda_I\SpatialD_AQ^I\bigr)
++\CurvChiMult^A\bigl(\CurvOneChi_A-\CurvSeed\,\lambda_\chi\SpatialD_A\chi\bigr)
+\nonumber\\
+&+\CurvTransMult^A\bigl(\CurvOneW_A-\CurvSeed\,\lambda_WW_A^T\bigr)
++\ConstGamma^A\bigl(
+\ConstCurrent_A
+-\nu_I\CurvSeed^{-1}\CurvOneI_A^I
+-\nu_\chi\CurvSeed^{-1}\CurvOneChi_A
+-\nu_W\CurvSeed^{-1}\CurvOneW_A
+\bigr).
+\label{eq:locfamily}
+\end{align}
+\end{definition}
+
+\begin{definition}[Fixed downstream package]
+\label{def:downstream}
+The \emph{fixed downstream package} \(\DownPkg\) consists of:
+\begin{enumerate}
+    \item the reduced current and reduced density
+    \begin{equation}
+    \ConstCurrent_A
+    =
+    \mathfrak c_I\SpatialD_AQ^I
+    +\mathfrak c_\chi\SpatialD_A\chi
+    +\mathfrak c_WW_A^T,
+    \qquad
+    \SourceDensityRed=-\SpatialD^A\ConstCurrent_A;
+    \label{eq:pkgcurrent}
+    \end{equation}
+    \item the Hamiltonian-charge flux and continuity/Gauss-Poisson package
+    \begin{equation}
+    \HamChargeOmega
+    =
+    \int_{\Sigma_t}\SourceDensityRed\,d\mu_P
+    =
+    -\lim_{r\to\infty}\int_{S_r} n^A\ConstCurrent_A\,dA,
+    \label{eq:pkgcharge}
+    \end{equation}
+    \begin{equation}
+    -\LapPerp\FlowPot=4\pi G_N\,\SourceDensityRed,
+    \qquad
+    \SpatialD_A\FlowPot=\mathcal E_A;
+    \label{eq:pkgpoisson}
+    \end{equation}
+    \item the exterior Coulomb tail
+    \begin{equation}
+    \FlowPot
+    =
+    \CoulPot+\mathcal O(r^{-2}),
+    \qquad
+    \CoulPot(r)=\frac{G_N\,\HamChargeOmega}{r};
+    \label{eq:pkgcoul}
+    \end{equation}
+    \item the surviving dressed bridge map
+    \begin{equation}
+    g_{\mu\nu}^{\mathrm{dressed}}
+    =
+    g_{\mu\nu}^{\mathrm{br}}
+    +\SigmaIER_{\mu\nu}
+    +\SigmaDressSch{}_{\mu\nu}
+    +\SigmaRegPol{}_{\mu\nu},
+    \label{eq:pkgmetric}
+    \end{equation}
+    with the same matter-free activity, off-longitudinal \(Q/W\) cancellation, explicit cubic longitudinal completion, and quartic Coulomb self-response absorption already fixed in the earlier explicit candidate sequence.
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}[The downstream package is profile-blind]
+\label{prop:profileblind}
+For every smooth positive profile \(\CurvProfile\), eliminating the local sector \eqref{eq:locfamily} yields the same downstream package \(\DownPkg\).
+\end{proposition}
+
+\begin{proof}
+Variation with respect to \(\CurvQMult^{AI}\), \(\CurvChiMult^A\), and \(\CurvTransMult^A\) gives
+\[
+\CurvOneI_A^I=\CurvSeed\,\lambda_I\SpatialD_AQ^I,
+\qquad
+\CurvOneChi_A=\CurvSeed\,\lambda_\chi\SpatialD_A\chi,
+\qquad
+\CurvOneW_A=\CurvSeed\,\lambda_WW_A^T.
+\]
+Substituting these relations into the \(\ConstGamma^A\)-equation in \eqref{eq:locfamily} cancels every factor of \(\CurvSeed=\CurvProfile(\BridgeCurv)\) and forces
+\[
+\ConstCurrent_A
+=
+\nu_I\lambda_I\SpatialD_AQ^I
++\nu_\chi\lambda_\chi\SpatialD_A\chi
++\nu_W\lambda_WW_A^T.
+\]
+Therefore the reduced density, Hamiltonian-charge flux, continuity/Gauss-Poisson package, exterior Coulomb tail, and surviving dressed bridge map are independent of the chosen positive profile.
+\end{proof}
+
+\begin{remark}
+Proposition \ref{prop:profileblind} is the structural reason the present manuscript can act only on the deeper origin of the already-selected profile sector. Once the positive continuation-side profile is fixed, no further change is forced downstream.
+\end{remark}
+
+\section{Primitive Vacuum-Amplitude/Current-Carrier Lift}
+
+\begin{definition}[Primitive vacuum-amplitude/current-carrier sector]
+\label{def:vacsector}
+Fix positive constants
+\begin{equation}
+\RespVacReadout>0,
+\qquad
+\RespVacRef>0,
+\qquad
+\RespVacCov>0,
+\qquad
+\RespVacRelax>0,
+\qquad
+\RespVacWell>0,
+\qquad
+\RespVacEq>0,
+\label{eq:vacconstants}
+\end{equation}
+and set
+\begin{equation}
+\RespVacIso\equiv\frac{\RespVacCov\,\RespVacRelax}{\RespVacCov+\RespVacRelax}.
+\label{eq:vaciso}
+\end{equation}
+Let \(\ProfWeight\) be the same smooth positive integrable weight already used in the earlier bridge-response notes, and let
+\begin{equation}
+\RespVacAmp\in C^\infty(\mathbb R,\mathbb R_{>0}),
+\qquad
+\RespVacPhase\in C^\infty(\mathbb R,\mathbb R),
+\qquad
+\RespVacCarrier\in C^\infty(\mathbb R,\mathbb R).
+\label{eq:vacfields}
+\end{equation}
+Define the primitive energy
+\begin{align}
+\RespVacEnergy[\RespVacAmp,\RespVacPhase,\RespVacCarrier]
+\equiv\;&
+\int_{\mathbb R}\ProfWeight(x)\Bigl[
+\frac{\RespVacIso}{2}\abs{\RespVacAmp'(x)}^2
++
+\frac{\RespVacCov}{2}\RespVacAmp(x)^2\abs{\RespVacPhase'(x)-\RespVacCarrier(x)}^2
+\nonumber\\
+&\hspace{8.5em}
++
+\frac{\RespVacRelax}{2}\RespVacAmp(x)^2\abs{\RespVacCarrier(x)}^2
++
+\frac{\RespVacWell}{8}\bigl(\RespVacAmp(x)^2-(\RespVacEq)^2\bigr)^2
+\Bigr]dx.
+\label{eq:vacenergy}
+\end{align}
+The composite primitive-order representative and the microscopic readout are
+\begin{equation}
+\RespOrderField(x)
+=
+\RespVacAmp(x)
+\begin{pmatrix}
+\cos\RespVacPhase(x)\\
+\sin\RespVacPhase(x)
+\end{pmatrix},
+\qquad
+\RespMicro(x)=\RespVacReadout\,\RespVacAmp(x),
+\qquad
+\RespMicroRef=\RespVacReadout\,\RespVacRef.
+\label{eq:vacreadout}
+\end{equation}
+\end{definition}
+
+\begin{remark}
+At the present disciplined scope, \(\RespVacAmp\) is the primitive positive vacuum amplitude below the density/current sector, \(\RespVacPhase\) is the ordered vacuum angle carried by that amplitude, and \(\RespVacCarrier\) is the primitive current-carrier variable. The pair \((\RespVacCov,\RespVacRelax)\) is the primitive phase/carrier coupling block, while \((\RespVacWell,\RespVacEq)\) is the primitive radial restoring well.
+\end{remark}
+
+\begin{proposition}[Exact recovery of the deeper density/current sector]
+\label{prop:deeprecovery}
+Set
+\begin{equation}
+\RespDeepDensity=\RespVacAmp^2,
+\qquad
+\RespOrderPhase=\RespVacPhase,
+\qquad
+\RespDeepAux=\RespVacAmp^2\RespVacCarrier,
+\label{eq:deepfromvacfields}
+\end{equation}
+and define
+\begin{equation}
+\RespDeepReadout=\RespVacReadout,
+\qquad
+\RespDeepDensityRef=(\RespVacRef)^2,
+\qquad
+\RespDeepTrack=\RespVacCov,
+\qquad
+\RespDeepRelax=\RespVacRelax,
+\qquad
+\RespDeepWell=\RespVacWell,
+\qquad
+\RespDeepDensityEq=(\RespVacEq)^2.
+\label{eq:deepfromvacconstants}
+\end{equation}
+Then \(\RespVacEnergy\) becomes exactly the deeper density/current energy
+\begin{align}
+\RespDeepEnergy[\RespDeepDensity,\RespOrderPhase,\RespDeepAux]
+=\;&
+\int_{\mathbb R}\ProfWeight(x)\Bigl[
+\frac{\RespDeepStiff}{8\,\RespDeepDensity(x)}\abs{\RespDeepDensity'(x)}^2
++
+\frac{\RespDeepWell}{8}\bigl(\RespDeepDensity(x)-\RespDeepDensityEq\bigr)^2
+\Bigr]dx
+\nonumber\\
+&+
+\int_{\mathbb R}\ProfWeight(x)\Bigl[
+\frac{\RespDeepTrack}{2\,\RespDeepDensity(x)}\abs{\RespDeepAux(x)-\RespOrderCurrent(x)}^2
++
+\frac{\RespDeepRelax}{2\,\RespDeepDensity(x)}\abs{\RespDeepAux(x)}^2
+\Bigr]dx,
+\label{eq:deeprecovered}
+\end{align}
+where
+\begin{equation}
+\RespDeepStiff=\frac{\RespDeepTrack\,\RespDeepRelax}{\RespDeepTrack+\RespDeepRelax}
+=\RespVacIso,
+\qquad
+\RespOrderCurrent(x)=\RespDeepDensity(x)\RespOrderPhase'(x).
+\label{eq:deepstiffrecovered}
+\end{equation}
+In particular, the current deepest constants \((\RespDeepReadout,\RespDeepDensityRef,\RespDeepTrack,\RespDeepRelax,\RespDeepWell,\RespDeepDensityEq)\) are derived or sharply constrained by the primitive amplitude/carrier data \((\RespVacReadout,\RespVacRef,\RespVacCov,\RespVacRelax,\RespVacWell,\RespVacEq)\).
+\end{proposition}
+
+\begin{proof}
+By \eqref{eq:deepfromvacfields},
+\[
+\RespDeepDensity'(x)=2\RespVacAmp(x)\RespVacAmp'(x),
+\qquad
+\RespOrderCurrent(x)=\RespVacAmp(x)^2\RespVacPhase'(x),
+\qquad
+\RespDeepAux(x)=\RespVacAmp(x)^2\RespVacCarrier(x).
+\]
+Therefore
+\[
+\frac{\RespVacIso}{2}\abs{\RespVacAmp'}^2
+=
+\frac{\RespVacIso}{8\,\RespDeepDensity}\abs{\RespDeepDensity'}^2,
+\qquad
+\frac{\RespVacCov}{2}\RespVacAmp^2\abs{\RespVacPhase'-\RespVacCarrier}^2
+=
+\frac{\RespVacCov}{2\,\RespDeepDensity}\abs{\RespDeepAux-\RespOrderCurrent}^2,
+\]
+and
+\[
+\frac{\RespVacRelax}{2}\RespVacAmp^2\abs{\RespVacCarrier}^2
+=
+\frac{\RespVacRelax}{2\,\RespDeepDensity}\abs{\RespDeepAux}^2,
+\qquad
+\frac{\RespVacWell}{8}\bigl(\RespVacAmp^2-(\RespVacEq)^2\bigr)^2
+=
+\frac{\RespDeepWell}{8}\bigl(\RespDeepDensity-\RespDeepDensityEq\bigr)^2.
+\]
+Substituting these identities into \eqref{eq:vacenergy} gives \eqref{eq:deeprecovered}. Equation \eqref{eq:deepstiffrecovered} is immediate from \eqref{eq:vaciso} and \eqref{eq:deepfromvacconstants}.
+\end{proof}
+
+\begin{corollary}[Exact recovery of the composite primitive bridge-order block]
+\label{cor:orderrecovery}
+Eliminating the primitive current carrier \(\RespVacCarrier\) from \eqref{eq:vacenergy} yields
+\begin{equation}
+\RespVacCarrier(x)=\frac{\RespVacCov}{\RespVacCov+\RespVacRelax}\RespVacPhase'(x),
+\label{eq:carrierelimination}
+\end{equation}
+and the reduced order energy
+\begin{align}
+\RespOrderEnergy[\RespOrderField]
+=\;&
+\int_{\mathbb R}\ProfWeight(x)\Bigl[
+\frac{\RespVacIso}{2}\abs{\RespVacAmp'(x)}^2
++
+\frac{\RespVacIso}{2}\RespVacAmp(x)^2\abs{\RespVacPhase'(x)}^2
++
+\frac{\RespVacWell}{8}\bigl(\RespVacAmp(x)^2-(\RespVacEq)^2\bigr)^2
+\Bigr]dx
+\nonumber\\
+=\;&
+\int_{\mathbb R}\ProfWeight(x)\Bigl[
+\frac{\RespOrderStiff}{2}\abs{\RespOrderField'(x)}^2
++
+\frac{\RespOrderQuartic}{8}\Bigl(\abs{\RespOrderField(x)}^2-(\RespOrderEq)^2\Bigr)^2
+\Bigr]dx
+\label{eq:orderenergyrecovered}
+\end{align}
+with
+\begin{equation}
+\RespOrderReadout=\RespVacReadout,
+\qquad
+\RespOrderRef=\RespVacRef,
+\qquad
+\RespOrderStiff=\RespVacIso,
+\qquad
+\RespOrderQuartic=\RespVacWell,
+\qquad
+\RespOrderEq=\RespVacEq.
+\label{eq:orderfromvac}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+Varying \eqref{eq:vacenergy} with respect to \(\RespVacCarrier\) gives
+\[
+-\RespVacCov\,\RespVacAmp^2\bigl(\RespVacPhase'-\RespVacCarrier\bigr)
++\RespVacRelax\,\RespVacAmp^2\RespVacCarrier
+=0,
+\]
+which implies \eqref{eq:carrierelimination}. Substituting this relation back into the carrier terms in \eqref{eq:vacenergy} yields
+\[
+\frac{\RespVacCov}{2}\RespVacAmp^2\abs{\RespVacPhase'-\RespVacCarrier}^2
++
+\frac{\RespVacRelax}{2}\RespVacAmp^2\abs{\RespVacCarrier}^2
+=
+\frac{\RespVacIso}{2}\RespVacAmp^2\abs{\RespVacPhase'}^2.
+\]
+Since
+\[
+\abs{\RespOrderField'(x)}^2
+=
+\abs{\RespVacAmp'(x)}^2
++
+\RespVacAmp(x)^2\abs{\RespVacPhase'(x)}^2,
+\]
+equation \eqref{eq:orderenergyrecovered} follows immediately.
+\end{proof}
+
+\begin{remark}
+Corollary \ref{cor:orderrecovery} is the precise sense in which the deeper density/current constants cease to be the deepest layer. The reference and equilibrium densities are constrained to be amplitude squares, the current-sector couplings are interpreted as primitive phase/carrier coefficients, and the primitive-order stiffness is no longer independent.
+\end{remark}
+
+\section{Vacuum-Angle Status}
+
+\begin{definition}[Three logical continuations of the residual vacuum angle]
+\label{def:vactrichotomy}
+At the level of the present bridge-order lift, the remaining global \(O(2)\) vacuum-angle degeneracy can be treated in exactly one of three ways:
+\begin{enumerate}
+    \item a \emph{fixed-angle continuation}, obtained by adding an explicit anisotropic locking term \(\RespVacLock\) acting on \((\RespVacAmp,\RespVacPhase)\) and singling out one preferred vacuum direction;
+    \item a \emph{gauge continuation}, obtained by adjoining an additional quotient or redundancy principle that identifies constant vacuum-angle rotations as physically equivalent;
+    \item a \emph{residual continuation}, obtained by keeping only the minimal \(O(2)\)-symmetric vacuum-amplitude/current-carrier sector \eqref{eq:vacenergy} with no extra locking term and no extra quotient data.
+\end{enumerate}
+\end{definition}
+
+\begin{theorem}[The minimal lift leaves the vacuum angle genuinely residual]
+\label{thm:residualangle}
+The minimizers of the primitive energy \eqref{eq:vacenergy} are exactly
+\begin{equation}
+\RespVacAmp(x)\equiv \RespVacEq,
+\qquad
+\RespVacCarrier(x)\equiv0,
+\qquad
+\RespVacPhase(x)\equiv \phi_0
+\label{eq:vacuumminimizers}
+\end{equation}
+for arbitrary constant \(\phi_0\in\mathbb R/2\pi\mathbb Z\). Consequently the minimizing branch is the same phase-neutral zero-current branch as before, but the surviving global \(O(2)\) vacuum angle is genuinely residual on the present deepest branch: it is neither fixed by deeper structure nor identified as gauge by any quotient contained in the minimal lift \eqref{eq:vacenergy}.
+\end{theorem}
+
+\begin{proof}
+Every term in the integrand of \eqref{eq:vacenergy} is nonnegative because \(\ProfWeight>0\) and all coefficients in \eqref{eq:vacconstants} are positive. Therefore \(\RespVacEnergy\) is minimized exactly when
+\[
+\RespVacAmp'(x)=0,
+\qquad
+\RespVacPhase'(x)-\RespVacCarrier(x)=0,
+\qquad
+\RespVacCarrier(x)=0,
+\qquad
+\RespVacAmp(x)^2=(\RespVacEq)^2
+\]
+for all \(x\). Since \(\RespVacAmp>0\), the last identity gives \(\RespVacAmp\equiv\RespVacEq\). The second and third identities then force \(\RespVacPhase'(x)=0\), so \(\RespVacPhase(x)\equiv\phi_0\) is constant. This proves \eqref{eq:vacuumminimizers}. On that branch
+\[
+\RespOrderCurrent(x)=\RespVacAmp(x)^2\RespVacPhase'(x)=0,
+\]
+so the same phase-neutral zero-current branch is recovered.
+
+It remains to classify the constant angle. In the present lift there is no anisotropic locking term selecting one distinguished \(\phi_0\), and there is no additional quotient structure identifying different \(\phi_0\) as physically equivalent. The minimal lift therefore realizes the residual continuation in Definition \ref{def:vactrichotomy}: the surviving global \(O(2)\) vacuum angle remains a genuine residual modulus.
+\end{proof}
+
+\begin{remark}
+The theorem does not say that a future deeper note can never change the status of the vacuum angle. It says only that the present minimal lift does not do so. A fixed-angle continuation would require new preferred-direction data in \(\RespVacLock\), while a gauge continuation would require new quotient structure. Neither is forced by the current preserved downstream package.
+\end{remark}
+
+\section{Recovered Nested Data, Canonical Profile, and Fixed Downstream Package}
+
+\begin{corollary}[Recovered microscopic data, carrier data, and response scale]
+\label{cor:nesteddata}
+The primitive amplitude/carrier lift therefore recovers the nested bridge-response data as
+\begin{equation}
+\RespMicroRef=\RespVacReadout\,\RespVacRef,
+\qquad
+\RespMicroFluxCoeff=\frac{\RespVacIso}{\RespVacReadout^2},
+\qquad
+\RespMicroGap=\frac{\sqrt{\RespVacWell}\,\RespVacEq}{\RespVacReadout},
+\qquad
+\RespMicroEq=\RespVacReadout\,\RespVacEq,
+\label{eq:microfromvac}
+\end{equation}
+\begin{equation}
+\RespNorm=\frac{1}{\RespVacReadout\,\RespVacRef},
+\qquad
+\RespFluxCoeff=\frac{\RespVacIso}{\RespVacReadout^2},
+\qquad
+\RespGap=\frac{\sqrt{\RespVacWell}\,\RespVacEq}{\RespVacReadout},
+\qquad
+\RespBias=\frac{\RespVacWell\,(\RespVacEq)^3}{\RespVacReadout},
+\label{eq:carrierfromvac}
+\end{equation}
+and
+\begin{equation}
+\RespSusEq
+=
+\frac{\RespOrderEq}{\RespOrderRef}
+=
+\frac{\RespMicroEq}{\RespMicroRef}
+=
+\RespNorm\frac{\RespBias}{\RespGap^2}
+=
+\frac{\RespVacEq}{\RespVacRef}.
+\label{eq:sigmafromvac}
+\end{equation}
+Hence the response scale is recovered as
+\begin{equation}
+\CurvScale^4=\RespSusEq=\frac{\RespVacEq}{\RespVacRef}
+=
+\sqrt{\frac{\RespDeepDensityEq}{\RespDeepDensityRef}}.
+\label{eq:scalefromvac}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+Insert the recovered primitive-order data \eqref{eq:orderfromvac} into the already-fixed microscopic-amplitude relations
+\[
+\RespMicroRef=\RespOrderReadout\,\RespOrderRef,
+\qquad
+\RespMicroFluxCoeff=\frac{\RespOrderStiff}{\RespOrderReadout^2},
+\qquad
+\RespMicroGap=\frac{\sqrt{\RespOrderQuartic}\,\RespOrderEq}{\RespOrderReadout},
+\qquad
+\RespMicroEq=\RespOrderReadout\,\RespOrderEq.
+\]
+This gives \eqref{eq:microfromvac}. Substituting those identities into the already-fixed carrier-data relations
+\[
+\RespNorm=\frac{1}{\RespMicroRef},
+\qquad
+\RespFluxCoeff=\RespMicroFluxCoeff,
+\qquad
+\RespGap=\RespMicroGap,
+\qquad
+\RespBias=\RespMicroGap^2\RespMicroEq
+\]
+gives \eqref{eq:carrierfromvac}, and \eqref{eq:sigmafromvac} follows immediately.
+\end{proof}
+
+\begin{definition}[Profile reconstructed from susceptibility]
+\label{def:profilereconstruction}
+On the continuation side fixed by the profile-selection principle note, reconstruct the profile by
+\begin{equation}
+\CurvProfile''(x)=2\RespSus(x),
+\qquad
+\CurvProfile(0)=1,
+\qquad
+\CurvProfile'(0)=0.
+\label{eq:profilereconstruction}
+\end{equation}
+\end{definition}
+
+\begin{corollary}[Canonical profile on the vacuum-amplitude/current-carrier branch]
+\label{cor:canonicalprofile}
+On the minimizing branch \eqref{eq:vacuumminimizers},
+\begin{equation}
+\CurvProfileCan(x)=1+\RespSusEq x^2=1+\CurvScale^4x^2.
+\label{eq:canonicalprofile}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+By \eqref{eq:vacreadout} and \eqref{eq:vacuumminimizers},
+\[
+\RespSus(x)=\frac{\RespMicro(x)}{\RespMicroRef}
+=
+\frac{\RespVacAmp(x)}{\RespVacRef}
+\equiv
+\frac{\RespVacEq}{\RespVacRef}
+=
+\RespSusEq.
+\]
+Integrating \eqref{eq:profilereconstruction} twice with the imposed normalization conditions gives \eqref{eq:canonicalprofile}.
+\end{proof}
+
+\begin{theorem}[The downstream package and dressed bridge map stay fixed]
+\label{thm:fixedpackage}
+Substituting the canonical profile \eqref{eq:canonicalprofile} obtained from the primitive vacuum-amplitude/current-carrier lift into the local bridge-curvature family \eqref{eq:locfamily} reproduces the same downstream package \(\DownPkg\) and the same surviving dressed bridge map \eqref{eq:pkgmetric}.
+\end{theorem}
+
+\begin{proof}
+Corollary \ref{cor:canonicalprofile} gives the same quadratic continuation-side profile already selected in the earlier off-shell profile sequence, now with \(\CurvScale^4\) written directly as the primitive amplitude ratio \(\RespVacEq/\RespVacRef\). Proposition \ref{prop:profileblind} then implies that the reduced current, Hamiltonian-charge flux, continuity/Gauss-Poisson package, exterior Coulomb tail, and surviving dressed bridge map are unchanged.
+\end{proof}
+
+\begin{remark}
+The present note therefore preserves everything that had already become positive downstream. It changes only the deepest origin story of the bridge-response profile sector and the status reading of the remaining vacuum angle.
+\end{remark}
+
+\section{Claim Boundary}
+
+This note does not claim that the primitive vacuum-amplitude/current-carrier lift \eqref{eq:vacenergy} is the unique ultraviolet completion of the bridge-curvature response line. It does not claim that every conceivable deeper continuation must reduce to the present amplitude/carrier representative. It does not claim that the residual global \(O(2)\) vacuum angle has already been fixed or quotiented away. On the contrary, its disciplined verdict is that within the smallest \(O(2)\)-symmetric local lift now written down, that angle remains genuinely residual.
+
+Its narrower positive result is that the density/current sector introduced in the primitive-bridge-order-origin note is no longer primitive either. At the present disciplined scope it is recovered exactly from a deeper vacuum-amplitude/current-carrier sector, the constants \((\RespDeepReadout,\RespDeepDensityRef,\RespDeepTrack,\RespDeepRelax,\RespDeepWell,\RespDeepDensityEq)\) are derived or sharply constrained by primitive amplitude/carrier data, the same composite primitive bridge-order block and the same phase-neutral minimizing branch are preserved, the same canonical profile and response scale are recovered, and the same downstream package and surviving dressed bridge map remain fixed. The next honest burden, if the derivational program continues, is therefore no longer another selector-level, carrier-data, microscopic-amplitude, primitive-order, or density/current repair note of the same kind. It is either a still deeper origin note for the primitive vacuum-amplitude/current-carrier data themselves or an explicit decision note on whether the now-honestly residual vacuum angle should simply be accepted, quotiented by new structure, or pinned by a new preferred-direction sector.
+
+\section{Conclusion}
+
+The positive result of this note is that the deeper density/current sector is no longer primitive either. At disciplined current scope it is recovered exactly from a primitive vacuum-amplitude/current-carrier lift, the same composite primitive bridge-order block and the same phase-neutral minimizing branch are preserved, and the same canonical profile and downstream dressed bridge map remain fixed.
+
+The scope remains explicitly limited. This note does not claim a unique ultraviolet completion of the lift and does not force the residual global \(O(2)\) vacuum angle beyond the honest verdict that it remains genuinely residual on the minimal \(O(2)\)-symmetric branch written here. The next honest burden is therefore one layer deeper again: whether the primitive vacuum-amplitude/current-carrier data themselves can be derived or uniquely selected from still more primitive substrate structure, with the vacuum-angle question revisited there only if that deeper structure naturally supplies locking or quotient data.
+
+\end{document}

@@ -1,0 +1,12 @@
+title: "The Æther-Flow Interpretation of Relativity"
+description: "Public overview, theory-package guide, archive framing, and review materials."
+theme: jekyll-theme-cayman
+url: "https://omegapy.github.io"
+baseurl: "/AEther"
+show_downloads: false
+repository_url: "https://github.com/Omegapy/AEther"
+blob_base_url: "https://github.com/Omegapy/AEther/blob/main"
+raw_base_url: "https://raw.githubusercontent.com/Omegapy/AEther/main"
+markdown: kramdown
+kramdown:
+  input: GFM

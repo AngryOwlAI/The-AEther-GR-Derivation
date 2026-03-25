@@ -1,0 +1,262 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal{A}}
+\newcommand{\BridgeMetric}{\mathfrak{g}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Higher-Derivative Quartic Branch Test of Locally Finite Summable Patch Control}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This manuscript performs the next narrow theorem-route test after the broader admissible-background theorem on uniformly controlled bounded-geometry regions and the follow-on obstruction note fixing why that theorem does not extend automatically once uniform control is lost. The question is deliberately small: can the finite-overlap patch-control hypothesis in the current theorem be weakened to a locally finite atlas with summable partition-derivative bounds while preserving the same quartic operator remainder hierarchy?
+
+At the present operator-level scope, the answer is negative. Let
+\[
+\Sigma_1\equiv \sum_\alpha |D\zeta_\alpha|^2,
+\qquad
+\Sigma_{12}\equiv \sum_\alpha |D\zeta_\alpha|\,|D^2\zeta_\alpha|,
+\qquad
+\Sigma_2\equiv \sum_\alpha |D^2\zeta_\alpha|^2
+\]
+for a locally finite partition of unity \(\{\zeta_\alpha\}\). The patched quartic principal operator obeys the schematic localization formula
+\[
+\sum_\alpha \zeta_\alpha (-D^2)^2 \zeta_\alpha
+=
+(-D^2)^2
++ \mathcal O\!\bigl(\Sigma_1 D^2\bigr)
++ \mathcal O\!\bigl(\Sigma_{12} D\bigr)
++ \mathcal O\!\bigl(\Sigma_2\bigr)
++ \mathcal O\!\bigl(|D\Sigma_{12}|\bigr).
+\]
+The first three overlap coefficients can be matched to the old curvature-scale hierarchy if the derivative sums are controlled at the background scale. The last term cannot: it asks for one extra derivative of the mixed overlap coefficient and therefore for genuinely new input, equivalent in practice to third-derivative cutoff control or to a new higher-order localization identity. Consequently the proposed locally finite summable patch-control weakening does not preserve the same quartic operator remainder hierarchy by the present proof strategy.
+
+This is not a universal no-go against every future wider theorem. It is a disciplined negative test of the smallest currently available modification. At the current scope, the admissible-background route should therefore be treated as complete at the uniformly controlled theorem boundary, and the next major burden becomes the narrowest honest nonlinear-stability setup once the nonlinear completion problem is fixed more sharply.
+\end{abstract}
+
+\section{Introduction}
+
+The higher-derivative quartic branch has already been carried through a local curved-background continuation, a region-level admissible-background package, a broader theorem on uniformly controlled bounded-geometry regions, and an obstruction note showing why that theorem does not extend automatically once one of its control channels is dropped. The present note does not reopen that obstruction abstractly. It tests the smallest concrete replacement mechanism suggested by the current proof architecture.
+
+That mechanism is simple to state. The broader theorem used a finite-overlap atlas and derivative-controlled partition functions to patch the local quartic continuation into a region-level operator. The narrow hope is that finite overlap might be stronger than needed: perhaps a merely locally finite atlas, together with suitable summability of the partition derivatives, already keeps the same overlap remainder under control. If so, the theorem could widen without touching the matter route, the auxiliary positivity, or the recovery-compatible hierarchy.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays within that boundary. It does not claim a new broader theorem, a no-go against every conceivable wider theorem, or a nonlinear stability result. It tests only whether the current finite-overlap gluing step can be weakened in the smallest available way while preserving the same quartic operator hierarchy.
+
+\section{Proposed Replacement-Control Package}
+
+\begin{definition}[Locally finite summably controlled atlas]
+Let \(\mathcal U\) be an admissible exact-closure background region satisfying the quartic admissible-background package and equipped with a quartic branch observer structure. A \emph{locally finite summably controlled atlas} on \(\mathcal U\) consists of:
+\begin{enumerate}
+    \item a locally finite open cover \(\{\mathcal U_\alpha\}_{\alpha\in A}\) by slowly varying admissible patches
+    \item a smooth partition of unity \(\{\zeta_\alpha\}_{\alpha\in A}\) with
+    \begin{equation}
+    \sum_{\alpha\in A}\zeta_\alpha^2=1
+    \label{eq:partitionunity}
+    \end{equation}
+    pointwise on \(\mathcal U\)
+    \item a background length scale \(L_{\mathcal R}\) such that
+    \begin{equation}
+    \sup_{\mathcal U}\mathcal R \lesssim L_{\mathcal R}^{-2},
+    \qquad
+    \sup_{\mathcal U}|\nabla\mathcal R| \lesssim L_{\mathcal R}^{-3},
+    \label{eq:LR}
+    \end{equation}
+    and the summed derivative coefficients satisfy
+    \begin{equation}
+    \Sigma_1 \equiv \sum_\alpha |D\zeta_\alpha|^2 \lesssim L_{\mathcal R}^{-2},
+    \qquad
+    \Sigma_{12} \equiv \sum_\alpha |D\zeta_\alpha|\,|D^2\zeta_\alpha| \lesssim L_{\mathcal R}^{-3},
+    \qquad
+    \Sigma_2 \equiv \sum_\alpha |D^2\zeta_\alpha|^2 \lesssim L_{\mathcal R}^{-4}.
+    \label{eq:summablebounds}
+    \end{equation}
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition 1 is the narrowest natural replacement for the finite-overlap hypothesis of the current theorem. It keeps the same background scale, the same local continuation on each patch, and the same partition-of-unity gluing pattern, while replacing the combinatorial overlap number by pointwise summability of the first and second partition derivatives.
+\end{remark}
+
+\section{Quartic Localization Remainder}
+
+The current theorem patches the local operators through
+\begin{equation}
+\mathcal B_{4,\mathcal U}
+=
+\sum_{\alpha\in A}\zeta_\alpha \mathcal B_{4,\alpha}^{\mathrm{cov}}\zeta_\alpha.
+\label{eq:glued}
+\end{equation}
+At the present scope,
+\begin{equation}
+\mathcal B_{4,\alpha}^{\mathrm{cov}}
+=
+\frac{\lambda_4}{M_*^2}(-D^2)^2
++ \mathcal O\!\left(\frac{\mathcal R\,D^2}{M_*^2}\right)
++ \mathcal O\!\left(\frac{\nabla\mathcal R\,D}{M_*^3}\right)
++ \mathcal O\!\left(\frac{\mathcal R^2}{M_*^2}\right).
+\label{eq:Balpha}
+\end{equation}
+The issue is therefore whether the principal quartic part itself can be localized with no new operator family beyond the one already recorded.
+
+\begin{proposition}[Schematic localization of the quartic principal operator]
+Let \(\{\zeta_\alpha\}\) satisfy \eqref{eq:partitionunity}. Then the principal quartic operator obeys the schematic identity
+\begin{equation}
+\sum_{\alpha\in A}\zeta_\alpha (-D^2)^2 \zeta_\alpha
+=
+(-D^2)^2
++ \mathcal E_2
++ \mathcal E_1
++ \mathcal E_0,
+\label{eq:quarticlocalization}
+\end{equation}
+where
+\begin{align}
+\mathcal E_2 &= \mathcal O\!\bigl(\Sigma_1 D^2\bigr),
+\label{eq:E2}
+\\
+\mathcal E_1 &= \mathcal O\!\bigl(\Sigma_{12} D\bigr),
+\label{eq:E1}
+\\
+\mathcal E_0 &= \mathcal O\!\bigl(\Sigma_2\bigr) + \mathcal O\!\bigl(|D\Sigma_{12}|\bigr).
+\label{eq:E0}
+\end{align}
+\end{proposition}
+
+\begin{proof}
+Use
+\[
+\sum_\alpha \zeta_\alpha (-D^2)^2 \zeta_\alpha
+=
+(-D^2)^2 + \sum_\alpha \zeta_\alpha [(-D^2)^2,\zeta_\alpha].
+\]
+The second-order commutator obeys the standard schematic form
+\[
+[-D^2,\zeta_\alpha]
+=
+\mathcal O\!\bigl(D\zeta_\alpha\,D\bigr)
++ \mathcal O\!\bigl(D^2\zeta_\alpha\bigr),
+\]
+so the quartic commutator expands to
+\[
+[(-D^2)^2,\zeta_\alpha]
+=
+\mathcal O\!\bigl(D\zeta_\alpha\,D^3\bigr)
++ \mathcal O\!\bigl(D^2\zeta_\alpha\,D^2\bigr)
++ \mathcal O\!\bigl(D^3\zeta_\alpha\,D\bigr)
++ \mathcal O\!\bigl(D^4\zeta_\alpha\bigr).
+\]
+After multiplication by \(\zeta_\alpha\) and summation in \(\alpha\), the cubic-derivative coefficient cancels because differentiating \eqref{eq:partitionunity} once gives
+\[
+\sum_\alpha \zeta_\alpha D\zeta_\alpha = 0.
+\]
+Differentiating \eqref{eq:partitionunity} again rewrites the remaining second-order coefficient in terms of \(\sum_\alpha |D\zeta_\alpha|^2=\Sigma_1\), which yields \eqref{eq:E2}. One further differentiation rewrites the first-order coefficient in terms of the mixed product \(\sum_\alpha |D\zeta_\alpha|\,|D^2\zeta_\alpha|=\Sigma_{12}\), giving \eqref{eq:E1}. The zeroth-order coefficient is the leftover piece after those cancellations; schematically it is the sum of a quadratic second-derivative term and one derivative of the mixed coefficient, yielding \eqref{eq:E0}. No stronger claim is needed here.
+\end{proof}
+
+\begin{remark}
+The point of Proposition 1 is not that the quartic localization remainder is uncontrolled. It is that the natural remainder obtained from a locally finite partition is controlled by \(\Sigma_1\), \(\Sigma_{12}\), \(\Sigma_2\), and one extra derivative of the mixed coefficient. That last derivative is exactly the new burden.
+\end{remark}
+
+\section{Failure of the Proposed Weakening}
+
+\begin{theorem}[The locally finite summable weakening does not preserve the current hierarchy]
+Assume the hypotheses of the broader admissible-background theorem except that the finite-overlap patch-control hypothesis is replaced by a locally finite summably controlled atlas of Definition 1. Then the present gluing strategy does not recover the same overlap remainder hierarchy as the current theorem.
+
+More precisely, the region-level operator obtained from \eqref{eq:glued} satisfies
+\begin{equation}
+\mathcal B_{4,\mathcal U}^{\mathrm{lf}}
+=
+\frac{\lambda_4}{M_*^2}(-D^2)^2
++ \mathcal O\!\left(\frac{\mathcal R\,D^2}{M_*^2}\right)
++ \mathcal O\!\left(\frac{\nabla\mathcal R\,D}{M_*^3}\right)
++ \mathcal O\!\left(\frac{\mathcal R^2}{M_*^2}\right)
++ \frac{\lambda_4}{M_*^2}\mathcal O\!\bigl(\Sigma_1 D^2 + \Sigma_{12} D + \Sigma_2 + |D\Sigma_{12}|\bigr).
+\label{eq:Blf}
+\end{equation}
+Under \eqref{eq:summablebounds}, the \(\Sigma_1\), \(\Sigma_{12}\), and \(\Sigma_2\) pieces match the old background-scale orders, but the term \(D\Sigma_{12}\) is not controlled by Definition 1. Consequently the same quartic operator remainder hierarchy is not preserved by this weakening alone.
+\end{theorem}
+
+\begin{proof}
+Insert \eqref{eq:Balpha} into \eqref{eq:glued}. The curvature-dependent remainders already have the stated sizes patchwise and remain of the same schematic form after the locally finite sum because the partition of unity is smooth and locally finite. Proposition 1 supplies the principal-operator localization remainder. This yields \eqref{eq:Blf}.
+
+Now impose \eqref{eq:summablebounds}. The coefficient \(\Sigma_1\) is of background-curvature size \(L_{\mathcal R}^{-2}\), \(\Sigma_{12}\) is of first background-gradient size \(L_{\mathcal R}^{-3}\), and \(\Sigma_2\) is of quadratic background size \(L_{\mathcal R}^{-4}\). Those three pieces therefore fit the old hierarchy schematically. By contrast, Definition 1 contains no bound on \(D\Sigma_{12}\). Controlling that term would require a new estimate, equivalent in practice to summable third-derivative control of the partition or to a genuinely different higher-order localization identity. Since the present theorem promised no such extra hypothesis and no such new estimate has been established in the active sequence, the proposed weakening does not reproduce the same remainder hierarchy.
+\end{proof}
+
+\begin{corollary}[Current admissible-background endpoint]
+At the present observer-accessible quadratic and WKB-style scope, the admissible-background route should be treated as complete at the broader theorem on uniformly controlled regions together with the obstruction note fixing why automatic extension fails. The locally finite summable patch-control test does not widen that theorem by the current proof strategy.
+\end{corollary}
+
+\begin{proof}
+Theorem 1 shows that the first concrete replacement-control mechanism now on record still leaves an uncontrolled overlap term. Therefore the existing theorem cannot be widened by this mechanism while keeping the same operator claim.
+\end{proof}
+
+\begin{remark}
+Corollary 1 is not a universal no-go against every future broader theorem. It records only that the smallest presently available modification has now been tested and does not close. Any later return to the admissible-background route must identify genuinely new higher-order localization or dynamical input rather than merely weakening the current finite-overlap hypothesis.
+\end{remark}
+
+\section{What This Note Establishes and What It Does Not}
+
+The present note establishes the following.
+\begin{enumerate}
+    \item It formulates the narrowest natural replacement of finite-overlap patch control by a locally finite atlas with summed first- and second-derivative partition bounds.
+    \item It derives the corresponding quartic localization remainder for the principal operator.
+    \item It shows that this weakening leaves an extra zeroth-order term \(D\Sigma_{12}\) not controlled by the proposed hypothesis.
+    \item It therefore records a negative answer to the first concrete theorem-widening test at the current scope.
+\end{enumerate}
+
+It does not establish the following.
+\begin{enumerate}
+    \item It does not prove that no future broader admissible-background theorem can ever exist.
+    \item It does not show that summable patch control is useless for every weaker quadratic-form statement.
+    \item It does not solve nonlinear stability.
+    \item It does not fix a unique full nonlinear covariant completion of the quartic branch.
+    \item It does not complete a first-principles substrate derivation of Einsteinian gravity.
+\end{enumerate}
+
+\section{Conclusion}
+
+The theorem-route question has now been tested one step further. The first broader admissible-background theorem on uniformly controlled regions survives exactly as recorded, and the first concrete attempt to widen it by weakening finite overlap to a locally finite summably controlled atlas does not preserve the same quartic operator remainder hierarchy.
+
+That negative test has a useful consequence. At the current disciplined scope, the admissible-background route should be treated as complete rather than left artificially open. The next major burden is therefore no longer another minimal patching variation. It is to formulate the narrowest honest nonlinear-stability setup for the surviving quartic branch, after the nonlinear completion problem itself has been fixed more sharply.
+
+\end{document}

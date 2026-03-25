@@ -1,0 +1,285 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal{A}}
+\newcommand{\BridgeMetric}{\mathfrak{g}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Higher-Derivative Quartic Branch Admissible-Background Requirements}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This manuscript performs the next disciplined step after the quartic branch has passed the flat-background exact-closure screen, the bridge-metric matter-coupling gate, the exact-relativistic recovery-compatibility gate, and the first local curved-background continuation. The scope remains explicit. The note does not claim a global admissible-background theorem, a completed Einsteinian derivation from substrate variables, or a nonlinear stability proof. It asks a narrower question: what minimum background-side conditions must be controlled before the quartic branch could even be promoted honestly from a local slowly varying statement to a broader admissible-background claim?
+
+The result is a region-level admissibility package rather than a completed theorem. For a background region \(\mathcal U\), the quartic branch requires: a smooth exact-closure background with global hyperbolicity on \(\mathcal U\), a smooth timelike observer congruence \(\bar u^\mu\) with nondegenerate local rest-space projector, uniform positive control of the surviving auxiliary blocks,
+\[
+m_S^2\ge m_{S,\min}^2>0,
+\qquad
+\widehat M_{IJ}\ge m_{Q,\min}^2\delta_{IJ},
+\]
+a bounded-geometry hierarchy
+\[
+\sup_{\mathcal U}\frac{\mathcal R}{M_*^2}\ll 1,
+\qquad
+\sup_{\mathcal U}\frac{|\nabla\mathcal R|}{M_*^3}\ll 1,
+\]
+and a recovery-compatible spectral hierarchy
+\[
+\varepsilon_{4,\mathrm{adm}}
+\equiv
+\sup_{\mathcal U}
+\frac{1}{m_S^2\Omega^2}
+\left[
+\frac{\lambda_4}{M_*^2}k_\perp^4
++ \mathcal O\!\left(\frac{\mathcal R\,k_\perp^2}{M_*^2}\right)
++ \mathcal O\!\left(\frac{\mathcal R^2}{M_*^2}\right)
+\right]
+\ll 1
+\]
+on the observer-accessible mode family under consideration. Under that package, every local patch of \(\mathcal U\) falls under the previously established local curved-background continuation with uniform control constants, and the only surviving observer-accessible branch correction remains a metric-mediated scalar self-energy bounded by
+\[
+\Pi_{\phi,\mathrm{adm}}^{(4)}
+=
+\mathcal O\!\bigl(m_S^2\sigma_0^2\,\varepsilon_{4,\mathrm{adm}}\bigr).
+\]
+In that precise sense, the quartic branch now has a disciplined admissible-background target. What remains open is the harder next burden: an actual global theorem or a proof that the package can be realized nonaccidentally on physically acceptable backgrounds.
+\end{abstract}
+
+\section{Introduction}
+
+The quartic branch has now cleared the gates that were required before any background upgrade could be discussed at all. Its minimal representative passed the flat-background \(k^0/k^2\) exact-closure screen, preserved controlled matter coupling through the bridge metric alone, remained compatible with the active exact-relativistic recovery line in the intended infrared regime, and admitted a first local curved-background continuation on slowly varying admissible patches.
+
+That still does not amount to a broader admissible-background theorem. The present gap is narrower and more technical. Before one can ask for a global statement, one must know what such a statement would have to control uniformly. The previous note supplied a local patch theorem. The present note extracts from that result the region-level admissibility package that any future broader theorem would need.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays within that boundary. It does not claim that the quartic branch has already been proved benign on arbitrary admissible backgrounds. It identifies only the minimum disciplined requirements that a broader admissible-background statement would have to satisfy.
+
+\section{Region-Level Admissibility Target}
+
+\begin{definition}[Admissible exact-closure background region]
+An admissible exact-closure background region is a spacetime region \(\mathcal U\) equipped with a smooth pair \((\bar g_{\mu\nu},\bar\psi)\) solving the adopted \TheoryName{} field equations and matter equations on \(\mathcal U\), together with global hyperbolicity on \(\mathcal U\) whenever causal evolution is discussed.
+\end{definition}
+
+\begin{definition}[Quartic branch observer structure on \(\mathcal U\)]
+On an admissible exact-closure background region \(\mathcal U\), a quartic branch observer structure is a smooth timelike unit field \(\bar u^\mu\) on \(\mathcal U\) such that the rest-space projector
+\begin{equation}
+\bar h_{\mu\nu}
+=
+\bar g_{\mu\nu}
++\frac{1}{c^2}\bar u_\mu \bar u_\nu
+\label{eq:restprojector}
+\end{equation}
+is nondegenerate throughout \(\mathcal U\).
+\end{definition}
+
+\begin{definition}[Quartic admissible-background package]
+Let \(\mathcal U\) be an admissible exact-closure background region equipped with a quartic branch observer structure. The higher-derivative quartic branch is said to satisfy its admissible-background package on \(\mathcal U\) if all of the following hold.
+\begin{enumerate}
+    \item \textbf{Single-metric route.} The observer-accessible matter law remains
+    \begin{equation}
+    S_{\mathrm{matter}}[\Xi^*\BridgeMetric,\psi]
+    =
+    S_{\mathrm{matter}}[g,\psi].
+    \label{eq:matterroute}
+    \end{equation}
+    \item \textbf{Uniform auxiliary positivity.} There exist positive constants \(m_{S,\min}^2\) and \(m_{Q,\min}^2\) such that
+    \begin{equation}
+    m_S^2\ge m_{S,\min}^2>0,
+    \qquad
+    \widehat M_{IJ}\ge m_{Q,\min}^2\delta_{IJ}
+    \label{eq:uniformpositivity}
+    \end{equation}
+    on \(\mathcal U\).
+    \item \textbf{Bounded geometry relative to the quartic scale.} The background curvature and its first variation are uniformly small relative to \(M_*\):
+    \begin{equation}
+    \sup_{\mathcal U}\frac{\mathcal R}{M_*^2}\ll 1,
+    \qquad
+    \sup_{\mathcal U}\frac{|\nabla\mathcal R|}{M_*^3}\ll 1.
+    \label{eq:boundedgeometry}
+    \end{equation}
+    \item \textbf{Recovery-compatible spectral hierarchy.} For the observer-accessible mode family being claimed, with local rest-space momentum \(k_\perp\) and local frequency \(\Omega\), one has
+    \begin{equation}
+    \varepsilon_{4,\mathrm{adm}}
+    \equiv
+    \sup_{\mathcal U}
+    \frac{1}{m_S^2\Omega^2}
+    \left[
+    \frac{\lambda_4}{M_*^2}k_\perp^4
+    + \mathcal O\!\left(\frac{\mathcal R\,k_\perp^2}{M_*^2}\right)
+    + \mathcal O\!\left(\frac{\mathcal R^2}{M_*^2}\right)
+    \right]
+    \ll 1.
+    \label{eq:epsadm}
+    \end{equation}
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition 3 is not yet a theorem. It is the minimum control package extracted from the completed gate sequence. If a broader admissible-background claim cannot at least verify these ingredients, it has not yet reached the scientific standard already established by the local continuation note.
+\end{remark}
+
+\section{Why These Conditions Are the Right Next Target}
+
+\begin{proposition}[Patchwise reduction to the local continuation theorem]
+If the quartic admissible-background package of Definition 3 holds on a region \(\mathcal U\), then every sufficiently small neighborhood in \(\mathcal U\) falls under the hypotheses of the previously established local curved-background continuation, with uniform control constants inherited from \eqref{eq:uniformpositivity}--\eqref{eq:epsadm}.
+\end{proposition}
+
+\begin{proof}
+The local continuation theorem required three kinds of input: a slowly varying admissible background, positive control of the surviving auxiliary blocks, and a non-ultrasoft recovery-compatible hierarchy for the observer-accessible modes. Definition 3 packages those conditions uniformly on \(\mathcal U\). The bounded-geometry hierarchy \eqref{eq:boundedgeometry} gives the slowly varying background control patchwise, \eqref{eq:uniformpositivity} supplies uniform positivity of the \(m_S^2\) and \(\widehat M_{IJ}\) blocks, and \eqref{eq:epsadm} supplies the same recovery-compatible hierarchy in a region-wise form. Hence each sufficiently small neighborhood of \(\mathcal U\) is controlled by the same local theorem, now with uniform constants.
+\end{proof}
+
+\begin{remark}
+This is the conceptual purpose of the present note. The gap between ``one patch works'' and ``a broader admissible-background statement is justified'' is not magic; it is exactly the need for uniform control data of the kind collected in Definition 3.
+\end{remark}
+
+\section{Region-Level Form of the Quartic Operator}
+
+\begin{proposition}[Admissible-background form of the reduced quartic operator]
+On a region \(\mathcal U\) satisfying the quartic admissible-background package, the reduced scalar operator of the quartic branch takes the schematic form
+\begin{equation}
+\mathcal B_{4,\mathrm{adm}}
+=
+\frac{\lambda_4}{M_*^2}(-D^2)^2
++ \delta\mathcal B_{4,\mathrm{geom}},
+\label{eq:Badm}
+\end{equation}
+with geometric remainder bounded in the same regime by
+\begin{equation}
+\delta\mathcal B_{4,\mathrm{geom}}
+=
+\mathcal O\!\left(\frac{\mathcal R\,D^2}{M_*^2}\right)
++ \mathcal O\!\left(\frac{\nabla\mathcal R\,D}{M_*^3}\right)
++ \mathcal O\!\left(\frac{\mathcal R^2}{M_*^2}\right).
+\label{eq:deltab}
+\end{equation}
+No independent observer-accessible tensor or transverse-vector branch correction is generated at the same scope.
+\end{proposition}
+
+\begin{proof}
+The local continuation note already established the leading covariant quartic operator \((\lambda_4/M_*^2)(-D^2)^2\) together with curvature-suppressed corrections of orders \(\mathcal R D^2/M_*^2\) and \(\mathcal R^2/M_*^2\). On a region where the curvature hierarchy and its first variation are uniformly controlled, those same local corrections may be summarized region-wise by the schematic remainder \eqref{eq:deltab}. The quartic branch does not alter the bridge metric, the matter route, or the auxiliary character of the \(q^I\), \(\chi\), and \(V_T^i\) sectors at the present scope, so no additional tensor or transverse-vector observer-accessible correction appears.
+\end{proof}
+
+\begin{remark}
+Equation \eqref{eq:Badm} is intentionally schematic. It is not a substitute for a future rigorous operator theorem. Its purpose is to record the actual background structures that the future theorem will have to estimate.
+\end{remark}
+
+\section{Uniform Observer-Accessible Control}
+
+\begin{proposition}[Uniform bound on the residual quartic self-energy]
+On a region \(\mathcal U\) satisfying the quartic admissible-background package, the only surviving observer-accessible branch correction remains a metric-mediated scalar self-energy obeying the uniform bound
+\begin{equation}
+\Pi_{\phi,\mathrm{adm}}^{(4)}
+=
+\mathcal O\!\bigl(m_S^2\sigma_0^2\,\varepsilon_{4,\mathrm{adm}}\bigr).
+\label{eq:Piadm}
+\end{equation}
+Accordingly, the residual quartic correction is region-wise subleading on the observer-accessible mode family for which \eqref{eq:epsadm} holds.
+\end{proposition}
+
+\begin{proof}
+By Proposition 1, each sufficiently small neighborhood of \(\mathcal U\) falls under the local curved-background continuation theorem with uniform control constants. In each such neighborhood the surviving metric self-energy is controlled by the local parameter \(\varepsilon_{4,\mathrm{curved}}\). Taking the supremum over the region and using Definition 3 gives the region-wise bound \eqref{eq:Piadm}. Since the observer-accessible matter law remains the single metric route \eqref{eq:matterroute}, this residual correction is still metric-mediated rather than a direct coupling to a second low-energy field.
+\end{proof}
+
+\begin{corollary}[Operational relativistic sector on an admissible-background package]
+Within the admissible-background package, the quartic branch preserves the same operational relativistic sector already fixed by the active exact-closure line: one effective metric, one null cone, one proper-time rule, and the ordinary local SR limit on sufficiently small neighborhoods of \(\mathcal U\).
+\end{corollary}
+
+\begin{proof}
+The branch does not change the observer map or the universal matter route. Proposition 3 shows that the only surviving observer-accessible correction remains metric-mediated and uniformly subleading on the intended mode family. Therefore the operational relativistic sector continues to be governed by the same effective metric, exactly as in the earlier recovery-compatibility and local curved-background notes.
+\end{proof}
+
+\section{Minimum Ingredients for a Future Broader Theorem}
+
+\begin{theorem}[Minimum-ingredient admissible-background target]
+Any future broader admissible-background theorem for the quartic branch must, at minimum, control the following five ingredients on the region claimed.
+\begin{enumerate}
+    \item exact-closure background admissibility and global hyperbolicity on the region of interest
+    \item a smooth timelike observer congruence with nondegenerate rest-space geometry
+    \item uniform positivity of the \(m_S^2\) and \(\widehat M_{IJ}\) auxiliary blocks
+    \item bounded geometry relative to the quartic scale \(M_*\)
+    \item a recovery-compatible spectral hierarchy that excludes the ultrasoft corner for the claimed observer-accessible mode family
+\end{enumerate}
+Under that package, the quartic branch already has a disciplined admissible-background target: the branch is patchwise covered by the local continuation theorem, the residual observer-accessible correction remains metric-mediated and uniformly subleading, and the single-metric relativistic benchmark remains intact on the intended mode family.
+\end{theorem}
+
+\begin{proof}
+Items 1--5 are exactly the data assembled in Definition 3. Proposition 1 shows that this package is sufficient to reduce the region-level question to uniform patchwise control by the already established local theorem. Proposition 2 identifies the corresponding reduced quartic operator and the structures a future broader theorem would need to estimate. Proposition 3 supplies the resulting uniform observer-accessible bound, and Corollary 1 records the operational relativistic consequence. Therefore these five ingredients are the minimum disciplined target for any future broader admissible-background theorem.
+\end{proof}
+
+\begin{remark}
+The theorem does not say that a full broader theorem has already been proved. It says that the target has now been sharply specified. That is the scientifically honest next step after the local curved-background continuation.
+\end{remark}
+
+\section{What This Note Establishes and What It Does Not}
+
+The present note establishes the following.
+\begin{enumerate}
+    \item It states the quartic branch admissible-background package at region level.
+    \item It identifies the uniform positivity, bounded-geometry, and spectral-hierarchy conditions that a broader claim would have to control.
+    \item It shows that, under that package, the branch is uniformly covered by the previously established local continuation theorem.
+    \item It shows that the only surviving observer-accessible correction remains a uniformly subleading metric-mediated scalar self-energy on the claimed mode family.
+    \item It identifies the minimum ingredients required for any future broader admissible-background theorem.
+\end{enumerate}
+
+The present note does \emph{not} establish the following.
+\begin{enumerate}
+    \item It does not prove a full global admissible-background theorem.
+    \item It does not prove that the admissible-background package is realized nonaccidentally on every physically acceptable background.
+    \item It does not settle the ultrasoft static corner.
+    \item It does not solve the nonlinear stability problem on the quartic branch.
+    \item It does not complete a first-principles Einsteinian derivation from substrate variables.
+\end{enumerate}
+
+\begin{remark}
+These negatives matter. The note sharpens the next burden; it does not pretend to have removed it.
+\end{remark}
+
+\section{Conclusion}
+
+After the local curved-background continuation, the next honest question was not whether the quartic branch could already be called globally safe. It was what any such broader claim would actually have to control. The present note now answers that narrower and more useful question.
+
+The quartic branch now has a disciplined admissible-background target. On a region that satisfies exact-closure admissibility, carries a smooth observer congruence, preserves uniform positivity of the surviving auxiliary blocks, has bounded geometry relative to the quartic scale, and respects the same non-ultrasoft recovery-compatible hierarchy, the branch is uniformly covered by the local continuation theorem and leaves only a metric-mediated subleading scalar correction on the intended observer-accessible mode family.
+
+That is enough to move the project one step past the purely local patch statement. It is not enough to declare the admissible-background problem solved. The next burdens remain the harder ones: show that this package can be realized and controlled in a broader theorem, or decide whether the program should instead turn next to nonlinear stability on the surviving quartic branch.
+
+\end{document}

@@ -1,0 +1,327 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal{A}}
+\newcommand{\BridgeMetric}{\mathfrak{g}}
+\newcommand{\Lor}{\gamma_{\mathrm{L}}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Higher-Derivative Quartic Branch Local Curved-Background Continuation}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This manuscript performs the next fixed step after the quartic branch has passed the flat-background exact-closure test, the bridge-metric matter-coupling gate, and the dedicated recovery-compatibility gate. The scope remains narrow. The note does not claim a global curved-background theorem, a completed Einsteinian derivation from substrate variables, or uniform control of the ultrasoft static corner. It asks only whether the minimal quartic branch admits a disciplined local continuation from Minkowski space to slowly varying admissible backgrounds while preserving the active exact-relativistic benchmark in the same recovery-compatible regime already identified in the previous note.
+
+The answer is positive at the present local WKB-style scope. On a slowly varying admissible background \((\bar g_{\mu\nu},\bar u^\mu)\) with local curvature scale \(\mathcal R\ll M_*^2\), the reduced quartic scalar operator inherits the covariant form
+\[
+\mathcal B_{4,\mathrm{cov}}
+=
+\frac{\lambda_4}{M_*^2}(-D^2)^2
++ \mathcal O\!\left(\frac{\mathcal R\,D^2}{M_*^2}\right)
++ \mathcal O\!\left(\frac{\mathcal R^2}{M_*^2}\right),
+\]
+where \(D_a\) is the covariant derivative on the local observer rest space orthogonal to \(\bar u^\mu\). For local WKB modes with rest-space momentum \(k_\perp^2\ll M_*^2\) and non-ultrasoft frequency \(\Omega\) satisfying
+\[
+\varepsilon_{4,\mathrm{curved}}(\Omega,\mathbf{k};x)
+\equiv
+\frac{1}{m_S^2\Omega^2}
+\left[
+\frac{\lambda_4}{M_*^2}k_\perp^4
++ \mathcal O\!\left(\frac{\mathcal R\,k_\perp^2}{M_*^2}\right)
++ \mathcal O\!\left(\frac{\mathcal R^2}{M_*^2}\right)
+\right]
+\ll 1,
+\]
+the induced metric self-energy is
+\[
+\Pi_{\phi,\mathrm{curved}}^{(4)}
+=
+m_S^2\sigma_0^2\,\varepsilon_{4,\mathrm{curved}}
++ \mathcal O\!\bigl(\varepsilon_{4,\mathrm{curved}}^2\bigr).
+\]
+Thus the quartic correction remains locally subleading, while the observer-accessible causal cone, proper-time rule, and local special-relativistic limit continue to be governed by the same single effective metric. In that disciplined sense, the quartic branch admits a local curved-background continuation on slowly varying admissible backgrounds. Global continuation and nonlinear stability remain later burdens.
+\end{abstract}
+
+\section{Introduction}
+
+The active derivational sequence has now become very narrow. The higher-derivative quartic branch has already survived the flat-background \(k^0/k^2\) exact-closure screen, preserved controlled matter coupling through the bridge metric alone, and passed a dedicated recovery-compatibility note at the same action-level and flat-branch quadratic scope. Only after those gates pass is the branch allowed to move beyond Minkowski space.
+
+That promotion, however, must still remain disciplined. The earlier linearized-consistency manuscript already showed how the minimal candidate action can be continued locally to slowly varying admissible backgrounds. The new quartic branch should inherit a continuation of the same scientific kind, not a larger claim slipped in under the same language. The present note therefore asks a very specific question: can the quartic branch be continued locally to a curved admissible background while keeping the recovery-compatible hierarchy visible and preserving the single-metric relativistic benchmark already fixed by the dynamics and relativistic-recovery manuscripts?
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays within that boundary. It does not claim a completed derivation of GR from substrate variables. It records only the first local curved-background continuation that the already-completed quartic branch gates can now support honestly.
+
+\section{Local Continuation Target}
+
+\begin{definition}[Slowly varying admissible background]
+Let \((\bar g_{\mu\nu},\bar u^\mu)\) be an admissible exact-closure background with local curvature scale \(\mathcal R\). A local patch is said to be slowly varying relative to the quartic branch scales if
+\begin{equation}
+\mathcal R \ll M_*^2.
+\label{eq:curvaturehierarchy}
+\end{equation}
+\end{definition}
+
+\begin{definition}[Local quartic continuation target]
+The quartic branch is said to admit a local curved-background continuation if, on a slowly varying admissible background patch, the reduced observer-accessible theory satisfies all of the following.
+\begin{enumerate}
+    \item The observer-accessible matter route remains the single metric route
+    \begin{equation}
+    S_{\mathrm{matter}}[\Xi^*\BridgeMetric,\psi]
+    =
+    S_{\mathrm{matter}}[g,\psi].
+    \label{eq:matterroute}
+    \end{equation}
+    \item The only surviving local branch correction remains a metric-mediated scalar self-energy with no new unsuppressed tensor or transverse-vector channel.
+    \item The local null cone, proper-time rule, and local SR limit remain those of the same effective metric \(g_{\mu\nu}\).
+    \item The local residual correction is parametrically subleading in a clearly stated recovery-compatible hierarchy.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+This continuation target is local by design. It is the curved-background analogue of the earlier flat-background gate sequence, not a global theorem on arbitrary admissible backgrounds.
+\end{remark}
+
+\section{Covariant Continuation of the Quartic Auxiliary Sector}
+
+The quartic branch keeps the bridge metric
+\begin{equation}
+\BridgeMetric_{AB}=G_{AB}-2U_AU_B
+\label{eq:bridge}
+\end{equation}
+and the universal matter route \eqref{eq:matterroute} unchanged while adjoining the projected quartic operator
+\begin{equation}
+\Delta S_4
+=
+-\frac{\lambda_4}{2M_*^2}
+\int_{\Sub} d^4X\,\sqrt{G}\,
+\bigl(\Delta_\perp S\bigr)^2
+\label{eq:S4}
+\end{equation}
+on the collapsed-scalar baseline
+\begin{equation}
+\kappa_S=\mu_{SI}=\mu_S^2=0,
+\qquad
+m_S^2>0,
+\qquad
+\widehat M_{IJ}\ \text{positive definite}.
+\label{eq:baseline}
+\end{equation}
+
+In a slowly varying admissible background patch, use the same local covariant replacements already justified in the earlier coefficient-level continuation:
+\begin{equation}
+\partial_0 \to \pounds_{\bar u},
+\qquad
+-\nabla^2 \to -D^2,
+\label{eq:covreplace}
+\end{equation}
+where \(D_a\) is the covariant derivative on the rest space orthogonal to \(\bar u^\mu\).
+
+\begin{proposition}[Local quartic auxiliary operator]
+In a slowly varying admissible background patch, the reduced scalar auxiliary channel of the quartic branch takes the local covariant form
+\begin{equation}
+\mathcal L_{\sigma,\mathrm{eff},4}^{\mathrm{cov}}
+=
+-\frac{m_S^2}{2}\bigl(\pounds_{\bar u}\sigma-\sigma_0\phi\bigr)^2
+-\frac{1}{2}\sigma\,\mathcal B_{4,\mathrm{cov}}\,\sigma,
+\label{eq:Lsigmacov}
+\end{equation}
+with
+\begin{equation}
+\mathcal B_{4,\mathrm{cov}}
+=
+\frac{\lambda_4}{M_*^2}(-D^2)^2
++ \mathcal O\!\left(\frac{\mathcal R\,D^2}{M_*^2}\right)
++ \mathcal O\!\left(\frac{\mathcal R^2}{M_*^2}\right).
+\label{eq:B4cov}
+\end{equation}
+Moreover, the \(q^I\), \(\chi\), and \(V_T^i\) sectors remain locally auxiliary at the same scope, so no independent tensor or transverse-vector observer-accessible correction is introduced by the continuation.
+\end{proposition}
+
+\begin{proof}
+On the quartic branch, the flat-background scalar operator already begins at quartic spatial order, while the \(q^I\), \(\chi\), and \(V_T^i\) sectors remain auxiliary on the decaying branch. In a slowly varying patch, the continuation from the earlier coefficient-level manuscript replaces ordinary derivatives by the local rest-space and flow derivatives \eqref{eq:covreplace} and adds only curvature-suppressed commutator and connection corrections. Since the quartic term is built from the projected spatial operator \(\Delta_\perp\), its leading local continuation is \((\lambda_4/M_*^2)(-D^2)^2\), while the first new background-dependent terms are of orders \(\mathcal R D^2/M_*^2\) and \(\mathcal R^2/M_*^2\). The auxiliary nature of the \(q^I\), \(\chi\), and \(V_T^i\) sectors is unchanged at this local scope because the branch introduces no new matter argument, no new tensor kinetic term, and no new transverse-vector kinetic term.
+\end{proof}
+
+\begin{remark}
+Equation \eqref{eq:B4cov} is the branch-specific local continuation statement that the previous notes had not yet written explicitly. The quartic branch does not erase curvature corrections. It pushes them into the same controlled higher-derivative sector rather than reintroducing an unsuppressed \(k^0\) or \(k^2\) scalar burden.
+\end{remark}
+
+\section{Local Recovery-Compatible Hierarchy}
+
+The previous recovery-compatibility note showed that the quartic self-energy is harmless only in a long-wavelength, non-ultrasoft infrared regime. The same lesson must remain visible on curved backgrounds.
+
+\begin{definition}[Local recovery-compatible hierarchy]
+In a slowly varying admissible patch, let \(k_\perp^2\equiv \bar h^{ab}k_a k_b\) denote local rest-space momentum squared, where
+\begin{equation}
+\bar h_{\mu\nu}
+=
+\bar g_{\mu\nu}
++ \frac{1}{c^2}\bar u_\mu \bar u_\nu.
+\label{eq:restprojector}
+\end{equation}
+Let \(\Omega\) denote the local WKB frequency associated with \(\pounds_{\bar u}\). The quartic branch is said to lie in its local recovery-compatible regime when
+\begin{equation}
+k_\perp^2\ll M_*^2,
+\label{eq:kperphierarchy}
+\end{equation}
+\begin{equation}
+\varepsilon_{4,\mathrm{curved}}(\Omega,\mathbf{k};x)
+\equiv
+\frac{1}{m_S^2\Omega^2}
+\left[
+\frac{\lambda_4}{M_*^2}k_\perp^4
++ \mathcal O\!\left(\frac{\mathcal R\,k_\perp^2}{M_*^2}\right)
++ \mathcal O\!\left(\frac{\mathcal R^2}{M_*^2}\right)
+\right]
+\ll 1.
+\label{eq:epsiloncurved}
+\end{equation}
+\end{definition}
+
+\begin{remark}
+Condition \eqref{eq:epsiloncurved} is the local curved-background version of the non-ultrasoft infrared condition already stated on the flat branch. It requires the existing time-derivative block \(m_S^2\Omega^2\) to dominate the surviving quartic and curvature-suppressed scalar pieces. Equivalently, the continuation is long-wavelength and non-ultrasoft relative both to the quartic scale and to the local curvature scale.
+\end{remark}
+
+\section{Local Observer-Accessible Continuation}
+
+\begin{proposition}[Local curved-background self-energy]
+In the regime \eqref{eq:curvaturehierarchy}, \eqref{eq:kperphierarchy}, and \eqref{eq:epsiloncurved}, the quartic branch induces the local observer-accessible metric correction
+\begin{equation}
+\Delta\mathcal L_{\mathrm{metric},4}^{\mathrm{curved}}
+=
+-\frac{1}{2}\Pi_{\phi,\mathrm{curved}}^{(4)}\,|\phi|^2,
+\label{eq:Deltaphi}
+\end{equation}
+with
+\begin{equation}
+\Pi_{\phi,\mathrm{curved}}^{(4)}
+=
+m_S^2\sigma_0^2
+\frac{\mathcal B_{4,\mathrm{cov}}}
+{m_S^2\Omega^2+\mathcal B_{4,\mathrm{cov}}}
+=
+m_S^2\sigma_0^2\,\varepsilon_{4,\mathrm{curved}}
++ \mathcal O\!\bigl(\varepsilon_{4,\mathrm{curved}}^2\bigr).
+\label{eq:Picurved}
+\end{equation}
+Accordingly, the only surviving local branch correction remains metric-mediated and parametrically subleading in the recovery-compatible regime.
+\end{proposition}
+
+\begin{proof}
+The matter-coupling and recovery-compatibility notes already established the form of the reduced observer-accessible action on the flat branch: once the nonmetric auxiliaries are eliminated, the only surviving correction is a metric self-energy in the scalar channel. Proposition 1 supplies the corresponding local curved-background operator \(\mathcal B_{4,\mathrm{cov}}\). The same Gaussian elimination then yields \eqref{eq:Picurved} in local WKB form. When \(\varepsilon_{4,\mathrm{curved}}\ll 1\), the denominator can be expanded geometrically, giving the stated subleading behavior.
+\end{proof}
+
+\begin{corollary}[Local preservation of the operational relativistic sector]
+At the present local curved-background scope, the quartic branch preserves the single effective metric as the operational geometry of matter and light. In particular, the local causal cone, proper-time rule, and local SR limit remain governed by
+\begin{equation}
+0=g_{\mu\nu}\,dx^\mu dx^\nu,
+\qquad
+d\tau^2=-\frac{1}{c^2}g_{\mu\nu}\,dx^\mu dx^\nu,
+\label{eq:nullproper}
+\end{equation}
+with local inertial coordinates satisfying
+\begin{equation}
+g_{\mu\nu}(p)=\eta_{\mu\nu},
+\qquad
+\partial_\alpha g_{\mu\nu}(p)=0,
+\label{eq:localinertial}
+\end{equation}
+up to the same curvature and subleading branch corrections already controlled by \eqref{eq:curvaturehierarchy} and \eqref{eq:epsiloncurved}.
+\end{corollary}
+
+\begin{proof}
+The branch does not change the observer map, the bridge metric, or the universal matter route \eqref{eq:matterroute}. Proposition 2 shows that its only surviving local correction is still metric-mediated and parametrically subleading in the intended regime. Therefore the operational relativistic structures remain those of the same single effective metric \(g_{\mu\nu}\), with the usual local inertial reduction on sufficiently small patches of the admissible background.
+\end{proof}
+
+\section{Local Curved-Background Continuation Result}
+
+\begin{theorem}[Quartic branch local curved-background continuation]
+Assume the quartic branch defined by \eqref{eq:bridge}--\eqref{eq:baseline} on a slowly varying admissible background satisfying \eqref{eq:curvaturehierarchy}, together with the local recovery-compatible hierarchy \eqref{eq:kperphierarchy}--\eqref{eq:epsiloncurved}. Then, at the present local WKB-style and quadratic observer-accessible scope, the quartic branch admits a local curved-background continuation with the following properties.
+\begin{enumerate}
+    \item The reduced observer-accessible matter route remains the single metric route \(S_{\mathrm{matter}}[g,\psi]\).
+    \item No new unsuppressed tensor or transverse-vector observer-accessible correction is generated locally.
+    \item The only surviving local branch correction is the metric-mediated scalar self-energy \eqref{eq:Picurved}, which is parametrically subleading in the stated regime.
+    \item The local null cone, proper-time rule, and local SR limit remain those of the same effective metric \(g_{\mu\nu}\).
+\end{enumerate}
+Therefore the quartic branch may be promoted from Minkowski space to a local slowly varying curved-background continuation without leaving the active exact-relativistic benchmark, provided the same recovery-compatible hierarchy is kept explicit.
+\end{theorem}
+
+\begin{proof}
+Item 1 follows directly from the unchanged observer map and matter route. Item 2 follows from Proposition 1, which shows that the continuation introduces no independent tensor or transverse-vector observer-accessible channel. Item 3 follows from Proposition 2. Item 4 follows from Corollary 1. Together these statements satisfy Definition 2 and establish the local continuation claim.
+\end{proof}
+
+\begin{remark}
+The theorem is intentionally local and intentionally conditional. It does not claim that the quartic branch has now been proved benign on arbitrary admissible backgrounds or in the ultrasoft static corner. It states only the first curved-background continuation that the completed gate sequence can now support honestly.
+\end{remark}
+
+\section{What This Note Establishes and What It Does Not}
+
+The present note establishes the following.
+\begin{enumerate}
+    \item It states a dedicated local curved-background continuation for the higher-derivative quartic branch.
+    \item It carries the quartic scalar operator into a slowly varying admissible background patch with explicit curvature-suppressed corrections.
+    \item It keeps the non-ultrasoft recovery-compatible hierarchy visible rather than dropping it at the point of continuation.
+    \item It shows that the only surviving local observer-accessible correction remains a metric-mediated scalar self-energy and that it is subleading in the intended regime.
+    \item It shows that the local causal cone, proper-time rule, and local SR limit remain those of the same single effective metric.
+\end{enumerate}
+
+The present note does \emph{not} establish the following.
+\begin{enumerate}
+    \item It does not prove a global admissible-background theorem.
+    \item It does not remove the need for a later nonlinear stability analysis.
+    \item It does not settle the ultrasoft static corner.
+    \item It does not complete a first-principles Einsteinian derivation from substrate variables.
+\end{enumerate}
+
+\begin{remark}
+That claim boundary is the point of the note. The quartic branch is now carried one disciplined step further, not declared finished.
+\end{remark}
+
+\section{Conclusion}
+
+The immediate next step after the quartic recovery-compatibility note was not a global theorem and not a new redesign of the auxiliary sector. It was the narrower continuation that the completed gate sequence had now earned: a local slowly varying curved-background extension with the same hierarchy kept explicit.
+
+The present manuscript supplies that continuation. In a slowly varying admissible patch, the quartic branch continues with a covariant scalar operator whose leading piece remains the projected quartic rest-space bi-Laplacian, while curvature enters only through suppressed local corrections. In the same non-ultrasoft recovery-compatible regime already required on the flat branch, the induced metric self-energy remains parametrically subleading. The observer-accessible relativistic sector therefore remains the single-metric GR/SR benchmark locally.
+
+This is enough to move the quartic branch beyond Minkowski space at the current disciplined scope. It is not enough to call the derivational problem finished. The next burdens remain the harder ones: determine whether this local continuation can be upgraded toward a broader admissible-background statement and confront the nonlinear stability problem on the surviving branch.
+
+\end{document}

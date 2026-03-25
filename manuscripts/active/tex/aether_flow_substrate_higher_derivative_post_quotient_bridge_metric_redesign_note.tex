@@ -1,0 +1,412 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal{A}}
+\newcommand{\BridgeMetric}{\mathfrak{g}}
+\newcommand{\ReBridge}{\widetilde{\mathfrak{g}}}
+\newcommand{\Proj}{\mathcal D}
+\newcommand{\Dperp}{\mathcal D}
+\newcommand{\EffAux}{\mathcal T_{\mu\nu}^{\mathrm{quot,eff}}}
+\newcommand{\ReEffAux}{\widetilde{\mathcal T}_{\mu\nu}^{\mathrm{quot,eff},(2)}}
+\newcommand{\PiTheta}{\Pi^{(\vartheta)}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Post-Quotient Bridge-Metric Redesign Note}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The fixed ordered-flow-label quotient route has now reached the precise place where a redesign is honest. The same branch is already positive at reduced-system, theorem, decay, and asymptotic scope, but the tensor-level bridge verdict is negative: with the original bridge metric
+\[
+\BridgeMetric_{AB}=G_{AB}-2U_AU_B,
+\]
+the fully eliminated observer equation still contains the effective remainder
+\[
+G_{\mu\nu}[g]
+=
+8\pi G_N\,T_{\mu\nu}^{\mathrm{matter}}
++ \EffAux,
+\]
+whose first unavoidable contribution is
+\[
+T_{\mu\nu}^{(\chi,\mathrm{eff},2)}
+=
+\frac{1}{\kappa_\theta}
+\left(
+\Dperp_\mu\Phi_K\,\Dperp_\nu\Phi_K
+-\frac12 g_{\mu\nu}\Dperp_\alpha\Phi_K\,\Dperp^\alpha\Phi_K
+\right).
+\]
+The mass-shaped gravity criterion then fixes the next move: reconsider the bridge metric first, keep the single-metric matter route if that can still be done honestly, and recompute the observer-side tensor at exactly the same tensor-reduction scope.
+
+This note records the smallest such redesign. The full mass-shaped criterion says that matter reorganizes the surrounding \Aflow{} through acceleration, convergence/focusing, shear, and rotational dragging, but the negative quotient tensor verdict probes only the convergence channel. The smallest same-scope bridge test is therefore
+\[
+\ReBridge_{AB}
+=
+\BridgeMetric_{AB}
++ \alpha_{\mathrm{br}}\PiTheta_{AB},
+\]
+where
+\[
+\PiTheta_{AB}
+=
+\Proj_A\Phi_\vartheta\,\Proj_B\Phi_\vartheta
+-\frac12 P_{AB}\Proj_C\Phi_\vartheta\,\Proj^C\Phi_\vartheta,
+\qquad
+(-\Delta_\perp)\Phi_\vartheta=\vartheta.
+\]
+On the same flat exact-closure quotient background used by the negative verdict,
+\[
+\Xi^\ast\PiTheta_{AB}
+=
+\Dperp_\mu\Phi_K\,\Dperp_\nu\Phi_K
+-\frac12 g_{\mu\nu}\Dperp_\alpha\Phi_K\,\Dperp^\alpha\Phi_K
++\mathcal O_{\ge 3},
+\]
+so the recomputed redesigned observer tensor becomes
+\[
+\ReEffAux
+=
+\left(\frac{1}{\kappa_\theta}+\alpha_{\mathrm{br}}\right)
+\left(
+\Dperp_\mu\Phi_K\,\Dperp_\nu\Phi_K
+-\frac12 g_{\mu\nu}\Dperp_\alpha\Phi_K\,\Dperp^\alpha\Phi_K
+\right).
+\]
+The forced same-scope choice
+\[
+\alpha_{\mathrm{br}}=-\frac{1}{\kappa_\theta}
+\]
+therefore removes the old longitudinal remainder at that same reduction level:
+\[
+\ReEffAux=0.
+\]
+The redesign keeps matter coupled through one revised operational metric, leaves the ordered-flow equation genuinely differential, and does not reintroduce \(S,Y,Z\) or a new propagating scalar observer channel. The verdict is intentionally narrow: the smallest honest post-quotient redesign is positive at the same tensor-reduction scope, so a second note reconsidering the single-metric matter route is not yet forced.
+\end{abstract}
+
+\section{Introduction}
+
+The positive quotient line has already done the work that had to be done before any redesign could be justified. The explicit quotient candidate removed the old coefficient-level ordered-flow correction while keeping the bridge metric and the single-metric matter route fixed. The quotient-architecture screen then showed that the old infinite-dimensional ordered-flow fiber is gauge rather than physical underdetermination. The quotient reduced-system, local/coercive, theorem, decay/integrability, and asymptotic notes subsequently showed that the same quotient physical field space admits a clean \(3+1\) formulation, a positive theorem route, and a positive asymptotic closure, all with
+\[
+\mathcal A_Y=\mathcal A_Z=0
+\]
+imposed from the outset and with no physical or analytic \(S,Y,Z\) data reintroduced.
+
+What failed is narrower. The tensor-verdict note showed that, after full quotient elimination,
+\begin{equation}
+G_{\mu\nu}[g]
+=
+8\pi G_N\,T_{\mu\nu}^{\mathrm{matter}}
++ \EffAux,
+\label{eq:oldverdict}
+\end{equation}
+and that \(\EffAux\) is not only gauge or constraint exact on the longitudinally nontrivial quotient branch. The open problem is therefore no longer a quotient asymptotic, reduced-system, local-coercive, or theorem problem. It is the bridge realization itself.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not claim a completed microphysical derivation. It does not reopen the already-positive quotient PDE line. It changes only the bridge metric, keeps the matter route single-metric, recomputes the observer-side tensor at the same reduction scope as the negative quotient verdict, and records the resulting bridge-only verdict.
+
+\section{The Narrow Post-Quotient Task}
+
+\begin{definition}[Current post-quotient redesign task]
+\label{def:task}
+The \emph{current post-quotient redesign task} is to decide whether a bridge-metric change alone can remove the leftover observer tensor in \eqref{eq:oldverdict}, while keeping:
+\begin{enumerate}
+    \item the matter route single-metric,
+    \item the ordered-flow equation genuinely differential,
+    \item the quotient physical field space free of reintroduced \(S,Y,Z\),
+    \item the observer reduction free of a new scalar correction channel.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:task} is deliberately narrower than a general branch redesign. The quotient dynamical line is already positive. Only the bridge architecture remains open.
+\end{remark}
+
+\begin{proposition}[Why the bridge metric is the smallest next move]
+\label{prop:smallest}
+After the negative quotient tensor verdict, the smallest admissible redesign is to modify the bridge metric before modifying the single-metric matter route.
+\end{proposition}
+
+\begin{proof}
+The failure appears only in the observer tensor after the quotient reduced-system, theorem, decay, and asymptotic burdens have already closed positively. Hence the active obstruction is not a failure of the quotient dynamics or of the single-metric matter route at those stages. The smallest remaining object that can still absorb the leftover observer stress without changing the matter sector itself is therefore the bridge metric.
+\end{proof}
+
+\section{Mass-Shaped Gravity at the Same Tensor Scope}
+
+The mass-shaped gravity criterion now recorded elsewhere says that matter should genuinely reorganize the surrounding \Aflow{}, and that the observer metric should read that reorganization as exact Einstein gravity with no leftover tensor. In full relativistic language that criterion distributes the physical intuition across acceleration, convergence/focusing, shear, and rotational dragging. The present note must nevertheless stay smaller than that full kinematic dictionary.
+
+\begin{proposition}[Only the convergence channel is tested at the present scope]
+\label{prop:onlyconv}
+At the same tensor-reduction scope as the negative quotient verdict, the only mass-shaped channel that is actually probed is the convergence/focusing channel encoded by the longitudinal trace source \(K\).
+\end{proposition}
+
+\begin{proof}
+The quotient tensor-verdict note computes the first unavoidable remainder from the longitudinal slice solve
+\[
+\kappa_\theta\Delta_\delta\chi=-K+\mathcal O_{\ge 2}.
+\]
+No acceleration, shear, or rotational-vorticity block contributes to that first nontrivial eliminated tensor. Therefore the smallest honest same-scope bridge redesign is the one that changes only the convergence-response part of the bridge.
+\end{proof}
+
+\begin{remark}
+Proposition \ref{prop:onlyconv} is the reason the present note does not yet build the full four-channel mass-shaped bridge completion. Those additional channels may matter later, but they are not forced by the current tensor calculation.
+\end{remark}
+
+\section{Minimal Convergence-Response Bridge Redesign}
+
+Let \(P_{AB}=G_{AB}-U_AU_B\) be the projector orthogonal to the unit ordered-flow field \(U^A\), and let
+\[
+\Proj_A \equiv P_A{}^B\nabla_B
+\]
+denote the projected derivative.
+
+\begin{definition}[Convergence potential]
+\label{def:potential}
+Define the convergence scalar and its potential by
+\begin{equation}
+\vartheta \equiv \nabla_AU^A,
+\qquad
+(-\Delta_\perp)\Phi_\vartheta=\vartheta,
+\qquad
+\Delta_\perp\equiv \Proj^A\Proj_A,
+\label{eq:potential}
+\end{equation}
+with decaying spatial boundary conditions in the same class already used for the quotient longitudinal slice solve.
+\end{definition}
+
+\begin{remark}
+On the quotient \(3+1\) reduction at the same flat exact-closure background used by the tensor-verdict note, \(\vartheta\) pulls back to the trace/convergence variable \(K\), and therefore \(\Phi_\vartheta\) pulls back to the same longitudinal potential \(\Phi_K=(-\Delta_\delta)^{-1}K\).
+\end{remark}
+
+\begin{definition}[Minimal convergence-response bridge tensor]
+\label{def:pitheta}
+Define the \emph{minimal convergence-response bridge tensor} by
+\begin{equation}
+\PiTheta_{AB}
+\equiv
+\Proj_A\Phi_\vartheta\,\Proj_B\Phi_\vartheta
+-\frac12 P_{AB}\Proj_C\Phi_\vartheta\,\Proj^C\Phi_\vartheta.
+\label{eq:pitheta}
+\end{equation}
+\end{definition}
+
+\begin{definition}[Post-quotient revised bridge metric]
+\label{def:newbridge}
+The \emph{post-quotient revised bridge metric} is
+\begin{equation}
+\ReBridge_{AB}
+=
+G_{AB}-2U_AU_B+\alpha_{\mathrm{br}}\PiTheta_{AB},
+\label{eq:newbridge}
+\end{equation}
+and the revised operational observer metric is
+\begin{equation}
+g^{\mathrm{br}}_{\mu\nu}=\Xi^\ast\ReBridge_{AB}.
+\label{eq:newobsmetric}
+\end{equation}
+Matter continues to couple only through that one metric:
+\begin{equation}
+S_{\mathrm{matter}}^{\mathrm{br}}[G,U,\Xi,\psi]
+\equiv
+S_{\mathrm{matter}}[\Xi^\ast\ReBridge,\psi]
+=
+S_{\mathrm{matter}}[g^{\mathrm{br}},\psi].
+\label{eq:newmatter}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[The single-metric matter route is preserved]
+\label{prop:singlemetric}
+The bridge ansatz \eqref{eq:newbridge} preserves a single universal matter metric.
+\end{proposition}
+
+\begin{proof}
+Equation \eqref{eq:newmatter} depends on the matter fields only through the pullback metric \(g^{\mathrm{br}}_{\mu\nu}\). Therefore the observer-accessible matter stress tensor is still obtained by variation with respect to one metric variable only, and there is still no second independent matter metric or direct low-energy matter coupling to separate substrate variables.
+\end{proof}
+
+\section{Same-Scope Observer-Tensor Recalculation}
+
+The negative quotient verdict already identified the first unavoidable observer remainder. On the positive quotient branch and at the first nontrivial eliminated order around the flat exact-closure background one has
+\begin{equation}
+\kappa_\theta \Delta_\delta \chi = -K + \mathcal O_{\ge 2},
+\qquad
+\Phi_K \equiv (-\Delta_\delta)^{-1}K,
+\label{eq:chisolve}
+\end{equation}
+and therefore
+\begin{equation}
+T_{\mu\nu}^{(\chi,\mathrm{eff},2)}
+=
+\frac{1}{\kappa_\theta}
+\left(
+\Dperp_\mu\Phi_K\,\Dperp_\nu\Phi_K
+-\frac12 g_{\mu\nu}\Dperp_\alpha\Phi_K\,\Dperp^\alpha\Phi_K
+\right).
+\label{eq:oldchi}
+\end{equation}
+
+\begin{proposition}[Pullback of the redesigned bridge at the same scope]
+\label{prop:leading}
+At the same tensor-reduction scope as \eqref{eq:oldchi}, the revised bridge correction satisfies
+\begin{equation}
+\Xi^\ast\PiTheta
+=
+\Dperp_\mu\Phi_K\,\Dperp_\nu\Phi_K
+-\frac12 g_{\mu\nu}\Dperp_\alpha\Phi_K\,\Dperp^\alpha\Phi_K
++ \mathcal O_{\ge 3}.
+\label{eq:leadingM}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+By Definition \ref{def:potential}, \(\Phi_\vartheta\) is the convergence potential. On the same quotient background used by the tensor-verdict note, \(\vartheta\) reduces to \(K\) at leading order, so \(\Phi_\vartheta\) reduces to \(\Phi_K\). Pulling back \eqref{eq:pitheta} therefore gives \eqref{eq:leadingM}.
+\end{proof}
+
+\begin{definition}[Same-scope redesigned observer remainder]
+\label{def:reteff}
+At the same tensor-reduction scope as the negative quotient verdict, define the \emph{redesigned observer remainder} \(\ReEffAux\) to be the coefficient-level sum of:
+\begin{enumerate}
+    \item the old longitudinal eliminated tensor \eqref{eq:oldchi}, and
+    \item the bridge-side correction carried by the new tensor slot \(\alpha_{\mathrm{br}}\Xi^\ast\PiTheta\).
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:reteff} is intentionally narrow. It does not claim a full nonlinear rederivation of the observer equation for the redesigned bridge. It records exactly the same tensor slot that the negative quotient verdict computed and asks whether the minimal bridge-only redesign removes that slot at that same scope.
+\end{remark}
+
+\begin{proposition}[Recomputed observer-side tensor]
+\label{prop:newtensor}
+At the same tensor-reduction scope as the negative quotient verdict,
+\begin{equation}
+\ReEffAux
+=
+\left(\frac{1}{\kappa_\theta}+\alpha_{\mathrm{br}}\right)
+\left(
+\Dperp_\mu\Phi_K\,\Dperp_\nu\Phi_K
+-\frac12 g_{\mu\nu}\Dperp_\alpha\Phi_K\,\Dperp^\alpha\Phi_K
+\right).
+\label{eq:brcorr}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Equation \eqref{eq:oldchi} gives the old contribution. Proposition \ref{prop:leading} gives the bridge-side contribution from the redesigned metric at the same scope. Adding the two contributions in the sense of Definition \ref{def:reteff} yields \eqref{eq:brcorr}.
+\end{proof}
+
+\begin{theorem}[Forced same-scope bridge cancellation]
+\label{thm:cancel}
+Choose
+\begin{equation}
+\alpha_{\mathrm{br}}=-\frac{1}{\kappa_\theta}.
+\label{eq:alphachoice}
+\end{equation}
+Then on the same reduced quotient branch and at the same tensor-reduction scope as the old negative verdict,
+\begin{equation}
+\ReEffAux=0.
+\label{eq:cancellation}
+\end{equation}
+Equivalently, the redesigned observer equation is matter-only Einsteinian up to higher-order terms at that same scope:
+\begin{equation}
+G_{\mu\nu}[g^{\mathrm{br}}]
+=
+8\pi G_N\,T_{\mu\nu}^{\mathrm{matter}}
++ \mathcal O_{\ge 3}.
+\label{eq:newobserver}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Combine Proposition \ref{prop:newtensor} with the normalization \eqref{eq:alphachoice}.
+\end{proof}
+
+\begin{remark}
+Theorem \ref{thm:cancel} is the exact current-scope statement needed here. It is not yet a full nonlinear exact-closure theorem for the redesigned bridge. It says only that the smallest bridge-only redesign removes the very tensor slot that forced the post-quotient redesign question in the first place.
+\end{remark}
+
+\section{Why the Matter Route Is Not Yet Reopened}
+
+\begin{proposition}[The ordered-flow equation survives]
+\label{prop:survives}
+The redesigned bridge metric \eqref{eq:newbridge} does not annihilate the ordered-flow equation. On the quotient branch the divergence/vorticity sector still obeys a genuine differential system of the same principal type,
+\begin{equation}
+\kappa_\theta \Delta_\gamma \chi = -K + \mathcal N_\chi^{\mathrm{br}},
+\qquad
+\kappa_\Omega \Delta_\gamma W_i^T = \mathcal N_{W,i}^{\mathrm{br}},
+\label{eq:survive}
+\end{equation}
+with modified lower-order terms but unchanged principal operators.
+\end{proposition}
+
+\begin{proof}
+The redesign changes only the bridge metric by adding a tensor built from the already-existing convergence data of \(U^A\). It does not introduce an algebraic exact-square elimination of the divergence or vorticity blocks, and it does not solve away \(U^A\) itself. Consequently, variation with respect to the ordered-flow sector still produces differential Euler--Lagrange equations whose principal parts are the same divergence/vorticity operators already present on the quotient branch. The redesign changes only lower-order couplings.
+\end{proof}
+
+\begin{proposition}[No reintroduced representative variables and no new scalar correction channel]
+\label{prop:hygiene}
+The bridge ansatz \eqref{eq:newbridge} introduces neither:
+\begin{enumerate}
+    \item new physical or analytic \(S,Y,Z\) data, nor
+    \item a new propagating scalar correction channel in the observer reduction.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Definition \ref{def:newbridge} depends only on \(G_{AB}\), \(U^A\), and the convergence potential \(\Phi_\vartheta\) determined from \(U^A\). The representative ordered-flow label \(S\) and the retired auxiliaries \(Y,Z\) do not enter. Moreover, \(\Phi_\vartheta\) is not a new free scalar degree of freedom: by Definition \ref{def:potential} it is an elliptically determined convergence potential fixed by the same ordered-flow data already present on the quotient branch. Thus the bridge redesign does not add a new propagating scalar observer channel.
+\end{proof}
+
+\begin{corollary}[A second redesign note is not yet forced]
+\label{cor:nomatter}
+Because Theorem \ref{thm:cancel}, Proposition \ref{prop:survives}, and Proposition \ref{prop:hygiene} are all positive at the same current tensor-reduction scope, the next active manuscript should remain on the bridge-metric redesign line rather than opening a separate single-metric matter-route redesign note.
+\end{corollary}
+
+\begin{proof}
+The matter route was to be reconsidered only if the smallest bridge-only redesign still left a genuine same-scope observer remainder. The present note records a positive same-scope bridge-only cancellation while preserving the single-metric matter route and the ordered-flow equation. Therefore a separate matter-route redesign is not yet forced.
+\end{proof}
+
+\section{Conclusion}
+
+The present repository status is now sharper. The positive quotient reduced-system, theorem, decay, and asymptotic line remains intact, but the fixed bridge realization no longer needs to be treated as untouchable. Guided by the mass-shaped gravity criterion, the smallest honest redesign is to let the bridge metric respond directly to the convergence/focusing part of the surrounding \Aflow{} reorganization before reopening the matter route itself.
+
+At the same tensor-reduction scope where the old quotient route failed, that minimal convergence-response bridge cancels the longitudinal effective auxiliary tensor exactly. The redesign also keeps matter coupled through one operational metric, leaves the ordered-flow equation alive, and does not reintroduce \(S,Y,Z\) or a new propagating scalar observer channel. This is the narrow result the sequence presently needs. Only if a later bridge-metric note finds a genuine remainder beyond this same-scope redesign should the active line move on to a second note reconsidering the single-metric matter route itself.
+
+\end{document}

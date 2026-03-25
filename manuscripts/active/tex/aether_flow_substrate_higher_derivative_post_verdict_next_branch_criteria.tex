@@ -1,0 +1,267 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal{A}}
+\newcommand{\BridgeMetric}{\mathfrak{g}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Higher-Derivative Quartic Branch Post-Verdict Next-Branch and Redesign Criteria}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The explicit bridge-tensor reduction note fixes the derivational verdict on the surviving higher-derivative quartic branch. After auxiliary elimination, the observer-equation correction tensor reduces to the effective quartic scalar stress tensor, and its scalar projection is the nonzero self-energy
+\[
+\Pi_\phi^{(4)}(\omega,\mathbf{k})
+=
+m_S^2\sigma_0^2
+\frac{(\lambda_4/M_*^2)k^4}
+{m_S^2\omega^2+(\lambda_4/M_*^2)k^4}.
+\]
+At the present disciplined scope the branch is therefore stable and recovery-compatible, but it is not an exact derivational closure of the observer equation.
+
+This note records what that verdict changes. First, it classifies the surviving quartic branch as a \emph{stable recovery-compatible side program} rather than the active derivational line. Second, it proves that no further same-branch asymptotic repair, gauge-only reformulation, or additional bridge-tensor bookkeeping can by itself restore exact closure as long as the reduced observer equation still carries the same nonzero scalar remainder. Third, it states the smallest admissible requirements for any next candidate branch or bridge/completion redesign. The next active derivational candidate must preserve single-metric matter coupling, keep the good same-class stability architecture if possible, and explicitly remove the residual quartic scalar self-energy \(\Pi_\phi^{(4)}\) rather than merely suppressing it in an infrared or asymptotic regime.
+
+The present note does not choose the replacement branch. Its role is narrower and post-verdict: it fixes the correct status of the surviving quartic branch and formulates the minimum redesign target that any new candidate must satisfy before it can re-enter the active derivational program.
+\end{abstract}
+
+\section{Introduction}
+
+The active manuscript sequence of \TheoryName{} now has a sharper derivational verdict than before. The surviving higher-derivative quartic branch did not fail at the matter-coupling gate, the recovery-compatibility gate, the admissible-background route, or the same-class nonlinear-stability route. On the contrary, one explicit fixed completion now has a positive weighted/homogeneous unit-lapse local, coercive, decay, and asymptotic closure package. The branch is therefore mathematically meaningful and operationally disciplined.
+
+But the bridge-tensor reduction note changes the active research direction nonetheless. After reduction of the observer equation, the remaining correction tensor does not disappear. It is exactly the effective quartic scalar stress tensor, and its scalar projection is the nonzero observer-accessible self-energy \(\Pi_\phi^{(4)}\). That means the current branch no longer belongs to the active derivational line whose goal is exact observer-side Einsteinian closure. The next step is therefore not another same-branch asymptotic repair or another rephrasing of the same reduction. It is a post-verdict next-branch or redesign note.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays inside that boundary. It does not claim a completed microphysical derivation of Einsteinian gravity. It does not claim that the replacement branch has already been found. It records the post-verdict status of the surviving quartic branch and defines the minimum criteria that the next candidate branch or bridge/completion redesign must satisfy if exact derivation remains the active goal.
+
+\section{Post-Verdict Status of the Surviving Quartic Branch}
+
+\begin{definition}[Stable recovery-compatible side program]
+\label{def:sideprogram}
+A candidate branch is called a \emph{stable recovery-compatible side program} at current scope if all of the following hold.
+\begin{enumerate}
+    \item \textbf{single-metric matter coupling:} matter and light couple only through the observer metric
+    \begin{equation}
+    g_{\mu\nu}=\Xi^\ast\BridgeMetric_{AB},
+    \qquad
+    S_{\mathrm{matter}}[\Xi^\ast\BridgeMetric,\psi]
+    =
+    S_{\mathrm{matter}}[g,\psi]
+    \label{eq:matterroute}
+    \end{equation}
+    \item \textbf{recovery compatibility:} the branch preserves the active GR/SR benchmark in its stated observer-accessible regime
+    \item \textbf{same-class dynamical control:} at least one explicit completion on that branch admits a recorded local-to-asymptotic small-data control route in a single coherent function class
+    \item \textbf{derivational nonclosure:} after reduction of the observer equation, a genuine observer-accessible remainder survives and is not removed as a pure gauge or constraint-exact term.
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}[Classification of the surviving quartic branch]
+\label{prop:classification}
+At the present disciplined scope, the surviving higher-derivative quartic branch is a stable recovery-compatible side program in the sense of Definition \ref{def:sideprogram}, not the active derivational line.
+\end{proposition}
+
+\begin{proof}
+The matter-coupling note establishes item (1) of Definition \ref{def:sideprogram}. The recovery-compatibility note establishes item (2). The weighted/homogeneous unit-lapse closure, coercive-bootstrap, decay/integrability, and asymptotic-closure notes establish item (3) for the explicit completion \(S_{\mathrm{min},4}\). Finally, the bridge-tensor reduction note establishes item (4): after auxiliary elimination the reduced observer equation contains the effective quartic scalar stress tensor, whose scalar projection is the nonzero self-energy \(\Pi_\phi^{(4)}\). Therefore the branch is stable and recovery-compatible, but not derivationally closing.
+\end{proof}
+
+\begin{remark}
+Proposition \ref{prop:classification} is not a demotion of the quartic branch to uselessness. It records its correct status. The branch remains a valuable stability and recovery-compatible reference class, but it no longer supplies the active route toward exact observer-equation derivation.
+\end{remark}
+
+\section{Why the Active Derivational Line Must Move Beyond the Surviving Quartic Branch}
+
+The post-verdict distinction is driven by one explicit observer-accessible remainder.
+
+\begin{definition}[Residual quartic scalar self-energy]
+\label{def:Pi4}
+The \emph{residual quartic scalar self-energy} on the surviving branch is the scalar projection
+\begin{equation}
+\Pi_\phi^{(4)}(\omega,\mathbf{k})
+=
+m_S^2\sigma_0^2
+\frac{(\lambda_4/M_*^2)k^4}
+{m_S^2\omega^2+(\lambda_4/M_*^2)k^4}
+\label{eq:Pi4}
+\end{equation}
+appearing in the reduced quadratic observer equation after auxiliary elimination.
+\end{definition}
+
+\begin{remark}
+Equation \eqref{eq:Pi4} is quoted here only as the recorded verdict of the bridge-tensor reduction note. The present manuscript does not re-derive it. It uses that explicit nonzero remainder to determine what the next manuscript must be.
+\end{remark}
+
+\begin{proposition}[Why the current branch cannot remain the active derivational line]
+\label{prop:notsamebranch}
+As long as the reduced observer equation on the surviving quartic branch continues to carry the nonzero scalar remainder \(\Pi_\phi^{(4)}\) of Definition \ref{def:Pi4}, no further same-branch asymptotic refinement, gauge-only reformulation, or additional bridge-tensor bookkeeping can by itself upgrade that branch to exact derivational closure.
+\end{proposition}
+
+\begin{proof}
+Exact derivational closure requires the reduced observer equation to close onto the Einstein equation with universal matter coupling and no genuine observer-accessible remainder. On the surviving branch, the recorded reduced observer equation contains the effective quartic scalar stress tensor, whose scalar projection is \(\Pi_\phi^{(4)}\neq 0\) for generic \((\omega,\mathbf{k})\) in the healthy quartic regime. A same-branch asymptotic refinement can sharpen control of solutions, a gauge-only reformulation can improve the proof architecture, and an additional reduction note can reorganize the existing observer tensor, but none of those steps changes the algebraic fact that the reduced observer equation still contains the same nonzero observer-accessible scalar remainder. Therefore none of them can by itself convert the branch into an exact derivational closure. That requires a genuine change of branch or of bridge/completion structure.
+\end{proof}
+
+\begin{corollary}[What the next manuscript is not]
+\label{cor:not}
+The next active manuscript for the derivational program should not be another asymptotic-repair note, another same-branch gauge-only repair note, or another bridge-tensor note on the unchanged surviving quartic branch.
+\end{corollary}
+
+\begin{proof}
+This is immediate from Proposition \ref{prop:notsamebranch}.
+\end{proof}
+
+\section{Minimum Structure Worth Preserving}
+
+The negative derivational verdict does not erase the genuinely good structure already found on the quartic branch. The next candidate should preserve as much of that structure as possible.
+
+\begin{definition}[Same-class stability architecture]
+\label{def:sameclass}
+A candidate redesign is said to preserve the \emph{same-class stability architecture} if it keeps all of the following at the intended first-pass scope.
+\begin{enumerate}
+    \item the same bridge metric \(\BridgeMetric_{AB}=G_{AB}-2U_AU_B\) and the same matter route \eqref{eq:matterroute}
+    \item no new observer-accessible tensor or transverse-vector propagating channel beyond the metric sector
+    \item nonmetric \(U\)- and \(Q\)-sector variables that remain auxiliary, elliptically determined, or uniformly gapped rather than becoming new low-energy observer modes
+    \item no new observer-accessible principal term with more than two ordered-flow derivatives
+    \item a local/coercive/decay/asymptotic control route that can still be posed in a weighted/homogeneous unit-lapse-type class after the necessary coefficient-level changes.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:sameclass} is intentionally phrased as a preservation goal rather than a theorem already proved for any future branch. The point is to keep the good architecture if possible, not to assume in advance that every successful redesign must look identical in all details.
+\end{remark}
+
+\section{Minimal Admissibility Criteria for the Next Branch or Redesign}
+
+\begin{definition}[Residual-self-energy removal target]
+\label{def:removal}
+A candidate branch or bridge/completion redesign satisfies the \emph{residual-self-energy removal target} if, after auxiliary elimination and reduction of the observer equation, its observer-accessible scalar projection \(\Pi_\phi^{\mathrm{new}}\) obeys
+\begin{equation}
+\Pi_\phi^{\mathrm{new}}(\omega,\mathbf{k})\equiv 0
+\label{eq:target}
+\end{equation}
+throughout the intended recovery regime, equivalently if the reduced observer correction tensor carries no genuine observer-accessible scalar remainder.
+\end{definition}
+
+\begin{theorem}[Minimum next-branch criteria]
+\label{thm:criteria}
+Any next candidate branch or bridge/completion redesign can re-enter the active derivational program only if it satisfies all of the following.
+\begin{enumerate}
+    \item \textbf{Exact-closure answerability.} The candidate must remain answerable to the same observer-side exact-closure benchmark of \TheoryName{} rather than rewriting the public claim into a low-energy deformation theory.
+    \item \textbf{Single-metric matter coupling.} Matter and light must still couple only through the single operational metric \(g_{\mu\nu}=\Xi^\ast\BridgeMetric_{AB}\).
+    \item \textbf{Residual-self-energy removal.} The candidate must satisfy Definition \ref{def:removal}; in particular it must explicitly target the disappearance of \(\Pi_\phi^{(4)}\), not merely its infrared suppression.
+    \item \textbf{Same-class stability preservation if possible.} The redesign should preserve the same-class stability architecture of Definition \ref{def:sameclass} whenever that can be done consistently with item (3). If some part of that architecture must be abandoned, the manuscript introducing the candidate must state why removal of \(\Pi_\phi^{(4)}\) cannot be achieved without that departure.
+    \item \textbf{Health and mode control.} The candidate must retain a sign and mode-control discipline at least strong enough to prevent a new unsuppressed observer-accessible nonmetric low-energy sector.
+    \item \textbf{Immediate computability.} The first note on the new candidate must admit a concrete flat-background quadratic reduction, a direct observer-equation correction-tensor test, and the same single-metric matter-coupling check before any broader theorem or stability claim is made.
+    \item \textbf{Genuinely new structural input if positivity is weakened.} If the redesign tries to relax the current ordered-flow positivity assumptions, it must introduce a genuinely new cancellation or constraint mechanism rather than relying on another small adjustment of the existing quartic proof architecture.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Item (1) is required by the exact-closure claim boundary already fixed in the active sequence. Item (2) is required because single-metric matter coupling is part of the public exact-relativistic benchmark and is one of the strongest positive results already obtained on the quartic branch. Item (3) is forced by Proposition \ref{prop:notsamebranch}: a new candidate that leaves the same residual observer-accessible scalar self-energy in place does not address the actual post-verdict obstruction. Item (4) records the user-level and mathematical preference to preserve the good stability architecture already obtained, while still allowing a departure if and only if the manuscript explains why it is structurally necessary for removing \(\Pi_\phi^{(4)}\). Item (5) follows because the active derivational program still requires mode control rather than an unsuppressed nonmetric deformation. Item (6) is required to keep the next branch honest and directly testable instead of postponing the verdict behind open-ended nonlinear work. Item (7) follows from the recorded strict elliptic-assumption relaxation test and the broader branch history: simply weakening the ordered-flow positivity assumptions without new structure does not currently preserve the old control architecture.
+\end{proof}
+
+\begin{remark}
+Theorem \ref{thm:criteria} is deliberately stricter than ``find any different completion.'' The post-verdict point is not to restart the branch search at random. It is to define the smallest admissible redesign burden now that the exact obstruction is known.
+\end{remark}
+
+\section{What Counts as the Smallest Acceptable Redesign}
+
+\begin{definition}[Smallest acceptable post-verdict redesign]
+\label{def:smallest}
+A \emph{smallest acceptable post-verdict redesign} is a candidate satisfying Theorem \ref{thm:criteria} that leaves the bridge metric and single-metric matter route unchanged, preserves the same-class stability architecture whenever possible, and modifies only the scalar/auxiliary bridge-completion structure needed to remove the residual observer-accessible scalar remainder.
+\end{definition}
+
+\begin{proposition}[What does not count as a new active candidate]
+\label{prop:notnew}
+None of the following counts as a smallest acceptable post-verdict redesign by itself:
+\begin{enumerate}
+    \item a further same-branch asymptotic analysis of \(S_{\mathrm{min},4}\)
+    \item a pure gauge change that leaves the reduced observer correction tensor unchanged
+    \item a reorganization of the same bridge-tensor reduction that still yields the nonzero scalar projection \(\Pi_\phi^{(4)}\)
+    \item a redesign that preserves recovery compatibility but knowingly leaves a nonzero observer-accessible scalar remainder.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Items (1)--(3) are excluded by Proposition \ref{prop:notsamebranch}: they do not alter the nonzero residual self-energy responsible for derivational nonclosure. Item (4) is excluded by Theorem \ref{thm:criteria}(3), which requires explicit removal of the observer-accessible scalar remainder rather than its continued presence in a milder regime.
+\end{proof}
+
+\begin{remark}
+Definition \ref{def:smallest} leaves open several mechanism types at the level of principle: a new constrained compensator, a modified scalar-auxiliary cancellation pattern, or a bridge/completion change that alters the reduced scalar kernel while keeping the public matter route fixed. The present note does not choose among them. It only says what the chosen mechanism must accomplish.
+\end{remark}
+
+\section{Immediate Manuscript Agenda After This Note}
+
+The present post-verdict note changes the order of work.
+
+\begin{corollary}[Immediate next work package]
+\label{cor:agenda}
+After the present note, the next active derivational work package is:
+\begin{enumerate}
+    \item choose the smallest acceptable next candidate branch or bridge/completion redesign in the sense of Definition \ref{def:smallest}
+    \item derive its flat-background quadratic reduction and compute the new observer correction tensor
+    \item test whether the new scalar projection satisfies \eqref{eq:target}
+    \item verify that single-metric matter coupling is preserved
+    \item check whether the good same-class stability architecture survives unchanged or record the first precise place where a structurally necessary departure occurs.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+Items (1)--(3) are forced by Theorem \ref{thm:criteria}. Item (4) is required by the single-metric matter-coupling criterion. Item (5) is exactly the preservation preference of Definition \ref{def:sameclass} and Theorem \ref{thm:criteria}(4).
+\end{proof}
+
+\begin{remark}
+This work package is intentionally narrower than ``start over on nonlinear stability.'' Stability becomes central again only after the next candidate is shown to remove the recorded derivational obstruction at the observer-equation level.
+\end{remark}
+
+\section{Conclusion}
+
+The present manuscript establishes the following.
+\begin{enumerate}
+    \item The surviving higher-derivative quartic branch should now be treated formally as a stable recovery-compatible side program rather than the active derivational line.
+    \item The explicit residual quartic scalar self-energy \(\Pi_\phi^{(4)}\) fixes why the branch is derivationally nonclosing at current scope.
+    \item No further same-branch asymptotic, gauge-only, or tensor-reduction work can by itself restore exact closure while that same residual observer-accessible scalar remainder survives.
+    \item Any next active candidate must preserve single-metric matter coupling, keep the good same-class stability architecture if possible, and explicitly remove \(\Pi_\phi^{(4)}\).
+    \item The immediate next manuscript burden is therefore a genuine next-branch or bridge/completion redesign choice satisfying those criteria, not another repair note on the current quartic branch.
+\end{enumerate}
+
+The present manuscript does not yet choose the replacement candidate and does not claim that exact derivational closure has been restored. It fixes the correct post-verdict status of the current branch and the minimum standard that any new branch must meet.
+
+\end{document}

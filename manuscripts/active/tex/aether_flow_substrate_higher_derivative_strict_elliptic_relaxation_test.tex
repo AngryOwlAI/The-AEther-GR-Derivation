@@ -1,0 +1,246 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal{A}}
+\newcommand{\BridgeMetric}{\mathfrak{g}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Higher-Derivative Quartic Branch Strict Elliptic-Assumption Relaxation Test for Local Solvability}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The first local well-posedness theorem and the new longer-time bootstrap for the explicit minimal quartic-compatible completion \(S_{\mathrm{min},4}\) both use a strict auxiliary elliptic-control regime in which the ordered-flow coefficients satisfy
+\[
+\kappa_\theta>0,
+\qquad
+\kappa_\Omega>0.
+\]
+This note tests whether those assumptions are merely technical or whether they are structurally tied to local solvability on the current mixed hyperbolic--elliptic branch.
+
+The answer at present scope is negative. If \(\kappa_\theta\) or \(\kappa_\Omega\) is allowed to vanish, the longitudinal or transverse ordered-flow auxiliary equation loses its principal elliptic operator and collapses into a compatibility condition
+\[
+0=\widetilde{\mathcal N}_\chi
+\qquad \text{or} \qquad
+0=\mathcal N_i^{(T)},
+\]
+rather than a slice-wise determination of \(\chi\) or \(W^T\). The linearized auxiliary map at the flat exact-closure background then has an infinite-dimensional kernel and no bounded inverse on the decaying Sobolev spaces used by the local theorem. More quantitatively, every elliptic estimate constant blows up like \(\kappa_\theta^{-1}\) or \(\kappa_\Omega^{-1}\) as the corresponding coefficient approaches zero.
+
+Therefore the current local solvability theorem does not extend uniformly to the merely nonnegative regime \(\kappa_\theta\ge 0\), \(\kappa_\Omega\ge 0\). The coefficient-level exact-closure bookkeeping remains intact, but the local Cauchy problem on the same branch does not. A genuine relaxation would require new input: either a different nonlinear completion, a different gauge and auxiliary package, or promotion of the degenerate ordered-flow variable to a new evolution equation.
+\end{abstract}
+
+\section{Introduction}
+
+The higher-derivative quartic branch now has a fixed explicit completion, a first local well-posedness theorem, and a coercive longer-time bootstrap. Each of those results, however, lives on the same strict auxiliary elliptic-control branch. The remaining question is whether the strict positivity assumptions in that branch are only a proof convenience or whether they are mathematically tied to the present formulation itself.
+
+The important point is narrow. At coefficient level, the ordered-flow coefficients \(\kappa_\theta\) and \(\kappa_\Omega\) do not feed directly into the flat-background exact-closure cancellation in the same way as the scalar \(k^0\) and \(k^2\) coefficients. One might therefore hope that the local theorem could survive if those ordered-flow coefficients were merely nonnegative. The present note tests that hope directly for the same completion \(S_{\mathrm{min},4}\), the same maximal spatial-harmonic gauge, and the same mixed hyperbolic--elliptic reduction already used elsewhere in the active sequence.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays within that boundary. It does not reopen the branch-selection problem and it does not claim that every possible formulation with \(\kappa_\theta=0\) or \(\kappa_\Omega=0\) is impossible in principle. It tests only whether the strict auxiliary elliptic-control assumptions can be relaxed \emph{without changing the present local solvability architecture}. At that narrower question, the answer is no.
+
+\section{The Relaxation Question on the Current Branch}
+
+The local theorem used the ordered-flow auxiliary subsystem
+\begin{align}
+-\kappa_\theta\Delta_\gamma\chi
+&=
+\widetilde{\mathcal N}_\chi[\gamma,K,\sigma,\pi_\sigma,N,\beta,Q,\chi,W^T,\psi,\pi_\psi],
+\label{eq:chi}
+\\
+-\kappa_\Omega\Delta_\gamma W_i^T
+&=
+\mathcal N_i^{(T)}[\gamma,K,\sigma,\pi_\sigma,N,\beta,Q,\chi,W^T,\psi,\pi_\psi],
+\label{eq:WT}
+\end{align}
+with decaying boundary conditions at spatial infinity and \(D^iW_i^T=0\). The source terms vanish on the flat exact-closure background but are not structural identities.
+
+\begin{definition}[Weak auxiliary nonnegative regime]
+The \emph{weak auxiliary nonnegative regime} is the same local theorem regime except that the ordered-flow coefficients are assumed only to satisfy
+\begin{equation}
+\kappa_\theta\ge 0,
+\qquad
+\kappa_\Omega\ge 0,
+\label{eq:weakcoeff}
+\end{equation}
+with no strictly positive lower bounds.
+\end{definition}
+
+\begin{remark}
+Definition 1 does not change the bridge metric, the matter route, the flat exact-closure background, the quartic scalar operator, or the \(Q\)-sector mass gap. It changes only the question of whether the ordered-flow auxiliary blocks remain elliptically invertible.
+\end{remark}
+
+\section{Linearized Auxiliary Operator at the Flat Background}
+
+\begin{proposition}[Flat-background linearized auxiliary maps]
+Linearizing \eqref{eq:chi}--\eqref{eq:WT} about the flat exact-closure background yields the ordered-flow auxiliary operators
+\begin{equation}
+\mathcal L_\theta^{\mathrm{lin}}=-\kappa_\theta\Delta,
+\qquad
+\mathcal L_\Omega^{\mathrm{lin}}=-\kappa_\Omega\Delta
+\label{eq:linops}
+\end{equation}
+on decaying scalar and divergence-free vector fields over \(\mathbb R^3\).
+\end{proposition}
+
+\begin{proof}
+At the flat exact-closure background, \(\gamma=\delta\), \(N=1\), \(\beta=0\), \(K=0\), \(Q=0\), \(\chi=0\), \(W^T=0\), and the nonlinear sources vanish. The only principal terms that remain in the ordered-flow equations are therefore the Laplacian terms multiplied by \(\kappa_\theta\) and \(\kappa_\Omega\).
+\end{proof}
+
+\begin{theorem}[Loss of invertibility at vanishing ordered-flow coefficient]
+On the decaying Sobolev spaces used by the local theorem:
+\begin{enumerate}
+    \item if \(\kappa_\theta>0\), then \(\mathcal L_\theta^{\mathrm{lin}}\) has the usual elliptic inverse modulo the decaying boundary condition
+    \item if \(\kappa_\Omega>0\), then \(\mathcal L_\Omega^{\mathrm{lin}}\) has the same property on divergence-free vector fields
+    \item if \(\kappa_\theta=0\), then \(\mathcal L_\theta^{\mathrm{lin}}=0\) and has an infinite-dimensional kernel
+    \item if \(\kappa_\Omega=0\), then \(\mathcal L_\Omega^{\mathrm{lin}}=0\) and has an infinite-dimensional kernel.
+\end{enumerate}
+In particular, the implicit-function-theorem step underlying local slice-wise solvability fails whenever either ordered-flow coefficient is allowed to vanish.
+\end{theorem}
+
+\begin{proof}
+For \(\kappa_\theta,\kappa_\Omega>0\), the operators in \eqref{eq:linops} are positive multiples of the Euclidean Laplacian acting on decaying fields, so the local theorem's standard elliptic inversion applies. If \(\kappa_\theta=0\) or \(\kappa_\Omega=0\), the corresponding operator is identically zero, hence every decaying field lies in its kernel and no bounded inverse exists. The Fr\'echet derivative of the auxiliary map at the background is therefore noninvertible in those semidegenerate limits.
+\end{proof}
+
+\begin{corollary}[Blow-up of elliptic constants]
+Any slice-wise estimate of the form
+\begin{equation}
+\|\chi\|_{H^N}\le C_{\theta,N}\|\widetilde{\mathcal N}_\chi\|_{H^{N-2}},
+\qquad
+\|W^T\|_{H^N}\le C_{\Omega,N}\|\mathcal N^{(T)}\|_{H^{N-2}}
+\label{eq:blowup}
+\end{equation}
+must satisfy
+\begin{equation}
+C_{\theta,N}\gtrsim \kappa_\theta^{-1},
+\qquad
+C_{\Omega,N}\gtrsim \kappa_\Omega^{-1}
+\label{eq:blowuprate}
+\end{equation}
+whenever the corresponding coefficient is positive.
+\end{corollary}
+
+\begin{proof}
+Divide \eqref{eq:chi}--\eqref{eq:WT} by \(\kappa_\theta\) or \(\kappa_\Omega\) and apply the Euclidean elliptic estimate for \(-\Delta\). The constants therefore scale with the reciprocal coefficient. No uniform bound survives as either coefficient approaches zero.
+\end{proof}
+
+\section{Compatibility Collapse in the Semidegenerate Limit}
+
+\begin{theorem}[Failure of generic slice-wise solvability in the weak regime]
+Assume the explicit completion \(S_{\mathrm{min},4}\), maximal spatial-harmonic gauge, and all local-theorem hypotheses except the strict lower bounds on \(\kappa_\theta\) and \(\kappa_\Omega\). Then:
+\begin{enumerate}
+    \item if \(\kappa_\theta=0\), the longitudinal ordered-flow equation reduces to
+    \begin{equation}
+    0=\widetilde{\mathcal N}_\chi[\gamma,K,\sigma,\pi_\sigma,N,\beta,Q,\chi,W^T,\psi,\pi_\psi]
+    \label{eq:compatchi}
+    \end{equation}
+    and ceases to determine \(\chi\)
+    \item if \(\kappa_\Omega=0\), the transverse ordered-flow equation reduces to
+    \begin{equation}
+    0=\mathcal N_i^{(T)}[\gamma,K,\sigma,\pi_\sigma,N,\beta,Q,\chi,W^T,\psi,\pi_\psi]
+    \label{eq:compatW}
+    \end{equation}
+    and ceases to determine \(W^T\).
+\end{enumerate}
+Since the source maps in \eqref{eq:compatchi}--\eqref{eq:compatW} vanish only on the exact background and are not identically zero on the local-theorem data class, arbitrarily small perturbations exist for which the corresponding compatibility condition fails. Hence generic local slice-wise solvability is lost as soon as either ordered-flow coefficient is allowed to vanish.
+\end{theorem}
+
+\begin{proof}
+Setting \(\kappa_\theta=0\) or \(\kappa_\Omega=0\) removes the principal Laplacian term from \eqref{eq:chi} or \eqref{eq:WT}, yielding \eqref{eq:compatchi} or \eqref{eq:compatW}. The source maps are lower-order and vanish at the flat background, but they are not structural identities: they encode the nonlinear coupling of the metric, scalar, gauge, matter, and remaining auxiliary variables already recorded in the reduced-system note and the local theorem. Therefore one can choose arbitrarily small perturbative data for those remaining variables that make \(\widetilde{\mathcal N}_\chi\) or \(\mathcal N_i^{(T)}\) nonzero. On such data the degenerate auxiliary equation has no solution. The corresponding variable is no longer determined slice by slice, and local solvability on the same mixed hyperbolic--elliptic architecture fails.
+\end{proof}
+
+\begin{remark}
+Theorem 2 is about local solvability, not about coefficient-level exact closure. The flat-background exact-closure bookkeeping can remain formally unchanged while the local Cauchy problem already fails because the auxiliary map is no longer invertible.
+\end{remark}
+
+\section{Consequences for the Local Theorem}
+
+\begin{theorem}[Strict positivity is structurally required on the present branch]
+The first local well-posedness theorem and the coercive longer-time bootstrap for \(S_{\mathrm{min},4}\) do not extend uniformly from the strict auxiliary elliptic-control regime to the weak auxiliary nonnegative regime of Definition 1. In particular:
+\begin{enumerate}
+    \item the same proof strategy cannot be closed with only \(\kappa_\theta\ge 0\), \(\kappa_\Omega\ge 0\)
+    \item no uniform continuation criterion survives as \(\kappa_\theta\to 0^+\) or \(\kappa_\Omega\to 0^+\)
+    \item allowing either coefficient to vanish destroys generic local slice-wise solvability.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+The local theorem and the bootstrap both rely on uniform elliptic estimates for \(\chi\) and \(W^T\), first to solve the auxiliary subsystem on each slice and then to reinsert those variables into the hyperbolic energy estimate. Theorem 1 shows that the linearized auxiliary map is noninvertible at vanishing coefficient, while Corollary 1 shows that the constants of any elliptic estimate blow up before that limit is even reached. Theorem 2 then shows that once the coefficient actually vanishes, the ordered-flow equation degenerates to a nongeneric compatibility condition rather than a determination of the auxiliary variable. Therefore the same local architecture cannot survive that relaxation.
+\end{proof}
+
+\begin{corollary}[What a genuine relaxation would require]
+Any successful local solvability theorem with \(\kappa_\theta=0\) or \(\kappa_\Omega=0\) would require new structure not present in the current branch package. At minimum one would need one of the following:
+\begin{enumerate}
+    \item a different nonlinear completion generating a replacement elliptic or algebraic control term
+    \item a different gauge and auxiliary formulation producing a new invertible slice-wise operator
+    \item promotion of the degenerate ordered-flow variable to a genuine evolution equation with its own energy estimate.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+The preceding theorems show that the present branch package loses invertibility precisely because the auxiliary operator collapses when \(\kappa_\theta\) or \(\kappa_\Omega\) vanishes. Any theorem that survives such a collapse must therefore replace the missing control mechanism by genuinely new structure.
+\end{proof}
+
+\section{What This Step Establishes}
+
+The present manuscript establishes the following.
+\begin{enumerate}
+    \item It tests the strict auxiliary elliptic-control assumptions directly on the same explicit completion and the same local solvability architecture already used in the active sequence.
+    \item It shows that \(\kappa_\theta>0\) and \(\kappa_\Omega>0\) are not merely cosmetic assumptions for that architecture.
+    \item It identifies the precise failure mode as loss of elliptic invertibility and collapse to nongeneric compatibility conditions.
+    \item It proves that the current local theorem does not extend uniformly to the merely nonnegative ordered-flow regime.
+\end{enumerate}
+
+It does not establish the following.
+\begin{enumerate}
+    \item It does not prove that every imaginable completion with \(\kappa_\theta=0\) or \(\kappa_\Omega=0\) is impossible in principle.
+    \item It does not alter the coefficient-level exact-closure results already recorded elsewhere.
+    \item It does not replace the current explicit completion by a new branch.
+    \item It does not prove or disprove full nonlinear stability.
+\end{enumerate}
+
+\section{Conclusion}
+
+The strict ordered-flow elliptic coefficients of the current local theorem are now tested rather than merely assumed. On the present explicit minimal quartic-compatible completion, and with the same maximal-gauge mixed hyperbolic--elliptic formulation, those coefficients cannot be relaxed to mere nonnegativity without losing generic local solvability. The obstruction is not a bookkeeping inconvenience. It is the collapse of the auxiliary operator itself.
+
+The practical conclusion is therefore sharp. If the active program continues on the same explicit branch, then \(\kappa_\theta>0\) and \(\kappa_\Omega>0\) should be treated as structural current-branch requirements, not as pending removable hypotheses. Any future attempt to go beyond them must introduce genuinely new dynamical or auxiliary input rather than another small adjustment of the present local theorem.
+
+\end{document}

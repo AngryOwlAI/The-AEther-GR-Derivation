@@ -1,0 +1,505 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\ReBridge}{g^{\mathrm{br}}}
+\newcommand{\OpMetricIER}{g^{\mathrm{IER}}}
+\newcommand{\OpMetricSC}{g^{\mathrm{sc}}}
+\newcommand{\SigmaIER}{\Sigma^{\mathrm{IER}}}
+\newcommand{\SigmaSC}{\Sigma^{\mathrm{sc}}}
+\newcommand{\SigmaSRFourSC}{\Sigma^{\mathrm{sc},(\ge 4)}}
+\newcommand{\SigmaDressSch}{\Sigma^{\mathrm{Sch}}}
+\newcommand{\SigmaRegSch}{\Sigma^{\mathrm{Sch,reg}}}
+\newcommand{\SigmaCOmega}{\Sigma^{\mathrm C}_{\Omega}}
+\newcommand{\ReOff}{\widetilde{\mathcal R}_{\mu\nu}^{\mathrm{off}}}
+\newcommand{\ReLongThree}{\widetilde{\mathcal R}_{\mu\nu}^{(\chi,3)}}
+\newcommand{\ReLongFour}{\widetilde{\mathcal R}_{\mu\nu}^{(\chi,\ge 4)}}
+\newcommand{\EinLin}{\mathcal E_{\ReBridge}}
+\newcommand{\EinLinFlat}{\mathcal E_{\eta}}
+\newcommand{\EinQuad}{\mathcal Q_{\ge 2}^{\mathrm{Ein}}}
+\newcommand{\Pfour}{\mathbf P_{\ge 4}}
+\newcommand{\HamChargeOmega}{\mathfrak m_{\Omega}}
+\newcommand{\DeltaTSC}{\Delta T_{\mu\nu}^{\mathrm{sc}}}
+\newcommand{\SolveClass}{\mathscr S_{\mathrm{sr}}}
+\newcommand{\AY}{\mathcal A_Y}
+\newcommand{\AZ}{\mathcal A_Z}
+\newcommand{\Exterior}{\mathcal E}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Nonlocal Bridge Self-Response Dressing Candidate Test}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The positive quotient reduced-system, theorem, decay, and asymptotic line remains closed and is not reopened here. The recent inverse-Einstein-response bridge-map test and the nonlocal bridge self-response redesign note also remain fixed in status: the former already cancels the full currently recorded off-longitudinal \(Q/W\) remainder and adds an explicit cubic longitudinal completion, while the latter fixes the next burden as an explicit charge-dependent \(r^{-2}\) dressing test inside a self-response-neutral admissibility package.
+
+The present manuscript performs that test. It chooses the simplest concrete asymptotic closure consistent with the redesign note's target: the charge-carrying Coulomb sector is completed by the explicit Schwarzschild-type \(r^{-2}\) dressing
+\[
+\SigmaDressSch{}_{00}=-2U_\Omega^2,
+\qquad
+\SigmaDressSch{}_{0i}=0,
+\qquad
+\SigmaDressSch{}_{ij}=\frac32 U_\Omega^2\,\delta_{ij},
+\qquad
+U_\Omega(r)=\frac{G_N\HamChargeOmega}{r},
+\]
+with the admissible regular completion chosen charge free and one power faster at infinity. Equivalently, the quartic bridge correction is required to have the isotropic Schwarzschild monopole expansion through order \(r^{-2}\) in the Hamiltonian-charge sector.
+
+The test is positive at the explicit candidate level. On the decisive matter-free rotational exterior regime, the old quartic observer remainder
+\[
+n^\mu n^\nu \mathcal R_{\mu\nu}^{\mathrm{IER}}
+=
+\frac{3G_N^2\HamChargeOmega^2}{r^4}
++\mathcal O(r^{-5})
+\]
+is canceled by the linear Einstein response of the chosen \(r^{-2}\) dressing, so that the dressed Hamiltonian projection becomes only \(\mathcal O(r^{-5})\). Moreover, the full quartic observer tensor keeps the already-positive lower-order gains because the new correction begins at quartic order: matter-free activity remains, the off-longitudinal \(Q/W\) cancellation remains, and the explicit cubic longitudinal completion remains. On the decisive rotational exterior regime the full quartic tensor is pushed to \(\mathcal O(r^{-5})\), i.e.\ the isolated quartic Coulomb self-response is structurally absorbed rather than left as an observer remainder.
+
+This note does not prove global existence of the admissible fixed-point solve implementing that asymptotic closure, nor does it derive the mechanism from substrate variables. Its narrower result is to record one concrete positive candidate test. At current manuscript order, that shifts the next burden away from another observer-level repair test and toward the substrate-origin note: identify a charge-balancing or polarization mechanism whose eliminated effect yields this self-response-neutral dressed bridge map.
+\end{abstract}
+
+\section{Introduction}
+
+The active sequence is now sharp about what still matters. The explicit ordered-flow-label quotient candidate, the quotient-architecture screen, the quotient reduced-system note, the quotient local/coercive note, the quotient theorem note, and the quotient decay and asymptotic notes already closed the positive quotient reduced-system, theorem, decay, and asymptotic line at the recorded scope. None of that PDE work is reopened here.
+
+The observer-level redesign chain is equally disciplined. The bridge-first redesign removed only the old same-scope longitudinal slot. The matter-route-only redesign was then negative because it vanished on matter-free reduced data. The broader operational-metric redesign note fixed the next honest targets, the first explicit local operational-metric candidate test ruled out decaying local stress lifts, the inverse-Einstein-response bridge-map test produced the first broader positive observer-level gain package, and the quartic continuation note then identified the exact remaining obstruction: the Hamiltonian-charge Coulomb tail feeds a genuine quartic Einstein self-response on the exterior region. The redesign note that followed therefore fixed the minimum next live class as a self-response-dressed nonlocal bridge map and stated the next burden explicitly: choose one concrete charge-dependent \(r^{-2}\) dressing ansatz or equivalent self-response-neutral asymptotic closure and test it.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not claim a completed substrate derivation. It does not reopen the already-positive quotient PDE line. It does not prove the global fixed-point existence of the deeper dressed bridge solve. Its narrower task is the concrete one fixed by the redesign note: choose one explicit asymptotic dressing candidate, compute its exterior Hamiltonian projection on the decisive matter-free rotational regime, recompute the quartic observer tensor, and record the resulting verdict.
+
+\section{Current Branch and the Explicit Schwarzschild-Type Candidate}
+
+\begin{definition}[Current inverse-response gain package]
+\label{def:gains}
+The \emph{current inverse-response gain package} consists of the already-recorded positive lower-order features of the inverse-Einstein-response bridge map:
+\begin{enumerate}
+    \item \textbf{matter-free activity:} the operational correction remains active on matter-free reduced data;
+    \item \textbf{off-longitudinal cancellation:} the full currently recorded off-longitudinal \(Q/W\) remainder is canceled by \(\SigmaIER\);
+    \item \textbf{explicit cubic longitudinal completion:} the first surviving cubic longitudinal tensor \(\ReLongThree\) is canceled by the explicit completion already built into \(\SigmaIER\).
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Current inverse-response observer burden]
+\label{def:old}
+Write the inverse-response operational metric as
+\begin{equation}
+\OpMetricIER_{\mu\nu}
+=
+\ReBridge_{\mu\nu}
++\SigmaIER_{\mu\nu}.
+\label{eq:gier}
+\end{equation}
+Its quartic-and-higher observer remainder is
+\begin{equation}
+\mathcal R_{\mu\nu}^{\mathrm{IER}}
+=
+\ReLongFour
++\EinQuad[\SigmaIER]_{\mu\nu}
+-8\pi G_N\,\Delta T_{\mu\nu}^{\mathrm{IER}}.
+\label{eq:oldrem}
+\end{equation}
+\end{definition}
+
+\begin{remark}
+The redesign note already fixed the logic of the next test. The candidate should preserve Definition \ref{def:gains} and should change only the quartic asymptotic closure that fails in \eqref{eq:oldrem}.
+\end{remark}
+
+\begin{definition}[Explicit Schwarzschild-type \(r^{-2}\) dressing]
+\label{def:dress}
+On the exterior charge sector determined by the rotational Hamiltonian charge \(\HamChargeOmega\), define
+\begin{equation}
+U_\Omega(r)
+\equiv
+\frac{G_N\,\HamChargeOmega}{r}.
+\label{eq:Uomega}
+\end{equation}
+The \emph{explicit Schwarzschild-type dressing ansatz} is the symmetric tensor
+\begin{equation}
+\SigmaDressSch{}_{00}=-2U_\Omega^2,
+\qquad
+\SigmaDressSch{}_{0i}=0,
+\qquad
+\SigmaDressSch{}_{ij}=\frac32 U_\Omega^2\,\delta_{ij}.
+\label{eq:sigmadress}
+\end{equation}
+\end{definition}
+
+\begin{remark}
+Equation \eqref{eq:sigmadress} is the \(r^{-2}\) monopole coefficient of the isotropic Schwarzschild vacuum expansion built on the same Coulomb potential \(U_\Omega\). It is therefore the sharpest concrete \(r^{-2}\) closure to test first: it changes the charge sector only at the order identified in the redesign note and it does so by the standard exact-vacuum monopole profile rather than by a new freely chosen tensor structure.
+\end{remark}
+
+\begin{definition}[Explicit dressed candidate map]
+\label{def:candidate}
+Define the quartic bridge correction by
+\begin{equation}
+\SigmaSRFourSC
+\equiv
+\SigmaDressSch+\SigmaRegSch,
+\label{eq:split}
+\end{equation}
+where \(\SigmaRegSch\) is assumed to lie in the redesign note's admissible solve class \(\SolveClass\), carries no new Hamiltonian charge, and decays one power faster,
+\begin{equation}
+\SigmaRegSch=\mathcal O(r^{-3}),
+\qquad
+\partial\SigmaRegSch=\mathcal O(r^{-4}),
+\label{eq:reg}
+\end{equation}
+on the exterior region. The full explicit dressed candidate is then
+\begin{equation}
+\SigmaSC_{\mu\nu}
+\equiv
+\SigmaIER_{\mu\nu}
++\SigmaSRFourSC{}_{\mu\nu},
+\qquad
+\OpMetricSC_{\mu\nu}
+\equiv
+\ReBridge_{\mu\nu}
++\SigmaSC_{\mu\nu}.
+\label{eq:gsc}
+\end{equation}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:candidate} is a candidate test, not a global existence theorem. The present note fixes the explicit asymptotic data \eqref{eq:sigmadress} and tests the resulting observer tensor assuming the admissible regular completion exists. The point of the test is to decide whether this particular \(r^{-2}\) closure is compatible with the already-recorded lower-order gains and with the quartic exterior obstruction.
+\end{remark}
+
+\begin{proposition}[Order and lower-order preservation]
+\label{prop:orders}
+The explicit dressed correction satisfies
+\begin{equation}
+\SigmaSRFourSC=\mathcal O_{\ge 4}.
+\label{eq:quarticorder}
+\end{equation}
+Consequently:
+\begin{enumerate}
+    \item the explicit dressed candidate remains active on matter-free reduced data because \(\SigmaIER\) already does;
+    \item the full off-longitudinal \(Q/W\) cancellation remains unchanged;
+    \item the explicit cubic longitudinal completion remains unchanged.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+The redesign note requires the new correction to begin at quartic order, and the explicit ansatz \eqref{eq:sigmadress} is quadratic in the Coulomb potential \(U_\Omega\), hence quartic in the reduced-data counting used in the inverse-response note. Because \(\SigmaSRFourSC\) begins only at quartic order, it does not alter the already-recorded quadratic and cubic identities satisfied by \(\SigmaIER\). Therefore the matter-free activity, off-longitudinal cancellation, and cubic longitudinal completion remain exactly as before.
+\end{proof}
+
+\section{Exterior Hamiltonian Test on the Decisive Rotational Regime}
+
+\begin{definition}[Purely rotational matter-free regime]
+\label{def:rot}
+A reduced solution is in the \emph{purely rotational matter-free regime} if
+\begin{equation}
+K\equiv0,
+\qquad
+Q^I\equiv0,
+\qquad
+\Omega_{ij}^T\not\equiv0,
+\qquad
+T_{\mu\nu}^{\mathrm{matter}}=0.
+\label{eq:rot}
+\end{equation}
+\end{definition}
+
+\begin{remark}
+This is the decisive regime isolated by the first explicit operational-metric candidate test and reused by the quartic continuation note. On \eqref{eq:rot}, the cubic and quartic longitudinal sectors vanish, matter corrections vanish, and the first remaining observer burden is exactly the Coulomb self-response of the charge-carrying off-longitudinal source.
+\end{remark}
+
+\begin{proposition}[Hamiltonian projection of an isotropic \(r^{-2}\) dressing]
+\label{prop:hamdress}
+Let \(H_{\mu\nu}\) be a static shift-free tensor of the form
+\begin{equation}
+H_{00}=aU_\Omega^2,
+\qquad
+H_{0i}=0,
+\qquad
+H_{ij}=bU_\Omega^2\,\delta_{ij}.
+\label{eq:abansatz}
+\end{equation}
+Then on the exterior region,
+\begin{equation}
+n^\mu n^\nu \EinLinFlat(H)_{\mu\nu}
+=
+-2b\,\abs{\nabla U_\Omega}^2
+=
+-\frac{2b\,G_N^2\HamChargeOmega^2}{r^4}.
+\label{eq:hamab}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+For static shift-free data, the Hamiltonian projection of the flat linearized Einstein response is
+\[
+2\,n^\mu n^\nu \EinLinFlat(H)_{\mu\nu}
+=
+\partial_i\partial_j H_{ij}
+-\Delta(\delta^{ij}H_{ij}).
+\]
+Substituting \eqref{eq:abansatz} gives
+\[
+2\,n^\mu n^\nu \EinLinFlat(H)_{\mu\nu}
+=
+b\,\Delta(U_\Omega^2)-3b\,\Delta(U_\Omega^2)
+=
+-2b\,\Delta(U_\Omega^2).
+\]
+Since \(U_\Omega\) is harmonic on the exterior region,
+\[
+\Delta(U_\Omega^2)=2\abs{\nabla U_\Omega}^2
+=
+\frac{2G_N^2\HamChargeOmega^2}{r^4},
+\]
+which yields \eqref{eq:hamab}.
+\end{proof}
+
+\begin{corollary}[Why the explicit coefficient is \(3/2\)]
+\label{cor:b}
+The old quartic Coulomb self-response
+\[
+n^\mu n^\nu \mathcal R_{\mu\nu}^{\mathrm{IER}}
+=
+\frac{3G_N^2\HamChargeOmega^2}{r^4}
++\mathcal O(r^{-5})
+\]
+is canceled at the Hamiltonian level precisely when \(b=\frac32\) in \eqref{eq:abansatz}. Therefore the spatial coefficient in \eqref{eq:sigmadress} is forced.
+\end{corollary}
+
+\begin{proof}
+The quartic continuation note gives the positive exterior Hamiltonian density \(3G_N^2\HamChargeOmega^2/r^4\). Proposition \ref{prop:hamdress} shows that the isotropic \(r^{-2}\) dressing contributes \(-2bG_N^2\HamChargeOmega^2/r^4\). Cancellation therefore requires \(2b=3\), i.e.\ \(b=\frac32\).
+\end{proof}
+
+\begin{theorem}[Explicit cancellation of the quartic Coulomb Hamiltonian density]
+\label{thm:ham}
+For the dressed candidate of Definition \ref{def:candidate}, on the purely rotational matter-free regime \eqref{eq:rot} one has
+\begin{equation}
+n^\mu n^\nu \mathcal R_{\mu\nu}^{\mathrm{sc}}
+=
+\mathcal O(r^{-5})
+\qquad
+\text{on the exterior region}.
+\label{eq:hamcancel}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+On \eqref{eq:rot}, the quartic continuation note gives
+\[
+n^\mu n^\nu \mathcal R_{\mu\nu}^{\mathrm{IER}}
+=
+\frac{3G_N^2\HamChargeOmega^2}{r^4}
++\mathcal O(r^{-5}).
+\]
+By Corollary \ref{cor:b}, the explicit dressing \eqref{eq:sigmadress} contributes
+\[
+n^\mu n^\nu \EinLinFlat(\SigmaDressSch)_{\mu\nu}
+=
+-\frac{3G_N^2\HamChargeOmega^2}{r^4}.
+\]
+Because the exterior bridge background differs from the flat metric only by the already-recorded Coulomb \(r^{-1}\) tail, replacing \(\EinLinFlat\) by the full background operator \(\EinLin\) changes this leading term only by \(\mathcal O(r^{-5})\).
+The regular completion \(\SigmaRegSch\) is \(\mathcal O(r^{-3})\), so its linear Einstein response is \(\mathcal O(r^{-5})\). Since \(\SigmaSRFourSC\) begins at quartic order, every quadratic Einstein term involving \(\SigmaSRFourSC\) is at least quintic in the exterior decay counting, and matter corrections vanish on \eqref{eq:rot}. Therefore the only new \(r^{-4}\) contribution comes from \(\EinLin(\SigmaDressSch)\), and it cancels the recorded \(r^{-4}\) density exactly. This proves \eqref{eq:hamcancel}.
+\end{proof}
+
+\section{Recomputed Quartic Observer Tensor}
+
+\begin{definition}[Matter stress correction for the dressed candidate]
+\label{def:deltat}
+Let
+\begin{equation}
+\DeltaTSC
+\equiv
+T_{\mu\nu}^{\mathrm{matter}}[\OpMetricSC,\psi]
+-T_{\mu\nu}^{\mathrm{matter}}[\ReBridge+\SigmaIER,\psi].
+\label{eq:deltat}
+\end{equation}
+\end{definition}
+
+\begin{remark}
+On matter-free reduced data, \(\DeltaTSC=0\).
+\end{remark}
+
+\begin{proposition}[Observer equation for the dressed candidate]
+\label{prop:observer}
+On reduced solutions of the current redesigned bridge branch,
+\begin{equation}
+G_{\mu\nu}[\OpMetricSC]
+=
+8\pi G_N\,T_{\mu\nu}^{\mathrm{matter}}[\OpMetricSC,\psi]
++\mathcal R_{\mu\nu}^{\mathrm{sc}},
+\label{eq:observer}
+\end{equation}
+where
+\begin{equation}
+\mathcal R_{\mu\nu}^{\mathrm{sc}}
+=
+\ReLongFour
++\EinLin(\SigmaSRFourSC)_{\mu\nu}
++\EinQuad[\SigmaIER+\SigmaSRFourSC]_{\mu\nu}
+-8\pi G_N\,\DeltaTSC.
+\label{eq:observer2}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Start from the observer identity for the inverse-response map. The full off-longitudinal remainder and the cubic longitudinal tensor are already canceled by \(\SigmaIER\). Adding \(\SigmaSRFourSC\) therefore changes only the quartic-and-higher part of the observer equation. Expanding the Einstein tensor around \(\ReBridge+\SigmaIER\) gives \eqref{eq:observer2}.
+\end{proof}
+
+\begin{corollary}[Quartic part on matter-free reduced data]
+\label{cor:quartic}
+On matter-free reduced data,
+\begin{equation}
+\Pfour \mathcal R_{\mu\nu}^{\mathrm{sc}}
+=
+\ReLongFour
++\Pfour\Bigl(\EinLin(\SigmaSRFourSC)+\EinQuad[\SigmaIER]\Bigr)_{\mu\nu}.
+\label{eq:p4}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+On matter-free reduced data, \(\DeltaTSC=0\). Since \(\SigmaSRFourSC=\mathcal O_{\ge 4}\), every mixed quadratic term involving \(\SigmaIER\) and \(\SigmaSRFourSC\) is at least sixth order in the reduced-data counting, and every quadratic term purely in \(\SigmaSRFourSC\) is still higher. Therefore the quartic projection of \eqref{eq:observer2} reduces to \eqref{eq:p4}.
+\end{proof}
+
+\begin{theorem}[Full lower-order gain package is preserved]
+\label{thm:preserve}
+The dressed candidate of Definition \ref{def:candidate} preserves the full current inverse-response gain package of Definition \ref{def:gains}.
+\end{theorem}
+
+\begin{proof}
+Proposition \ref{prop:orders} already shows that \(\SigmaSRFourSC\) begins at quartic order. Therefore it leaves unchanged:
+\begin{enumerate}
+    \item the matter-free activity already carried by \(\SigmaIER\);
+    \item the exact linear cancellation of the off-longitudinal remainder;
+    \item the exact linear cancellation of the first cubic longitudinal tensor.
+\end{enumerate}
+Those are exactly the items in Definition \ref{def:gains}.
+\end{proof}
+
+\begin{proposition}[Full quartic tensor on the decisive rotational exterior regime]
+\label{prop:fullrot}
+On the purely rotational matter-free regime \eqref{eq:rot}, the quartic observer tensor satisfies
+\begin{equation}
+\Pfour \mathcal R_{\mu\nu}^{\mathrm{sc}}
+=
+\Pfour\Bigl(\EinLin(\SigmaDressSch)+\EinQuad[\SigmaCOmega]\Bigr)_{\mu\nu}
++\mathcal O(r^{-5})
+\qquad
+\text{on the exterior region}.
+\label{eq:fullrot}
+\end{equation}
+In particular,
+\begin{equation}
+\Pfour \mathcal R_{\mu\nu}^{\mathrm{sc}}
+=
+\mathcal O(r^{-5})
+\qquad
+\text{on the exterior region}.
+\label{eq:fullrot2}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+On \eqref{eq:rot}, the quartic continuation note removes the longitudinal and matter terms, and the inverse-response correction splits as \(\SigmaIER=\SigmaCOmega+\mathcal O(r^{-2})\) with the charge fixed by \(\HamChargeOmega\). By \eqref{eq:reg}, the explicit dressed correction has \(\SigmaSRFourSC=\SigmaDressSch+\mathcal O(r^{-3})\). Therefore the quartic projection \eqref{eq:p4} reduces to \eqref{eq:fullrot}: every term involving \(\mathcal O(r^{-2})\) regular inverse-response pieces or the \(\mathcal O(r^{-3})\) dressed regular completion is at most \(\mathcal O(r^{-5})\) on the exterior region.
+
+It remains to identify the explicit \(r^{-4}\) tensor. The sum
+\[
+\eta_{\mu\nu}
++\SigmaCOmega{}_{\mu\nu}
++\SigmaDressSch{}_{\mu\nu}
+\]
+is exactly the isotropic Schwarzschild vacuum expansion through order \(U_\Omega^2\):
+\[
+g_{00}^{\mathrm{Sch,iso}}
+=
+-1+2U_\Omega-2U_\Omega^2+\mathcal O(r^{-3}),
+\qquad
+g_{ij}^{\mathrm{Sch,iso}}
+=
+\delta_{ij}+2U_\Omega\delta_{ij}+\frac32U_\Omega^2\delta_{ij}+\mathcal O(r^{-3}).
+\]
+Because the exact isotropic Schwarzschild exterior metric is vacuum, its Einstein tensor vanishes identically. Truncating that identity at order \(U_\Omega^2\) yields
+\[
+\Pfour\Bigl(\EinLin(\SigmaDressSch)+\EinQuad[\SigmaCOmega]\Bigr)_{\mu\nu}=0.
+\]
+Substituting this into \eqref{eq:fullrot} proves \eqref{eq:fullrot2}.
+\end{proof}
+
+\begin{remark}
+Proposition \ref{prop:fullrot} is the decisive tensor-level statement. The explicit candidate does not merely cancel the old Hamiltonian projection after integration. It absorbs the isolated quartic Coulomb self-response at the full tensor level on the decisive exterior rotational regime, while leaving the lower-order inverse-response gains untouched.
+\end{remark}
+
+\section{Verdict and Immediate Next Burden}
+
+\begin{theorem}[Candidate verdict]
+\label{thm:verdict}
+At the present disciplined scope, the explicit Schwarzschild-type \(r^{-2}\) dressing candidate of Definition \ref{def:candidate} is positive in exactly the sense required by the redesign note:
+\begin{enumerate}
+    \item it stays active on matter-free reduced data;
+    \item it preserves the already-positive off-longitudinal \(Q/W\) cancellation;
+    \item it preserves the explicit cubic longitudinal completion;
+    \item on the decisive matter-free rotational exterior regime it cancels or structurally absorbs the isolated quartic Coulomb self-response, pushing the resulting quartic observer tensor to \(\mathcal O(r^{-5})\).
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Item (1) follows from Proposition \ref{prop:orders}. Items (2) and (3) follow from Theorem \ref{thm:preserve}. Item (4) is exactly Theorem \ref{thm:ham} together with Proposition \ref{prop:fullrot}. These are the explicit tests demanded by the redesign note.
+\end{proof}
+
+\begin{corollary}[What the next manuscript should now be]
+\label{cor:next}
+Since the present explicit candidate test is positive, the next active manuscript burden should now be the substrate-origin note for the dressed bridge map rather than another observer-level repair test. Its task should be to identify a charge-balancing or polarization mechanism whose eliminated effect produces the explicit self-response-neutral \(r^{-2}\) closure recorded here.
+\end{corollary}
+
+\begin{proof}
+The redesign note already fixed the logic: the substrate-origin question becomes active only after an explicit self-response-dressing candidate has been carried through and found positive. Theorem \ref{thm:verdict} records exactly that positive candidate-level verdict.
+\end{proof}
+
+\section{Conclusion}
+
+The present note carries out the explicit self-response-dressing candidate test fixed by the redesign note and records a positive candidate-level result.
+
+\begin{enumerate}
+    \item The explicit \(r^{-2}\) asymptotic dressing is the Schwarzschild-type monopole coefficient \(\SigmaDressSch\) of \eqref{eq:sigmadress}.
+    \item The dressed candidate preserves the full already-positive lower-order inverse-response gain package: matter-free activity, off-longitudinal \(Q/W\) cancellation, and explicit cubic longitudinal completion.
+    \item On the decisive matter-free rotational exterior regime, the old quartic Hamiltonian density \(3G_N^2\HamChargeOmega^2/r^4\) is canceled by the linear Einstein response of the chosen dressing, and the full isolated quartic Coulomb self-response is absorbed at tensor level up to \(\mathcal O(r^{-5})\).
+    \item The present note still does not prove global existence of the admissible dressed solve and does not derive it from substrate variables.
+    \item Accordingly, the next manuscript burden is now the substrate-origin note aimed at a charge-balancing or polarization mechanism that realizes this explicit dressed bridge map.
+\end{enumerate}
+
+That is the exact practical outcome needed at this stage of the exact-closure program. The active problem is no longer whether one more observer-level asymptotic dressing candidate can survive the decisive quartic test. It is how the positive dressed bridge map recorded here could arise from explicit substrate structure without reopening the already-positive quotient PDE line.
+
+\end{document}

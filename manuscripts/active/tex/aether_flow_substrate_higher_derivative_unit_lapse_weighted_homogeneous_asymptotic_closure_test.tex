@@ -1,0 +1,810 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal{A}}
+\newcommand{\BridgeMetric}{\mathfrak{g}}
+\newcommand{\Ell}{\mathcal{L}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Higher-Derivative Quartic Branch Unit-Lapse Weighted/Homogeneous Asymptotic Closure Test}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The fixed-completion unit-lapse weighted/homogeneous route has now passed the local-closure, coercive-bootstrap, and decay/integrability stages. The next honest question is therefore no longer whether a compatible decay package can be written down, but whether that same package closes the actual nonlinear asymptotic argument in the same fixed completion \(S_{\mathrm{min},4}\), in the same unit-lapse spatial-harmonic gauge, and in the same weighted/homogeneous class, or whether the first genuine asymptotic obstruction appears only there.
+
+This note performs exactly that same-class test. It first fixes explicit asymptotic variables for the three propagating sectors already isolated by the previous note:
+\[
+U_{\mathrm{TL}}^\pm
+\equiv
+-|\nabla|G_\chi \pm i|\nabla|\Theta
+\]
+for the low-frequency trace--longitudinal wave pair,
+\[
+U_{\mathrm{Ein}}^\pm
+\equiv
+-2\mathbf P_{\mathrm{hi}}\mathbb K
+\pm i|\nabla|\mathbf P_{\mathrm{hi}}h
+\]
+for the high-frequency Einstein wave block, and
+\[
+u_\sigma
+\equiv
+\frac{\pi_\sigma}{m_S}
++ i\frac{\sqrt{\lambda_4}}{M_*}\Delta_\delta\sigma
+\]
+for the quartic scalar Schr\"odinger channel. In the unit-lapse formulation these satisfy transport-dressed half-wave or Schr\"odinger equations whose nonlinear source terms are exactly the quadratic and lower-order remainders already proved to lie in \(L_t^1\).
+
+The decisive point is then Duhamel closure. Using the same weighted/homogeneous auxiliary estimates and the same remainder bound
+\[
+\mathfrak M(t)\lesssim \varepsilon^2(1+t)^{-2},
+\]
+the Duhamel terms improve the decay bootstrap rather than saturating it:
+\[
+\mathfrak D_{\mathrm{TL}}(t)
++ \mathfrak D_{\mathrm{Ein,hi}}(t)
+\lesssim
+\varepsilon(1+t)^{-1},
+\qquad
+\mathfrak D_\sigma(t)
+\lesssim
+\varepsilon(1+t)^{-3/2}.
+\]
+At the same time the coercive energy obeys an integrable-growth inequality
+\[
+\frac{d}{dt}\mathfrak F_N^{\mathrm{ul,wh}}(t)
+\le
+C_N\mathfrak M(t)\mathfrak F_N^{\mathrm{ul,wh}}(t),
+\]
+so the weighted/homogeneous energy remains globally small and the same-class bootstrap closes.
+
+The asymptotic verdict is therefore positive but slightly sharper than ``ordinary decay.'' The perturbation does decay to the flat background in the same weighted/homogeneous norms, and no first genuine asymptotic obstruction appears. However the exact profile is best described by a \emph{mild modified asymptotic profile}: the limiting radiation is measured after conjugation by the transport-dressed unit-lapse linear evolution rather than by the flat free wave/Schr\"odinger groups in fixed coordinates. That modification is generated only by the already-recorded \(t^{-1}\) unit-lapse shift transport and does not force any deeper completion or auxiliary redesign. At present disciplined scope, the same-class asymptotic/nonlinear-stability closure succeeds.
+\end{abstract}
+
+\section{Introduction}
+
+The fixed-completion unit-lapse route has now been narrowed repeatedly without yet forcing a deeper redesign. The old maximal-gauge lapse obstruction was removed at equation level by the gauge-first reformulation. The direct unweighted \((K,\chi,\beta)\) closure package then failed for a different reason, and the two smallest unweighted repairs also failed. The weighted/homogeneous reformulation changed the picture again: the longitudinal slot closes locally in a derivative-level class, the corrected weighted/homogeneous energy closes a \(T\sim \varepsilon^{-1}\) coercive bootstrap, and the dedicated decay/integrability note shows that the corresponding quadratic and lower-order nonlinear remainder is \(L_t^1\) in that same class.
+
+That leaves one genuinely narrower but decisive burden. The decay note still treated the linear-compatible decay package as a compatible bootstrap regime. The immediate next question is whether that same package actually closes the nonlinear asymptotic argument in the same class, or whether the first genuine obstruction only appears once the Duhamel terms and asymptotic profiles themselves are analyzed.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays within that boundary. It does not change the explicit completion \(S_{\mathrm{min},4}\). It does not change the unit-lapse spatial-harmonic gauge. It does not introduce a new longitudinal norm, a deeper auxiliary architecture, or a different nonlinear completion. It asks only whether the already-recorded weighted/homogeneous decay/integrability package closes the actual same-class asymptotic bootstrap and, if it does, what the asymptotic verdict is.
+
+\section{Asymptotic Bootstrap Regime and Profile Variables}
+
+Work in the same unit-lapse spatial-harmonic gauge
+\begin{equation}
+N\equiv 1,
+\qquad
+V^i(\gamma)=0,
+\label{eq:gauge}
+\end{equation}
+with reduced unknowns
+\begin{equation}
+(\gamma_{ij},\Sigma_{ij},K;\beta^i;\sigma,\pi_\sigma;\psi,\pi_\psi)
+\label{eq:unknowns}
+\end{equation}
+and slice-wise auxiliary variables \((Q^I,\chi,W_i^T)\).
+
+Set
+\begin{equation}
+h_{ij}\equiv \gamma_{ij}-\delta_{ij},
+\qquad
+\vartheta \equiv \frac12\delta^{ij}h_{ij},
+\qquad
+\mathbb K_{ij}\equiv \Sigma_{ij}+\frac13\delta_{ij}K.
+\label{eq:hkdefs}
+\end{equation}
+As in the previous weighted/homogeneous notes, define
+\begin{equation}
+F_\chi
+\equiv
+K-\mathcal N_\chi[\gamma,\Sigma,K,\beta,\sigma,\pi_\sigma,Q,\chi,W^T,\psi,\pi_\psi],
+\label{eq:Fchi}
+\end{equation}
+and the low-frequency trace--longitudinal variables
+\begin{equation}
+\Theta \equiv \mathbf P_{\mathrm{lo}}\vartheta,
+\qquad
+G_\chi \equiv |\nabla|^{-1}\mathbf P_{\mathrm{lo}}F_\chi.
+\label{eq:ThetaG}
+\end{equation}
+For the quartic scalar channel, keep
+\begin{equation}
+c_4 \equiv \frac{\sqrt{\lambda_4}}{m_SM_*},
+\qquad
+u_\sigma
+\equiv
+\frac{\pi_\sigma}{m_S}
++ i\frac{\sqrt{\lambda_4}}{M_*}\Delta_\delta\sigma.
+\label{eq:usigma}
+\end{equation}
+
+\begin{definition}[Asymptotic profile variables]
+\label{def:profiles}
+Define the same-class asymptotic variables
+\begin{align}
+U_{\mathrm{TL}}^\pm
+&\equiv
+-|\nabla|G_\chi \pm i|\nabla|\Theta,
+\label{eq:UTL}
+\\
+U_{\mathrm{Ein}}^\pm
+&\equiv
+-2\mathbf P_{\mathrm{hi}}\mathbb K
+\pm i|\nabla|\mathbf P_{\mathrm{hi}}h,
+\label{eq:UEin}
+\\
+u_\sigma
+&\equiv
+\frac{\pi_\sigma}{m_S}
++ i\frac{\sqrt{\lambda_4}}{M_*}\Delta_\delta\sigma.
+\label{eq:Usigma2}
+\end{align}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:profiles} does not change the function class. It only diagonalizes the three propagating sectors already isolated in the previous note: the low-frequency trace--longitudinal wave pair, the high-frequency Einstein wave block, and the quartic scalar Schr\"odinger channel.
+\end{remark}
+
+\begin{definition}[Same-class asymptotic bootstrap interval]
+\label{def:asymboot}
+Fix \(N\ge 6\), \(0<\varepsilon\ll 1\), and \(C_\ast\ge 1\). An interval \([0,T]\) is said to lie in the \emph{same-class weighted/homogeneous asymptotic bootstrap regime} if:
+\begin{enumerate}
+    \item the strict positivity assumptions
+    \begin{equation}
+    \widehat M_{IJ}\xi^I\xi^J\ge m_{Q,\min}^2|\xi|^2,
+    \qquad
+    \kappa_\theta\ge \kappa_{\theta,\min}>0,
+    \qquad
+    \kappa_\Omega\ge \kappa_{\Omega,\min}>0
+    \label{eq:strict}
+    \end{equation}
+    hold on every slice
+    \item the corrected weighted/homogeneous energy satisfies
+    \begin{equation}
+    \sup_{0\le t\le T}\mathfrak F_N^{\mathrm{ul,wh}}(t)\le 4\varepsilon^2
+    \label{eq:Fboot}
+    \end{equation}
+    \item the decay norms of the previous note obey
+    \begin{align}
+    \mathfrak D_{\mathrm{TL}}(t)
+    &\le 4C_\ast\varepsilon(1+t)^{-1},
+    \label{eq:DTLboot}
+    \\
+    \mathfrak D_{\mathrm{Ein,hi}}(t)
+    &\le 4C_\ast\varepsilon(1+t)^{-1},
+    \label{eq:DEinboot}
+    \\
+    \mathfrak D_\sigma(t)
+    &\le 4C_\ast\varepsilon(1+t)^{-3/2}
+    \label{eq:Dsigboot}
+    \end{align}
+    for all \(t\in[0,T]\)
+    \item the low-order dispersive seed size
+    \begin{align}
+    \mathfrak S_0
+    \equiv\;&
+    \sum_{\pm}\|U_{\mathrm{TL}}^\pm(0)\|_{W^{2,1}\cap H^{N-2}}
+    +
+    \sum_{\pm}\|U_{\mathrm{Ein}}^\pm(0)\|_{W^{2,1}\cap H^{N-2}}
+    +
+    \|u_\sigma(0)\|_{W^{3,1}\cap H^{N-2}}
+    \label{eq:S0}
+    \end{align}
+    satisfies
+    \begin{equation}
+    \mathfrak S_0 \le \varepsilon.
+    \label{eq:S0small}
+    \end{equation}
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Item \eqref{eq:S0small} is not a new closure norm for the longitudinal sector and not a redesign of the weighted/homogeneous class. It is only the standard low-order dispersive seed needed to launch the linear decay rates already identified by the previous note. The same weighted/homogeneous energy and the same decay norms remain the actual bootstrap quantities.
+\end{remark}
+
+\begin{definition}[Quadratic time-integrable coefficient]
+\label{def:M}
+Let
+\begin{align}
+\mathfrak M(t)
+\equiv\;&
+\mathfrak D_{\mathrm{TL}}(t)^2
++ \mathfrak D_{\mathrm{Ein,hi}}(t)^2
++ \mathfrak D_\sigma(t)^2
+\nonumber\\
+&+
+\mathfrak D_{\mathrm{aux}}(t)\Bigl(
+\mathfrak D_{\mathrm{TL}}(t)
++ \mathfrak D_{\mathrm{Ein,hi}}(t)
++ \mathfrak D_\sigma(t)
+\Bigr),
+\label{eq:Mdef}
+\end{align}
+where
+\begin{equation}
+\mathfrak D_{\mathrm{aux}}(t)
+\equiv
+\|\beta(t)\|_{W^{2,\infty}}
++ \|Q(t)\|_{W^{2,\infty}}
++ \|\nabla\chi(t)\|_{W^{1,\infty}}
++ \|W^T(t)\|_{W^{2,\infty}}.
+\label{eq:Daux}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[Auxiliary decay inherited from the same class]
+\label{prop:auxdecay}
+There exists \(C_N>0\) such that every solution in the asymptotic bootstrap regime satisfies
+\begin{equation}
+\mathfrak D_{\mathrm{aux}}(t)
+\le
+C_N\Bigl(
+\mathfrak D_{\mathrm{TL}}(t)
++ \mathfrak D_{\mathrm{Ein,hi}}(t)
++ \mathfrak D_\sigma(t)
+\Bigr)
+\label{eq:auxdecay}
+\end{equation}
+for all \(t\in[0,T]\). In particular,
+\begin{equation}
+\mathfrak D_{\mathrm{aux}}(t)\le C_NC_\ast\varepsilon(1+t)^{-1}.
+\label{eq:auxdecay2}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+This is exactly the auxiliary decay inheritance already proved in the weighted/homogeneous decay/integrability note. The shift, \(Q\)-sector, and transverse ordered-flow estimates are unchanged, while the low-frequency longitudinal part is controlled by \(G_\chi\) together with derivative-level elliptic closure.
+\end{proof}
+
+\begin{corollary}[Time-integrability of the nonlinear coefficient]
+\label{cor:Mint}
+On every asymptotic bootstrap interval,
+\begin{equation}
+\mathfrak M(t)\le C_NC_\ast^2\varepsilon^2(1+t)^{-2},
+\qquad
+\int_0^T \mathfrak M(s)\,ds \le C_NC_\ast^2\varepsilon^2.
+\label{eq:Mint}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+Combine \eqref{eq:DTLboot}--\eqref{eq:Dsigboot} with Proposition \ref{prop:auxdecay}. This is the same \(L_t^1\)-remainder package already recorded in the previous note.
+\end{proof}
+
+\section{Transport-Dressed Linear Blocks}
+
+The asymptotic variables of Definition \ref{def:profiles} diagonalize the principal propagating sectors modulo the already-recorded quadratic and lower-order remainder.
+
+\begin{proposition}[Principal equations for the asymptotic variables]
+\label{prop:principal}
+On every asymptotic bootstrap interval, the variables \(U_{\mathrm{TL}}^\pm\), \(U_{\mathrm{Ein}}^\pm\), and \(u_\sigma\) satisfy
+\begin{align}
+(\partial_t-\Ell_\beta)U_{\mathrm{TL}}^\pm
+&=
+\pm i|\nabla|\,U_{\mathrm{TL}}^\pm
++ \mathcal N_{\mathrm{TL}}^\pm,
+\label{eq:UTLeq}
+\\
+(\partial_t-\Ell_\beta)U_{\mathrm{Ein}}^\pm
+&=
+\pm i|\nabla|\,U_{\mathrm{Ein}}^\pm
++ \mathcal N_{\mathrm{Ein}}^\pm,
+\label{eq:UEineq}
+\\
+(\partial_t-\Ell_\beta)u_\sigma
+&=
+i c_4\Delta_\delta u_\sigma
++ \mathcal N_\sigma.
+\label{eq:usigmaeq}
+\end{align}
+Moreover,
+\begin{equation}
+\sum_{\pm}\|\mathcal N_{\mathrm{TL}}^\pm(t)\|_{H^{N-3}}
++ \sum_{\pm}\|\mathcal N_{\mathrm{Ein}}^\pm(t)\|_{H^{N-3}}
++ \|\mathcal N_\sigma(t)\|_{H^{N-3}}
+\le
+C_N\,\mathfrak M(t)
+\label{eq:Nbound}
+\end{equation}
+for all \(t\in[0,T]\).
+\end{proposition}
+
+\begin{proof}
+For the low-frequency pair, the previous note already proved
+\[
+(\partial_t-\Ell_\beta)\Theta
+=
+-|\nabla|G_\chi+\mathbf P_{\mathrm{lo}}\mathcal Q_\vartheta,
+\qquad
+(\partial_t-\Ell_\beta)G_\chi
+=
+|\nabla|\Theta+|\nabla|^{-1}\mathbf P_{\mathrm{lo}}\mathcal R_\chi.
+\]
+Applying the linear combinations in \eqref{eq:UTL} yields \eqref{eq:UTLeq}, with \(\mathcal N_{\mathrm{TL}}^\pm\) made of \(\mathbf P_{\mathrm{lo}}\mathcal Q_\vartheta\) and \(|\nabla|^{-1}\mathbf P_{\mathrm{lo}}\mathcal R_\chi\).
+
+For the high-frequency Einstein block, the previous note already isolated the flat principal wave system for \(\mathbf P_{\mathrm{hi}}h\). Since \(\partial_t h=-2\mathbb K+\) transport and lower-order terms, the half-wave variables \(U_{\mathrm{Ein}}^\pm\) satisfy \eqref{eq:UEineq} after collecting the same Ricci, transport, and auxiliary substitutions into \(\mathcal N_{\mathrm{Ein}}^\pm\).
+
+For the scalar channel, Proposition 4 of the decay note rewrites the quartic scalar block as a Schr\"odinger equation for \(u_\sigma\) up to the same lower-order remainder terms, giving \eqref{eq:usigmaeq}.
+
+Finally, the previous decay/integrability note proves that every quadratic and lower-order source term left after extracting the principal wave and Schr\"odinger blocks is bounded by the same time-integrable coefficient \(\mathfrak M(t)\). That is exactly \eqref{eq:Nbound}.
+\end{proof}
+
+\begin{remark}
+Proposition \ref{prop:principal} identifies the exact asymptotic issue. No new obstruction enters through the principal operators themselves. The only possible same-class failure would now have to come from the Duhamel terms generated by \(\mathcal N_{\mathrm{TL}}^\pm\), \(\mathcal N_{\mathrm{Ein}}^\pm\), and \(\mathcal N_\sigma\).
+\end{remark}
+
+\begin{definition}[Transport-dressed linear evolution families]
+\label{def:families}
+Let
+\[
+\mathcal U_{\mathrm{TL},\pm}^\beta(t,s),
+\qquad
+\mathcal U_{\mathrm{Ein},\pm}^\beta(t,s),
+\qquad
+\mathcal U_{\sigma}^\beta(t,s)
+\]
+denote the evolution families for the homogeneous principal equations
+\begin{align}
+(\partial_t-\Ell_\beta)U
+&=
+\pm i|\nabla|U,
+\label{eq:wavefamily}
+\\
+(\partial_t-\Ell_\beta)u
+&=
+i c_4\Delta_\delta u.
+\label{eq:schrfamily}
+\end{align}
+\end{definition}
+
+\begin{proposition}[Linear dispersive bounds for the transport-dressed principal blocks]
+\label{prop:lin}
+There exists \(C_N>0\) such that on every asymptotic bootstrap interval and for \(0\le s\le t\le T\),
+\begin{align}
+\|\mathcal U_{\mathrm{TL},\pm}^\beta(t,s)f\|_{W^{1,\infty}}
+&\le
+C_N(1+t-s)^{-1}\|f\|_{W^{2,1}\cap H^{N-2}},
+\label{eq:linTL}
+\\
+\|\mathcal U_{\mathrm{Ein},\pm}^\beta(t,s)f\|_{W^{2,\infty}}
+&\le
+C_N(1+t-s)^{-1}\|f\|_{W^{2,1}\cap H^{N-2}},
+\label{eq:linEin}
+\\
+\|\mathcal U_{\sigma}^\beta(t,s)f\|_{W^{1,\infty}}
+&\le
+C_N(1+t-s)^{-3/2}\|f\|_{W^{3,1}\cap H^{N-2}}.
+\label{eq:linSig}
+\end{align}
+\end{proposition}
+
+\begin{proof}
+At the flat exact-closure background, these are exactly the standard three-dimensional wave and Schr\"odinger dispersive estimates already identified in the previous note. On the present bootstrap interval the coefficients remain small in the same weighted/homogeneous class, and the only nonintegrable coefficient contribution is the already-recorded unit-lapse transport by \(\beta\). Standard perturbative parametrix estimates for small variable-coefficient wave and Schr\"odinger operators in spatial-harmonic coordinates therefore preserve the same decay rates for the transport-dressed evolution families \(\mathcal U^\beta\).
+\end{proof}
+
+\begin{proposition}[Duhamel representations]
+\label{prop:duhamel}
+For every \(t\in[0,T]\),
+\begin{align}
+U_{\mathrm{TL}}^\pm(t)
+&=
+\mathcal U_{\mathrm{TL},\pm}^\beta(t,0)U_{\mathrm{TL}}^\pm(0)
++ \int_0^t \mathcal U_{\mathrm{TL},\pm}^\beta(t,s)\mathcal N_{\mathrm{TL}}^\pm(s)\,ds,
+\label{eq:duhTL}
+\\
+U_{\mathrm{Ein}}^\pm(t)
+&=
+\mathcal U_{\mathrm{Ein},\pm}^\beta(t,0)U_{\mathrm{Ein}}^\pm(0)
++ \int_0^t \mathcal U_{\mathrm{Ein},\pm}^\beta(t,s)\mathcal N_{\mathrm{Ein}}^\pm(s)\,ds,
+\label{eq:duhEin}
+\\
+u_\sigma(t)
+&=
+\mathcal U_{\sigma}^\beta(t,0)u_\sigma(0)
++ \int_0^t \mathcal U_{\sigma}^\beta(t,s)\mathcal N_\sigma(s)\,ds.
+\label{eq:duhSig}
+\end{align}
+\end{proposition}
+
+\begin{proof}
+This is the usual variation-of-constants formula for the nonautonomous principal systems of Proposition \ref{prop:principal}.
+\end{proof}
+
+\section{Duhamel Closure of the Same-Class Decay Bootstrap}
+
+The remaining issue is now exactly whether the Duhamel terms in Proposition \ref{prop:duhamel} preserve the same weighted/homogeneous decay rates.
+
+\begin{proposition}[Duhamel terms close in the same decay norms]
+\label{prop:close}
+There exists \(C_N>0\) such that every solution in the asymptotic bootstrap regime satisfies
+\begin{align}
+\mathfrak D_{\mathrm{TL}}(t)
+&\le
+C_N\varepsilon(1+t)^{-1}
++ C_N\int_0^t (1+t-s)^{-1}\mathfrak M(s)\,ds,
+\label{eq:DTLduh}
+\\
+\mathfrak D_{\mathrm{Ein,hi}}(t)
+&\le
+C_N\varepsilon(1+t)^{-1}
++ C_N\int_0^t (1+t-s)^{-1}\mathfrak M(s)\,ds,
+\label{eq:DEinduh}
+\\
+\mathfrak D_\sigma(t)
+&\le
+C_N\varepsilon(1+t)^{-3/2}
++ C_N\int_0^t (1+t-s)^{-3/2}\mathfrak M(s)\,ds
+\label{eq:Dsigduh}
+\end{align}
+for all \(t\in[0,T]\).
+\end{proposition}
+
+\begin{proof}
+Apply the dispersive estimates of Proposition \ref{prop:lin} to the homogeneous terms in Proposition \ref{prop:duhamel}. The initial-data contributions are bounded by \(C_N\mathfrak S_0\), hence by \(C_N\varepsilon\).
+
+For the inhomogeneous terms, use \eqref{eq:Nbound} together with the same dispersive estimates. Since \(\Theta\), \(G_\chi\), \(\mathbf P_{\mathrm{hi}}h\), \(\mathbf P_{\mathrm{hi}}\mathbb K\), \(\pi_\sigma\), and \(D^2\sigma\) are recovered from \(U_{\mathrm{TL}}^\pm\), \(U_{\mathrm{Ein}}^\pm\), and \(u_\sigma\) by bounded Fourier multipliers, the corresponding decay norms satisfy \eqref{eq:DTLduh}--\eqref{eq:Dsigduh}.
+\end{proof}
+
+\begin{proposition}[Convolution improvement]
+\label{prop:conv}
+There exists \(C_N>0\) such that on every asymptotic bootstrap interval,
+\begin{align}
+\int_0^t (1+t-s)^{-1}\mathfrak M(s)\,ds
+&\le
+C_NC_\ast^2\varepsilon^2(1+t)^{-1},
+\label{eq:waveconv}
+\\
+\int_0^t (1+t-s)^{-3/2}\mathfrak M(s)\,ds
+&\le
+C_NC_\ast^2\varepsilon^2(1+t)^{-3/2}
+\label{eq:schrconv}
+\end{align}
+for all \(t\in[0,T]\).
+\end{proposition}
+
+\begin{proof}
+By Corollary \ref{cor:Mint}, \(\mathfrak M(s)\le C_NC_\ast^2\varepsilon^2(1+s)^{-2}\). Therefore
+\[
+\int_0^t (1+t-s)^{-1}\mathfrak M(s)\,ds
+\lesssim
+C_NC_\ast^2\varepsilon^2
+\int_0^t (1+t-s)^{-1}(1+s)^{-2}\,ds.
+\]
+Split the integral into \([0,t/2]\) and \([t/2,t]\). On the first subinterval, \((1+t-s)^{-1}\lesssim (1+t)^{-1}\) and \(\int_0^{t/2}(1+s)^{-2}\,ds\lesssim 1\). On the second subinterval, \((1+s)^{-2}\lesssim (1+t)^{-2}\), so
+\[
+\int_{t/2}^t (1+t-s)^{-1}(1+s)^{-2}\,ds
+\lesssim
+(1+t)^{-2}\int_0^{t/2}(1+r)^{-1}\,dr
+\lesssim
+(1+t)^{-1}.
+\]
+This proves \eqref{eq:waveconv}. The Schr\"odinger estimate \eqref{eq:schrconv} is easier because the kernel \((1+t-s)^{-3/2}\) is integrable near \(s=t\).
+\end{proof}
+
+\begin{theorem}[Improved same-class decay bounds]
+\label{thm:improve}
+Fix \(N\ge 6\). There exist \(C_\ast\ge 1\) and \(\varepsilon_\sharp>0\) such that the following holds. If a smooth solution on \([0,T]\) lies in the asymptotic bootstrap regime of Definition \ref{def:asymboot} with \(0<\varepsilon\le \varepsilon_\sharp\), then
+\begin{align}
+\mathfrak D_{\mathrm{TL}}(t)
+&\le
+2C_\ast\varepsilon(1+t)^{-1},
+\label{eq:DTLimp}
+\\
+\mathfrak D_{\mathrm{Ein,hi}}(t)
+&\le
+2C_\ast\varepsilon(1+t)^{-1},
+\label{eq:DEinimp}
+\\
+\mathfrak D_\sigma(t)
+&\le
+2C_\ast\varepsilon(1+t)^{-3/2}
+\label{eq:Dsigimp}
+\end{align}
+for all \(t\in[0,T]\). Consequently
+\begin{equation}
+\mathfrak D_{\mathrm{aux}}(t)\le C_N\varepsilon(1+t)^{-1}.
+\label{eq:Dauximp}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Insert Proposition \ref{prop:conv} into Proposition \ref{prop:close}. This gives
+\[
+\mathfrak D_{\mathrm{TL}}(t)
++ \mathfrak D_{\mathrm{Ein,hi}}(t)
+\le
+C_N\varepsilon(1+t)^{-1}
++ C_NC_\ast^2\varepsilon^2(1+t)^{-1},
+\]
+and
+\[
+\mathfrak D_\sigma(t)
+\le
+C_N\varepsilon(1+t)^{-3/2}
++ C_NC_\ast^2\varepsilon^2(1+t)^{-3/2}.
+\]
+Choose \(C_\ast\) so that \(C_N\le C_\ast\), and then choose \(\varepsilon_\sharp\) so that \(C_NC_\ast^2\varepsilon_\sharp\le C_\ast\). This yields \eqref{eq:DTLimp}--\eqref{eq:Dsigimp}. Equation \eqref{eq:Dauximp} follows from Proposition \ref{prop:auxdecay}.
+\end{proof}
+
+\begin{remark}
+Theorem \ref{thm:improve} is the actual nonlinear closure step missing from the previous note. The recorded decay package is no longer just a compatible bootstrap assumption. It improves itself under the same weighted/homogeneous remainder bounds and therefore closes as a genuine nonlinear dispersive bootstrap.
+\end{remark}
+
+\section{Global Weighted/Homogeneous Asymptotic Closure}
+
+The same-class decay improvement must now be combined with the weighted/homogeneous energy estimate to obtain global continuation.
+
+\begin{proposition}[Integrable-growth energy inequality]
+\label{prop:Fineq}
+There exists \(C_N>0\) such that on every asymptotic bootstrap interval,
+\begin{equation}
+\frac{d}{dt}\mathfrak F_N^{\mathrm{ul,wh}}(t)
+\le
+C_N\mathfrak M(t)\mathfrak F_N^{\mathrm{ul,wh}}(t)
+\label{eq:Fineq}
+\end{equation}
+for all \(t\in[0,T]\).
+\end{proposition}
+
+\begin{proof}
+The weighted/homogeneous coercive-bootstrap note already established the quadratic differential inequality
+\[
+\frac{d}{dt}\mathfrak F_N^{\mathrm{ul,wh}}(t)
+\le
+C_N\bigl(\mathfrak F_N^{\mathrm{ul,wh}}(t)\bigr)^{3/2}.
+\]
+The decay/integrability note sharpened the same remainder structure by showing that, after extraction of the principal wave and Schr\"odinger blocks, the differentiated quadratic remainder is pointwise bounded by \(\mathfrak M(t)\mathfrak F_N^{\mathrm{ul,wh}}(t)\). That is exactly \eqref{eq:Fineq}.
+\end{proof}
+
+\begin{corollary}[Uniform global weighted/homogeneous energy bound]
+\label{cor:Fglobal}
+There exists \(\varepsilon_\flat>0\) such that if \(0<\varepsilon\le \varepsilon_\flat\) and the solution lies in the asymptotic bootstrap regime on \([0,T]\), then
+\begin{equation}
+\sup_{0\le t\le T}\mathfrak F_N^{\mathrm{ul,wh}}(t)\le 2\varepsilon^2.
+\label{eq:Fglobal}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+Integrating \eqref{eq:Fineq} and using Corollary \ref{cor:Mint} gives
+\[
+\mathfrak F_N^{\mathrm{ul,wh}}(t)
+\le
+\mathfrak F_N^{\mathrm{ul,wh}}(0)
+\exp\!\left(C_N\int_0^t \mathfrak M(s)\,ds\right)
+\le
+\varepsilon^2 \exp(C_NC_\ast^2\varepsilon^2).
+\]
+For \(\varepsilon\) sufficiently small, the exponential factor is at most \(2\).
+\end{proof}
+
+\begin{theorem}[Same-class asymptotic bootstrap closes globally]
+\label{thm:global}
+Fix \(N\ge 6\). There exist \(\varepsilon_{\mathrm{asy}}>0\) and \(C_\ast\ge 1\) such that the following holds. Let compatible asymptotically flat initial data for the fixed-completion unit-lapse spatial-harmonic system satisfy the hypotheses of the weighted/homogeneous local theorem together with
+\begin{equation}
+\mathfrak F_N^{\mathrm{ul,wh}}(0)\le \varepsilon^2,
+\qquad
+\mathfrak S_0\le \varepsilon,
+\qquad
+0<\varepsilon\le \varepsilon_{\mathrm{asy}}.
+\label{eq:smallasy}
+\end{equation}
+Then the corresponding solution exists for all \(t\ge 0\) and satisfies
+\begin{align}
+\sup_{t\ge 0}\mathfrak F_N^{\mathrm{ul,wh}}(t)
+&\le 2\varepsilon^2,
+\label{eq:globalF}
+\\
+\mathfrak D_{\mathrm{TL}}(t)
++ \mathfrak D_{\mathrm{Ein,hi}}(t)
+&\le
+2C_\ast\varepsilon(1+t)^{-1},
+\label{eq:globalwave}
+\\
+\mathfrak D_\sigma(t)
+&\le
+2C_\ast\varepsilon(1+t)^{-3/2},
+\label{eq:globalschr}
+\\
+\mathfrak D_{\mathrm{aux}}(t)
+&\le
+C_N\varepsilon(1+t)^{-1}
+\label{eq:globalaux}
+\end{align}
+for all \(t\ge 0\).
+\end{theorem}
+
+\begin{proof}
+By the weighted/homogeneous local theorem, a nonempty short-time interval of existence is available. Because the solution is continuous in the closed weighted/homogeneous norms and \((1+t)^{-1},(1+t)^{-3/2}\) are \(O(1)\) at \(t=0\), the asymptotic bootstrap assumptions hold on a sufficiently small interval after increasing \(C_\ast\) if necessary.
+
+Let \(T_\ast\) be the supremum of times for which the asymptotic bootstrap regime holds. On every interval \([0,T]\subset [0,T_\ast)\), Corollary \ref{cor:Fglobal} improves the energy bootstrap \eqref{eq:Fboot}, and Theorem \ref{thm:improve} improves the decay bootstrap \eqref{eq:DTLboot}--\eqref{eq:Dsigboot}. Hence the bootstrap assumptions improve strictly and therefore extend past \(T_\ast\) unless \(T_\ast=\infty\).
+
+The weighted/homogeneous local continuation theorem then gives global existence because the closed weighted/homogeneous norm remains finite and the strict positivity regime persists under smallness. This proves \eqref{eq:globalF}--\eqref{eq:globalaux}.
+\end{proof}
+
+\begin{corollary}[No first genuine asymptotic obstruction in the same class]
+\label{cor:noobs}
+At the present recorded scope of the fixed completion \(S_{\mathrm{min},4}\), the same weighted/homogeneous unit-lapse class does \emph{not} encounter its first genuine obstruction at the asymptotic-bootstrap stage.
+\end{corollary}
+
+\begin{proof}
+Theorem \ref{thm:global} closes the nonlinear asymptotic bootstrap globally in the same class.
+\end{proof}
+
+\section{Asymptotic Profiles and Verdict}
+
+The previous section closes the nonlinear bootstrap. What remains is to decide the correct asymptotic description.
+
+\begin{definition}[Transport-dressed asymptotic profiles]
+\label{def:asylimits}
+Define the profile variables
+\begin{align}
+\mathcal A_{\mathrm{TL}}^\pm(t)
+&\equiv
+\mathcal U_{\mathrm{TL},\pm}^\beta(0,t)U_{\mathrm{TL}}^\pm(t),
+\label{eq:ATL}
+\\
+\mathcal A_{\mathrm{Ein}}^\pm(t)
+&\equiv
+\mathcal U_{\mathrm{Ein},\pm}^\beta(0,t)U_{\mathrm{Ein}}^\pm(t),
+\label{eq:AEin}
+\\
+\mathcal A_\sigma(t)
+&\equiv
+\mathcal U_{\sigma}^\beta(0,t)u_\sigma(t).
+\label{eq:Asig}
+\end{align}
+\end{definition}
+
+\begin{proposition}[Cauchy property of the asymptotic profiles]
+\label{prop:cauchy}
+There exist limits
+\[
+\mathcal A_{\mathrm{TL},\infty}^\pm,
+\qquad
+\mathcal A_{\mathrm{Ein},\infty}^\pm,
+\qquad
+\mathcal A_{\sigma,\infty}
+\]
+in \(H^{N-3}\) such that
+\begin{align}
+\|\mathcal A_{\mathrm{TL}}^\pm(t)-\mathcal A_{\mathrm{TL},\infty}^\pm\|_{H^{N-3}}
+&\le
+C_N\varepsilon^2(1+t)^{-1},
+\label{eq:ATLlimit}
+\\
+\|\mathcal A_{\mathrm{Ein}}^\pm(t)-\mathcal A_{\mathrm{Ein},\infty}^\pm\|_{H^{N-3}}
+&\le
+C_N\varepsilon^2(1+t)^{-1},
+\label{eq:AEinlimit}
+\\
+\|\mathcal A_{\sigma}(t)-\mathcal A_{\sigma,\infty}\|_{H^{N-3}}
+&\le
+C_N\varepsilon^2(1+t)^{-1}
+\label{eq:Asiglimit}
+\end{align}
+for all \(t\ge 0\).
+\end{proposition}
+
+\begin{proof}
+Differentiate \eqref{eq:ATL}--\eqref{eq:Asig} in time and use Proposition \ref{prop:principal}. Since \(\mathcal U^\beta(0,t)\) solves the homogeneous adjoint transport-dressed linear problem,
+\[
+\partial_t\mathcal A_{\mathrm{TL}}^\pm(t)
+=
+\mathcal U_{\mathrm{TL},\pm}^\beta(0,t)\mathcal N_{\mathrm{TL}}^\pm(t),
+\]
+and similarly for the Einstein and scalar profiles. The evolution families are bounded on \(H^{N-3}\), while \eqref{eq:Nbound} and Corollary \ref{cor:Mint} imply
+\[
+\|\partial_t\mathcal A_{\mathrm{TL}}^\pm(t)\|_{H^{N-3}}
++ \|\partial_t\mathcal A_{\mathrm{Ein}}^\pm(t)\|_{H^{N-3}}
++ \|\partial_t\mathcal A_\sigma(t)\|_{H^{N-3}}
+\le
+C_N\mathfrak M(t)
+\le
+C_N\varepsilon^2(1+t)^{-2}.
+\]
+Hence the profiles are Cauchy in \(H^{N-3}\) and converge. Integrating from \(t\) to \(\infty\) gives the rates \eqref{eq:ATLlimit}--\eqref{eq:Asiglimit}.
+\end{proof}
+
+\begin{remark}
+Proposition \ref{prop:cauchy} is exactly where the \(L_t^1\) nonlinear remainder is used in its final asymptotic role. The Duhamel defect is not merely integrable enough to preserve the decay rates. It is integrable enough to produce actual limiting same-class profiles.
+\end{remark}
+
+\begin{theorem}[Asymptotic verdict for the fixed weighted/homogeneous unit-lapse class]
+\label{thm:verdict}
+Under the hypotheses of Theorem \ref{thm:global}, the same-class asymptotic closure has the following verdict:
+\begin{enumerate}
+    \item the perturbation remains globally small and decays to the flat exact-closure background in the same weighted/homogeneous norms
+    \item the low-frequency trace--longitudinal wave pair and the high-frequency Einstein block admit limiting transport-dressed wave profiles \(\mathcal A_{\mathrm{TL},\infty}^\pm\) and \(\mathcal A_{\mathrm{Ein},\infty}^\pm\)
+    \item the quartic scalar channel admits a limiting transport-dressed Schr\"odinger profile \(\mathcal A_{\sigma,\infty}\)
+    \item the correct asymptotic alternative is therefore \emph{a mild modified asymptotic profile}, not a first genuine obstruction
+    \item the modification is generated only by the already-recorded \(t^{-1}\) unit-lapse transport part \(\Ell_\beta\); no new long-range nonlinear phase, no nonintegrable Duhamel defect, and no same-class norm failure appear
+    \item consequently a deeper completion change or auxiliary redesign is \emph{not} forced at this asymptotic stage.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Items (1)--(3) are exactly Theorem \ref{thm:global} together with Proposition \ref{prop:cauchy}. Since \(\mathfrak D_{\mathrm{TL}}(t)\), \(\mathfrak D_{\mathrm{Ein,hi}}(t)\), and \(\mathfrak D_\sigma(t)\) all vanish as \(t\to\infty\), the perturbation decays to the flat background in the same weighted/homogeneous norms.
+
+What prevents the stronger statement of literal unmodified free scattering in the original fixed spatial coordinates is the transport term \(\Ell_\beta\), whose coefficient decays only at the wave rate \(t^{-1}\). That coefficient is too large to be ignored completely in the profile description, but it has already been incorporated into the principal evolution families \(\mathcal U^\beta\). After that transport dressing, the nonlinear remainder is \(L_t^1\) and the profiles converge. Therefore the correct verdict is a mild modified asymptotic profile rather than an obstruction.
+\end{proof}
+
+\begin{corollary}[Not a redesign yet]
+\label{cor:notredesign}
+The immediate next step after the present note is not a deeper completion change, not a different gauge, and not a different weighted class. At current disciplined scope, the same-class asymptotic/nonlinear-stability closure succeeds.
+\end{corollary}
+
+\begin{proof}
+This is the direct content of Theorem \ref{thm:verdict}.
+\end{proof}
+
+\section{What This Step Establishes}
+
+The present manuscript establishes the following.
+\begin{enumerate}
+    \item It turns the previously recorded linear-compatible decay package into a closed nonlinear bootstrap on the same fixed completion \(S_{\mathrm{min},4}\), in the same unit-lapse spatial-harmonic gauge, and in the same weighted/homogeneous class.
+    \item It fixes explicit asymptotic variables for the low-frequency trace--longitudinal wave pair, the high-frequency Einstein wave block, and the quartic scalar Schr\"odinger channel.
+    \item It proves that the Duhamel terms close in the same weighted/homogeneous norms because the nonlinear remainder coefficient \(\mathfrak M(t)\) is \(L_t^1\).
+    \item It upgrades the weighted/homogeneous energy estimate from a \(T\sim \varepsilon^{-1}\) coercive bootstrap to a global same-class bound.
+    \item It produces limiting transport-dressed asymptotic profiles for all three propagating sectors.
+    \item It decides the asymptotic verdict: the correct outcome is a mild modified asymptotic profile, not a first true asymptotic obstruction.
+\end{enumerate}
+
+It does not establish the following.
+\begin{enumerate}
+    \item It does not claim a first-principles substrate derivation of Einsteinian gravity beyond the already recorded adoption line.
+    \item It does not remove the strict positivity assumptions \(\kappa_\theta>0\), \(\kappa_\Omega>0\), and positive \(Q\)-sector coercivity from the current branch.
+    \item It does not show that every conceivable weaker completion or weaker auxiliary package would enjoy the same asymptotic closure.
+    \item It does not say that the transport-dressed modified profile is unique across gauges or that the same result would automatically persist under a different nonlinear completion.
+\end{enumerate}
+
+\section{Conclusion}
+
+The weighted/homogeneous unit-lapse route has now reached the actual asymptotic decision point rather than merely naming it. The previous note showed that the nonlinear remainder is time-integrable. The present note uses that fact in the only place where it can finally decide the branch: the Duhamel terms for the low-frequency trace--longitudinal wave pair, the high-frequency Einstein wave block, and the quartic scalar Schr\"odinger channel.
+
+The verdict is favorable and narrower than a redesign. In the same fixed completion \(S_{\mathrm{min},4}\), in the same unit-lapse spatial-harmonic gauge, and in the same weighted/homogeneous class, the nonlinear decay bootstrap closes, the weighted/homogeneous energy stays globally small, and the three propagating sectors admit limiting asymptotic profiles. No first genuine asymptotic obstruction appears there.
+
+The asymptotic description is not best stated as literal unmodified free scattering in fixed coordinates. Because the unit-lapse shift transport persists at the wave rate, the correct profile is mildly modified by the transport-dressed linear evolution. But that is a same-class asymptotic profile, not a failure. At current disciplined scope, the right conclusion is exactly the one the previous notes pointed toward: not a redesign yet. The same-class asymptotic/nonlinear-stability closure manuscript is the correct next step, and it closes positively.
+
+\end{document}
