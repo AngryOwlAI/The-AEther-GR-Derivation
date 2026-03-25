@@ -6,7 +6,7 @@
 **Autor:**  
 <img width="30" height="30" align="center" src="https://github.com/user-attachments/assets/a8e0ea66-5d8f-43b3-8fff-2c3d74d57f53"> Alexander Ricciardi (Omega.py)
 
-This project was originally hosted here: [Omega.py/AEther](https://github.com/Omegapy/AEther/)
+The originally research can be found here: [AngryOwl/AEther](https://github.com/AngryOwlAI/The-AEther)
 
 ---
 
