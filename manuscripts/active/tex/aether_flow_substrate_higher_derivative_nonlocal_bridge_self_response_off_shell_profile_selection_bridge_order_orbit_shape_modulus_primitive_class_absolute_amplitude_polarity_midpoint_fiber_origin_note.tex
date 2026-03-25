@@ -1,0 +1,1036 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\RespShapeReadout}{\widetilde q_{\mathrm{br}}}
+\newcommand{\RespShapeCov}{\widetilde\kappa_{\mathrm{br}}}
+\newcommand{\RespShapeRelax}{\widetilde\rho_{\mathrm{br}}}
+\newcommand{\RespShapeWell}{\widetilde\lambda_{\mathrm{br}}}
+\newcommand{\RespShapeEq}{\widetilde U_{\mathrm{br}}^{\ast}}
+\newcommand{\RespShapeIso}{\widetilde\eta_{\mathrm{br}}}
+\newcommand{\RespRawReadout}{\widehat q_{\mathrm{br}}}
+\newcommand{\RespRawRef}{\widehat U_{\mathrm{br}}^{\mathrm{ref}}}
+\newcommand{\RespRawCov}{\widehat\kappa_{\mathrm{br}}}
+\newcommand{\RespRawRelax}{\widehat\rho_{\mathrm{br}}}
+\newcommand{\RespRawWell}{\widehat\lambda_{\mathrm{br}}}
+\newcommand{\RespRawEq}{\widehat U_{\mathrm{br}}^{\ast}}
+\newcommand{\RespVacPhase}{\phi_{\mathrm{br}}}
+\newcommand{\CurvProfileCan}{F_{\mathrm{br}}^{\mathrm{can}}}
+\newcommand{\DownPkg}{\mathscr P_{\mathrm{down}}}
+\newcommand{\ShapeTuple}{\mathfrak S_{\mathrm{br}}}
+\newcommand{\ScaleMod}{s_{\mathrm{br}}}
+\newcommand{\PrimClass}{\mathfrak C_{\mathrm{br}}}
+\newcommand{\PrimRead}{r_{\mathrm{br}}}
+\newcommand{\PrimCovSlot}{a_{\mathrm{br}}^{\varphi}}
+\newcommand{\PrimRelaxSlot}{a_{\mathrm{br}}^{V}}
+\newcommand{\PrimKinetic}{\bm a_{\mathrm{br}}}
+\newcommand{\PrimWellSlot}{b_{\mathrm{br}}^{\lambda}}
+\newcommand{\PrimEqSlot}{b_{\mathrm{br}}^{U}}
+\newcommand{\PrimAnchor}{\bm b_{\mathrm{br}}}
+\newcommand{\LiftSector}{\mathfrak D_{\mathrm{br}}^{\mathrm{amp}}}
+\newcommand{\DeepReadAmp}{\xi_{\mathrm{br}}^{q}}
+\newcommand{\DeepCovAmp}{\xi_{\mathrm{br}}^{\varphi}}
+\newcommand{\DeepRelaxAmp}{\xi_{\mathrm{br}}^{V}}
+\newcommand{\DeepKinAmp}{\bm\xi_{\mathrm{br}}}
+\newcommand{\DeepWellAmp}{\zeta_{\mathrm{br}}^{\lambda}}
+\newcommand{\DeepEqAmp}{\zeta_{\mathrm{br}}^{U}}
+\newcommand{\DeepAnchorAmp}{\bm\zeta_{\mathrm{br}}}
+\newcommand{\DeepScaleAmp}{\varsigma_{\mathrm{br}}}
+\newcommand{\AmpMap}{\Pi_{\mathrm{amp}}}
+\newcommand{\PrimMap}{\Pi_{\mathrm{shape}}}
+\newcommand{\OriginSector}{\mathfrak D_{\mathrm{br}}^{\mathrm{ori}}}
+\newcommand{\AbsAmpSector}{\mathfrak M_{\mathrm{br}}}
+\newcommand{\PolaritySector}{\mathfrak P_{\mathrm{br}}}
+\newcommand{\AbsReadAmp}{\chi_{\mathrm{br}}^{q}}
+\newcommand{\AbsCovAmp}{\chi_{\mathrm{br}}^{\varphi}}
+\newcommand{\AbsRelaxAmp}{\chi_{\mathrm{br}}^{V}}
+\newcommand{\AbsKinAmp}{\bm\chi_{\mathrm{br}}}
+\newcommand{\AbsWellAmp}{\upsilon_{\mathrm{br}}^{\lambda}}
+\newcommand{\AbsEqAmp}{\upsilon_{\mathrm{br}}^{U}}
+\newcommand{\AbsAnchorAmp}{\bm\upsilon_{\mathrm{br}}}
+\newcommand{\AbsScaleAmp}{\omega_{\mathrm{br}}}
+\newcommand{\PolRead}{\epsilon_{\mathrm{br}}^{q}}
+\newcommand{\PolCov}{\epsilon_{\mathrm{br}}^{\varphi}}
+\newcommand{\PolRelax}{\epsilon_{\mathrm{br}}^{V}}
+\newcommand{\PolWell}{\delta_{\mathrm{br}}^{\lambda}}
+\newcommand{\PolEq}{\delta_{\mathrm{br}}^{U}}
+\newcommand{\PolScale}{\sigma_{\mathrm{br}}}
+\newcommand{\OriginMap}{\Pi_{\mathrm{ori}}}
+\newcommand{\DeepMap}{\Pi_{\mathrm{deep}}}
+\newcommand{\PairSector}{\mathfrak D_{\mathrm{br}}^{\mathrm{pair}}}
+\newcommand{\PairMap}{\Pi_{\mathrm{pair}}}
+\newcommand{\PairFiber}{\sim_{\mathrm{fib}}}
+\newcommand{\PairReadPlus}{Q_{\mathrm{br}}^{+}}
+\newcommand{\PairReadMinus}{Q_{\mathrm{br}}^{-}}
+\newcommand{\PairCovPlus}{\Phi_{\mathrm{br}}^{+}}
+\newcommand{\PairCovMinus}{\Phi_{\mathrm{br}}^{-}}
+\newcommand{\PairRelaxPlus}{\mathcal V_{\mathrm{br}}^{+}}
+\newcommand{\PairRelaxMinus}{\mathcal V_{\mathrm{br}}^{-}}
+\newcommand{\PairWellPlus}{\Lambda_{\mathrm{br}}^{+}}
+\newcommand{\PairWellMinus}{\Lambda_{\mathrm{br}}^{-}}
+\newcommand{\PairEqPlus}{\mathcal U_{\mathrm{br}}^{+}}
+\newcommand{\PairEqMinus}{\mathcal U_{\mathrm{br}}^{-}}
+\newcommand{\PairScalePlus}{\Omega_{\mathrm{br}}^{+}}
+\newcommand{\PairScaleMinus}{\Omega_{\mathrm{br}}^{-}}
+\newcommand{\GapRead}{\Delta Q_{\mathrm{br}}}
+\newcommand{\GapCov}{\Delta \Phi_{\mathrm{br}}}
+\newcommand{\GapRelax}{\Delta \mathcal V_{\mathrm{br}}}
+\newcommand{\GapWell}{\Delta \Lambda_{\mathrm{br}}}
+\newcommand{\GapEq}{\Delta \mathcal U_{\mathrm{br}}}
+\newcommand{\GapScale}{\Delta \Omega_{\mathrm{br}}}
+\newcommand{\MidFiberSector}{\mathfrak D_{\mathrm{br}}^{\mathrm{mid}}}
+\newcommand{\MidPairMap}{\Pi_{\mathrm{mid}}}
+\newcommand{\MidOriginMap}{\Pi_{\mathrm{mid,ori}}}
+\newcommand{\MidFiberRel}{\sim_{\mathrm{mid}}}
+\newcommand{\MidRead}{C_{q}}
+\newcommand{\MidCov}{C_{\varphi}}
+\newcommand{\MidRelax}{C_{V}}
+\newcommand{\MidWell}{C_{\lambda}}
+\newcommand{\MidEq}{C_{U}}
+\newcommand{\MidScale}{C_{\omega}}
+\newcommand{\FiberRead}{\Theta_{q}}
+\newcommand{\FiberCov}{\Theta_{\varphi}}
+\newcommand{\FiberRelax}{\Theta_{V}}
+\newcommand{\FiberWell}{\Theta_{\lambda}}
+\newcommand{\FiberEq}{\Theta_{U}}
+\newcommand{\FiberScale}{\Theta_{\omega}}
+\newcommand{\Rstar}{\mathbb R^{\times}}
+\newcommand{\FiberDom}{\mathbb I_{\mathrm{fib}}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Nonlocal Bridge Self-Response Off-Shell Profile-Selection Bridge-Order Orbit-Shape/Modulus Primitive-Class Absolute-Amplitude/Polarity Midpoint/Fiber Origin Note}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The benchmark exact-theory statement of \TheoryName{} remains fixed and is not reopened here. The overview-first exact-closure package is still the public front door. The present note acts only on the optional deeper derivational bridge, and it begins from the now-recorded absolute-amplitude/polarity origin note immediately below the amplitude-sector layer.
+
+That note already realized the positive absolute-amplitude block and discrete polarity data as the image of the unequal positive-pair sector. Its remaining honest burden was narrower. The positive-pair lifts were parameterized by midpoint data, but those midpoint variables and their associated internal fiber were left only implicitly recorded. The next disciplined manuscript step is therefore not another amplitude-sign discussion. It is to write the midpoint/fiber layer itself as the new deeper sector, define its map into the already-frozen absolute-amplitude/polarity layer, and check that the raw-orbit lift and the downstream package still do not change.
+
+This note performs exactly that step. The new deeper sector is the midpoint/fiber sector
+\[
+\MidFiberSector
+=
+\bigl(\mathbb R_{>0}\times\FiberDom\bigr)^{6},
+\qquad
+\FiberDom:=(-1,1)\setminus\{0\},
+\]
+with midpoint coordinates
+\[
+(\MidRead,\MidCov,\MidRelax,\MidWell,\MidEq,\MidScale)
+\]
+and signed fiber-fraction coordinates
+\[
+(\FiberRead,\FiberCov,\FiberRelax,\FiberWell,\FiberEq,\FiberScale).
+\]
+Its map into the unequal positive-pair sector is
+\[
+\PairReadPlus=\MidRead(1+\FiberRead),
+\qquad
+\PairReadMinus=\MidRead(1-\FiberRead),
+\]
+and similarly in the other five slots. This gives a canonical equivalence between the midpoint/fiber sector and the unequal positive-pair sector, with inverse
+\[
+\MidRead=\frac{\PairReadPlus+\PairReadMinus}{2},
+\qquad
+\FiberRead=\frac{\PairReadPlus-\PairReadMinus}{\PairReadPlus+\PairReadMinus},
+\]
+and similarly in the remaining slots.
+
+Composed with the frozen pair map, the new direct map into the oriented absolute-amplitude sector is
+\[
+\AbsReadAmp=2\MidRead\abs{\FiberRead},
+\qquad
+\PolRead=\operatorname{sgn}(\FiberRead),
+\]
+and likewise for the other five components. Thus the positive absolute amplitudes are no longer primitive either: they arise as midpoint-weighted fiber magnitudes, while the polarity labels arise as the signs of the signed fiber fractions. More sharply, once an oriented absolute-amplitude datum and a midpoint tuple are fixed, the fiber fractions are uniquely forced:
+\[
+\FiberRead=\frac{\PolRead\AbsReadAmp}{2\MidRead},
+\qquad \ldots \qquad
+\FiberScale=\frac{\PolScale\AbsScaleAmp}{2\MidScale}.
+\]
+So the residual freedom below the oriented absolute-amplitude layer is now isolated transparently as midpoint selection.
+
+Using the frozen maps exactly as already recorded, the note then proves four facts. First, the composite map into the signed amplitudes is simply
+\[
+(\DeepReadAmp,\DeepCovAmp,\DeepRelaxAmp,\DeepWellAmp,\DeepEqAmp,\DeepScaleAmp)
+=
+(2\MidRead\FiberRead,2\MidCov\FiberCov,2\MidRelax\FiberRelax,2\MidWell\FiberWell,2\MidEq\FiberEq,2\MidScale\FiberScale).
+\]
+Second, the same primitive class, the same readout block, the same ordered kinetic pair, the same radial anchor pair, and the same positive orbit modulus are recovered exactly by squaring those signed products. Third, the same raw-orbit lift, the same density/current block, the same primitive bridge-order block, the same phase-neutral minimizing branch, the same canonical profile, and the same dressed bridge map are recovered unchanged. Fourth, the only new relation visible at this level is the internal midpoint/fiber relation that keeps the six oriented products \(2C\Theta\) fixed. That relation does not identify distinct positive moduli and it introduces no vacuum-angle locking or angle quotient. Therefore the disciplined current verdict remains unchanged: the positive scale orbit is still a canonical-normalization orbit rather than a proved redundancy, and the global \(O(2)\) vacuum angle remains residual.
+
+The scope is deliberately narrow. This note does not claim that the midpoint/fiber sector is the final unique substrate microphysics. Its narrower positive result is that the previously implicit midpoint layer and its internal fiber are now written explicitly, constrained sharply, and shown to preserve the already-positive downstream package exactly.
+\end{abstract}
+
+\section{Introduction}
+
+The active repository no longer needs another bridge note in order to justify its public theory claim. The exact-closure sequence already presents \TheoryName{} as the disciplined exact relativistic theory statement built on the \Aether{} / \Aflow{} ontology, and that benchmark package remains the front-door reading order. The present note therefore does not strengthen the flagship theory claim. It acts only on the optional deeper derivational continuation beneath that fixed benchmark.
+
+On that optional continuation line the latest burden is now even narrower. The amplitude-sector origin note stopped treating the six signed amplitudes as primitive by replacing them with positive absolute amplitudes and discrete polarity data. The absolute-amplitude/polarity origin note then stopped treating those oriented data as primitive by realizing them as the image of six unequal positive pairs. But that last note left one transparent deeper layer only partly unpacked: the positive-pair lifts were parameterized by midpoint data, and those midpoint data together with their internal fiber were not yet written as the next explicit sector.
+
+That is the exact burden of the present manuscript. It does not reopen the signed-amplitude discussion, it does not reopen the pair-gap formulas, and it does not alter the already-positive raw-orbit lift or downstream package. Instead it makes the midpoint/fiber layer itself explicit, proves that the unequal positive-pair sector is canonically equivalent to it, proves that the map into the oriented absolute-amplitude sector is exactly the midpoint-weighted signed-fiber map, and then checks that the entire already-frozen chain into the signed amplitudes, the primitive class, the raw orbit, and the downstream package remains unchanged.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+This note stays strictly inside that boundary. Its positive claim is not that the final unique substrate completion has already been found. Its positive claim is narrower: the midpoint/fiber data implicitly present in the unequal positive-pair sector can now be written explicitly, factored cleanly through the already-recorded absolute-amplitude/polarity layer, and shown not to disturb the already-positive downstream package.
+
+\section{Frozen Absolute-Amplitude/Polarity and Positive-Pair Layers}
+
+\begin{definition}[Frozen oriented absolute-amplitude sector]
+\label{def:frozenorigin}
+The absolute-amplitude/polarity origin note fixed the oriented absolute-amplitude sector
+\begin{equation}
+\OriginSector
+:=
+\AbsAmpSector\times\PolaritySector,
+\label{eq:originsector}
+\end{equation}
+where
+\begin{equation}
+\AbsAmpSector
+:=
+\mathbb R_{>0}\times(\mathbb R_{>0})^{2}\times(\mathbb R_{>0})^{2}\times\mathbb R_{>0}
+\label{eq:abssector}
+\end{equation}
+has coordinates
+\begin{equation}
+(\AbsReadAmp,\AbsKinAmp,\AbsAnchorAmp,\AbsScaleAmp)
+=
+(\AbsReadAmp,(\AbsCovAmp,\AbsRelaxAmp),(\AbsWellAmp,\AbsEqAmp),\AbsScaleAmp),
+\label{eq:abscoords}
+\end{equation}
+and
+\begin{equation}
+\PolaritySector
+:=
+\{\pm1\}\times\{\pm1\}^{2}\times\{\pm1\}^{2}\times\{\pm1\}
+\label{eq:polsector}
+\end{equation}
+has coordinates
+\begin{equation}
+(\PolRead,\PolCov,\PolRelax,\PolWell,\PolEq,\PolScale).
+\label{eq:polcoords}
+\end{equation}
+The frozen map into the signed amplitude sector
+\begin{equation}
+\LiftSector
+:=
+\Rstar\times(\Rstar)^{2}\times(\Rstar)^{2}\times\Rstar
+\label{eq:liftsector}
+\end{equation}
+is
+\begin{equation}
+\OriginMap:\OriginSector\longrightarrow\LiftSector
+\label{eq:originmap}
+\end{equation}
+with
+\begin{align}
+\OriginMap(\AbsReadAmp,\AbsKinAmp,\AbsAnchorAmp,\AbsScaleAmp;\PolRead,\PolCov,\PolRelax,\PolWell,\PolEq,\PolScale)
+=\;&
+(\PolRead\AbsReadAmp,\PolCov\AbsCovAmp,\PolRelax\AbsRelaxAmp,
+\nonumber\\
+&\PolWell\AbsWellAmp,\PolEq\AbsEqAmp,\PolScale\AbsScaleAmp).
+\label{eq:originmapexplicit}
+\end{align}
+\end{definition}
+
+\begin{definition}[Frozen unequal positive-pair sector]
+\label{def:pairsector}
+The deeper sector recorded in the previous note is
+\begin{equation}
+\PairSector
+:=
+\left\{
+\begin{aligned}
+&(\PairReadPlus,\PairReadMinus,\PairCovPlus,\PairCovMinus,\PairRelaxPlus,\PairRelaxMinus,
+\PairWellPlus,\PairWellMinus,\PairEqPlus,\PairEqMinus,\PairScalePlus,\PairScaleMinus)
+\in(\mathbb R_{>0}^{2})^{6}
+\\
+&\hspace{3.8em}:\GapRead,\GapCov,\GapRelax,\GapWell,\GapEq,\GapScale\neq0
+\end{aligned}
+\right\},
+\label{eq:pairsector}
+\end{equation}
+where
+\begin{equation}
+\GapRead=\PairReadPlus-\PairReadMinus,
+\qquad
+\GapCov=\PairCovPlus-\PairCovMinus,
+\qquad
+\GapRelax=\PairRelaxPlus-\PairRelaxMinus,
+\label{eq:gapsA}
+\end{equation}
+\begin{equation}
+\GapWell=\PairWellPlus-\PairWellMinus,
+\qquad
+\GapEq=\PairEqPlus-\PairEqMinus,
+\qquad
+\GapScale=\PairScalePlus-\PairScaleMinus.
+\label{eq:gapsB}
+\end{equation}
+Its frozen map into the oriented absolute-amplitude sector is
+\begin{equation}
+\PairMap:\PairSector\longrightarrow\OriginSector
+\label{eq:pairmap}
+\end{equation}
+given componentwise by
+\begin{equation}
+\AbsReadAmp=\abs{\GapRead},
+\qquad
+\AbsCovAmp=\abs{\GapCov},
+\qquad
+\AbsRelaxAmp=\abs{\GapRelax},
+\label{eq:pairabsA}
+\end{equation}
+\begin{equation}
+\AbsWellAmp=\abs{\GapWell},
+\qquad
+\AbsEqAmp=\abs{\GapEq},
+\qquad
+\AbsScaleAmp=\abs{\GapScale},
+\label{eq:pairabsB}
+\end{equation}
+and
+\begin{equation}
+\PolRead=\operatorname{sgn}(\GapRead),
+\qquad
+\PolCov=\operatorname{sgn}(\GapCov),
+\qquad
+\PolRelax=\operatorname{sgn}(\GapRelax),
+\label{eq:pairpolA}
+\end{equation}
+\begin{equation}
+\PolWell=\operatorname{sgn}(\GapWell),
+\qquad
+\PolEq=\operatorname{sgn}(\GapEq),
+\qquad
+\PolScale=\operatorname{sgn}(\GapScale).
+\label{eq:pairpolB}
+\end{equation}
+\end{definition}
+
+\begin{definition}[Frozen maps below the positive-pair layer]
+\label{def:frozenmaps}
+The frozen amplitude lift into the primitive class
+\begin{equation}
+\PrimClass
+:=
+(\PrimRead,\PrimKinetic,\PrimAnchor,\ScaleMod)
+\in
+\mathbb R_{>0}\times\mathbb R_{>0}^{2}\times\mathbb R_{>0}^{2}\times\mathbb R_{>0}
+\label{eq:primclass}
+\end{equation}
+is
+\begin{equation}
+\AmpMap:\LiftSector\longrightarrow\PrimClass
+\label{eq:ampmap}
+\end{equation}
+given by
+\begin{equation}
+\AmpMap(\DeepReadAmp,\DeepKinAmp,\DeepAnchorAmp,\DeepScaleAmp)
+=
+\bigl(
+(\DeepReadAmp)^{2},
+((\DeepCovAmp)^{2},(\DeepRelaxAmp)^{2}),
+((\DeepWellAmp)^{2},(\DeepEqAmp)^{2}),
+(\DeepScaleAmp)^{2}
+\bigr).
+\label{eq:ampmapexplicit}
+\end{equation}
+The frozen setup map remains
+\begin{equation}
+\PrimMap(\PrimRead,\PrimKinetic,\PrimAnchor,\ScaleMod)
+=
+(\RespShapeReadout,\RespShapeCov,\RespShapeRelax,\RespShapeWell,\RespShapeEq,\ScaleMod)
+\label{eq:primmap}
+\end{equation}
+with
+\begin{equation}
+\RespShapeReadout=\PrimRead,
+\qquad
+\RespShapeCov=\PrimCovSlot,
+\qquad
+\RespShapeRelax=\PrimRelaxSlot,
+\label{eq:shapeA}
+\end{equation}
+\begin{equation}
+\RespShapeWell=\PrimWellSlot,
+\qquad
+\RespShapeEq=\PrimEqSlot,
+\label{eq:shapeB}
+\end{equation}
+and the frozen raw-orbit lift remains
+\begin{equation}
+\RespRawReadout=\ScaleMod\,\RespShapeReadout,
+\qquad
+\RespRawRef=\ScaleMod,
+\qquad
+\RespRawCov=\ScaleMod^{2}\RespShapeCov,
+\label{eq:rawliftA}
+\end{equation}
+\begin{equation}
+\RespRawRelax=\ScaleMod^{2}\RespShapeRelax,
+\qquad
+\RespRawWell=\RespShapeWell,
+\qquad
+\RespRawEq=\ScaleMod\,\RespShapeEq.
+\label{eq:rawliftB}
+\end{equation}
+\end{definition}
+
+\begin{definition}[Frozen downstream package]
+\label{def:frozendown}
+At the present derivational stage, the downstream package \(\DownPkg\) means the same already-recorded density/current block, the same primitive bridge-order block, the same phase-neutral minimizing branch, the same canonical profile
+\begin{equation}
+\CurvProfileCan(x)=1+\RespShapeEq\,x^2
+=
+1+\frac{\RespRawEq}{\RespRawRef}x^2,
+\label{eq:profile}
+\end{equation}
+and the same dressed bridge map, all understood to depend on deeper data only through the induced pair \((\ShapeTuple,\ScaleMod)\), the raw lift \eqref{eq:rawliftA}--\eqref{eq:rawliftB}, and the same minimizing branch.
+\end{definition}
+
+\begin{remark}
+Definitions \ref{def:frozenorigin}--\ref{def:frozendown} are frozen input in this note. The present manuscript does not alter the oriented absolute-amplitude layer, the unequal positive-pair layer, or any of the already-positive downstream formulas. It acts only below them.
+\end{remark}
+
+\section{The Midpoint/Fiber Sector}
+
+\begin{definition}[Midpoint/fiber domain]
+\label{def:fiberdom}
+Define
+\begin{equation}
+\FiberDom:=(-1,1)\setminus\{0\}.
+\label{eq:fiberdom}
+\end{equation}
+Elements of \(\FiberDom\) will be called signed fiber fractions.
+\end{definition}
+
+\begin{definition}[Midpoint/fiber sector]
+\label{def:midsector}
+The new deeper sector chosen in this note is
+\begin{equation}
+\MidFiberSector
+:=
+\bigl(\mathbb R_{>0}\times\FiberDom\bigr)^{6},
+\label{eq:midsector}
+\end{equation}
+with midpoint tuple
+\begin{equation}
+(\MidRead,\MidCov,\MidRelax,\MidWell,\MidEq,\MidScale)\in(\mathbb R_{>0})^{6}
+\label{eq:midcoords}
+\end{equation}
+and signed fiber-fraction tuple
+\begin{equation}
+(\FiberRead,\FiberCov,\FiberRelax,\FiberWell,\FiberEq,\FiberScale)\in\FiberDom^{6}.
+\label{eq:fibercoords}
+\end{equation}
+\end{definition}
+
+\begin{definition}[Map into the unequal positive-pair sector]
+\label{def:midpairmap}
+Define
+\begin{equation}
+\MidPairMap:\MidFiberSector\longrightarrow(\mathbb R_{>0}^{2})^{6}
+\label{eq:midpairmap}
+\end{equation}
+by
+\begin{align}
+\PairReadPlus&=\MidRead(1+\FiberRead),
+&
+\PairReadMinus&=\MidRead(1-\FiberRead),
+\nonumber\\
+\PairCovPlus&=\MidCov(1+\FiberCov),
+&
+\PairCovMinus&=\MidCov(1-\FiberCov),
+\nonumber\\
+\PairRelaxPlus&=\MidRelax(1+\FiberRelax),
+&
+\PairRelaxMinus&=\MidRelax(1-\FiberRelax),
+\label{eq:midpairsA}
+\end{align}
+\begin{align}
+\PairWellPlus&=\MidWell(1+\FiberWell),
+&
+\PairWellMinus&=\MidWell(1-\FiberWell),
+\nonumber\\
+\PairEqPlus&=\MidEq(1+\FiberEq),
+&
+\PairEqMinus&=\MidEq(1-\FiberEq),
+\nonumber\\
+\PairScalePlus&=\MidScale(1+\FiberScale),
+&
+\PairScaleMinus&=\MidScale(1-\FiberScale).
+\label{eq:midpairsB}
+\end{align}
+\end{definition}
+
+\begin{proposition}[The midpoint/fiber map lands in the unequal positive-pair sector]
+\label{prop:lands}
+The map \(\MidPairMap\) is well defined and takes values in \(\PairSector\).
+\end{proposition}
+
+\begin{proof}
+Let a point of \(\MidFiberSector\) be given. Since each midpoint is positive and each signed fiber fraction lies in \((-1,1)\), every factor \(1\pm\Theta\) is strictly positive. Hence every pair entry in \eqref{eq:midpairsA}--\eqref{eq:midpairsB} is strictly positive.
+
+Moreover,
+\begin{equation}
+\GapRead=2\MidRead\FiberRead,
+\qquad
+\GapCov=2\MidCov\FiberCov,
+\qquad
+\GapRelax=2\MidRelax\FiberRelax,
+\label{eq:midgapsA}
+\end{equation}
+\begin{equation}
+\GapWell=2\MidWell\FiberWell,
+\qquad
+\GapEq=2\MidEq\FiberEq,
+\qquad
+\GapScale=2\MidScale\FiberScale.
+\label{eq:midgapsB}
+\end{equation}
+Because every midpoint is positive and every signed fiber fraction is nonzero, these six gaps are all nonzero. Therefore the image lies in \(\PairSector\).
+\end{proof}
+
+\begin{proposition}[The midpoint/fiber sector is canonically equivalent to the unequal positive-pair sector]
+\label{prop:bijection}
+The map \(\MidPairMap:\MidFiberSector\to\PairSector\) is a bijection. Its inverse is given by
+\begin{equation}
+\MidRead=\frac{\PairReadPlus+\PairReadMinus}{2},
+\qquad
+\MidCov=\frac{\PairCovPlus+\PairCovMinus}{2},
+\qquad
+\MidRelax=\frac{\PairRelaxPlus+\PairRelaxMinus}{2},
+\label{eq:invA}
+\end{equation}
+\begin{equation}
+\MidWell=\frac{\PairWellPlus+\PairWellMinus}{2},
+\qquad
+\MidEq=\frac{\PairEqPlus+\PairEqMinus}{2},
+\qquad
+\MidScale=\frac{\PairScalePlus+\PairScaleMinus}{2},
+\label{eq:invB}
+\end{equation}
+and
+\begin{equation}
+\FiberRead=\frac{\PairReadPlus-\PairReadMinus}{\PairReadPlus+\PairReadMinus},
+\qquad
+\FiberCov=\frac{\PairCovPlus-\PairCovMinus}{\PairCovPlus+\PairCovMinus},
+\qquad
+\FiberRelax=\frac{\PairRelaxPlus-\PairRelaxMinus}{\PairRelaxPlus+\PairRelaxMinus},
+\label{eq:invC}
+\end{equation}
+\begin{equation}
+\FiberWell=\frac{\PairWellPlus-\PairWellMinus}{\PairWellPlus+\PairWellMinus},
+\qquad
+\FiberEq=\frac{\PairEqPlus-\PairEqMinus}{\PairEqPlus+\PairEqMinus},
+\qquad
+\FiberScale=\frac{\PairScalePlus-\PairScaleMinus}{\PairScalePlus+\PairScaleMinus}.
+\label{eq:invD}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Let a point of \(\PairSector\) be given. Every pair sum in \eqref{eq:invA}--\eqref{eq:invD} is strictly positive because every pair entry is strictly positive, so the midpoint coordinates are well defined and positive. Since \(\PairReadPlus\neq\PairReadMinus\) and both are positive,
+\[
+\abs{\FiberRead}
+=
+\frac{\abs{\PairReadPlus-\PairReadMinus}}{\PairReadPlus+\PairReadMinus}
+<1,
+\qquad
+\FiberRead\neq0.
+\]
+The same argument applies in the remaining five slots, so the inverse formulas indeed land in \(\MidFiberSector\).
+
+Substituting \eqref{eq:invA}--\eqref{eq:invD} into \eqref{eq:midpairsA}--\eqref{eq:midpairsB} recovers the original pair entries, while substituting \eqref{eq:midpairsA}--\eqref{eq:midpairsB} into \eqref{eq:invA}--\eqref{eq:invD} recovers the original midpoint and signed fiber-fraction data. Therefore the two maps are inverse to one another.
+\end{proof}
+
+\begin{corollary}[The unequal positive-pair sector is not primitive]
+\label{cor:notprimitive}
+At the level of the present note, the unequal positive-pair sector \(\PairSector\) is not primitive. It is canonically the image of the deeper midpoint/fiber sector \(\MidFiberSector\) under the bijection \(\MidPairMap\).
+\end{corollary}
+
+\begin{proof}
+This is exactly Proposition \ref{prop:bijection}.
+\end{proof}
+
+\begin{remark}
+The previous note left the midpoint variables as free positive parameters inside each pair-fiber class. The present note makes that layer explicit and adds the normalized signed offsets \(\Theta\) as the complementary fiber coordinates. The gain is not a new downstream formula. The gain is that the internal geometry of the positive-pair layer is now written transparently.
+\end{remark}
+
+\section{Map Into the Absolute-Amplitude/Polarity Layer}
+
+\begin{definition}[Direct midpoint/fiber map into the oriented absolute-amplitude sector]
+\label{def:midorigin}
+Define
+\begin{equation}
+\MidOriginMap:=\PairMap\circ\MidPairMap.
+\label{eq:midorigin}
+\end{equation}
+\end{definition}
+
+\begin{theorem}[The absolute-amplitude/polarity layer is generated by midpoint-weighted fiber data]
+\label{thm:midorigin}
+The map \(\MidOriginMap:\MidFiberSector\to\OriginSector\) is given explicitly by
+\begin{equation}
+\AbsReadAmp=2\MidRead\abs{\FiberRead},
+\qquad
+\AbsCovAmp=2\MidCov\abs{\FiberCov},
+\qquad
+\AbsRelaxAmp=2\MidRelax\abs{\FiberRelax},
+\label{eq:midoriginA}
+\end{equation}
+\begin{equation}
+\AbsWellAmp=2\MidWell\abs{\FiberWell},
+\qquad
+\AbsEqAmp=2\MidEq\abs{\FiberEq},
+\qquad
+\AbsScaleAmp=2\MidScale\abs{\FiberScale},
+\label{eq:midoriginB}
+\end{equation}
+and
+\begin{equation}
+\PolRead=\operatorname{sgn}(\FiberRead),
+\qquad
+\PolCov=\operatorname{sgn}(\FiberCov),
+\qquad
+\PolRelax=\operatorname{sgn}(\FiberRelax),
+\label{eq:midoriginC}
+\end{equation}
+\begin{equation}
+\PolWell=\operatorname{sgn}(\FiberWell),
+\qquad
+\PolEq=\operatorname{sgn}(\FiberEq),
+\qquad
+\PolScale=\operatorname{sgn}(\FiberScale).
+\label{eq:midoriginD}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+By Proposition \ref{prop:lands}, the gaps of the pair image are exactly \eqref{eq:midgapsA}--\eqref{eq:midgapsB}. Applying the frozen pair map \eqref{eq:pairabsA}--\eqref{eq:pairpolB} gives
+\[
+\AbsReadAmp=\abs{\GapRead}=\abs{2\MidRead\FiberRead}=2\MidRead\abs{\FiberRead},
+\qquad
+\PolRead=\operatorname{sgn}(\GapRead)=\operatorname{sgn}(\FiberRead),
+\]
+because each midpoint is positive. The remaining five slots are identical.
+\end{proof}
+
+\begin{proposition}[Every oriented absolute-amplitude datum admits many midpoint/fiber lifts]
+\label{prop:surjective}
+The map \(\MidOriginMap\) is surjective. More precisely, let
+\[
+(\AbsReadAmp,\AbsCovAmp,\AbsRelaxAmp,\AbsWellAmp,\AbsEqAmp,\AbsScaleAmp;
+\PolRead,\PolCov,\PolRelax,\PolWell,\PolEq,\PolScale)\in\OriginSector.
+\]
+Choose any midpoint tuple
+\[
+(\MidRead,\MidCov,\MidRelax,\MidWell,\MidEq,\MidScale)\in(\mathbb R_{>0})^{6}
+\]
+satisfying
+\begin{equation}
+\MidRead>\frac{\AbsReadAmp}{2},
+\quad
+\MidCov>\frac{\AbsCovAmp}{2},
+\quad
+\MidRelax>\frac{\AbsRelaxAmp}{2},
+\label{eq:midineqA}
+\end{equation}
+\begin{equation}
+\MidWell>\frac{\AbsWellAmp}{2},
+\quad
+\MidEq>\frac{\AbsEqAmp}{2},
+\quad
+\MidScale>\frac{\AbsScaleAmp}{2}.
+\label{eq:midineqB}
+\end{equation}
+Then the unique fiber-fraction tuple compatible with those midpoint choices is
+\begin{equation}
+\FiberRead=\frac{\PolRead\AbsReadAmp}{2\MidRead},
+\qquad
+\FiberCov=\frac{\PolCov\AbsCovAmp}{2\MidCov},
+\qquad
+\FiberRelax=\frac{\PolRelax\AbsRelaxAmp}{2\MidRelax},
+\label{eq:forcedfiberA}
+\end{equation}
+\begin{equation}
+\FiberWell=\frac{\PolWell\AbsWellAmp}{2\MidWell},
+\qquad
+\FiberEq=\frac{\PolEq\AbsEqAmp}{2\MidEq},
+\qquad
+\FiberScale=\frac{\PolScale\AbsScaleAmp}{2\MidScale},
+\label{eq:forcedfiberB}
+\end{equation}
+and these formulas define a point of \(\MidFiberSector\) mapping back to the chosen element of \(\OriginSector\).
+\end{proposition}
+
+\begin{proof}
+Because each midpoint strictly exceeds half the corresponding positive absolute amplitude, each ratio in \eqref{eq:forcedfiberA}--\eqref{eq:forcedfiberB} has absolute value strictly less than \(1\). Because each absolute amplitude is strictly positive and each polarity is in \(\{\pm1\}\), each ratio is also nonzero. Thus the resulting tuple lies in \(\FiberDom^{6}\), so together with the chosen midpoint tuple it defines a point of \(\MidFiberSector\).
+
+Substituting \eqref{eq:forcedfiberA}--\eqref{eq:forcedfiberB} into \eqref{eq:midoriginA}--\eqref{eq:midoriginD} gives back exactly the prescribed absolute amplitudes and polarity labels. This proves existence.
+
+For uniqueness with the midpoint tuple fixed, Theorem \ref{thm:midorigin} already forces
+\[
+\abs{\FiberRead}=\frac{\AbsReadAmp}{2\MidRead},
+\qquad
+\operatorname{sgn}(\FiberRead)=\PolRead,
+\]
+and similarly in the remaining five slots. These two conditions determine each signed fiber fraction uniquely, giving exactly \eqref{eq:forcedfiberA}--\eqref{eq:forcedfiberB}.
+\end{proof}
+
+\begin{corollary}[Below the oriented absolute-amplitude layer, the residual freedom is midpoint selection]
+\label{cor:midpoints}
+Fix an element of \(\OriginSector\). Then the compatible midpoint/fiber lifts are parameterized exactly by the six positive midpoint choices satisfying \eqref{eq:midineqA}--\eqref{eq:midineqB}; once those midpoint values are fixed, the fiber fractions are uniquely determined by \eqref{eq:forcedfiberA}--\eqref{eq:forcedfiberB}.
+\end{corollary}
+
+\begin{proof}
+This is the existence-and-uniqueness statement of Proposition \ref{prop:surjective}.
+\end{proof}
+
+\begin{remark}
+Corollary \ref{cor:midpoints} is the sharpest positive gain of the present note. The earlier note exhibited the midpoint variables as free parameters. The present note shows that after passing to normalized signed fiber fractions, the fiber coordinates are no longer additional independent freedom once the oriented absolute-amplitude datum and midpoint tuple are fixed. At this level the honest unresolved freedom is therefore the midpoint selection itself.
+\end{remark}
+
+\section{Composite Map Into the Signed Amplitudes and Frozen Interface}
+
+\begin{theorem}[The signed amplitudes are the midpoint-weighted signed fiber products]
+\label{thm:signed}
+The composite map \(\OriginMap\circ\MidOriginMap:\MidFiberSector\to\LiftSector\) is
+\begin{equation}
+\DeepReadAmp=2\MidRead\FiberRead,
+\qquad
+\DeepCovAmp=2\MidCov\FiberCov,
+\qquad
+\DeepRelaxAmp=2\MidRelax\FiberRelax,
+\label{eq:signedA}
+\end{equation}
+\begin{equation}
+\DeepWellAmp=2\MidWell\FiberWell,
+\qquad
+\DeepEqAmp=2\MidEq\FiberEq,
+\qquad
+\DeepScaleAmp=2\MidScale\FiberScale.
+\label{eq:signedB}
+\end{equation}
+Equivalently, through \(\MidPairMap\) the signed amplitudes are exactly the pair gaps \eqref{eq:midgapsA}--\eqref{eq:midgapsB}.
+\end{theorem}
+
+\begin{proof}
+Each component of \(\OriginMap\circ\MidOriginMap\) is of the form
+\[
+\operatorname{sgn}(\Theta)\,2C\abs{\Theta}=2C\Theta
+\]
+because \(C>0\). Substituting \eqref{eq:midoriginA}--\eqref{eq:midoriginD} into \eqref{eq:originmapexplicit} therefore yields \eqref{eq:signedA}--\eqref{eq:signedB}. The equivalence with the pair-gap formulas follows from \eqref{eq:midgapsA}--\eqref{eq:midgapsB}.
+\end{proof}
+
+\begin{definition}[Composite map into the primitive class and orbit-shape/modulus data]
+\label{def:deepmap}
+Define
+\begin{equation}
+\DeepMap
+:=
+\PrimMap\circ\AmpMap\circ\OriginMap\circ\MidOriginMap.
+\label{eq:deepmap}
+\end{equation}
+Explicitly, the primitive-class slots become
+\begin{equation}
+\PrimRead=(2\MidRead\FiberRead)^{2},
+\qquad
+\PrimCovSlot=(2\MidCov\FiberCov)^{2},
+\qquad
+\PrimRelaxSlot=(2\MidRelax\FiberRelax)^{2},
+\label{eq:primmidA}
+\end{equation}
+\begin{equation}
+\PrimWellSlot=(2\MidWell\FiberWell)^{2},
+\qquad
+\PrimEqSlot=(2\MidEq\FiberEq)^{2},
+\qquad
+\ScaleMod=(2\MidScale\FiberScale)^{2},
+\label{eq:primmidB}
+\end{equation}
+and hence
+\begin{equation}
+\RespShapeReadout=(2\MidRead\FiberRead)^{2},
+\qquad
+\RespShapeCov=(2\MidCov\FiberCov)^{2},
+\qquad
+\RespShapeRelax=(2\MidRelax\FiberRelax)^{2},
+\label{eq:shapemidA}
+\end{equation}
+\begin{equation}
+\RespShapeWell=(2\MidWell\FiberWell)^{2},
+\qquad
+\RespShapeEq=(2\MidEq\FiberEq)^{2},
+\qquad
+\ScaleMod=(2\MidScale\FiberScale)^{2}.
+\label{eq:shapemidB}
+\end{equation}
+\end{definition}
+
+\begin{corollary}[Same readout block, ordered kinetic pair, radial anchor pair, and positive orbit modulus]
+\label{cor:blockmap}
+Under \(\DeepMap\), the frozen interface blocks are recovered as
+\begin{enumerate}
+    \item the readout block
+    \[
+    \RespShapeReadout=(2\MidRead\FiberRead)^{2};
+    \]
+    \item the ordered kinetic pair
+    \[
+    (\RespShapeCov,\RespShapeRelax)=((2\MidCov\FiberCov)^{2},(2\MidRelax\FiberRelax)^{2});
+    \]
+    \item the radial anchor pair
+    \[
+    (\RespShapeWell,\RespShapeEq)=((2\MidWell\FiberWell)^{2},(2\MidEq\FiberEq)^{2});
+    \]
+    \item the positive orbit modulus
+    \[
+    \ScaleMod=(2\MidScale\FiberScale)^{2}.
+    \]
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+This is exactly the explicit content of Definition \ref{def:deepmap}.
+\end{proof}
+
+\begin{remark}
+Theorem \ref{thm:signed} and Corollary \ref{cor:blockmap} isolate the exact gain of the present note. The oriented absolute-amplitude data are no longer primitive, the unequal positive-pair sector is no longer primitive, and yet the frozen interface remains exactly the same because it still sees only the six signed products \(2C\Theta\) through their squares.
+\end{remark}
+
+\section{Same Raw-Orbit Lift and Same Downstream Package}
+
+\begin{theorem}[The raw-orbit lift is unchanged]
+\label{thm:rawlift}
+Composing \(\DeepMap\) with the frozen raw lift \eqref{eq:rawliftA}--\eqref{eq:rawliftB} yields exactly the same raw orbit as in the amplitude-lift, amplitude-sector, and absolute-amplitude/polarity notes. In the present variables,
+\begin{equation}
+\RespRawReadout=(4\MidScale\MidRead\FiberScale\FiberRead)^{2},
+\qquad
+\RespRawRef=(2\MidScale\FiberScale)^{2},
+\qquad
+\RespRawCov=(4\MidScale\MidCov\FiberScale\FiberCov)^{2},
+\label{eq:rawmidA}
+\end{equation}
+\begin{equation}
+\RespRawRelax=(4\MidScale\MidRelax\FiberScale\FiberRelax)^{2},
+\qquad
+\RespRawWell=(2\MidWell\FiberWell)^{2},
+\qquad
+\RespRawEq=(4\MidScale\MidEq\FiberScale\FiberEq)^{2}.
+\label{eq:rawmidB}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Insert \eqref{eq:shapemidA}--\eqref{eq:shapemidB} into the raw lift \eqref{eq:rawliftA}--\eqref{eq:rawliftB}. This gives
+\[
+\RespRawReadout=(2\MidScale\FiberScale)^{2}(2\MidRead\FiberRead)^{2}
+=(4\MidScale\MidRead\FiberScale\FiberRead)^{2},
+\]
+\[
+\RespRawRef=(2\MidScale\FiberScale)^{2},
+\qquad
+\RespRawCov=(2\MidScale\FiberScale)^{2}(2\MidCov\FiberCov)^{2}
+=(4\MidScale\MidCov\FiberScale\FiberCov)^{2},
+\]
+\[
+\RespRawRelax=(2\MidScale\FiberScale)^{2}(2\MidRelax\FiberRelax)^{2}
+=(4\MidScale\MidRelax\FiberScale\FiberRelax)^{2},
+\]
+\[
+\RespRawWell=(2\MidWell\FiberWell)^{2},
+\qquad
+\RespRawEq=(2\MidScale\FiberScale)^{2}(2\MidEq\FiberEq)^{2}
+=(4\MidScale\MidEq\FiberScale\FiberEq)^{2}.
+\]
+These are exactly \eqref{eq:rawmidA}--\eqref{eq:rawmidB}. By Theorem \ref{thm:signed}, they are the same formulas already recorded one layer up, rewritten in midpoint/fiber variables.
+\end{proof}
+
+\begin{definition}[Induced orbit-level isotropic coefficient]
+\label{def:isocoeff}
+The induced orbit-level isotropic coefficient is
+\begin{equation}
+\RespShapeIso
+:=
+\frac{\RespShapeCov\,\RespShapeRelax}{\RespShapeCov+\RespShapeRelax}
+=
+\frac{(2\MidCov\FiberCov)^{2}(2\MidRelax\FiberRelax)^{2}}{(2\MidCov\FiberCov)^{2}+(2\MidRelax\FiberRelax)^{2}}.
+\label{eq:iso}
+\end{equation}
+\end{definition}
+
+\begin{theorem}[Same phase-neutral minimizing branch]
+\label{thm:branch}
+The orbit-level energy induced by Definition \ref{def:deepmap} is the same frozen-interface energy as in the setup, amplitude-lift, amplitude-sector, and absolute-amplitude/polarity notes, now with coefficients \eqref{eq:shapemidA}--\eqref{eq:shapemidB}. Its distinguished minimizing constant branch is therefore
+\begin{equation}
+\ScaleMod(x)\equiv(2\MidScale\FiberScale)^{2},
+\qquad
+U(x)\equiv(4\MidScale\MidEq\FiberScale\FiberEq)^{2},
+\qquad
+V(x)\equiv0,
+\qquad
+\RespVacPhase(x)\equiv\phi_{0},
+\label{eq:branch}
+\end{equation}
+for arbitrary constant \(\phi_{0}\in\mathbb R/2\pi\mathbb Z\). In particular, the minimizing branch remains phase-neutral.
+\end{theorem}
+
+\begin{proof}
+Definition \ref{def:deepmap} produces exactly the same orbit-shape coefficients and positive modulus as the previous note because those coefficients depended there only on the signed amplitudes through their squares and Theorem \ref{thm:signed} identifies those signed amplitudes with the present midpoint-weighted fiber products. Theorem \ref{thm:rawlift} shows that the raw-orbit lift is also unchanged. The minimizing-family computation in the frozen orbit-level energy therefore gives exactly the same constant branch as before, which becomes \eqref{eq:branch} after substitution. Because \(\phi_{0}\) remains arbitrary and constant while \(V\equiv0\), the branch is still phase-neutral.
+\end{proof}
+
+\begin{theorem}[Same downstream density/current block, primitive bridge-order block, canonical profile, and dressed bridge map]
+\label{thm:downstream}
+For the deeper sector \(\MidFiberSector\), the downstream package \(\DownPkg\) is recovered unchanged. In particular:
+\begin{enumerate}
+    \item the same downstream density/current block is recovered;
+    \item the same primitive bridge-order block is recovered;
+    \item the same phase-neutral minimizing branch of Theorem \ref{thm:branch} is recovered;
+    \item the same canonical profile is recovered, now written as
+    \begin{equation}
+    \CurvProfileCan(x)
+    =
+    1+\RespShapeEq\,x^{2}
+    =
+    1+(2\MidEq\FiberEq)^{2}x^{2}
+    =
+    1+\frac{\RespRawEq}{\RespRawRef}x^{2};
+    \label{eq:profilemid}
+    \end{equation}
+    \item the same dressed bridge map is recovered.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Definition \ref{def:deepmap} shows that the present deeper sector feeds the frozen interface only through the induced pair \((\ShapeTuple,\ScaleMod)\). Theorem \ref{thm:rawlift} shows that the same raw tuple is then generated. Theorem \ref{thm:branch} shows that the same phase-neutral minimizing branch survives. By Definition \ref{def:frozendown}, all recorded downstream constructions depend on deeper data only through exactly those objects. Therefore every component of \(\DownPkg\) remains unchanged.
+
+The canonical profile formula \eqref{eq:profilemid} is immediate from \(\RespShapeEq=(2\MidEq\FiberEq)^{2}\) and \(\RespRawEq/\RespRawRef=\RespShapeEq\).
+\end{proof}
+
+\begin{remark}
+Theorem \ref{thm:downstream} is the exact reason the present note remains disciplined. It deepens the origin of the unequal positive-pair layer itself without trying to create novelty by rewriting any formula that was already fixed positively downstream.
+\end{remark}
+
+\section{What Changes and What Does Not}
+
+\begin{definition}[Midpoint/fiber relation]
+\label{def:midrel}
+Define an equivalence relation \(\MidFiberRel\) on \(\MidFiberSector\) by
+\begin{equation}
+z\MidFiberRel z'
+\quad\Longleftrightarrow\quad
+\MidOriginMap(z)=\MidOriginMap(z').
+\label{eq:midrel}
+\end{equation}
+Equivalently, \(z\MidFiberRel z'\) if and only if the six positive products and six signs agree:
+\begin{equation}
+2\MidRead\abs{\FiberRead}=2\MidRead'\abs{\FiberRead'},
+\qquad
+\operatorname{sgn}(\FiberRead)=\operatorname{sgn}(\FiberRead'),
+\label{eq:midrelA}
+\end{equation}
+and similarly in the remaining five slots.
+\end{definition}
+
+\begin{proposition}[The midpoint/fiber quotient is exactly the oriented absolute-amplitude sector]
+\label{prop:midquot}
+The quotient of \(\MidFiberSector\) by the midpoint/fiber relation is canonically identified with \(\OriginSector\):
+\begin{equation}
+\MidFiberSector/\MidFiberRel
+\;\cong\;
+\OriginSector.
+\label{eq:midquot}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+By definition, two points of \(\MidFiberSector\) are \(\MidFiberRel\)-equivalent exactly when they have the same image under \(\MidOriginMap\). Therefore the quotient by \(\MidFiberRel\) is canonically the image of \(\MidOriginMap\). Proposition \ref{prop:surjective} shows that the image is all of \(\OriginSector\). Hence \eqref{eq:midquot} holds.
+\end{proof}
+
+\begin{remark}
+Through the bijection \(\MidPairMap\), the midpoint/fiber relation is exactly the pullback of the pair-fiber relation recorded in the previous note. What changes in the present note is not the quotient target but the explicit internal organization of each fiber: a midpoint choice together with the uniquely forced signed fiber fractions.
+\end{remark}
+
+\begin{theorem}[The present deeper sector introduces no new verdict-changing structure]
+\label{thm:verdict}
+The midpoint/fiber sector \(\MidFiberSector\) introduces no new verdict-changing structure in the sense of Definition \ref{def:frozendown}. Therefore:
+\begin{enumerate}
+    \item the positive scale orbit remains a canonical-normalization orbit rather than a proved redundancy;
+    \item the global \(O(2)\) vacuum angle remains residual.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+By Proposition \ref{prop:midquot}, the only canonical relation introduced at the present deeper level is the internal midpoint/fiber relation collapsing different midpoint/fiber realizations of the same oriented absolute-amplitude datum. That relation does not identify distinct positive values of \(\AbsScaleAmp=2\MidScale\abs{\FiberScale}\). Equivalently, it does not identify distinct positive values of the orbit modulus \(\ScaleMod=(2\MidScale\FiberScale)^{2}\). It acts only inside the fiber of a fixed oriented absolute-amplitude block. This gives item (1).
+
+Likewise, the present deeper sector introduces no new angular variable, no anisotropic locking term, and no quotient on constant values of \(\phi_{0}\). The minimizing branch of Theorem \ref{thm:branch} still carries arbitrary constant \(\phi_{0}\in\mathbb R/2\pi\mathbb Z\). Therefore the global \(O(2)\) vacuum angle remains residual, giving item (2).
+\end{proof}
+
+\begin{corollary}[When a later verdict revision would be honest]
+\label{cor:revision}
+The current scale-orbit and residual-angle verdicts may be revised only if some later still-deeper sector supplies a genuine quotient identifying distinct positive midpoint-weighted fiber magnitudes and hence distinct positive moduli, or a genuine vacuum-angle locking or angle quotient beyond the internal midpoint/fiber structure of the present note.
+\end{corollary}
+
+\begin{proof}
+This is the contrapositive reading of Theorem \ref{thm:verdict}. Without genuinely new quotient or locking data, the present verdicts remain.
+\end{proof}
+
+\begin{remark}
+Corollary \ref{cor:revision} is intentionally strict. The present note does make the internal freedom of the previous positive-pair layer more transparent by isolating midpoint selection as the residual choice below the oriented absolute-amplitude data. But it still does not identify distinct positive moduli and it still does not lock the global \(O(2)\) vacuum angle.
+\end{remark}
+
+\section{Claim Boundary}
+
+This note does not claim that the midpoint/fiber sector \(\MidFiberSector\) is the unique final substrate completion below the oriented absolute-amplitude layer. It does not claim that the midpoint variables are already physically redundant, and it does not claim that every conceivable still-deeper completion must factor through the particular multiplicative midpoint/fiber realization written here. It also does not claim that the positive scale orbit or the global \(O(2)\) vacuum angle have already been removed by a deeper redundancy or locking mechanism.
+
+Its claim is narrower. The midpoint data implicit in the unequal positive-pair sector are now recorded explicitly, the complementary signed fiber-fraction data are identified canonically, and together they generate the already-recorded positive-pair sector, the already-recorded absolute-amplitude/polarity layer, and hence the already-frozen signed amplitudes and downstream package. More sharply, once an oriented absolute-amplitude datum and a midpoint tuple are fixed, the signed fiber fractions are uniquely determined. The only relation visible at the present stage is the internal midpoint/fiber relation collapsing different midpoint choices that realize the same oriented absolute-amplitude data, and that relation does not change the current scale-orbit or residual-angle verdicts.
+
+\section{Conclusion}
+
+The next honest manuscript step below the absolute-amplitude/polarity origin note was to stop leaving the midpoint/fiber structure of the unequal positive-pair sector only implicit. This note now does that in the least-drift way. The unequal positive pairs are written canonically in terms of positive midpoints and signed fiber fractions, and the old midpoint parameters are no longer just an existence proof artifact.
+
+The positive result is exact and limited. The midpoint/fiber sector is canonically equivalent to the unequal positive-pair sector, with inverse given by pair averages and normalized signed pair gaps. Composed with the frozen pair map, it generates the same positive absolute amplitudes as the midpoint-weighted fiber magnitudes \(2C\abs{\Theta}\) and the same polarity labels as the signs of the fiber fractions. Composed further with the frozen origin map, amplitude lift, and setup map, it reproduces the same signed amplitudes, the same readout block, the same ordered kinetic pair, the same radial anchor pair, the same positive orbit modulus, the same raw-orbit lift, the same density/current block, the same primitive bridge-order block, the same phase-neutral minimizing branch, the same canonical profile, and the same dressed bridge map.
+
+The conceptual gain is equally clear. For a fixed oriented absolute-amplitude datum, the residual freedom below that layer is now isolated transparently as midpoint selection. Once the midpoint tuple is chosen, the signed fiber fractions are uniquely forced. The scope is equally disciplined. The only new relation visible at this level is the internal midpoint/fiber relation identifying different midpoint/fiber realizations of the same oriented absolute-amplitude datum. It does not identify distinct positive midpoint-weighted magnitudes, it does not identify distinct positive moduli, and it does not lock or quotient the global \(O(2)\) vacuum angle. Therefore the current verdict remains in force: the positive scale orbit is still a canonical-normalization orbit rather than a proved deeper redundancy, and the vacuum angle remains residual. The next honest open burden, if the derivational line continues, is therefore deeper again: a still more primitive origin, anchoring, or disciplined selection principle for the midpoint tuple itself, or a genuinely new quotient or locking mechanism acting beneath it.
+
+\end{document}
