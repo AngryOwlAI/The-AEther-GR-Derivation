@@ -1,0 +1,1361 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\RespShapeReadout}{\widetilde q_{\mathrm{br}}}
+\newcommand{\RespShapeCov}{\widetilde\kappa_{\mathrm{br}}}
+\newcommand{\RespShapeRelax}{\widetilde\rho_{\mathrm{br}}}
+\newcommand{\RespShapeWell}{\widetilde\lambda_{\mathrm{br}}}
+\newcommand{\RespShapeEq}{\widetilde U_{\mathrm{br}}^{\ast}}
+\newcommand{\RespShapeIso}{\widetilde\eta_{\mathrm{br}}}
+\newcommand{\RespRawReadout}{\widehat q_{\mathrm{br}}}
+\newcommand{\RespRawRef}{\widehat U_{\mathrm{br}}^{\mathrm{ref}}}
+\newcommand{\RespRawCov}{\widehat\kappa_{\mathrm{br}}}
+\newcommand{\RespRawRelax}{\widehat\rho_{\mathrm{br}}}
+\newcommand{\RespRawWell}{\widehat\lambda_{\mathrm{br}}}
+\newcommand{\RespRawEq}{\widehat U_{\mathrm{br}}^{\ast}}
+\newcommand{\RespVacPhase}{\phi_{\mathrm{br}}}
+\newcommand{\CurvProfileCan}{F_{\mathrm{br}}^{\mathrm{can}}}
+\newcommand{\DownPkg}{\mathscr P_{\mathrm{down}}}
+\newcommand{\ShapeTuple}{\mathfrak S_{\mathrm{br}}}
+\newcommand{\ScaleMod}{s_{\mathrm{br}}}
+\newcommand{\PrimClass}{\mathfrak C_{\mathrm{br}}}
+\newcommand{\PrimRead}{r_{\mathrm{br}}}
+\newcommand{\PrimCovSlot}{a_{\mathrm{br}}^{\varphi}}
+\newcommand{\PrimRelaxSlot}{a_{\mathrm{br}}^{V}}
+\newcommand{\PrimKinetic}{\bm a_{\mathrm{br}}}
+\newcommand{\PrimWellSlot}{b_{\mathrm{br}}^{\lambda}}
+\newcommand{\PrimEqSlot}{b_{\mathrm{br}}^{U}}
+\newcommand{\PrimAnchor}{\bm b_{\mathrm{br}}}
+\newcommand{\LiftSector}{\mathfrak D_{\mathrm{br}}^{\mathrm{amp}}}
+\newcommand{\DeepReadAmp}{\xi_{\mathrm{br}}^{q}}
+\newcommand{\DeepCovAmp}{\xi_{\mathrm{br}}^{\varphi}}
+\newcommand{\DeepRelaxAmp}{\xi_{\mathrm{br}}^{V}}
+\newcommand{\DeepKinAmp}{\bm\xi_{\mathrm{br}}}
+\newcommand{\DeepWellAmp}{\zeta_{\mathrm{br}}^{\lambda}}
+\newcommand{\DeepEqAmp}{\zeta_{\mathrm{br}}^{U}}
+\newcommand{\DeepAnchorAmp}{\bm\zeta_{\mathrm{br}}}
+\newcommand{\DeepScaleAmp}{\varsigma_{\mathrm{br}}}
+\newcommand{\AmpMap}{\Pi_{\mathrm{amp}}}
+\newcommand{\PrimMap}{\Pi_{\mathrm{shape}}}
+\newcommand{\OriginSector}{\mathfrak D_{\mathrm{br}}^{\mathrm{ori}}}
+\newcommand{\AbsAmpSector}{\mathfrak M_{\mathrm{br}}}
+\newcommand{\PolaritySector}{\mathfrak P_{\mathrm{br}}}
+\newcommand{\AbsReadAmp}{\chi_{\mathrm{br}}^{q}}
+\newcommand{\AbsCovAmp}{\chi_{\mathrm{br}}^{\varphi}}
+\newcommand{\AbsRelaxAmp}{\chi_{\mathrm{br}}^{V}}
+\newcommand{\AbsKinAmp}{\bm\chi_{\mathrm{br}}}
+\newcommand{\AbsWellAmp}{\upsilon_{\mathrm{br}}^{\lambda}}
+\newcommand{\AbsEqAmp}{\upsilon_{\mathrm{br}}^{U}}
+\newcommand{\AbsAnchorAmp}{\bm\upsilon_{\mathrm{br}}}
+\newcommand{\AbsScaleAmp}{\omega_{\mathrm{br}}}
+\newcommand{\PolRead}{\epsilon_{\mathrm{br}}^{q}}
+\newcommand{\PolCov}{\epsilon_{\mathrm{br}}^{\varphi}}
+\newcommand{\PolRelax}{\epsilon_{\mathrm{br}}^{V}}
+\newcommand{\PolWell}{\delta_{\mathrm{br}}^{\lambda}}
+\newcommand{\PolEq}{\delta_{\mathrm{br}}^{U}}
+\newcommand{\PolScale}{\sigma_{\mathrm{br}}}
+\newcommand{\OriginMap}{\Pi_{\mathrm{ori}}}
+\newcommand{\DeepMap}{\Pi_{\mathrm{deep}}}
+\newcommand{\PairSector}{\mathfrak D_{\mathrm{br}}^{\mathrm{pair}}}
+\newcommand{\PairMap}{\Pi_{\mathrm{pair}}}
+\newcommand{\PairReadPlus}{Q_{\mathrm{br}}^{+}}
+\newcommand{\PairReadMinus}{Q_{\mathrm{br}}^{-}}
+\newcommand{\PairCovPlus}{\Phi_{\mathrm{br}}^{+}}
+\newcommand{\PairCovMinus}{\Phi_{\mathrm{br}}^{-}}
+\newcommand{\PairRelaxPlus}{\mathcal V_{\mathrm{br}}^{+}}
+\newcommand{\PairRelaxMinus}{\mathcal V_{\mathrm{br}}^{-}}
+\newcommand{\PairWellPlus}{\Lambda_{\mathrm{br}}^{+}}
+\newcommand{\PairWellMinus}{\Lambda_{\mathrm{br}}^{-}}
+\newcommand{\PairEqPlus}{\mathcal U_{\mathrm{br}}^{+}}
+\newcommand{\PairEqMinus}{\mathcal U_{\mathrm{br}}^{-}}
+\newcommand{\PairScalePlus}{\Omega_{\mathrm{br}}^{+}}
+\newcommand{\PairScaleMinus}{\Omega_{\mathrm{br}}^{-}}
+\newcommand{\MidFiberSector}{\mathfrak D_{\mathrm{br}}^{\mathrm{mid}}}
+\newcommand{\MidPairMap}{\Pi_{\mathrm{mid}}}
+\newcommand{\MidOriginMap}{\Pi_{\mathrm{mid,ori}}}
+\newcommand{\MidRead}{C_{q}}
+\newcommand{\MidCov}{C_{\varphi}}
+\newcommand{\MidRelax}{C_{V}}
+\newcommand{\MidWell}{C_{\lambda}}
+\newcommand{\MidEq}{C_{U}}
+\newcommand{\MidScale}{C_{\omega}}
+\newcommand{\FiberRead}{\Theta_{q}}
+\newcommand{\FiberCov}{\Theta_{\varphi}}
+\newcommand{\FiberRelax}{\Theta_{V}}
+\newcommand{\FiberWell}{\Theta_{\lambda}}
+\newcommand{\FiberEq}{\Theta_{U}}
+\newcommand{\FiberScale}{\Theta_{\omega}}
+\newcommand{\MidSelSector}{\mathfrak D_{\mathrm{br}}^{\mathrm{sel}}}
+\newcommand{\MidSelMap}{\Pi_{\mathrm{sel}}}
+\newcommand{\SelProj}{\pi_{\mathrm{ori}}}
+\newcommand{\SelDom}{\mathbb I_{\mathrm{sel}}}
+\newcommand{\SelRead}{\Sigma_{q}}
+\newcommand{\SelCov}{\Sigma_{\varphi}}
+\newcommand{\SelRelax}{\Sigma_{V}}
+\newcommand{\SelWell}{\Sigma_{\lambda}}
+\newcommand{\SelEq}{\Sigma_{U}}
+\newcommand{\SelScale}{\Sigma_{\omega}}
+\newcommand{\SelEnergy}{\mathscr E_{\mathrm{mid}}}
+\newcommand{\CanMidSection}{\mathscr S_{\mathrm{mid}}}
+\newcommand{\Rstar}{\mathbb R^{\times}}
+\newcommand{\FiberDom}{\mathbb I_{\mathrm{fib}}}
+\newcommand{\MidBalanceSector}{\mathfrak D_{\mathrm{br}}^{\mathrm{bal}}}
+\newcommand{\BalSelMap}{\Pi_{\mathrm{bal,sel}}}
+\newcommand{\BalMidMap}{\Pi_{\mathrm{bal,mid}}}
+\newcommand{\BalPairMap}{\Pi_{\mathrm{bal,pair}}}
+\newcommand{\BalFiberClass}{\mathscr F_{\mathrm{bal}}}
+\newcommand{\BalEnergy}{\mathscr E_{\mathrm{bal}}}
+\newcommand{\BalReadPlus}{N_{q}^{+}}
+\newcommand{\BalReadMinus}{N_{q}^{-}}
+\newcommand{\BalCovPlus}{N_{\varphi}^{+}}
+\newcommand{\BalCovMinus}{N_{\varphi}^{-}}
+\newcommand{\BalRelaxPlus}{N_{V}^{+}}
+\newcommand{\BalRelaxMinus}{N_{V}^{-}}
+\newcommand{\BalWellPlus}{N_{\lambda}^{+}}
+\newcommand{\BalWellMinus}{N_{\lambda}^{-}}
+\newcommand{\BalEqPlus}{N_{U}^{+}}
+\newcommand{\BalEqMinus}{N_{U}^{-}}
+\newcommand{\BalScalePlus}{N_{\omega}^{+}}
+\newcommand{\BalScaleMinus}{N_{\omega}^{-}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Nonlocal Bridge Self-Response Off-Shell Profile-Selection Bridge-Order Orbit-Shape/Modulus Primitive-Class Absolute-Amplitude/Polarity Midpoint-Selector Justification Note}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The benchmark exact-theory statement of \TheoryName{} remains fixed and is not reopened here. The overview-first exact-closure package is still the public front door. The present note acts only on the optional deeper derivational bridge, and it begins from the now-recorded midpoint-selection note immediately below the midpoint/fiber layer.
+
+That midpoint-selection note already rewrote midpoint freedom as the selector fiber
+\[
+\MidSelSector=\OriginSector\times(1,\infty)^{6}
+\]
+and showed that the balanced selector \(\SelRead=\SelCov=\SelRelax=\SelWell=\SelEq=\SelScale=2\) reproduces the same signed amplitudes, the same primitive class, the same raw-orbit lift, the same phase-neutral minimizing branch, the same canonical profile, and the same downstream package. But that note still chose the balanced selector only as the least-drift canonical representative. The honest remaining burden is sharper: derive or justify the selector itself from a still deeper layer.
+
+This note performs exactly that step. The new deeper sector is a normalized pair-balance sector
+\[
+\MidBalanceSector
+=
+\left\{
+(\zeta;\BalReadPlus,\BalReadMinus,\ldots,\BalScalePlus,\BalScaleMinus)
+\in
+\OriginSector\times(\mathbb R_{>0}^{2})^{6}
+:\;
+\BalReadPlus-\BalReadMinus=\PolRead,\ldots,\BalScalePlus-\BalScaleMinus=\PolScale
+\right\},
+\]
+where \(\zeta\in\OriginSector\) denotes the fixed oriented absolute-amplitude datum. The slotwise balance variables \(N_i^{\pm}\) are positive normalized pair coefficients with fixed signed gap equal to the corresponding polarity. Their induced selector map is simply
+\[
+\SelRead=\BalReadPlus+\BalReadMinus,
+\qquad
+\ldots
+\qquad
+\SelScale=\BalScalePlus+\BalScaleMinus.
+\]
+Composed with the already-frozen selector layer, midpoint/fiber layer, and pair layer, this gives
+\[
+\MidRead=\frac{\AbsReadAmp}{2}\,(\BalReadPlus+\BalReadMinus),
+\qquad
+\FiberRead=\frac{\BalReadPlus-\BalReadMinus}{\BalReadPlus+\BalReadMinus}
+=
+\frac{\PolRead}{\SelRead},
+\]
+\[
+\PairReadPlus=\AbsReadAmp\,\BalReadPlus,
+\qquad
+\PairReadMinus=\AbsReadAmp\,\BalReadMinus,
+\]
+and similarly in the remaining five slots. The composite map back to the oriented layer is just projection, because
+\[
+\PairReadPlus-\PairReadMinus=\AbsReadAmp\,\PolRead,
+\qquad
+\ldots
+\qquad
+\PairScalePlus-\PairScaleMinus=\AbsScaleAmp\,\PolScale.
+\]
+
+On each fixed oriented fiber, the new positive-definite deeper energy is
+\[
+\BalEnergy
+=
+(\BalReadPlus-1)^{2}+(\BalReadMinus-1)^{2}
++(\BalCovPlus-1)^{2}+(\BalCovMinus-1)^{2}
++\cdots+
+(\BalScalePlus-1)^{2}+(\BalScaleMinus-1)^{2}.
+\]
+Using the fixed signed-gap constraints, this reduces exactly to
+\[
+\BalEnergy
+=
+3+\frac12\,\SelEnergy,
+\qquad
+\SelEnergy
+=
+(\SelRead-2)^{2}+(\SelCov-2)^{2}+(\SelRelax-2)^{2}+(\SelWell-2)^{2}+(\SelEq-2)^{2}+(\SelScale-2)^{2}.
+\]
+Thus the old midpoint selector is not merely repeated. It is the reduced energy of the deeper pair-balance sector up to an irrelevant constant shift and positive scalar factor. The unique minimizer is
+\[
+\BalReadPlus=1+\frac{\PolRead}{2},
+\qquad
+\BalReadMinus=1-\frac{\PolRead}{2},
+\qquad
+\ldots
+\qquad
+\BalScalePlus=1+\frac{\PolScale}{2},
+\qquad
+\BalScaleMinus=1-\frac{\PolScale}{2},
+\]
+which forces
+\[
+\SelRead=\SelCov=\SelRelax=\SelWell=\SelEq=\SelScale=2.
+\]
+
+The decisive downstream fact is balance-blindness. For every point of \(\MidBalanceSector\),
+\[
+2\MidRead\FiberRead
+=
+\AbsReadAmp(\BalReadPlus-\BalReadMinus)
+=
+\PolRead\AbsReadAmp,
+\qquad
+\ldots
+\qquad
+2\MidScale\FiberScale
+=
+\PolScale\AbsScaleAmp.
+\]
+Therefore the same signed amplitudes, the same primitive class, the same raw-orbit lift, the same phase-neutral minimizing branch, the same canonical profile, and the same downstream package are recovered exactly. No new positive-modulus quotient and no new vacuum-angle locking appear. The current verdict therefore remains in force: the positive scale orbit is still a canonical-normalization orbit rather than a proved redundancy, and the global \(O(2)\) vacuum angle remains residual.
+
+The scope is deliberately narrow. This note does not claim that the normalized pair-balance sector is already the final substrate microphysics. Its narrower positive result is that the balanced selector \(\Sigma_i=2\) is no longer deepest-layer canonical choice. It is now the unique equilibrium consequence of a still deeper positive-definite pair-balance sector whose induced map through the selector, midpoint/fiber, pair, and oriented layers leaves the entire frozen downstream package unchanged.
+\end{abstract}
+
+\section{Introduction}
+
+The active repository no longer needs another bridge note in order to justify its public theory claim. The exact-closure sequence already presents \TheoryName{} as the disciplined exact relativistic theory statement built on the \Aether{} / \Aflow{} ontology, and that benchmark package remains the front-door reading order. The present note therefore does not strengthen the flagship theory claim. It acts only on the optional deeper derivational continuation beneath that fixed benchmark.
+
+On that optional continuation line the burden left by the midpoint-selection note is now very narrow. That note already showed that midpoint freedom can be rewritten exactly as the selector fiber \((1,\infty)^{6}\) over the oriented absolute-amplitude layer and that the balanced selector \(\Sigma_i=2\) yields the canonical midpoint representative \(C_i=A_i\) with fiber fractions \(\Theta_i=\epsilon_i/2\). The remaining question is no longer how to parameterize midpoint freedom. It is whether the balanced selector itself can be derived from a still deeper sector rather than merely chosen as a canonical representative.
+
+The present manuscript addresses precisely that burden in the least-drift way. It does not change the oriented absolute-amplitude data. It does not alter the selector layer once written. It does not reopen the signed-amplitude, primitive-class, raw-orbit, or downstream package formulas. Instead it introduces a still deeper normalized pair-balance sector whose slotwise variables are positive normalized pair coefficients with fixed signed gaps equal to the already-frozen polarity data. The selector is then recovered as the slotwise sum of those deeper coefficients, and the previous balanced midpoint selector is shown to be exactly the reduced energy of that deeper sector.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+This note stays strictly inside that boundary. Its positive claim is not that the normalized pair-balance sector is already uniquely forced by the whole substrate action without new input. Its positive claim is narrower: once one passes one layer deeper than the selector and encodes midpoint freedom by positive normalized pair coefficients with fixed signed gap, the balanced midpoint selector becomes the unique minimizer of a natural positive-definite unit-balance energy, and the entire frozen downstream chain remains unchanged.
+
+\section{Frozen Oriented, Pair, Midpoint/Fiber, and Selector Layers}
+
+\begin{definition}[Frozen oriented absolute-amplitude sector]
+\label{def:frozenorigin}
+The midpoint-selection note fixed the oriented absolute-amplitude sector
+\begin{equation}
+\OriginSector
+:=
+\AbsAmpSector\times\PolaritySector,
+\label{eq:originsector}
+\end{equation}
+where
+\begin{equation}
+\AbsAmpSector
+:=
+\mathbb R_{>0}\times(\mathbb R_{>0})^{2}\times(\mathbb R_{>0})^{2}\times\mathbb R_{>0}
+\label{eq:abssector}
+\end{equation}
+has coordinates
+\begin{equation}
+(\AbsReadAmp,\AbsKinAmp,\AbsAnchorAmp,\AbsScaleAmp)
+=
+(\AbsReadAmp,(\AbsCovAmp,\AbsRelaxAmp),(\AbsWellAmp,\AbsEqAmp),\AbsScaleAmp),
+\label{eq:abscoords}
+\end{equation}
+and
+\begin{equation}
+\PolaritySector
+:=
+\{\pm1\}\times\{\pm1\}^{2}\times\{\pm1\}^{2}\times\{\pm1\}
+\label{eq:polsector}
+\end{equation}
+has coordinates
+\begin{equation}
+(\PolRead,\PolCov,\PolRelax,\PolWell,\PolEq,\PolScale).
+\label{eq:polcoords}
+\end{equation}
+The frozen map into the signed amplitude sector
+\begin{equation}
+\LiftSector
+:=
+\Rstar\times(\Rstar)^{2}\times(\Rstar)^{2}\times\Rstar
+\label{eq:liftsector}
+\end{equation}
+is
+\begin{equation}
+\OriginMap:\OriginSector\longrightarrow\LiftSector
+\label{eq:originmap}
+\end{equation}
+with
+\begin{align}
+\OriginMap(\AbsReadAmp,\AbsKinAmp,\AbsAnchorAmp,\AbsScaleAmp;\PolRead,\PolCov,\PolRelax,\PolWell,\PolEq,\PolScale)
+=\;&
+(\PolRead\AbsReadAmp,\PolCov\AbsCovAmp,\PolRelax\AbsRelaxAmp,
+\nonumber\\
+&\PolWell\AbsWellAmp,\PolEq\AbsEqAmp,\PolScale\AbsScaleAmp).
+\label{eq:originmapexplicit}
+\end{align}
+\end{definition}
+
+\begin{definition}[Frozen maps below the oriented layer]
+\label{def:frozenmaps}
+The frozen amplitude lift into the primitive class
+\begin{equation}
+\PrimClass
+:=
+\mathbb R_{>0}\times\mathbb R_{>0}^{2}\times\mathbb R_{>0}^{2}\times\mathbb R_{>0}
+\label{eq:primclass}
+\end{equation}
+is
+\begin{equation}
+\AmpMap:\LiftSector\longrightarrow\PrimClass
+\label{eq:ampmap}
+\end{equation}
+given by
+\begin{equation}
+\AmpMap(\DeepReadAmp,\DeepKinAmp,\DeepAnchorAmp,\DeepScaleAmp)
+=
+\bigl(
+(\DeepReadAmp)^{2},
+((\DeepCovAmp)^{2},(\DeepRelaxAmp)^{2}),
+((\DeepWellAmp)^{2},(\DeepEqAmp)^{2}),
+(\DeepScaleAmp)^{2}
+\bigr).
+\label{eq:ampmapexplicit}
+\end{equation}
+The frozen setup map remains
+\begin{equation}
+\PrimMap(\PrimRead,\PrimKinetic,\PrimAnchor,\ScaleMod)
+=
+(\RespShapeReadout,\RespShapeCov,\RespShapeRelax,\RespShapeWell,\RespShapeEq,\ScaleMod)
+\label{eq:primmap}
+\end{equation}
+with
+\begin{equation}
+\RespShapeReadout=\PrimRead,
+\qquad
+\RespShapeCov=\PrimCovSlot,
+\qquad
+\RespShapeRelax=\PrimRelaxSlot,
+\label{eq:shapeA}
+\end{equation}
+\begin{equation}
+\RespShapeWell=\PrimWellSlot,
+\qquad
+\RespShapeEq=\PrimEqSlot,
+\label{eq:shapeB}
+\end{equation}
+and the frozen raw-orbit lift remains
+\begin{equation}
+\RespRawReadout=\ScaleMod\,\RespShapeReadout,
+\qquad
+\RespRawRef=\ScaleMod,
+\qquad
+\RespRawCov=\ScaleMod^{2}\RespShapeCov,
+\label{eq:rawliftA}
+\end{equation}
+\begin{equation}
+\RespRawRelax=\ScaleMod^{2}\RespShapeRelax,
+\qquad
+\RespRawWell=\RespShapeWell,
+\qquad
+\RespRawEq=\ScaleMod\,\RespShapeEq.
+\label{eq:rawliftB}
+\end{equation}
+\end{definition}
+
+\begin{definition}[Frozen downstream package]
+\label{def:frozendown}
+At the present derivational stage, the downstream package \(\DownPkg\) means the same already-recorded density/current block, the same primitive bridge-order block, the same phase-neutral minimizing branch, the same canonical profile
+\begin{equation}
+\CurvProfileCan(x)=1+\RespShapeEq\,x^2
+=
+1+\frac{\RespRawEq}{\RespRawRef}x^2,
+\label{eq:profile}
+\end{equation}
+and the same dressed bridge map, all understood to depend on deeper data only through the induced pair \((\ShapeTuple,\ScaleMod)\), the raw lift \eqref{eq:rawliftA}--\eqref{eq:rawliftB}, and the same minimizing branch.
+\end{definition}
+
+\begin{definition}[Frozen pair, midpoint/fiber, and selector layers]
+\label{def:frozenlayers}
+The frozen positive-pair sector is
+\begin{equation}
+\PairSector
+:=
+\left\{
+\begin{array}{l}
+(\PairReadPlus,\PairReadMinus,\PairCovPlus,\PairCovMinus,\PairRelaxPlus,\PairRelaxMinus,\\
+\PairWellPlus,\PairWellMinus,\PairEqPlus,\PairEqMinus,\PairScalePlus,\PairScaleMinus)
+\in(\mathbb R_{>0}^{2})^{6}
+\\[0.3em]
+\text{with each pair unequal}
+\end{array}
+\right\}.
+\label{eq:pairsector}
+\end{equation}
+Its frozen map into the oriented absolute-amplitude sector is the gap-magnitude/order map
+\begin{equation}
+\PairMap:\PairSector\longrightarrow\OriginSector
+\label{eq:pairmap}
+\end{equation}
+defined slotwise by
+\begin{equation}
+\AbsReadAmp=\abs{\PairReadPlus-\PairReadMinus},
+\qquad
+\PolRead=\operatorname{sgn}(\PairReadPlus-\PairReadMinus),
+\label{eq:pairread}
+\end{equation}
+and similarly in the remaining five slots.
+
+The midpoint/fiber sector is
+\begin{equation}
+\MidFiberSector
+:=
+\bigl(\mathbb R_{>0}\times\FiberDom\bigr)^{6},
+\qquad
+\FiberDom:=(-1,1)\setminus\{0\},
+\label{eq:midsector}
+\end{equation}
+with midpoint coordinates
+\begin{equation}
+(\MidRead,\MidCov,\MidRelax,\MidWell,\MidEq,\MidScale)
+\label{eq:midcoords}
+\end{equation}
+and signed fiber-fraction coordinates
+\begin{equation}
+(\FiberRead,\FiberCov,\FiberRelax,\FiberWell,\FiberEq,\FiberScale).
+\label{eq:fibercoords}
+\end{equation}
+Its frozen map into the pair layer is
+\begin{equation}
+\MidPairMap:\MidFiberSector\longrightarrow\PairSector
+\label{eq:midpairmap}
+\end{equation}
+with
+\begin{equation}
+\PairReadPlus=\MidRead(1+\FiberRead),
+\qquad
+\PairReadMinus=\MidRead(1-\FiberRead),
+\label{eq:midpairsA}
+\end{equation}
+\begin{equation}
+\PairCovPlus=\MidCov(1+\FiberCov),
+\quad
+\PairCovMinus=\MidCov(1-\FiberCov),
+\quad
+\ldots,
+\quad
+\PairScalePlus=\MidScale(1+\FiberScale),
+\quad
+\PairScaleMinus=\MidScale(1-\FiberScale),
+\label{eq:midpairsB}
+\end{equation}
+and the composite frozen map into the oriented layer is
+\begin{equation}
+\MidOriginMap:=\PairMap\circ\MidPairMap.
+\label{eq:midorigin}
+\end{equation}
+Explicitly,
+\begin{equation}
+\AbsReadAmp=2\MidRead\abs{\FiberRead},
+\qquad
+\PolRead=\operatorname{sgn}(\FiberRead),
+\label{eq:midoriginA}
+\end{equation}
+\begin{equation}
+\AbsCovAmp=2\MidCov\abs{\FiberCov},
+\quad
+\AbsRelaxAmp=2\MidRelax\abs{\FiberRelax},
+\quad
+\AbsWellAmp=2\MidWell\abs{\FiberWell},
+\label{eq:midoriginB}
+\end{equation}
+\begin{equation}
+\AbsEqAmp=2\MidEq\abs{\FiberEq},
+\qquad
+\AbsScaleAmp=2\MidScale\abs{\FiberScale},
+\label{eq:midoriginC}
+\end{equation}
+with
+\begin{equation}
+\PolCov=\operatorname{sgn}(\FiberCov),
+\quad
+\PolRelax=\operatorname{sgn}(\FiberRelax),
+\quad
+\PolWell=\operatorname{sgn}(\FiberWell),
+\quad
+\PolEq=\operatorname{sgn}(\FiberEq),
+\quad
+\PolScale=\operatorname{sgn}(\FiberScale).
+\label{eq:midoriginD}
+\end{equation}
+
+The frozen midpoint-selector sector is
+\begin{equation}
+\MidSelSector
+:=
+\OriginSector\times\SelDom^{6},
+\qquad
+\SelDom:=(1,\infty),
+\label{eq:selsector}
+\end{equation}
+with selector coordinates
+\begin{equation}
+(\SelRead,\SelCov,\SelRelax,\SelWell,\SelEq,\SelScale)
+\label{eq:selcoords}
+\end{equation}
+and projection
+\begin{equation}
+\SelProj:\MidSelSector\longrightarrow\OriginSector.
+\label{eq:selproj}
+\end{equation}
+Its frozen map into the midpoint/fiber layer is
+\begin{equation}
+\MidSelMap:\MidSelSector\longrightarrow\MidFiberSector
+\label{eq:selmap}
+\end{equation}
+defined by
+\begin{equation}
+\MidRead=\frac{\SelRead\AbsReadAmp}{2},
+\qquad
+\MidCov=\frac{\SelCov\AbsCovAmp}{2},
+\qquad
+\MidRelax=\frac{\SelRelax\AbsRelaxAmp}{2},
+\label{eq:selmidA}
+\end{equation}
+\begin{equation}
+\MidWell=\frac{\SelWell\AbsWellAmp}{2},
+\qquad
+\MidEq=\frac{\SelEq\AbsEqAmp}{2},
+\qquad
+\MidScale=\frac{\SelScale\AbsScaleAmp}{2},
+\label{eq:selmidB}
+\end{equation}
+and
+\begin{equation}
+\FiberRead=\frac{\PolRead}{\SelRead},
+\qquad
+\FiberCov=\frac{\PolCov}{\SelCov},
+\qquad
+\FiberRelax=\frac{\PolRelax}{\SelRelax},
+\label{eq:selfiberA}
+\end{equation}
+\begin{equation}
+\FiberWell=\frac{\PolWell}{\SelWell},
+\qquad
+\FiberEq=\frac{\PolEq}{\SelEq},
+\qquad
+\FiberScale=\frac{\PolScale}{\SelScale}.
+\label{eq:selfiberB}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[The frozen selector layer lands in the midpoint/fiber layer and reproduces the oriented data]
+\label{prop:selectorlayer}
+For every point of \(\MidSelSector\), the image under \(\MidSelMap\) lies in \(\MidFiberSector\). Its induced pair representative is
+\begin{equation}
+\PairReadPlus=\frac{\AbsReadAmp}{2}(\SelRead+\PolRead),
+\qquad
+\PairReadMinus=\frac{\AbsReadAmp}{2}(\SelRead-\PolRead),
+\label{eq:selpairA}
+\end{equation}
+\begin{equation}
+\PairCovPlus=\frac{\AbsCovAmp}{2}(\SelCov+\PolCov),
+\quad
+\PairCovMinus=\frac{\AbsCovAmp}{2}(\SelCov-\PolCov),
+\quad
+\ldots,
+\quad
+\PairScalePlus=\frac{\AbsScaleAmp}{2}(\SelScale+\PolScale),
+\quad
+\PairScaleMinus=\frac{\AbsScaleAmp}{2}(\SelScale-\PolScale),
+\label{eq:selpairB}
+\end{equation}
+and the composite map back to the oriented layer is just projection:
+\begin{equation}
+\MidOriginMap\circ\MidSelMap=\SelProj.
+\label{eq:selectorigin}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Because every selector lies in \((1,\infty)\), the fiber coordinates in \eqref{eq:selfiberA}--\eqref{eq:selfiberB} satisfy
+\[
+0<\abs{\FiberRead}=\frac{1}{\SelRead}<1,
+\qquad
+\ldots,
+\qquad
+0<\abs{\FiberScale}=\frac{1}{\SelScale}<1.
+\]
+Hence \(\MidSelMap(z)\in\MidFiberSector\).
+
+Substituting \eqref{eq:selmidA}--\eqref{eq:selfiberB} into \eqref{eq:midpairsA}--\eqref{eq:midpairsB} gives \eqref{eq:selpairA}--\eqref{eq:selpairB}. Since every selector exceeds \(1\) while every polarity is \(\pm1\), each induced pair entry is strictly positive and each pair is unequal.
+
+Finally,
+\[
+2\MidRead\abs{\FiberRead}
+=
+2\cdot\frac{\SelRead\AbsReadAmp}{2}\cdot\frac{1}{\SelRead}
+=
+\AbsReadAmp,
+\qquad
+\operatorname{sgn}(\FiberRead)=\PolRead,
+\]
+and similarly in the other five slots. Thus \eqref{eq:selectorigin} holds.
+\end{proof}
+
+\section{Deeper Normalized Pair-Balance Sector}
+
+\begin{definition}[Normalized pair-balance sector]
+\label{def:balsector}
+Define the midpoint-selector balance sector
+\begin{equation}
+\MidBalanceSector
+:=
+\left\{
+\begin{array}{l}
+(\AbsReadAmp,\AbsKinAmp,\AbsAnchorAmp,\AbsScaleAmp;\PolRead,\PolCov,\PolRelax,\PolWell,\PolEq,\PolScale;\\
+\BalReadPlus,\BalReadMinus,\BalCovPlus,\BalCovMinus,\BalRelaxPlus,\BalRelaxMinus,\\
+\BalWellPlus,\BalWellMinus,\BalEqPlus,\BalEqMinus,\BalScalePlus,\BalScaleMinus)
+\in
+\OriginSector\times(\mathbb R_{>0}^{2})^{6}
+\\[0.4em]
+\text{such that }
+\BalReadPlus-\BalReadMinus=\PolRead,\;
+\BalCovPlus-\BalCovMinus=\PolCov,\;
+\BalRelaxPlus-\BalRelaxMinus=\PolRelax,\\
+\phantom{\text{such that }}
+\BalWellPlus-\BalWellMinus=\PolWell,\;
+\BalEqPlus-\BalEqMinus=\PolEq,\;
+\BalScalePlus-\BalScaleMinus=\PolScale
+\end{array}
+\right\}.
+\label{eq:balsector}
+\end{equation}
+Its additional coordinates \((N_i^{+},N_i^{-})\) are the positive normalized pair coefficients in the six slots \(i\in\{q,\varphi,V,\lambda,U,\omega\}\), constrained so that the slotwise signed gap already equals the frozen polarity data.
+\end{definition}
+
+\begin{definition}[Induced map into the selector, midpoint/fiber, and pair layers]
+\label{def:balmaps}
+Define the induced selector map
+\begin{equation}
+\BalSelMap:\MidBalanceSector\longrightarrow\MidSelSector
+\label{eq:balselmap}
+\end{equation}
+by keeping the oriented absolute-amplitude datum fixed and setting
+\begin{equation}
+\SelRead=\BalReadPlus+\BalReadMinus,
+\qquad
+\SelCov=\BalCovPlus+\BalCovMinus,
+\qquad
+\SelRelax=\BalRelaxPlus+\BalRelaxMinus,
+\label{eq:balselA}
+\end{equation}
+\begin{equation}
+\SelWell=\BalWellPlus+\BalWellMinus,
+\qquad
+\SelEq=\BalEqPlus+\BalEqMinus,
+\qquad
+\SelScale=\BalScalePlus+\BalScaleMinus.
+\label{eq:balselB}
+\end{equation}
+Define the induced midpoint/fiber and pair maps by
+\begin{equation}
+\BalMidMap:=\MidSelMap\circ\BalSelMap,
+\qquad
+\BalPairMap:=\MidPairMap\circ\BalMidMap.
+\label{eq:balcomposite}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[The deeper balance sector reproduces the full selector chain]
+\label{prop:balchain}
+For every point of \(\MidBalanceSector\), the induced selector tuple lies in \((1,\infty)^{6}\), and the composite maps of Definition \ref{def:balmaps} are
+\begin{equation}
+\MidRead=\frac{\AbsReadAmp}{2}\,(\BalReadPlus+\BalReadMinus),
+\qquad
+\MidCov=\frac{\AbsCovAmp}{2}\,(\BalCovPlus+\BalCovMinus),
+\qquad
+\MidRelax=\frac{\AbsRelaxAmp}{2}\,(\BalRelaxPlus+\BalRelaxMinus),
+\label{eq:balmidA}
+\end{equation}
+\begin{equation}
+\MidWell=\frac{\AbsWellAmp}{2}\,(\BalWellPlus+\BalWellMinus),
+\qquad
+\MidEq=\frac{\AbsEqAmp}{2}\,(\BalEqPlus+\BalEqMinus),
+\qquad
+\MidScale=\frac{\AbsScaleAmp}{2}\,(\BalScalePlus+\BalScaleMinus),
+\label{eq:balmidB}
+\end{equation}
+\begin{equation}
+\FiberRead
+=
+\frac{\BalReadPlus-\BalReadMinus}{\BalReadPlus+\BalReadMinus}
+=
+\frac{\PolRead}{\SelRead},
+\qquad
+\FiberCov
+=
+\frac{\BalCovPlus-\BalCovMinus}{\BalCovPlus+\BalCovMinus}
+=
+\frac{\PolCov}{\SelCov},
+\label{eq:balfiberA}
+\end{equation}
+\begin{equation}
+\FiberRelax
+=
+\frac{\BalRelaxPlus-\BalRelaxMinus}{\BalRelaxPlus+\BalRelaxMinus}
+=
+\frac{\PolRelax}{\SelRelax},
+\quad
+\ldots,
+\quad
+\FiberScale
+=
+\frac{\BalScalePlus-\BalScaleMinus}{\BalScalePlus+\BalScaleMinus}
+=
+\frac{\PolScale}{\SelScale},
+\label{eq:balfiberB}
+\end{equation}
+and
+\begin{equation}
+\PairReadPlus=\AbsReadAmp\,\BalReadPlus,
+\qquad
+\PairReadMinus=\AbsReadAmp\,\BalReadMinus,
+\label{eq:balpairA}
+\end{equation}
+\begin{equation}
+\PairCovPlus=\AbsCovAmp\,\BalCovPlus,
+\quad
+\PairCovMinus=\AbsCovAmp\,\BalCovMinus,
+\quad
+\ldots,
+\quad
+\PairScalePlus=\AbsScaleAmp\,\BalScalePlus,
+\quad
+\PairScaleMinus=\AbsScaleAmp\,\BalScaleMinus.
+\label{eq:balpairB}
+\end{equation}
+Moreover, the composite map back to the oriented layer is projection:
+\begin{equation}
+\MidOriginMap\circ\BalMidMap=\SelProj\circ\BalSelMap.
+\label{eq:balorigin}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+For each slot,
+\[
+\BalReadPlus+\BalReadMinus
+>
+\abs{\BalReadPlus-\BalReadMinus}
+=
+\abs{\PolRead}
+=
+1,
+\]
+and similarly for the other five slots, because each \(N_i^{\pm}\) is strictly positive. Hence the induced selector tuple lies in \((1,\infty)^{6}\), so \(\BalSelMap\) is well defined.
+
+Substituting \eqref{eq:balselA}--\eqref{eq:balselB} into \eqref{eq:selmidA}--\eqref{eq:selfiberB} gives \eqref{eq:balmidA}--\eqref{eq:balfiberB}. Then inserting \eqref{eq:balmidA}--\eqref{eq:balfiberB} into \eqref{eq:midpairsA}--\eqref{eq:midpairsB} gives
+\[
+\PairReadPlus
+=
+\frac{\AbsReadAmp}{2}(\BalReadPlus+\BalReadMinus)
+\left(
+1+\frac{\BalReadPlus-\BalReadMinus}{\BalReadPlus+\BalReadMinus}
+\right)
+=
+\AbsReadAmp\,\BalReadPlus,
+\]
+and similarly in the other five slots, proving \eqref{eq:balpairA}--\eqref{eq:balpairB}.
+
+Finally,
+\[
+\PairReadPlus-\PairReadMinus
+=
+\AbsReadAmp(\BalReadPlus-\BalReadMinus)
+=
+\AbsReadAmp\,\PolRead,
+\]
+and similarly for the remaining five slots. Therefore the gap magnitudes and gap signs recovered by \(\PairMap\) are exactly the original oriented absolute-amplitude data, which proves \eqref{eq:balorigin}.
+\end{proof}
+
+\begin{theorem}[Over fixed oriented data, the balance variables and selectors are equivalent]
+\label{thm:balbijection}
+Fix an element \(\zeta\in\OriginSector\). Then the map
+\[
+(\BalReadPlus,\BalReadMinus,\ldots,\BalScalePlus,\BalScaleMinus)
+\longmapsto
+(\SelRead,\SelCov,\SelRelax,\SelWell,\SelEq,\SelScale)
+\]
+defined by \eqref{eq:balselA}--\eqref{eq:balselB} is a bijection from the balance fiber over \(\zeta\) onto \((1,\infty)^{6}\). Its inverse is
+\begin{equation}
+\BalReadPlus=\frac{\SelRead+\PolRead}{2},
+\qquad
+\BalReadMinus=\frac{\SelRead-\PolRead}{2},
+\label{eq:balinvA}
+\end{equation}
+\begin{equation}
+\BalCovPlus=\frac{\SelCov+\PolCov}{2},
+\qquad
+\BalCovMinus=\frac{\SelCov-\PolCov}{2},
+\qquad
+\ldots,
+\qquad
+\BalScalePlus=\frac{\SelScale+\PolScale}{2},
+\qquad
+\BalScaleMinus=\frac{\SelScale-\PolScale}{2}.
+\label{eq:balinvB}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+If the balance variables are given, the selectors are determined uniquely by \eqref{eq:balselA}--\eqref{eq:balselB}, so the map is well defined.
+
+Conversely, suppose the selector tuple lies in \((1,\infty)^{6}\). Then each expression in \eqref{eq:balinvA}--\eqref{eq:balinvB} is strictly positive, because every selector exceeds \(1\) while every polarity is \(\pm1\). Moreover,
+\[
+\frac{\SelRead+\PolRead}{2}-\frac{\SelRead-\PolRead}{2}=\PolRead,
+\qquad
+\ldots,
+\qquad
+\frac{\SelScale+\PolScale}{2}-\frac{\SelScale-\PolScale}{2}=\PolScale,
+\]
+so the reconstructed variables lie in the balance fiber over \(\zeta\). They plainly sum back to the original selectors, and any balance variables with the same selectors must satisfy the same affine sum and difference equations, hence must coincide with \eqref{eq:balinvA}--\eqref{eq:balinvB}. This proves bijectivity.
+\end{proof}
+
+\begin{remark}
+The normalized pair-balance sector does not yet derive the oriented absolute-amplitude datum itself. It acts one layer lower only in the precise sense needed here: over each fixed oriented datum, it replaces the selector variables by positive normalized pair coefficients whose sum recovers the selector and whose difference already records the fixed polarity.
+\end{remark}
+
+\section{Unit-Balance Energy and Forced Balanced Selector}
+
+\begin{definition}[Admissible balance fiber over fixed oriented data]
+\label{def:balfiber}
+For each fixed \(\zeta\in\OriginSector\), let \(\BalFiberClass(\zeta)\) denote the balance fiber of Definition \ref{def:balsector} over \(\zeta\). Through Theorem \ref{thm:balbijection}, \(\BalFiberClass(\zeta)\) is canonically equivalent to the selector fiber \((1,\infty)^{6}\).
+\end{definition}
+
+\begin{definition}[Unit-balance energy]
+\label{def:balenergy}
+On each fixed balance fiber \(\BalFiberClass(\zeta)\), define the positive-definite unit-balance energy
+\begin{align}
+\BalEnergy
+:=\;&
+(\BalReadPlus-1)^{2}+(\BalReadMinus-1)^{2}
++(\BalCovPlus-1)^{2}+(\BalCovMinus-1)^{2}
+\nonumber\\
+&+(\BalRelaxPlus-1)^{2}+(\BalRelaxMinus-1)^{2}
++(\BalWellPlus-1)^{2}+(\BalWellMinus-1)^{2}
+\nonumber\\
+&+(\BalEqPlus-1)^{2}+(\BalEqMinus-1)^{2}
++(\BalScalePlus-1)^{2}+(\BalScaleMinus-1)^{2}.
+\label{eq:balenergy}
+\end{align}
+The previous midpoint-selector functional is
+\begin{equation}
+\SelEnergy
+:=
+(\SelRead-2)^{2}
++(\SelCov-2)^{2}
++(\SelRelax-2)^{2}
++(\SelWell-2)^{2}
++(\SelEq-2)^{2}
++(\SelScale-2)^{2}.
+\label{eq:selenergy}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[The old selector is the reduced unit-balance energy]
+\label{prop:reducedenergy}
+On every fixed oriented fiber,
+\begin{equation}
+\BalEnergy
+=
+3+\frac12\,\SelEnergy\circ\BalSelMap.
+\label{eq:reducedenergy}
+\end{equation}
+Equivalently, the midpoint-selector energy \(\SelEnergy\) is exactly the reduction of the deeper unit-balance energy up to an additive constant and a positive scalar factor.
+\end{proposition}
+
+\begin{proof}
+For the readout slot, Theorem \ref{thm:balbijection} gives
+\[
+\BalReadPlus=\frac{\SelRead+\PolRead}{2},
+\qquad
+\BalReadMinus=\frac{\SelRead-\PolRead}{2},
+\]
+so
+\begin{align*}
+(\BalReadPlus-1)^{2}+(\BalReadMinus-1)^{2}
+&=
+\left(\frac{\SelRead+\PolRead-2}{2}\right)^{2}
++
+\left(\frac{\SelRead-\PolRead-2}{2}\right)^{2}
+\\
+&=
+\frac12(\SelRead-2)^{2}
++\frac12(\PolRead)^{2}
+\\
+&=
+\frac12(\SelRead-2)^{2}+\frac12,
+\end{align*}
+because \((\PolRead)^{2}=1\). The same calculation holds in the other five slots. Summing the six identities gives
+\[
+\BalEnergy
+=
+\frac12\Bigl(
+(\SelRead-2)^{2}
++(\SelCov-2)^{2}
++(\SelRelax-2)^{2}
++(\SelWell-2)^{2}
++(\SelEq-2)^{2}
++(\SelScale-2)^{2}
+\Bigr)
++6\cdot\frac12,
+\]
+which is exactly \eqref{eq:reducedenergy}.
+\end{proof}
+
+\begin{theorem}[Unique unit-balance ground state]
+\label{thm:balground}
+For every fixed \(\zeta\in\OriginSector\), the energy \(\BalEnergy\) has a unique minimizer on \(\BalFiberClass(\zeta)\), namely
+\begin{equation}
+\BalReadPlus=1+\frac{\PolRead}{2},
+\qquad
+\BalReadMinus=1-\frac{\PolRead}{2},
+\label{eq:balgroundA}
+\end{equation}
+\begin{equation}
+\BalCovPlus=1+\frac{\PolCov}{2},
+\quad
+\BalCovMinus=1-\frac{\PolCov}{2},
+\quad
+\ldots,
+\quad
+\BalScalePlus=1+\frac{\PolScale}{2},
+\quad
+\BalScaleMinus=1-\frac{\PolScale}{2}.
+\label{eq:balgroundB}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+By Proposition \ref{prop:reducedenergy},
+\[
+\BalEnergy
+=
+3+\frac12\,\SelEnergy\circ\BalSelMap.
+\]
+Hence minimizing \(\BalEnergy\) is equivalent to minimizing \(\SelEnergy\circ\BalSelMap\). Every summand of \(\SelEnergy\) is nonnegative and vanishes only when the corresponding selector equals \(2\). Therefore the unique minimizer is characterized by
+\[
+\SelRead=\SelCov=\SelRelax=\SelWell=\SelEq=\SelScale=2.
+\]
+Substituting these values into the inverse formulas \eqref{eq:balinvA}--\eqref{eq:balinvB} gives \eqref{eq:balgroundA}--\eqref{eq:balgroundB}. Uniqueness follows because Theorem \ref{thm:balbijection} identifies the balance fiber with the selector fiber bijectively.
+\end{proof}
+
+\begin{corollary}[The balanced selector is now derived]
+\label{cor:selderived}
+The unique unit-balance ground state of Theorem \ref{thm:balground} induces
+\begin{equation}
+\SelRead=\SelCov=\SelRelax=\SelWell=\SelEq=\SelScale=2.
+\label{eq:selderived}
+\end{equation}
+Thus the balanced midpoint selector is no longer merely a canonical representative rule. It is the unique equilibrium consequence of the deeper unit-balance sector \(\MidBalanceSector\).
+\end{corollary}
+
+\begin{proof}
+Summing the paired coefficients in \eqref{eq:balgroundA}--\eqref{eq:balgroundB} gives \eqref{eq:selderived} immediately.
+\end{proof}
+
+\begin{corollary}[Canonical midpoint/fiber and pair representative]
+\label{cor:balcanonical}
+At the unit-balance ground state, the induced midpoint/fiber data are
+\begin{equation}
+\MidRead=\AbsReadAmp,
+\qquad
+\MidCov=\AbsCovAmp,
+\qquad
+\MidRelax=\AbsRelaxAmp,
+\label{eq:balcanmidA}
+\end{equation}
+\begin{equation}
+\MidWell=\AbsWellAmp,
+\qquad
+\MidEq=\AbsEqAmp,
+\qquad
+\MidScale=\AbsScaleAmp,
+\label{eq:balcanmidB}
+\end{equation}
+and
+\begin{equation}
+\FiberRead=\frac{\PolRead}{2},
+\qquad
+\FiberCov=\frac{\PolCov}{2},
+\qquad
+\FiberRelax=\frac{\PolRelax}{2},
+\label{eq:balcanfiberA}
+\end{equation}
+\begin{equation}
+\FiberWell=\frac{\PolWell}{2},
+\qquad
+\FiberEq=\frac{\PolEq}{2},
+\qquad
+\FiberScale=\frac{\PolScale}{2}.
+\label{eq:balcanfiberB}
+\end{equation}
+The induced pair representative is
+\begin{equation}
+\PairReadPlus=\frac{\AbsReadAmp}{2}(2+\PolRead),
+\qquad
+\PairReadMinus=\frac{\AbsReadAmp}{2}(2-\PolRead),
+\label{eq:balcanpairA}
+\end{equation}
+\begin{equation}
+\PairCovPlus=\frac{\AbsCovAmp}{2}(2+\PolCov),
+\quad
+\PairCovMinus=\frac{\AbsCovAmp}{2}(2-\PolCov),
+\quad
+\ldots,
+\quad
+\PairScalePlus=\frac{\AbsScaleAmp}{2}(2+\PolScale),
+\quad
+\PairScaleMinus=\frac{\AbsScaleAmp}{2}(2-\PolScale),
+\label{eq:balcanpairB}
+\end{equation}
+so the unordered canonical pair in each slot is again \(\{A/2,3A/2\}\), where \(A\) denotes the corresponding slotwise positive absolute amplitude.
+\end{corollary}
+
+\begin{proof}
+Corollary \ref{cor:selderived} gives \(\SelRead=\cdots=\SelScale=2\). Substituting that into \eqref{eq:balmidA}--\eqref{eq:balfiberB} gives \eqref{eq:balcanmidA}--\eqref{eq:balcanfiberB}. Substituting the ground-state values \eqref{eq:balgroundA}--\eqref{eq:balgroundB} into \eqref{eq:balpairA}--\eqref{eq:balpairB} gives \eqref{eq:balcanpairA}--\eqref{eq:balcanpairB}.
+\end{proof}
+
+\begin{remark}
+This is the central positive result of the present note. The balanced selector is still the same one recorded earlier, but its status has changed sharply. It is no longer deepest-layer canonical choice. It is the reduced equilibrium condition of a still deeper positive-definite pair-balance energy.
+\end{remark}
+
+\section{Balance-Blind Signed Amplitudes and Frozen Interface}
+
+\begin{theorem}[Balance-blind signed amplitudes]
+\label{thm:balsigned}
+For every point of \(\MidBalanceSector\), the composite map
+\begin{equation}
+\OriginMap\circ\PairMap\circ\BalPairMap
+:
+\MidBalanceSector
+\longrightarrow
+\LiftSector
+\label{eq:balampcomposite}
+\end{equation}
+is independent of the balance variables and equals
+\begin{equation}
+\DeepReadAmp=\PolRead\AbsReadAmp,
+\qquad
+\DeepCovAmp=\PolCov\AbsCovAmp,
+\qquad
+\DeepRelaxAmp=\PolRelax\AbsRelaxAmp,
+\label{eq:balsignedA}
+\end{equation}
+\begin{equation}
+\DeepWellAmp=\PolWell\AbsWellAmp,
+\qquad
+\DeepEqAmp=\PolEq\AbsEqAmp,
+\qquad
+\DeepScaleAmp=\PolScale\AbsScaleAmp.
+\label{eq:balsignedB}
+\end{equation}
+Equivalently,
+\begin{equation}
+2\MidRead\FiberRead=\PolRead\AbsReadAmp,
+\qquad
+2\MidCov\FiberCov=\PolCov\AbsCovAmp,
+\qquad
+2\MidRelax\FiberRelax=\PolRelax\AbsRelaxAmp,
+\label{eq:balproductA}
+\end{equation}
+\begin{equation}
+2\MidWell\FiberWell=\PolWell\AbsWellAmp,
+\qquad
+2\MidEq\FiberEq=\PolEq\AbsEqAmp,
+\qquad
+2\MidScale\FiberScale=\PolScale\AbsScaleAmp.
+\label{eq:balproductB}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Using \eqref{eq:balpairA}--\eqref{eq:balpairB},
+\[
+\PairReadPlus-\PairReadMinus
+=
+\AbsReadAmp(\BalReadPlus-\BalReadMinus)
+=
+\AbsReadAmp\,\PolRead,
+\]
+and similarly in the remaining five slots. Applying \(\PairMap\) therefore gives back the same oriented absolute-amplitude datum, and applying \(\OriginMap\) gives \eqref{eq:balsignedA}--\eqref{eq:balsignedB}. Equations \eqref{eq:balproductA}--\eqref{eq:balproductB} are the same statement written through \(\BalMidMap\), using \eqref{eq:balmidA}--\eqref{eq:balfiberB}.
+\end{proof}
+
+\begin{definition}[Composite map into the primitive class and orbit-shape/modulus data]
+\label{def:deepmap}
+Define the induced deeper map
+\begin{equation}
+\DeepMap
+:=
+\PrimMap\circ\AmpMap\circ\OriginMap\circ\PairMap\circ\BalPairMap
+:
+\MidBalanceSector\longrightarrow\ShapeTuple\times\mathbb R_{>0}.
+\label{eq:deepmap}
+\end{equation}
+By Theorem \ref{thm:balsigned}, its explicit components are
+\begin{equation}
+\RespShapeReadout=(\AbsReadAmp)^{2},
+\qquad
+\RespShapeCov=(\AbsCovAmp)^{2},
+\qquad
+\RespShapeRelax=(\AbsRelaxAmp)^{2},
+\label{eq:balshapeA}
+\end{equation}
+\begin{equation}
+\RespShapeWell=(\AbsWellAmp)^{2},
+\qquad
+\RespShapeEq=(\AbsEqAmp)^{2},
+\qquad
+\ScaleMod=(\AbsScaleAmp)^{2}.
+\label{eq:balshapeB}
+\end{equation}
+\end{definition}
+
+\begin{corollary}[Same readout block, ordered kinetic pair, radial anchor pair, and positive orbit modulus]
+\label{cor:balblockmap}
+For the balance sector \(\MidBalanceSector\), the induced primitive class and orbit-shape/modulus data are exactly the same as in the midpoint-selection note. In particular,
+\begin{equation}
+\PrimRead=(\AbsReadAmp)^{2},
+\qquad
+\PrimKinetic=((\AbsCovAmp)^{2},(\AbsRelaxAmp)^{2}),
+\qquad
+\PrimAnchor=((\AbsWellAmp)^{2},(\AbsEqAmp)^{2}),
+\qquad
+\ScaleMod=(\AbsScaleAmp)^{2}.
+\label{eq:balprimclass}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+Theorem \ref{thm:balsigned} shows that the balance variables disappear already at the signed-amplitude level. Applying the frozen squaring map \(\AmpMap\) gives \eqref{eq:balprimclass}, and Definition \ref{def:deepmap} then yields \eqref{eq:balshapeA}--\eqref{eq:balshapeB}.
+\end{proof}
+
+\begin{remark}
+The deeper balance variables change the organization of the selector freedom but do not change the effective signed amplitudes seen by the frozen interface. That is the key reason the downstream package does not move.
+\end{remark}
+
+\section{Same Raw-Orbit Lift and Same Downstream Package}
+
+\begin{theorem}[The raw-orbit lift is unchanged]
+\label{thm:balraw}
+For the balance sector \(\MidBalanceSector\), the induced raw-orbit lift is exactly the same as in the midpoint-selection note:
+\begin{equation}
+\RespRawReadout=(\AbsScaleAmp)^{2}(\AbsReadAmp)^{2},
+\qquad
+\RespRawRef=(\AbsScaleAmp)^{2},
+\qquad
+\RespRawCov=(\AbsScaleAmp)^{4}(\AbsCovAmp)^{2},
+\label{eq:balrawA}
+\end{equation}
+\begin{equation}
+\RespRawRelax=(\AbsScaleAmp)^{4}(\AbsRelaxAmp)^{2},
+\qquad
+\RespRawWell=(\AbsWellAmp)^{2},
+\qquad
+\RespRawEq=(\AbsScaleAmp)^{2}(\AbsEqAmp)^{2}.
+\label{eq:balrawB}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Substituting \eqref{eq:balshapeA}--\eqref{eq:balshapeB} into the frozen raw-lift formulas \eqref{eq:rawliftA}--\eqref{eq:rawliftB} gives \eqref{eq:balrawA}--\eqref{eq:balrawB}.
+\end{proof}
+
+\begin{definition}[Induced orbit-level isotropic coefficient]
+\label{def:isocoeff}
+The induced orbit-level isotropic coefficient is
+\begin{equation}
+\RespShapeIso
+:=
+\frac{\RespShapeCov\,\RespShapeRelax}{\RespShapeCov+\RespShapeRelax}
+=
+\frac{(\AbsCovAmp)^{2}(\AbsRelaxAmp)^{2}}{(\AbsCovAmp)^{2}+(\AbsRelaxAmp)^{2}}.
+\label{eq:baliso}
+\end{equation}
+\end{definition}
+
+\begin{theorem}[Same phase-neutral minimizing branch]
+\label{thm:balbranch}
+The orbit-level energy induced by Definition \ref{def:deepmap} is the same frozen-interface energy as in the midpoint-selection note, now written directly in the oriented absolute-amplitude variables \eqref{eq:balshapeA}--\eqref{eq:balshapeB}. Its distinguished minimizing constant branch is therefore
+\begin{equation}
+\ScaleMod(x)\equiv(\AbsScaleAmp)^{2},
+\qquad
+U(x)\equiv(\AbsScaleAmp\AbsEqAmp)^{2},
+\qquad
+V(x)\equiv0,
+\qquad
+\RespVacPhase(x)\equiv\phi_{0},
+\label{eq:balbranch}
+\end{equation}
+for arbitrary constant \(\phi_{0}\in\mathbb R/2\pi\mathbb Z\). In particular, the minimizing branch remains phase-neutral.
+\end{theorem}
+
+\begin{proof}
+Definition \ref{def:deepmap} produces exactly the same orbit-shape coefficients and positive modulus as the midpoint-selection note because Theorem \ref{thm:balsigned} shows that the balance variables cancel already at the signed-amplitude level. Theorem \ref{thm:balraw} shows that the raw-orbit lift is unchanged as well. Therefore the same frozen minimizing-family computation applies and yields \eqref{eq:balbranch}. Because \(\phi_{0}\) remains arbitrary and constant while \(V\equiv0\), the branch is still phase-neutral.
+\end{proof}
+
+\begin{theorem}[Same downstream density/current block, primitive bridge-order block, canonical profile, and dressed bridge map]
+\label{thm:baldownstream}
+For the balance sector \(\MidBalanceSector\), the downstream package \(\DownPkg\) is recovered unchanged. In particular:
+\begin{enumerate}
+    \item the same downstream density/current block is recovered;
+    \item the same primitive bridge-order block is recovered;
+    \item the same phase-neutral minimizing branch of Theorem \ref{thm:balbranch} is recovered;
+    \item the same canonical profile is recovered, now written as
+    \begin{equation}
+    \CurvProfileCan(x)
+    =
+    1+\RespShapeEq\,x^{2}
+    =
+    1+(\AbsEqAmp)^{2}x^{2}
+    =
+    1+\frac{\RespRawEq}{\RespRawRef}x^{2};
+    \label{eq:balprofile}
+    \end{equation}
+    \item the same dressed bridge map is recovered.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Definition \ref{def:deepmap} shows that the balance sector feeds the frozen interface only through the induced pair \((\ShapeTuple,\ScaleMod)\), and Corollary \ref{cor:balblockmap} identifies those data as the same ones already fixed by the oriented absolute-amplitude layer. Theorem \ref{thm:balraw} gives the same raw tuple. Theorem \ref{thm:balbranch} gives the same phase-neutral minimizing branch. By Definition \ref{def:frozendown}, all recorded downstream constructions depend on deeper data only through exactly those objects. Therefore every component of \(\DownPkg\) remains unchanged.
+
+The canonical profile formula \eqref{eq:balprofile} is immediate from \(\RespShapeEq=(\AbsEqAmp)^{2}\) and \(\RespRawEq/\RespRawRef=(\AbsEqAmp)^{2}\).
+\end{proof}
+
+\begin{remark}
+The present deeper sector changes the status of the balanced selector, but it does not change the frozen downstream package. The already-recorded canonical profile and dressed bridge map therefore survive without drift.
+\end{remark}
+
+\section{What Changes and What Does Not}
+
+\begin{theorem}[The present balance sector introduces no new verdict-changing structure]
+\label{thm:balverdict}
+The midpoint-selector balance sector \(\MidBalanceSector\), together with the unit-balance energy \eqref{eq:balenergy}, introduces no new verdict-changing structure in the sense of Definition \ref{def:frozendown}. Therefore:
+\begin{enumerate}
+    \item the positive scale orbit remains a canonical-normalization orbit rather than a proved redundancy;
+    \item the global \(O(2)\) vacuum angle remains residual.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Theorem \ref{thm:balbijection} shows that over each fixed oriented datum the balance fiber is canonically equivalent to the old selector fiber. The new structure therefore does not quotient any existing positive value of \(\AbsScaleAmp\) or identify any distinct positive value of the orbit modulus \(\ScaleMod=(\AbsScaleAmp)^{2}\). The energy \(\BalEnergy\) selects one preferred point in that fiber, but selection by minimization is not a quotient. This proves item (1).
+
+Likewise, the balance sector adds no new angular variable, no anisotropic locking term, and no quotient on constant values of \(\phi_{0}\). The minimizing branch of Theorem \ref{thm:balbranch} still carries arbitrary constant \(\phi_{0}\in\mathbb R/2\pi\mathbb Z\). Therefore the global \(O(2)\) vacuum angle remains residual, proving item (2).
+\end{proof}
+
+\begin{corollary}[When a later verdict revision would be honest]
+\label{cor:balrevision}
+The current scale-orbit and residual-angle verdicts may be revised only if some later still-deeper sector does more than force the same balanced selector through a positive-definite energy on a fiber equivalent to the present one. A genuine verdict revision would require either:
+\begin{enumerate}
+    \item a true quotient identifying distinct positive values of \(\AbsScaleAmp\) and hence distinct positive moduli; or
+    \item a genuine vacuum-angle locking or angle quotient.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+This is the contrapositive reading of Theorem \ref{thm:balverdict}. A deeper energy on a fiber canonically equivalent to the old selector fiber does not change the verdict by itself.
+\end{proof}
+
+\begin{remark}
+The positive gain here is stronger than in the midpoint-selection note. The balanced selector is now justified one layer deeper rather than merely chosen. But that deeper gain is still not a quotient claim. The scale orbit and the residual vacuum angle therefore keep the same honest status.
+\end{remark}
+
+\section{Claim Boundary}
+
+This note does not claim that the normalized pair-balance sector \(\MidBalanceSector\) is already derived from the final microscopic substrate action without any further structural input. It does not claim that every conceivable future completion must factor through exactly the unit-centered energy \eqref{eq:balenergy}. It does not claim that the positive scale orbit or the global \(O(2)\) vacuum angle have already been removed by a deeper quotient or locking mechanism.
+
+Its claim is narrower. The balanced midpoint selector of the midpoint-selection note is now internalized one layer deeper as the unique equilibrium condition of a positive-definite normalized pair-balance sector. That deeper sector defines an induced map into the selector layer, then into the midpoint/fiber layer, then into the positive-pair layer, and finally back to the same oriented absolute-amplitude/polarity layer. Because the signed amplitudes are balance-blind, the same primitive class, the same raw-orbit lift, the same phase-neutral minimizing branch, the same canonical profile, and the same downstream package are recovered unchanged.
+
+The present note therefore records a selector justification rather than a final microscopic origin of the whole deeper layer. If the derivational line continues, the next honest open burden is deeper again: derive or justify the unit-centered pair-balance sector itself from still more primitive substrate structure, or else find a genuinely deeper midpoint mechanism whose quotient or locking data really change the current verdicts.
+
+\section{Conclusion}
+
+The midpoint-selection note had already reduced the residual freedom below the oriented absolute-amplitude layer to the selector fiber \((1,\infty)^{6}\). The balanced selector \(\Sigma_i=2\) was therefore the least-drift canonical representative, but it was not yet a derived consequence. The live burden was to justify that selector itself from a still deeper layer.
+
+This note answers that burden in the narrowest clean way presently available. The new deeper sector is the normalized pair-balance sector \(\MidBalanceSector\), whose slotwise positive coefficients \(N_i^{\pm}\) have fixed signed gap equal to the already-frozen polarity datum. Their induced sum map
+\[
+\Sigma_i=N_i^{+}+N_i^{-}
+\]
+lands exactly in the old selector layer, and the induced midpoint/fiber and pair data are
+\[
+C_i=\frac{A_i}{2}(N_i^{+}+N_i^{-}),
+\qquad
+\Theta_i=\frac{N_i^{+}-N_i^{-}}{N_i^{+}+N_i^{-}},
+\qquad
+Q_i^{\pm}=A_iN_i^{\pm}.
+\]
+Thus the new note provides the full required chain from the deeper sector into the selector layer, then into midpoint/fiber, then pair, then the fixed absolute-amplitude/polarity layer.
+
+The selector itself is now derived rather than merely chosen. On each fixed oriented fiber, the positive-definite unit-balance energy \(\BalEnergy\) reduces exactly to \(3+\frac12\SelEnergy\). Its unique ground state is
+\[
+N_i^{+}=1+\frac{\epsilon_i}{2},
+\qquad
+N_i^{-}=1-\frac{\epsilon_i}{2},
+\]
+so the induced selector is forced to be
+\[
+\Sigma_i=2
+\]
+in every slot. The canonical midpoint representative \(C_i=A_i\), the canonical fiber fractions \(\Theta_i=\epsilon_i/2\), and the canonical pair representative \(\{A_i/2,3A_i/2\}\) therefore follow as equilibrium consequences of the deeper balance sector rather than as a free canonical choice.
+
+The downstream verdict is equally sharp. For every balance configuration, not only for the ground state,
+\[
+2C_i\Theta_i=A_i\epsilon_i.
+\]
+Therefore the deeper balance variables disappear before the frozen interface: the same signed amplitudes, the same primitive class, the same raw-orbit lift, the same phase-neutral minimizing branch, the same canonical profile, and the same downstream package are recovered unchanged. The scope remains disciplined. The present note does not introduce a positive-modulus quotient and does not lock the residual vacuum angle. The current verdict therefore stays in force: the positive scale orbit is still a canonical-normalization orbit rather than a proved deeper redundancy, and the global \(O(2)\) vacuum angle remains residual. The next honest open burden, if the derivational line continues, is to derive or justify the normalized pair-balance sector itself from still more primitive substrate structure, or else to find a genuinely deeper midpoint mechanism whose quotient or locking structure is real rather than representative.
+
+\end{document}
