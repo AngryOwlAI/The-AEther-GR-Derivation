@@ -63,7 +63,7 @@ The `docs/` tree is the public GitHub Pages presentation layer for this preserve
 - The overview-first exact-closure package remains the benchmark starting point of the project.
 - GR is still adopted exactly in that benchmark package; it is not yet claimed there as derived from substrate microphysics.
 - The derivational manuscript line is now being continued here as the active research program.
-- The next manuscript move is no longer another Markdown cleanup pass; it is the first direct still-deeper `.tex` note below the recorded primitive-class setup layer.
+- The next manuscript move is no longer another Markdown cleanup pass; the first direct still-deeper `.tex` note below the recorded primitive-class setup layer now exists, and the next live burden is the still-deeper amplitude-sector origin note below that amplitude-lift layer.
 - Public presentation should still begin with the benchmark package before moving into the active derivational manuscripts.
 
 For the fuller boundary statement, see [docs/AETHER_FLOW_CLAIM_BOUNDARY.md](docs/AETHER_FLOW_CLAIM_BOUNDARY.md). For naming and vocabulary, see [docs/AETHER_FLOW_NAMING_AND_VOCABULARY.md](docs/AETHER_FLOW_NAMING_AND_VOCABULARY.md).
