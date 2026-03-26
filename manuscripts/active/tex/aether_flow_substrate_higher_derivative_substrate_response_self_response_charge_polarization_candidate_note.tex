@@ -1,0 +1,727 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal A}
+\newcommand{\BridgeMetric}{\mathfrak g}
+\newcommand{\ObserverMap}{\Xi}
+\newcommand{\ProjSub}{P}
+\newcommand{\SpatialD}{\mathcal D}
+\newcommand{\LapPerp}{\Delta_\perp}
+\newcommand{\ObserverMetric}{g^{\mathrm{br}}}
+\newcommand{\CandidateMetric}{g^{\mathrm{cand}}}
+\newcommand{\BaseShift}{\Sigma^{\mathrm{IER}}}
+\newcommand{\ResponseShift}{\Sigma^{\mathrm{resp}}}
+\newcommand{\ResponseShiftSch}{\Sigma^{\mathrm{Sch}}}
+\newcommand{\ResponseShiftReg}{\Sigma^{\mathrm{resp,reg}}}
+\newcommand{\ResponseLift}{\widehat{\Sigma}^{\mathrm{resp}}}
+\newcommand{\AuxPol}{\mathbb K}
+\newcommand{\FlowPot}{\Phi_\Omega}
+\newcommand{\SourceDensity}{\varrho_\Omega}
+\newcommand{\SourceDensityRed}{\varrho_\Omega^{\mathrm{red}}}
+\newcommand{\SourceMult}{\Lambda_\rho}
+\newcommand{\HamChargeOmega}{\mathfrak m_\Omega}
+\newcommand{\ReOff}{\widetilde{\mathcal R}_{\mu\nu}^{\mathrm{off}}}
+\newcommand{\ReLongThree}{\widetilde{\mathcal R}_{\mu\nu}^{(\chi,3)}}
+\newcommand{\ReLongFour}{\widetilde{\mathcal R}_{\mu\nu}^{(\chi,\ge 4)}}
+\newcommand{\DeltaTCand}{\Delta T_{\mu\nu}^{\mathrm{cand}}}
+\newcommand{\ObserverRemCand}{\mathcal R^{\mathrm{cand}}}
+\newcommand{\EinLin}{\mathcal E_{\ObserverMetric}}
+\newcommand{\EinLinFlat}{\mathcal E_{\eta}}
+\newcommand{\EinQuad}{\mathcal Q_{\ge 2}^{\mathrm{Ein}}}
+\newcommand{\ResponseAction}{S_{\mathrm{resp}}}
+\newcommand{\BaseAction}{S_{\mathrm{base}}}
+\newcommand{\TotalAction}{S_{\mathrm{tot}}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Substrate-Response / Self-Response Charge-Polarization Candidate Note}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The overview-first exact-closure package remains the fixed benchmark and public front door of the repository. The benchmark-facing derivation-gates note, the observer-remainder classification note, and the substrate-response / self-response bridge-redesign gate-screen note are therefore treated as fixed inputs rather than reopened questions. The live bridge-level task after those notes is no longer another family survey and no longer another deeper-origin continuation. It is the first concrete candidate inside the surviving substrate-response / self-response family.
+
+The present manuscript writes that first candidate at disciplined scope. The proposed response sector is a slice-wise nonpropagating charge-potential plus constrained polarization block appended to the already-positive lower-order inverse-response bridge line. Its reduced-data source is the already-recorded Hamiltonian charge density \(\SourceDensityRed[Q,W,\chi]\), its potential \(\FlowPot\) obeys a slice-wise Poisson equation, and its eliminated bridge imprint is the isotropic quartic tensor
+\[
+\widehat{\Sigma}^{\mathrm{resp,elim}}_{AB}
+=
+-2\FlowPot^2U_AU_B
++\frac32\FlowPot^2\ProjSub_{AB}
++\ResponseShiftReg{}_{AB}.
+\]
+After observer pullback, the charge-carrying exterior piece is exactly the Schwarzschild-type \(r^{-2}\) dressing.
+
+The note follows the gate-screen sequence in the required order. First, it derives the eliminated observer equation for the concrete candidate and specializes it immediately to matter-free reduced data. Because the lower-order inverse-response shift \(\BaseShift\) is kept fixed, the new sector changes only the self-response order:
+\[
+G_{\mu\nu}[\CandidateMetric]
+=
+8\pi G_N\,T_{\mu\nu}^{\mathrm{matter}}[\CandidateMetric,\psi]
++\ObserverRemCand{}_{\mu\nu},
+\]
+with
+\[
+\ObserverRemCand{}_{\mu\nu}
+=
+\ReLongFour{}_{\mu\nu}
++\EinLin(\ResponseShift)_{\mu\nu}
++\EinQuad[\BaseShift+\ResponseShift]_{\mu\nu}
+-8\pi G_N\,\DeltaTCand{}_{\mu\nu}.
+\]
+On matter-free reduced data, the quartic projection is exactly the old quartic self-response plus the linear response of the eliminated charge-polarization dressing. On the decisive rotational exterior regime that linear response cancels the recorded \(3G_N^2\HamChargeOmega^2/r^4\) Hamiltonian density, so the first surviving self-response is pushed to \(\mathcal O(r^{-5})\).
+
+Second, the candidate still leaves one operative metric with universal matter coupling, because matter and light couple only through \(\CandidateMetric\). Third, the note linearizes the added response block about an admissible homogeneous branch. The new fields are slice-wise elliptic or algebraic, vanish at linear order because \(\SourceDensityRed=\mathcal O_{\ge 2}\), and therefore introduce no unsuppressed linear scalar, vector, ghost, or preferred-frame remainder. Relative to any already-admissible GR-compatible base branch, the ordinary two-tensor infrared content is preserved.
+
+This note does not yet prove the controlled GR-limit theorem or the final residual-sector verdict. Its positive result is narrower and exactly the one now needed: one explicit substrate-response / self-response candidate sector has been written inside the surviving family, its eliminated observer equation is derived first on matter-free reduced data, its one-metric matter route is explicit, and its first infrared screen is carried out honestly.
+\end{abstract}
+
+\section{Introduction}
+
+The current repository stage is no longer bottlenecked by package-facing cleanup or by another undifferentiated search across redesign families. The exact-closure benchmark is fixed, the claim boundary is fixed, and the recent bridge-redesign gate screen has already reduced the next primary move to one family: a substrate-response / self-response redesign that acts already on matter-free reduced data, preserves a genuine ordered-flow equation, and remains answerable to the exact-closure gates.
+
+The present note takes the first concrete step inside that family. It does not reopen the benchmark package. It does not replace the observer-remainder classification note. It does not promote the anchored positive-pair continuation back to default primary status. It writes the first explicit candidate sector that is honest about the present burden: the Hamiltonian-charge self-response generated by the charge-carrying Coulomb tail of the broader inverse-response solve.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not claim a completed microphysical derivation of GR. It proposes one explicit candidate response sector, derives its eliminated observer equation at the benchmark-facing level required next, and records the resulting gate verdict honestly.
+
+\section{Fixed Inputs and the Concrete Target}
+
+\begin{definition}[Fixed lower-order bridge line]
+\label{def:fixed}
+The present note keeps the already-recorded lower-order inverse-response bridge line fixed. In particular:
+\begin{enumerate}
+    \item the operative bridge metric before the new self-response sector is
+    \begin{equation}
+    g_{\mu\nu}^{\mathrm{IER}}
+    =
+    \ObserverMetric_{\mu\nu}
+    +\BaseShift_{\mu\nu};
+    \label{eq:gier}
+    \end{equation}
+    \item \(\BaseShift\) already cancels the full currently recorded off-longitudinal remainder \(\ReOff\) and the first surviving cubic longitudinal tensor \(\ReLongThree\);
+    \item the remaining observer-side burden on that line is the quartic-and-higher tensor
+    \begin{equation}
+    \ReLongFour{}_{\mu\nu}
+    +\EinQuad[\BaseShift]_{\mu\nu},
+    \label{eq:oldquartictensor}
+    \end{equation}
+    together with the corresponding matter-stress correction on the same metric;
+    \item on the decisive rotational matter-free exterior regime, the recorded Hamiltonian projection satisfies
+    \begin{equation}
+    n^\mu n^\nu
+    \Bigl(
+    \ReLongFour{}_{\mu\nu}
+    +\EinQuad[\BaseShift]_{\mu\nu}
+    \Bigr)
+    =
+    \frac{3G_N^2\HamChargeOmega^2}{r^4}
+    +\mathcal O(r^{-5}).
+    \label{eq:oldquarticdensity}
+    \end{equation}
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:fixed} is the point of the present note. The lower-order screens are not reopened. The concrete candidate should act first at the self-response order left open by \eqref{eq:oldquarticdensity}.
+\end{remark}
+
+\begin{definition}[Reduced Hamiltonian source density]
+\label{def:rho}
+Let
+\begin{equation}
+\SourceDensityRed
+=
+\SourceDensityRed[Q,W,\chi]
+\label{eq:rhor}
+\end{equation}
+denote the already-recorded reduced Hamiltonian charge density functional on the active branch. At the present scope, the only properties used are:
+\begin{enumerate}
+    \item \(\SourceDensityRed=\mathcal O_{\ge 2}\) in the reduced-data counting;
+    \item its slice integral defines the same Hamiltonian charge already used by the inverse-response and quartic self-response notes,
+    \begin{equation}
+    \HamChargeOmega
+    \equiv
+    \int_{\Sigma_t}\SourceDensityRed\,d\mu_P;
+    \label{eq:charge}
+    \end{equation}
+    \item on the decisive rotational matter-free regime, \(\HamChargeOmega\) may be nonzero.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Decisive rotational matter-free regime]
+\label{def:rot}
+The \emph{decisive rotational matter-free regime} is the reduced-data regime
+\begin{equation}
+K\equiv 0,
+\qquad
+Q^I\equiv 0,
+\qquad
+\Omega_{ij}^T\not\equiv 0,
+\qquad
+T_{\mu\nu}^{\mathrm{matter}}=0.
+\label{eq:rot}
+\end{equation}
+\end{definition}
+
+\begin{remark}
+Regime \eqref{eq:rot} remains the sharp diagnostic because it kills direct matter terms and the convergence-supported longitudinal slot while keeping the Hamiltonian-charge self-response active. Any candidate that vanishes there is not a primary answer to the current obstruction.
+\end{remark}
+
+\section{Explicit Charge-Polarization Response Sector}
+
+The substrate-kinematics manuscript already fixes the base substrate data
+\[
+(\Sub,G_{AB},U^A,S,Q),
+\]
+with \(G_{AB}\) positive definite, \(U^A\) the ordered-flow field, and
+\begin{equation}
+\ProjSub_{AB}=G_{AB}-U_AU_B
+\label{eq:projector}
+\end{equation}
+the local experiential projector orthogonal to \(U^A\). The present note appends only the first explicit response variables needed for the family selected by the gate screen.
+
+\begin{definition}[Charge-polarization response variables]
+\label{def:variables}
+The \emph{charge-polarization response sector} consists of:
+\begin{enumerate}
+    \item a scalar substrate charge density \(\SourceDensity\);
+    \item a scalar multiplier \(\SourceMult\);
+    \item a scalar slice-wise response potential \(\FlowPot\);
+    \item an independent symmetric auxiliary tensor \(\AuxPol_{AB}\) decomposed as
+    \begin{equation}
+    \AuxPol_{AB}
+    =
+    \alpha\,U_AU_B
+    +2U_{(A}\mathcal V_{B)}
+    +\mathcal T_{AB}
+    +\beta\,\ProjSub_{AB},
+    \label{eq:Kdecomp}
+    \end{equation}
+    where
+    \begin{equation}
+    U^A\mathcal V_A=0,
+    \qquad
+    U^A\mathcal T_{AB}=0,
+    \qquad
+    \ProjSub^{AB}\mathcal T_{AB}=0.
+    \label{eq:TVcond}
+    \end{equation}
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Projected derivative on the local experiential slice]
+\label{def:derivatives}
+Let
+\begin{equation}
+\SpatialD_A\equiv \ProjSub_A{}^B\nabla_B,
+\qquad
+\LapPerp\equiv \SpatialD^A\SpatialD_A,
+\label{eq:projderiv}
+\end{equation}
+where \(\nabla_A\) is the Levi-Civita connection of \(G_{AB}\).
+\end{definition}
+
+\begin{definition}[Explicit candidate response action]
+\label{def:action}
+The \emph{first explicit substrate-response / self-response candidate action} is
+\begin{equation}
+\TotalAction
+\equiv
+\BaseAction
++\ResponseAction,
+\label{eq:Stot}
+\end{equation}
+with
+\begin{align}
+\ResponseAction
+=\;
+\int_{\Sub} d^4X\,\sqrt{G}\,
+\Bigl[
+&\SourceMult\bigl(\SourceDensity-\SourceDensityRed[Q,W,\chi]\bigr)
+-\frac{1}{8\pi G_N}\,\SpatialD_A\FlowPot\,\SpatialD^A\FlowPot
+-\SourceDensity\,\FlowPot
+\nonumber\\
+&-\frac{\mu_t^2}{2}\bigl(\alpha+2\FlowPot^2\bigr)^2
+-\frac{\mu_s^2}{2}\bigl(\beta-\tfrac32\FlowPot^2\bigr)^2
+-\frac{\mu_v^2}{2}\,\mathcal V_A\mathcal V^A
+-\frac{\mu_{\mathrm{tf}}^2}{2}\,\mathcal T_{AB}\mathcal T^{AB}
+\Bigr],
+\label{eq:Sresp}
+\end{align}
+where
+\begin{equation}
+\mu_t^2>0,
+\qquad
+\mu_s^2>0,
+\qquad
+\mu_v^2>0,
+\qquad
+\mu_{\mathrm{tf}}^2>0.
+\label{eq:masses}
+\end{equation}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:action} is the first concrete specialization of the benchmark-facing family selected by the gate screen. The reduced Hamiltonian charge sector is explicit, the response potential is slice-wise elliptic, the polarization tensor is auxiliary, and no multiplier forces the observer equation itself to be Einsteinian by construction.
+\end{remark}
+
+\begin{theorem}[Euler--Lagrange elimination of the charge-polarization sector]
+\label{thm:elim}
+The Euler--Lagrange system of \eqref{eq:Sresp} is equivalent to
+\begin{align}
+\SourceDensity &= \SourceDensityRed[Q,W,\chi],
+\label{eq:rhoeq}
+\\
+-\LapPerp\FlowPot &= 4\pi G_N\,\SourceDensityRed[Q,W,\chi],
+\label{eq:phieq}
+\\
+\alpha &= -2\FlowPot^2,
+\qquad
+\beta = \frac32\FlowPot^2,
+\qquad
+\mathcal V_A=0,
+\qquad
+\mathcal T_{AB}=0.
+\label{eq:auxeq}
+\end{align}
+Consequently the eliminated auxiliary tensor is
+\begin{equation}
+\AuxPol_{AB}^{\mathrm{elim}}
+=
+-2\FlowPot^2U_AU_B
++\frac32\FlowPot^2\ProjSub_{AB}.
+\label{eq:Kelim}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Variation with respect to \(\SourceMult\) gives \eqref{eq:rhoeq}. Variation with respect to \(\SourceDensity\) yields \(\SourceMult=\FlowPot\). Substituting that identity into the \(\FlowPot\) variation gives the Poisson equation \eqref{eq:phieq}. Variation with respect to the auxiliary components \(\alpha,\beta,\mathcal V_A,\mathcal T_{AB}\) gives \eqref{eq:auxeq} directly because all corresponding mass parameters in \eqref{eq:masses} are positive. Equation \eqref{eq:Kelim} is then just the decomposition \eqref{eq:Kdecomp} evaluated on \eqref{eq:auxeq}.
+\end{proof}
+
+\begin{corollary}[Matter-free activity and ordered-flow preservation]
+\label{cor:activity}
+The candidate sector of Definition \ref{def:action} is active on matter-free reduced data and preserves a genuine ordered-flow equation.
+\end{corollary}
+
+\begin{proof}
+By Definition \ref{def:rho}, \(\SourceDensityRed\) may be nonzero on the regime \eqref{eq:rot} even when \(T_{\mu\nu}^{\mathrm{matter}}=0\). Then \eqref{eq:phieq} yields a nontrivial slice-wise potential \(\FlowPot\), so \eqref{eq:Kelim} and the resulting bridge response do not vanish on matter-free reduced data. At the same time, the response sector introduces no new time derivatives of \(Q\), \(W\), or \(\chi\); their only entry is through \(\SourceDensityRed[Q,W,\chi]\). Therefore the principal ordered-flow equations of the base branch are not annihilated or replaced by a multiplier identity. The new sector adds only higher-order slice-wise source terms through the charge functional.
+\end{proof}
+
+\begin{proposition}[Exterior charge tail and eliminated observer response shift]
+\label{prop:tail}
+Assume the charge density in \eqref{eq:phieq} is supported in a bounded core and let
+\begin{equation}
+U_\Omega(r)\equiv \frac{G_N\,\HamChargeOmega}{r}.
+\label{eq:Uomega}
+\end{equation}
+Then on the source-free exterior region the unique decaying solution of \eqref{eq:phieq} has the form
+\begin{equation}
+\FlowPot
+=
+U_\Omega+\FlowPot^{\mathrm{reg}},
+\qquad
+\FlowPot^{\mathrm{reg}}=\mathcal O(r^{-2}),
+\qquad
+\partial\FlowPot^{\mathrm{reg}}=\mathcal O(r^{-3}).
+\label{eq:phiext}
+\end{equation}
+After observer pullback, the eliminated response shift is therefore
+\begin{equation}
+\ResponseShift_{\mu\nu}
+=
+\ResponseShiftSch{}_{\mu\nu}
++\ResponseShiftReg{}_{\mu\nu},
+\label{eq:sigmasplit}
+\end{equation}
+with
+\begin{equation}
+\ResponseShiftSch{}_{00}=-2U_\Omega^2,
+\qquad
+\ResponseShiftSch{}_{0i}=0,
+\qquad
+\ResponseShiftSch{}_{ij}=\frac32 U_\Omega^2\,\delta_{ij},
+\label{eq:schdress}
+\end{equation}
+and
+\begin{equation}
+\ResponseShiftReg=\mathcal O(r^{-3}),
+\qquad
+\partial\ResponseShiftReg=\mathcal O(r^{-4}).
+\label{eq:sigmareg}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Equation \eqref{eq:phieq} is Poisson with total charge \(\HamChargeOmega\), so the standard exterior expansion gives \eqref{eq:phiext}. Substituting \eqref{eq:phiext} into \eqref{eq:Kelim} yields
+\[
+\AuxPol_{AB}^{\mathrm{elim}}
+=
+-2U_\Omega^2U_AU_B
++\frac32 U_\Omega^2\ProjSub_{AB}
++\mathcal O(r^{-3}).
+\]
+The observer pullback of \(U_AU_B\) and \(\ProjSub_{AB}\) then gives \eqref{eq:schdress} and the regular decay \eqref{eq:sigmareg}.
+\end{proof}
+
+\section{Eliminated Observer Equation on Matter-Free Reduced Data}
+
+\begin{definition}[Concrete candidate operative metric]
+\label{def:metric}
+The concrete candidate operative metric is
+\begin{equation}
+\CandidateMetric_{\mu\nu}
+\equiv
+\ObserverMetric_{\mu\nu}
++\BaseShift_{\mu\nu}
++\ResponseShift_{\mu\nu}.
+\label{eq:gcand}
+\end{equation}
+The corresponding matter-stress correction relative to the base bridge metric is
+\begin{equation}
+\DeltaTCand{}_{\mu\nu}
+\equiv
+T_{\mu\nu}^{\mathrm{matter}}[\CandidateMetric,\psi]
+-T_{\mu\nu}^{\mathrm{matter}}[\ObserverMetric,\psi].
+\label{eq:deltat}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[Eliminated observer equation for the concrete candidate]
+\label{prop:observer}
+The metric \eqref{eq:gcand} satisfies
+\begin{equation}
+G_{\mu\nu}[\CandidateMetric]
+=
+8\pi G_N\,T_{\mu\nu}^{\mathrm{matter}}[\CandidateMetric,\psi]
++\ObserverRemCand{}_{\mu\nu},
+\label{eq:observer}
+\end{equation}
+where
+\begin{equation}
+\ObserverRemCand{}_{\mu\nu}
+=
+\ReLongFour{}_{\mu\nu}
++\EinLin(\ResponseShift)_{\mu\nu}
++\EinQuad[\BaseShift+\ResponseShift]_{\mu\nu}
+-8\pi G_N\,\DeltaTCand{}_{\mu\nu}.
+\label{eq:remainder}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Start from the eliminated observer equation on the base bridge branch,
+\[
+G_{\mu\nu}[\ObserverMetric]
+=
+8\pi G_N\,T_{\mu\nu}^{\mathrm{matter}}[\ObserverMetric,\psi]
++\ReOff{}_{\mu\nu}
++\ReLongThree{}_{\mu\nu}
++\ReLongFour{}_{\mu\nu}.
+\]
+By the fixed lower-order inverse-response identities,
+\[
+\EinLin(\BaseShift)_{\mu\nu}
+=
+-\ReOff{}_{\mu\nu}
+-\ReLongThree{}_{\mu\nu}.
+\]
+Expanding \(G[\ObserverMetric+\BaseShift+\ResponseShift]\) about \(\ObserverMetric\) therefore gives
+\[
+G_{\mu\nu}[\CandidateMetric]
+=
+8\pi G_N\,T_{\mu\nu}^{\mathrm{matter}}[\ObserverMetric,\psi]
++\ReLongFour{}_{\mu\nu}
++\EinLin(\ResponseShift)_{\mu\nu}
++\EinQuad[\BaseShift+\ResponseShift]_{\mu\nu}.
+\]
+Replacing the base matter stress by \(T_{\mu\nu}^{\mathrm{matter}}[\CandidateMetric,\psi]\) using \eqref{eq:deltat} yields \eqref{eq:observer}--\eqref{eq:remainder}.
+\end{proof}
+
+\begin{corollary}[Matter-free reduced observer equation]
+\label{cor:matterfree}
+On matter-free reduced data,
+\begin{equation}
+T_{\mu\nu}^{\mathrm{matter}}[\CandidateMetric,\psi]=0,
+\qquad
+\DeltaTCand{}_{\mu\nu}=0,
+\label{eq:matterfree}
+\end{equation}
+and the quartic part of \eqref{eq:remainder} is
+\begin{equation}
+\ObserverRemCand{}_{\mu\nu}
+=
+\ReLongFour{}_{\mu\nu}
++\EinQuad[\BaseShift]_{\mu\nu}
++\EinLin(\ResponseShift)_{\mu\nu}
++\mathcal O_{\ge 5}.
+\label{eq:quarticremainder}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+Equation \eqref{eq:matterfree} is the definition of matter-free reduced data. Since \(\BaseShift=\mathcal O_{\ge 2}\) and \(\ResponseShift=\mathcal O_{\ge 4}\) by Proposition \ref{prop:tail}, every mixed quadratic Einstein term involving \(\BaseShift\) and \(\ResponseShift\) is at least sixth order in the reduced-data counting, and every purely quadratic term in \(\ResponseShift\) is higher still. Hence only \(\ReLongFour+\EinQuad[\BaseShift]+\EinLin(\ResponseShift)\) contributes at quartic order.
+\end{proof}
+
+\begin{proposition}[Hamiltonian projection of the isotropic \(r^{-2}\) dressing]
+\label{prop:ham}
+Let \(H_{\mu\nu}\) be a static shift-free tensor of the form
+\begin{equation}
+H_{00}=aU_\Omega^2,
+\qquad
+H_{0i}=0,
+\qquad
+H_{ij}=bU_\Omega^2\,\delta_{ij}.
+\label{eq:abansatz}
+\end{equation}
+Then on the exterior region of the flat-background chart,
+\begin{equation}
+n^\mu n^\nu \EinLinFlat(H)_{\mu\nu}
+=
+-\frac{2b\,G_N^2\HamChargeOmega^2}{r^4}.
+\label{eq:hamab}
+\end{equation}
+In particular, for the Schwarzschild-type coefficient \(b=\frac32\),
+\begin{equation}
+n^\mu n^\nu \EinLinFlat(\ResponseShiftSch)_{\mu\nu}
+=
+-\frac{3G_N^2\HamChargeOmega^2}{r^4}.
+\label{eq:hamdress}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+For static shift-free data, the Hamiltonian projection of the flat linearized Einstein operator is
+\[
+2\,n^\mu n^\nu \EinLinFlat(H)_{\mu\nu}
+=
+\partial_i\partial_j H_{ij}
+-\Delta(\delta^{ij}H_{ij}).
+\]
+Substituting \eqref{eq:abansatz} gives
+\[
+2\,n^\mu n^\nu \EinLinFlat(H)_{\mu\nu}
+=
+b\,\Delta(U_\Omega^2)-3b\,\Delta(U_\Omega^2)
+=
+-2b\,\Delta(U_\Omega^2).
+\]
+Since \(U_\Omega\) is harmonic on the exterior region,
+\[
+\Delta(U_\Omega^2)=2\abs{\nabla U_\Omega}^2
+=
+\frac{2G_N^2\HamChargeOmega^2}{r^4},
+\]
+which yields \eqref{eq:hamab}. Equation \eqref{eq:hamdress} is the case \(b=\frac32\).
+\end{proof}
+
+\begin{theorem}[Exterior self-response neutralization for the concrete candidate]
+\label{thm:neutral}
+On the decisive rotational matter-free exterior regime, the concrete candidate satisfies
+\begin{equation}
+n^\mu n^\nu \ObserverRemCand{}_{\mu\nu}
+=
+\mathcal O(r^{-5}).
+\label{eq:neutral}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Corollary \ref{cor:matterfree} reduces the quartic observer tensor to the old quartic self-response plus the linearized response of the new sector. By Definition \ref{def:fixed}, the old Hamiltonian projection is
+\[
+\frac{3G_N^2\HamChargeOmega^2}{r^4}
++\mathcal O(r^{-5}).
+\]
+By Proposition \ref{prop:tail}, the leading exterior part of the new sector is exactly \(\ResponseShiftSch\). Proposition \ref{prop:ham} therefore gives
+\[
+n^\mu n^\nu \EinLin(\ResponseShift)_{\mu\nu}
+=
+n^\mu n^\nu \EinLinFlat(\ResponseShiftSch)_{\mu\nu}
++\mathcal O(r^{-5})
+=
+-\frac{3G_N^2\HamChargeOmega^2}{r^4}
++\mathcal O(r^{-5}).
+\]
+The \(r^{-4}\) terms cancel, leaving \eqref{eq:neutral}.
+\end{proof}
+
+\begin{remark}
+Theorem \ref{thm:neutral} is not yet the controlled GR-limit theorem. It is the first concrete self-response test required by the gate screen, carried out in the right order: first on matter-free reduced data, and first against the recorded quartic obstruction itself.
+\end{remark}
+
+\section{One Operative Metric and Universal Matter Coupling}
+
+\begin{proposition}[One operative metric]
+\label{prop:onemetric}
+The concrete candidate leaves exactly one operative observer metric, namely \(\CandidateMetric\) of Definition \ref{def:metric}.
+\end{proposition}
+
+\begin{proof}
+By Definition \ref{def:action}, the new response fields \((\SourceDensity,\SourceMult,\FlowPot,\AuxPol_{AB})\) enter the observer-accessible relativistic sector only through the eliminated bridge imprint \(\ResponseShift\). The Einstein tensor, matter action, and light propagation are all evaluated on \(\CandidateMetric\). No second observer metric is introduced anywhere in \eqref{eq:Stot}.
+\end{proof}
+
+\begin{corollary}[Universal matter coupling is preserved at candidate scope]
+\label{cor:universalmatter}
+At the present candidate scope, matter and light couple universally through \(\CandidateMetric\) and not directly through \(\FlowPot\), \(\SourceDensity\), or \(\AuxPol_{AB}\).
+\end{corollary}
+
+\begin{proof}
+The response action \eqref{eq:Sresp} contains no direct matter fields. The matter sector depends only on \(\CandidateMetric\) by construction. Therefore every matter species and the causal structure of light see the same operative metric at this scope.
+\end{proof}
+
+\begin{remark}
+Corollary \ref{cor:universalmatter} is the benchmark-facing answer required at this stage. What remains open is not whether the candidate has one operative metric by construction, but whether the full later GR-limit theorem can be proved on that same one-metric branch.
+\end{remark}
+
+\section{Infrared Linearization About an Admissible Homogeneous Branch}
+
+\begin{definition}[Admissible homogeneous candidate branch]
+\label{def:branch}
+An \emph{admissible homogeneous candidate branch} is a homogeneous background on which:
+\begin{enumerate}
+    \item the base bridge metric is exact-flat observer-side,
+    \begin{equation}
+    \overline{\ObserverMetric}_{\mu\nu}=\eta_{\mu\nu};
+    \label{eq:flatbranch}
+    \end{equation}
+    \item the ordered-flow background is homogeneous with fixed \(U^A\) and \(\ProjSub_{AB}\);
+    \item the reduced variables vanish,
+    \begin{equation}
+    \overline Q=\overline W=\overline\chi=0;
+    \label{eq:reducedzero}
+    \end{equation}
+    \item the candidate response sector is unexcited,
+    \begin{equation}
+    \overline{\SourceDensity}
+    =
+    \overline{\FlowPot}
+    =
+    \overline{\AuxPol}_{AB}
+    =0;
+    \label{eq:responsezero}
+    \end{equation}
+    \item the underlying base branch is one of the already-admissible GR-compatible linearized branches of the active higher-derivative line.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:branch} does not reopen the earlier linearized-consistency manuscripts. It fixes only the additional candidate-sector background needed for the present infrared screen.
+\end{remark}
+
+\begin{proposition}[Linearization of the added response sector]
+\label{prop:linear}
+Linearizing the Euler--Lagrange system \eqref{eq:rhoeq}--\eqref{eq:auxeq} about an admissible homogeneous candidate branch gives
+\begin{equation}
+\delta\SourceDensity=0,
+\qquad
+-\Delta\,\delta\FlowPot=0,
+\qquad
+\delta\alpha=\delta\beta=\delta\mathcal V_A=\delta\mathcal T_{AB}=0.
+\label{eq:linearresponse}
+\end{equation}
+For the decaying branch, \(\delta\FlowPot=0\). Hence
+\begin{equation}
+\delta\ResponseShift_{\mu\nu}=0.
+\label{eq:deltasigma}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+By Definition \ref{def:rho}, \(\SourceDensityRed[Q,W,\chi]=\mathcal O_{\ge 2}\). Therefore its linearization at \eqref{eq:reducedzero} vanishes, so \(\delta\SourceDensity=0\). The linearized Poisson equation is then \(-\Delta\,\delta\FlowPot=0\). On the decaying branch, the only solution is \(\delta\FlowPot=0\). Linearizing the algebraic auxiliary equations \eqref{eq:auxeq} around \(\overline{\FlowPot}=0\) then gives \(\delta\alpha=\delta\beta=\delta\mathcal V_A=\delta\mathcal T_{AB}=0\). Therefore the linearized observer pullback of \(\AuxPol_{AB}^{\mathrm{elim}}\) vanishes as well.
+\end{proof}
+
+\begin{corollary}[No new linear propagating response mode]
+\label{cor:nomode}
+At the present candidate scope, the added response sector introduces no independent linear propagating scalar or vector mode.
+\end{corollary}
+
+\begin{proof}
+Equation \eqref{eq:linearresponse} is elliptic or algebraic in every new variable. No new field in the added response sector carries a time-derivative kinetic term at linear order, and the decaying branch forces \(\delta\FlowPot=0\). Hence there is no new linear propagating response degree of freedom.
+\end{proof}
+
+\begin{theorem}[Relative infrared gate verdict for the concrete candidate]
+\label{thm:ir}
+On an admissible homogeneous candidate branch, the concrete candidate passes the first infrared screen in the following benchmark-facing sense:
+\begin{enumerate}
+    \item the ordinary observer-side two-tensor infrared content of the already-admissible base branch is preserved;
+    \item no unsuppressed linear preferred-frame matter remainder is introduced by the new sector;
+    \item no extra live scalar, vector, or ghost sector arises from the added response variables.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+By Proposition \ref{prop:linear}, the added response sector has vanishing linear observer imprint on the decaying homogeneous branch. Therefore the linearized observer equation is exactly the linearized observer equation of the already-admissible base branch. Item (1) follows from the base-branch admissibility built into Definition \ref{def:branch}. Item (2) follows because matter and light couple only through \(\CandidateMetric\) by Corollary \ref{cor:universalmatter}, while \(\delta\ResponseShift=0\) at linear order. Item (3) follows from Corollary \ref{cor:nomode}; in particular, the new variables are elliptic or algebraic and carry no kinetic term of ghost type.
+\end{proof}
+
+\begin{remark}
+Theorem \ref{thm:ir} is still an infrared candidate screen, not the final residual-sector verdict. It says that the first explicit substrate-response / self-response candidate does not spoil the ordinary GR infrared sector on an admissible homogeneous branch. It does not yet prove the full controlled decoupling theorem away from that branch.
+\end{remark}
+
+\section{Status After the First Concrete Candidate}
+
+\begin{proposition}[What this note completes and what remains open]
+\label{prop:status}
+The present manuscript completes the following benchmark-facing tasks for the first concrete substrate-response / self-response candidate:
+\begin{enumerate}
+    \item it writes one explicit response sector acting already on matter-free reduced data;
+    \item it derives the eliminated observer equation for that sector and specializes it first to matter-free reduced data;
+    \item it shows that the candidate keeps one operative metric with universal matter coupling;
+    \item it carries out the first honest infrared screen on an admissible homogeneous branch.
+\end{enumerate}
+What remains open after the present note is exactly what the gate screen said should come later:
+\begin{enumerate}
+    \item a controlled GR-limit theorem with explicit scaling and regularity assumptions;
+    \item a proof that every remaining observer-side remainder is absent, gauge exact, constraint exact, or decoupled beyond the present exterior self-response test;
+    \item the final residual-sector verdict.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Items (1)--(4) are Theorem \ref{thm:elim}, Proposition \ref{prop:observer}, Theorem \ref{thm:neutral}, Corollary \ref{cor:universalmatter}, and Theorem \ref{thm:ir}. The remaining open items are not proved anywhere in the present note and are therefore left exactly at the next-gate scope required by the benchmark-facing research plan.
+\end{proof}
+
+\section{Conclusion}
+
+The next primary bridge-level task after the family-selection screen was to stop at that surviving family and write one concrete substrate-response / self-response candidate note before reopening deeper origin work or more packaging. The present manuscript does that. It proposes the first explicit charge-polarization response sector, shows that it remains active on matter-free reduced data, preserves a genuine ordered-flow equation, and yields the concrete operative metric \(\CandidateMetric=\ObserverMetric+\BaseShift+\ResponseShift\).
+
+The positive result is disciplined and specific. The eliminated observer equation is derived first on matter-free reduced data, not postponed to later narrative. On the decisive rotational exterior regime, the eliminated response shift reproduces the Schwarzschild-type \(r^{-2}\) dressing and cancels the recorded quartic Hamiltonian self-response down to \(\mathcal O(r^{-5})\). The candidate also keeps one operative metric with universal matter coupling and passes the first infrared screen on an admissible homogeneous branch by introducing no unsuppressed linear preferred-frame remainder and no extra live scalar, vector, or ghost sector.
+
+The scope of that result remains narrower than a derivation theorem. This note does not yet prove the controlled GR limit, the full no-remainder theorem, or the final residual-sector verdict. Those are now the honest next burdens. What has changed positively is that the live family selected by the gate screen now has its first concrete candidate manuscript, and the project can proceed from family selection to candidate elimination, one-metric screening, and controlled limit analysis without slipping back into side-line continuation or another purely architectural note.
+
+\end{document}

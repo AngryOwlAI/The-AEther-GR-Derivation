@@ -32,6 +32,8 @@ Read the [Theory Package](theory-package.md) first. This derivational material i
 - [Observer-remainder classification LaTeX](../manuscripts/active/tex/aether_flow_substrate_higher_derivative_observer_remainder_classification_note.tex)
 - [Bridge-redesign gate screen PDF](../manuscripts/active/pdf/aether_flow_substrate_higher_derivative_substrate_response_self_response_bridge_redesign_gate_screen_note.pdf)
 - [Bridge-redesign gate screen LaTeX](../manuscripts/active/tex/aether_flow_substrate_higher_derivative_substrate_response_self_response_bridge_redesign_gate_screen_note.tex)
+- [Charge-polarization candidate PDF](../manuscripts/active/pdf/aether_flow_substrate_higher_derivative_substrate_response_self_response_charge_polarization_candidate_note.pdf)
+- [Charge-polarization candidate LaTeX](../manuscripts/active/tex/aether_flow_substrate_higher_derivative_substrate_response_self_response_charge_polarization_candidate_note.tex)
 - [Current orbit-shape/modulus target PDF](../manuscripts/active/pdf/aether_flow_substrate_higher_derivative_nonlocal_bridge_self_response_off_shell_profile_selection_bridge_order_orbit_shape_modulus_origin_note.pdf)
 - [Current orbit-shape/modulus target LaTeX](../manuscripts/active/tex/aether_flow_substrate_higher_derivative_nonlocal_bridge_self_response_off_shell_profile_selection_bridge_order_orbit_shape_modulus_origin_note.tex)
 - [Primitive-class setup PDF](../manuscripts/active/pdf/aether_flow_substrate_higher_derivative_nonlocal_bridge_self_response_off_shell_profile_selection_bridge_order_orbit_shape_modulus_primitive_class_setup_note.pdf)
@@ -47,13 +49,14 @@ Read the [Theory Package](theory-package.md) first. This derivational material i
 
 ## Current Primary Target
 
-The benchmark-facing bridge-program step is now recorded in [aether_flow_exact_closure_derivation_gates_note.tex](../manuscripts/active/tex/aether_flow_exact_closure_derivation_gates_note.tex), the observer-side obstruction classification is now recorded in [aether_flow_substrate_higher_derivative_observer_remainder_classification_note.tex](../manuscripts/active/tex/aether_flow_substrate_higher_derivative_observer_remainder_classification_note.tex), and the benchmark-facing redesign screen is now recorded in [aether_flow_substrate_higher_derivative_substrate_response_self_response_bridge_redesign_gate_screen_note.tex](../manuscripts/active/tex/aether_flow_substrate_higher_derivative_substrate_response_self_response_bridge_redesign_gate_screen_note.tex).
+The benchmark-facing bridge-program step is now recorded in [aether_flow_exact_closure_derivation_gates_note.tex](../manuscripts/active/tex/aether_flow_exact_closure_derivation_gates_note.tex), the observer-side obstruction classification is now recorded in [aether_flow_substrate_higher_derivative_observer_remainder_classification_note.tex](../manuscripts/active/tex/aether_flow_substrate_higher_derivative_observer_remainder_classification_note.tex), the benchmark-facing redesign screen is now recorded in [aether_flow_substrate_higher_derivative_substrate_response_self_response_bridge_redesign_gate_screen_note.tex](../manuscripts/active/tex/aether_flow_substrate_higher_derivative_substrate_response_self_response_bridge_redesign_gate_screen_note.tex), and the first explicit candidate manuscript inside that surviving family is now recorded in [aether_flow_substrate_higher_derivative_substrate_response_self_response_charge_polarization_candidate_note.tex](../manuscripts/active/tex/aether_flow_substrate_higher_derivative_substrate_response_self_response_charge_polarization_candidate_note.tex).
 
-The live primary derivational target after those notes is therefore no longer, by default, another deeper anchored positive-pair note, and it is no longer to write the bridge-level redesign screen itself. It is the first explicit candidate manuscript inside the surviving substrate-response / self-response family:
+The live primary derivational target after those notes is therefore no longer, by default, another deeper anchored positive-pair note, and it is no longer to write the bridge-level redesign screen or the first explicit candidate note itself. It is the full benchmark-gate follow-up for that concrete charge-polarization candidate:
 
 - keep the benchmark exact-closure package fixed as the target being recovered;
-- treat the observer-remainder classification and the redesign gate screen as already fixing the bottleneck and the admissibility package;
-- write the next candidate manuscript so that it changes the observer equation already on matter-free reduced data, targets the self-response-neutral dressed bridge output directly, and then states the infrared-spectrum, single-metric-coupling, and controlled-limit checks explicitly rather than reopening bridge-metric-only or matter-route-only repairs.
+- treat the observer-remainder classification, the redesign gate screen, and the charge-polarization candidate note as already fixing the bottleneck, admissibility package, and first concrete response sector;
+- linearize the full coupled reduced system about an admissible homogeneous branch and derive the observer-accessible infrared spectrum explicitly;
+- recheck that matter and light continue to couple through one operative metric before any controlled-limit theorem claim is made.
 
 ## Current Deeper-Origin Side Continuation
 
@@ -78,7 +81,8 @@ The next active work is no longer another archive or presentation edit, and it i
 - Read [aether_flow_exact_closure_derivation_gates_note.tex](../manuscripts/active/tex/aether_flow_exact_closure_derivation_gates_note.tex) as the short benchmark-facing derivation target.
 - Read [aether_flow_substrate_higher_derivative_observer_remainder_classification_note.tex](../manuscripts/active/tex/aether_flow_substrate_higher_derivative_observer_remainder_classification_note.tex) as the bridge-obstruction classification and redesign-decision note.
 - Read [aether_flow_substrate_higher_derivative_substrate_response_self_response_bridge_redesign_gate_screen_note.tex](../manuscripts/active/tex/aether_flow_substrate_higher_derivative_substrate_response_self_response_bridge_redesign_gate_screen_note.tex) as the benchmark-facing admissibility and gate-screen note for the surviving family.
-- Treat the next primary manuscript as the first explicit substrate-response / self-response candidate inside that recorded family, deriving the eliminated observer equation already on matter-free reduced data before any infrared-spectrum or theorem claim is made.
+- Read [aether_flow_substrate_higher_derivative_substrate_response_self_response_charge_polarization_candidate_note.tex](../manuscripts/active/tex/aether_flow_substrate_higher_derivative_substrate_response_self_response_charge_polarization_candidate_note.tex) as the recorded first explicit candidate note inside that family.
+- Treat the next primary manuscript as the full infrared-spectrum / universal-coupling gate note for that recorded charge-polarization candidate, deriving the full observer-accessible linearized spectrum on an admissible homogeneous branch and rechecking one operative metric before any controlled-limit theorem claim is made.
 - Treat the anchored positive-pair continuation as side work only unless it produces a concrete observer-equation gain or a genuine new quotient/locking structure.
 - When any active `.tex` file is created or modified, generate the matching `.pdf` in the appropriate folder and clean `.aux`, `.log`, and `.out` with [scripts/build_aether_pdf.sh](../scripts/build_aether_pdf.sh).
 
