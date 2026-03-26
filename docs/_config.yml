@@ -1,12 +1,12 @@
 title: "The Æther-Flow Interpretation of Relativity"
-description: "Public overview, theory-package guide, archive framing, and review materials."
+description: "Benchmark exact-closure package, active derivation program, review materials, and project documentation."
 theme: jekyll-theme-cayman
-url: "https://omegapy.github.io"
-baseurl: "/AEther"
+url: "https://angryowlai.github.io"
+baseurl: "/The-AEther-GR-Derivation"
 show_downloads: false
-repository_url: "https://github.com/Omegapy/AEther"
-blob_base_url: "https://github.com/Omegapy/AEther/blob/main"
-raw_base_url: "https://raw.githubusercontent.com/Omegapy/AEther/main"
+repository_url: "https://github.com/AngryOwlAI/The-AEther-GR-Derivation"
+blob_base_url: "https://github.com/AngryOwlAI/The-AEther-GR-Derivation/blob/main"
+raw_base_url: "https://raw.githubusercontent.com/AngryOwlAI/The-AEther-GR-Derivation/main"
 markdown: kramdown
 kramdown:
   input: GFM

@@ -1,6 +1,6 @@
 # Theory Package
 
-[Home](index.md) | [Start Here](start-here.md) | [Front-Facing Article](front-facing-article.md) | [Theory Package](theory-package.md) | [Research Archive](research-archive.md) | [AI Collaboration and Method](ai-collaboration-and-method.md) | [How to Review](how-to-review.md)
+[Home](index.md) | [Start Here](start-here.md) | [Theory Package](theory-package.md) | [Active Research](research-archive.md) | [How to Review](how-to-review.md) | [AI Collaboration and Method](ai-collaboration-and-method.md) | [Front-Facing Article](front-facing-article.md)
 
 This page lists the flagship public-facing package of `The Æther-Flow Interpretation of Relativity`.
 
@@ -40,4 +40,4 @@ If you want a single-entry orientation before the package itself, begin with the
 - The first curated release bundle contains the front-facing article, the overview, and the six core exact-closure manuscripts.
 - The larger root archive remains in the repository, but it is intentionally not surfaced here on equal footing with the flagship benchmark package.
 
-If you want the active derivational continuation after finishing this package, continue to [Research Archive](research-archive.md).
+If you want the live derivational continuation after finishing this package, continue to [Active Research](research-archive.md).

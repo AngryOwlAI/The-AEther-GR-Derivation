@@ -1,6 +1,6 @@
 # Front-Facing Article
 
-[Home](index.md) | [Start Here](start-here.md) | [Front-Facing Article](front-facing-article.md) | [Theory Package](theory-package.md) | [Research Archive](research-archive.md) | [AI Collaboration and Method](ai-collaboration-and-method.md) | [How to Review](how-to-review.md)
+[Home](index.md) | [Start Here](start-here.md) | [Theory Package](theory-package.md) | [Active Research](research-archive.md) | [How to Review](how-to-review.md) | [AI Collaboration and Method](ai-collaboration-and-method.md) | [Front-Facing Article](front-facing-article.md)
 
 This page introduces the single-entry public article for `The Æther-Flow Interpretation of Relativity`.
 
@@ -23,7 +23,7 @@ The article is a public orientation layer. It does not replace the overview-firs
 
 - If you want a single-entry orientation document, read this article first.
 - If you want the canonical package front door, go next to [Theory Package](theory-package.md) and begin with the overview.
-- If you want the broader downstream archive after that, continue to [Research Archive](research-archive.md).
+- If you want the live project status after that, continue to [Active Research](research-archive.md).
 
 ## Public Boundary
 

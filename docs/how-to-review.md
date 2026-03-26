@@ -1,6 +1,6 @@
 # How to Review
 
-[Home](index.md) | [Start Here](start-here.md) | [Front-Facing Article](front-facing-article.md) | [Theory Package](theory-package.md) | [Research Archive](research-archive.md) | [AI Collaboration and Method](ai-collaboration-and-method.md) | [How to Review](how-to-review.md)
+[Home](index.md) | [Start Here](start-here.md) | [Theory Package](theory-package.md) | [Active Research](research-archive.md) | [How to Review](how-to-review.md) | [AI Collaboration and Method](ai-collaboration-and-method.md) | [Front-Facing Article](front-facing-article.md)
 
 This page is for physicists, mathematicians, and technically trained readers who want to audit the repository honestly and efficiently.
 
@@ -23,7 +23,7 @@ That order matters because the benchmark package, not the derivational manuscrip
 1. Read the overview and exact-closure note first.
 2. Read the companion manuscript most relevant to your expertise.
 3. Use the [claim-boundary note](AETHER_FLOW_CLAIM_BOUNDARY.md) as a check against overstatement.
-4. Only after that, enter the [Research Archive](research-archive.md) if you want the broader derivational context.
+4. Only after that, enter the [Active Research](research-archive.md) page if you want the broader derivational context and the current live target.
 
 ## Particularly Useful Feedback
 

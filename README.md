@@ -3,10 +3,10 @@
 ![The Æther-Flow Project ](https://github.com/user-attachments/assets/589d6d9e-fa70-497c-aa31-6561d299584c)
 ---
 
-**Autor:**  
+**Author:**  
 <img width="30" height="30" align="center" src="https://github.com/user-attachments/assets/a8e0ea66-5d8f-43b3-8fff-2c3d74d57f53"> Alexander Ricciardi (Omega.py)
 
-The originally research can be found here: [AngryOwl/AEther](https://github.com/AngryOwlAI/The-AEther)
+Earlier ontology/background material is preserved in the [predecessor repository](https://github.com/AngryOwlAI/The-AEther). This repository is the active project home for the GR-derivation phase of `The Æther-Flow Interpretation of Relativity`.
 
 ---
 
@@ -16,7 +16,7 @@ This repository is the active working repository for `The Æther-Flow Interpreta
 
 The repository preserves two linked layers of work. First, it preserves the overview-first exact-closure package as the benchmark theory statement of the project. At that benchmark level, GR is adopted exactly as the operational relativistic sector, while the `Æther / Æther-flow` framework supplies the interpretive ontology. Second, it preserves the active downstream derivational program that is trying to recover that same GR sector from explicit substrate structure without changing the benchmark claim boundary prematurely.
 
-This project should therefore not be read as claiming that GR has already been derived from first principles. Its present position is narrower and more disciplined: the exact-closure package is the benchmark theory statement already in hand, while the derivational manuscripts record the active attempt to derive that benchmark from deeper substrate dynamics. As of March 25, 2026, the current research goal is to continue that derivational line honestly, with the derivation-gates note and observer-remainder classification note fixing the live bottleneck for the next bridge-level redesign.
+This project should therefore not be read as claiming that GR has already been derived from first principles. Its present position is narrower and more disciplined: the exact-closure package is the benchmark theory statement already in hand, while the derivational manuscripts record the active attempt to derive that benchmark from deeper substrate dynamics. As of March 26, 2026, the current research goal is to continue that derivational line honestly, with the residual-sector verdict for the recorded charge-polarization candidate as the immediate next benchmark-facing step.
 
 The work has been developed under sustained human direction using the Codex App with GPT-5.4 as a research and drafting assistant. The underlying [Æther and Æther-Flow](Æther_and_Æther-Flow.md) concept is Ricciardi's original idea; the AI-assisted workflow has been used to formalize, extend, organize, and stress-test the manuscript line in LaTeX and PDF form.
 
@@ -39,20 +39,24 @@ This repository now serves as the active working repository for the derivational
 
 The central benchmark package in this repository is still the overview-first exact-closure sequence. Within that package, general relativity is adopted exactly as the operational relativistic sector with universal matter coupling, while the `Æther / Æther-flow` framework supplies the interpretive ontology. That benchmark is not being replaced. It is the fixed relativistic target that the next manuscript line will try to derive from explicit substrate structure.
 
-The current primary derivational bottleneck is now recorded by [aether_flow_exact_closure_derivation_gates_note.tex](manuscripts/active/tex/aether_flow_exact_closure_derivation_gates_note.tex), [aether_flow_substrate_higher_derivative_observer_remainder_classification_note.tex](manuscripts/active/tex/aether_flow_substrate_higher_derivative_observer_remainder_classification_note.tex), and [aether_flow_substrate_higher_derivative_substrate_response_self_response_bridge_redesign_gate_screen_note.tex](manuscripts/active/tex/aether_flow_substrate_higher_derivative_substrate_response_self_response_bridge_redesign_gate_screen_note.tex). The first note extracts the benchmark GR-derivation gates from the exact-closure package. The second classifies the live observer-side obstruction. The third records the benchmark-facing admissibility package and immediate gate screen for the surviving substrate-response / self-response redesign family. The next primary task is therefore the first explicit candidate manuscript inside that family: derive its eliminated observer equation already on matter-free reduced data, then test it against the infrared two-tensor, single-metric coupling, and controlled-GR-limit gates.
+The current benchmark-facing derivation sequence is now recorded by [aether_flow_exact_closure_derivation_gates_note.tex](manuscripts/active/tex/aether_flow_exact_closure_derivation_gates_note.tex), [aether_flow_substrate_higher_derivative_observer_remainder_classification_note.tex](manuscripts/active/tex/aether_flow_substrate_higher_derivative_observer_remainder_classification_note.tex), [aether_flow_substrate_higher_derivative_substrate_response_self_response_bridge_redesign_gate_screen_note.tex](manuscripts/active/tex/aether_flow_substrate_higher_derivative_substrate_response_self_response_bridge_redesign_gate_screen_note.tex), [aether_flow_substrate_higher_derivative_substrate_response_self_response_charge_polarization_candidate_note.tex](manuscripts/active/tex/aether_flow_substrate_higher_derivative_substrate_response_self_response_charge_polarization_candidate_note.tex), [aether_flow_substrate_higher_derivative_substrate_response_self_response_charge_polarization_infrared_spectrum_universal_coupling_gate_note.tex](manuscripts/active/tex/aether_flow_substrate_higher_derivative_substrate_response_self_response_charge_polarization_infrared_spectrum_universal_coupling_gate_note.tex), and [aether_flow_substrate_higher_derivative_substrate_response_self_response_charge_polarization_controlled_gr_limit_note.tex](manuscripts/active/tex/aether_flow_substrate_higher_derivative_substrate_response_self_response_charge_polarization_controlled_gr_limit_note.tex). The immediate next primary manuscript is now the residual-sector verdict note for that same charge-polarization candidate: classify every remaining sector as absent, gauge exact, constraint exact, or decoupled on the same disciplined branch before any stronger promotion language is used.
 
 The deeper-origin continuation below [aether_flow_substrate_higher_derivative_nonlocal_bridge_self_response_off_shell_profile_selection_bridge_order_orbit_shape_modulus_origin_note.tex](manuscripts/active/tex/aether_flow_substrate_higher_derivative_nonlocal_bridge_self_response_off_shell_profile_selection_bridge_order_orbit_shape_modulus_origin_note.tex) and [aether_flow_substrate_higher_derivative_nonlocal_bridge_self_response_off_shell_profile_selection_bridge_order_orbit_shape_modulus_primitive_class_setup_note.tex](manuscripts/active/tex/aether_flow_substrate_higher_derivative_nonlocal_bridge_self_response_off_shell_profile_selection_bridge_order_orbit_shape_modulus_primitive_class_setup_note.tex) remains recorded and disciplined. The setup note, amplitude-lift note, amplitude-sector note, absolute-amplitude/polarity note, midpoint/fiber note, midpoint-selection note, midpoint-selector-justification note, and midpoint-selector pair-balance-origin note still form that side continuation below the burden-fixing layer. That continuation should now be treated as side work only unless it produces a concrete observer-equation change, a genuine new quotient, or a genuine new locking structure affecting the scale-orbit or residual vacuum-angle verdicts.
+
+## Current Active Objective
+
+The benchmark exact-closure package remains the fixed public front door of the repository. The live derivational objective, as of March 26, 2026, is the residual-sector verdict for the recorded charge-polarization candidate after the benchmark-gates, observer-remainder, redesign-screen, infrared-spectrum, and controlled-GR-limit notes already in hand. The deeper anchored positive-pair continuation remains recorded side work unless it changes the observer equation or the current scale-orbit / residual-vacuum-angle verdicts.
 
 ## Start Here
 
 - [Start Here](docs/start-here.md): quick orientation and recommended reading path
 - [Front-Facing Article](docs/front-facing-article.md): single-entry public introduction
 - [Theory Package](docs/theory-package.md): fixed reading order and curated public release bundle
+- [Active Research](docs/research-archive.md): live derivational objective, current benchmark-facing sequence, and archive context
 - [How to Review](docs/how-to-review.md): what expert readers are being asked to audit
-- [Research Archive](docs/research-archive.md): downstream derivational bridge material and archive framing
 - [AI Collaboration and Method](docs/ai-collaboration-and-method.md): provenance and workflow transparency
 
-The `docs/` tree is the public GitHub Pages presentation layer for this preserved repository state and can be published directly from the repository's `docs/` folder when Pages is enabled.
+The `docs/` tree is the public GitHub Pages presentation layer for the current active repository state and can be published directly from the repository's `docs/` folder when Pages is enabled.
 
 ## At A Glance
 
@@ -62,7 +66,8 @@ The `docs/` tree is the public GitHub Pages presentation layer for this preserve
 - The derivational manuscript line is now being continued here as the active research program.
 - The benchmark derivation-gates note, observer-remainder classification note, and benchmark-facing bridge-redesign gate-screen note are now recorded.
 - The next manuscript move is no longer another Markdown cleanup pass, and it is no longer, by default, another deeper anchored positive-pair origin note.
-- The next primary research step is the first explicit substrate-response / self-response candidate manuscript inside that recorded family, followed immediately by the infrared-spectrum and single-metric-coupling gate checks.
+- The first explicit charge-polarization candidate, the full infrared-spectrum / universal-coupling gate note, and the controlled GR-limit note are now recorded.
+- The next primary research step is the residual-sector verdict note for that same candidate.
 - The anchored positive-pair continuation remains a recorded side line and should be advanced only if it changes the observer equation or the scale-orbit / residual-vacuum-angle verdicts.
 - Public presentation should still begin with the benchmark package before moving into the active derivational manuscripts.
 
@@ -124,7 +129,7 @@ For the fuller provenance and workflow note, see [docs/ai-collaboration-and-meth
 
 ## Repository Status
 
-As of March 25, 2026, this repository is again intended to be the active working repository of the project. It preserves the exact-closure package as the benchmark theory statement, the surrounding manuscript archive that led to that benchmark, and the next active derivational line that will try to recover GR from `The Æther-Flow Interpretation of Relativity`.
+As of March 26, 2026, this repository is the active working repository of the project. It preserves the exact-closure package as the benchmark theory statement, the surrounding manuscript archive that led to that benchmark, and the active derivational line that is trying to recover GR from `The Æther-Flow Interpretation of Relativity`.
 
 The current repository-direction rule is:
 
