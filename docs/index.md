@@ -12,7 +12,7 @@ The benchmark starting point is the overview-first exact-closure package centere
 - The live benchmark-facing sequence now runs through the derivation-gates note, observer-remainder classification note, bridge-redesign gate-screen note, charge-polarization candidate note, infrared-spectrum / universal-coupling gate note, controlled GR-limit note, residual-sector verdict note, and quartic-completion redesign note.
 - The immediate next primary manuscript target is now a first-principles substrate-anchoring / justification note for that quartic-completion redesign, deriving or justifying its completion solve from explicit substrate-response structure while preserving the one operative metric, the recorded Phase D / E infrared and universal-coupling verdicts, the Phase F controlled GR limit, and the observer-equation removal of the former genuine quartic residual sector.
 - Stronger promotion language should wait until that quartic-completion redesign has been anchored below observer-equation level.
-- The deeper anchored positive-pair continuation remains recorded side work unless it changes the observer equation, supplies the missing redesign anchoring, or changes the current scale-orbit / residual-vacuum-angle verdicts.
+- The deeper anchored positive-pair continuation remains recorded side work unless it supplies the missing redesign anchoring or another concrete observer-equation gain.
 
 ## Main Deliverable
 
