@@ -1,0 +1,206 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal{A}}
+\newcommand{\BridgeMetric}{\mathfrak{g}}
+\newcommand{\ObserverCorr}{\Delta_{\mu\nu}^{\mathrm{obs}}}
+\newcommand{\ObserverMetric}{g_{\mu\nu}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Exact-Closure Benchmark and GR Derivation Gates}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The overview-first exact-closure package already fixes the relativistic benchmark of the repository. If the project goal is now to derive GR from explicit substrate variables rather than only to restate or package the benchmark, then the first missing step is to extract that benchmark as a short list of non-negotiable derivation gates.
+
+This note records that list. A future derivational branch counts as successful only if it reaches the Einstein observer equation, or equivalently the Einstein--Hilbert action plus ordinary matter, through one operative metric with universal matter coupling; preserves the ordinary GR low-energy gauge and two-tensor content; reproduces exact null, proper-time, and redshift structure through that same metric; and leaves no genuine observer-side remainder after elimination of auxiliary or substrate-only variables. In the language of the substrate-kinematics bridge manuscript, the exact-closure test is therefore not merely a candidate-model checklist. It is the theorem target of the derivational program.
+
+The note also records what does \emph{not} yet count as GR derivation. Exact relativistic adoption without substrate recovery does not count. A stable recovery-compatible side branch with a residual observer tensor does not count. Infrared suppression, asymptotic mildness, or cancellation only on a degenerate or tuned locus does not count. Deeper origin notes on selector, profile, or anchored positive-pair sectors count as primary progress only if they discharge one of the gates stated here. Otherwise they remain disciplined side work rather than the central bottleneck of the GR-derivation program.
+\end{abstract}
+
+\section{Introduction}
+
+The active manuscript sequence of \TheoryName{} already has a fixed public front door: the overview, the exact-closure note, and the five core companion manuscripts on foundations, dynamics, consistency, relativistic recovery, and geometry. That package fixes the benchmark theory claim. It is not the place where a substrate derivation is claimed complete.
+
+Once the project goal is sharpened from exact relativistic interpretation to actual derivation of GR from explicit substrate variables, a new short manuscript is needed before another branch-level construction or deeper-origin note is treated as primary progress. One must say plainly what successful derivation would have to recover.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not claim that GR has already been derived from substrate microphysics. It does not propose a new candidate branch. Its narrower task is benchmark facing: extract the exact derivation target already fixed by the public package, and state that target in a form strong enough to govern later bridge, redesign, and closure notes.
+
+\section{The Fixed Benchmark Package}
+
+\begin{definition}[Benchmark exact-closure package]
+The \emph{benchmark exact-closure package} is the overview-first manuscript sequence consisting of:
+\begin{enumerate}
+    \item the exact-closure sequence overview,
+    \item the exact-closure note,
+    \item the foundations manuscript,
+    \item the dynamics manuscript,
+    \item the consistency manuscript,
+    \item the relativistic recovery manuscript,
+    \item the flow-geometry manuscript.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+This note does not reopen that package. The benchmark package remains the public front door and the fixed target of the derivational program. Any later bridge manuscript is judged by whether it recovers the benchmark already fixed there.
+\end{remark}
+
+\begin{proposition}[What the benchmark package already fixes]
+The benchmark exact-closure package already fixes, at repository claim-boundary level, all of the following:
+\begin{enumerate}
+    \item the observer-accessible relativistic law is Einsteinian rather than a low-energy deformation theory;
+    \item matter and light are read through one operative Lorentzian metric;
+    \item the low-energy observer sector has the ordinary GR causal, proper-time, and redshift structure;
+    \item no extra low-energy preferred-frame matter law is part of the benchmark claim.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Those are exactly the roles played across the benchmark package. The dynamics manuscript fixes the Einsteinian effective law and universal matter coupling, the consistency manuscript fixes the degree-of-freedom and gauge discussion answerable to ordinary relativistic structure, the relativistic recovery manuscript fixes null, proper-time, and redshift recovery, and the geometry manuscript supplies the congruence-based reading within that one metric geometry.
+\end{proof}
+
+\section{The Observer-Side Theorem Target}
+
+The substrate-kinematics manuscript already states the bridge equation in the form
+\begin{equation}
+G_{\mu\nu}[\ObserverMetric]
++ \Lambda_{\Sub}\ObserverMetric
+=
+\frac{8\pi G_N}{c^4}T_{\mu\nu}^{\mathrm{matter}}
++ \ObserverCorr,
+\label{eq:bridge}
+\end{equation}
+where \(\ObserverMetric=\Xi^\ast\BridgeMetric\) is the observer metric and \(\ObserverCorr\) collects every non-Einsteinian correction left after passing from substrate variables to observer-accessible variables.
+
+\begin{definition}[Observer-side exact-closure theorem target]
+A derivational branch satisfies the \emph{observer-side exact-closure theorem target} only if, after elimination of auxiliary, constrained, or purely substrate-side variables, the effective observer description is equivalent to
+\begin{equation}
+S_{\mathrm{eff}}[\ObserverMetric,\psi]
+=
+\frac{c^3}{16\pi G_N}
+\int d^4x\,\sqrt{-\ObserverMetric}\,
+\bigl(R[\ObserverMetric]-2\Lambda_{\mathrm{eff}}\bigr)
++ S_{\mathrm{matter}}[\ObserverMetric,\psi],
+\label{eq:actiontarget}
+\end{equation}
+or equivalently to the observer equation
+\begin{equation}
+G_{\mu\nu}[\ObserverMetric]
++ \Lambda_{\mathrm{eff}}\ObserverMetric
+=
+\frac{8\pi G_N}{c^4}T_{\mu\nu}^{\mathrm{matter}},
+\label{eq:eqtarget}
+\end{equation}
+with no genuine residual tensor beyond the Einstein--Hilbert plus ordinary-matter sector.
+\end{definition}
+
+\begin{remark}
+Equations \eqref{eq:actiontarget} and \eqref{eq:eqtarget} do \emph{not} require that the Einstein--Hilbert term itself be primitive at the deepest substrate layer. They require only that whatever deeper substrate route is proposed reduce exactly to the Einsteinian observer sector, with any cosmological term absorbed into that sector rather than left as an unexplained observer remainder.
+\end{remark}
+
+\begin{proposition}[The substrate-kinematics exact-closure test becomes a theorem target]
+Equation \eqref{eq:bridge} should now be read as a theorem target rather than only as a candidate-model checklist. In particular, the derivational burden is to show that \(\ObserverCorr\) is absent as a genuine observer-side sector after the full admissible reduction.
+\end{proposition}
+
+\begin{proof}
+The benchmark package already fixes the correct observer theory. Therefore a bridge manuscript can count as derivationally successful only if its observer equation reduces exactly to that same theory. The correction tensor in \eqref{eq:bridge} is precisely the placeholder for failure of that reduction, so the exact-closure test is the theorem target itself.
+\end{proof}
+
+\section{The Five Non-Negotiable Derivation Gates}
+
+\begin{definition}[Benchmark derivation gates]
+A branch may be described as a \emph{candidate GR derivation} only if it is answerable to all five of the following gates.
+\begin{enumerate}
+    \item \textbf{Einsteinian observer dynamics.} After elimination, the observer-accessible gravitational law is the Einstein equation \eqref{eq:eqtarget}, or equivalently the Einstein--Hilbert action plus ordinary matter \eqref{eq:actiontarget}.
+    \item \textbf{One operative metric with universal matter coupling.} Matter and light couple through one operative metric \(\ObserverMetric\), with no second universal matter metric and no unsuppressed preferred-frame matter term.
+    \item \textbf{Ordinary GR gauge and two-tensor content.} The low-energy observer sector retains the ordinary diffeomorphism-compatible gauge structure and the usual two-tensor gravitational content; any extra scalar or vector sector must be pure gauge, constrained, heavy, or parametrically decoupled.
+    \item \textbf{Exact null, proper-time, and redshift recovery.} The same operative metric that appears in the observer equation must also govern the null cone, proper time, and redshift structure exactly at benchmark scope.
+    \item \textbf{No genuine observer-side remainder.} Every term beyond the Einstein--Hilbert plus ordinary-matter sector must be shown to be absent, gauge exact, constraint exact, or decoupled; no genuinely physical observer-side remainder may survive.
+\end{enumerate}
+\end{definition}
+
+\begin{theorem}[These gates are jointly necessary]
+Any future manuscript line that fails even one of the five benchmark derivation gates is not yet a successful derivation of GR from substrate variables in the sense relevant to \TheoryName{}.
+\end{theorem}
+
+\begin{proof}
+Gate (1) is required because the benchmark package fixes the Einsteinian observer law rather than a deformation of it. Gate (2) is required because the benchmark package uses one operative metric for matter and light. Gate (3) is required because the benchmark consistency discussion is answerable to ordinary relativistic gauge and degree-of-freedom content, not to an unsuppressed extra low-energy observer sector. Gate (4) is required because null, proper-time, and redshift recovery are part of the benchmark package itself rather than optional later interpretation. Gate (5) is required because any genuine residual observer tensor would mean that the bridge does not close exactly onto the benchmark theory. Therefore failure of any one gate is failure of the derivational target fixed by the benchmark package.
+\end{proof}
+
+\begin{remark}
+The five gates are intentionally phrased at observer level. A substrate theory may be complicated below that level. What matters for the derivational claim is the observer-accessible sector after the admissible reduction.
+\end{remark}
+
+\section{What Does Not Yet Count as Derivation}
+
+\begin{definition}[Stable recovery-compatible side result]
+A branch is a \emph{stable recovery-compatible side result} if it preserves the one-metric matter route and the benchmark relativistic recovery regime, and may even carry positive reduced-system or asymptotic results, yet still leaves a genuine observer-side remainder.
+\end{definition}
+
+\begin{proposition}[Several nearby achievements are still insufficient]
+None of the following, by itself, satisfies the benchmark derivation gates:
+\begin{enumerate}
+    \item exact relativistic adoption without substrate recovery,
+    \item a branch that is stable or recovery compatible but leaves a genuine observer remainder,
+    \item infrared suppression of a remainder that is still genuinely present,
+    \item exact closure only on a degenerate, tuned-by-construction, or cancellation locus,
+    \item a deeper origin or selector note that leaves all five gates unchanged.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Item (1) fails the derivation requirement directly. Items (2)--(4) fail Gate (5), and in many cases also fail Gate (1). Item (5) may deepen the substrate story, but if it leaves the observer equation, matter route, infrared degree count, and remainder classification unchanged, then it does not discharge any of the five benchmark gates and therefore does not count as primary derivational progress.
+\end{proof}
+
+\begin{corollary}[Priority rule for future manuscripts]
+After the present note, a new active derivational manuscript counts as primary progress only if it directly discharges one of the five benchmark derivation gates or sharpens the proof burden for doing so. Otherwise it should be treated as disciplined side work rather than the central GR-derivation bottleneck.
+\end{corollary}
+
+\section{Conclusion}
+
+The benchmark package now has the short benchmark-facing extraction it needed. If the project goal is truly to derive GR from the deeper \Aether{} / \Aflow{} structure, then success has a precise meaning: the observer-side theory must reduce to Einstein or Einstein--Hilbert plus ordinary matter, through one operative metric with universal matter coupling, with ordinary GR gauge/two-tensor content, with exact null/proper-time/redshift recovery, and with no genuine observer-side remainder.
+
+This note therefore turns the substrate-kinematics exact-closure test into the correct theorem target. It also sharpens manuscript priority. Stable recovery-compatible side branches do not yet count as derivation if they leave a genuine observer tensor. Deeper origin notes do not count as primary progress unless they change one of the benchmark gates. The next honest bottleneck is whatever still blocks Gate (5), namely the classification and removal of the observer-side remainder on the active bridge line.
+
+\end{document}

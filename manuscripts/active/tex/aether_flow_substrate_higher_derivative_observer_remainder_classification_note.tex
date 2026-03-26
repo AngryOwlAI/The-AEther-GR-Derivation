@@ -1,0 +1,272 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\ObserverMetric}{g_{\mu\nu}}
+\newcommand{\ObsRem}{\mathcal R_{\mu\nu}^{\mathrm{obs}}}
+\newcommand{\RemGC}{\mathcal R_{\mu\nu}^{\mathrm{gc}}}
+\newcommand{\RemLongOld}{\mathcal R_{\mu\nu}^{(\chi,2)}}
+\newcommand{\RemOff}{\widetilde{\mathcal R}_{\mu\nu}^{\mathrm{off}}}
+\newcommand{\RemLong}{\widetilde{\mathcal R}_{\mu\nu}^{(\chi,\ge 3)}}
+\newcommand{\RemLongThree}{\widetilde{\mathcal R}_{\mu\nu}^{(\chi,3)}}
+\newcommand{\RemLongFour}{\widetilde{\mathcal R}_{\mu\nu}^{(\chi,\ge 4)}}
+\newcommand{\RemIER}{\mathcal R_{\mu\nu}^{\mathrm{IER}}}
+\newcommand{\HamChargeOmega}{\mathfrak m_{\Omega}}
+\newcommand{\PiOmega}{\Pi^{(\Omega)}}
+\newcommand{\BridgeMetric}{\mathfrak g}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Observer-Remainder Classification and Bridge-Obstruction Note}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The benchmark-facing derivation-gates note makes the live theorem target explicit: the active bridge line must reach the Einstein observer equation, through one operative metric and ordinary matter coupling, with no genuine observer-side remainder. The present note addresses the bottleneck identified both by the exact-closure test of the substrate-kinematics manuscript and by the mass-shaped bridge criterion: classify what survives in the observer equation on the active bridge line, and use that classification to decide which redesign family is still primary.
+
+The classification is now sharp. First, terms proportional to eliminated auxiliary equations, slice constraints, or pure gauge identities are not the live obstruction; they are gauge/constraint exact. Second, the old same-scope longitudinal slot is not the decisive present burden either; it was a real obstruction on the fixed bridge, but it is removed already by the first bridge-first redesign and the first surviving cubic longitudinal piece is removed again by the broader inverse-response completion. Third, the off-longitudinal \(Q/W\) remainder is genuinely physical on the fixed and bridge-first-redesigned lines: it survives on matter-free reduced data, has nonzero Hamiltonian charge on the decisive rotational regime, and therefore cannot be removed by a matter-route-only change. That is why the bridge-metric-only and matter-route-only redesigns are now exhausted as primary default moves. Fourth, once the broader operational observer map is made honest, the first genuinely physical remainder moves to the Hamiltonian-charge self-response of the required Coulomb tail. That quartic self-response is the actual bridge obstruction revealed by the broader screen.
+
+The resulting redesign decision is therefore precise. The next primary manuscript should not be another bridge-metric-only note and should not be another matter-route-only note. A purely observer-map note is no longer the earliest fork either, because that direction has already been screened through the inverse-response and self-response-dressed lines. The next primary redesign should instead be treated as a deeper substrate-response-sector or equivalent self-response bridge-map manuscript whose elimination changes the observer equation already on matter-free reduced data and realizes the already-recorded self-response-neutral dressed bridge output. The anchored positive-pair continuation remains worthwhile only as side work unless it changes that observer equation, supplies a real quotient, or changes the present residual-vacuum-angle verdict.
+\end{abstract}
+
+\section{Introduction}
+
+The active derivational line has produced many bridge and redesign notes, but the exact theorem bottleneck is now narrower than the raw manuscript count might suggest. The benchmark package is fixed. The benchmark-facing derivation-gates note says what success must mean. The present question is then strictly observer-side: what pieces of the residual observer tensor are merely eliminated bookkeeping, what pieces were real but are already screened away by broader redesign, and what piece is the first genuinely physical obstruction on the current bridge line?
+
+That is the role of this note. It does not reopen the positive quotient reduced-system, theorem, decay, or asymptotic line. It does not replace the benchmark package. It does not claim that the self-response-dressed bridge line is already a completed first-principles derivation. Its task is more disciplined: classify the observer remainder, identify the decisive obstruction, and use that classification to choose the next honest redesign level.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not claim that the bridge already closes exactly. It classifies the already-recorded observer remainder sectors and records which redesign family is still primary if GR derivation rather than side-line origin work is the goal.
+
+\section{Observer Equation and Classification Categories}
+
+The substrate-kinematics manuscript already fixes the bridge equation in the form
+\begin{equation}
+G_{\mu\nu}[\ObserverMetric]
+=
+8\pi G_N\,T_{\mu\nu}^{\mathrm{matter}}
++ \ObsRem,
+\label{eq:obs}
+\end{equation}
+after moving every non-Einsteinian observer-side contribution into the correction tensor \(\ObsRem\).
+
+\begin{definition}[Observer-remainder classes]
+An observer-remainder contribution in \eqref{eq:obs} will be classified as follows.
+\begin{enumerate}
+    \item \textbf{Longitudinal remainder.} A term is longitudinal if it is supported entirely in the convergence or ordered-flow longitudinal sector and vanishes on the purely rotational matter-free regime.
+    \item \textbf{Off-longitudinal remainder.} A term is off-longitudinal if it survives on matter-free reduced data outside the longitudinal sector, in practice through the \(Q\)- or transverse-vorticity \(W\)-sectors.
+    \item \textbf{Gauge/constraint-exact remainder.} A term is gauge/constraint exact if, after imposing the Einstein constraints, the reduced slice equations, and the eliminated auxiliary equations, it vanishes or becomes a pure gauge identity.
+    \item \textbf{Genuinely physical remainder.} A term is genuinely physical if it survives on reduced solutions and leaves an observer-accessible effect such as a nonzero Hamiltonian charge, a nonvanishing exterior asymptotic density, or a genuine extra source in the reduced observer equation.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Decisive rotational matter-free regime]
+The \emph{decisive rotational matter-free regime} is the reduced-data regime
+\begin{equation}
+K\equiv 0,
+\qquad
+Q^I\equiv 0,
+\qquad
+\Omega_{ij}^T\not\equiv 0,
+\qquad
+T_{\mu\nu}^{\mathrm{matter}}=0.
+\label{eq:rot}
+\end{equation}
+\end{definition}
+
+\begin{remark}
+Regime \eqref{eq:rot} is the clean diagnostic already used by the redesign sequence. It kills matter terms and the convergence-supported longitudinal sector, but it keeps the off-longitudinal vorticity remainder active. Any redesign that vanishes on \eqref{eq:rot} cannot be the primary answer to the recorded observer obstruction.
+\end{remark}
+
+\section{The Recorded Observer-Remainder Decomposition}
+
+\begin{proposition}[Gauge/constraint-exact sector]
+\label{prop:gc}
+On the active bridge line, the terms proportional to the eliminated \(Q\)-, \(\chi\)-, and \(W\)-equations are not the live obstruction. They are gauge/constraint exact and vanish on reduced solutions.
+\end{proposition}
+
+\begin{proof}
+The explicit bridge-tensor reduction note already decomposes the observer correction into the effective reduced observer tensor plus terms proportional to the eliminated auxiliary equations. Those proportional terms vanish once the reduced slice package is imposed. They therefore belong to \(\RemGC\) rather than to the genuinely physical remainder.
+\end{proof}
+
+\begin{remark}
+Proposition \ref{prop:gc} matters because the current obstruction is not a bookkeeping artifact of unreduced variables. The live burden begins only after this gauge/constraint-exact sector has been removed.
+\end{remark}
+
+\begin{proposition}[Status of the old longitudinal slot]
+\label{prop:longold}
+The old same-scope longitudinal slot is a real historical obstruction but not the decisive present one. On the fixed bridge branch it contributes a genuine longitudinal remainder \(\RemLongOld\), but the first bridge-first redesign removes that slot at the same tensor-reduction scope, and the later broader observer-map redesign removes the first surviving cubic longitudinal piece \(\RemLongThree\).
+\end{proposition}
+
+\begin{proof}
+The post-quotient bridge-metric redesign note proves that the minimal convergence-response bridge term cancels the old quadratic longitudinal observer slot on the redesigned bridge. The redesigned-bridge verdict then records that a higher-order longitudinal remainder remains, and the inverse-Einstein-response bridge-map test records that the first cubic longitudinal tensor \(\RemLongThree\) can be canceled by explicit broader completion. Hence the longitudinal sector is part of the obstruction history, but it is no longer the first decisive reason the present bridge line fails.
+\end{proof}
+
+\begin{proposition}[Status of the off-longitudinal sector on the fixed and minimal-redesign lines]
+\label{prop:off}
+On both the fixed bridge line and the bridge-first-redesigned line, the off-longitudinal remainder \(\RemOff\) is genuinely physical. In particular, on the regime \eqref{eq:rot} one has
+\begin{equation}
+G_{\mu\nu}[\ObserverMetric]
+=
+T_{\mu\nu}^{(W,\mathrm{eff},2)}
++ \mathcal O_{\ge 3},
+\qquad
+\rho_W^{(2)}
+=
+\frac{\kappa_\Omega}{4}\abs{\Omega^T}^2,
+\label{eq:off}
+\end{equation}
+so the observer equation remains sourced even when the convergence sector and matter sector are both absent.
+\end{proposition}
+
+\begin{proof}
+The redesigned-bridge closure verdict makes exactly this point. The bridge-first redesign depends only on the convergence potential and therefore is inactive on \eqref{eq:rot}. The remaining off-longitudinal \(W\)-sector stress has strictly positive Hamiltonian density there, so it is not gauge exact, not constraint exact, and not an artifact of matter coupling.
+\end{proof}
+
+\begin{corollary}[Why matter-route-only redesign is exhausted]
+\label{cor:matter}
+No matter-route-only redesign can be the primary answer to the recorded observer obstruction, because such a redesign vanishes on \eqref{eq:rot} while the genuinely physical off-longitudinal remainder \(\RemOff\) survives.
+\end{corollary}
+
+\begin{proof}
+The second matter-route redesign note records precisely this negative verdict: its new correction is matter dependent and therefore disappears on matter-free reduced data. Proposition \ref{prop:off} shows that the recorded off-longitudinal observer remainder does not disappear there.
+\end{proof}
+
+\begin{corollary}[Why bridge-metric-only redesign is exhausted]
+\label{cor:bridge}
+No further bridge-metric-only redesign of the already-tested minimal convergence-response type can be the default next move, because that family addresses only the longitudinal convergence slot while the decisive off-longitudinal remainder survives on \eqref{eq:rot}.
+\end{corollary}
+
+\begin{proof}
+This is exactly the content of Proposition \ref{prop:off} together with the bridge-first-redesign verdict recorded in Proposition \ref{prop:longold}.
+\end{proof}
+
+\section{What the Broader Observer-Map Screen Changes}
+
+\begin{proposition}[The broader observer map is sufficient to neutralize the old off-longitudinal obstruction]
+\label{prop:ier}
+The inverse-Einstein-response bridge-map test proves that the off-longitudinal remainder \(\RemOff\) and the first surviving cubic longitudinal piece \(\RemLongThree\) are not protected obstructions in principle. They can be canceled by a broader solve-defined operational observer map that remains active on matter-free reduced data.
+\end{proposition}
+
+\begin{proof}
+That note constructs the correction by solving the linearized Einstein response against \(-\RemOff\) and \(-\RemLongThree\), with the required Coulomb tail fixed by the Hamiltonian charge of the source. Consequently the full currently recorded off-longitudinal remainder is canceled and the explicit cubic longitudinal completion is added at the same observer-map level.
+\end{proof}
+
+\begin{remark}
+Proposition \ref{prop:ier} changes the redesign logic. Once the broader observer-map class is admitted, the decisive question is no longer whether the off-longitudinal \(Q/W\) sector can be removed at all. It can. The decisive question becomes what that honest broader solve feeds back into the observer equation next.
+\end{remark}
+
+\begin{proposition}[The first genuinely physical remainder on the honest broader screen]
+\label{prop:self}
+Once the broader inverse-response map is made honest by its admissible Coulomb-plus-regular solve class, the first genuinely physical remainder moves to the quartic self-response of the charge-carrying tail. On the exterior region of the regime \eqref{eq:rot},
+\begin{equation}
+n^\mu n^\nu \RemIER
+=
+\frac{3G_N^2\HamChargeOmega^2}{r^4}
++ \mathcal O(r^{-5})
+>0.
+\label{eq:self}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+This is the negative verdict of the quartic inverse-response continuation note. The full off-longitudinal remainder and the first cubic longitudinal piece are already canceled, so the remaining observer tensor is the quartic-and-higher continuation. On the honest admissible solve class, the required Coulomb tail has nonzero Hamiltonian charge and feeds back through the quadratic Einstein response to produce the positive exterior density \eqref{eq:self}. That density survives on reduced solutions and is therefore genuinely physical.
+\end{proof}
+
+\begin{remark}
+Equation \eqref{eq:self} is the bridge obstruction identified by the broader screen. It is not merely another longitudinal bookkeeping remainder. It is the first genuinely physical remainder that survives after the old off-longitudinal and cubic pieces have been neutralized.
+\end{remark}
+
+\section{The Classification Verdict}
+
+\begin{theorem}[Observer-remainder classification on the active bridge line]
+\label{thm:classification}
+At the present disciplined scope, the active bridge line admits the following observer-remainder classification.
+\begin{enumerate}
+    \item \textbf{Gauge/constraint-exact sector.} The eliminated-equation and constraint-proportional terms belong to \(\RemGC\) and are not the live obstruction.
+    \item \textbf{Old longitudinal sector.} The old same-scope longitudinal slot \(\RemLongOld\) is historically real but no longer decisive, because it is already canceled by the bridge-first redesign and the first surviving cubic longitudinal piece \(\RemLongThree\) is canceled by the broader inverse-response completion.
+    \item \textbf{Off-longitudinal sector.} The off-longitudinal \(Q/W\) remainder \(\RemOff\) is genuinely physical on the fixed and bridge-first-redesigned lines, survives on matter-free reduced data, and therefore proves that matter-route-only and bridge-metric-only minimal repairs are exhausted as default primary moves.
+    \item \textbf{Current genuinely physical remainder.} On the honest broader observer-map line, the first genuinely physical remainder is the quartic Hamiltonian-charge self-response \eqref{eq:self}. That is the present bridge obstruction.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Item (1) is Proposition \ref{prop:gc}. Item (2) is Proposition \ref{prop:longold}. Item (3) is Proposition \ref{prop:off} together with Corollaries \ref{cor:matter} and \ref{cor:bridge}. Item (4) is Proposition \ref{prop:self}. Together these statements classify exactly which observer-remainder sectors are historical, removable, bookkeeping only, or presently decisive.
+\end{proof}
+
+\begin{corollary}[The redesign choice is now fixed]
+\label{cor:choice}
+The next primary redesign should be treated as a deeper substrate-response-sector or equivalent self-response bridge-map manuscript whose elimination changes the observer equation already on matter-free reduced data and realizes the self-response-neutral dressed bridge output already isolated by the broader observer-map screen. It should not default to:
+\begin{enumerate}
+    \item another bridge-metric-only redesign,
+    \item another matter-route-only redesign,
+    \item or another purely deeper origin note whose observer equation is unchanged.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+Theorem \ref{thm:classification} shows that bridge-metric-only and matter-route-only repairs are already exhausted at the decisive off-longitudinal stage. Proposition \ref{prop:ier} shows that the broader observer-map family already passed the earlier screen, while Proposition \ref{prop:self} shows that its honest obstruction is the quartic self-response. Therefore the next honest redesign must act precisely at that self-response level and must remain active on matter-free reduced data. A deeper origin note that leaves the observer equation unchanged would not answer the current obstruction at all.
+\end{proof}
+
+\begin{corollary}[Status of the anchored positive-pair continuation]
+The anchored positive-pair continuation remains disciplined side work only. It becomes primary progress toward GR derivation only if it changes the observer equation, supplies a genuine new quotient or locking mechanism, or changes the present residual-vacuum-angle or observer-remainder verdict.
+\end{corollary}
+
+\section{Relation to the Benchmark Gates}
+
+\begin{proposition}[Why the remainder classification is the real current bottleneck]
+At the present disciplined scope, the active bridge line is not bottlenecked first by the benchmark package itself, nor by another same-scope theorem note, nor by another deeper origin note. It is bottlenecked by the ``no genuine observer-side remainder'' gate and by the need to show that the remaining observer tensor is either absent or only gauge/constraint exact.
+\end{proposition}
+
+\begin{proof}
+The benchmark package is already fixed and remains the front door. The active bridge line has already produced a long sequence of reduced-system, redesign, and source-sector notes. Theorem \ref{thm:classification} shows that the open problem is now sharply observer-side: identify which remainder sectors are genuinely physical and then redesign the bridge at exactly that level. That is precisely the benchmark ``no genuine observer-side remainder'' gate in operational form.
+\end{proof}
+
+\begin{remark}
+This proposition does not say that the other benchmark gates are trivial. It says only that, on the present active bridge line, the most immediate nontrivial obstruction to a GR-derivation claim is the observer remainder itself. The remainder classification is therefore the correct manuscript bottleneck to clear before more branch proliferation or deeper side-line continuation.
+\end{remark}
+
+\section{Conclusion}
+
+The observer-remainder picture is now sharp enough to control manuscript priority. Terms proportional to eliminated auxiliary equations or constraints are not the live obstruction. The old same-scope longitudinal slot was real, but it is no longer the decisive present burden. The off-longitudinal \(Q/W\) remainder is genuinely physical on the fixed and bridge-first-redesigned lines, and that fact already rules out matter-route-only and bridge-metric-only notes as the default next move. Once the broader observer map is admitted honestly, the decisive obstruction moves again: the first genuinely physical remainder becomes the quartic Hamiltonian-charge self-response of the Coulomb tail.
+
+That classification fixes the next redesign choice. The next primary manuscript should be a deeper substrate-response-sector or equivalent self-response bridge-map note acting already on matter-free reduced data. It should be judged by whether it realizes the self-response-neutral dressed bridge output without reintroducing a genuine observer remainder. The anchored positive-pair continuation remains worthwhile only as side work unless it changes that observer equation or the quotient/locking verdict itself.
+
+\end{document}

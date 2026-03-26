@@ -26,6 +26,10 @@ Read the [Theory Package](theory-package.md) first. This derivational material i
 
 - [Substrate kinematics PDF](../manuscripts/active/pdf/aether_flow_substrate_kinematics.pdf)
 - [Substrate kinematics LaTeX](../manuscripts/active/tex/aether_flow_substrate_kinematics.tex)
+- [Benchmark derivation-gates PDF](../manuscripts/active/pdf/aether_flow_exact_closure_derivation_gates_note.pdf)
+- [Benchmark derivation-gates LaTeX](../manuscripts/active/tex/aether_flow_exact_closure_derivation_gates_note.tex)
+- [Observer-remainder classification PDF](../manuscripts/active/pdf/aether_flow_substrate_higher_derivative_observer_remainder_classification_note.pdf)
+- [Observer-remainder classification LaTeX](../manuscripts/active/tex/aether_flow_substrate_higher_derivative_observer_remainder_classification_note.tex)
 - [Current orbit-shape/modulus target PDF](../manuscripts/active/pdf/aether_flow_substrate_higher_derivative_nonlocal_bridge_self_response_off_shell_profile_selection_bridge_order_orbit_shape_modulus_origin_note.pdf)
 - [Current orbit-shape/modulus target LaTeX](../manuscripts/active/tex/aether_flow_substrate_higher_derivative_nonlocal_bridge_self_response_off_shell_profile_selection_bridge_order_orbit_shape_modulus_origin_note.tex)
 - [Primitive-class setup PDF](../manuscripts/active/pdf/aether_flow_substrate_higher_derivative_nonlocal_bridge_self_response_off_shell_profile_selection_bridge_order_orbit_shape_modulus_primitive_class_setup_note.pdf)
@@ -41,11 +45,13 @@ Read the [Theory Package](theory-package.md) first. This derivational material i
 
 ## Current Primary Target
 
-The live primary derivational target after the benchmark package is no longer, by default, another deeper anchored positive-pair note. It is the derivation-critical bridge program:
+The benchmark-facing bridge-program step is now recorded in [aether_flow_exact_closure_derivation_gates_note.tex](../manuscripts/active/tex/aether_flow_exact_closure_derivation_gates_note.tex), and the observer-side obstruction classification is now recorded in [aether_flow_substrate_higher_derivative_observer_remainder_classification_note.tex](../manuscripts/active/tex/aether_flow_substrate_higher_derivative_observer_remainder_classification_note.tex).
 
-- extract the non-negotiable derivation gates from the benchmark exact-closure package;
-- classify the surviving observer-side remainder on the active bridge line;
-- use that classification to decide whether the next bridge-level redesign must act on the bridge metric, the operational observer map, the matter route, or a deeper substrate-response sector that changes the observer equation already on matter-free reduced data.
+The live primary derivational target after those notes is therefore no longer, by default, another deeper anchored positive-pair note. It is the next bridge-level redesign note at the deeper substrate-response / self-response level:
+
+- keep the benchmark exact-closure package fixed as the target being recovered;
+- treat the observer-remainder classification as already fixing the bottleneck;
+- write the next redesign manuscript so that it changes the observer equation already on matter-free reduced data and realizes the self-response-neutral dressed bridge output rather than reopening bridge-metric-only or matter-route-only repairs.
 
 ## Current Deeper-Origin Side Continuation
 
@@ -65,11 +71,11 @@ The recorded deeper-origin side continuation after the benchmark package still r
 
 ## Immediate Working Next Step
 
-The next active work is no longer another archive or presentation edit, and it is no longer, by default, another still-deeper anchored positive-pair manuscript. Those deeper-origin steps are already recorded as the current side continuation.
+The next active work is no longer another archive or presentation edit, and it is no longer, by default, another still-deeper anchored positive-pair manuscript. Those deeper-origin steps are already recorded as the current side continuation, while the benchmark-gates and observer-remainder notes are now already written.
 
-- Write a short benchmark-facing note that extracts the non-negotiable derivation gates from the exact-closure package.
-- Write the observer-remainder classification note before another deeper origin note is treated as primary progress.
-- Use that classification to decide whether the next bridge-level redesign must act on the bridge metric, the operational observer map, the matter route, or a deeper substrate-response sector.
+- Read [aether_flow_exact_closure_derivation_gates_note.tex](../manuscripts/active/tex/aether_flow_exact_closure_derivation_gates_note.tex) as the short benchmark-facing derivation target.
+- Read [aether_flow_substrate_higher_derivative_observer_remainder_classification_note.tex](../manuscripts/active/tex/aether_flow_substrate_higher_derivative_observer_remainder_classification_note.tex) as the bridge-obstruction classification and redesign-decision note.
+- Treat the next primary manuscript as the deeper substrate-response / self-response bridge-redesign note acting already on matter-free reduced data.
 - Treat the anchored positive-pair continuation as side work only unless it produces a concrete observer-equation gain or a genuine new quotient/locking structure.
 - When any active `.tex` file is created or modified, generate the matching `.pdf` in the appropriate folder and clean `.aux`, `.log`, and `.out` with [scripts/build_aether_pdf.sh](../scripts/build_aether_pdf.sh).
 
