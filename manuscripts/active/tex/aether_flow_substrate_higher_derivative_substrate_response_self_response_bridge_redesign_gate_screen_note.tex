@@ -1,0 +1,300 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\BridgeMetric}{\mathfrak g}
+\newcommand{\ObserverMetric}{g_{\mu\nu}}
+\newcommand{\RedesignMetric}{g_{\mu\nu}^{\mathrm{sr}}}
+\newcommand{\BaseShift}{\Sigma_{\mu\nu}^{\mathrm{base}}}
+\newcommand{\ResponseShift}{\Sigma_{\mu\nu}^{\mathrm{resp}}}
+\newcommand{\ObserverRem}{\mathcal R_{\mu\nu}^{\mathrm{obs}}}
+\newcommand{\SelfRem}{\mathcal R_{\mu\nu}^{\mathrm{self}}}
+\newcommand{\ResponseAction}{S_{\mathrm{resp}}}
+\newcommand{\SourceDensity}{\varrho_\Omega}
+\newcommand{\SourceCurrent}{\mathcal J^{(\Omega)}}
+\newcommand{\FlowPot}{\Phi_\Omega}
+\newcommand{\BalanceField}{\Pi_\Omega}
+\newcommand{\BalMult}{\Lambda_\Pi}
+\newcommand{\HamChargeOmega}{\mathfrak m_\Omega}
+\newcommand{\ProjSub}{P}
+\newcommand{\SpatialD}{\mathcal D}
+\newcommand{\ExactClosure}{exact closure}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Substrate-Response / Self-Response Bridge-Redesign Note\\
+\large and Immediate Derivation-Gate Screen}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The overview-first \ExactClosure{} package remains the fixed benchmark and public front door of the repository. The benchmark-facing derivation-gates note and the observer-remainder classification note should therefore be treated as fixed inputs rather than reopened questions. The present manuscript is the next bridge-level note selected by those inputs.
+
+Its first task is to identify the surviving primary redesign family honestly. The classification note already shows that bridge-metric-only and matter-route-only repairs are exhausted on matter-free reduced data, while the broader observer-map screen shows that the decisive obstruction has moved to the Hamiltonian-charge self-response of the required Coulomb tail. The next primary candidate is therefore not another default deeper-origin note. It is the deeper substrate-response / self-response bridge redesign whose elimination changes the observer equation already in vacuum without annihilating the ordered-flow equation.
+
+Its second task is to state the smallest admissibility package for that redesign before any theorem language is used. The redesign must retain one operative observer metric, preserve universal matter coupling through that same metric, remain active on matter-free reduced data, keep a nondegenerate flat-background branch, and avoid by-construction Einsteinian closure. At the same time it must target the first genuine self-response obstruction rather than reopening lower-order screens already passed.
+
+Its third task is to screen that redesign immediately against the benchmark derivation gates. The result is disciplined rather than triumphal. At architecture level the substrate-response / self-response family is the only currently live primary family that is not immediately disqualified by the matter-free-activity, single-metric, and controlled-limit requirements. But the exact Einstein observer equation, the full no-remainder verdict, and the infrared two-tensor proof remain open burdens. The note therefore records a benchmark-facing redesign target and gate screen, not a completed derivation of GR from substrate variables.
+\end{abstract}
+
+\section{Introduction}
+
+The repository goal is now sharper than a generic request for ``more derivation.'' The benchmark package is fixed, the claim boundary is fixed, and the active bridge line has already produced enough redesign and screening notes that the next task must be chosen by the actual bottleneck rather than by manuscript momentum alone.
+
+Two benchmark-facing notes now fix that bottleneck. The derivation-gates note states what a successful derivation would have to recover: Einsteinian observer dynamics, one operative metric, universal matter coupling, ordinary GR low-energy tensor content, exact relativistic recovery, and no genuine observer-side remainder. The observer-remainder classification note then says where the current bridge line actually fails: not first in bookkeeping terms, not first in the old same-scope longitudinal slot, and not first in matter-route-only language, but in the genuinely physical self-response that survives after the broader observer-map screen is made honest.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not reopen the benchmark package. It does not claim that the self-response obstruction is already solved. It does not promote the anchored positive-pair continuation back to default primary status. Its narrower role is to record, in benchmark-facing form, the next bridge-level redesign target together with the immediate derivation-gate screen that should control further work.
+
+\section{Fixed Inputs and Candidate-Family Elimination}
+
+The bridge equation of the substrate-kinematics manuscript may be written schematically as
+\begin{equation}
+G_{\mu\nu}[\ObserverMetric]
+=
+8\pi G_N\,T_{\mu\nu}^{\mathrm{matter}}
++\ObserverRem,
+\label{eq:bridge}
+\end{equation}
+where \(\ObserverRem\) collects every non-Einsteinian observer-side contribution left after eliminating auxiliary or substrate-only variables.
+
+\begin{definition}[Fixed benchmark-facing inputs]
+\label{def:inputs}
+For the present note, the following are treated as fixed inputs.
+\begin{enumerate}
+    \item The overview-first \ExactClosure{} package remains the fixed benchmark theory statement.
+    \item The derivation-gates note fixes the theorem target and the benchmark gates.
+    \item The observer-remainder classification note fixes the currently decisive obstruction and the family-level redesign verdict.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Candidate-family classes at current scope]
+\label{def:families}
+The bridge-level redesign search at current scope is partitioned into the following families.
+\begin{enumerate}
+    \item \textbf{Bridge-metric functional redesigns:} modify only the bridge metric or its same-scope functional dependence while keeping the matter route otherwise fixed.
+    \item \textbf{Operational observer-map redesigns:} modify the observer metric readout by a broader observer-side map while keeping the lower-level matter route single-metric.
+    \item \textbf{Substrate-response / self-response redesigns:} add a deeper substrate response sector whose elimination changes the observer equation already on matter-free reduced data and whose observer imprint is read through the same operative metric.
+    \item \textbf{Deeper-origin side continuation:} continue the orbit-shape / anchored positive-pair line without changing the observer equation on the present bridge branch.
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}[What the fixed inputs already eliminate]
+\label{prop:eliminate}
+At the present disciplined scope, the fixed inputs of Definition \ref{def:inputs} already imply all of the following.
+\begin{enumerate}
+    \item Bridge-metric-only redesigns of the already-tested same-scope type are exhausted as default primary moves.
+    \item Matter-route-only redesigns are exhausted as default primary moves.
+    \item A purely lower-order observer-map repair is not yet enough by itself, because the honest broader screen moves the first genuinely physical obstruction to self-response.
+    \item A deeper-origin note that leaves the observer equation unchanged is side work rather than the primary derivational task.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+The classification note records that bridge-metric-only and matter-route-only repairs fail on matter-free reduced data: the decisive observer obstruction survives even when matter is absent, so a matter-route-only correction cannot be primary, and the same-scope bridge-metric repair removes only the old longitudinal slot rather than the decisive remainder. The broader observer-map screen then shows that the currently recorded off-longitudinal and first cubic longitudinal pieces can be canceled, but that the first genuinely physical remainder moves to the Hamiltonian-charge self-response of the required Coulomb tail. Hence a merely lower-order observer-map repair is not the end of the story either. Finally, if a deeper-origin note preserves the same observer equation and remainder classification, then it does not discharge any benchmark gate and therefore does not count as the primary bridge-level task.
+\end{proof}
+
+\begin{theorem}[Primary candidate-family verdict]
+\label{thm:family}
+Among the candidate classes of Definition \ref{def:families}, the only currently live primary redesign family is the substrate-response / self-response family. Its task is to change the observer equation already on matter-free reduced data while preserving a genuine ordered-flow equation and the one-metric matter route.
+\end{theorem}
+
+\begin{proof}
+Proposition \ref{prop:eliminate} removes bridge-metric-only, matter-route-only, and purely deeper-origin continuations from default primary status. The broader observer-map line remains important because it isolates the self-response obstruction sharply, but once that is done the remaining open burden is exactly the self-response generated by the required charge-carrying tail. A redesign that acts only at lower observer-map order is therefore not yet enough. The next honest family must instead change the bridge through a deeper response sector whose elimination is already active in vacuum and whose purpose is to neutralize that self-response without collapsing the ordered-flow equation to a tuned cancellation identity.
+\end{proof}
+
+\begin{corollary}[Status of the anchored positive-pair continuation]
+The anchored positive-pair / orbit-shape continuation remains disciplined side work only. It becomes primary progress again only if it changes the observer equation, supplies a genuine quotient or locking mechanism, or changes the observer-remainder verdict.
+\end{corollary}
+
+\section{Benchmark-Facing Admissibility Package for the Redesign}
+
+\begin{definition}[Matter-free reduced activity]
+\label{def:matterfree}
+A bridge redesign acts \emph{on matter-free reduced data} if there exist reduced solutions with
+\begin{equation}
+T_{\mu\nu}^{\mathrm{matter}}=0
+\label{eq:matterfree}
+\end{equation}
+for which the eliminated observer equation is nonetheless changed nontrivially by the redesign sector.
+\end{definition}
+
+\begin{definition}[Benchmark-facing admissible substrate-response / self-response redesign]
+\label{def:admissible}
+A substrate-response / self-response redesign is \emph{benchmark-facing admissible} if it is specified by one operative observer metric
+\begin{equation}
+\RedesignMetric
+=
+\ObserverMetric
++\BaseShift
++\ResponseShift,
+\label{eq:gsr}
+\end{equation}
+together with a deeper response action
+\begin{equation}
+\ResponseAction
+=
+\ResponseAction[\FlowPot,\SourceDensity,\SourceCurrent_A,\BalanceField,\BalMult;\BridgeMetric,Q,W,\chi],
+\label{eq:sresp}
+\end{equation}
+such that the following hold.
+\begin{enumerate}
+    \item \textbf{Single-metric matter route.} Matter and light couple only through \(\RedesignMetric\).
+    \item \textbf{Matter-free activity.} Definition \ref{def:matterfree} holds.
+    \item \textbf{Ordered-flow preservation.} Eliminating the response sector does not annihilate the ordered-flow equation or reduce it to a by-construction cancellation identity.
+    \item \textbf{Nondegenerate benchmark branch.} The redesigned branch admits a smooth nondegenerate flat-background limit compatible with the benchmark package.
+    \item \textbf{No by-construction Einstein closure.} Exact Einsteinian closure is not inserted as a multiplier constraint; it must arise, if at all, from elimination and reduction.
+    \item \textbf{Controlled decoupling.} The new response imprint vanishes smoothly when the response charge sector vanishes, rather than only on a tuned locus.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:admissible} is the benchmark-facing admissibility note required before theorem work. It says what kind of redesign is even allowed to compete for the GR-derivation task, without pretending that the resulting branch has already passed the theorem gates.
+\end{remark}
+
+\begin{definition}[Self-response-neutral target]
+\label{def:neutral}
+Let \(\ObserverRem[\RedesignMetric]\) denote the observer-side remainder left after eliminating the response sector of \eqref{eq:sresp}. The redesign is \emph{self-response neutral at current screen scope} if, on the charge-carrying exterior region of the decisive matter-free regime, its first surviving self-response satisfies
+\begin{equation}
+n^\mu n^\nu \SelfRem
+=
+n^\mu n^\nu \ObserverRem[\RedesignMetric]
+=
+\mathcal O(r^{-5}),
+\label{eq:neutral}
+\end{equation}
+so that the previously isolated quartic \(r^{-4}\) self-response is no longer the first genuine observer-side obstruction.
+\end{definition}
+
+\begin{proposition}[Why the redesign must begin at self-response order]
+\label{prop:selforder}
+Suppose the lower-order gains already recorded on the broader observer-map screen are preserved in \(\BaseShift\). Then the first new contribution \(\ResponseShift\) relevant to the present bottleneck must:
+\begin{enumerate}
+    \item remain nontrivial on matter-free reduced data;
+    \item begin no earlier than the self-response order left open by the broader screen;
+    \item and affect the exterior obstruction through an \(r^{-2}\)-scale asymptotic dressing or an equivalent response mechanism.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+By construction, \(\BaseShift\) already accounts for the lower-order cancellations that remove the currently recorded off-longitudinal remainder and the first cubic longitudinal piece. Reopening those cancellations would not answer the sharper present burden. The honest broader screen identifies the first remaining physical obstruction as a self-response term with \(r^{-4}\) exterior density. To change that burden without altering the already-fixed charge-carrying \(r^{-1}\) bookkeeping, the new response must first enter at the next asymptotically relevant order, which is the level of an \(r^{-2}\)-scale dressing or an equivalent self-response mechanism. Because the obstruction survives on matter-free reduced data, the redesign must remain active there as well.
+\end{proof}
+
+\begin{remark}
+The present note does not insist that the response mechanism be unique, local, or already fully derived from the deepest substrate layer. It fixes only the minimum benchmark-facing burden: the redesign must act exactly where the current obstruction lives and must do so without sacrificing the lower-order gains already achieved.
+\end{remark}
+
+\section{Immediate Derivation-Gate Screen}
+
+\begin{definition}[Immediate gate-screen statuses]
+\label{def:status}
+The immediate gate screen of the present note uses three verdicts:
+\begin{enumerate}
+    \item \textbf{Pass at architecture level:} the redesign family is compatible with the gate by construction of the admissibility package.
+    \item \textbf{Conditional:} the family can satisfy the gate, but only if later elimination and infrared analysis succeed.
+    \item \textbf{Open:} the present note does not yet prove the gate even at candidate-family level.
+\end{enumerate}
+\end{definition}
+
+\begin{table}[t]
+\centering
+\renewcommand{\arraystretch}{1.22}
+\begin{tabular}{p{0.26\textwidth}p{0.18\textwidth}p{0.46\textwidth}}
+\toprule
+\textbf{Gate} & \textbf{Status} & \textbf{Immediate benchmark-facing reading} \\
+\midrule
+Einstein observer equation / no genuine observer-side remainder & Open & The present note fixes the target family and the self-response-neutral screen, but it does not yet prove \(\ObserverRem[\RedesignMetric]\equiv 0\) after full elimination. \\
+Single operative metric & Pass at architecture level & Definition \ref{def:admissible} requires that matter and light couple only through \(\RedesignMetric\). No second operative metric is introduced. \\
+Universal matter coupling & Pass at architecture level & The redesign is disallowed from adding direct matter couplings to \(\FlowPot\), \(\SourceDensity\), \(\SourceCurrent_A\), or \(\BalanceField\) outside \(\RedesignMetric\). \\
+Ordinary GR two-tensor infrared content & Conditional & The family is compatible with this gate only if the response sector is slice-wise nonpropagating or auxiliary after elimination and introduces no unsuppressed scalar, vector, ghost, or second-cone remainder. \\
+Exact null / proper-time / redshift recovery & Conditional & If \(\RedesignMetric\) remains the sole operative observer metric after elimination, the benchmark relativistic recovery can in principle be preserved through that same metric; this still requires explicit checking. \\
+No unsuppressed preferred-frame remainder & Conditional & The redesign is compatible with this gate only if no direct preferred-frame matter term survives and the eliminated response tensor is absent, gauge exact, constraint exact, or decoupled. \\
+Controlled GR limit rather than tuned cancellation locus & Conditional & Definition \ref{def:admissible} requires smooth decoupling as the response charge sector vanishes. What remains open is the theorem that the Einsteinian observer equation emerges in that limit without hand-set cancellation. \\
+\bottomrule
+\end{tabular}
+\caption{Immediate derivation-gate screen for the benchmark-facing substrate-response / self-response redesign family.}
+\label{tab:gates}
+\end{table}
+
+\begin{theorem}[Gate-screen verdict at current scope]
+\label{thm:gates}
+The benchmark-facing substrate-response / self-response redesign family is the only currently live primary family that is not immediately disqualified by the matter-free-activity, single-metric, universal-coupling, and controlled-limit requirements. However, the exact Einstein observer equation, the no-genuine-remainder verdict, and the infrared two-tensor proof remain open.
+\end{theorem}
+
+\begin{proof}
+Theorem \ref{thm:family} identifies the only live primary family. Definition \ref{def:admissible} builds single-metric coupling, matter-free activity, ordered-flow preservation, and controlled decoupling directly into that family, which is why the corresponding rows of Table \ref{tab:gates} are not immediate failures. At the same time, neither Definition \ref{def:admissible} nor the present note proves full elimination to the Einstein equation, proves that every leftover response term is absent or only gauge/constraint exact, or derives the full infrared degree count. Those remain conditional or open exactly as recorded in Table \ref{tab:gates}.
+\end{proof}
+
+\begin{corollary}[What should be tested next]
+\label{cor:next}
+The next honest test sequence for any concrete redesign candidate in this family is:
+\begin{enumerate}
+    \item derive the eliminated observer equation on matter-free reduced data;
+    \item show that the response sector leaves one operative metric with universal matter coupling;
+    \item linearize about an admissible homogeneous branch and check ordinary GR two-tensor infrared content;
+    \item prove that the observer-side remainder is absent, gauge exact, constraint exact, or decoupled;
+    \item and only then claim a controlled GR limit.
+\end{enumerate}
+\end{corollary}
+
+\section{What This Note Changes in Manuscript Priority}
+
+\begin{proposition}[Priority rule after the present note]
+\label{prop:priority}
+After the present note, the primary bridge-level task is no longer to search indiscriminately across all redesign directions. The family-level search has already been reduced. The next primary work is now any concrete substrate-response / self-response candidate, together with its gate screen, that:
+\begin{enumerate}
+    \item is active on matter-free reduced data,
+    \item targets the self-response obstruction directly,
+    \item preserves a genuine ordered-flow equation,
+    \item and remains answerable to the benchmark gates of Table \ref{tab:gates}.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+This is the combined content of Theorems \ref{thm:family} and \ref{thm:gates}. The family-level elimination is already done, and the benchmark-facing admissibility package is now explicit. What remains is not another generic redesign survey or another default deeper-origin note, but a concrete candidate in the only live primary family together with the corresponding gate checks.
+\end{proof}
+
+\section{Conclusion}
+
+The benchmark package remains the fixed target, and the derivation-gates note together with the observer-remainder classification note are now fixed inputs rather than open questions. Using those inputs, the present manuscript identifies the surviving primary redesign family sharply: the next bridge-level manuscript should be a substrate-response / self-response redesign acting already on matter-free reduced data, not another bridge-metric-only repair, matter-route-only repair, or default deeper-origin continuation.
+
+The positive result is narrower than a derivation theorem but stronger than a generic research reminder. This note fixes the admissibility package that the redesign must satisfy and records the immediate gate screen it must answer. At architecture level the family remains compatible with one operative metric, universal matter coupling, matter-free activity, and a controlled-limit program. The exact Einstein observer equation, the full no-remainder verdict, and the ordinary GR infrared two-tensor proof remain open burdens. The next honest burden is therefore concrete candidate construction and elimination inside this family, while the anchored positive-pair / orbit-shape continuation remains side work unless it produces a genuine observer-equation gain, quotient, or locking mechanism.
+
+\end{document}
