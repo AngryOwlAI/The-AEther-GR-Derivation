@@ -10,7 +10,8 @@ The benchmark starting point is the overview-first exact-closure package centere
 
 - The benchmark exact-closure package remains the fixed public front door.
 - The live benchmark-facing sequence now runs through the derivation-gates note, observer-remainder classification note, bridge-redesign gate-screen note, charge-polarization candidate note, infrared-spectrum / universal-coupling gate note, controlled GR-limit note, and residual-sector verdict note.
-- The immediate next primary manuscript target is a deeper observer-equation redesign on that same charge-polarization line, removing or reclassifying the surviving composite quartic residual sector away from the decisive exterior cancellation regime.
+- The immediate next primary manuscript target is a deeper observer-equation redesign on that same charge-polarization line, removing or reclassifying the surviving composite quartic residual sector away from the decisive exterior cancellation regime while preserving the one operative metric, the recorded Phase D / E infrared and universal-coupling verdicts, and the Phase F controlled GR limit.
+- Stronger promotion language should wait until that surviving finite-\(\varepsilon\) observer-equation sector has been removed or safely reclassified.
 - The deeper anchored positive-pair continuation remains recorded side work unless it changes the observer equation or the current scale-orbit / residual-vacuum-angle verdicts.
 
 ## Main Deliverable
