@@ -1,0 +1,476 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal A}
+\newcommand{\ProjSub}{P}
+\newcommand{\ObserverMetric}{g^{\mathrm{br}}}
+\newcommand{\CandidateMetric}{g^{\mathrm{cand}}}
+\newcommand{\BaseShift}{\Sigma^{\mathrm{IER}}}
+\newcommand{\ResponseShift}{\Sigma^{\mathrm{resp}}}
+\newcommand{\AuxPol}{\mathbb K}
+\newcommand{\FlowPot}{\Phi_\Omega}
+\newcommand{\SourceDensity}{\varrho_\Omega}
+\newcommand{\SourceDensityRed}{\varrho_\Omega^{\mathrm{red}}}
+\newcommand{\SourceMult}{\Lambda_\rho}
+\newcommand{\EinLin}{\mathcal E_{\ObserverMetric}}
+\newcommand{\EinQuad}{\mathcal Q_{\ge 2}^{\mathrm{Ein}}}
+\newcommand{\HamChargeOmega}{\mathfrak m_\Omega}
+\newcommand{\MatterAct}{S_{\mathrm{matter}}}
+\newcommand{\RedAct}{S_{\mathrm{red}}}
+\newcommand{\RemCand}{\mathcal R^{\mathrm{cand}}}
+\newcommand{\RemLongFour}{\widetilde{\mathcal R}_{\mu\nu}^{(\chi,\ge 4)}}
+\newcommand{\DeltaTCand}{\Delta T_{\mu\nu}^{\mathrm{cand}}}
+\newcommand{\Weight}[1]{\langle #1 \rangle}
+\newcommand{\IRsmall}{\varepsilon_{\mathrm{IR}}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Substrate-Response / Self-Response Charge-Polarization Candidate\\
+\large Controlled GR-Limit Note}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The benchmark-facing charge-polarization sequence has already fixed the concrete candidate, its full Phase D infrared-spectrum verdict, and its Phase E universal matter/light-coupling verdict. The immediate next burden is therefore no longer another packaging pass and no longer another anchored positive-pair continuation. It is the controlled GR-limit statement for that same candidate.
+
+The present note gives that statement at the honest observer-equation level. It treats the candidate note and the full infrared-spectrum / universal-coupling gate note as fixed inputs, then introduces an explicit small-parameter infrared family with separate dynamical, asymptotic, constitutive, symmetry-based, and still-provisional assumptions. On that family, the charge-polarization sector decouples in a controlled way:
+\[
+\SourceDensityRed=\mathcal O(\IRsmall^2),
+\qquad
+\FlowPot=\mathcal O(\IRsmall^2),
+\qquad
+\ResponseShift=\mathcal O(\IRsmall^4),
+\]
+while the lower-order inverse-response bridge shift remains \(\BaseShift=\mathcal O(\IRsmall^2)\). Consequently the eliminated candidate observer equation takes the form
+\[
+G_{\mu\nu}[\CandidateMetric_{\IRsmall}]
+=
+8\pi G_N\,T_{\mu\nu}^{\mathrm{matter}}[\CandidateMetric_{\IRsmall},\psi_{\IRsmall}]
++ \IRsmall^4 \mathfrak R_{\mu\nu}^{(\IRsmall)},
+\]
+with \(\mathfrak R_{\mu\nu}^{(\IRsmall)}\) uniformly bounded on the controlled family. Hence the observer equation reduces to Einstein plus ordinary matter through the single operative metric \(\CandidateMetric\) as \(\IRsmall\to0\).
+
+The point of the theorem is exactly the one now needed. The reduction does \emph{not} rely on hand-set finite-amplitude cancellation. The previously recorded exterior \(r^{-4}\) Hamiltonian neutralization sharpens one decisive asymptotic projection, but the controlled GR-limit itself follows already from scale separation, elliptic elimination, and one-metric matter coupling. The result is therefore positive but disciplined: Phase F is completed only as a controlled small-data infrared theorem on the admissible decaying branch. The remaining primary burden is Phase G, namely to classify every residual finite-\(\IRsmall\) sector as absent, gauge exact, constraint exact, or decoupled, and only then to decide whether any genuine deviation sector survives.
+\end{abstract}
+
+\section{Introduction}
+
+The exact-closure benchmark remains the public front door of the repository, and the benchmark derivation-gates note remains the criterion by which every derivational continuation is judged. The charge-polarization candidate note and its full infrared-spectrum / universal-coupling follow-up have already narrowed the next honest question further than before. The live issue is no longer whether this candidate preserves one operative metric or whether it spoils the GR infrared pole content at linear order. Those gates have already been checked.
+
+The next issue is the controlled limit itself: under what explicit regime does the charge-polarization sector decouple, and what exactly is proved about the observer equation in that regime? That question must now be answered without inflating the result into a full finite-amplitude no-remainder theorem and without pretending that one decisive exterior cancellation by itself is the whole derivation.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not claim a completed finite-amplitude derivation of GR from substrate microphysics. It does not claim that every residual sector has already been classified. Its narrower task is exactly Phase F: record a controlled infrared GR-limit theorem for the charge-polarization candidate with explicit assumptions, explicit decoupling bounds, and an exact statement of what remains open.
+
+\section{Fixed Inputs and Honest Assumption Ledger}
+
+\begin{definition}[Fixed Phase F inputs]
+\label{def:inputs}
+The following earlier results are treated as fixed inputs.
+\begin{enumerate}
+    \item The candidate note fixes the eliminated charge-polarization equations
+    \begin{equation}
+    \SourceDensity=\SourceDensityRed[Q,W,\chi],
+    \qquad
+    -\Delta_\perp \FlowPot = 4\pi G_N\,\SourceDensityRed[Q,W,\chi],
+    \label{eq:elimphi}
+    \end{equation}
+    together with
+    \begin{equation}
+    \AuxPol_{AB}^{\mathrm{elim}}
+    =
+    -2\FlowPot^2U_AU_B
+    +\frac32\FlowPot^2\ProjSub_{AB},
+    \qquad
+    \ResponseShift_{\mu\nu}=\mathcal O_{\ge 4}.
+    \label{eq:elimK}
+    \end{equation}
+    \item The same note fixes the eliminated candidate observer equation
+    \begin{equation}
+    G_{\mu\nu}[\CandidateMetric]
+    =
+    8\pi G_N\,T_{\mu\nu}^{\mathrm{matter}}[\CandidateMetric,\psi]
+    +\RemCand{}_{\mu\nu},
+    \label{eq:obseq}
+    \end{equation}
+    with
+    \begin{equation}
+    \RemCand{}_{\mu\nu}
+    =
+    \RemLongFour{}_{\mu\nu}
+    +\EinLin(\ResponseShift)_{\mu\nu}
+    +\EinQuad[\BaseShift+\ResponseShift]_{\mu\nu}
+    -8\pi G_N\,\DeltaTCand{}_{\mu\nu}.
+    \label{eq:remainder}
+    \end{equation}
+    \item The Phase D / E follow-up note fixes two additional facts:
+    \begin{equation}
+    \delta\ResponseShift_{\mu\nu}=0
+    \label{eq:linearzero}
+    \end{equation}
+    on the admissible homogeneous benchmark branch, and after elimination
+    \begin{equation}
+    \RedAct[\CandidateMetric,\psi]
+    =
+    S_{\mathrm{grav}}^{\mathrm{cand}}[\CandidateMetric;Q,W,\chi]
+    +\MatterAct[\CandidateMetric,\psi].
+    \label{eq:redsplit}
+    \end{equation}
+    Accordingly, matter and light already couple only through the single operative metric \(\CandidateMetric\).
+    \item The derivation-gates note fixes that the present task is observer-side exact closure through one operative metric with no genuine observer-side remainder at the claimed scope.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Honest Phase F assumption ledger]
+\label{def:ledger}
+The controlled GR-limit theorem below uses the following assumption classes.
+\begin{enumerate}
+    \item \textbf{Dynamical assumptions.}
+    \begin{enumerate}
+        \item[(D1)] The base admissible branch of the broader inverse-response line is already fixed and satisfies
+        \begin{equation}
+        \BaseShift=\mathcal O_{\ge 2},
+        \qquad
+        \RemLongFour=\mathcal O_{\ge 4}
+        \label{eq:d1}
+        \end{equation}
+        in the reduced-data counting.
+        \item[(D2)] The charge-polarization sector is eliminated by the exact Euler--Lagrange equations \eqref{eq:elimphi}--\eqref{eq:elimK}, not by setting fields to zero by hand.
+    \end{enumerate}
+    \item \textbf{Asymptotic assumptions.}
+    \begin{enumerate}
+        \item[(A1)] The reduced Hamiltonian charge density is either supported in a fixed bounded core or obeys the weighted decay
+        \begin{equation}
+        \abs{\SourceDensityRed(x)}
+        +\Weight{x}\abs{\partial\SourceDensityRed(x)}
+        \le C\,\IRsmall^2\,\Weight{x}^{-4}
+        \label{eq:a1}
+        \end{equation}
+        uniformly on the controlled family.
+        \item[(A2)] The decaying Poisson branch is chosen, so \(\FlowPot\) carries no added harmonic homogeneous mode at spatial infinity.
+    \end{enumerate}
+    \item \textbf{Constitutive assumptions.}
+    \begin{enumerate}
+        \item[(C1)] The response source begins quadratically on reduced data,
+        \begin{equation}
+        \SourceDensityRed[Q,W,\chi]=\mathcal O_{\ge 2}.
+        \label{eq:c1}
+        \end{equation}
+        \item[(C2)] The response polarization masses remain positive,
+        \begin{equation}
+        \mu_t^2>0,
+        \qquad
+        \mu_s^2>0,
+        \qquad
+        \mu_v^2>0,
+        \qquad
+        \mu_{\mathrm{tf}}^2>0,
+        \label{eq:c2}
+        \end{equation}
+        so the polarization block is algebraic and elliptic rather than a new propagating low-energy sector.
+        \item[(C3)] Ordinary matter continues to enter only through \(\MatterAct[\CandidateMetric,\psi]\), as in \eqref{eq:redsplit}.
+    \end{enumerate}
+    \item \textbf{Symmetry-based assumptions.}
+    \begin{enumerate}
+        \item[(S1)] The controlled family is built around the same admissible homogeneous benchmark branch already used in the Phase D note, with fixed ordered-flow direction \(U^A\), fixed local experiential projector \(\ProjSub_{AB}\), and the usual gauge/constraint extraction leaving only the ordinary two transverse-traceless observer graviton polarizations unsuppressed at linear infrared order.
+    \end{enumerate}
+    \item \textbf{Still-provisional assumptions.}
+    \begin{enumerate}
+        \item[(P1)] The decaying solution of the slice-wise Poisson problem in \eqref{eq:elimphi} obeys the standard elliptic estimate
+        \begin{equation}
+        \norm{\FlowPot}_{H^{s+1}(\Sigma_t)}
+        \le
+        C_{\mathrm{ell}}
+        \norm{\SourceDensityRed}_{H^{s-1}(\Sigma_t)}
+        \label{eq:p1}
+        \end{equation}
+        uniformly on the controlled family for some integer \(s\ge4\).
+        \item[(P2)] The ordinary-matter stress tensor is locally Lipschitz in the metric on the same family:
+        \begin{equation}
+        \norm{
+        T_{\mu\nu}^{\mathrm{matter}}[g+\delta g,\psi]
+        -
+        T_{\mu\nu}^{\mathrm{matter}}[g,\psi]
+        }_{H^{s-2}(\Sigma_t)}
+        \le
+        C_{\mathrm{mat}}
+        \norm{\delta g}_{H^s(\Sigma_t)}.
+        \label{eq:p2}
+        \end{equation}
+    \end{enumerate}
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Theorem \ref{thm:phaseF} below depends on every class in Definition \ref{def:ledger}, but not equally. (D1)--(D2), (C1)--(C3), and (S1) are structural inputs already fixed by the recorded candidate and benchmark-gate notes. (A1)--(A2) specify the decaying infrared branch on which the limit is claimed. (P1)--(P2) are the still-provisional analytic regularity hypotheses needed to turn the earlier formal elimination and one-metric statements into a controlled norm estimate.
+\end{remark}
+
+\section{Controlled Decoupling Regime}
+
+\begin{definition}[Controlled infrared family]
+\label{def:family}
+Fix an observer-time interval \(I\), an integer \(s\ge4\), and \(0<\IRsmall\le \IRsmall^{(0)}\). A family
+\[
+\bigl(
+Q_{\IRsmall},W_{\IRsmall},\chi_{\IRsmall},
+\psi_{\IRsmall},
+\BaseShift_{\IRsmall},
+\RemLongFour{}^{(\IRsmall)}
+\bigr)
+\]
+is called a \emph{controlled infrared family} if Definition \ref{def:ledger} holds and, uniformly for \(t\in I\),
+\begin{align}
+\norm{(Q_{\IRsmall},W_{\IRsmall},\chi_{\IRsmall})}_{H^s(\Sigma_t)}
+&\le C_{\mathrm{red}}\IRsmall,
+\label{eq:fam1}
+\\
+\norm{\SourceDensityRed[Q_{\IRsmall},W_{\IRsmall},\chi_{\IRsmall}]}_{H^{s-1}(\Sigma_t)}
+&\le C_\rho \IRsmall^2,
+\label{eq:fam2}
+\\
+\norm{\BaseShift_{\IRsmall}}_{H^s(\Sigma_t)}
+&\le C_{\Sigma}\IRsmall^2,
+\label{eq:fam3}
+\\
+\norm{\RemLongFour{}^{(\IRsmall)}}_{H^{s-2}(\Sigma_t)}
+&\le C_{4}\IRsmall^4,
+\label{eq:fam4}
+\\
+\norm{T_{\mu\nu}^{\mathrm{matter}}[\ObserverMetric+\BaseShift_{\IRsmall},\psi_{\IRsmall}]}_{H^{s-2}(\Sigma_t)}
+&\le C_{\mathrm{m}}\IRsmall^2.
+\label{eq:fam5}
+\end{align}
+\end{definition}
+
+\begin{proposition}[Controlled elimination and quartic response size]
+\label{prop:decouple}
+Let \eqref{eq:elimphi}--\eqref{eq:elimK} be solved on a controlled infrared family. Then
+\begin{align}
+\norm{\FlowPot^{(\IRsmall)}}_{H^{s+1}(\Sigma_t)}
+&\le
+C_\Phi \IRsmall^2,
+\label{eq:phiHs}
+\\
+\abs{\FlowPot^{(\IRsmall)}(x)}
++\Weight{x}\abs{\partial \FlowPot^{(\IRsmall)}(x)}
+&\le
+C_\Phi' \IRsmall^2\Weight{x}^{-1},
+\label{eq:phipt}
+\\
+\norm{\ResponseShift_{\IRsmall}}_{H^s(\Sigma_t)}
+&\le
+C_{\mathrm{resp}}\IRsmall^4,
+\label{eq:respHs}
+\\
+\abs{\ResponseShift_{\IRsmall}(x)}
++\Weight{x}\abs{\partial\ResponseShift_{\IRsmall}(x)}
+&\le
+C_{\mathrm{resp}}' \IRsmall^4\Weight{x}^{-2}.
+\label{eq:resppt}
+\end{align}
+In particular,
+\begin{equation}
+\frac{
+\norm{\ResponseShift_{\IRsmall}}_{H^s(\Sigma_t)}
+}{
+\norm{\BaseShift_{\IRsmall}}_{H^s(\Sigma_t)}+ \IRsmall^2
+}
+=
+\mathcal O(\IRsmall^2),
+\label{eq:relsmall}
+\end{equation}
+so the charge-polarization sector is subleading by two reduced-data orders relative to the already-recorded inverse-response bridge shift.
+\end{proposition}
+
+\begin{proof}
+Equation \eqref{eq:fam2} together with the elliptic estimate \eqref{eq:p1} yields \eqref{eq:phiHs}. Assumption (A1) and the decaying branch condition (A2) give the Newton-potential bound \eqref{eq:phipt}. By \eqref{eq:elimK}, the eliminated polarization tensor is quadratic in \(\FlowPot\), so Sobolev algebra for \(s\ge4\) gives
+\[
+\norm{\AuxPol^{\mathrm{elim}}_{\IRsmall}}_{H^s(\Sigma_t)}
+\le
+C
+\norm{\FlowPot^{(\IRsmall)}}_{H^{s+1}(\Sigma_t)}^2
+\le
+C\IRsmall^4.
+\]
+The observer pullback from \(\AuxPol^{\mathrm{elim}}\) to \(\ResponseShift\) is linear in the tensor slot and uses only the fixed background tensors \(U_A\) and \(\ProjSub_{AB}\), so \eqref{eq:respHs} follows. Equation \eqref{eq:resppt} is the corresponding pointwise decay inherited from \eqref{eq:phipt}. Finally \eqref{eq:relsmall} follows by combining \eqref{eq:respHs} with \eqref{eq:fam3}.
+\end{proof}
+
+\begin{corollary}[Controlled decoupling statement]
+\label{cor:controlled}
+On a controlled infrared family, the charge-polarization sector is exactly absent at linear infrared order by \eqref{eq:linearzero} and is quartic-order at nonlinear observer-equation level by \eqref{eq:respHs}. Hence its decoupling is controlled rather than merely asserted: it does not define a second operative metric, does not alter the ordinary two-tensor infrared pole content, and enters the observer equation only through a subleading correction \(\ResponseShift=\mathcal O(\IRsmall^4)\).
+\end{corollary}
+
+\section{Observer-Equation GR Limit}
+
+\begin{proposition}[Each observer-side remainder term is quartic on the controlled family]
+\label{prop:quartic}
+For a controlled infrared family, each term in \eqref{eq:remainder} satisfies
+\begin{align}
+\norm{\RemLongFour{}^{(\IRsmall)}}_{H^{s-2}(\Sigma_t)}
+&\le
+C_4\IRsmall^4,
+\label{eq:r1}
+\\
+\norm{\EinLin(\ResponseShift_{\IRsmall})}_{H^{s-2}(\Sigma_t)}
+&\le
+C_{\mathrm{lin}}\IRsmall^4,
+\label{eq:r2}
+\\
+\norm{\EinQuad[\BaseShift_{\IRsmall}+\ResponseShift_{\IRsmall}]}_{H^{s-2}(\Sigma_t)}
+&\le
+C_{\mathrm{quad}}\IRsmall^4,
+\label{eq:r3}
+\\
+\norm{\DeltaTCand{}^{(\IRsmall)}}_{H^{s-2}(\Sigma_t)}
+&\le
+C_{\Delta T}\IRsmall^4.
+\label{eq:r4}
+\end{align}
+\end{proposition}
+
+\begin{proof}
+Estimate \eqref{eq:r1} is exactly \eqref{eq:fam4}. For \eqref{eq:r2}, \(\EinLin\) is a linear second-order differential operator with coefficients fixed by the admissible base branch, so \eqref{eq:respHs} implies \eqref{eq:r2}. For \eqref{eq:r3}, \(\EinQuad\) is at least quadratic in the metric perturbation and its first derivatives. Since \(\BaseShift_{\IRsmall}=\mathcal O(\IRsmall^2)\) by \eqref{eq:fam3} and \(\ResponseShift_{\IRsmall}=\mathcal O(\IRsmall^4)\) by \eqref{eq:respHs}, Sobolev multiplication for \(s\ge4\) gives
+\[
+\EinQuad[\BaseShift_{\IRsmall}+\ResponseShift_{\IRsmall}]
+=
+\mathcal O(\IRsmall^4).
+\]
+For \eqref{eq:r4}, the matter dependence is only through the single operative metric \(\CandidateMetric\) by \eqref{eq:redsplit}. Therefore
+\[
+\DeltaTCand{}^{(\IRsmall)}
+=
+T_{\mu\nu}^{\mathrm{matter}}[\ObserverMetric+\BaseShift_{\IRsmall}+\ResponseShift_{\IRsmall},\psi_{\IRsmall}]
+-
+T_{\mu\nu}^{\mathrm{matter}}[\ObserverMetric+\BaseShift_{\IRsmall},\psi_{\IRsmall}],
+\]
+and the Lipschitz estimate \eqref{eq:p2} together with \eqref{eq:respHs} yields \eqref{eq:r4}.
+\end{proof}
+
+\begin{theorem}[Controlled GR limit at observer-equation level]
+\label{thm:phaseF}
+Let \(\{(Q_{\IRsmall},W_{\IRsmall},\chi_{\IRsmall},\psi_{\IRsmall})\}_{0<\IRsmall\le\IRsmall^{(0)}}\) be a controlled infrared family in the sense of Definition \ref{def:family}, and let \(\CandidateMetric_{\IRsmall}\) be the eliminated operative metric of the charge-polarization candidate. Then there exists a uniformly bounded tensor family \(\mathfrak R_{\mu\nu}^{(\IRsmall)}\) such that
+\begin{equation}
+G_{\mu\nu}[\CandidateMetric_{\IRsmall}]
+=
+8\pi G_N\,
+T_{\mu\nu}^{\mathrm{matter}}[\CandidateMetric_{\IRsmall},\psi_{\IRsmall}]
++
+\IRsmall^4\mathfrak R_{\mu\nu}^{(\IRsmall)},
+\label{eq:limit}
+\end{equation}
+with
+\begin{equation}
+\sup_{t\in I}
+\norm{\mathfrak R_{\mu\nu}^{(\IRsmall)}}_{H^{s-2}(\Sigma_t)}
+\le
+C_{\mathrm{GR}}
+\label{eq:Rbound}
+\end{equation}
+independent of \(\IRsmall\).
+
+Consequently,
+\begin{equation}
+G_{\mu\nu}[\CandidateMetric_{\IRsmall}]
+-
+8\pi G_N\,
+T_{\mu\nu}^{\mathrm{matter}}[\CandidateMetric_{\IRsmall},\psi_{\IRsmall}]
+\longrightarrow 0
+\quad\text{in }H^{s-2}(\Sigma_t)
+\label{eq:conv}
+\end{equation}
+uniformly on \(I\) as \(\IRsmall\to0\). The eliminated candidate therefore reduces to Einstein plus ordinary matter through the single operative metric \(\CandidateMetric\) in the controlled infrared limit.
+\end{theorem}
+
+\begin{proof}
+Start from the exact eliminated candidate observer equation \eqref{eq:obseq}. Proposition \ref{prop:quartic} shows that each term entering \(\RemCand{}_{\mu\nu}\) is bounded by \(C\IRsmall^4\) in \(H^{s-2}\). Hence
+\[
+\norm{\RemCand{}_{\IRsmall}}_{H^{s-2}(\Sigma_t)}
+\le
+C_{\mathrm{GR}}\IRsmall^4.
+\]
+Define
+\[
+\mathfrak R_{\mu\nu}^{(\IRsmall)}
+\equiv
+\IRsmall^{-4}\RemCand{}_{\mu\nu}.
+\]
+This gives \eqref{eq:limit} and \eqref{eq:Rbound}. Equation \eqref{eq:conv} follows immediately. Because the matter and light sector already depends only on \(\CandidateMetric\) by \eqref{eq:redsplit}, the limiting observer equation is Einstein plus ordinary matter through that same one operative metric and not through any second observer-side structure.
+\end{proof}
+
+\begin{corollary}[No hand-set cancellation is needed for the Phase F limit]
+\label{cor:nohand}
+Theorem \ref{thm:phaseF} does not rely on the special exterior \(r^{-4}\) Hamiltonian cancellation recorded in the candidate note. That asymptotic neutralization improves one decisive exterior projection, but the controlled GR-limit theorem already follows from the quartic smallness estimates \eqref{eq:r1}--\eqref{eq:r4}.
+\end{corollary}
+
+\begin{proof}
+The proof of Theorem \ref{thm:phaseF} uses only the exact observer equation \eqref{eq:obseq}, the one-metric matter route \eqref{eq:redsplit}, the controlled family bounds \eqref{eq:fam1}--\eqref{eq:fam5}, and the resulting quartic estimates of Proposition \ref{prop:quartic}. No step requires that the leading \(r^{-4}\) Hamiltonian density vanish pointwise. The exterior cancellation therefore sharpens the candidate's asymptotic diagnostic, but it is not the mechanism by which \eqref{eq:conv} is proved.
+\end{proof}
+
+\begin{remark}
+Corollary \ref{cor:nohand} is the exact reason the present result is scientifically narrower but also cleaner. The theorem does not say that the finite-\(\IRsmall\) remainder vanishes identically. It says that the remainder is controlled and goes to zero on a specified infrared family. That is the appropriate Phase F result before the residual-sector verdict of Phase G is attempted.
+\end{remark}
+
+\section{Exact Limit Verdict}
+
+\begin{proposition}[Phase F verdict]
+\label{prop:verdict}
+At the present disciplined scope, the controlled GR-limit note proves exactly the following and no more.
+\begin{enumerate}
+    \item \textbf{What is proved.} For the recorded charge-polarization candidate, on every controlled infrared family satisfying Definitions \ref{def:ledger} and \ref{def:family}, the eliminated charge-polarization sector decouples in the quantitative sense of Proposition \ref{prop:decouple}, and the observer equation reduces to Einstein plus ordinary matter through the single operative metric \(\CandidateMetric\) in the sense of Theorem \ref{thm:phaseF}.
+    \item \textbf{What regime is covered.} The theorem covers a small-data, decaying, admissible-branch infrared regime with \(s\ge4\), quartic response size \(\ResponseShift=\mathcal O(\IRsmall^4)\), base inverse-response shift \(\BaseShift=\mathcal O(\IRsmall^2)\), and uniform control only on a fixed observer-time interval \(I\). It is not a finite-amplitude theorem and not a theorem on arbitrary admissible backgrounds.
+    \item \textbf{What has \emph{not} been proved.} The note does not prove that \(\RemCand{}_{\mu\nu}\) vanishes identically at fixed nonzero \(\IRsmall\). It does not prove that every residual sector is already absent or gauge/constraint exact. It does not replace the need for a residual-sector verdict outside the controlled limit.
+    \item \textbf{What burden remains.} The remaining primary manuscript is Phase G: classify every leftover sector on the same candidate as absent, gauge exact, constraint exact, or decoupled, and only flag a genuine deviation sector if one actually survives that classification.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Item (1) is Proposition \ref{prop:decouple} plus Theorem \ref{thm:phaseF}. Item (2) is built into Definitions \ref{def:ledger} and \ref{def:family}. Item (3) follows because Theorem \ref{thm:phaseF} proves \(\RemCand{}_{\mu\nu}=\mathcal O(\IRsmall^4)\), not \(\RemCand{}_{\mu\nu}\equiv0\). Item (4) is precisely the next benchmark gate left open once the controlled limit has been proved.
+\end{proof}
+
+\section{Conclusion}
+
+The next primary work after the full infrared-spectrum and universal-coupling gate note was Phase F itself: the controlled GR-limit note. The present manuscript performs that step in the narrow form the benchmark now requires. It fixes an explicit decoupling/scaling regime, states the regularity and elimination assumptions honestly, separates those assumptions by type, and proves the observer-equation limit through the same single operative metric \(\CandidateMetric\).
+
+The positive result is exact but limited. On the admissible decaying infrared family, the charge-polarization sector is quartic-order and therefore decouples from the leading observer equation. The eliminated candidate obeys Einstein plus ordinary matter up to a remainder that is uniformly \(\mathcal O(\IRsmall^4)\) and hence vanishes as \(\IRsmall\to0\). This controlled reduction does not rely on hand-set finite-amplitude cancellation, even though the earlier exterior self-response neutralization remains a useful strengthening on its own regime.
+
+The honest next burden is now sharper, not looser. Phase F is complete only as a controlled small-data limit theorem. The remaining primary manuscript is Phase G: classify every finite-\(\IRsmall\) leftover sector as absent, gauge exact, constraint exact, or decoupled, and only then decide whether any genuine observer-accessible deviation survives. Another packaging pass or another anchored positive-pair continuation is still not the next primary move unless it changes that observer-equation verdict itself.
+
+\end{document}
