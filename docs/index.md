@@ -9,10 +9,10 @@ The benchmark starting point is the overview-first exact-closure package centere
 ## Current Research Status
 
 - The benchmark exact-closure package remains the fixed public front door.
-- The live benchmark-facing sequence now runs through the derivation-gates note, observer-remainder classification note, bridge-redesign gate-screen note, charge-polarization candidate note, infrared-spectrum / universal-coupling gate note, controlled GR-limit note, residual-sector verdict note, and quartic-completion redesign note.
-- The immediate next primary manuscript target is now a first-principles substrate-anchoring / justification note for that quartic-completion redesign, deriving or justifying its completion solve from explicit substrate-response structure while preserving the one operative metric, the recorded Phase D / E infrared and universal-coupling verdicts, the Phase F controlled GR limit, and the observer-equation removal of the former genuine quartic residual sector.
-- Stronger promotion language should wait until that quartic-completion redesign has been anchored below observer-equation level.
-- The deeper anchored positive-pair continuation remains recorded side work unless it supplies the missing redesign anchoring or another concrete observer-equation gain.
+- The live benchmark-facing sequence now runs through the derivation-gates note, observer-remainder classification note, bridge-redesign gate-screen note, charge-polarization candidate note, infrared-spectrum / universal-coupling gate note, controlled GR-limit note, residual-sector verdict note, quartic-completion redesign note, and quartic-completion substrate-anchoring note.
+- The immediate next primary manuscript target is now a deeper first-principles completion-sector note for that same line, deriving or justifying the reconstruction-level substrate completion functional/operator from the substrate action class itself or from a fuller constrained auxiliary sector while preserving the one operative metric, the recorded Phase D / E infrared and universal-coupling verdicts, the Phase F controlled GR limit, and the observer-equation removal of the former genuine quartic residual sector.
+- Stronger promotion language should wait until that deeper first-principles completion-sector burden has been met.
+- The deeper anchored positive-pair continuation remains recorded side work unless it supplies that deeper completion origin or another concrete observer-equation gain.
 
 ## Main Deliverable
 

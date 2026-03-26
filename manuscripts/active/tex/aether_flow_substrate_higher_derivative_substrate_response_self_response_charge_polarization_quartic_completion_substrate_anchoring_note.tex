@@ -1,0 +1,586 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal A}
+\newcommand{\ObserverMap}{\Xi}
+\newcommand{\ProjSub}{P}
+\newcommand{\BridgeMetric}{\mathfrak g}
+\newcommand{\ObserverMetric}{g^{\mathrm{br}}}
+\newcommand{\CandidateMetric}{g^{\mathrm{cand}}}
+\newcommand{\CompletedMetric}{g^{\sharp}}
+\newcommand{\BaseShift}{\Sigma^{\mathrm{IER}}}
+\newcommand{\ResponseShift}{\Sigma^{\mathrm{resp}}}
+\newcommand{\CompShift}{\Sigma^{\mathrm{cmp}}}
+\newcommand{\BaseLift}{\widehat\Sigma^{\mathrm{IER}}}
+\newcommand{\ResponseLift}{\widehat\Sigma^{\mathrm{resp}}}
+\newcommand{\CompLift}{\widehat\Sigma^{\mathrm{cmp}}}
+\newcommand{\ReLongFour}{\widetilde{\mathcal R}_{\mu\nu}^{(\chi,\ge 4)}}
+\newcommand{\ResidualCore}{\mathcal V_{\mu\nu}^{\mathrm{res}}}
+\newcommand{\ResidualDec}{\mathcal D_{\mu\nu}^{\mathrm{dec}}}
+\newcommand{\ResidualLift}{\widehat{\mathcal V}^{\mathrm{res}}}
+\newcommand{\CompFunctional}{\mathcal W_{\mathrm{cmp}}}
+\newcommand{\SubReducedEin}{\widehat{\mathcal L}_{\ObserverMetric}}
+\newcommand{\ReducedEin}{\mathcal L_{\ObserverMetric}}
+\newcommand{\GaugeBook}{\mathcal G_{\ObserverMetric}}
+\newcommand{\EinLin}{\mathcal E_{\ObserverMetric}}
+\newcommand{\EinQuad}{\mathcal Q_{\ge 2}^{\mathrm{Ein}}}
+\newcommand{\CompMix}{\mathcal Q_{\mu\nu}^{\mathrm{cmp,mix}}}
+\newcommand{\CompQuad}{\mathcal Q_{\mu\nu}^{\mathrm{cmp}}}
+\newcommand{\CompDec}{\mathcal D_{\mu\nu}^{\sharp}}
+\newcommand{\DeltaTCand}{\Delta T_{\mu\nu}^{\mathrm{cand}}}
+\newcommand{\DeltaTComp}{\Delta T_{\mu\nu}^{\mathrm{cmp}}}
+\newcommand{\MatterAct}{S_{\mathrm{matter}}}
+\newcommand{\epsIR}{\varepsilon}
+\newcommand{\CompClass}{\mathscr C_{\mathrm{cmp}}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Substrate-Response / Self-Response Charge-Polarization Candidate\\
+\large Quartic-Completion Substrate-Anchoring Note}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The benchmark-facing quartic-completion redesign note already removes the surviving composite quartic residual sector from the observer equation on the one-metric charge-polarization line, but it fixes the new completion shift \(\CompShift\) only by observer-level admissibility:
+\[
+\ReducedEin(\CompShift)_{\mu\nu}=-\ResidualCore.
+\]
+The present note addresses the narrower burden left open there. Its task is not another packaging pass, not stronger promotion language, and not a default return to the anchored positive-pair side line. Its task is to anchor that same completion solve below observer-equation level by identifying an explicit substrate-response / self-response structure whose elimination induces it.
+
+The explicit structure is a substrate completion sector sourced by the already-recorded quartic self-response tensor. On the fixed charge-polarization branch, let
+\[
+\ResidualLift_{AB}
+=
+\widehat{\mathcal R}_{AB}^{(\chi,\ge 4)}
++\widehat{\mathcal Q}_{AB}^{\mathrm{Ein}}[\BaseLift]
++\widehat{\mathcal E}_{AB}(\ResponseLift)
+\]
+denote the substrate lift of the genuine observer-side quartic source \(\ResidualCore\). The new completion tensor \(\CompLift_{AB}\) is then determined as the eliminated stationary response of the quadratic substrate functional
+\[
+\CompFunctional[\CompLift]
+=
+\frac12\int_{\Sub}\sqrt{G}\,\bigl(\CompLift\bigr)^{AB}\SubReducedEin(\CompLift)_{AB}
++\int_{\Sub}\sqrt{G}\,\bigl(\ResidualLift\bigr)^{AB}\CompLift_{AB},
+\]
+taken in the same Coulomb-plus-regular admissible class used by the redesign note, with the same forced monopole data and zero extra homogeneous radiative data. Elimination yields
+\[
+\SubReducedEin(\CompLift)_{AB}=-\ResidualLift_{AB},
+\]
+and after observer pullback
+\[
+\ObserverMap^*\CompLift=\CompShift,
+\qquad
+\ReducedEin(\CompShift)_{\mu\nu}=-\ResidualCore.
+\]
+Hence the redesigned observer equation of the earlier note is recovered from an explicit substrate completion sector rather than only postulated as an admissible observer-side repair.
+
+Because \(\ResidualLift=\mathcal O_{\ge 4}\), the completion sector begins only at quartic order and carries no independent linear homogeneous branch. Matter and light still couple only through the single completed metric
+\[
+\CompletedMetric
+=
+\ObserverMetric+\BaseShift+\ResponseShift+\CompShift,
+\]
+so the recorded Phase D / E infrared-spectrum and universal-coupling verdicts and the Phase F controlled GR limit are preserved. The positive result remains disciplined: the note records observer-level closure together with an explicit substrate anchoring of that closure. It does not yet claim a unique microscopic substrate action, a broader finite-amplitude theorem, or a general promotion of the branch beyond the current claim boundary.
+\end{abstract}
+
+\section{Introduction}
+
+The active charge-polarization sequence has already done the work that was honestly first. The concrete candidate is fixed. The full Phase D / E gate is fixed. The Phase F controlled GR-limit theorem is fixed. The Phase G residual-sector verdict is fixed. The redesign note then removed the surviving composite quartic residual tensor from the observer equation itself while preserving those gains. What remained open was narrower: the new completion solve had been written effectively, but not yet anchored below observer-equation admissibility.
+
+The present note addresses exactly that burden and no broader one. It does not reopen the already-recorded redesign verdict. It does not reopen the benchmark package. It does not revisit stronger promotion language. It does not return by default to the anchored positive-pair continuation unless that side line supplies this missing anchoring or another concrete observer-equation gain.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not claim that a unique local microphysical action for the completion sector has been found. It does not claim a full microscopic derivation of Einsteinian gravity. It does not widen the controlled GR-limit theorem beyond its recorded scope. Its narrower positive result is the one now required: the observer-level quartic-completion closure is anchored to an explicit substrate completion sector whose elimination yields the same \(\CompShift\) solve used in the redesign note.
+
+\section{Fixed Inputs and the Explicit Quartic Source}
+
+\begin{definition}[Fixed candidate branch and observer-side quartic source]
+\label{def:fixed}
+The present note treats the charge-polarization candidate and the redesign note as fixed inputs in the form
+\begin{equation}
+G_{\mu\nu}[\CandidateMetric]
+=
+8\pi G_N\,T_{\mu\nu}^{\mathrm{matter}}[\CandidateMetric,\psi]
++\ResidualCore+\ResidualDec,
+\label{eq:candobs}
+\end{equation}
+where
+\begin{equation}
+\CandidateMetric
+=
+\ObserverMetric+\BaseShift+\ResponseShift,
+\label{eq:gcand}
+\end{equation}
+and
+\begin{equation}
+\ResidualCore
+\equiv
+\ReLongFour
++\EinQuad[\BaseShift]
++\EinLin(\ResponseShift).
+\label{eq:vres}
+\end{equation}
+The already-recorded order facts are
+\begin{equation}
+\BaseShift=\mathcal O_{\ge 2},
+\qquad
+\ResponseShift=\mathcal O_{\ge 4},
+\qquad
+\ResidualCore=\mathcal O_{\ge 4},
+\label{eq:orders}
+\end{equation}
+and on every controlled infrared family of the Phase F note,
+\begin{equation}
+\BaseShift=\mathcal O(\epsIR^2),
+\qquad
+\ResponseShift=\mathcal O(\epsIR^4),
+\qquad
+\ResidualCore=\mathcal O(\epsIR^4),
+\qquad
+\ResidualDec=\mathcal O(\epsIR^4).
+\label{eq:phaseF}
+\end{equation}
+\end{definition}
+
+\begin{remark}
+Equation \eqref{eq:vres} identifies the exact self-response structure that the completion must answer. The source is not an abstract admissibility defect. It is the explicit composite quartic tensor built from the quartic longitudinal block, the quadratic Einstein self-response of the already-fixed lower-order inverse-response shift, and the linear observer imprint of the eliminated charge-polarization response sector.
+\end{remark}
+
+\begin{definition}[Fixed substrate lifts]
+\label{def:lifts}
+Let the charge-polarization branch already be represented on the substrate side by observer-compatible lifts \(\BaseLift_{AB}\) and \(\ResponseLift_{AB}\) satisfying
+\begin{equation}
+\ObserverMap^*\BaseLift_{AB}=\BaseShift_{\mu\nu},
+\qquad
+\ObserverMap^*\ResponseLift_{AB}=\ResponseShift_{\mu\nu}.
+\label{eq:baselift}
+\end{equation}
+Let
+\begin{equation}
+\BridgeMetric_{AB}^{\mathrm{cand}}
+\equiv
+G_{AB}-2U_AU_B+\BaseLift_{AB}+\ResponseLift_{AB}
+\label{eq:bridgecand}
+\end{equation}
+denote the corresponding candidate bridge metric.
+\end{definition}
+
+\begin{definition}[Lifted quartic self-response source]
+\label{def:source}
+Define the \emph{lifted quartic self-response source} \(\ResidualLift_{AB}\) on the candidate bridge branch by
+\begin{equation}
+\ResidualLift_{AB}
+\equiv
+\widehat{\mathcal R}_{AB}^{(\chi,\ge 4)}
++\widehat{\mathcal Q}_{AB}^{\mathrm{Ein}}[\BaseLift]
++\widehat{\mathcal E}_{AB}(\ResponseLift),
+\label{eq:liftedsource}
+\end{equation}
+where the hatted tensors are observer-compatible substrate representatives chosen so that
+\begin{equation}
+\ObserverMap^*\widehat{\mathcal R}_{AB}^{(\chi,\ge 4)}=\ReLongFour{}_{\mu\nu},
+\quad
+\ObserverMap^*\widehat{\mathcal Q}_{AB}^{\mathrm{Ein}}[\BaseLift]=\EinQuad[\BaseShift]_{\mu\nu},
+\quad
+\ObserverMap^*\widehat{\mathcal E}_{AB}(\ResponseLift)=\EinLin(\ResponseShift)_{\mu\nu}.
+\label{eq:pullbacks}
+\end{equation}
+Consequently,
+\begin{equation}
+\ObserverMap^*\ResidualLift_{AB}=\ResidualCore{}_{\mu\nu}.
+\label{eq:sourcepull}
+\end{equation}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:source} is the promised explicit substrate-response / self-response structure. The completion sector is sourced by a genuine lifted tensor already determined by the lower-order inverse-response branch and the eliminated charge-polarization sector. The solve will therefore be induced by that recorded structure rather than by admissibility alone.
+\end{remark}
+
+\section{Substrate Completion Sector}
+
+\begin{definition}[Lifted reduced response operator]
+\label{def:operator}
+Let \(\SubReducedEin\) be the substrate reduced completion operator acting on observer-compatible symmetric substrate tensors and characterized by the intertwining identity
+\begin{equation}
+\ObserverMap^*\bigl(\SubReducedEin(H)_{AB}\bigr)
+=
+\ReducedEin(\ObserverMap^*H)_{\mu\nu}
+\label{eq:intertwine}
+\end{equation}
+for every such tensor \(H_{AB}\). At the present note's scope, \(\SubReducedEin\) is taken to be formally self-adjoint on the admissible class introduced below.
+\end{definition}
+
+\begin{definition}[Admissible completion class]
+\label{def:class}
+The \emph{substrate completion class} \(\CompClass\) consists of observer-compatible symmetric tensors \(H_{AB}\) satisfying all of the following.
+\begin{enumerate}
+    \item \(H_{AB}=\mathcal O_{\ge 4}\) in the reduced-data counting.
+    \item On the exterior charge sector, \(H_{AB}\) belongs to the same Coulomb-plus-regular asymptotic class already fixed in the redesign note: its forced Coulomb monopole is determined by the Hamiltonian charge of \(-\ResidualLift\), its regular part is charge free and decays one power faster, and no extra homogeneous radiative data are inserted.
+    \item On the admissible homogeneous benchmark background, the independent linear completion branch is fixed to zero:
+    \begin{equation}
+    \delta H_{AB}=0.
+    \label{eq:nolinearsub}
+    \end{equation}
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Quadratic substrate completion functional]
+\label{def:functional}
+The \emph{quartic completion sector} is the quadratic substrate functional
+\begin{equation}
+\CompFunctional[H]
+\equiv
+\frac12
+\int_{\Sub} d^4X\,\sqrt{G}\,
+H^{AB}\SubReducedEin(H)_{AB}
++
+\int_{\Sub} d^4X\,\sqrt{G}\,
+\bigl(\ResidualLift\bigr)^{AB}H_{AB},
+\label{eq:functional}
+\end{equation}
+varied over the class \(\CompClass\). The eliminated substrate completion tensor \(\CompLift_{AB}\) is the stationary point of \(\CompFunctional\) in \(\CompClass\).
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:functional} is deliberately narrower than a full microphysical action. It is a reconstruction level substrate completion sector. That is enough to anchor the redesign below observer level, but not yet enough to claim a unique microscopic origin for the completion kernel.
+\end{remark}
+
+\begin{proposition}[Elimination equation of the substrate completion sector]
+\label{prop:elim}
+The stationary tensor \(\CompLift_{AB}\) satisfies
+\begin{equation}
+\SubReducedEin(\CompLift)_{AB}
+=
+-\ResidualLift_{AB}.
+\label{eq:subsolve}
+\end{equation}
+Moreover,
+\begin{equation}
+\CompLift=\mathcal O_{\ge 4},
+\qquad
+\delta\CompLift_{AB}=0
+\label{eq:quarticsub}
+\end{equation}
+on the admissible homogeneous benchmark background.
+\end{proposition}
+
+\begin{proof}
+Let \(K_{AB}\in\CompClass\) be an admissible variation. Formal self-adjointness of \(\SubReducedEin\) on \(\CompClass\) gives
+\[
+\frac{d}{ds}\CompFunctional[\CompLift+sK]\biggr|_{s=0}
+=
+\int_{\Sub} d^4X\,\sqrt{G}\,
+K^{AB}\Bigl(\SubReducedEin(\CompLift)_{AB}+\ResidualLift_{AB}\Bigr).
+\]
+Stationarity for arbitrary admissible \(K_{AB}\) therefore yields \eqref{eq:subsolve}. The quartic order and vanishing linear homogeneous branch are built into the class \(\CompClass\), and they are consistent with \(\ResidualLift=\mathcal O_{\ge 4}\) by Definition \ref{def:fixed}.
+\end{proof}
+
+\begin{remark}
+The completion is therefore not added by hand as an observer-side tensor. It is the eliminated stationary response of an explicit substrate completion functional sourced by the lifted quartic self-response tensor \(\ResidualLift\).
+\end{remark}
+
+\section{Observer Pullback and Recovery of the Redesign Solve}
+
+\begin{definition}[Observer completion shift and completed metrics]
+\label{def:completed}
+Define the observer completion shift and the completed bridge/observer metrics by
+\begin{equation}
+\CompShift_{\mu\nu}
+\equiv
+\ObserverMap^*\CompLift_{AB},
+\label{eq:defsigma}
+\end{equation}
+\begin{equation}
+\BridgeMetric_{AB}^{\sharp}
+\equiv
+\BridgeMetric_{AB}^{\mathrm{cand}}+\CompLift_{AB},
+\label{eq:bridgecompleted}
+\end{equation}
+and
+\begin{equation}
+\CompletedMetric_{\mu\nu}
+\equiv
+\CandidateMetric_{\mu\nu}+\CompShift_{\mu\nu}
+=
+\ObserverMetric_{\mu\nu}
++\BaseShift_{\mu\nu}
++\ResponseShift_{\mu\nu}
++\CompShift_{\mu\nu}.
+\label{eq:gsharp}
+\end{equation}
+\end{definition}
+
+\begin{theorem}[The eliminated substrate sector reproduces the redesign solve]
+\label{thm:pullback}
+The observer pullback of the eliminated substrate completion sector satisfies exactly the same quartic-completion solve used in the redesign note:
+\begin{equation}
+\ReducedEin(\CompShift)_{\mu\nu}
+=
+-\ResidualCore{}_{\mu\nu}.
+\label{eq:observereq}
+\end{equation}
+Consequently,
+\begin{equation}
+\EinLin(\CompShift)_{\mu\nu}
+=
+-\ResidualCore{}_{\mu\nu}
++\GaugeBook(\CompShift)_{\mu\nu}.
+\label{eq:linsolve}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Apply \(\ObserverMap^*\) to the eliminated substrate equation \eqref{eq:subsolve}. By Definition \ref{def:operator},
+\[
+\ObserverMap^*\bigl(\SubReducedEin(\CompLift)\bigr)
+=
+\ReducedEin(\ObserverMap^*\CompLift)
+=
+\ReducedEin(\CompShift).
+\]
+By Definition \ref{def:source}, \(\ObserverMap^*\ResidualLift=\ResidualCore\). Therefore \eqref{eq:observereq} follows directly. Rewriting \eqref{eq:observereq} using \(\ReducedEin=\EinLin-\GaugeBook\) yields \eqref{eq:linsolve}.
+\end{proof}
+
+\begin{corollary}[Equivalence with the redesign note]
+\label{cor:equiv}
+Every exact observer-equation statement of the quartic-completion redesign note applies verbatim to the completed metric \(\CompletedMetric\), because the same defining solve \eqref{eq:observereq} holds.
+\end{corollary}
+
+\begin{proof}
+The redesign note uses only the candidate equation \eqref{eq:candobs}, the fixed decomposition \eqref{eq:vres}, and the defining solve \(\ReducedEin(\CompShift)=-\ResidualCore\). Theorem \ref{thm:pullback} re-establishes that same solve from the eliminated substrate completion sector.
+\end{proof}
+
+\section{Exact Observer Equation on the Anchored Branch}
+
+\begin{definition}[Completion-generated matter and Einstein terms]
+\label{def:extra}
+Define
+\begin{equation}
+\DeltaTComp
+\equiv
+T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
+-T_{\mu\nu}^{\mathrm{matter}}[\CandidateMetric,\psi],
+\label{eq:deltatcomp}
+\end{equation}
+\begin{align}
+\CompMix
+&\equiv
+\EinQuad[\BaseShift+\ResponseShift+\CompShift]
+-\EinQuad[\BaseShift+\ResponseShift]
+-\EinQuad[\CompShift],
+\label{eq:compmix}
+\\
+\CompQuad
+&\equiv
+\EinQuad[\CompShift].
+\label{eq:compquad}
+\end{align}
+Set
+\begin{equation}
+\CompDec
+\equiv
+\ResidualDec+\CompMix+\CompQuad-8\pi G_N\,\DeltaTComp.
+\label{eq:compdec}
+\end{equation}
+\end{definition}
+
+\begin{theorem}[Exact observer equation on the substrate-anchored completed branch]
+\label{thm:obs}
+The completed observer metric \(\CompletedMetric\) satisfies
+\begin{equation}
+G_{\mu\nu}[\CompletedMetric]
+=
+8\pi G_N\,T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
++\GaugeBook(\CompShift)_{\mu\nu}
++\CompDec.
+\label{eq:newobs}
+\end{equation}
+In particular, the old composite quartic residual tensor \(\ResidualCore\) is absent from the exact observer equation on the substrate-anchored branch.
+\end{theorem}
+
+\begin{proof}
+Expand \(G_{\mu\nu}[\CompletedMetric]\) about \(\CandidateMetric\):
+\begin{equation}
+G_{\mu\nu}[\CompletedMetric]
+=
+G_{\mu\nu}[\CandidateMetric]
++\EinLin(\CompShift)_{\mu\nu}
++\CompMix+\CompQuad.
+\label{eq:expand}
+\end{equation}
+Substitute the fixed candidate equation \eqref{eq:candobs} and the identity \eqref{eq:linsolve}:
+\[
+G_{\mu\nu}[\CompletedMetric]
+=
+8\pi G_N\,T_{\mu\nu}^{\mathrm{matter}}[\CandidateMetric,\psi]
++\ResidualCore+\ResidualDec
+-\ResidualCore
++\GaugeBook(\CompShift)_{\mu\nu}
++\CompMix+\CompQuad.
+\]
+The \(\ResidualCore\) terms cancel exactly. Replacing \(T_{\mu\nu}^{\mathrm{matter}}[\CandidateMetric,\psi]\) by \(T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]-\DeltaTComp\) gives \eqref{eq:newobs}.
+\end{proof}
+
+\begin{remark}
+The positive observer-equation closure is therefore now anchored one layer deeper than in the redesign note. The same exact cancellation occurs, but it is now the pullback of an eliminated substrate completion sector sourced by the lifted self-response tensor \(\ResidualLift\).
+\end{remark}
+
+\section{Preservation of the One-Metric Route and the Recorded Gains}
+
+\begin{proposition}[One operative metric is preserved]
+\label{prop:onemetric}
+On the substrate-anchored completed branch, matter and light still couple only through the single operative metric \(\CompletedMetric\).
+\end{proposition}
+
+\begin{proof}
+The completion sector adds only the eliminated tensor \(\CompLift\), whose observer pullback is the metric increment \(\CompShift\). The matter sector therefore depends on the completed branch only through \(T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]\), equivalently through \(\MatterAct[\CompletedMetric,\psi]\). The term \(\DeltaTComp\) is only the re-expansion of the same one-metric matter law under that same metric.
+\end{proof}
+
+\begin{proposition}[Phase D / E are preserved]
+\label{prop:phaseDE}
+The substrate-anchored completion preserves the recorded Phase D infrared-spectrum verdict and the Phase E universal-coupling verdict.
+\end{proposition}
+
+\begin{proof}
+By \eqref{eq:quarticsub} and \eqref{eq:defsigma}, the completion begins at quartic order and has no independent linear homogeneous branch:
+\[
+\CompShift=\mathcal O_{\ge 4},
+\qquad
+\delta\CompShift_{\mu\nu}=0.
+\]
+Hence the linearized observer equation is unchanged relative to the already-screened charge-polarization candidate, so no new linear scalar, vector, ghost, tachyonic, preferred-frame, or second-cone pole is introduced. Proposition \ref{prop:onemetric} preserves the single-metric matter route. Therefore the Phase D / E verdicts survive unchanged.
+\end{proof}
+
+\begin{proposition}[Infrared size of the anchored completion sector]
+\label{prop:size}
+On every controlled infrared family,
+\begin{equation}
+\CompShift=\mathcal O(\epsIR^4),
+\qquad
+\GaugeBook(\CompShift)=\mathcal O(\epsIR^4),
+\label{eq:ircomp}
+\end{equation}
+and
+\begin{equation}
+\CompMix=\mathcal O(\epsIR^6),
+\qquad
+\CompQuad=\mathcal O(\epsIR^8),
+\qquad
+\DeltaTComp=\mathcal O(\epsIR^4),
+\qquad
+\CompDec=\mathcal O(\epsIR^4).
+\label{eq:irsizes}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+By Definition \ref{def:fixed}, \(\ResidualCore=\mathcal O(\epsIR^4)\) on every controlled family. The completion solve \eqref{eq:observereq} is the same reduced response solve used in the redesign note, with the same admissible Coulomb-plus-regular class and zero extra homogeneous data. Therefore \(\CompShift=\mathcal O(\epsIR^4)\), and the linear first-derivative operator \(\GaugeBook\) has the same order. Since
+\[
+\BaseShift=\mathcal O(\epsIR^2),
+\qquad
+\ResponseShift=\mathcal O(\epsIR^4),
+\qquad
+\CompShift=\mathcal O(\epsIR^4),
+\]
+the mixed Einstein term \(\CompMix\) is \(\mathcal O(\epsIR^6)\), the pure completion-quadratic term \(\CompQuad\) is \(\mathcal O(\epsIR^8)\), and the matter re-expansion \(\DeltaTComp\) is \(\mathcal O(\epsIR^4)\). Combining these with \(\ResidualDec=\mathcal O(\epsIR^4)\) yields \eqref{eq:irsizes}.
+\end{proof}
+
+\begin{theorem}[Phase F controlled GR limit is preserved]
+\label{thm:phaseF}
+On every controlled infrared family,
+\begin{equation}
+G_{\mu\nu}[\CompletedMetric_{\epsIR}]
+=
+8\pi G_N\,T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric_{\epsIR},\psi_{\epsIR}]
++\GaugeBook(\CompShift_{\epsIR})_{\mu\nu}
++\epsIR^4\mathfrak D_{\mu\nu}^{(\epsIR)},
+\label{eq:phaseFnew}
+\end{equation}
+with \(\mathfrak D_{\mu\nu}^{(\epsIR)}\) uniformly bounded. Thus the same one-metric observer equation reduces to Einstein plus ordinary matter as \(\epsIR\to0\), now on the substrate-anchored completed branch.
+\end{theorem}
+
+\begin{proof}
+The exact observer equation \eqref{eq:newobs} holds on the anchored branch. Proposition \ref{prop:size} gives \(\CompDec=\mathcal O(\epsIR^4)\), so \(\CompDec=\epsIR^4\mathfrak D^{(\epsIR)}\) with \(\mathfrak D^{(\epsIR)}\) uniformly bounded on the controlled family. The remaining explicit tensor \(\GaugeBook(\CompShift)\) is gauge bookkeeping rather than a genuine observer-side deviation sector. Because \(\CompletedMetric\) remains the unique operative metric by Proposition \ref{prop:onemetric}, the same controlled GR-limit conclusion follows.
+\end{proof}
+
+\section{Claim-Boundary Verdict}
+
+\begin{theorem}[Primary substrate-anchoring verdict]
+\label{thm:verdict}
+At the disciplined scope of the present note, the positive result is exactly observer-level closure together with substrate anchoring of that closure:
+\begin{enumerate}
+    \item the completion is induced by an explicit substrate-response / self-response structure, namely the lifted quartic source \(\ResidualLift\) together with the quadratic completion sector \(\CompFunctional\);
+    \item eliminating that substrate sector yields the same quartic-completion solve \(\ReducedEin(\CompShift)=-\ResidualCore\) used in the redesign note;
+    \item the exact observer equation on the completed branch has no surviving genuine composite quartic residual sector;
+    \item the one-metric route and the recorded Phase D / E and Phase F gains are preserved;
+    \item stronger promotion language is still not justified here, because the present note anchors the redesign structurally but does not yet claim a unique microscopic substrate action or a broader theorem than the current claim boundary allows.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Item (1) is Definitions \ref{def:source} and \ref{def:functional}. Item (2) is Proposition \ref{prop:elim} together with Theorem \ref{thm:pullback}. Item (3) is Theorem \ref{thm:obs}. Item (4) is Proposition \ref{prop:onemetric}, Proposition \ref{prop:phaseDE}, and Theorem \ref{thm:phaseF}. Item (5) is the claim-boundary discipline stated in the introduction and reflected already in Definition \ref{def:functional}: the note supplies a substrate anchoring of the completion sector, not a license to overpromote the branch.
+\end{proof}
+
+\begin{corollary}[What is and is not next]
+The next work need not be another packaging pass, and stronger promotion language should still wait. The anchored positive-pair line remains side work unless it contributes this completion anchoring more deeply or yields another concrete observer-equation gain on the active GR line.
+\end{corollary}
+
+\section{Conclusion}
+
+The redesign note already solved the immediate observer-equation problem correctly: the surviving composite quartic residual tensor \(\ResidualCore\) was removed from the exact observer equation on the one-metric charge-polarization branch. But that redesign fixed the new completion shift only at observer-admissibility level. The present note addresses the narrower burden left by that success.
+
+The positive step is explicit. The quartic self-response source is identified on the substrate side as the lifted tensor
+\[
+\ResidualLift
+=
+\widehat{\mathcal R}^{(\chi,\ge 4)}
++\widehat{\mathcal Q}^{\mathrm{Ein}}[\BaseLift]
++\widehat{\mathcal E}(\ResponseLift),
+\]
+and the completion is realized as the eliminated stationary response of the quadratic substrate functional \(\CompFunctional\). Eliminating that sector yields the same completion solve
+\[
+\ReducedEin(\CompShift)=-\ResidualCore
+\]
+used in the redesign note, so the exact observer equation on the completed branch is again free of the old genuine composite quartic residual sector. The one operative metric is preserved, and the recorded Phase D / E and Phase F gains remain intact.
+
+The scope of the result is intentionally disciplined. This note does not claim a unique microscopic completion action, does not widen the controlled GR-limit theorem, and does not justify stronger promotion language by itself. Its honest positive result is narrower and exactly the one now needed: the observer-level quartic-completion closure is no longer only an admissible redesign move. It is now anchored by an explicit substrate completion sector built from the same charge-polarization self-response structure already present on the active branch.
+
+\end{document}

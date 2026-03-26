@@ -20,8 +20,9 @@ As of March 26, 2026, the benchmark-facing sequence now includes:
 - [aether_flow_substrate_higher_derivative_substrate_response_self_response_charge_polarization_controlled_gr_limit_note.tex](../manuscripts/active/tex/aether_flow_substrate_higher_derivative_substrate_response_self_response_charge_polarization_controlled_gr_limit_note.tex)
 - [aether_flow_substrate_higher_derivative_substrate_response_self_response_charge_polarization_residual_sector_verdict_note.tex](../manuscripts/active/tex/aether_flow_substrate_higher_derivative_substrate_response_self_response_charge_polarization_residual_sector_verdict_note.tex)
 - [aether_flow_substrate_higher_derivative_substrate_response_self_response_charge_polarization_quartic_completion_redesign_note.tex](../manuscripts/active/tex/aether_flow_substrate_higher_derivative_substrate_response_self_response_charge_polarization_quartic_completion_redesign_note.tex)
+- [aether_flow_substrate_higher_derivative_substrate_response_self_response_charge_polarization_quartic_completion_substrate_anchoring_note.tex](../manuscripts/active/tex/aether_flow_substrate_higher_derivative_substrate_response_self_response_charge_polarization_quartic_completion_substrate_anchoring_note.tex)
 
-The immediate next primary manuscript target is now a first-principles substrate-anchoring / justification note for that same quartic-completion redesign. The redesign note has already removed the formerly surviving composite quartic residual sector as a genuine observer-equation block at current scope while preserving the one operative metric, the recorded Phase D / E infrared and universal-coupling verdicts, and the Phase F controlled GR limit. The next step is therefore to derive or justify that completion solve from explicit substrate-response structure rather than leave it fixed only at observer-equation level. Stronger promotion language should wait until that deeper anchoring burden has been handled cleanly.
+The immediate next primary manuscript target is now a deeper first-principles completion-sector note for that same charge-polarization line. The new substrate-anchoring note has already identified an explicit reconstruction-level substrate completion sector, recovered the same quartic-completion solve by elimination, and preserved the one operative metric, the recorded Phase D / E infrared and universal-coupling verdicts, and the Phase F controlled GR limit. The next step is therefore to derive or justify that reconstruction-level completion functional/operator from the substrate action class itself or from a fuller constrained auxiliary sector rather than stop at reconstruction level. Stronger promotion language should wait until that deeper burden has been handled cleanly.
 
 ## Active Entry Points
 
@@ -33,6 +34,7 @@ The immediate next primary manuscript target is now a first-principles substrate
 - [Controlled GR-limit PDF](../manuscripts/active/pdf/aether_flow_substrate_higher_derivative_substrate_response_self_response_charge_polarization_controlled_gr_limit_note.pdf)
 - [Residual-sector verdict PDF](../manuscripts/active/pdf/aether_flow_substrate_higher_derivative_substrate_response_self_response_charge_polarization_residual_sector_verdict_note.pdf)
 - [Quartic-completion redesign PDF](../manuscripts/active/pdf/aether_flow_substrate_higher_derivative_substrate_response_self_response_charge_polarization_quartic_completion_redesign_note.pdf)
+- [Quartic-completion substrate-anchoring PDF](../manuscripts/active/pdf/aether_flow_substrate_higher_derivative_substrate_response_self_response_charge_polarization_quartic_completion_substrate_anchoring_note.pdf)
 - [Research plan](../RESEARCH_PLAN.md)
 
 ## How To Read This Work Honestly
