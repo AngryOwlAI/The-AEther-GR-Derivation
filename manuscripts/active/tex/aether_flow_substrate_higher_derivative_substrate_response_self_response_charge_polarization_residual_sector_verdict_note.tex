@@ -1,0 +1,373 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\ObserverMetric}{g^{\mathrm{br}}}
+\newcommand{\CandidateMetric}{g^{\mathrm{cand}}}
+\newcommand{\BaseShift}{\Sigma^{\mathrm{IER}}}
+\newcommand{\ResponseShift}{\Sigma^{\mathrm{resp}}}
+\newcommand{\SourceDensityRed}{\varrho_\Omega^{\mathrm{red}}}
+\newcommand{\ReOff}{\widetilde{\mathcal R}_{\mu\nu}^{\mathrm{off}}}
+\newcommand{\ReLongThree}{\widetilde{\mathcal R}_{\mu\nu}^{(\chi,3)}}
+\newcommand{\ReLongFour}{\widetilde{\mathcal R}_{\mu\nu}^{(\chi,\ge 4)}}
+\newcommand{\DeltaTCand}{\Delta T_{\mu\nu}^{\mathrm{cand}}}
+\newcommand{\RemCand}{\mathcal R_{\mu\nu}^{\mathrm{cand}}}
+\newcommand{\EinLin}{\mathcal E_{\ObserverMetric}}
+\newcommand{\EinQuad}{\mathcal Q_{\ge 2}^{\mathrm{Ein}}}
+\newcommand{\MixQuad}{\mathcal Q_{\mu\nu}^{\mathrm{mix}}}
+\newcommand{\RespQuad}{\mathcal Q_{\mu\nu}^{\mathrm{resp}}}
+\newcommand{\ResidualCore}{\mathcal V_{\mu\nu}^{\mathrm{res}}}
+\newcommand{\ResidualDec}{\mathcal D_{\mu\nu}^{\mathrm{dec}}}
+\newcommand{\GaugeExact}{\mathcal G_{\mu\nu}^{\mathrm{ex}}}
+\newcommand{\ConstraintExact}{\mathcal C_{\mu\nu}^{\mathrm{ex}}}
+\newcommand{\epsIR}{\varepsilon}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Substrate-Response / Self-Response Charge-Polarization Candidate\\
+\large Residual-Sector Verdict Note}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The benchmark-facing charge-polarization sequence has already fixed the concrete candidate, its full Phase D / E benchmark-gate verdicts, and its Phase F controlled GR-limit theorem. The immediate primary task is therefore no longer another packaging pass and no longer another anchored positive-pair continuation by default. It is Phase G: classify the finite-\(\epsIR\) remainder of that same candidate sector-by-sector and decide whether the branch is already fully closed at current scope.
+
+The present note gives that verdict in the exact order now required. First, it rewrites the eliminated candidate remainder at fixed nonzero \(\epsIR\) into an exact finite-\(\epsIR\) decomposition
+\[
+\RemCand
+=
+\ResidualCore+\ResidualDec,
+\]
+where
+\[
+\ResidualCore
+=
+\ReLongFour
++\EinQuad[\BaseShift]
++\EinLin(\ResponseShift)
+\]
+is the only still-live quartic observer tensor on matter-free reduced data, while \(\ResidualDec\) consists of the mixed and pure response-quadratic pieces together with the one-metric matter re-expansion term. Second, it classifies every other leftover sector: the old off-longitudinal and cubic longitudinal blocks are absent on the candidate because they are already canceled by \(\BaseShift\); the inherited pure-gauge bookkeeping terms remain gauge exact; the eliminated source/polarization equations remain constraint exact; the mixed response-quadratic pieces and the matter re-expansion term are decoupled because they introduce no observer-accessible low-energy pole and vanish on the controlled infrared family.
+
+The decisive point is that this verdict does \emph{not} rest only on the special exterior \(r^{-4}\) Hamiltonian neutralization. That earlier cancellation controls one projection of \(\ResidualCore\) on one static exterior regime, but it does not classify the full finite-\(\epsIR\) tensor away from that regime. At current disciplined scope, no theorem shows \(\ResidualCore\) to be absent, gauge exact, constraint exact, or decoupled on the full candidate branch. The first observer-accessible consequence is therefore only a quartic-order correction tensor in the finite-\(\epsIR\) observer equation, not a stronger phenomenological claim. The exact Phase G verdict is accordingly negative: the charge-polarization candidate is not yet fully closed at current scope and still leaves one genuine residual sector.
+\end{abstract}
+
+\section{Introduction}
+
+The exact-closure benchmark remains the public front door of the repository, and the derivation-gates note remains the standard by which every bridge continuation is judged. The charge-polarization candidate note, the full infrared-spectrum / universal-coupling follow-up, and the controlled GR-limit note have already done the work they were supposed to do. The live question is now narrower than before.
+
+That question is not whether the candidate has a controlled Einsteinian limit. It does. It is not whether the special exterior \(r^{-4}\) Hamiltonian density can be neutralized. It can. The Phase G question is sharper: at fixed nonzero \(\epsIR\), after the candidate has been eliminated honestly, which remainder sectors are actually absent, which are only gauge exact or constraint exact, which are merely heavy or one-metric re-expansion sectors that decouple, and whether anything genuinely observer-relevant survives after those classifications.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not claim a completed finite-amplitude derivation of GR from substrate microphysics. It does not promote the current candidate to a fully closed deeper theory. Its narrower task is exactly the one fixed in the research plan and claim boundary: provide the residual-sector verdict for the recorded charge-polarization candidate.
+
+\section{Fixed Phase G Inputs and Classification Classes}
+
+\begin{definition}[Exact eliminated candidate remainder]
+\label{def:remainder}
+The recorded charge-polarization candidate is taken as a fixed input through its eliminated observer equation
+\begin{equation}
+G_{\mu\nu}[\CandidateMetric]
+=
+8\pi G_N\,T_{\mu\nu}^{\mathrm{matter}}[\CandidateMetric,\psi]
++\RemCand,
+\label{eq:observer}
+\end{equation}
+with
+\begin{equation}
+\RemCand
+=
+\ReLongFour
++\EinLin(\ResponseShift)
++\EinQuad[\BaseShift+\ResponseShift]
+-8\pi G_N\,\DeltaTCand.
+\label{eq:remainder}
+\end{equation}
+\end{definition}
+
+\begin{definition}[Phase G residual classes]
+\label{def:classes}
+A finite-\(\epsIR\) remainder block in \eqref{eq:remainder} is classified as follows.
+\begin{enumerate}
+    \item \textbf{Absent.} The block vanishes identically on the disciplined charge-polarization candidate branch and does not appear in the exact eliminated observer equation.
+    \item \textbf{Gauge exact.} The block is a pure diffeomorphism or gauge identity after the same reduced gauge extraction already fixed by the benchmark-facing observer-remainder note.
+    \item \textbf{Constraint exact.} The block is proportional to the eliminated source, polarization, or reduced slice equations and therefore vanishes on disciplined eliminated solutions.
+    \item \textbf{Decoupled.} The block may be nonzero at fixed \(\epsIR\), but it is generated only by the already-screened elliptic/algebraic response variables or by one-metric matter re-expansion, it introduces no new observer-accessible infrared pole, and it tends to zero uniformly on every controlled infrared family of the Phase F note.
+    \item \textbf{Genuine deviation sector.} A block is a genuine deviation sector at current scope if, after the previous four classes are removed, it remains as the leading finite-\(\epsIR\) observer-side correction and has not been reduced to any of those safer classes on the disciplined branch.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:classes} is operational rather than rhetorical. In particular, calling a block a genuine deviation sector here does not claim a full phenomenological prediction beyond current scope. It means only that the recorded manuscripts have not yet reduced that block to absence, exactness, or decoupling on the candidate branch.
+\end{remark}
+
+\begin{definition}[Fixed lower-order and linear-response identities]
+\label{def:fixed}
+The following earlier facts are treated as fixed inputs.
+\begin{enumerate}
+    \item The lower-order inverse-response shift obeys
+    \begin{equation}
+    \EinLin(\BaseShift)
+    =
+    -\ReOff
+    -\ReLongThree,
+    \label{eq:basesolve}
+    \end{equation}
+    so the old off-longitudinal and cubic longitudinal blocks are already canceled on the candidate branch.
+    \item The added source/polarization sector is eliminated algebraically and elliptically; in particular, the polarization vector and trace-free tensor vanish, the scalar slots are fixed algebraically by the response potential, and
+    \begin{equation}
+    \delta\ResponseShift_{\mu\nu}=0
+    \label{eq:linearzero}
+    \end{equation}
+    on the admissible homogeneous benchmark branch.
+    \item On every controlled infrared family of the Phase F note,
+    \begin{equation}
+    \BaseShift=\mathcal O(\epsIR^2),
+    \qquad
+    \ResponseShift=\mathcal O(\epsIR^4),
+    \qquad
+    \ReLongFour=\mathcal O(\epsIR^4),
+    \qquad
+    \DeltaTCand=\mathcal O(\epsIR^4).
+    \label{eq:phaseFbounds}
+    \end{equation}
+\end{enumerate}
+\end{definition}
+
+\section{Exact Finite-\texorpdfstring{\(\epsIR\)}{epsilon} Decomposition}
+
+\begin{definition}[Mixed and pure response-quadratic sectors]
+\label{def:split}
+Define the exact bilinear and pure response-quadratic pieces of \(\EinQuad[\BaseShift+\ResponseShift]\) by
+\begin{equation}
+\EinQuad[\BaseShift+\ResponseShift]
+=
+\EinQuad[\BaseShift]
++\MixQuad
++\RespQuad,
+\label{eq:quadsplit}
+\end{equation}
+where \(\MixQuad\) is bilinear in \(\BaseShift\) and \(\ResponseShift\), and \(\RespQuad\) is at least quadratic in \(\ResponseShift\).
+\end{definition}
+
+\begin{proposition}[Exact remainder decomposition away from the exterior regime]
+\label{prop:exactsplit}
+For the eliminated charge-polarization candidate,
+\begin{equation}
+\RemCand
+=
+\ResidualCore+\ResidualDec,
+\label{eq:exactsplit}
+\end{equation}
+where
+\begin{equation}
+\ResidualCore
+\equiv
+\ReLongFour
++\EinQuad[\BaseShift]
++\EinLin(\ResponseShift),
+\label{eq:core}
+\end{equation}
+and
+\begin{equation}
+\ResidualDec
+\equiv
+\MixQuad+\RespQuad-8\pi G_N\,\DeltaTCand.
+\label{eq:dec}
+\end{equation}
+This decomposition is exact at fixed nonzero \(\epsIR\) and does not use the decisive exterior cancellation regime.
+\end{proposition}
+
+\begin{proof}
+Substitute the split \eqref{eq:quadsplit} into the exact candidate remainder formula \eqref{eq:remainder}. The result is \eqref{eq:exactsplit}--\eqref{eq:dec} with no appeal to asymptotic exterior arguments, no use of \(r^{-4}\) neutralization, and no use of the \(\epsIR\to0\) limit.
+\end{proof}
+
+\begin{remark}
+Equation \eqref{eq:exactsplit} is the right Phase G starting point. The residual-sector verdict must classify the exact finite-\(\epsIR\) pieces of \(\RemCand\), not only the limiting statement that \(\RemCand=\mathcal O(\epsIR^4)\).
+\end{remark}
+
+\section{Sector-by-Sector Classification}
+
+\begin{proposition}[Absent, gauge-exact, and constraint-exact sectors]
+\label{prop:absent}
+At current candidate scope, the following sector classifications hold.
+\begin{enumerate}
+    \item \textbf{Absent lower-order sectors.} The old off-longitudinal block \(\ReOff\) and the first cubic longitudinal block \(\ReLongThree\) are absent from the exact eliminated candidate remainder.
+    \item \textbf{Gauge-exact bookkeeping sector.} Any inherited pure-gauge bookkeeping terms remain gauge exact and do not survive as an independent block in \eqref{eq:remainder}.
+    \item \textbf{Constraint-exact elimination sector.} Terms proportional to the eliminated source/polarization equations and to the reduced slice equations remain constraint exact and vanish on disciplined eliminated solutions.
+    \item \textbf{Absent linear response sector.} No unsuppressed linear response block survives: the added response sector is absent at linear observer-equation level.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Item (1) is exactly the fixed lower-order identity \eqref{eq:basesolve}: once \(\BaseShift\) is kept fixed, \(\ReOff\) and \(\ReLongThree\) no longer appear in \eqref{eq:remainder}. Item (2) is inherited from the same reduced gauge extraction used by the earlier observer-remainder classification note; the present candidate note writes the remainder only after that gauge bookkeeping has already been removed. Item (3) follows from the Euler--Lagrange elimination of the charge, multiplier, and polarization variables together with the already-recorded reduced slice package: any term still proportional to those equations vanishes on the eliminated branch. Item (4) is \eqref{eq:linearzero}, which shows that the charge-polarization sector does not generate a new linear observer imprint.
+\end{proof}
+
+\begin{proposition}[Decoupled sectors]
+\label{prop:decoupled}
+The sectors \(\MixQuad\), \(\RespQuad\), and \(\DeltaTCand\) are decoupled in the sense of Definition \ref{def:classes}.
+\end{proposition}
+
+\begin{proof}
+By Definition \ref{def:split}, \(\MixQuad\) is bilinear in \(\BaseShift\) and \(\ResponseShift\), while \(\RespQuad\) is at least quadratic in \(\ResponseShift\). Using \eqref{eq:phaseFbounds},
+\begin{equation}
+\MixQuad=\mathcal O(\epsIR^6),
+\qquad
+\RespQuad=\mathcal O(\epsIR^8)
+\label{eq:highorder}
+\end{equation}
+on every controlled infrared family. These two blocks are therefore generated only by the already-screened heavy response sector and are at least two reduced-data orders below the leading quartic observer correction.
+
+For \(\DeltaTCand\), the full Phase D / E gate note already fixed that all matter and light sectors couple only through the single operative metric \(\CandidateMetric\). The term \(\DeltaTCand\) is therefore not an independent second-source law but only the re-expansion of ordinary matter stress under the same one operative metric. It vanishes on matter-free reduced data and satisfies \(\DeltaTCand=\mathcal O(\epsIR^4)\) on every controlled infrared family by \eqref{eq:phaseFbounds}. Since the same Phase D note already proved that the candidate introduces no new observer-accessible linear pole, scalar, vector, preferred-frame, ghost, tachyonic, or second-cone sector, \(\DeltaTCand\) is decoupled rather than a new observer-accessible branch.
+\end{proof}
+
+\begin{remark}
+Proposition \ref{prop:decoupled} is the precise sense in which the Phase G verdict goes beyond the controlled limit without collapsing back into it. These sectors are classified at fixed nonzero \(\epsIR\) by their structural origin, while the Phase F estimates certify that they really do decouple on the controlled family.
+\end{remark}
+
+\section{Why the Verdict Cannot Rest Only on the Exterior \texorpdfstring{\(r^{-4}\)}{r^-4} Neutralization}
+
+\begin{proposition}[Special exterior neutralization controls only one projection]
+\label{prop:outside}
+On the decisive rotational matter-free exterior regime, the earlier candidate note proves only that
+\begin{equation}
+n^\mu n^\nu \ResidualCore
+=
+\mathcal O(r^{-5}).
+\label{eq:extneutral}
+\end{equation}
+This does not classify the full finite-\(\epsIR\) tensor \(\ResidualCore\) away from that special regime.
+\end{proposition}
+
+\begin{proof}
+The special exterior theorem of the candidate note applies on a static exterior region with the Coulomb tail and its Schwarzschild-type response dressing isolated explicitly. On matter-free reduced data, the quartic remainder there is exactly \(\ResidualCore\), because the mixed and pure response-quadratic pieces are higher order and \(\DeltaTCand\) vanishes. The recorded neutralization cancels the leading \(r^{-4}\) Hamiltonian projection of that quartic tensor, yielding \eqref{eq:extneutral}.
+
+But \eqref{eq:extneutral} is only a statement about the contraction \(n^\mu n^\nu \ResidualCore\) on one asymptotic exterior regime. It does not determine the full tensor components of \(\ResidualCore\), it does not classify interior or nonstatic regions, and it does not convert \(\ResidualCore\) into a gauge identity, a constraint identity, or a decoupled heavy block. Therefore the Phase G verdict cannot rest only on \eqref{eq:extneutral}.
+\end{proof}
+
+\begin{corollary}[Only one still-live sector remains]
+\label{cor:oneleft}
+After Propositions \ref{prop:absent} and \ref{prop:decoupled}, the only still-live finite-\(\epsIR\) candidate block is \(\ResidualCore\).
+\end{corollary}
+
+\begin{proof}
+Proposition \ref{prop:absent} removes the absent, gauge-exact, and constraint-exact sectors. Proposition \ref{prop:decoupled} removes \(\ResidualDec\). By the exact decomposition \eqref{eq:exactsplit}, only \(\ResidualCore\) remains.
+\end{proof}
+
+\section{First Observer-Accessible Consequence and Phase G Verdict}
+
+\begin{proposition}[First observer-accessible consequence if a residual sector survives]
+\label{prop:consequence}
+Suppose \(\ResidualCore\) is not reduced to absence, gauge exactness, constraint exactness, or decoupling on the disciplined candidate branch. Then the first observer-accessible consequence at current scope is a quartic-order correction tensor in the finite-\(\epsIR\) observer equation:
+\begin{equation}
+G_{\mu\nu}[\CandidateMetric_{\epsIR}]
+=
+8\pi G_N\,T_{\mu\nu}^{\mathrm{matter}}[\CandidateMetric_{\epsIR},\psi_{\epsIR}]
++\epsIR^4\,\mathfrak V_{\mu\nu}^{(\epsIR)}
++\epsIR^4\,\mathfrak D_{\mu\nu}^{(\epsIR)},
+\label{eq:firstcons}
+\end{equation}
+where
+\begin{equation}
+\mathfrak V_{\mu\nu}^{(\epsIR)}
+\equiv
+\epsIR^{-4}{\ResidualCore}^{(\epsIR)}
+\label{eq:vdef}
+\end{equation}
+and
+\begin{equation}
+\mathfrak D_{\mu\nu}^{(\epsIR)}
+\equiv
+\epsIR^{-4}\ResidualDec
+\label{eq:ddef}
+\end{equation}
+on any controlled infrared family for which \(\epsIR>0\). No stronger phenomenological claim is justified at current scope.
+\end{proposition}
+
+\begin{proof}
+Equation \eqref{eq:firstcons} is just the exact observer equation \eqref{eq:observer} with the exact decomposition \eqref{eq:exactsplit} and the rescaled notation \eqref{eq:vdef}--\eqref{eq:ddef}. The Phase F bounds show that \(\ResidualCore=\mathcal O(\epsIR^4)\) and \(\ResidualDec=\mathcal O(\epsIR^4)\) on the controlled family, while Proposition \ref{prop:decoupled} shows that \(\ResidualDec\) is structurally decoupled. Proposition \ref{prop:outside} shows that the existing manuscripts do not identify \(\ResidualCore\) with a safer class away from the special exterior projection. Hence the first honest observer-side consequence is only the quartic correction tensor \(\epsIR^4\mathfrak V_{\mu\nu}^{(\epsIR)}\) itself.
+\end{proof}
+
+\begin{table}[t]
+\centering
+\begin{tabular}{p{0.35\textwidth}p{0.18\textwidth}p{0.36\textwidth}}
+\toprule
+\textbf{Sector} & \textbf{Verdict} & \textbf{Reason at current scope} \\
+\midrule
+Old \(\ReOff\) and \(\ReLongThree\) blocks & absent & Already canceled by the fixed lower-order inverse-response shift \(\BaseShift\). \\
+Inherited pure-gauge bookkeeping terms & gauge exact & Removed by the same reduced gauge extraction used before the candidate remainder is written. \\
+Eliminated source / polarization / reduced-slice equations & constraint exact & Vanish on disciplined eliminated solutions after the charge-polarization Euler--Lagrange reduction. \\
+Standalone linear response block & absent & \(\delta\ResponseShift_{\mu\nu}=0\), so no unsuppressed linear observer imprint survives. \\
+\(\MixQuad\) and \(\RespQuad\) & decoupled & Generated only by the already-screened elliptic/algebraic response block; \(\mathcal O(\epsIR^6)\) and \(\mathcal O(\epsIR^8)\) on the controlled family. \\
+\(\DeltaTCand\) & decoupled & One-metric matter re-expansion term, not a second matter source; vanishes on matter-free data and no new low-energy pole is introduced. \\
+\(\ResidualCore=\ReLongFour+\EinQuad[\BaseShift]+\EinLin(\ResponseShift)\) & genuine deviation sector & Only one exterior Hamiltonian projection is neutralized; away from that regime the full finite-\(\epsIR\) tensor is not yet absent, exact, or decoupled. \\
+\bottomrule
+\end{tabular}
+\caption{Phase G sector classification for the charge-polarization candidate.}
+\label{tab:phaseg}
+\end{table}
+
+\begin{theorem}[Phase G residual-sector verdict]
+\label{thm:phaseg}
+At the present disciplined scope, the charge-polarization candidate is \emph{not} fully closed. More precisely:
+\begin{enumerate}
+    \item every leftover finite-\(\epsIR\) block other than \(\ResidualCore\) is classified by Table \ref{tab:phaseg} as absent, gauge exact, constraint exact, or decoupled;
+    \item the special exterior \(r^{-4}\) Hamiltonian neutralization does not by itself classify the full tensor \(\ResidualCore\) away from that regime;
+    \item therefore \(\ResidualCore\) is the only still-live genuine residual sector at current scope;
+    \item the exact candidate verdict is negative: the recorded charge-polarization branch still leaves a genuine residual sector and cannot yet be promoted as a fully closed derivation of GR.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Item (1) is exactly Propositions \ref{prop:absent} and \ref{prop:decoupled}, summarized in Table \ref{tab:phaseg}. Item (2) is Proposition \ref{prop:outside}. Item (3) is Corollary \ref{cor:oneleft}: once the absent, exact, and decoupled sectors are removed, only \(\ResidualCore\) remains. By Definition \ref{def:classes}, that surviving leading finite-\(\epsIR\) observer-side correction is therefore a genuine deviation sector at current scope. Item (4) is then the claim-boundary verdict: full closure would require \(\ResidualCore\) to be absent, gauge exact, constraint exact, or decoupled as well, and no such result is presently recorded.
+\end{proof}
+
+\begin{corollary}[What should be next]
+The next primary manuscript should not be another packaging pass and should not default to another anchored positive-pair continuation. The next primary work should instead be a deeper observer-equation redesign or equivalent substrate-response completion that removes or reclassifies \(\ResidualCore\), unless some side line actually changes that observer equation.
+\end{corollary}
+
+\section{Conclusion}
+
+The active next task after the controlled GR-limit note was Phase G itself: the residual-sector verdict for the same charge-polarization candidate. The present manuscript performs that step at the exact scope now required. It classifies the finite-\(\epsIR\) remainder sector-by-sector, not only in the \(\epsIR\to0\) limit, and it does so away from the decisive exterior cancellation regime rather than resting only on the special \(r^{-4}\) Hamiltonian neutralization.
+
+The positive result is a real narrowing of the burden. The old off-longitudinal and cubic longitudinal sectors are absent on the candidate, the inherited gauge bookkeeping remains gauge exact, the eliminated source/polarization equations remain constraint exact, and the mixed response-quadratic plus one-metric matter re-expansion sectors are decoupled. The first observer-accessible consequence is therefore not a new linear pole, not a second matter cone, and not a preferred-frame matter law. If a deviation survives, it survives first as a quartic-order correction tensor in the finite-\(\epsIR\) observer equation.
+
+The exact verdict is therefore sharp. At current disciplined scope, the charge-polarization candidate is not fully closed. The only still-live sector is the composite quartic tensor \(\ResidualCore=\ReLongFour+\EinQuad[\BaseShift]+\EinLin(\ResponseShift)\), and away from the special exterior neutralization regime it has not yet been reduced to absence, gauge exactness, constraint exactness, or decoupling. The candidate still leaves a genuine residual sector. The next honest primary work is to remove or reclassify that observer-equation sector itself, not another packaging pass and not another anchored positive-pair continuation unless that side line changes the observer equation.
+
+\end{document}

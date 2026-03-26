@@ -9,8 +9,8 @@ The benchmark starting point is the overview-first exact-closure package centere
 ## Current Research Status
 
 - The benchmark exact-closure package remains the fixed public front door.
-- The live benchmark-facing sequence now runs through the derivation-gates note, observer-remainder classification note, bridge-redesign gate-screen note, charge-polarization candidate note, infrared-spectrum / universal-coupling gate note, and controlled GR-limit note.
-- The immediate next primary manuscript target is the residual-sector verdict note for that same charge-polarization candidate.
+- The live benchmark-facing sequence now runs through the derivation-gates note, observer-remainder classification note, bridge-redesign gate-screen note, charge-polarization candidate note, infrared-spectrum / universal-coupling gate note, controlled GR-limit note, and residual-sector verdict note.
+- The immediate next primary manuscript target is a deeper observer-equation redesign on that same charge-polarization line, removing or reclassifying the surviving composite quartic residual sector away from the decisive exterior cancellation regime.
 - The deeper anchored positive-pair continuation remains recorded side work unless it changes the observer equation or the current scale-orbit / residual-vacuum-angle verdicts.
 
 ## Main Deliverable
