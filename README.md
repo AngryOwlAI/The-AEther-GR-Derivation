@@ -6,13 +6,13 @@
 **Author:**  
 <img width="30" height="30" align="center" src="https://github.com/user-attachments/assets/a8e0ea66-5d8f-43b3-8fff-2c3d74d57f53"> Alexander Ricciardi (Omega.py)
 
-Earlier ontology/background material is preserved in the [predecessor repository](https://github.com/AngryOwlAI/The-AEther). This repository is the active project home for the GR-derivation phase of `The Æther-Flow Interpretation of Relativity`.
+Earlier ontology/background material is preserved in the [predecessor repository - The Æther](https://github.com/AngryOwlAI/The-AEther). This repository, The-AEther-GR-Derivation, is the active project home for the GR-derivation phase of `The Æther-Flow Interpretation of Relativity`.
 
 ---
 
 ## Introduction
 
-This repository is the active working repository for `The Æther-Flow Interpretation of Relativity`, a human-led, AI-assisted theoretical physics research program built on the `Æther / Æther-flow` ontology first formulated by Alexander Ricciardi.
+This repository is the active working repository for `The Æther-Flow Interpretation of Relativity`, an AI experiment in theoretical physics research built on the `Æther / Æther-flow` ontology first formulated by Alexander Ricciardi.
 
 The repository preserves two linked layers of work. First, it preserves the overview-first exact-closure package as the benchmark theory statement of the project. At that benchmark level, GR is adopted exactly as the operational relativistic sector, while the `Æther / Æther-flow` framework supplies the interpretive ontology. Second, it preserves the active downstream derivational program that is trying to recover that same GR sector from explicit substrate structure without changing the benchmark claim boundary prematurely.
 
