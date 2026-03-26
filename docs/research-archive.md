@@ -19,8 +19,9 @@ As of March 26, 2026, the benchmark-facing sequence now includes:
 - [aether_flow_substrate_higher_derivative_substrate_response_self_response_charge_polarization_infrared_spectrum_universal_coupling_gate_note.tex](../manuscripts/active/tex/aether_flow_substrate_higher_derivative_substrate_response_self_response_charge_polarization_infrared_spectrum_universal_coupling_gate_note.tex)
 - [aether_flow_substrate_higher_derivative_substrate_response_self_response_charge_polarization_controlled_gr_limit_note.tex](../manuscripts/active/tex/aether_flow_substrate_higher_derivative_substrate_response_self_response_charge_polarization_controlled_gr_limit_note.tex)
 - [aether_flow_substrate_higher_derivative_substrate_response_self_response_charge_polarization_residual_sector_verdict_note.tex](../manuscripts/active/tex/aether_flow_substrate_higher_derivative_substrate_response_self_response_charge_polarization_residual_sector_verdict_note.tex)
+- [aether_flow_substrate_higher_derivative_substrate_response_self_response_charge_polarization_quartic_completion_redesign_note.tex](../manuscripts/active/tex/aether_flow_substrate_higher_derivative_substrate_response_self_response_charge_polarization_quartic_completion_redesign_note.tex)
 
-The immediate next primary manuscript target is now a deeper observer-equation redesign on that same charge-polarization line. The residual-sector verdict note has already recorded that every other finite-\(\varepsilon\) leftover sector is absent, gauge exact, constraint exact, or decoupled at current scope, while one genuine composite quartic residual sector still survives. The next step is therefore to remove or reclassify that surviving observer-equation sector away from the decisive exterior cancellation regime while preserving the one operative metric, the recorded Phase D / E infrared and universal-coupling verdicts, and the Phase F controlled GR limit. Stronger promotion language should wait until that residual sector has been handled cleanly.
+The immediate next primary manuscript target is now a first-principles substrate-anchoring / justification note for that same quartic-completion redesign. The redesign note has already removed the formerly surviving composite quartic residual sector as a genuine observer-equation block at current scope while preserving the one operative metric, the recorded Phase D / E infrared and universal-coupling verdicts, and the Phase F controlled GR limit. The next step is therefore to derive or justify that completion solve from explicit substrate-response structure rather than leave it fixed only at observer-equation level. Stronger promotion language should wait until that deeper anchoring burden has been handled cleanly.
 
 ## Active Entry Points
 
@@ -31,6 +32,7 @@ The immediate next primary manuscript target is now a deeper observer-equation r
 - [Infrared-spectrum / universal-coupling gate PDF](../manuscripts/active/pdf/aether_flow_substrate_higher_derivative_substrate_response_self_response_charge_polarization_infrared_spectrum_universal_coupling_gate_note.pdf)
 - [Controlled GR-limit PDF](../manuscripts/active/pdf/aether_flow_substrate_higher_derivative_substrate_response_self_response_charge_polarization_controlled_gr_limit_note.pdf)
 - [Residual-sector verdict PDF](../manuscripts/active/pdf/aether_flow_substrate_higher_derivative_substrate_response_self_response_charge_polarization_residual_sector_verdict_note.pdf)
+- [Quartic-completion redesign PDF](../manuscripts/active/pdf/aether_flow_substrate_higher_derivative_substrate_response_self_response_charge_polarization_quartic_completion_redesign_note.pdf)
 - [Research plan](../RESEARCH_PLAN.md)
 
 ## How To Read This Work Honestly

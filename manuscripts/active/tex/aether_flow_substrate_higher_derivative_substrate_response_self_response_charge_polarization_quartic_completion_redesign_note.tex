@@ -1,0 +1,505 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\ObserverMetric}{g^{\mathrm{br}}}
+\newcommand{\CandidateMetric}{g^{\mathrm{cand}}}
+\newcommand{\CompletedMetric}{g^{\sharp}}
+\newcommand{\BaseShift}{\Sigma^{\mathrm{IER}}}
+\newcommand{\ResponseShift}{\Sigma^{\mathrm{resp}}}
+\newcommand{\CompShift}{\Sigma^{\mathrm{cmp}}}
+\newcommand{\ReLongFour}{\widetilde{\mathcal R}_{\mu\nu}^{(\chi,\ge 4)}}
+\newcommand{\DeltaTCand}{\Delta T_{\mu\nu}^{\mathrm{cand}}}
+\newcommand{\DeltaTComp}{\Delta T_{\mu\nu}^{\mathrm{cmp}}}
+\newcommand{\EinLin}{\mathcal E_{\ObserverMetric}}
+\newcommand{\EinQuad}{\mathcal Q_{\ge 2}^{\mathrm{Ein}}}
+\newcommand{\GaugeBook}{\mathcal G_{\ObserverMetric}}
+\newcommand{\ReducedEin}{\mathcal L_{\ObserverMetric}}
+\newcommand{\GaugeVec}{\mathcal B_{\ObserverMetric}}
+\newcommand{\ResidualCore}{\mathcal V_{\mu\nu}^{\mathrm{res}}}
+\newcommand{\ResidualDec}{\mathcal D_{\mu\nu}^{\mathrm{dec}}}
+\newcommand{\CompMix}{\mathcal Q_{\mu\nu}^{\mathrm{cmp,mix}}}
+\newcommand{\CompQuad}{\mathcal Q_{\mu\nu}^{\mathrm{cmp}}}
+\newcommand{\CompDec}{\mathcal D_{\mu\nu}^{\sharp}}
+\newcommand{\epsIR}{\varepsilon}
+\newcommand{\MatterAct}{S_{\mathrm{matter}}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Substrate-Response / Self-Response Charge-Polarization Candidate\\
+\large Quartic-Completion Redesign Note}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The benchmark-facing charge-polarization sequence has already fixed the concrete candidate, the Phase D / E infrared-spectrum and universal-coupling verdicts, the Phase F controlled GR-limit theorem, and the negative Phase G residual-sector verdict. The next primary task is therefore no longer another packaging pass and no longer another anchored positive-pair continuation by default. It is a deeper observer-equation redesign on the same one-metric charge-polarization line that acts on the full surviving finite-\(\epsIR\) tensor
+\[
+\ResidualCore
+=
+\ReLongFour
++\EinQuad[\BaseShift]
++\EinLin(\ResponseShift)
+\]
+away from the special exterior cancellation regime.
+
+The present note writes that redesign explicitly. It appends a quartic-completion shift \(\CompShift\) to the same charge-polarization branch and fixes it by the same observer-admissible reduced Einstein-response solve architecture already known from the broader inverse-response line, but now sourced by the full tensor \(\ResidualCore\) rather than by one exterior Hamiltonian projection alone. The redesigned operative metric is
+\[
+\CompletedMetric
+=
+\ObserverMetric+\BaseShift+\ResponseShift+\CompShift,
+\]
+and the completion solve is fixed by
+\[
+\ReducedEin(\CompShift)_{\mu\nu}
+=
+-\ResidualCore,
+\qquad
+\ReducedEin
+\equiv
+\EinLin-\GaugeBook.
+\]
+Hence
+\[
+\EinLin(\CompShift)_{\mu\nu}
+=
+-\ResidualCore+\GaugeBook(\CompShift)_{\mu\nu},
+\]
+so the old composite quartic residual sector is absent on the redesigned branch and is replaced only by gauge-exact bookkeeping together with decoupled mixed/higher-order completion terms and one-metric matter re-expansion.
+
+Because \(\CompShift=\mathcal O_{\ge 4}\) and the admissible solve is fixed with zero extra homogeneous radiative data, the redesign preserves the recorded gains: no new linear infrared pole appears, matter and light still couple through one operative metric, and the same controlled GR limit remains valid on the Phase F small-data decaying family. The result is positive but still disciplined. This note does not yet claim a completed first-principles substrate derivation of the new completion solve itself, and it does not reopen stronger promotion language inside the manuscript. Its exact result is narrower: the surviving composite quartic residual tensor is removed as a genuine observer-equation sector on the redesigned charge-polarization line.
+\end{abstract}
+
+\section{Introduction}
+
+The exact-closure benchmark remains the public front door of the repository, and the derivation-gates note remains the criterion by which every derivational continuation is judged. The charge-polarization candidate note, the full infrared-spectrum / universal-coupling gate note, the controlled GR-limit note, and the residual-sector verdict note have already narrowed the next honest burden sharply. The live issue is no longer whether the branch keeps one operative metric. It does. It is no longer whether the branch passes the linear infrared screen. It does. It is no longer whether the branch has a controlled Einsteinian small-\(\epsIR\) limit. It does. The live issue is the one recorded explicitly in the research plan and claim boundary: whether the surviving composite quartic residual tensor can be removed or safely reclassified at finite \(\epsIR\) away from the decisive exterior cancellation regime.
+
+That is the role of this note. It does not revisit the package. It does not reopen the already-recorded Phase D / E or Phase F verdicts. It does not return by default to a deeper anchored positive-pair continuation. It changes the observer equation itself on the same charge-polarization line.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not claim that the quartic-completion solve already has a first-principles substrate origin. It does not claim that every wider finite-amplitude analytic burden is settled. Its narrower task is exactly the next one fixed by the repository: write an observer-equation redesign on the same one-metric charge-polarization line that removes the surviving composite quartic residual tensor as a genuine sector while preserving the gains already recorded.
+
+\section{Fixed Inputs and the Redesign Target}
+
+\begin{definition}[Fixed post-Phase G input]
+\label{def:input}
+The charge-polarization candidate and residual-sector verdict notes are treated as fixed inputs in the form
+\begin{equation}
+G_{\mu\nu}[\CandidateMetric]
+=
+8\pi G_N\,T_{\mu\nu}^{\mathrm{matter}}[\CandidateMetric,\psi]
++\ResidualCore+\ResidualDec,
+\label{eq:candobs}
+\end{equation}
+where
+\begin{equation}
+\CandidateMetric
+=
+\ObserverMetric+\BaseShift+\ResponseShift,
+\label{eq:gcand}
+\end{equation}
+and
+\begin{equation}
+\ResidualCore
+\equiv
+\ReLongFour
++\EinQuad[\BaseShift]
++\EinLin(\ResponseShift).
+\label{eq:vres}
+\end{equation}
+The decoupled block \(\ResidualDec\) consists of the already-recorded mixed and pure response-quadratic pieces together with the one-metric matter re-expansion term:
+\begin{equation}
+\ResidualDec
+=
+\mathcal Q_{\mu\nu}^{\mathrm{mix}}
++\mathcal Q_{\mu\nu}^{\mathrm{resp}}
+-8\pi G_N\,\DeltaTCand.
+\label{eq:ddec}
+\end{equation}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:input} is exactly the burden isolated by the Phase G note. At current candidate scope, every leftover sector other than \(\ResidualCore\) is already classified as absent, gauge exact, constraint exact, or decoupled. The only still-live genuine sector is the composite quartic tensor \(\ResidualCore\).
+\end{remark}
+
+\begin{definition}[Fixed lower-order and infrared facts]
+\label{def:fixed}
+The following earlier facts are also treated as fixed.
+\begin{enumerate}
+    \item The lower-order inverse-response shift obeys
+    \begin{equation}
+    \BaseShift=\mathcal O_{\ge 2},
+    \qquad
+    \ResponseShift=\mathcal O_{\ge 4},
+    \qquad
+    \delta\ResponseShift_{\mu\nu}=0
+    \label{eq:orders}
+    \end{equation}
+    on the recorded branch.
+    \item On every controlled infrared family of the Phase F note,
+    \begin{equation}
+    \BaseShift=\mathcal O(\epsIR^2),
+    \qquad
+    \ResponseShift=\mathcal O(\epsIR^4),
+    \qquad
+    \ResidualCore=\mathcal O(\epsIR^4),
+    \qquad
+    \ResidualDec=\mathcal O(\epsIR^4).
+    \label{eq:phaseF}
+    \end{equation}
+    \item Matter and light already couple universally through the single operative metric \(\CandidateMetric\), i.e.
+    \begin{equation}
+    S_{\mathrm{red}}[\CandidateMetric,\psi]
+    =
+    S_{\mathrm{grav}}^{\mathrm{cand}}[\CandidateMetric]
+    +\MatterAct[\CandidateMetric,\psi].
+    \label{eq:mattercand}
+    \end{equation}
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+The redesign target is therefore precise: act on \(\ResidualCore\) itself, not on the already-decoupled sector \(\ResidualDec\), and do so without changing the one-metric matter route or the recorded linear infrared verdict.
+\end{remark}
+
+\section{Observer-Admissible Quartic Completion}
+
+\begin{definition}[Reduced gauge vector and reduced Einstein-response operator]
+\label{def:reduced}
+For any symmetric tensor \(H_{\mu\nu}\), define the reduced gauge vector
+\begin{equation}
+\GaugeVec(H)_\nu
+\equiv
+\nabla^\mu\left(
+H_{\mu\nu}
+-\frac12 \ObserverMetric_{\mu\nu}g_{\mathrm{br}}^{\alpha\beta}H_{\alpha\beta}
+\right),
+\label{eq:gaugevec}
+\end{equation}
+the corresponding gauge-bookkeeping tensor
+\begin{equation}
+\GaugeBook(H)_{\mu\nu}
+\equiv
+\nabla_{(\mu}\GaugeVec(H)_{\nu)}
+-\frac12\ObserverMetric_{\mu\nu}\nabla^\alpha\GaugeVec(H)_\alpha,
+\label{eq:gbook}
+\end{equation}
+and the reduced linear Einstein-response operator
+\begin{equation}
+\ReducedEin(H)_{\mu\nu}
+\equiv
+\EinLin(H)_{\mu\nu}
+-\GaugeBook(H)_{\mu\nu}.
+\label{eq:reducedEin}
+\end{equation}
+\end{definition}
+
+\begin{remark}
+The tensor \(\GaugeBook(H)\) is exactly of the reduced gauge-bookkeeping type already separated in the earlier observer-remainder classification and residual-sector verdict notes. Equation \eqref{eq:reducedEin} is therefore the right observer-level operator for a redesign that is allowed to produce gauge exact but not genuinely physical leftover terms.
+\end{remark}
+
+\begin{definition}[Observer-admissible quartic-completion solve]
+\label{def:solve}
+The \emph{quartic-completion redesign} appends a symmetric tensor \(\CompShift_{\mu\nu}\) on the same charge-polarization branch and fixes it by the following observer-level admissibility package.
+\begin{enumerate}
+    \item \textbf{Reduced solve.} The completion shift solves
+    \begin{equation}
+    \ReducedEin(\CompShift)_{\mu\nu}
+    =
+    -\ResidualCore.
+    \label{eq:solvedef}
+    \end{equation}
+    \item \textbf{Quartic order.} The completion begins at quartic reduced-data order:
+    \begin{equation}
+    \CompShift=\mathcal O_{\ge 4}.
+    \label{eq:quarticorder}
+    \end{equation}
+    \item \textbf{Admissible asymptotics.} The solve uses the same reduced-harmonic Coulomb-plus-regular class already recorded for the broader inverse-Einstein-response line: the forced Coulomb tail is fixed by the Hamiltonian charge of \(-\ResidualCore\), the regular part carries zero additional monopole charge and decays one power faster, and no extra homogeneous radiative data are inserted.
+    \item \textbf{No independent linear completion mode.} The homogeneous linear completion branch is fixed to zero, hence
+    \begin{equation}
+    \delta\CompShift_{\mu\nu}=0
+    \label{eq:nolinear}
+    \end{equation}
+    on the admissible homogeneous benchmark background.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:solve} is the real observer-equation change of the present note. It no longer neutralizes only one exterior Hamiltonian projection. It acts on the full tensor \(\ResidualCore\) itself through the same admissible reduced response architecture, and it does so without introducing a second operative metric or a free new radiative tensor mode.
+\end{remark}
+
+\begin{proposition}[What the completion solve implies immediately]
+\label{prop:solve}
+On the quartic-completion redesign,
+\begin{equation}
+\EinLin(\CompShift)_{\mu\nu}
+=
+-\ResidualCore+\GaugeBook(\CompShift)_{\mu\nu}.
+\label{eq:linsolve}
+\end{equation}
+Moreover, on every controlled infrared family of the Phase F note, with the bounds summarized in Definition \ref{def:fixed},
+\begin{equation}
+\CompShift=\mathcal O(\epsIR^4),
+\qquad
+\GaugeBook(\CompShift)=\mathcal O(\epsIR^4).
+\label{eq:compIR}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Equation \eqref{eq:linsolve} is just \eqref{eq:solvedef} rewritten using \eqref{eq:reducedEin}. Since \(\ResidualCore=\mathcal O_{\ge 4}\) by Definition \ref{def:fixed}, the imposed zero homogeneous branch gives \(\CompShift=\mathcal O_{\ge 4}\), and hence \(\delta\CompShift=0\). On a controlled infrared family, \(\ResidualCore=\mathcal O(\epsIR^4)\) by \eqref{eq:phaseF}; the same reduced inverse then yields \(\CompShift=\mathcal O(\epsIR^4)\), and \(\GaugeBook\), being linear in first derivatives of \(\CompShift\), satisfies the same order bound.
+\end{proof}
+
+\section{Redesigned Observer Equation}
+
+\begin{definition}[Redesigned operative metric and completion matter correction]
+\label{def:metric}
+Define the redesigned operative metric by
+\begin{equation}
+\CompletedMetric_{\mu\nu}
+\equiv
+\ObserverMetric_{\mu\nu}
++\BaseShift_{\mu\nu}
++\ResponseShift_{\mu\nu}
++\CompShift_{\mu\nu}.
+\label{eq:gsharp}
+\end{equation}
+The corresponding one-metric matter re-expansion from \(\CandidateMetric\) to \(\CompletedMetric\) is
+\begin{equation}
+\DeltaTComp
+\equiv
+T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
+-T_{\mu\nu}^{\mathrm{matter}}[\CandidateMetric,\psi].
+\label{eq:deltatcomp}
+\end{equation}
+Define also the mixed and pure completion-quadratic Einstein terms by
+\begin{align}
+\CompMix
+&\equiv
+\EinQuad[\BaseShift+\ResponseShift+\CompShift]
+-\EinQuad[\BaseShift+\ResponseShift]
+-\EinQuad[\CompShift],
+\label{eq:compmix}
+\\
+\CompQuad
+&\equiv
+\EinQuad[\CompShift].
+\label{eq:compquad}
+\end{align}
+\end{definition}
+
+\begin{theorem}[Exact observer equation on the quartic-completion redesign]
+\label{thm:observer}
+The redesigned operative metric \eqref{eq:gsharp} satisfies
+\begin{equation}
+G_{\mu\nu}[\CompletedMetric]
+=
+8\pi G_N\,T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
++\GaugeBook(\CompShift)_{\mu\nu}
++\CompDec,
+\label{eq:newobs}
+\end{equation}
+where
+\begin{equation}
+\CompDec
+\equiv
+\ResidualDec+\CompMix+\CompQuad-8\pi G_N\,\DeltaTComp.
+\label{eq:newdec}
+\end{equation}
+In particular, the old composite quartic residual sector \(\ResidualCore\) is absent from the exact redesigned observer equation.
+\end{theorem}
+
+\begin{proof}
+Expand the Einstein tensor of \(\CompletedMetric=\CandidateMetric+\CompShift\) about \(\ObserverMetric\):
+\begin{equation}
+G_{\mu\nu}[\CompletedMetric]
+=
+G_{\mu\nu}[\CandidateMetric]
++\EinLin(\CompShift)_{\mu\nu}
++\CompMix+\CompQuad.
+\label{eq:expand}
+\end{equation}
+Substitute the fixed candidate equation \eqref{eq:candobs} and the completion identity \eqref{eq:linsolve}:
+\[
+G_{\mu\nu}[\CompletedMetric]
+=
+8\pi G_N\,T_{\mu\nu}^{\mathrm{matter}}[\CandidateMetric,\psi]
++\ResidualCore+\ResidualDec
+-\ResidualCore
++\GaugeBook(\CompShift)_{\mu\nu}
++\CompMix+\CompQuad.
+\]
+The two \(\ResidualCore\) terms cancel exactly. Replacing \(T_{\mu\nu}^{\mathrm{matter}}[\CandidateMetric,\psi]\) by \(T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]-\DeltaTComp\) gives \eqref{eq:newobs}--\eqref{eq:newdec}.
+\end{proof}
+
+\begin{remark}
+Theorem \ref{thm:observer} is the precise redesign result required by the current research plan. The cancellation does not use the special exterior \(r^{-4}\) Hamiltonian neutralization alone. It uses the full tensor \(\ResidualCore\) as the source of the quartic completion solve, so the redesign acts away from that special regime and on the whole observer-equation sector.
+\end{remark}
+
+\begin{theorem}[Residual-sector reclassification on the redesigned branch]
+\label{thm:class}
+On the quartic-completion redesign, the finite-\(\epsIR\) observer-side sectors are classified as follows.
+\begin{enumerate}
+    \item The old composite quartic tensor \(\ResidualCore\) is \textbf{absent} from the exact redesigned observer equation \eqref{eq:newobs}.
+    \item The bookkeeping tensor \(\GaugeBook(\CompShift)\) is \textbf{gauge exact}.
+    \item The inherited block \(\ResidualDec\) remains \textbf{decoupled}, exactly as in the Phase G residual-sector verdict note.
+    \item The new completion-generated blocks \(\CompMix\), \(\CompQuad\), and \(\DeltaTComp\) are \textbf{decoupled}.
+    \item Therefore no genuine surviving composite quartic residual sector remains on the redesigned charge-polarization line at the present observer-equation scope.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Item (1) is Theorem \ref{thm:observer}. Item (2) follows from Definition \ref{def:reduced}: \(\GaugeBook(\CompShift)\) is built entirely from the reduced gauge vector \(\GaugeVec(\CompShift)\), so it belongs to the same gauge-bookkeeping class already removed in the earlier observer-remainder classification and residual-sector verdict notes. Item (3) is inherited directly from the Phase G classification. For item (4), \(\CompMix\) and \(\CompQuad\) are generated only by the completion shift and by its mixing with the already-screened \(\BaseShift+\ResponseShift\). They therefore introduce no independent observer-accessible linear pole and, by construction, no second operative metric. The matter term \(\DeltaTComp\) is again only one-metric matter re-expansion, now from \(\CandidateMetric\) to \(\CompletedMetric\). Hence these three blocks are decoupled in the same sense already used for \(\ResidualDec\). Item (5) follows because every remaining block in \eqref{eq:newobs} is now either gauge exact or decoupled.
+\end{proof}
+
+\section{Preservation of the Recorded Gains}
+
+\begin{proposition}[One operative metric and universal matter coupling are preserved]
+\label{prop:onemetric}
+On the quartic-completion redesign, matter and light still couple only through one operative metric, namely \(\CompletedMetric\).
+\end{proposition}
+
+\begin{proof}
+The redesign changes the observer metric only by the additional completion shift \(\CompShift\). By Definition \ref{def:metric}, the matter action depends on the redesigned branch only through \(T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]\), equivalently through \(\MatterAct[\CompletedMetric,\psi]\). No second matter-coupling tensor is introduced. The term \(\DeltaTComp\) in \eqref{eq:newdec} is not a new matter law; it is only the re-expansion of the same ordinary matter stress under the same single metric.
+\end{proof}
+
+\begin{proposition}[The Phase D / E verdicts are preserved]
+\label{prop:phaseDE}
+The quartic-completion redesign preserves the recorded Phase D infrared-spectrum verdict and the Phase E universal-coupling verdict.
+\end{proposition}
+
+\begin{proof}
+By \eqref{eq:nolinear}, the completion shift has no independent linear branch and satisfies \(\delta\CompShift_{\mu\nu}=0\) on the admissible homogeneous benchmark background. Hence the linearized observer equation is unchanged relative to the already-screened charge-polarization candidate: no new scalar, vector, ghost, tachyonic, preferred-frame, or second-cone infrared pole is introduced. Proposition \ref{prop:onemetric} preserves the single-metric matter route. Therefore the recorded Phase D / E verdicts survive unchanged.
+\end{proof}
+
+\begin{proposition}[Infrared size of the new completion-generated sectors]
+\label{prop:size}
+On every controlled infrared family,
+\begin{equation}
+\CompMix=\mathcal O(\epsIR^6),
+\qquad
+\CompQuad=\mathcal O(\epsIR^8),
+\qquad
+\DeltaTComp=\mathcal O(\epsIR^4),
+\label{eq:sizes}
+\end{equation}
+and consequently
+\begin{equation}
+\CompDec=\mathcal O(\epsIR^4).
+\label{eq:decsize}
+\end{equation}
+On matter-free reduced data one has \(\DeltaTCand=\DeltaTComp=0\), hence
+\begin{equation}
+\CompDec=\mathcal O(\epsIR^6).
+\label{eq:mfsize}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+By \eqref{eq:phaseF} and \eqref{eq:compIR},
+\[
+\BaseShift=\mathcal O(\epsIR^2),
+\qquad
+\ResponseShift=\mathcal O(\epsIR^4),
+\qquad
+\CompShift=\mathcal O(\epsIR^4).
+\]
+The term \(\CompMix\) is bilinear in \(\CompShift\) and in \(\BaseShift+\ResponseShift\), so it is \(\mathcal O(\epsIR^6)\). The term \(\CompQuad\) is at least quadratic in \(\CompShift\), so it is \(\mathcal O(\epsIR^8)\). The matter re-expansion \(\DeltaTComp\) is linear in the metric increment at leading order and uses no second metric, so on the same controlled family it remains \(\mathcal O(\epsIR^4)\). Since \(\ResidualDec=\mathcal O(\epsIR^4)\) already by \eqref{eq:phaseF}, equation \eqref{eq:decsize} follows from \eqref{eq:newdec}. On matter-free reduced data the matter re-expansion terms vanish identically, leaving only \(\ResidualDec=\mathcal O(\epsIR^6)\), \(\CompMix=\mathcal O(\epsIR^6)\), and \(\CompQuad=\mathcal O(\epsIR^8)\).
+\end{proof}
+
+\begin{theorem}[The Phase F controlled GR limit is preserved]
+\label{thm:phaseF}
+The quartic-completion redesign preserves the controlled GR-limit statement of the Phase F note. More precisely, on every controlled infrared family,
+\begin{equation}
+G_{\mu\nu}[\CompletedMetric_{\epsIR}]
+=
+8\pi G_N\,T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric_{\epsIR},\psi_{\epsIR}]
++\GaugeBook(\CompShift_{\epsIR})_{\mu\nu}
++\epsIR^4\mathfrak D_{\mu\nu}^{(\epsIR)},
+\label{eq:phaseFnew}
+\end{equation}
+with \(\mathfrak D_{\mu\nu}^{(\epsIR)}\) uniformly bounded on the controlled family. Thus the same one-metric observer equation reduces to Einstein plus ordinary matter as \(\epsIR\to0\), now with the old genuine quartic residual sector removed from the finite-\(\epsIR\) equation.
+\end{theorem}
+
+\begin{proof}
+Equation \eqref{eq:newobs} is exact on the redesigned branch. Proposition \ref{prop:size} gives \(\CompDec=\mathcal O(\epsIR^4)\), so \(\CompDec=\epsIR^4\mathfrak D^{(\epsIR)}\) with \(\mathfrak D^{(\epsIR)}\) uniformly bounded. The remaining explicit tensor \(\GaugeBook(\CompShift)\) is gauge exact rather than a genuine observer-side remainder. Since \(\CompletedMetric\) remains the unique operative metric by Proposition \ref{prop:onemetric}, the same controlled GR-limit conclusion follows: Einstein plus ordinary matter is recovered through that one metric as \(\epsIR\to0\).
+\end{proof}
+
+\begin{remark}
+Theorem \ref{thm:phaseF} is intentionally conservative. It does not inflate the redesign into a broader finite-amplitude theorem. It says only what the present manuscript actually proves: the old genuine quartic deviation sector is gone from the redesigned finite-\(\epsIR\) observer equation, while the already-recorded controlled limit remains intact.
+\end{remark}
+
+\section{Claim-Boundary Verdict}
+
+\begin{theorem}[Primary redesign verdict]
+\label{thm:verdict}
+At the disciplined scope of the present note, the next primary burden recorded in the research plan is discharged positively on the redesigned charge-polarization line:
+\begin{enumerate}
+    \item the surviving composite quartic residual tensor \(\ResidualCore\) is removed as a genuine observer-equation sector and is absent from the exact redesigned observer equation;
+    \item the redesign preserves one operative metric and the universal matter/light-coupling route;
+    \item the redesign preserves the recorded Phase D / E verdicts and the Phase F controlled GR limit;
+    \item stronger promotion language is still not used inside this note, because the remaining honest open burden is the first-principles substrate justification of the quartic-completion solve itself rather than another packaging pass.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Item (1) is Theorems \ref{thm:observer} and \ref{thm:class}. Item (2) is Proposition \ref{prop:onemetric}. Item (3) is Proposition \ref{prop:phaseDE} together with Theorem \ref{thm:phaseF}. Item (4) is the claim-boundary discipline of the manuscript: the redesign is explicit and observer-equation effective, but its deeper substrate anchoring has not yet been derived in this note.
+\end{proof}
+
+\begin{corollary}[What should and should not be next]
+The immediate next manuscript need not be another packaging pass, and the anchored positive-pair continuation remains side work unless it produces the missing first-principles anchoring or another concrete observer-equation gain. If stronger promotion language is revisited later, it should be revisited only after the new quartic-completion solve itself is anchored more deeply rather than merely restated.
+\end{corollary}
+
+\section{Conclusion}
+
+The residual-sector verdict note fixed the exact burden sharply: the charge-polarization candidate had one surviving genuine finite-\(\epsIR\) sector,
+\[
+\ResidualCore
+=
+\ReLongFour
++\EinQuad[\BaseShift]
++\EinLin(\ResponseShift),
+\]
+and the next primary manuscript had to act on that tensor itself rather than on another presentation layer. The present note performs exactly that next step. It appends a quartic-completion shift \(\CompShift\) on the same one-metric charge-polarization line, fixes it by a reduced Einstein-response solve against the full tensor \(\ResidualCore\), and rewrites the observer equation through the redesigned metric \(\CompletedMetric\).
+
+The positive result is specific. Away from the special exterior cancellation regime, the old composite quartic residual tensor is no longer a genuine observer-side sector. It is absent from the exact redesigned observer equation. What remains is only reduced gauge bookkeeping plus decoupled completion-generated mixed terms and one-metric matter re-expansion. The redesign therefore preserves the gains already recorded: one operative metric, the Phase D / E infrared-spectrum and universal-coupling verdicts, and the Phase F controlled GR limit.
+
+The scope of that result remains disciplined. This note does not yet derive the quartic-completion solve from deeper substrate microphysics, and it therefore does not by itself justify stronger promotion language for the branch. The honest next burden, if the project wants more than a successful observer-equation redesign, is to anchor that completion sector more fundamentally. But the research-plan burden that was explicitly next is now answered in the right place: the surviving composite quartic residual tensor has been removed as a genuine observer-equation sector on the active charge-polarization line.
+
+\end{document}
