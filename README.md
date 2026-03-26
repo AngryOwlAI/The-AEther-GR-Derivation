@@ -12,18 +12,15 @@ The originally research can be found here: [AngryOwl/AEther](https://github.com/
 
 ## Introduction
 
-This repository documents an AI experiment in theoretical physics research. The Codex App with GPT-5.4 at Ultra High reasoning effort was used to investigate whether the `Æther-flow` interpretation of relativity, a concept formulated by me, could be developed into a viable interpretation of relativity and expanded into a structured research line.
+This repository is the active working repository for `The Æther-Flow Interpretation of Relativity`, a human-led, AI-assisted theoretical physics research program built on the `Æther / Æther-flow` ontology first formulated by Alexander Ricciardi.
 
-GPT-5.4 was given [Æther and Æther-Flow](Æther_and_Æther-Flow.md), my original statement of the concept, as its starting point. The underlying `Æther and Æther-Flow` concept is my idea, not the AI's. The AI's role was to rewrite, formalize, expand, and organize that original idea in more academic language.
+The repository preserves two linked layers of work. First, it preserves the overview-first exact-closure package as the benchmark theory statement of the project. At that benchmark level, GR is adopted exactly as the operational relativistic sector, while the `Æther / Æther-flow` framework supplies the interpretive ontology. Second, it preserves the active downstream derivational program that is trying to recover that same GR sector from explicit substrate structure without changing the benchmark claim boundary prematurely.
 
-The experiment ran for an average of 6 hours per day over 14 days. LaTeX was used as the working format for AI-assisted drafting, and PDF was used for human readability.
+This project should therefore not be read as claiming that GR has already been derived from first principles. Its present position is narrower and more disciplined: the exact-closure package is the benchmark theory statement already in hand, while the derivational manuscripts record the active attempt to derive that benchmark from deeper substrate dynamics. As of March 25, 2026, the current research goal is to continue that derivational line honestly, with the derivation-gates note and observer-remainder classification note fixing the live bottleneck for the next bridge-level redesign.
 
-The experiment produced a manuscript theory package titled `The Æther-Flow Interpretation of Relativity`, based on my [Æther_and_Æther-Flow.md](Æther_and_Æther-Flow.md) concept. The manuscript set includes 7 exact-closure articles supporting the theory, 1 front-facing flagship article, and 87 research articles in total.
+The work has been developed under sustained human direction using the Codex App with GPT-5.4 as a research and drafting assistant. The underlying [Æther and Æther-Flow](Æther_and_Æther-Flow.md) concept is Ricciardi's original idea; the AI-assisted workflow has been used to formalize, extend, organize, and stress-test the manuscript line in LaTeX and PDF form.
 
-As of March 24, 2026, this repository enters the next research phase. The exact-closure package remains the benchmark theory statement, but the active project goal is now to attempt a derivation of general relativity from `The Æther-Flow Interpretation of Relativity` rather than stopping at exact adoption alone.
-
-I am not a theoretical physicist, so I cannot independently judge whether the theory is ultimately correct or physically viable. If you are a theoretical physicist, I would welcome your feedback.  
-I am interested in how viable the process I used is for generating theoretical physics research.  
+I am not a theoretical physicist, so I cannot independently judge whether the theory is ultimately correct or physically viable. If you are a theoretical physicist, I would welcome your feedback. I am also interested in how viable this human-plus-AI process is for generating disciplined theoretical physics research.
 
 ## Summary of the Æther and Æther-Flow Concept
 
