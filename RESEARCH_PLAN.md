@@ -25,7 +25,7 @@ Use this plan to track:
 
 As of March 25, 2026, the active objective has changed. The repository is no longer in packaging-freeze mode. The overview-first exact-closure sequence remains the benchmark theory statement and must still be presented first: [aether_flow_exact_closure_sequence_overview.tex](manuscripts/active/tex/aether_flow_exact_closure_sequence_overview.tex), [aether_flow_exact_closure_note.tex](manuscripts/active/tex/aether_flow_exact_closure_note.tex), [aether_flow_foundations.tex](manuscripts/active/tex/aether_flow_foundations.tex), [aether_flow_dynamics.tex](manuscripts/active/tex/aether_flow_dynamics.tex), [aether_flow_consistency.tex](manuscripts/active/tex/aether_flow_consistency.tex), [aether_flow_relativistic_recovery.tex](manuscripts/active/tex/aether_flow_relativistic_recovery.tex), and [aether_flow_geometry.tex](manuscripts/active/tex/aether_flow_geometry.tex).
 
-The research goal is now to derive GR from `The Æther-Flow Interpretation of Relativity` while keeping that benchmark fixed and the claim boundary honest. The immediate task is no longer another repository-facing cleanup pass. It is to use the orbit-shape/modulus burden-fixing note as the launch point for the next derivational `.tex` manuscript without reopening the benchmark package itself.
+The research goal is now to derive GR from `The Æther-Flow Interpretation of Relativity` while keeping that benchmark fixed and the claim boundary honest. The immediate task is no longer another repository-facing cleanup pass, and it is no longer, by default, another still-deeper origin note on the anchored positive-pair side line. The immediate primary task is to extract the benchmark derivation gates, classify the surviving observer-side remainder on the active bridge line, and use that classification to reopen bridge-level redesign without reopening the benchmark package itself.
 
 The raw-vacuum-orbit-origin note now exists as [aether_flow_substrate_higher_derivative_nonlocal_bridge_self_response_off_shell_profile_selection_bridge_order_raw_vacuum_orbit_origin_note.tex](manuscripts/active/tex/aether_flow_substrate_higher_derivative_nonlocal_bridge_self_response_off_shell_profile_selection_bridge_order_raw_vacuum_orbit_origin_note.tex). It records that the raw positive vacuum orbit itself is generated as the minimizing family of a deeper primitive orbit-modulus sector while preserving the same recovered density/current block, the same composite primitive bridge-order block, the same phase-neutral minimizing branch, the same canonical profile, and the same downstream dressed bridge package. The deeper verdict is disciplined rather than negative: the positive scale orbit is now derived, but not yet quotiented, so canonical normalization remains the honest representative choice rather than a proved deeper redundancy, and the surviving global \(O(2)\) vacuum angle remains residual because this deeper layer adds neither locking nor quotient structure.
 
@@ -47,7 +47,71 @@ That next deeper layer now also exists as [aether_flow_substrate_higher_derivati
 
 That next deeper layer now also exists as [aether_flow_substrate_higher_derivative_nonlocal_bridge_self_response_off_shell_profile_selection_bridge_order_orbit_shape_modulus_primitive_class_absolute_amplitude_polarity_midpoint_selector_pair_balance_origin_note.tex](manuscripts/active/tex/aether_flow_substrate_higher_derivative_nonlocal_bridge_self_response_off_shell_profile_selection_bridge_order_orbit_shape_modulus_primitive_class_absolute_amplitude_polarity_midpoint_selector_pair_balance_origin_note.tex). It realizes the normalized pair-balance sector itself as the projective image of a deeper anchored positive-pair sector, derives the current unit-balance energy as the reduced anchor-relative drift energy of that deeper sector, defines the induced map into the normalized pair-balance layer and hence through the selector, midpoint/fiber, positive-pair, and oriented absolute-amplitude/polarity layers, reproduces the same signed amplitudes, primitive class, raw-orbit lift, phase-neutral minimizing branch, canonical profile, and downstream dressed bridge package, and keeps the scale-orbit and residual vacuum-angle verdicts unchanged because the new quotient is internal only to the anchored normalization data rather than acting on the orbit scale or the vacuum angle.
 
-The current honest next manuscript target is therefore a deeper origin or anchoring note for that anchored positive-pair sector itself below the midpoint-selector pair-balance-origin layer, revisiting the scale-orbit or residual vacuum-angle verdicts only if a still deeper structure actually supplies a quotient acting on the orbit scale or a genuine locking mechanism for the residual vacuum angle.
+The current honest next manuscript target on that deeper-origin side line is therefore a deeper origin or anchoring note for that anchored positive-pair sector itself below the midpoint-selector pair-balance-origin layer, revisiting the scale-orbit or residual vacuum-angle verdicts only if a still deeper structure actually supplies a quotient acting on the orbit scale or a genuine locking mechanism for the residual vacuum angle.
+
+### Strategic Research Plan For The GR-Derivation Goal
+
+The anchored positive-pair continuation above remains the honest next manuscript on the current deeper-origin side line. But the repository is now being judged by a stricter question than whether another disciplined origin note can be written. The real question is whether the active line is converging on a genuine derivation of GR rather than indefinitely extending internal structure below a still-fixed observer package.
+
+The plan below therefore supplements the immediate side-line queue and fixes the primary derivation-critical agenda that should control manuscript priority from this point.
+
+- The overview-first exact-closure package remains the fixed benchmark and public front door.
+- The deeper selector / orbit-shape / anchored positive-pair line remains acceptable as a side continuation, but it no longer counts as primary evidence of progress toward GR derivation unless it changes the bridge equation, the matter route, the infrared degree count, or the status of the observer-side remainder.
+- Primary progress toward the project goal now means progress on at least one of the following fixed burdens:
+  the exact Einstein observer equation or an equivalent Einstein--Hilbert plus ordinary matter action must be recovered from substrate variables;
+  the single operative metric and universal matter coupling must survive without an unsuppressed preferred-frame matter term;
+  the low-energy observer sector must retain the ordinary diffeomorphism/two-tensor content with no unsuppressed extra scalar/vector/ghost remainder;
+  GR must arise as a controlled limit rather than as a hand-set cancellation locus;
+  every leftover sector must be classified as gauge, constraint, heavy/decoupled, or a genuine testable deviation.
+
+#### Phase A: Benchmark Extraction and Theorem Target
+
+- [ ] Write one short benchmark-facing note that extracts, from the overview and six core exact-closure manuscripts, the precise derivation target: Einstein equations or equivalent Einstein--Hilbert action, single-metric matter coupling, ordinary diffeomorphism/two-tensor content, exact causal/proper-time/null recovery, and zero genuine observer remainder.
+- [ ] Restate the exact-closure test from [aether_flow_substrate_kinematics.tex](manuscripts/active/tex/aether_flow_substrate_kinematics.tex) as a theorem target rather than only as a candidate-model checklist.
+- [ ] Mark explicitly which existing downstream notes are interpretive/deeper-structure notes and which ones bear directly on the derivational theorem target.
+
+#### Phase B: Observer-Remainder Obstruction Classification
+
+- [ ] Write a dedicated note classifying the currently surviving observer-side remainder tensor into longitudinal, off-longitudinal, gauge/constraint-exact, and genuinely physical pieces on the active nondegenerate branch.
+- [ ] Prove which parts of that remainder are unavoidable if the present bridge metric and present single-metric matter route are both kept fixed.
+- [ ] Use that classification to decide whether the next admissible primary move is a bridge-metric redesign, an operational observer-map redesign, a matter-route redesign, or a deeper substrate response sector that changes the observer equation already on matter-free reduced data.
+
+#### Phase C: Bridge-Level Redesign Search
+
+- [ ] Restrict the next primary candidate search to bridge-level redesigns that can act on matter-free reduced data and can in principle cancel the recorded observer remainder without annihilating the ordered-flow equation.
+- [ ] Prioritize three candidate families first: modified bridge-metric functionals, modified operational observer maps, and deeper substrate response sectors whose elimination changes the observer equation nontrivially already in vacuum.
+- [ ] For each candidate family, write the smallest admissibility note before theorem work begins: exact-closure answerability, single-metric matter route if retained, nondegenerate flat-background branch, and no by-construction Einsteinian closure.
+
+#### Phase D: Infrared Gauge and Spectrum Gate
+
+- [ ] For each surviving redesign candidate, linearize about an admissible homogeneous background and derive the low-energy observer-accessible spectrum explicitly.
+- [ ] Require ordinary diffeomorphism-compatible two-tensor propagation in the observer sector, or else prove that any extra scalar/vector sector is pure gauge, auxiliary, or parametrically decoupled.
+- [ ] Reject any branch with an unsuppressed preferred-frame matter signature, second low-energy causal cone, ghost, or tachyon.
+
+#### Phase E: Universal Matter-Coupling Gate
+
+- [ ] Prove that matter and light continue to couple through one operative metric in the observer-accessible regime.
+- [ ] If the matter route is modified, show that the resulting law is still equivalent to universal minimal coupling at exact-closure scope, or else record the branch honestly as outside exact closure.
+- [ ] Check geodesic, null-cone, redshift, and proper-time recovery immediately after elimination, not only later in package-facing summaries.
+
+#### Phase F: Controlled GR-Limit Theorem
+
+- [ ] For the first candidate that survives the previous gates, derive the observer equation in a controlled infrared limit with explicit scaling, regularity, and elimination assumptions.
+- [ ] Show that the Einstein tensor and ordinary matter stress tensor emerge without choosing coefficients solely to force cancellation on a degenerate or tuned-by-construction branch.
+- [ ] State exactly which assumptions are dynamical, asymptotic, symmetry-based, constitutive, or still provisional.
+
+#### Phase G: Residual-Sector Verdict
+
+- [ ] Classify every remaining substrate sector as gauge, constraint-exact, heavy/decoupled, or a genuine deviation sector.
+- [ ] If any deviation sector survives, derive its first observer-accessible consequences and compare them against the fixed exact-closure claim boundary before any promotion language is used.
+- [ ] Only after this step should a branch be described as a candidate deeper theory with GR as an emergent low-energy limit.
+
+#### Near-Term Queue
+
+- [ ] Write a short bridge-program note that translates the benchmark package into five non-negotiable derivation gates and states explicitly that deeper selector/origin notes are secondary unless they discharge one of those gates.
+- [ ] Write the observer-remainder classification note from Phase B before another deeper origin note is treated as primary progress.
+- [ ] Reopen the next primary derivational manuscript at the bridge metric / operational observer map / matter-route level identified in [aether_flow_mass_shaped_gravity_bridge_criterion.tex](manuscripts/active/tex/aether_flow_mass_shaped_gravity_bridge_criterion.tex), not by default through another deeper anchored positive-pair origin layer.
+- [ ] Keep the anchored positive-pair continuation as optional side work only if it produces a concrete new quotient, locking mechanism, or observer-equation change.
 
 ### Immediate Startup Tasks
 
@@ -68,7 +132,7 @@ As of March 25, 2026, the next-step queue is:
 
 ### Current Public-Release Objective
 
-The public-release objective is now secondary to the derivational program. The repository should still be deployable as an accessible GitHub project, but that work no longer substitutes for manuscript progress on the GR-derivation line. Deployment work remains tracked in [DEPLOYMENT_PLAN.md](DEPLOYMENT_PLAN.md) as a maintenance layer beneath the resumed derivational line.
+The public-release objective is now secondary to the derivational program. The repository should still be deployable as an accessible GitHub project, but that work no longer substitutes for manuscript progress on the GR-derivation line. Deployment work should be treated as an ongoing maintenance layer beneath the resumed derivational line.
 
 The immediate release-side maintenance tasks are:
 
@@ -580,7 +644,7 @@ As of the March 17, 2026 editorial pass, the recent bridge-order origin notes in
 - 2026-03-24: The next-step wording was tightened again after the manuscript-direction discussion. The benchmark package remains fixed as the front door, but the immediate open work is now explicitly the first new derivational `.tex` manuscript below the orbit-shape/modulus burden-fixing note, or one narrow setup note first if that deeper primitive sector cannot yet be posed directly.
 - 2026-03-24: The immediate-next-step pass was completed across the repo-facing tracking layer. The stale deployment-bootstrap tasks were closed as completed baseline work, the benchmark package was kept explicit as the front-door reading order, and the orbit-shape/modulus-origin note was surfaced directly as the current downstream target in the public and tracking Markdown.
 - 2026-03-24: The active repository goal changed again. The exact-closure package remains the benchmark theory statement and public front door, but the project is no longer treating the March 17 packaging freeze as the stop condition. Repository-facing Markdown was updated to state the new goal explicitly: derive GR from `The Æther-Flow Interpretation of Relativity` while keeping the claim boundary honest and the benchmark package fixed in presentation order.
-- 2026-03-17: The project goal was extended from repository-facing stabilization alone to a public GitHub deployment track. [DEPLOYMENT_PLAN.md](DEPLOYMENT_PLAN.md) now records the release-side goal: build the GitHub Pages layer, create a front-facing article, prepare curated PDF/LaTeX assets, and describe the human-plus-GPT-5.4 research process honestly without reopening derivational research.
+- 2026-03-17: The project goal was extended from repository-facing stabilization alone to a public GitHub deployment track. That release-side goal was to build the GitHub Pages layer, create a front-facing article, prepare curated PDF/LaTeX assets, and describe the human-plus-GPT-5.4 research process honestly without reopening derivational research.
 - 2026-03-17: A follow-up repo-wide Markdown sweep found no further project-facing drift after the alignment of [Æther_and_Æther-Flow.md](Æther_and_Æther-Flow.md). The overview-first flagship package, the no-new-manuscript instruction under the active goal, and the downstream-optional status of bridge notes are now consistent across the repository-facing Markdown set.
 - 2026-03-17: The remaining high-level repository-facing Markdown note [Æther_and_Æther-Flow.md](Æther_and_Æther-Flow.md) was aligned to the same overview-first flagship-package position already used in the main project docs. Together with [The_Æther_Path_from_Ontology_to_Theory_statement.md](The_Æther_Path_from_Ontology_to_Theory_statement.md), it now records that the flagship public package is already in hand, that bridge notes are downstream and optional, and that the next step under the active goal is editorial stability rather than another manuscript.
 - 2026-03-17: The repository-facing packaging pass was integrated across the main Markdown entry points and support docs. The overview note now reads first as the public front door, the exact-closure note is recorded consistently as the short anchor, the other five core papers are recorded as the modular full statement, and derivational bridge notes are described only as optional downstream continuation in presentation order.
