@@ -1,0 +1,963 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\RespShapeReadout}{\widetilde q_{\mathrm{br}}}
+\newcommand{\RespShapeCov}{\widetilde\kappa_{\mathrm{br}}}
+\newcommand{\RespShapeRelax}{\widetilde\rho_{\mathrm{br}}}
+\newcommand{\RespShapeWell}{\widetilde\lambda_{\mathrm{br}}}
+\newcommand{\RespShapeEq}{\widetilde U_{\mathrm{br}}^{\ast}}
+\newcommand{\RespShapeIso}{\widetilde\eta_{\mathrm{br}}}
+\newcommand{\RespRawReadout}{\widehat q_{\mathrm{br}}}
+\newcommand{\RespRawRef}{\widehat U_{\mathrm{br}}^{\mathrm{ref}}}
+\newcommand{\RespRawCov}{\widehat\kappa_{\mathrm{br}}}
+\newcommand{\RespRawRelax}{\widehat\rho_{\mathrm{br}}}
+\newcommand{\RespRawWell}{\widehat\lambda_{\mathrm{br}}}
+\newcommand{\RespRawEq}{\widehat U_{\mathrm{br}}^{\ast}}
+\newcommand{\RespVacPhase}{\phi_{\mathrm{br}}}
+\newcommand{\CurvProfileCan}{F_{\mathrm{br}}^{\mathrm{can}}}
+\newcommand{\DownPkg}{\mathscr P_{\mathrm{down}}}
+\newcommand{\ShapeTuple}{\mathfrak S_{\mathrm{br}}}
+\newcommand{\ScaleMod}{s_{\mathrm{br}}}
+\newcommand{\PrimClass}{\mathfrak C_{\mathrm{br}}}
+\newcommand{\PrimRead}{r_{\mathrm{br}}}
+\newcommand{\PrimCovSlot}{a_{\mathrm{br}}^{\varphi}}
+\newcommand{\PrimRelaxSlot}{a_{\mathrm{br}}^{V}}
+\newcommand{\PrimKinetic}{\bm a_{\mathrm{br}}}
+\newcommand{\PrimWellSlot}{b_{\mathrm{br}}^{\lambda}}
+\newcommand{\PrimEqSlot}{b_{\mathrm{br}}^{U}}
+\newcommand{\PrimAnchor}{\bm b_{\mathrm{br}}}
+\newcommand{\LiftSector}{\mathfrak D_{\mathrm{br}}^{\mathrm{amp}}}
+\newcommand{\DeepReadAmp}{\xi_{\mathrm{br}}^{q}}
+\newcommand{\DeepCovAmp}{\xi_{\mathrm{br}}^{\varphi}}
+\newcommand{\DeepRelaxAmp}{\xi_{\mathrm{br}}^{V}}
+\newcommand{\DeepKinAmp}{\bm\xi_{\mathrm{br}}}
+\newcommand{\DeepWellAmp}{\zeta_{\mathrm{br}}^{\lambda}}
+\newcommand{\DeepEqAmp}{\zeta_{\mathrm{br}}^{U}}
+\newcommand{\DeepAnchorAmp}{\bm\zeta_{\mathrm{br}}}
+\newcommand{\DeepScaleAmp}{\varsigma_{\mathrm{br}}}
+\newcommand{\AmpMap}{\Pi_{\mathrm{amp}}}
+\newcommand{\PrimMap}{\Pi_{\mathrm{shape}}}
+\newcommand{\OriginSector}{\mathfrak D_{\mathrm{br}}^{\mathrm{ori}}}
+\newcommand{\AbsAmpSector}{\mathfrak M_{\mathrm{br}}}
+\newcommand{\PolaritySector}{\mathfrak P_{\mathrm{br}}}
+\newcommand{\AbsReadAmp}{\chi_{\mathrm{br}}^{q}}
+\newcommand{\AbsCovAmp}{\chi_{\mathrm{br}}^{\varphi}}
+\newcommand{\AbsRelaxAmp}{\chi_{\mathrm{br}}^{V}}
+\newcommand{\AbsKinAmp}{\bm\chi_{\mathrm{br}}}
+\newcommand{\AbsWellAmp}{\upsilon_{\mathrm{br}}^{\lambda}}
+\newcommand{\AbsEqAmp}{\upsilon_{\mathrm{br}}^{U}}
+\newcommand{\AbsAnchorAmp}{\bm\upsilon_{\mathrm{br}}}
+\newcommand{\AbsScaleAmp}{\omega_{\mathrm{br}}}
+\newcommand{\PolRead}{\epsilon_{\mathrm{br}}^{q}}
+\newcommand{\PolCov}{\epsilon_{\mathrm{br}}^{\varphi}}
+\newcommand{\PolRelax}{\epsilon_{\mathrm{br}}^{V}}
+\newcommand{\PolWell}{\delta_{\mathrm{br}}^{\lambda}}
+\newcommand{\PolEq}{\delta_{\mathrm{br}}^{U}}
+\newcommand{\PolScale}{\sigma_{\mathrm{br}}}
+\newcommand{\OriginMap}{\Pi_{\mathrm{ori}}}
+\newcommand{\DeepMap}{\Pi_{\mathrm{deep}}}
+\newcommand{\PairSector}{\mathfrak D_{\mathrm{br}}^{\mathrm{pair}}}
+\newcommand{\PairMap}{\Pi_{\mathrm{pair}}}
+\newcommand{\PairReadPlus}{Q_{\mathrm{br}}^{+}}
+\newcommand{\PairReadMinus}{Q_{\mathrm{br}}^{-}}
+\newcommand{\PairCovPlus}{\Phi_{\mathrm{br}}^{+}}
+\newcommand{\PairCovMinus}{\Phi_{\mathrm{br}}^{-}}
+\newcommand{\PairRelaxPlus}{\mathcal V_{\mathrm{br}}^{+}}
+\newcommand{\PairRelaxMinus}{\mathcal V_{\mathrm{br}}^{-}}
+\newcommand{\PairWellPlus}{\Lambda_{\mathrm{br}}^{+}}
+\newcommand{\PairWellMinus}{\Lambda_{\mathrm{br}}^{-}}
+\newcommand{\PairEqPlus}{\mathcal U_{\mathrm{br}}^{+}}
+\newcommand{\PairEqMinus}{\mathcal U_{\mathrm{br}}^{-}}
+\newcommand{\PairScalePlus}{\Omega_{\mathrm{br}}^{+}}
+\newcommand{\PairScaleMinus}{\Omega_{\mathrm{br}}^{-}}
+\newcommand{\MidFiberSector}{\mathfrak D_{\mathrm{br}}^{\mathrm{mid}}}
+\newcommand{\MidPairMap}{\Pi_{\mathrm{mid}}}
+\newcommand{\MidOriginMap}{\Pi_{\mathrm{mid,ori}}}
+\newcommand{\MidRead}{C_{q}}
+\newcommand{\MidCov}{C_{\varphi}}
+\newcommand{\MidRelax}{C_{V}}
+\newcommand{\MidWell}{C_{\lambda}}
+\newcommand{\MidEq}{C_{U}}
+\newcommand{\MidScale}{C_{\omega}}
+\newcommand{\FiberRead}{\Theta_{q}}
+\newcommand{\FiberCov}{\Theta_{\varphi}}
+\newcommand{\FiberRelax}{\Theta_{V}}
+\newcommand{\FiberWell}{\Theta_{\lambda}}
+\newcommand{\FiberEq}{\Theta_{U}}
+\newcommand{\FiberScale}{\Theta_{\omega}}
+\newcommand{\MidSelSector}{\mathfrak D_{\mathrm{br}}^{\mathrm{sel}}}
+\newcommand{\MidSelMap}{\Pi_{\mathrm{sel}}}
+\newcommand{\SelProj}{\pi_{\mathrm{ori}}}
+\newcommand{\SelDom}{\mathbb I_{\mathrm{sel}}}
+\newcommand{\SelRead}{\Sigma_{q}}
+\newcommand{\SelCov}{\Sigma_{\varphi}}
+\newcommand{\SelRelax}{\Sigma_{V}}
+\newcommand{\SelWell}{\Sigma_{\lambda}}
+\newcommand{\SelEq}{\Sigma_{U}}
+\newcommand{\SelScale}{\Sigma_{\omega}}
+\newcommand{\SelEnergy}{\mathscr E_{\mathrm{mid}}}
+\newcommand{\CanMidSection}{\mathscr S_{\mathrm{mid}}}
+\newcommand{\Rstar}{\mathbb R^{\times}}
+\newcommand{\FiberDom}{\mathbb I_{\mathrm{fib}}}
+\newcommand{\MidBalanceSector}{\mathfrak D_{\mathrm{br}}^{\mathrm{bal}}}
+\newcommand{\BalSelMap}{\Pi_{\mathrm{bal,sel}}}
+\newcommand{\BalMidMap}{\Pi_{\mathrm{bal,mid}}}
+\newcommand{\BalPairMap}{\Pi_{\mathrm{bal,pair}}}
+\newcommand{\BalEnergy}{\mathscr E_{\mathrm{bal}}}
+\newcommand{\BalReadPlus}{N_{q}^{+}}
+\newcommand{\BalReadMinus}{N_{q}^{-}}
+\newcommand{\BalCovPlus}{N_{\varphi}^{+}}
+\newcommand{\BalCovMinus}{N_{\varphi}^{-}}
+\newcommand{\BalRelaxPlus}{N_{V}^{+}}
+\newcommand{\BalRelaxMinus}{N_{V}^{-}}
+\newcommand{\BalWellPlus}{N_{\lambda}^{+}}
+\newcommand{\BalWellMinus}{N_{\lambda}^{-}}
+\newcommand{\BalEqPlus}{N_{U}^{+}}
+\newcommand{\BalEqMinus}{N_{U}^{-}}
+\newcommand{\BalScalePlus}{N_{\omega}^{+}}
+\newcommand{\BalScaleMinus}{N_{\omega}^{-}}
+\newcommand{\BalOriginSector}{\mathfrak D_{\mathrm{br}}^{\mathrm{anch}}}
+\newcommand{\BalOriginMap}{\Pi_{\mathrm{anch,bal}}}
+\newcommand{\AnchSelMap}{\Pi_{\mathrm{anch,sel}}}
+\newcommand{\AnchMidMap}{\Pi_{\mathrm{anch,mid}}}
+\newcommand{\AnchPairMap}{\Pi_{\mathrm{anch,pair}}}
+\newcommand{\AnchOriginMap}{\Pi_{\mathrm{anch,ori}}}
+\newcommand{\AnchProjRel}{\sim_{\mathrm{anch}}}
+\newcommand{\AnchEnergy}{\mathscr E_{\mathrm{anch}}}
+\newcommand{\BalIndex}{\mathcal I_{\mathrm{bal}}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Nonlocal Bridge Self-Response Off-Shell Profile-Selection Bridge-Order Orbit-Shape/Modulus Primitive-Class Absolute-Amplitude/Polarity Midpoint-Selector Pair-Balance Origin Note}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The benchmark exact-theory statement of \TheoryName{} remains fixed and is not reopened here. The overview-first exact-closure package is still the public front door. The present note acts only on the optional deeper derivational bridge, and it begins from the now-recorded midpoint-selector justification note immediately below the midpoint-selection layer.
+
+That justification note already showed that the balanced selector \(\Sigma_i=2\) is not merely a least-drift convention: it is the unique equilibrium of a normalized pair-balance sector with positive coefficients \(N_i^\pm\) and fixed signed-gap data \(N_i^+-N_i^-=\epsilon_i\). But that note still treated the normalized pair-balance layer itself, and its unit-balance energy, as new structural input. The live burden is therefore deeper again: derive or anchor that pair-balance sector rather than only working inside it.
+
+This note performs exactly that step in the least-drift way presently available. The new deeper layer is an anchored positive-pair sector
+\[
+\BalOriginSector
+=
+\left\{
+\bigl(\zeta;(H_i,M_i^+,M_i^-)_{i\in\BalIndex}\bigr)
+:
+\zeta\in\OriginSector,\;
+H_i>0,\;
+M_i^\pm>0,\;
+M_i^+-M_i^-=\epsilon_i H_i
+\right\},
+\]
+where \(\zeta\) is the frozen oriented absolute-amplitude datum and \(\epsilon_i\) are its fixed polarity components. The normalized pair-balance variables are no longer primitive. They are the image of the still-deeper normalization map
+\[
+N_i^\pm=\frac{M_i^\pm}{H_i}.
+\]
+This lands exactly in the old pair-balance sector because the anchored gap condition reduces to
+\[
+N_i^+-N_i^-=\epsilon_i.
+\]
+
+The anchored sector therefore factors through the full previously frozen chain:
+\[
+\Sigma_i=\frac{M_i^++M_i^-}{H_i},
+\qquad
+C_i=\frac{A_i}{2H_i}(M_i^++M_i^-),
+\qquad
+\Theta_i=\frac{M_i^+-M_i^-}{M_i^++M_i^-},
+\qquad
+Q_i^\pm=A_i\frac{M_i^\pm}{H_i},
+\]
+where \(A_i\) denotes the corresponding fixed absolute-amplitude component. The composite map back to the oriented layer is again projection because
+\[
+Q_i^+-Q_i^-
+=
+A_i\frac{M_i^+-M_i^-}{H_i}
+=
+\epsilon_i A_i.
+\]
+Hence the same signed amplitudes, the same primitive class, the same raw-orbit lift, the same phase-neutral minimizing branch, the same canonical profile, and the same downstream package all remain unchanged.
+
+The current unit-balance energy is also no longer primitive. It is the reduction of the deeper anchor-relative drift energy
+\[
+\AnchEnergy
+:=
+\sum_{i\in\BalIndex}
+\left[
+\left(\frac{M_i^+}{H_i}-1\right)^2
++
+\left(\frac{M_i^-}{H_i}-1\right)^2
+\right]
+=
+\BalEnergy
+=
+3+\frac12\,\SelEnergy.
+\]
+Thus the balanced selector \(\Sigma_i=2\) is the unique minimizer on the normalized quotient, while its representatives upstairs are the projective family
+\[
+M_i^+=H_i\left(1+\frac{\epsilon_i}{2}\right),
+\qquad
+M_i^-=H_i\left(1-\frac{\epsilon_i}{2}\right).
+\]
+
+This new layer does create a genuine quotient, but only an internal one:
+\[
+(H_i,M_i^+,M_i^-)\sim(\rho_i H_i,\rho_i M_i^+,\rho_i M_i^-),
+\qquad
+\rho_i>0.
+\]
+That projective quotient produces the normalized pair-balance variables. It does not identify distinct positive values of \(\AbsScaleAmp\) or of the orbit modulus, and it introduces no vacuum-angle locking. The present verdict therefore stays in force: the positive scale orbit is still a canonical-normalization orbit rather than a proved redundancy, and the global \(O(2)\) vacuum angle remains residual.
+
+The scope is deliberately narrow. This note does not claim that the anchored positive-pair sector is already the final substrate microphysics. Its narrower positive result is that the normalized pair-balance layer and its unit-balance energy are no longer primitive input. They arise as the reduced/projective image of a still-deeper anchored sector while leaving the entire already-frozen downstream package unchanged.
+\end{abstract}
+
+\section{Introduction}
+
+The active repository no longer needs another bridge note in order to justify its public theory claim. The exact-closure sequence already presents \TheoryName{} as the disciplined exact relativistic theory statement built on the \Aether{} / \Aflow{} ontology, and that benchmark package remains the front-door reading order. The present note therefore does not strengthen the flagship theory claim. It acts only on the optional deeper derivational continuation beneath that fixed benchmark.
+
+On that optional continuation line the burden left by the midpoint-selector justification note is now very sharp. That note already justified the balanced selector \(\Sigma_i=2\) one layer deeper by showing that it is the unique equilibrium of a normalized pair-balance sector with positive coefficients \(N_i^\pm\) and fixed signed gaps \(N_i^+-N_i^-=\epsilon_i\). But the derivational line had not yet gone one layer deeper than that. The pair-balance variables themselves were still inserted as primitive coordinates, and the unit-balance energy was still inserted as a fresh positive-definite choice on that layer.
+
+The present manuscript addresses precisely that remaining burden. It does not change the already-frozen oriented absolute-amplitude data. It does not alter the selector formulas, the midpoint/fiber formulas, the positive-pair formulas, or the signed-amplitude formulas once written. Instead it introduces a still-deeper anchored positive-pair sector with slotwise positive anchor variables \(H_i\) and unnormalized positive coefficients \(M_i^\pm\). The normalized pair-balance coefficients are then derived by dividing by those anchors. In that way the current pair-balance sector becomes a reduced or projective layer rather than a new primitive one.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+This note stays strictly inside that boundary. Its positive claim is not that the final unique microscopic substrate action has already been found. Its positive claim is narrower: the normalized pair-balance layer itself can now be realized as the projective image of a still-deeper anchored sector, its unit-balance energy can now be read as the induced relative-drift energy of that deeper sector, and the same downstream package remains exactly unchanged.
+
+\section{Frozen Oriented Layer, Pair-Balance Layer, and Downstream Maps}
+
+\begin{definition}[Frozen oriented absolute-amplitude sector]
+\label{def:frozenorigin}
+The midpoint-selector justification note fixed the oriented absolute-amplitude sector
+\begin{equation}
+\OriginSector
+:=
+\AbsAmpSector\times\PolaritySector,
+\label{eq:originsector}
+\end{equation}
+where
+\begin{equation}
+\AbsAmpSector
+:=
+\mathbb R_{>0}\times(\mathbb R_{>0})^{2}\times(\mathbb R_{>0})^{2}\times\mathbb R_{>0}
+\label{eq:abssector}
+\end{equation}
+has coordinates
+\begin{equation}
+(\AbsReadAmp,\AbsKinAmp,\AbsAnchorAmp,\AbsScaleAmp)
+=
+(\AbsReadAmp,(\AbsCovAmp,\AbsRelaxAmp),(\AbsWellAmp,\AbsEqAmp),\AbsScaleAmp),
+\label{eq:abscoords}
+\end{equation}
+and
+\begin{equation}
+\PolaritySector
+:=
+\{\pm1\}\times\{\pm1\}^{2}\times\{\pm1\}^{2}\times\{\pm1\}
+\label{eq:polsector}
+\end{equation}
+has coordinates
+\begin{equation}
+(\PolRead,\PolCov,\PolRelax,\PolWell,\PolEq,\PolScale).
+\label{eq:polcoords}
+\end{equation}
+The frozen map into the signed amplitude sector
+\begin{equation}
+\LiftSector
+:=
+\Rstar\times(\Rstar)^{2}\times(\Rstar)^{2}\times\Rstar
+\label{eq:liftsector}
+\end{equation}
+is
+\begin{equation}
+\OriginMap:\OriginSector\longrightarrow\LiftSector
+\label{eq:originmap}
+\end{equation}
+with
+\begin{align}
+\OriginMap(\AbsReadAmp,\AbsKinAmp,\AbsAnchorAmp,\AbsScaleAmp;\PolRead,\PolCov,\PolRelax,\PolWell,\PolEq,\PolScale)
+=\;&
+(\PolRead\AbsReadAmp,\PolCov\AbsCovAmp,\PolRelax\AbsRelaxAmp,
+\nonumber\\
+&\PolWell\AbsWellAmp,\PolEq\AbsEqAmp,\PolScale\AbsScaleAmp).
+\label{eq:originmapexplicit}
+\end{align}
+\end{definition}
+
+\begin{definition}[Frozen maps below the oriented layer]
+\label{def:frozenmaps}
+The frozen amplitude lift into the primitive class
+\begin{equation}
+\PrimClass
+:=
+\mathbb R_{>0}\times\mathbb R_{>0}^{2}\times\mathbb R_{>0}^{2}\times\mathbb R_{>0}
+\label{eq:primclass}
+\end{equation}
+is
+\begin{equation}
+\AmpMap:\LiftSector\longrightarrow\PrimClass
+\label{eq:ampmap}
+\end{equation}
+given by
+\begin{equation}
+\AmpMap(\DeepReadAmp,\DeepKinAmp,\DeepAnchorAmp,\DeepScaleAmp)
+=
+\bigl(
+(\DeepReadAmp)^{2},
+((\DeepCovAmp)^{2},(\DeepRelaxAmp)^{2}),
+((\DeepWellAmp)^{2},(\DeepEqAmp)^{2}),
+(\DeepScaleAmp)^{2}
+\bigr).
+\label{eq:ampmapexplicit}
+\end{equation}
+The frozen setup map remains
+\begin{equation}
+\PrimMap(\PrimRead,\PrimKinetic,\PrimAnchor,\ScaleMod)
+=
+(\RespShapeReadout,\RespShapeCov,\RespShapeRelax,\RespShapeWell,\RespShapeEq,\ScaleMod)
+\label{eq:primmap}
+\end{equation}
+with
+\begin{equation}
+\RespShapeReadout=\PrimRead,
+\qquad
+\RespShapeCov=\PrimCovSlot,
+\qquad
+\RespShapeRelax=\PrimRelaxSlot,
+\label{eq:shapeA}
+\end{equation}
+\begin{equation}
+\RespShapeWell=\PrimWellSlot,
+\qquad
+\RespShapeEq=\PrimEqSlot,
+\label{eq:shapeB}
+\end{equation}
+and the frozen raw-orbit lift remains
+\begin{equation}
+\RespRawReadout=\ScaleMod\,\RespShapeReadout,
+\qquad
+\RespRawRef=\ScaleMod,
+\qquad
+\RespRawCov=\ScaleMod^{2}\RespShapeCov,
+\label{eq:rawliftA}
+\end{equation}
+\begin{equation}
+\RespRawRelax=\ScaleMod^{2}\RespShapeRelax,
+\qquad
+\RespRawWell=\RespShapeWell,
+\qquad
+\RespRawEq=\ScaleMod\,\RespShapeEq.
+\label{eq:rawliftB}
+\end{equation}
+At the present derivational stage, the downstream package \(\DownPkg\) means the same already-recorded density/current block, the same primitive bridge-order block, the same phase-neutral minimizing branch, the same canonical profile
+\begin{equation}
+\CurvProfileCan(x)=1+\RespShapeEq\,x^2
+=
+1+\frac{\RespRawEq}{\RespRawRef}x^2,
+\label{eq:profile}
+\end{equation}
+and the same dressed bridge map, all understood to depend on deeper data only through the induced pair \((\ShapeTuple,\ScaleMod)\), the raw lift \eqref{eq:rawliftA}--\eqref{eq:rawliftB}, and the same minimizing branch.
+\end{definition}
+
+\begin{definition}[Slot index and frozen normalized pair-balance sector]
+\label{def:balance}
+Let
+\begin{equation}
+\BalIndex:=\{q,\varphi,V,\lambda,U,\omega\}.
+\label{eq:balindex}
+\end{equation}
+For \(i\in\BalIndex\), let \(A_i\) denote the corresponding absolute-amplitude component of Definition \ref{def:frozenorigin} and let \(\epsilon_i\) denote the corresponding polarity component, so that
+\begin{equation}
+(A_i)_{i\in\BalIndex}
+:=
+(\AbsReadAmp,\AbsCovAmp,\AbsRelaxAmp,\AbsWellAmp,\AbsEqAmp,\AbsScaleAmp),
+\label{eq:Aishorthand}
+\end{equation}
+\begin{equation}
+(\epsilon_i)_{i\in\BalIndex}
+:=
+(\PolRead,\PolCov,\PolRelax,\PolWell,\PolEq,\PolScale).
+\label{eq:epsishorthand}
+\end{equation}
+
+The frozen normalized pair-balance sector is
+\begin{equation}
+\MidBalanceSector
+:=
+\left\{
+\bigl(\zeta;(N_i^+,N_i^-)_{i\in\BalIndex}\bigr)
+\in
+\OriginSector\times(\mathbb R_{>0}^{2})^{6}
+:
+N_i^+-N_i^-=\epsilon_i
+\text{ for all }i\in\BalIndex
+\right\}.
+\label{eq:balsector}
+\end{equation}
+Its induced selector, midpoint/fiber, and positive-pair maps are
+\begin{equation}
+\BalSelMap\bigl(\zeta;(N_i^+,N_i^-)_{i\in\BalIndex}\bigr)
+:=
+\bigl(\zeta;(\Sigma_i)_{i\in\BalIndex}\bigr),
+\qquad
+\Sigma_i:=N_i^++N_i^-,
+\label{eq:balselmap}
+\end{equation}
+\begin{equation}
+\BalMidMap\bigl(\zeta;(N_i^+,N_i^-)_{i\in\BalIndex}\bigr)
+:=
+\bigl((C_i,\Theta_i)_{i\in\BalIndex}\bigr),
+\qquad
+C_i:=\frac{A_i}{2}(N_i^++N_i^-),
+\qquad
+\Theta_i:=\frac{N_i^+-N_i^-}{N_i^++N_i^-},
+\label{eq:balmidmap}
+\end{equation}
+\begin{equation}
+\BalPairMap\bigl(\zeta;(N_i^+,N_i^-)_{i\in\BalIndex}\bigr)
+:=
+\bigl(Q_i^+,Q_i^-\bigr)_{i\in\BalIndex},
+\qquad
+Q_i^\pm:=A_iN_i^\pm.
+\label{eq:balpairmap}
+\end{equation}
+The composite map back to the oriented layer is projection because
+\begin{equation}
+Q_i^+-Q_i^- = A_i(N_i^+-N_i^-)=\epsilon_i A_i
+\label{eq:balprojection}
+\end{equation}
+for every \(i\in\BalIndex\).
+
+The frozen unit-balance energy is
+\begin{equation}
+\BalEnergy
+:=
+\sum_{i\in\BalIndex}
+\left[(N_i^+-1)^2+(N_i^--1)^2\right].
+\label{eq:balenergy}
+\end{equation}
+The selector energy is
+\begin{equation}
+\SelEnergy
+:=
+\sum_{i\in\BalIndex}(\Sigma_i-2)^2.
+\label{eq:selenergy}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[The normalized pair-balance energy reduces to the selector energy]
+\label{prop:balreduction}
+On \(\MidBalanceSector\),
+\begin{equation}
+\BalEnergy
+=
+3+\frac12\,\SelEnergy.
+\label{eq:balreduction}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Fix \(i\in\BalIndex\). Since \(N_i^+-N_i^-=\epsilon_i\) and \(\epsilon_i^2=1\),
+\begin{align}
+(N_i^+-1)^2+(N_i^--1)^2
+\;&=
+\frac12\Bigl((N_i^++N_i^-)-2\Bigr)^2
++
+\frac12\Bigl((N_i^+-N_i^-)\Bigr)^2
+\nonumber\\
+\;&=
+\frac12(\Sigma_i-2)^2+\frac12.
+\label{eq:slotreduction}
+\end{align}
+Summing \eqref{eq:slotreduction} over the six slots gives \eqref{eq:balreduction}.
+\end{proof}
+
+\section{Anchored Positive-Pair Origin of the Pair-Balance Sector}
+
+\begin{definition}[Anchored positive-pair origin sector]
+\label{def:anchsector}
+The deeper anchored pair-balance origin sector is
+\begin{equation}
+\BalOriginSector
+:=
+\left\{
+\bigl(\zeta;(H_i,M_i^+,M_i^-)_{i\in\BalIndex}\bigr)
+\in
+\OriginSector\times(\mathbb R_{>0})^{6}\times(\mathbb R_{>0}^{2})^{6}
+:
+M_i^+-M_i^-=\epsilon_i H_i
+\text{ for all }i\in\BalIndex
+\right\}.
+\label{eq:anchsector}
+\end{equation}
+Here \(H_i>0\) is the slotwise positive balance anchor and \(M_i^\pm>0\) are the unnormalized positive pair coefficients anchored to it.
+\end{definition}
+
+\begin{definition}[Normalization map into the frozen pair-balance layer]
+\label{def:anchmap}
+The normalization map
+\begin{equation}
+\BalOriginMap:\BalOriginSector\longrightarrow\MidBalanceSector
+\label{eq:anchmap}
+\end{equation}
+is defined by
+\begin{equation}
+\BalOriginMap\bigl(\zeta;(H_i,M_i^+,M_i^-)_{i\in\BalIndex}\bigr)
+:=
+\bigl(\zeta;(N_i^+,N_i^-)_{i\in\BalIndex}\bigr),
+\qquad
+N_i^\pm:=\frac{M_i^\pm}{H_i}.
+\label{eq:anchmapexplicit}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[The anchored sector reduces exactly to the frozen pair-balance sector]
+\label{prop:exactimage}
+The image of \(\BalOriginMap\) is exactly \(\MidBalanceSector\).
+\end{proposition}
+
+\begin{proof}
+Let \(\bigl(\zeta;(H_i,M_i^+,M_i^-)_{i\in\BalIndex}\bigr)\in\BalOriginSector\). Then
+\[
+N_i^+-N_i^-=\frac{M_i^+-M_i^-}{H_i}=\epsilon_i
+\]
+for every \(i\in\BalIndex\), so the image lies in \(\MidBalanceSector\).
+
+Conversely, given \(\bigl(\zeta;(N_i^+,N_i^-)_{i\in\BalIndex}\bigr)\in\MidBalanceSector\), choose any positive anchors \(H_i>0\) and define \(M_i^\pm:=H_iN_i^\pm\). Then \(M_i^\pm>0\) and
+\[
+M_i^+-M_i^-=H_i(N_i^+-N_i^-)=\epsilon_i H_i,
+\]
+so \(\bigl(\zeta;(H_i,M_i^+,M_i^-)_{i\in\BalIndex}\bigr)\in\BalOriginSector\) and it maps back to the chosen normalized point.
+\end{proof}
+
+\begin{definition}[Internal positive-anchor quotient]
+\label{def:anchquotient}
+On \(\BalOriginSector\), define the equivalence relation \(\AnchProjRel\) by
+\begin{equation}
+\bigl(\zeta;(H_i,M_i^+,M_i^-)_{i\in\BalIndex}\bigr)
+\AnchProjRel
+\bigl(\zeta;(\widehat H_i,\widehat M_i^+,\widehat M_i^-)_{i\in\BalIndex}\bigr)
+\label{eq:anchrel}
+\end{equation}
+if and only if there exist positive numbers \(\rho_i>0\) such that
+\begin{equation}
+(\widehat H_i,\widehat M_i^+,\widehat M_i^-)
+=
+(\rho_i H_i,\rho_i M_i^+,\rho_i M_i^-)
+\label{eq:anchrelexplicit}
+\end{equation}
+for every \(i\in\BalIndex\).
+\end{definition}
+
+\begin{proposition}[The normalized pair-balance layer is the projective quotient of the anchored layer]
+\label{prop:quotient}
+The normalization map \(\BalOriginMap\) is constant on \(\AnchProjRel\)-classes and induces a canonical bijection
+\begin{equation}
+\BalOriginSector/\AnchProjRel
+\;\cong\;
+\MidBalanceSector.
+\label{eq:anchquotient}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+If \eqref{eq:anchrelexplicit} holds, then
+\[
+\frac{\widehat M_i^\pm}{\widehat H_i}
+=
+\frac{\rho_i M_i^\pm}{\rho_i H_i}
+=
+\frac{M_i^\pm}{H_i}
+\]
+for every \(i\in\BalIndex\), so \(\BalOriginMap\) is constant on equivalence classes. Proposition \ref{prop:exactimage} shows surjectivity. If two anchored points have the same normalized image, then \(M_i^\pm/H_i=\widehat M_i^\pm/\widehat H_i\) for all \(i\). Taking \(\rho_i:=\widehat H_i/H_i>0\) gives \(\widehat M_i^\pm=\rho_i M_i^\pm\), so the two points are \(\AnchProjRel\)-equivalent. Hence the induced map on the quotient is bijective.
+\end{proof}
+
+\begin{definition}[Anchor-relative drift energy]
+\label{def:anchenergy}
+The still-deeper anchor-relative drift energy on \(\BalOriginSector\) is
+\begin{equation}
+\AnchEnergy
+:=
+\sum_{i\in\BalIndex}
+\left[
+\left(\frac{M_i^+}{H_i}-1\right)^2
++
+\left(\frac{M_i^-}{H_i}-1\right)^2
+\right].
+\label{eq:anchenergy}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[The current unit-balance energy is the reduced anchored energy]
+\label{prop:anchreduction}
+On \(\BalOriginSector\),
+\begin{equation}
+\AnchEnergy
+=
+\BalEnergy\circ\BalOriginMap
+=
+3+\frac12\,\SelEnergy\circ\AnchSelMap,
+\label{eq:anchreduction}
+\end{equation}
+where
+\begin{equation}
+\AnchSelMap:=\BalSelMap\circ\BalOriginMap.
+\label{eq:anchseldef}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+By Definition \ref{def:anchmap},
+\[
+\frac{M_i^\pm}{H_i}=N_i^\pm.
+\]
+Substituting this into \eqref{eq:anchenergy} gives \(\AnchEnergy=\BalEnergy\circ\BalOriginMap\). Proposition \ref{prop:balreduction} then yields \eqref{eq:anchreduction}.
+\end{proof}
+
+\begin{theorem}[Unique projective minimizer of the anchored energy]
+\label{thm:anchmin}
+Fix \(\zeta\in\OriginSector\). On the anchored fiber over \(\zeta\), the energy \(\AnchEnergy\) has a unique minimizer modulo the internal quotient \(\AnchProjRel\). Every minimizing representative is of the form
+\begin{equation}
+M_i^+=H_i\left(1+\frac{\epsilon_i}{2}\right),
+\qquad
+M_i^-=H_i\left(1-\frac{\epsilon_i}{2}\right)
+\label{eq:anchmin}
+\end{equation}
+for arbitrary positive anchors \(H_i>0\). Equivalently, the induced normalized point is uniquely
+\begin{equation}
+N_i^+=1+\frac{\epsilon_i}{2},
+\qquad
+N_i^-=1-\frac{\epsilon_i}{2},
+\label{eq:balmin}
+\end{equation}
+and therefore forces
+\begin{equation}
+\Sigma_i=2,
+\qquad
+C_i=A_i,
+\qquad
+\Theta_i=\frac{\epsilon_i}{2}
+\label{eq:anchmininduced}
+\end{equation}
+for every \(i\in\BalIndex\).
+\end{theorem}
+
+\begin{proof}
+By Proposition \ref{prop:anchreduction}, minimizing \(\AnchEnergy\) on the anchored fiber is equivalent to minimizing \(\BalEnergy\) on the normalized fiber. By Proposition \ref{prop:balreduction}, that is equivalent to minimizing \(\SelEnergy\), whose unique minimizer is \(\Sigma_i=2\) in every slot. Since \(N_i^+-N_i^-=\epsilon_i\), the unique normalized minimizer is \eqref{eq:balmin}. Multiplying by arbitrary positive anchors \(H_i\) gives \eqref{eq:anchmin}. The induced formulas \eqref{eq:anchmininduced} follow from \eqref{eq:balselmap} and \eqref{eq:balmidmap}.
+\end{proof}
+
+\section{Induced Map Through the Selector, Midpoint/Fiber, Pair, and Oriented Layers}
+
+\begin{definition}[Induced frozen maps from the anchored sector]
+\label{def:inducedmaps}
+The anchored sector feeds the already-frozen lower layers through the compositions
+\begin{equation}
+\AnchSelMap:=\BalSelMap\circ\BalOriginMap,
+\qquad
+\AnchMidMap:=\BalMidMap\circ\BalOriginMap,
+\qquad
+\AnchPairMap:=\BalPairMap\circ\BalOriginMap,
+\label{eq:inducedmapsA}
+\end{equation}
+\begin{equation}
+\AnchOriginMap:=\PairMap\circ\AnchPairMap.
+\label{eq:inducedmapsB}
+\end{equation}
+\end{definition}
+
+\begin{theorem}[Explicit anchored formulas for the full frozen chain]
+\label{thm:anchchain}
+For every anchored point \(\bigl(\zeta;(H_i,M_i^+,M_i^-)_{i\in\BalIndex}\bigr)\in\BalOriginSector\), the induced selector, midpoint/fiber, and pair data are
+\begin{equation}
+\Sigma_i=\frac{M_i^++M_i^-}{H_i},
+\label{eq:anchsigma}
+\end{equation}
+\begin{equation}
+C_i=\frac{A_i}{2H_i}(M_i^++M_i^-),
+\qquad
+\Theta_i=\frac{M_i^+-M_i^-}{M_i^++M_i^-},
+\label{eq:anchmidtheta}
+\end{equation}
+\begin{equation}
+Q_i^\pm=A_i\frac{M_i^\pm}{H_i}
+\label{eq:anchpair}
+\end{equation}
+for all \(i\in\BalIndex\). In particular,
+\begin{equation}
+\Theta_i
+=
+\frac{\epsilon_i H_i}{M_i^++M_i^-}
+=
+\frac{\epsilon_i}{\Sigma_i}.
+\label{eq:anchtheta}
+\end{equation}
+Moreover the composite map back to the oriented layer is again projection:
+\begin{equation}
+\AnchOriginMap\bigl(\zeta;(H_i,M_i^+,M_i^-)_{i\in\BalIndex}\bigr)=\zeta.
+\label{eq:anchprojection}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Definition \ref{def:anchmap} gives \(N_i^\pm=M_i^\pm/H_i\). Substituting into \eqref{eq:balselmap}, \eqref{eq:balmidmap}, and \eqref{eq:balpairmap} gives \eqref{eq:anchsigma}, \eqref{eq:anchmidtheta}, and \eqref{eq:anchpair}. Formula \eqref{eq:anchtheta} follows from the anchored gap constraint \(M_i^+-M_i^-=\epsilon_i H_i\). Finally,
+\[
+Q_i^+-Q_i^-
+=
+A_i\frac{M_i^+-M_i^-}{H_i}
+=
+\epsilon_i A_i,
+\]
+so the pair gap magnitude and sign recover exactly the same oriented data \((A_i,\epsilon_i)\). Hence \eqref{eq:anchprojection} holds.
+\end{proof}
+
+\begin{theorem}[The same signed amplitudes are recovered exactly]
+\label{thm:anchsigned}
+For every anchored point in \(\BalOriginSector\),
+\begin{equation}
+Q_i^+-Q_i^-=\epsilon_i A_i
+\label{eq:anchsignedgeneric}
+\end{equation}
+for all \(i\in\BalIndex\). Equivalently, the induced signed amplitude tuple is exactly
+\begin{align}
+(\DeepReadAmp,\DeepCovAmp,\DeepRelaxAmp,\DeepWellAmp,\DeepEqAmp,\DeepScaleAmp)
+=\;&
+(\PolRead\AbsReadAmp,\PolCov\AbsCovAmp,\PolRelax\AbsRelaxAmp,
+\nonumber\\
+&\PolWell\AbsWellAmp,\PolEq\AbsEqAmp,\PolScale\AbsScaleAmp).
+\label{eq:anchsigned}
+\end{align}
+\end{theorem}
+
+\begin{proof}
+Equation \eqref{eq:anchsignedgeneric} was proved in Theorem \ref{thm:anchchain}. The explicit tuple \eqref{eq:anchsigned} is just that same statement written in the original slot notation of Definition \ref{def:frozenorigin}.
+\end{proof}
+
+\begin{corollary}[The same primitive class and the same raw-orbit lift are recovered]
+\label{cor:anchraw}
+For the anchored sector \(\BalOriginSector\), the frozen amplitude lift and frozen setup map recover exactly the same primitive class and raw-orbit data as in the midpoint-selector justification note. In particular,
+\begin{equation}
+\PrimRead=(\AbsReadAmp)^{2},
+\qquad
+\PrimCovSlot=(\AbsCovAmp)^{2},
+\qquad
+\PrimRelaxSlot=(\AbsRelaxAmp)^{2},
+\label{eq:anchshapeA}
+\end{equation}
+\begin{equation}
+\PrimWellSlot=(\AbsWellAmp)^{2},
+\qquad
+\PrimEqSlot=(\AbsEqAmp)^{2},
+\qquad
+\ScaleMod=(\AbsScaleAmp)^{2},
+\label{eq:anchshapeB}
+\end{equation}
+and hence
+\begin{equation}
+\RespRawReadout=(\AbsScaleAmp)^{2}(\AbsReadAmp)^{2},
+\qquad
+\RespRawRef=(\AbsScaleAmp)^{2},
+\qquad
+\RespRawCov=(\AbsScaleAmp)^{4}(\AbsCovAmp)^{2},
+\label{eq:anchrawA}
+\end{equation}
+\begin{equation}
+\RespRawRelax=(\AbsScaleAmp)^{4}(\AbsRelaxAmp)^{2},
+\qquad
+\RespRawWell=(\AbsWellAmp)^{2},
+\qquad
+\RespRawEq=(\AbsScaleAmp)^{2}(\AbsEqAmp)^{2}.
+\label{eq:anchrawB}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+Theorem \ref{thm:anchsigned} gives exactly the same signed amplitudes as the frozen oriented layer. Squaring them in \eqref{eq:ampmapexplicit} yields \eqref{eq:anchshapeA}--\eqref{eq:anchshapeB}. Substituting those values into the frozen raw-lift formulas \eqref{eq:rawliftA}--\eqref{eq:rawliftB} yields \eqref{eq:anchrawA}--\eqref{eq:anchrawB}.
+\end{proof}
+
+\begin{theorem}[The same phase-neutral minimizing branch, canonical profile, and downstream package remain unchanged]
+\label{thm:anchdown}
+For the anchored sector \(\BalOriginSector\), the downstream package \(\DownPkg\) is recovered unchanged. In particular:
+\begin{enumerate}
+    \item the same phase-neutral minimizing branch is recovered,
+    \begin{equation}
+    \ScaleMod(x)\equiv(\AbsScaleAmp)^{2},
+    \qquad
+    U(x)\equiv(\AbsScaleAmp\AbsEqAmp)^{2},
+    \qquad
+    V(x)\equiv0,
+    \qquad
+    \RespVacPhase(x)\equiv\phi_{0},
+    \label{eq:anchbranch}
+    \end{equation}
+    for arbitrary constant \(\phi_{0}\in\mathbb R/2\pi\mathbb Z\);
+    \item the same canonical profile is recovered,
+    \begin{equation}
+    \CurvProfileCan(x)
+    =
+    1+\RespShapeEq\,x^{2}
+    =
+    1+(\AbsEqAmp)^{2}x^{2}
+    =
+    1+\frac{\RespRawEq}{\RespRawRef}x^{2};
+    \label{eq:anchprofile}
+    \end{equation}
+    \item the same downstream density/current block, the same primitive bridge-order block, and the same dressed bridge map are recovered.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Corollary \ref{cor:anchraw} shows that the anchored sector induces exactly the same primitive class and raw-orbit tuple as the midpoint-selector justification note. Therefore the same frozen minimizing-family computation applies and yields \eqref{eq:anchbranch}. Because \(\phi_{0}\) remains arbitrary and constant while \(V\equiv0\), the branch is still phase-neutral.
+
+The canonical profile formula \eqref{eq:anchprofile} follows immediately from \(\RespShapeEq=(\AbsEqAmp)^{2}\) and \(\RespRawEq/\RespRawRef=(\AbsEqAmp)^{2}\). By Definition \ref{def:frozenmaps}, all other recorded components of \(\DownPkg\) depend on deeper data only through the induced pair \((\ShapeTuple,\ScaleMod)\), the raw lift, and the same minimizing branch. Since all of those are unchanged, the full downstream package remains unchanged.
+\end{proof}
+
+\begin{remark}
+The deeper gain of the present note is not a new downstream correction. It is a new origin statement above the already-frozen balance layer. The formulas seen by the signed amplitudes and every lower layer remain exactly the same.
+\end{remark}
+
+\section{What Changes and What Does Not}
+
+\begin{theorem}[The new quotient is internal and does not change the current verdicts]
+\label{thm:anchverdict}
+The anchored origin sector \(\BalOriginSector\) introduces a genuine quotient, namely the internal positive-anchor quotient of Proposition \ref{prop:quotient}. But it introduces no verdict-changing structure at the level of the orbit modulus or the residual vacuum angle. Therefore:
+\begin{enumerate}
+    \item the positive scale orbit remains a canonical-normalization orbit rather than a proved redundancy;
+    \item the global \(O(2)\) vacuum angle remains residual.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+By Proposition \ref{prop:quotient}, the genuine quotient in the present note acts only on the anchored variables \((H_i,M_i^+,M_i^-)\) through slotwise positive rescaling. The normalized coefficients \(N_i^\pm\), the selector data, the midpoint/fiber data, the positive-pair data, the signed amplitudes, and the whole downstream chain are invariant under that quotient. In particular, the quotient does not identify distinct positive values of the oriented scale amplitude \(\AbsScaleAmp\), and therefore it does not identify distinct positive values of the orbit modulus \(\ScaleMod=(\AbsScaleAmp)^{2}\). This proves item (1).
+
+Likewise, the anchored sector adds no new angular variable, no angle-dependent term in the minimizing branch, and no quotient on constant values of \(\phi_{0}\in\mathbb R/2\pi\mathbb Z\). The minimizing branch \eqref{eq:anchbranch} therefore still carries arbitrary constant \(\phi_{0}\), so the global \(O(2)\) vacuum angle remains residual. This proves item (2).
+\end{proof}
+
+\begin{corollary}[When a later verdict revision would be honest]
+\label{cor:anchrevision}
+The present scale-orbit and residual-angle verdicts may be revised only if some later still-deeper sector does more than produce the current normalized pair-balance layer as an internal projective quotient. A genuine later revision would require either:
+\begin{enumerate}
+    \item a quotient identifying distinct positive values of \(\AbsScaleAmp\) and hence distinct positive values of \(\ScaleMod\); or
+    \item a genuine vacuum-angle locking or angle quotient.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+This is the contrapositive reading of Theorem \ref{thm:anchverdict}. An internal quotient acting only on the anchored normalization data does not change the external scale-orbit or vacuum-angle status by itself.
+\end{proof}
+
+\begin{remark}
+The present note therefore sharpens the story in a specific way. The normalized pair-balance sector is no longer primitive, and the current unit-balance energy is no longer primitive either. But the new projective quotient lives strictly inside that origin layer, so it does not by itself promote the positive orbit scale to a redundancy or the vacuum angle to a locked quantity.
+\end{remark}
+
+\section{Claim Boundary}
+
+This note does not claim that the anchored sector \(\BalOriginSector\) is already derived from the final microscopic substrate action without any further structural input. It does not claim that every future completion must factor through exactly the anchor variables \(H_i\) used here. It does not claim that the internal positive-anchor quotient already removes the positive orbit-scale freedom or the residual global \(O(2)\) vacuum angle.
+
+Its claim is narrower. The normalized pair-balance variables \(N_i^\pm\) and their unit-balance energy are no longer taken as primitive structural input. They are now realized as the reduced/projective image of a still-deeper anchored positive-pair sector with fixed anchor-scaled signed-gap data. That anchored sector maps into the already-recorded pair-balance layer, then into the selector layer, then into the midpoint/fiber layer, then into the positive-pair layer, and finally back to the same oriented absolute-amplitude/polarity data. Because the signed amplitudes are invariant under that whole anchored construction, the same primitive class, the same raw-orbit lift, the same phase-neutral minimizing branch, the same canonical profile, and the same downstream package are recovered unchanged.
+
+The present note therefore records a pair-balance origin rather than a final microscopic closure. If the derivational line continues, the next honest burden is deeper again: derive or anchor the anchored sector itself, or a still-deeper mechanism that fixes or explains the positive anchor variables and their projective quotient, and revisit the scale-orbit or residual-angle verdicts only if that later layer genuinely acts on those external structures.
+
+\section{Conclusion}
+
+The midpoint-selector justification note had already shown that the balanced selector \(\Sigma_i=2\) is the unique equilibrium of a normalized pair-balance sector. The remaining live burden was therefore no longer the selector itself. It was the status of the normalized pair-balance variables \(N_i^\pm\) and of their unit-balance energy.
+
+This note resolves that burden in the narrowest disciplined way presently available. The new deeper layer is the anchored positive-pair sector \(\BalOriginSector\), with positive anchors \(H_i\) and unnormalized positive coefficients \(M_i^\pm\) satisfying the fixed anchor-scaled gap law
+\[
+M_i^+-M_i^-=\epsilon_i H_i.
+\]
+Normalizing by \(H_i\) produces the recorded pair-balance variables
+\[
+N_i^\pm=\frac{M_i^\pm}{H_i},
+\]
+so the old pair-balance sector is now the projective quotient of the anchored layer rather than a fresh primitive input. The induced maps then run exactly as required:
+\[
+N_i^\pm
+\longmapsto
+\Sigma_i
+\longmapsto
+(C_i,\Theta_i)
+\longmapsto
+Q_i^\pm
+\longmapsto
+(A_i,\epsilon_i),
+\]
+with
+\[
+\Sigma_i=\frac{M_i^++M_i^-}{H_i},
+\qquad
+C_i=\frac{A_i}{2H_i}(M_i^++M_i^-),
+\qquad
+\Theta_i=\frac{M_i^+-M_i^-}{M_i^++M_i^-},
+\qquad
+Q_i^\pm=A_i\frac{M_i^\pm}{H_i}.
+\]
+
+The pair-balance energy is also no longer primitive. The current unit-balance energy is the reduction of the deeper anchor-relative drift energy
+\[
+\AnchEnergy
+=
+\sum_{i\in\BalIndex}
+\left[
+\left(\frac{M_i^+}{H_i}-1\right)^2
++
+\left(\frac{M_i^-}{H_i}-1\right)^2
+\right]
+=
+\BalEnergy
+=
+3+\frac12\,\SelEnergy.
+\]
+Its unique minimizer on the normalized quotient is the same balanced selector \(\Sigma_i=2\), while its representatives upstairs are the projective family
+\[
+M_i^+=H_i\left(1+\frac{\epsilon_i}{2}\right),
+\qquad
+M_i^-=H_i\left(1-\frac{\epsilon_i}{2}\right).
+\]
+Hence the canonical midpoint representative \(C_i=A_i\), the canonical fiber fractions \(\Theta_i=\epsilon_i/2\), and the canonical pair representative all follow as consequences of the deeper anchored layer.
+
+The downstream package remains exactly unchanged. For every anchored configuration,
+\[
+Q_i^+-Q_i^-=\epsilon_i A_i,
+\]
+so the same signed amplitudes, the same primitive class, the same raw-orbit lift, the same phase-neutral minimizing branch, the same canonical profile, and the same dressed bridge map are recovered without drift. The new quotient present here is real but internal only: it is the positive projective quotient of the anchored normalization data. Because it does not identify distinct positive values of \(\AbsScaleAmp\) and does not lock the vacuum angle, the current verdict stays in force. The positive scale orbit remains a canonical-normalization orbit rather than a proved redundancy, and the global \(O(2)\) vacuum angle remains residual.
+
+The positive result of the note is therefore clear and limited. The normalized pair-balance layer is no longer primitive. The next honest open burden is deeper again: derive or anchor the anchored sector itself, or a still-deeper mechanism that fixes the positive anchor variables and their projective quotient, and revisit the scale-orbit or residual-angle verdicts only if that later layer genuinely acts on those external structures.
+
+\end{document}
