@@ -41,7 +41,7 @@ For the fuller repository claim-boundary note, see [Æther-Flow Claim Boundary](
 - [Front-Facing Article](front-facing-article.md): single-entry public article that explains the package without replacing it.
 - [Theory Package](theory-package.md): the fixed public reading order of the overview-first exact-closure package.
 - [Active Research](research-archive.md): the live derivational objective, benchmark-facing active sequence, and archive context.
-- [AI Collaboration and Method](ai-collaboration-and-method.md): the human-plus-GPT-5.4 research process and its limits.
+- [AI Collaboration and Method](ai-collaboration-and-method.md): the administratively supervised GPT-5.4 research workflow and its limits.
 - [How to Review](how-to-review.md): what expert readers are being asked to audit.
 
 ## Release Scope

@@ -20,7 +20,7 @@ This project should therefore not be read as claiming that GR has already been d
 
 This project utilizes a semi-autonomous AI workflow, employing the Codex App and GPT-5.4 as the primary researcher and drafter under human supervision. While the foundational [Æther and Æther-Flow](Æther_and_Æther-Flow.md) concept is Alexander Ricciardi's original idea, the AI is used to formalize, extend, organize, and stress-test the manuscript into LaTeX and PDF formats. The human operator's role is strictly administrative, that is, managing the prompting pipeline, with the same set of prompts, and ensuring proper file generation, rather than peer-reviewing the viability of the physics content. Consequently, the actual research is conducted entirely by the AI.
 
-Author: I am not a theoretical physicist, so I cannot independently judge whether the theory is ultimately correct or physically viable. If you are a theoretical physicist, I would welcome your feedback. I am also interested in how viable this human-plus-AI process is for generating disciplined theoretical physics research.
+Author: I am not a theoretical physicist, so I cannot independently judge whether the theory is ultimately correct or physically viable. If you are a theoretical physicist, I would welcome your feedback. I am also interested in how viable this administratively supervised AI research process is for generating disciplined theoretical physics research.
 
 ## Summary of the Æther and Æther-Flow Concept
 
@@ -125,10 +125,10 @@ The helper also supports `--all` to rebuild every `.tex` file in the supported s
 
 ## Research Provenance
 
-- This repository should be read as human-led theoretical research by Alexander Samuel Ricciardi.
+- This repository should be read as AI-conducted theoretical research built on Alexander Samuel Ricciardi's originating `Æther / Æther-flow` ontology.
 - The originating conceptual basis is Ricciardi's `Æther / Æther-flow` ontology.
-- The research and drafting workflow used the Codex App with GPT-5.4 at Ultra High reasoning effort as a sustained research assistant.
-- GPT-5.4 assisted with drafting, mathematical exploration, branch screening, organization, and revision under Ricciardi's direction.
+- The research and drafting workflow used the Codex App with GPT-5.4 at Ultra High reasoning effort as the primary researcher and drafter.
+- The human role in that workflow is administrative and supervisory: managing the prompting pipeline, repeating the same prompt set, and ensuring proper file generation rather than independently peer-reviewing the physics.
 - AI is not being presented as an accountable scientific author, and the work remains open to human expert technical review.
 
 For the fuller provenance and workflow note, see [docs/ai-collaboration-and-method.md](docs/ai-collaboration-and-method.md).
