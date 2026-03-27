@@ -1,0 +1,775 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal A}
+\newcommand{\ObserverMap}{\Xi}
+\newcommand{\BridgeMetric}{\mathfrak g}
+\newcommand{\ObserverMetric}{g^{\mathrm{br}}}
+\newcommand{\CandidateMetric}{g^{\mathrm{cand}}}
+\newcommand{\CompletedMetric}{g^{\sharp}}
+\newcommand{\BaseShift}{\Sigma^{\mathrm{IER}}}
+\newcommand{\ResponseShift}{\Sigma^{\mathrm{resp}}}
+\newcommand{\CompShift}{\Sigma^{\mathrm{cmp}}}
+\newcommand{\BaseLift}{\widehat\Sigma^{\mathrm{IER}}}
+\newcommand{\ResponseLift}{\widehat\Sigma^{\mathrm{resp}}}
+\newcommand{\CompLift}{\widehat\Sigma^{\mathrm{cmp}}}
+\newcommand{\ReLongFour}{\widetilde{\mathcal R}_{\mu\nu}^{(\chi,\ge 4)}}
+\newcommand{\ResidualCore}{\mathcal V_{\mu\nu}^{\mathrm{res}}}
+\newcommand{\ResidualDec}{\mathcal D_{\mu\nu}^{\mathrm{dec}}}
+\newcommand{\ResidualLift}{\widehat{\mathcal V}^{\mathrm{res}}}
+\newcommand{\SubEinLin}{\widehat{\mathcal E}}
+\newcommand{\SubGaugeVec}{\widehat{\mathcal B}}
+\newcommand{\SubGaugeBook}{\widehat{\mathcal G}}
+\newcommand{\SubReducedEin}{\widehat{\mathcal L}}
+\newcommand{\FreeProj}{\Pi_{\mathrm{free}}}
+\newcommand{\GaugeAux}{Y}
+\newcommand{\ModeAux}{Z}
+\newcommand{\ReducedEin}{\mathcal L_{\ObserverMetric}}
+\newcommand{\GaugeBook}{\mathcal G_{\ObserverMetric}}
+\newcommand{\EinLin}{\mathcal E_{\ObserverMetric}}
+\newcommand{\EinQuad}{\mathcal Q_{\ge 2}^{\mathrm{Ein}}}
+\newcommand{\CompMix}{\mathcal Q_{\mu\nu}^{\mathrm{cmp,mix}}}
+\newcommand{\CompQuad}{\mathcal Q_{\mu\nu}^{\mathrm{cmp}}}
+\newcommand{\CompDec}{\mathcal D_{\mu\nu}^{\sharp}}
+\newcommand{\DeltaTComp}{\Delta T_{\mu\nu}^{\mathrm{cmp}}}
+\newcommand{\MatterAct}{S_{\mathrm{matter}}}
+\newcommand{\CompClass}{\mathscr C_{\mathrm{cmp}}}
+\newcommand{\CompFree}{\mathscr C_{\mathrm{cmp}}^{\mathrm{free}}}
+\newcommand{\CompForced}{\mathscr C_{\mathrm{cmp}}^{\mathrm{for}}}
+\newcommand{\CompKernel}{\mathscr K_{\mathrm{cmp}}}
+\newcommand{\CompSelectAction}{S_{\mathrm{cmp}}^{\mathrm{sel}}}
+\newcommand{\epsIR}{\varepsilon}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Substrate-Response / Self-Response Charge-Polarization Candidate\\
+\large Quartic-Completion Kernel-Origin Note}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The quartic-completion substrate-action note already writes an explicit constrained auxiliary sector inside the fixed substrate action class and shows that its elimination reproduces the same completion solve
+\[
+\SubReducedEin(\CompLift)_{AB}=-\ResidualLift_{AB},
+\qquad
+\ReducedEin(\CompShift)_{\mu\nu}=-\ResidualCore{}_{\mu\nu}.
+\]
+The remaining burden is therefore narrower again. It is no longer to realize the completion sector by another same-level action ansatz. It is to explain why the specific quadratic completion kernel, reduced-gauge auxiliary block, and free-mode projector used there are the right current-scope selection on the same one-metric charge-polarization branch.
+
+The present note supplies that step at disciplined selection-principle scope. It does not claim a final ultraviolet completion of the branch. It does identify three deeper structural inputs that are already fixed below the action-level representative:
+\begin{enumerate}
+    \item \textbf{Branch-preserving quadratic response:} the first unresolved completion direction must be governed by the quadratic bridge response of the already-fixed Einstein--Hilbert bridge term;
+    \item \textbf{Reduced-gauge neutrality:} gauge-exact completion directions may enter only through a neutral auxiliary covector whose elimination restores the observer-compatible reduced operator rather than a new physical sector;
+    \item \textbf{Equilibrium suppression of source-free homogeneous data:} the admissible completion class splits into forced and free homogeneous sectors, and the physical completion is the zero-free-mode equilibrium in that splitting.
+\end{enumerate}
+At current scope these principles select the bilinear completion kernel
+\[
+\CompKernel(H_1,H_2)
+\equiv
+\int_{\Sub}\sqrt{G}\,H_1^{AB}\SubReducedEin(H_2)_{AB},
+\]
+select \(\FreeProj\) as the orthogonal projector onto the admissible free homogeneous sector
+\[
+\CompFree
+\equiv
+\left\{
+H\in\CompClass:\SubReducedEin(H)=0
+\right\},
+\]
+and select the constrained auxiliary representation
+\[
+\CompSelectAction[H,\GaugeAux,\ModeAux]
+=
+\int_{\Sub}\sqrt{G}\,
+\left[
+\frac12 H^{AB}\SubEinLin(H)_{AB}
+-\GaugeAux^A\SubGaugeVec(H)_A
++\frac12 \GaugeAux^A\GaugeAux_A
++(\ResidualLift)^{AB}H_{AB}
++\ModeAux^{AB}(\FreeProj H)_{AB}
+\right],
+\]
+which is exactly the action-level completion sector of the earlier note.
+
+Consequently the same eliminated completion solve is recovered again, hence the same completed observer equation, the same one operative metric, and the same recorded Phase D / E and Phase F package. The positive result is disciplined and narrower than stronger promotion language: the action-level completion sector is no longer only an explicit representative, but it is still not claimed to be the unique final microscopic ultraviolet derivation.
+\end{abstract}
+
+\section{Introduction}
+
+The active charge-polarization sequence has already crossed the action-realization threshold on the same one-metric GR line. The candidate note is fixed, the full Phase D / E infrared and universal-coupling verdict is fixed, the Phase F controlled GR-limit theorem is fixed, the quartic residual redesign is fixed, the substrate anchoring is fixed, and the substrate-action realization is fixed. The honest remaining burden is therefore no longer to write another same-layer completion-sector action.
+
+What remains is sharper. The action note already proved that one explicit constrained auxiliary sector works. But why that sector? Why this quadratic completion kernel, this reduced-gauge auxiliary block, and this free-mode projector, rather than some other same-order realization? At current disciplined scope the next positive step is not to claim a full microscopic ultraviolet completion. It is to show that the recorded action-level completion sector is selected by deeper branch-preserving response, symmetry, and equilibrium principles already implicit in the active sequence.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not claim that the current quadratic selection principle is already the unique ultraviolet completion of the completion sector. It does not claim that every broader finite-amplitude burden is settled. Its narrower positive result is that the explicit completion kernel, free-mode projector, and constrained auxiliary sector of the action note are not arbitrary current-scope insertions: they are selected by the fixed branch geometry, reduced-gauge neutrality, and the equilibrium suppression of source-free homogeneous completion data.
+
+\section{Fixed Inputs from the Recorded Completion Line}
+
+\begin{definition}[Fixed candidate action class and charge-polarization branch]
+\label{def:fixed}
+The present note takes as fixed the candidate substrate action class
+\begin{equation}
+S_{\mathrm{cand}}
+=
+\frac{c^3}{16\pi G_N}
+\int_{\Sub} d^4X\,\sqrt{G}\,\bigl(R[\BridgeMetric]-2\Lambda_{\Sub}\bigr)
++
+\int_{\Sub} d^4X\,\sqrt{G}\,\mathcal L_{\mathrm{aux}}^{(0)}[G,U,S,Q]
++
+\MatterAct[\ObserverMap^*\BridgeMetric,\psi],
+\label{eq:Scand}
+\end{equation}
+and the already-recorded charge-polarization branch
+\begin{equation}
+\CandidateMetric
+=
+\ObserverMetric+\BaseShift+\ResponseShift,
+\qquad
+\CompletedMetric
+=
+\ObserverMetric+\BaseShift+\ResponseShift+\CompShift.
+\label{eq:metrics}
+\end{equation}
+Its fixed observer equation is
+\begin{equation}
+G_{\mu\nu}[\CandidateMetric]
+=
+8\pi G_N\,T_{\mu\nu}^{\mathrm{matter}}[\CandidateMetric,\psi]
++\ResidualCore+\ResidualDec.
+\label{eq:candidateeq}
+\end{equation}
+The lower-order and infrared facts carried over from the earlier notes are
+\begin{equation}
+\BaseShift=\mathcal O_{\ge 2},
+\qquad
+\ResponseShift=\mathcal O_{\ge 4},
+\qquad
+\CompShift=\mathcal O_{\ge 4},
+\label{eq:orders}
+\end{equation}
+and on every controlled infrared family,
+\begin{equation}
+\BaseShift=\mathcal O(\epsIR^2),
+\qquad
+\ResponseShift=\mathcal O(\epsIR^4),
+\qquad
+\ResidualDec=\mathcal O(\epsIR^4),
+\qquad
+\CompShift=\mathcal O(\epsIR^4).
+\label{eq:irorders}
+\end{equation}
+\end{definition}
+
+\begin{definition}[Fixed quartic source and completion operators]
+\label{def:source}
+The unresolved observer-side quartic tensor and its fixed substrate lift are
+\begin{equation}
+\ResidualCore
+\equiv
+\ReLongFour
++\EinQuad[\BaseShift]
++\EinLin(\ResponseShift),
+\label{eq:vres}
+\end{equation}
+\begin{equation}
+\ResidualLift_{AB}
+\equiv
+\widehat{\mathcal R}_{AB}^{(\chi,\ge 4)}
++\widehat{\mathcal Q}_{AB}^{\mathrm{Ein}}[\BaseLift]
++\widehat{\mathcal E}_{AB}(\ResponseLift),
+\qquad
+\ObserverMap^*\ResidualLift=\ResidualCore,
+\label{eq:liftedsource}
+\end{equation}
+with
+\begin{equation}
+\ResidualLift=\mathcal O_{\ge 4},
+\qquad
+\ResidualLift=\mathcal O(\epsIR^4)
+\quad
+\text{on controlled infrared families.}
+\label{eq:sourceorder}
+\end{equation}
+Let \(\widehat\nabla\) denote the Levi-Civita connection of the unshifted bridge metric \(\BridgeMetric\). The linear bridge-response operators are
+\begin{equation}
+\SubGaugeVec(H)_A
+\equiv
+\widehat\nabla^B\!\left(
+H_{AB}
+-\frac12 \BridgeMetric_{AB}\BridgeMetric^{CD}H_{CD}
+\right),
+\label{eq:subB}
+\end{equation}
+\begin{equation}
+\SubGaugeBook(H)_{AB}
+\equiv
+\widehat\nabla_{(A}\SubGaugeVec(H)_{B)}
+-\frac12 \BridgeMetric_{AB}\widehat\nabla^C\SubGaugeVec(H)_C,
+\label{eq:subG}
+\end{equation}
+\begin{equation}
+\SubReducedEin(H)_{AB}
+\equiv
+\SubEinLin(H)_{AB}-\SubGaugeBook(H)_{AB},
+\label{eq:subL}
+\end{equation}
+chosen so that
+\begin{equation}
+\ObserverMap^*\bigl(\SubEinLin(H)\bigr)=\EinLin(\ObserverMap^*H),
+\qquad
+\ObserverMap^*\bigl(\SubGaugeBook(H)\bigr)=\GaugeBook(\ObserverMap^*H),
+\label{eq:intertwine1}
+\end{equation}
+hence
+\begin{equation}
+\ObserverMap^*\bigl(\SubReducedEin(H)\bigr)
+=
+\ReducedEin(\ObserverMap^*H).
+\label{eq:intertwine2}
+\end{equation}
+\end{definition}
+
+\begin{definition}[Admissible completion class]
+\label{def:class}
+Let \(\CompClass\) denote the same observer-compatible reduced-harmonic Coulomb-plus-regular completion class used in the redesign, anchoring, and action notes. Concretely, \(H\in\CompClass\) means:
+\begin{enumerate}
+    \item \(H_{AB}\) is an observer-compatible symmetric substrate tensor;
+    \item the forced Coulomb monopole is the one determined by the Hamiltonian charge of \(-\ResidualLift\);
+    \item the regular part carries zero additional monopole charge and decays one power faster;
+    \item an admissible free homogeneous completion datum may still be present before the equilibrium rule below is imposed.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+The present note does not change the source \(\ResidualLift\), the reduced operator \(\SubReducedEin\), the matter route, or the admissible completion class. It asks instead why the action note's specific quadratic kernel, auxiliary covector, and free-mode projector are the current-scope selected realization of those fixed inputs.
+\end{remark}
+
+\section{Current-Scope Selection Principles}
+
+\begin{definition}[Admissible completion-selection principle]
+\label{def:principle}
+An \emph{admissible current-scope completion-selection principle} is a rule assigning a completion-sector functional on \(\CompClass\) that uses only the fixed data of Definitions \ref{def:fixed}--\ref{def:class} and satisfies all of the following.
+\begin{enumerate}
+    \item \textbf{Branch preservation.} The principle acts only in the new completion direction and does not alter the bridge metric route, the observer map, or universal matter coupling.
+    \item \textbf{First unresolved order.} At the first unresolved branch order it is quadratic in the completion variable \(H\) and linear in the already-fixed source \(\ResidualLift\).
+    \item \textbf{Observer compatibility.} Its eliminated Euler--Lagrange equation intertwines with the observer reduced operator \(\ReducedEin\) under \(\ObserverMap\).
+    \item \textbf{Reduced-gauge neutrality.} Gauge-exact completion directions may be neutralized, but only in a way that leaves gauge-bookkeeping rather than a new observer-accessible sector.
+    \item \textbf{Free-mode equilibrium.} Source-free homogeneous completion data are not independently excited on the physical branch and must be suppressed by an equilibrium condition rather than by new matter coupling or a second metric.
+    \item \textbf{Minimality.} No new derivative order, no new direct matter coupling, and no new completion source beyond \(\ResidualLift\) may be inserted at this stage.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:principle} is deliberately narrower than a full microscopic ultraviolet completion. It asks only for the smallest deeper principles that select the already-recorded completion sector inside the same active branch and same claim boundary.
+\end{remark}
+
+\section{Selection of the Quadratic Completion Kernel}
+
+\begin{definition}[Canonical current-scope completion kernel]
+\label{def:kernel}
+For \(H_1,H_2\in\CompClass\), define the bilinear kernel
+\begin{equation}
+\CompKernel(H_1,H_2)
+\equiv
+\int_{\Sub} d^4X\,\sqrt{G}\,
+H_1^{AB}\SubReducedEin(H_2)_{AB}.
+\label{eq:kernel}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[Branch-preserving quadratic response selects the unreduced kernel]
+\label{prop:EHkernel}
+Among quadratic completion kernels compatible with the fixed candidate action class \eqref{eq:Scand} and with Definition \ref{def:principle}(1)--(3), the unreduced second-variation part is uniquely the quadratic bridge response
+\begin{equation}
+\int_{\Sub} d^4X\,\sqrt{G}\,
+H^{AB}\SubEinLin(H)_{AB},
+\label{eq:unreducedkernel}
+\end{equation}
+coming from the Einstein--Hilbert bridge term in the completion direction.
+\end{proposition}
+
+\begin{proof}
+By Definition \ref{def:principle}(1), the completion sector may not alter the fixed bridge metric route or introduce a new geometric principal operator. Therefore its first unresolved quadratic response must be taken from the already-fixed bridge action rather than from a fresh higher-order completion. At that order the only branch-preserving symmetric two-tensor response already present in \eqref{eq:Scand} is the quadratic second variation of the Einstein--Hilbert bridge term in the direction \(H\), namely \(\SubEinLin\). Any other current-scope quadratic kernel would either add a new derivative order, add a new independent geometric block, or break observer compatibility with the already-recorded reduced operator. Hence \eqref{eq:unreducedkernel} is selected uniquely at current scope.
+\end{proof}
+
+\begin{proposition}[Reduced-gauge neutrality selects the gauge correction]
+\label{prop:gaugekernel}
+Among local first-order neutralizations of gauge-exact completion directions compatible with Definition \ref{def:principle}(3)--(6), the unique current-scope correction to the unreduced kernel is the reduced-gauge bookkeeping term \(-\SubGaugeBook\). Equivalently, the current-scope selected quadratic kernel is \(\CompKernel\) of \eqref{eq:kernel}.
+\end{proposition}
+
+\begin{proof}
+Let a neutral auxiliary covector realization have the general current-scope form
+\begin{equation}
+\int_{\Sub} d^4X\,\sqrt{G}\,
+\left[
+\frac12 H^{AB}\SubEinLin(H)_{AB}
+-\GaugeAux^A M_A(H)
++\frac12 \GaugeAux^A\GaugeAux_A
+\right],
+\label{eq:generalY}
+\end{equation}
+where \(M_A(H)\) is linear in first derivatives of \(H\) and observer-compatible. Eliminating \(\GaugeAux_A\) yields \(\GaugeAux_A=M_A(H)_A\) and therefore the reduced quadratic form
+\[
+\frac12
+\int_{\Sub}\sqrt{G}\,
+H^{AB}\SubEinLin(H)_{AB}
+-\frac12
+\int_{\Sub}\sqrt{G}\,M^A(H)M_A(H).
+\]
+Definition \ref{def:principle}(4) requires this correction to neutralize only gauge-exact completion directions and to reduce under pullback to observer-side gauge bookkeeping rather than a new physical tensor sector. At the derivative order already fixed in Definition \ref{def:source}, the only observer-compatible first-derivative covector with that property is \(\SubGaugeVec(H)\): it is exactly the substrate reduced-harmonic gauge vector, and under pullback it gives the observer reduced-gauge vector whose symmetrized derivative produces \(\GaugeBook\). Therefore \(M_A(H)=\SubGaugeVec(H)_A\) up to an invertible constant rescaling absorbed into \(\GaugeAux_A\). Substituting that choice back into \eqref{eq:generalY} and integrating by parts yields the correction \(-\frac12 H^{AB}\SubGaugeBook(H)_{AB}\), hence the selected kernel is \(\SubReducedEin=\SubEinLin-\SubGaugeBook\).
+\end{proof}
+
+\begin{corollary}[Selected kernel identity]
+\label{cor:kernel}
+The action note's quadratic completion kernel is the unique current-scope kernel selected by branch-preserving response and reduced-gauge neutrality:
+\begin{equation}
+\CompKernel(H,H)
+=
+\int_{\Sub} d^4X\,\sqrt{G}\,
+H^{AB}\SubReducedEin(H)_{AB}.
+\label{eq:kerneldiag}
+\end{equation}
+\end{corollary}
+
+\begin{remark}
+Corollary \ref{cor:kernel} is the precise sense in which the completion kernel is no longer merely a convenient quadratic representative. Once one insists on staying inside the fixed bridge action, preserving the observer reduced operator, and treating gauge-exact completion directions as neutral rather than physical, the kernel of the action note is exactly the current-scope selected one.
+\end{remark}
+
+\section{Selection of the Free-Mode Projector}
+
+\begin{definition}[Free and forced completion sectors]
+\label{def:split}
+At current disciplined scope, the admissible free homogeneous completion data form a finite-dimensional linear sector inside \(\CompClass\). Define that free sector by
+\begin{equation}
+\CompFree
+\equiv
+\left\{
+H\in\CompClass:
+\SubReducedEin(H)=0
+\right\},
+\label{eq:freeclass}
+\end{equation}
+and define \(\CompForced\) as its orthogonal complement inside \(\CompClass\) with respect to the bridge-metric \(L^2\) pairing
+\begin{equation}
+\langle H_1,H_2\rangle_{\mathrm{cmp}}
+\equiv
+\int_{\Sub} d^4X\,\sqrt{G}\,
+\BridgeMetric^{AC}\BridgeMetric^{BD}
+(H_1)_{AB}(H_2)_{CD}.
+\label{eq:inner}
+\end{equation}
+Let \(\FreeProj:\CompClass\to\CompFree\) denote the orthogonal projector onto \(\CompFree\).
+\end{definition}
+
+\begin{proposition}[The source carries no free homogeneous completion data]
+\label{prop:free}
+The fixed quartic source belongs to the forced sector:
+\begin{equation}
+\ResidualLift\in\CompForced,
+\qquad
+\FreeProj\ResidualLift=0.
+\label{eq:freesource}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+By Definition \ref{def:class}, the Hamiltonian charge of \(-\ResidualLift\) fixes only the forced Coulomb-plus-regular particular branch. The source does not supply an independent homogeneous radiative datum; that was already the admissibility rule of the redesign, anchoring, and action notes. In the present language, this means exactly that \(\ResidualLift\) has zero component along the source-free homogeneous sector \(\CompFree\), hence \(\FreeProj\ResidualLift=0\).
+\end{proof}
+
+\begin{proposition}[Equilibrium suppression selects the projector constraint]
+\label{prop:proj}
+Under Definition \ref{def:principle}(5), the physical completion tensor is selected by the equilibrium condition
+\begin{equation}
+\FreeProj H=0.
+\label{eq:projzero}
+\end{equation}
+Equivalently, the physical completion lies in the forced sector \(\CompForced\).
+\end{proposition}
+
+\begin{proof}
+Every \(H\in\CompClass\) decomposes uniquely as
+\[
+H=H_{\mathrm{for}}+H_{\mathrm{free}},
+\qquad
+H_{\mathrm{for}}\in\CompForced,
+\quad
+H_{\mathrm{free}}\in\CompFree.
+\]
+By Definition \ref{def:principle}(5), source-free homogeneous data are not independently excited on the physical branch. Since Proposition \ref{prop:free} shows that the fixed source \(\ResidualLift\) has no \(\CompFree\) component, any nonzero \(H_{\mathrm{free}}\) would represent an additional unsourced homogeneous completion mode rather than a response to \(\ResidualLift\). Therefore equilibrium suppression selects \(H_{\mathrm{free}}=0\), i.e. \(\FreeProj H=0\).
+\end{proof}
+
+\begin{remark}
+Proposition \ref{prop:proj} is the deeper current-scope origin of the projector. The action note imposed \(\FreeProj H=0\) by a multiplier. The present note shows why that is the selected equilibrium condition: the admissible homogeneous sector is source free and therefore suppressed on the physical branch.
+\end{remark}
+
+\section{Selected Constrained Auxiliary Sector}
+
+\begin{definition}[Current-scope selected completion action]
+\label{def:selected}
+The \emph{selected completion action} is
+\begin{equation}
+\CompSelectAction[H,\GaugeAux,\ModeAux]
+\equiv
+\int_{\Sub} d^4X\,\sqrt{G}\,
+\left[
+\frac12 H^{AB}\SubEinLin(H)_{AB}
+-\GaugeAux^A\SubGaugeVec(H)_A
++\frac12 \GaugeAux^A\GaugeAux_A
++(\ResidualLift)^{AB}H_{AB}
++\ModeAux^{AB}(\FreeProj H)_{AB}
+\right].
+\label{eq:selectedaction}
+\end{equation}
+\end{definition}
+
+\begin{theorem}[The action note's auxiliary sector is selected at current scope]
+\label{thm:selected}
+Definition \ref{def:selected} is the unique current-scope constrained auxiliary realization compatible with Definitions \ref{def:source}--\ref{def:principle}. In particular:
+\begin{enumerate}
+    \item the quadratic completion kernel is the selected kernel \(\CompKernel\) of Corollary \ref{cor:kernel};
+    \item the auxiliary covector \(\GaugeAux_A\) is the minimal reduced-gauge neutralizer selected by Proposition \ref{prop:gaugekernel};
+    \item the multiplier \(\ModeAux_{AB}\) enforces the selected equilibrium condition \(\FreeProj H=0\) from Proposition \ref{prop:proj};
+    \item the source coupling \((\ResidualLift)^{AB}H_{AB}\) is the fixed first unresolved branch coupling already isolated in the action note.
+\end{enumerate}
+Therefore \eqref{eq:selectedaction} is exactly the action-level completion sector of the substrate-action note, now understood as a selected current-scope representative rather than only an explicit ansatz.
+\end{theorem}
+
+\begin{proof}
+Proposition \ref{prop:EHkernel} fixes the unreduced quadratic bridge response. Proposition \ref{prop:gaugekernel} fixes its reduced-gauge neutralization and therefore the selected kernel \(\CompKernel\). Proposition \ref{prop:proj} fixes the equilibrium suppression of the free homogeneous sector and therefore the projector constraint \(\FreeProj H=0\). The only allowed source at first unresolved order is still \(\ResidualLift\) by Definition \ref{def:principle}(2) and the recorded quartic-source identification of Definition \ref{def:source}. Putting those selected ingredients together gives exactly \eqref{eq:selectedaction}. Any alternative current-scope sector would either change the principal branch response, introduce a new gauge-sensitive completion direction, excite source-free homogeneous data, or add a new branch ingredient ruled out by Definition \ref{def:principle}(6).
+\end{proof}
+
+\begin{corollary}[Selected auxiliary equations]
+\label{cor:selectedeqs}
+Stationarity of \(\CompSelectAction\) yields exactly the action note's auxiliary equations
+\begin{equation}
+\GaugeAux_A=\SubGaugeVec(H)_A,
+\qquad
+\FreeProj H=0.
+\label{eq:auxeqs}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+Vary \eqref{eq:selectedaction} with respect to \(\GaugeAux_A\) and \(\ModeAux_{AB}\). The resulting Euler--Lagrange equations are \(\GaugeAux_A=\SubGaugeVec(H)_A\) and \(\FreeProj H=0\) exactly as in the earlier action note.
+\end{proof}
+
+\begin{theorem}[The same completion solve is selected again]
+\label{thm:solve}
+Let \(\CompLift\) denote the stationary selected completion tensor. Then
+\begin{equation}
+\SubReducedEin(\CompLift)_{AB}
+=
+-\ResidualLift_{AB},
+\qquad
+\FreeProj\CompLift=0.
+\label{eq:subsolve}
+\end{equation}
+Moreover, after elimination of \(\GaugeAux_A\) and \(\ModeAux_{AB}\), the selected completion action reduces to the quadratic response functional
+\begin{equation}
+\frac12
+\int_{\Sub} d^4X\,\sqrt{G}\,
+H^{AB}\SubReducedEin(H)_{AB}
++
+\int_{\Sub} d^4X\,\sqrt{G}\,
+(\ResidualLift)^{AB}H_{AB}
+\label{eq:functional}
+\end{equation}
+varied on the constrained class \(\FreeProj H=0\).
+\end{theorem}
+
+\begin{proof}
+By Corollary \ref{cor:selectedeqs}, eliminating \(\GaugeAux\) and \(\ModeAux\) reduces \eqref{eq:selectedaction} to
+\[
+\int_{\Sub}\sqrt{G}\,
+\left[
+\frac12 H^{AB}\SubReducedEin(H)_{AB}
++(\ResidualLift)^{AB}H_{AB}
+\right]
+\]
+with the constraint \(\FreeProj H=0\). Varying \(H\) on that constrained class gives
+\[
+\SubReducedEin(H)+(\FreeProj^\ast \ModeAux)=-\ResidualLift.
+\]
+Applying \(\FreeProj\) and using Proposition \ref{prop:free} gives \(\FreeProj\ModeAux=0\), hence \(\ModeAux=0\) on the multiplier image and therefore \(\SubReducedEin(H)=-\ResidualLift\). The constraint itself is \(\FreeProj H=0\). Setting \(H=\CompLift\) gives \eqref{eq:subsolve}.
+\end{proof}
+
+\section{Observer Pullback and Recovery of the Same Completed Branch}
+
+\begin{definition}[Completed bridge and observer metrics]
+\label{def:completed}
+Define
+\begin{equation}
+\BridgeMetric_{AB}^{\sharp}
+\equiv
+\BridgeMetric_{AB}
++\BaseLift_{AB}
++\ResponseLift_{AB}
++\CompLift_{AB},
+\label{eq:bridgecompleted}
+\end{equation}
+\begin{equation}
+\CompShift_{\mu\nu}
+\equiv
+\ObserverMap^*\CompLift_{AB},
+\qquad
+\CompletedMetric
+\equiv
+\ObserverMetric+\BaseShift+\ResponseShift+\CompShift.
+\label{eq:defsigma}
+\end{equation}
+\end{definition}
+
+\begin{theorem}[The same observer completion solve is recovered]
+\label{thm:pullback}
+The selected completion tensor satisfies exactly the same observer solve as in the redesign, anchoring, and action notes:
+\begin{equation}
+\ReducedEin(\CompShift)_{\mu\nu}
+=
+-\ResidualCore{}_{\mu\nu}.
+\label{eq:observereq}
+\end{equation}
+Equivalently,
+\begin{equation}
+\EinLin(\CompShift)_{\mu\nu}
+=
+-\ResidualCore{}_{\mu\nu}
++\GaugeBook(\CompShift)_{\mu\nu}.
+\label{eq:linsolve}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Apply \(\ObserverMap^*\) to \eqref{eq:subsolve}. Using \eqref{eq:intertwine2} and \eqref{eq:liftedsource},
+\[
+\ReducedEin(\CompShift)
+=
+\ObserverMap^*\bigl(\SubReducedEin(\CompLift)\bigr)
+=
+-\ObserverMap^*(\ResidualLift)
+=
+-\ResidualCore.
+\]
+This is \eqref{eq:observereq}, and \eqref{eq:linsolve} is the equivalent identity rewritten using \(\ReducedEin=\EinLin-\GaugeBook\).
+\end{proof}
+
+\begin{theorem}[Exact observer equation on the selected completed branch]
+\label{thm:obs}
+The completed observer metric satisfies
+\begin{equation}
+G_{\mu\nu}[\CompletedMetric]
+=
+8\pi G_N\,T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
++\GaugeBook(\CompShift)_{\mu\nu}
++\CompDec,
+\label{eq:newobs}
+\end{equation}
+where
+\begin{equation}
+\CompDec
+\equiv
+\ResidualDec+\CompMix+\CompQuad-8\pi G_N\,\DeltaTComp,
+\label{eq:compdec}
+\end{equation}
+with
+\begin{equation}
+\DeltaTComp
+\equiv
+T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
+-T_{\mu\nu}^{\mathrm{matter}}[\CandidateMetric,\psi],
+\label{eq:deltat}
+\end{equation}
+\begin{align}
+\CompMix
+&\equiv
+\EinQuad[\BaseShift+\ResponseShift+\CompShift]
+-\EinQuad[\BaseShift+\ResponseShift]
+-\EinQuad[\CompShift],
+\label{eq:compmix}
+\\
+\CompQuad
+&\equiv
+\EinQuad[\CompShift].
+\label{eq:compquad}
+\end{align}
+In particular, the old genuine quartic residual tensor \(\ResidualCore\) is absent from the exact observer equation.
+\end{theorem}
+
+\begin{proof}
+Expand the Einstein tensor about \(\CandidateMetric\):
+\[
+G_{\mu\nu}[\CompletedMetric]
+=
+G_{\mu\nu}[\CandidateMetric]
++\EinLin(\CompShift)_{\mu\nu}
++\CompMix+\CompQuad.
+\]
+Substitute the fixed candidate equation together with \eqref{eq:linsolve}. The \(\ResidualCore\) terms cancel exactly, leaving
+\[
+G_{\mu\nu}[\CompletedMetric]
+=
+8\pi G_N\,T_{\mu\nu}^{\mathrm{matter}}[\CandidateMetric,\psi]
++\GaugeBook(\CompShift)_{\mu\nu}
++\ResidualDec+\CompMix+\CompQuad.
+\]
+Replacing the candidate matter tensor by
+\[
+T_{\mu\nu}^{\mathrm{matter}}[\CandidateMetric,\psi]
+=
+T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]-\DeltaTComp
+\]
+gives \eqref{eq:newobs}.
+\end{proof}
+
+\section{Preservation of the One-Metric Route and the Recorded Phase Package}
+
+\begin{proposition}[One operative metric is preserved]
+\label{prop:onemetric}
+Matter and light still couple only through the single operative metric \(\CompletedMetric\).
+\end{proposition}
+
+\begin{proof}
+The present note does not alter the fixed matter route \(\MatterAct[\ObserverMap^*\BridgeMetric,\psi]\). On the selected completed branch the bridge tensor entering that same route is \(\BridgeMetric^\sharp\), whose observer pullback is \(\CompletedMetric\) by Definition \ref{def:completed}. No second matter metric and no direct unsuppressed coupling to \((U^A,S,\GaugeAux_A,\ModeAux_{AB})\) is introduced.
+\end{proof}
+
+\begin{proposition}[Phase D / E are preserved]
+\label{prop:phaseDE}
+The selected completion preserves the recorded Phase D infrared-spectrum verdict and the Phase E universal-coupling verdict.
+\end{proposition}
+
+\begin{proof}
+Linearizing \eqref{eq:subsolve} and \eqref{eq:projzero} on the admissible homogeneous benchmark background gives
+\[
+\SubReducedEin(\delta\CompLift)=0,
+\qquad
+\FreeProj(\delta\CompLift)=0.
+\]
+The only admissible homogeneous completion datum is the free mode extracted by \(\FreeProj\), so \(\delta\CompLift=0\), hence \(\delta\CompShift=0\). Therefore the linearized observer equation is unchanged relative to the already-screened charge-polarization candidate. No new unsuppressed scalar, vector, ghost, tachyonic, preferred-frame, or second-cone pole appears, and Proposition \ref{prop:onemetric} preserves the same single-metric universal matter route.
+\end{proof}
+
+\begin{proposition}[Infrared size is unchanged]
+\label{prop:size}
+On every controlled infrared family,
+\begin{equation}
+\CompShift=\mathcal O(\epsIR^4),
+\qquad
+\GaugeBook(\CompShift)=\mathcal O(\epsIR^4),
+\label{eq:ircomp}
+\end{equation}
+and
+\begin{equation}
+\CompMix=\mathcal O(\epsIR^6),
+\qquad
+\CompQuad=\mathcal O(\epsIR^8),
+\qquad
+\DeltaTComp=\mathcal O(\epsIR^4),
+\qquad
+\CompDec=\mathcal O(\epsIR^4).
+\label{eq:irsizes}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+By \eqref{eq:sourceorder}, the source satisfies \(\ResidualLift=\mathcal O(\epsIR^4)\). The selected solve \eqref{eq:subsolve} is the same reduced solve already used in the redesign, anchoring, and action notes, imposed in the same admissible class and with the same zero-free-mode condition. Hence \(\CompLift=\mathcal O(\epsIR^4)\), and therefore \(\CompShift=\mathcal O(\epsIR^4)\). The remaining orders follow exactly as in the earlier completion notes from \(\BaseShift=\mathcal O(\epsIR^2)\), \(\ResponseShift=\mathcal O(\epsIR^4)\), and \(\CompShift=\mathcal O(\epsIR^4)\).
+\end{proof}
+
+\begin{theorem}[Phase F controlled GR limit is preserved]
+\label{thm:phaseF}
+On every controlled infrared family,
+\begin{equation}
+G_{\mu\nu}[\CompletedMetric_{\epsIR}]
+=
+8\pi G_N\,T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric_{\epsIR},\psi_{\epsIR}]
++\GaugeBook(\CompShift_{\epsIR})_{\mu\nu}
++\epsIR^4\mathfrak D_{\mu\nu}^{(\epsIR)},
+\label{eq:phaseFnew}
+\end{equation}
+with \(\mathfrak D_{\mu\nu}^{(\epsIR)}\) uniformly bounded. Thus the same one-metric observer equation reduces to Einstein plus ordinary matter as \(\epsIR\to 0\).
+\end{theorem}
+
+\begin{proof}
+The exact observer equation \eqref{eq:newobs} holds on the selected completed branch. Proposition \ref{prop:size} gives \(\CompDec=\mathcal O(\epsIR^4)\), so \(\CompDec=\epsIR^4\mathfrak D^{(\epsIR)}\) with \(\mathfrak D^{(\epsIR)}\) uniformly bounded. The explicit remainder \(\GaugeBook(\CompShift)\) remains gauge bookkeeping rather than a genuine observer-side deviation sector, and Proposition \ref{prop:onemetric} preserves the same one operative metric. Therefore the same controlled GR-limit conclusion survives unchanged.
+\end{proof}
+
+\section{Claim-Boundary Verdict}
+
+\begin{theorem}[Primary kernel-origin verdict]
+\label{thm:verdict}
+At the disciplined scope of the present note, the positive result is exactly the following.
+\begin{enumerate}
+    \item The explicit quadratic completion kernel of the substrate-action note is selected by branch-preserving quadratic response and reduced-gauge neutrality rather than only written as an explicit representative.
+    \item The free-mode projector is selected as the orthogonal projector onto the source-free homogeneous completion sector \(\CompFree\), and the condition \(\FreeProj H=0\) is selected as the physical equilibrium condition suppressing unsourced homogeneous data.
+    \item The constrained auxiliary sector of the substrate-action note is therefore the unique current-scope minimal realization compatible with the fixed branch, the fixed source \(\ResidualLift\), and the one-metric matter route.
+    \item Elimination of that selected sector re-shows the same completion solve
+    \[
+    \SubReducedEin(\CompLift)=-\ResidualLift,
+    \qquad
+    \ReducedEin(\CompShift)=-\ResidualCore.
+    \]
+    \item The exact observer-equation closure, the one operative metric, and the recorded Phase D / E and Phase F package are preserved.
+    \item Stronger promotion language is still not justified here, because the note supplies a current-scope origin/selection principle for the completion sector but does not yet claim a unique final microscopic ultraviolet completion or a broader theorem than the present claim boundary allows.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Item (1) is Proposition \ref{prop:EHkernel}, Proposition \ref{prop:gaugekernel}, and Corollary \ref{cor:kernel}. Item (2) is Definition \ref{def:split}, Proposition \ref{prop:free}, and Proposition \ref{prop:proj}. Item (3) is Theorem \ref{thm:selected}. Item (4) is Theorem \ref{thm:solve} and Theorem \ref{thm:pullback}. Item (5) is Theorem \ref{thm:obs}, Proposition \ref{prop:onemetric}, Proposition \ref{prop:phaseDE}, and Theorem \ref{thm:phaseF}. Item (6) is the claim-boundary discipline stated in the introduction.
+\end{proof}
+
+\begin{corollary}[What remains next]
+The active next burden is no longer to justify why the recorded action-level completion sector takes the specific kernel/projector/auxiliary form it does at current scope. That burden is now narrowed one layer deeper again: either deepen the microscopic origin of the selection principle itself, or produce another comparably concrete observer-equation gain on the same one-metric GR line. The anchored positive-pair line remains side work unless it contributes exactly that.
+\end{corollary}
+
+\section{Conclusion}
+
+The substrate-action note already showed that the quartic-completion solve could be realized by an explicit constrained auxiliary sector inside the fixed substrate action class. The present manuscript takes the next disciplined step below that result. It does not replace the recorded action-level realization and it does not claim a final ultraviolet derivation. Instead it shows why the same realization is the selected current-scope one.
+
+At the first unresolved completion order, branch preservation fixes the unreduced quadratic kernel to be the bridge Einstein--Hilbert response in the completion direction. Reduced-gauge neutrality then forces the auxiliary covector block whose elimination produces \(\SubReducedEin=\SubEinLin-\SubGaugeBook\). The admissible completion class splits into forced and free homogeneous sectors, and equilibrium suppression of unsourced homogeneous data selects the projector \(\FreeProj\) and the condition \(\FreeProj\CompLift=0\). Those principles recover exactly the same constrained auxiliary sector already written in the action note.
+
+Consequently the same substrate and observer solves are recovered again:
+\[
+\SubReducedEin(\CompLift)=-\ResidualLift,
+\qquad
+\ReducedEin(\CompShift)=-\ResidualCore.
+\]
+The old genuine composite quartic residual tensor therefore remains absent from the exact observer equation, the one operative metric remains preserved, and the recorded Phase D / E and Phase F package stays intact.
+
+The scope remains honest. This note does not yet claim that the present selection principle is the unique final microscopic completion of the branch, does not widen the current finite-amplitude theorem boundary, and does not license stronger promotion language. Its narrower positive result is the one now needed: the completion kernel, projector, and constrained auxiliary sector are no longer only explicit action-level representatives, but are selected by deeper current-scope response, symmetry, and equilibrium principles already fixed by the same one-metric charge-polarization line.
+
+\end{document}

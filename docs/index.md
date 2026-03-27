@@ -9,10 +9,10 @@ The benchmark starting point is the overview-first exact-closure package centere
 ## Current Research Status
 
 - The benchmark exact-closure package remains the fixed public front door.
-- The live benchmark-facing sequence now runs through the derivation-gates note, observer-remainder classification note, bridge-redesign gate-screen note, charge-polarization candidate note, infrared-spectrum / universal-coupling gate note, controlled GR-limit note, residual-sector verdict note, quartic-completion redesign note, and quartic-completion substrate-anchoring note.
-- The immediate next primary manuscript target is now a deeper first-principles completion-sector note for that same line, deriving or justifying the reconstruction-level substrate completion functional from the substrate action class itself or from a fuller constrained auxiliary sector, deriving the source coupling, reduced completion operator, and zero-extra-homogeneous-mode condition from that deeper layer, and re-showing that elimination yields the same \(\Sigma^{\mathrm{cmp}}\) solve while preserving the one operative metric, the recorded Phase D / E infrared and universal-coupling verdicts, the Phase F controlled GR limit, and the observer-equation removal of the former genuine quartic residual sector.
-- Stronger promotion language should wait until that deeper first-principles completion-sector burden has been met.
-- The deeper anchored positive-pair continuation remains recorded side work unless it supplies that deeper completion origin or another concrete observer-equation gain.
+- The live benchmark-facing sequence now runs through the derivation-gates note, observer-remainder classification note, bridge-redesign gate-screen note, charge-polarization candidate note, infrared-spectrum / universal-coupling gate note, controlled GR-limit note, residual-sector verdict note, quartic-completion redesign note, quartic-completion substrate-anchoring note, quartic-completion substrate-action note, and quartic-completion kernel-origin note.
+- The immediate next primary manuscript target is now a still-deeper microscopic origin or justification of the selection principle recorded in that kernel-origin note, or another comparably concrete observer-equation gain on the same one-metric charge-polarization line, while preserving the one operative metric, the recorded Phase D / E infrared and universal-coupling verdicts, the Phase F controlled GR limit, and the observer-equation removal of the former genuine quartic residual sector.
+- Stronger promotion language should wait until that deeper selection-principle burden has been met.
+- The deeper anchored positive-pair continuation remains recorded side work unless it supplies that deeper selection-principle origin or another concrete observer-equation gain.
 
 ## Main Deliverable
 
