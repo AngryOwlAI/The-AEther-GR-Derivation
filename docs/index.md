@@ -4,15 +4,15 @@
 
 This site is the public presentation layer for `The Æther-Flow Interpretation of Relativity`.
 
-The benchmark starting point is the overview-first exact-closure package centered on [`aether_flow_exact_closure_sequence_overview.tex`](assets/tex/aether_flow_exact_closure_sequence_overview.tex). That package remains the active theory statement at the operational level. As of March 26, 2026, the repository goal goes one step further: the current research program aims to derive that same GR sector from the `Æther / Æther-flow` framework without changing the benchmark claim boundary prematurely.
+The benchmark starting point is the overview-first exact-closure package centered on [`aether_flow_exact_closure_sequence_overview.tex`](assets/tex/aether_flow_exact_closure_sequence_overview.tex). That package remains the active theory statement at the operational level. As of March 27, 2026, the repository goal goes one step further: the current research program aims to derive that same GR sector from the `Æther / Æther-flow` framework without changing the benchmark claim boundary prematurely.
 
 ## Current Research Status
 
 - The benchmark exact-closure package remains the fixed public front door.
-- The live benchmark-facing sequence now runs through the derivation-gates note, observer-remainder classification note, bridge-redesign gate-screen note, charge-polarization candidate note, infrared-spectrum / universal-coupling gate note, controlled GR-limit note, residual-sector verdict note, quartic-completion redesign note, quartic-completion substrate-anchoring note, quartic-completion substrate-action note, and quartic-completion kernel-origin note.
-- The immediate next primary manuscript target is now a still-deeper microscopic origin or justification of the selection principle recorded in that kernel-origin note, or another comparably concrete observer-equation gain on the same one-metric charge-polarization line, while preserving the one operative metric, the recorded Phase D / E infrared and universal-coupling verdicts, the Phase F controlled GR limit, and the observer-equation removal of the former genuine quartic residual sector.
-- Stronger promotion language should wait until that deeper selection-principle burden has been met.
-- The deeper anchored positive-pair continuation remains recorded side work unless it supplies that deeper selection-principle origin or another concrete observer-equation gain.
+- The live benchmark-facing sequence now runs through the derivation-gates note, observer-remainder classification note, bridge-redesign gate-screen note, charge-polarization candidate note, infrared-spectrum / universal-coupling gate note, controlled GR-limit note, residual-sector verdict note, quartic-completion redesign note, quartic-completion substrate-anchoring note, quartic-completion substrate-action note, quartic-completion kernel-origin note, and quartic-completion selection-principle deeper-origin note.
+- The immediate next primary manuscript target is now a still-deeper primitive origin of the microscopic-equilibrium completion reservoir recorded in that deeper-origin note, or another comparably concrete observer-equation gain on the same one-metric charge-polarization line, while preserving the one operative metric, the recorded Phase D / E infrared and universal-coupling verdicts, the Phase F controlled GR limit, and the observer-equation removal of the former genuine quartic residual sector.
+- Stronger promotion language should wait until that deeper primitive-origin burden has been met.
+- The deeper anchored positive-pair continuation remains recorded side work unless it supplies that deeper primitive origin or another concrete observer-equation gain.
 
 ## Main Deliverable
 

@@ -10,7 +10,7 @@ Read the [Theory Package](theory-package.md) first. The active derivational prog
 
 ## Current Primary Objective
 
-As of March 26, 2026, the benchmark-facing sequence now includes:
+As of March 27, 2026, the benchmark-facing sequence now includes:
 
 - [aether_flow_exact_closure_derivation_gates_note.tex](../manuscripts/active/tex/aether_flow_exact_closure_derivation_gates_note.tex)
 - [aether_flow_substrate_higher_derivative_observer_remainder_classification_note.tex](../manuscripts/active/tex/aether_flow_substrate_higher_derivative_observer_remainder_classification_note.tex)
@@ -23,8 +23,9 @@ As of March 26, 2026, the benchmark-facing sequence now includes:
 - [aether_flow_substrate_higher_derivative_substrate_response_self_response_charge_polarization_quartic_completion_substrate_anchoring_note.tex](../manuscripts/active/tex/aether_flow_substrate_higher_derivative_substrate_response_self_response_charge_polarization_quartic_completion_substrate_anchoring_note.tex)
 - [aether_flow_substrate_higher_derivative_substrate_response_self_response_charge_polarization_quartic_completion_substrate_action_note.tex](../manuscripts/active/tex/aether_flow_substrate_higher_derivative_substrate_response_self_response_charge_polarization_quartic_completion_substrate_action_note.tex)
 - [aether_flow_substrate_higher_derivative_substrate_response_self_response_charge_polarization_quartic_completion_kernel_origin_note.tex](../manuscripts/active/tex/aether_flow_substrate_higher_derivative_substrate_response_self_response_charge_polarization_quartic_completion_kernel_origin_note.tex)
+- [aether_flow_substrate_higher_derivative_substrate_response_self_response_charge_polarization_quartic_completion_selection_principle_deeper_origin_note.tex](../manuscripts/active/tex/aether_flow_substrate_higher_derivative_substrate_response_self_response_charge_polarization_quartic_completion_selection_principle_deeper_origin_note.tex)
 
-The immediate next primary manuscript target is no longer the deeper completion-kernel origin / selection step; that note is now recorded. The next primary target is a still-deeper microscopic origin or justification note for the selection principle recorded in [aether_flow_substrate_higher_derivative_substrate_response_self_response_charge_polarization_quartic_completion_kernel_origin_note.tex](../manuscripts/active/tex/aether_flow_substrate_higher_derivative_substrate_response_self_response_charge_polarization_quartic_completion_kernel_origin_note.tex), or another comparably concrete observer-equation gain on the same one-metric charge-polarization line. That next step should derive or justify why the branch-preserving quadratic response, reduced-gauge neutrality, and equilibrium suppression of source-free homogeneous data recorded there arise from deeper substrate structure, symmetry, equilibrium, or response principles, while re-showing that elimination still yields the same \(\Sigma^{\mathrm{cmp}}\) solve and observer-equation closure. Stronger promotion language should wait until that deeper burden has been handled cleanly.
+The immediate next primary manuscript target is no longer the deeper completion-kernel origin / selection step, and it is no longer the newer microscopic-equilibrium deeper-origin step either; both are now recorded. The next primary target is a still-deeper primitive-origin note for the microscopic-equilibrium completion reservoir recorded in [aether_flow_substrate_higher_derivative_substrate_response_self_response_charge_polarization_quartic_completion_selection_principle_deeper_origin_note.tex](../manuscripts/active/tex/aether_flow_substrate_higher_derivative_substrate_response_self_response_charge_polarization_quartic_completion_selection_principle_deeper_origin_note.tex), or another comparably concrete observer-equation gain on the same one-metric charge-polarization line. That next step should derive or justify why stationary unsourced branch equilibrium, reduced-gauge relabeling neutrality, and positive free-mode stiffness with no free-sector loading themselves arise from more primitive substrate structure, while re-showing that elimination still yields the same \(\Sigma^{\mathrm{cmp}}\) solve and observer-equation closure. Stronger promotion language should wait until that deeper burden has been handled cleanly.
 
 ## Active Entry Points
 
@@ -39,6 +40,7 @@ The immediate next primary manuscript target is no longer the deeper completion-
 - [Quartic-completion substrate-anchoring PDF](../manuscripts/active/pdf/aether_flow_substrate_higher_derivative_substrate_response_self_response_charge_polarization_quartic_completion_substrate_anchoring_note.pdf)
 - [Quartic-completion substrate-action PDF](../manuscripts/active/pdf/aether_flow_substrate_higher_derivative_substrate_response_self_response_charge_polarization_quartic_completion_substrate_action_note.pdf)
 - [Quartic-completion kernel-origin PDF](../manuscripts/active/pdf/aether_flow_substrate_higher_derivative_substrate_response_self_response_charge_polarization_quartic_completion_kernel_origin_note.pdf)
+- [Quartic-completion selection-principle deeper-origin PDF](../manuscripts/active/pdf/aether_flow_substrate_higher_derivative_substrate_response_self_response_charge_polarization_quartic_completion_selection_principle_deeper_origin_note.pdf)
 - [Research plan](../RESEARCH_PLAN.md)
 
 ## How To Read This Work Honestly
