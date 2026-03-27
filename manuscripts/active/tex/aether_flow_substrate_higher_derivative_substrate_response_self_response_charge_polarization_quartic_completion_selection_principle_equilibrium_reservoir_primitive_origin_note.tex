@@ -1,0 +1,831 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal A}
+\newcommand{\ObserverMap}{\Xi}
+\newcommand{\BridgeMetric}{\mathfrak g}
+\newcommand{\ObserverMetric}{g^{\mathrm{br}}}
+\newcommand{\CandidateMetric}{g^{\mathrm{cand}}}
+\newcommand{\CompletedMetric}{g^{\sharp}}
+\newcommand{\BaseShift}{\Sigma^{\mathrm{IER}}}
+\newcommand{\ResponseShift}{\Sigma^{\mathrm{resp}}}
+\newcommand{\CompShift}{\Sigma^{\mathrm{cmp}}}
+\newcommand{\BaseLift}{\widehat\Sigma^{\mathrm{IER}}}
+\newcommand{\ResponseLift}{\widehat\Sigma^{\mathrm{resp}}}
+\newcommand{\CompLift}{\widehat\Sigma^{\mathrm{cmp}}}
+\newcommand{\ReLongFour}{\widetilde{\mathcal R}_{\mu\nu}^{(\chi,\ge 4)}}
+\newcommand{\ResidualCore}{\mathcal V_{\mu\nu}^{\mathrm{res}}}
+\newcommand{\ResidualDec}{\mathcal D_{\mu\nu}^{\mathrm{dec}}}
+\newcommand{\ResidualLift}{\widehat{\mathcal V}^{\mathrm{res}}}
+\newcommand{\SubEinLin}{\widehat{\mathcal E}}
+\newcommand{\SubGaugeVec}{\widehat{\mathcal B}}
+\newcommand{\SubGaugeBook}{\widehat{\mathcal G}}
+\newcommand{\SubReducedEin}{\widehat{\mathcal L}}
+\newcommand{\FreeProj}{\Pi_{\mathrm{free}}}
+\newcommand{\GaugeAux}{Y}
+\newcommand{\ReducedEin}{\mathcal L_{\ObserverMetric}}
+\newcommand{\GaugeBook}{\mathcal G_{\ObserverMetric}}
+\newcommand{\EinLin}{\mathcal E_{\ObserverMetric}}
+\newcommand{\EinQuad}{\mathcal Q_{\ge 2}^{\mathrm{Ein}}}
+\newcommand{\CompMix}{\mathcal Q_{\mu\nu}^{\mathrm{cmp,mix}}}
+\newcommand{\CompQuad}{\mathcal Q_{\mu\nu}^{\mathrm{cmp}}}
+\newcommand{\CompDec}{\mathcal D_{\mu\nu}^{\sharp}}
+\newcommand{\DeltaTComp}{\Delta T_{\mu\nu}^{\mathrm{cmp}}}
+\newcommand{\MatterAct}{S_{\mathrm{matter}}}
+\newcommand{\CompClass}{\mathscr C_{\mathrm{cmp}}}
+\newcommand{\CompFree}{\mathscr C_{\mathrm{cmp}}^{\mathrm{free}}}
+\newcommand{\CompForced}{\mathscr C_{\mathrm{cmp}}^{\mathrm{for}}}
+\newcommand{\CompKernel}{\mathscr K_{\mathrm{cmp}}}
+\newcommand{\MicFunctional}{\mathscr F_{\mathrm{mic}}}
+\newcommand{\PrimFunctional}{\mathscr F_{\mathrm{prim}}}
+\newcommand{\CoarseFunctional}{\mathscr F_{\mathrm{cg}}}
+\newcommand{\FreeStiff}{\kappa_{\mathrm{free}}}
+\newcommand{\PrimStrain}{K}
+\newcommand{\PrimNeutral}{J}
+\newcommand{\PrimFree}{F}
+\newcommand{\StrainMult}{\Lambda}
+\newcommand{\NeutralMult}{\Omega}
+\newcommand{\FreeMult}{\Theta}
+\newcommand{\epsIR}{\varepsilon}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Substrate-Response / Self-Response Charge-Polarization Candidate\\
+\large Quartic-Completion Selection-Principle Equilibrium-Reservoir Primitive-Origin Note}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The quartic-completion selection-principle deeper-origin note already identifies a microscopic-equilibrium completion functional
+\[
+\MicFunctional[H,\GaugeAux]
+=
+\int_{\Sub}\sqrt{G}\,
+\left[
+\frac12 H^{AB}\SubEinLin(H)_{AB}
+ +\frac12\bigl(\GaugeAux-\SubGaugeVec(H)\bigr)^2
+ +\frac{\FreeStiff}{2}(\FreeProj H)^2
++(\ResidualLift)^{AB}H_{AB}
+\right]
+\]
+whose stationary point re-shows the same quartic-completion solve \(\Sigma^{\mathrm{cmp}}\), the same one operative metric, and the same recorded Phase D / E and Phase F gains. The remaining primary burden is therefore one layer lower again: derive why that microscopic-equilibrium reservoir itself exists from more primitive substrate data.
+
+The present note supplies that still-deeper step at disciplined current scope. It introduces a primitive completion reservoir block with three fast substrate carriers: a branch-strain carrier \(\PrimStrain_{AB}\), a neutral relabeling current \(\PrimNeutral_A\), and a source-free homogeneous reservoir mode \(\PrimFree_{AB}\in\CompFree\). The primitive block is centered on the unsourced branch, carries reduced-gauge information only through the neutral current \(\PrimNeutral-\SubGaugeVec(\PrimStrain)\), and assigns a positive local gap \(\FreeStiff\) to the free homogeneous carrier while loading the branch only through \(\ResidualLift\cdot\PrimStrain\).
+
+Macroscopic completion data are then defined by constrained coarse graining rather than taken as primitive reservoir variables. Fixing the coarse branch tensor \(H\), coarse neutral current \(\GaugeAux\), and coarse free amplitude \(\FreeProj H\) by Lagrange multipliers and eliminating the primitive carriers reproduces exactly the deeper-origin microscopic functional:
+\[
+\CoarseFunctional[H,\GaugeAux]=\MicFunctional[H,\GaugeAux].
+\]
+Consequently the same reduced completion kernel, the same neutral \( \GaugeAux-\SubGaugeVec(H)\) structure, the same zero-free-mode outcome \(\FreeProj H=0\), the same substrate solve
+\[
+\SubReducedEin(\CompLift)=-\ResidualLift,
+\]
+and the same observer solve
+\[
+\ReducedEin(\CompShift)=-\ResidualCore
+\]
+follow once more.
+
+The result is positive but disciplined. The note gives a primitive substrate origin for the current microscopic-equilibrium reservoir. It does not claim a final ultraviolet completion, a uniqueness theorem beyond the fixed local two-derivative scope, or promotion beyond the one-metric claim boundary already fixed in the active sequence.
+\end{abstract}
+
+\section{Introduction}
+
+The active charge-polarization line has already crossed the candidate, gate, controlled-limit, residual-sector, redesign, anchoring, substrate-action, kernel-origin, and microscopic-equilibrium deeper-origin steps on the same one-metric GR route. The remaining primary burden is therefore sharper again. It is not another packaging pass. It is not another same-layer completion-action rewrite. It is not, by default, another deeper anchored positive-pair continuation. The next primary manuscript must instead go one layer below the already-recorded microscopic-equilibrium note and derive why that equilibrium reservoir exists from more primitive substrate data.
+
+That is the purpose of the present note. The previous deeper-origin note already justified the current-scope selection principle. It showed why the completion response is quadratic, why the reduced-gauge auxiliary sector is neutral, and why the free homogeneous completion sector is suppressed by positive stiffness with no source loading. The present manuscript does something narrower and deeper: it treats those equilibrium variables as \emph{coarse} branch data and derives their functional from a more primitive reservoir block whose carriers are no longer the macroscopic completion tensor and coarse auxiliary field themselves.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not claim a final microscopic model for all completion physics. It does not widen the current finite-amplitude theorem boundary. It does make one narrower positive move: it derives the already-recorded equilibrium reservoir from a deeper primitive substrate block whose constrained coarse-grained elimination forces branch stationarity, reduced-gauge neutrality, and positive free-mode stiffness with no free-sector loading while preserving the same \(\Sigma^{\mathrm{cmp}}\) solve and the same one operative metric.
+
+\section{Fixed Inputs from the Recorded Completion Line}
+
+\begin{definition}[Fixed charge-polarization branch and source]
+\label{def:fixed}
+The present note takes as fixed the same charge-polarization branch
+\begin{equation}
+\CandidateMetric
+=
+\ObserverMetric+\BaseShift+\ResponseShift,
+\qquad
+\CompletedMetric
+=
+\ObserverMetric+\BaseShift+\ResponseShift+\CompShift,
+\label{eq:metrics}
+\end{equation}
+with lifted completion variables \(\BaseLift,\ResponseLift,\CompLift\) satisfying
+\begin{equation}
+\ObserverMap^*\BaseLift=\BaseShift,
+\qquad
+\ObserverMap^*\ResponseLift=\ResponseShift,
+\qquad
+\ObserverMap^*\CompLift=\CompShift.
+\label{eq:lifts}
+\end{equation}
+The unresolved observer-side quartic tensor and its fixed substrate lift are
+\begin{equation}
+\ResidualCore
+\equiv
+\ReLongFour
++\EinQuad[\BaseShift]
++\EinLin(\ResponseShift),
+\label{eq:vres}
+\end{equation}
+\begin{equation}
+\ResidualLift_{AB}
+\equiv
+\widehat{\mathcal R}_{AB}^{(\chi,\ge 4)}
++\widehat{\mathcal Q}_{AB}^{\mathrm{Ein}}[\BaseLift]
++\widehat{\mathcal E}_{AB}(\ResponseLift),
+\qquad
+\ObserverMap^*\ResidualLift=\ResidualCore.
+\label{eq:liftedsource}
+\end{equation}
+The fixed orders are
+\begin{equation}
+\BaseShift=\mathcal O_{\ge 2},
+\qquad
+\ResponseShift=\mathcal O_{\ge 4},
+\qquad
+\CompShift=\mathcal O_{\ge 4},
+\qquad
+\ResidualLift=\mathcal O_{\ge 4},
+\label{eq:orders}
+\end{equation}
+and on every controlled infrared family,
+\begin{equation}
+\BaseShift=\mathcal O(\epsIR^2),
+\qquad
+\ResponseShift=\mathcal O(\epsIR^4),
+\qquad
+\CompShift=\mathcal O(\epsIR^4),
+\qquad
+\ResidualLift=\mathcal O(\epsIR^4).
+\label{eq:irorders}
+\end{equation}
+\end{definition}
+
+\begin{definition}[Fixed bridge-response operators]
+\label{def:operators}
+Let \(\widehat\nabla\) denote the Levi-Civita connection of the unshifted bridge metric \(\BridgeMetric\). For any observer-compatible symmetric substrate tensor \(H_{AB}\), define
+\begin{equation}
+\SubGaugeVec(H)_A
+\equiv
+\widehat\nabla^B\!\left(
+H_{AB}
+-\frac12 \BridgeMetric_{AB}\BridgeMetric^{CD}H_{CD}
+\right),
+\label{eq:subB}
+\end{equation}
+\begin{equation}
+\SubGaugeBook(H)_{AB}
+\equiv
+\widehat\nabla_{(A}\SubGaugeVec(H)_{B)}
+-\frac12 \BridgeMetric_{AB}\widehat\nabla^C\SubGaugeVec(H)_C,
+\label{eq:subG}
+\end{equation}
+\begin{equation}
+\SubReducedEin(H)_{AB}
+\equiv
+\SubEinLin(H)_{AB}-\SubGaugeBook(H)_{AB},
+\label{eq:subL}
+\end{equation}
+chosen so that
+\begin{equation}
+\ObserverMap^*\bigl(\SubEinLin(H)\bigr)=\EinLin(\ObserverMap^*H),
+\qquad
+\ObserverMap^*\bigl(\SubGaugeBook(H)\bigr)=\GaugeBook(\ObserverMap^*H),
+\label{eq:intertwine1}
+\end{equation}
+and hence
+\begin{equation}
+\ObserverMap^*\bigl(\SubReducedEin(H)\bigr)
+=
+\ReducedEin(\ObserverMap^*H).
+\label{eq:intertwine2}
+\end{equation}
+\end{definition}
+
+\begin{definition}[Admissible completion class and free sector]
+\label{def:class}
+Let \(\CompClass\) denote the same observer-compatible reduced-harmonic Coulomb-plus-regular completion class used in the redesign, anchoring, action, kernel-origin, and microscopic-equilibrium deeper-origin notes. The free homogeneous sector is
+\begin{equation}
+\CompFree
+\equiv
+\left\{
+H\in\CompClass:\SubReducedEin(H)=0
+\right\},
+\label{eq:freeclass}
+\end{equation}
+and \(\CompForced\) denotes its orthogonal complement inside \(\CompClass\) with respect to the bridge-metric \(L^2\) pairing
+\begin{equation}
+\langle H_1,H_2\rangle_{\mathrm{cmp}}
+\equiv
+\int_{\Sub} d^4X\,\sqrt{G}\,
+\BridgeMetric^{AC}\BridgeMetric^{BD}(H_1)_{AB}(H_2)_{CD}.
+\label{eq:inner}
+\end{equation}
+Let \(\FreeProj:\CompClass\to\CompFree\) be the orthogonal projector. The fixed source satisfies
+\begin{equation}
+\ResidualLift\in\CompForced,
+\qquad
+\FreeProj\ResidualLift=0.
+\label{eq:sourcefree}
+\end{equation}
+\end{definition}
+
+\begin{remark}
+The present note does not alter the source \(\ResidualLift\), the reduced operator \(\SubReducedEin\), the one-metric matter route, or the recorded admissible completion class. It goes one layer below the microscopic-equilibrium deeper-origin note and asks why that equilibrium reservoir exists from more primitive substrate data.
+\end{remark}
+
+\section{Primitive Reservoir Block}
+
+\begin{definition}[Primitive completion-reservoir carriers]
+\label{def:primitive}
+The \emph{primitive equilibrium-reservoir block} consists of:
+\begin{enumerate}
+    \item a branch-strain carrier \(\PrimStrain_{AB}\in\CompClass\);
+    \item a neutral relabeling current \(\PrimNeutral_A\);
+    \item a free homogeneous carrier \(\PrimFree_{AB}\in\CompFree\).
+\end{enumerate}
+At current scope, the primitive unsourced reservoir free energy is
+\begin{equation}
+\begin{aligned}
+\PrimFunctional^{(0)}[\PrimStrain,\PrimNeutral,\PrimFree]
+\equiv
+\int_{\Sub} d^4X\,\sqrt{G}\,
+\Bigl[
+&\frac12 \PrimStrain^{AB}\SubEinLin(\PrimStrain)_{AB}
++\frac12\bigl(\PrimNeutral_A-\SubGaugeVec(\PrimStrain)_A\bigr)
+\bigl(\PrimNeutral^A-\SubGaugeVec(\PrimStrain)^A\bigr)
+\\
+&+\frac{\FreeStiff}{2}\PrimFree^{AB}\PrimFree_{AB}
+\Bigr],
+\qquad
+\FreeStiff>0,
+\end{aligned}
+\label{eq:prim0}
+\end{equation}
+and the loaded primitive reservoir is
+\begin{equation}
+\PrimFunctional[\PrimStrain,\PrimNeutral,\PrimFree]
+\equiv
+\PrimFunctional^{(0)}[\PrimStrain,\PrimNeutral,\PrimFree]
++
+\int_{\Sub} d^4X\,\sqrt{G}\,
+(\ResidualLift)^{AB}\PrimStrain_{AB}.
+\label{eq:prim}
+\end{equation}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:primitive} is the primitive data of the present note. The macroscopic completion tensor \(H\) and coarse auxiliary field \(\GaugeAux\) are \emph{not} primitive variables of this block. They will be recovered as constrained coarse observables of \((\PrimStrain,\PrimNeutral,\PrimFree)\).
+\end{remark}
+
+\begin{proposition}[Primitive branch stationarity]
+\label{prop:branchstationary}
+With the quartic source turned off, the primitive reservoir is centered on the unsourced branch:
+\begin{equation}
+\delta \PrimFunctional^{(0)}[0,0,0]=0.
+\label{eq:branchstationary}
+\end{equation}
+In particular, the first nontrivial branch response of the primitive reservoir is quadratic.
+\end{proposition}
+
+\begin{proof}
+Equation \eqref{eq:prim0} contains no linear term in \(\PrimStrain\), \(\PrimNeutral\), or \(\PrimFree\). Therefore the first variation of \(\PrimFunctional^{(0)}\) at the origin vanishes. Since \(\FreeStiff>0\), the \(\PrimFree\)-sector is not flat. Thus the primitive unsourced reservoir is centered on the branch origin and the first nontrivial response is quadratic.
+\end{proof}
+
+\begin{proposition}[Primitive neutrality and source-loading rule]
+\label{prop:neutralprimitive}
+At primitive level:
+\begin{enumerate}
+    \item reduced-gauge information enters only through the neutral combination \(\PrimNeutral-\SubGaugeVec(\PrimStrain)\);
+    \item the quartic loading source couples only to the branch-strain carrier \(\PrimStrain\);
+    \item no term of the form \(\ResidualLift\cdot\PrimFree\) is present.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+All three statements are immediate from Definition \ref{def:primitive}. The only reduced-gauge-sensitive primitive term is the square of \(\PrimNeutral-\SubGaugeVec(\PrimStrain)\). The only source term added in \eqref{eq:prim} is \((\ResidualLift)^{AB}\PrimStrain_{AB}\). Because \(\PrimFree\) is an independent carrier in \(\CompFree\) and the source loading is inserted only through \(\PrimStrain\), there is no primitive free-sector loading term.
+\end{proof}
+
+\begin{remark}
+The primitive reservoir block is deliberately minimal. It is not a claim that every ultraviolet detail has been fixed. It is the still-deeper substrate sector needed to explain why the microscopic-equilibrium reservoir of the previous note has the form it does.
+\end{remark}
+
+\section{Constrained Coarse Graining and Recovery of the Equilibrium Reservoir}
+
+\begin{definition}[Macroscopic completion observables]
+\label{def:macroscopic}
+The macroscopic completion data are:
+\begin{enumerate}
+    \item a coarse branch tensor \(H_{AB}\in\CompClass\);
+    \item a coarse neutral current \(\GaugeAux_A\);
+    \item a coarse free-sector amplitude \((\FreeProj H)_{AB}\in\CompFree\).
+\end{enumerate}
+These are treated as constrained observables of the primitive reservoir rather than as primitive carriers.
+\end{definition}
+
+\begin{definition}[Constrained coarse-graining functional]
+\label{def:cg}
+For fixed macroscopic data \((H,\GaugeAux)\), define the constrained coarse-graining functional
+\begin{equation}
+\begin{aligned}
+\mathscr C[H,\GaugeAux;\PrimStrain,\PrimNeutral,\PrimFree,\StrainMult,\NeutralMult,\FreeMult]
+\equiv\;
+&\PrimFunctional[\PrimStrain,\PrimNeutral,\PrimFree]
+\\
+&+\int_{\Sub} d^4X\,\sqrt{G}\,
+\Bigl[
+\StrainMult^{AB}(H-\PrimStrain)_{AB}
+\Bigr]
+\\
+&+\int_{\Sub} d^4X\,\sqrt{G}\,
+\Bigl[
+\NeutralMult^A(\GaugeAux-\PrimNeutral)_A
+\Bigr]
+\\
+&+\int_{\Sub} d^4X\,\sqrt{G}\,
+\Bigl[
+\FreeMult^{AB}\bigl((\FreeProj H)-\PrimFree\bigr)_{AB}
+\Bigr],
+\end{aligned}
+\label{eq:C}
+\end{equation}
+where \(\StrainMult_{AB}\in\CompClass\), \(\NeutralMult_A\) is a covector, and \(\FreeMult_{AB}\in\CompFree\). The \emph{coarse-grained equilibrium reservoir} is the stationary value
+\begin{equation}
+\CoarseFunctional[H,\GaugeAux]
+\equiv
+\operatorname*{stat}_{\PrimStrain,\PrimNeutral,\PrimFree,\StrainMult,\NeutralMult,\FreeMult}
+\mathscr C[H,\GaugeAux;\PrimStrain,\PrimNeutral,\PrimFree,\StrainMult,\NeutralMult,\FreeMult].
+\label{eq:Fcg}
+\end{equation}
+\end{definition}
+
+\begin{remark}
+The multipliers \((\StrainMult,\NeutralMult,\FreeMult)\) are not new physical fields. They are the bookkeeping devices that implement coarse graining at fixed macroscopic branch data. This is precisely where the present note sits one layer below the previous deeper-origin note: the variables \(H\) and \(\GaugeAux\) are now coarse observables rather than primitive reservoir carriers.
+\end{remark}
+
+\begin{theorem}[Exact recovery of the microscopic-equilibrium reservoir]
+\label{thm:recover}
+The stationary equations of \eqref{eq:C} enforce
+\begin{equation}
+\PrimStrain=H,
+\qquad
+\PrimNeutral=\GaugeAux,
+\qquad
+\PrimFree=\FreeProj H.
+\label{eq:constraints}
+\end{equation}
+Consequently,
+\begin{equation}
+\begin{aligned}
+\CoarseFunctional[H,\GaugeAux]
+&=
+\int_{\Sub} d^4X\,\sqrt{G}\,
+\Bigl[
+\frac12 H^{AB}\SubEinLin(H)_{AB}
+ +\frac12\bigl(\GaugeAux_A-\SubGaugeVec(H)_A\bigr)
+\bigl(\GaugeAux^A-\SubGaugeVec(H)^A\bigr)
+\\
+&\qquad
+ +\frac{\FreeStiff}{2}(\FreeProj H)^{AB}(\FreeProj H)_{AB}
++(\ResidualLift)^{AB}H_{AB}
+\Bigr].
+\end{aligned}
+\label{eq:Fcgrecovered}
+\end{equation}
+That is, the coarse-grained primitive reservoir is exactly the microscopic-equilibrium functional of the previous deeper-origin note:
+\begin{equation}
+\CoarseFunctional[H,\GaugeAux]=\MicFunctional[H,\GaugeAux].
+\label{eq:Fsame}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Stationarity of \eqref{eq:C} with respect to the multipliers \(\StrainMult\), \(\NeutralMult\), and \(\FreeMult\) gives the constraints \eqref{eq:constraints}. Substituting \eqref{eq:constraints} back into \eqref{eq:C} removes the multiplier terms and yields \eqref{eq:Fcgrecovered} directly. Equation \eqref{eq:Fsame} is therefore just the identification of the resulting stationary-value functional with the previously recorded microscopic-equilibrium reservoir.
+\end{proof}
+
+\begin{corollary}[Same reduced completion kernel]
+\label{cor:kernel}
+Eliminating the coarse auxiliary field \(\GaugeAux\) from \eqref{eq:Fcgrecovered} gives the reduced coarse-grained functional
+\begin{equation}
+{\CoarseFunctional}_{\mathrm{red}}[H]
+=
+\int_{\Sub} d^4X\,\sqrt{G}\,
+\Bigl[
+\frac12 H^{AB}\SubReducedEin(H)_{AB}
++\frac{\FreeStiff}{2}(\FreeProj H)^{AB}(\FreeProj H)_{AB}
++(\ResidualLift)^{AB}H_{AB}
+\Bigr].
+\label{eq:Fred}
+\end{equation}
+Its quadratic \(H\)-H Hessian on the forced branch is the same completion kernel
+\begin{equation}
+\CompKernel(H_1,H_2)
+\equiv
+\int_{\Sub} d^4X\,\sqrt{G}\,
+H_1^{AB}\SubReducedEin(H_2)_{AB}
+\label{eq:kernel}
+\end{equation}
+already used in the kernel-origin note.
+\end{corollary}
+
+\begin{proof}
+Stationarity of \eqref{eq:Fcgrecovered} with respect to \(\GaugeAux_A\) gives
+\begin{equation}
+\GaugeAux_A=\SubGaugeVec(H)_A.
+\label{eq:Ysolve}
+\end{equation}
+Substituting \eqref{eq:Ysolve} into \eqref{eq:Fcgrecovered} yields \eqref{eq:Fred}. Bilinearization of the quadratic term \(\frac12\int H^{AB}\SubReducedEin(H)_{AB}\) gives the kernel \eqref{eq:kernel}.
+\end{proof}
+
+\begin{remark}
+The result of Theorem \ref{thm:recover} is the exact content needed here. The previous note's equilibrium reservoir is no longer an unexplained starting point. It is the constrained coarse-grained free energy of a more primitive branch-strain / neutral-current / free-mode substrate block.
+\end{remark}
+
+\section{Forced Structural Consequences}
+
+\begin{proposition}[Why branch stationarity is forced]
+\label{prop:forcedstationary}
+The coarse equilibrium reservoir is stationary on the unsourced branch because the primitive reservoir is centered on the unsourced branch.
+\end{proposition}
+
+\begin{proof}
+With \(\ResidualLift=0\), Proposition \ref{prop:branchstationary} gives \(\delta \PrimFunctional^{(0)}[0,0,0]=0\). The constraints \eqref{eq:constraints} identify the macroscopic branch point \(H=0\), \(\GaugeAux=0\), \(\FreeProj H=0\) with the primitive branch point \(\PrimStrain=\PrimNeutral=\PrimFree=0\). Hence the coarse-grained functional \(\CoarseFunctional=\MicFunctional\) is stationary at the unsourced branch origin.
+\end{proof}
+
+\begin{proposition}[Why reduced-gauge neutrality is forced]
+\label{prop:forcedneutral}
+Reduced-gauge relabeling neutrality of the coarse equilibrium reservoir is forced because the primitive reservoir can depend on relabeling data only through the neutral current \(\PrimNeutral-\SubGaugeVec(\PrimStrain)\).
+\end{proposition}
+
+\begin{proof}
+By Proposition \ref{prop:neutralprimitive}, the only primitive reduced-gauge-sensitive term is the neutral square \((\PrimNeutral-\SubGaugeVec(\PrimStrain))^2\). Under the coarse constraints \eqref{eq:constraints}, this becomes exactly \((\GaugeAux-\SubGaugeVec(H))^2\). Therefore reduced-gauge information enters the coarse functional only through the same neutral combination used in the deeper-origin note.
+\end{proof}
+
+\begin{proposition}[Why positive free-mode stiffness and no loading are forced]
+\label{prop:forcedfree}
+Positive free-mode stiffness and the absence of free-sector source loading are forced because the primitive free carrier \(\PrimFree\) has positive quadratic cost and the primitive loading source couples only to \(\PrimStrain\).
+\end{proposition}
+
+\begin{proof}
+The primitive free carrier term in \eqref{eq:prim0} is \(\frac{\FreeStiff}{2}\PrimFree^{AB}\PrimFree_{AB}\) with \(\FreeStiff>0\). The source term in \eqref{eq:prim} is \((\ResidualLift)^{AB}\PrimStrain_{AB}\), not a coupling to \(\PrimFree\). After imposing \eqref{eq:constraints}, the free part of the coarse functional is exactly \(\frac{\FreeStiff}{2}(\FreeProj H)^2\) and no term \((\ResidualLift)^{AB}(\FreeProj H)_{AB}\) appears. Hence the free homogeneous sector is stiff and source blind at coarse level for the same primitive reason.
+\end{proof}
+
+\begin{theorem}[Primitive-origin verdict for the equilibrium reservoir]
+\label{thm:primitiveverdict}
+The primitive reservoir block forces all three structural inputs required by the previous deeper-origin note:
+\begin{enumerate}
+    \item branch stationarity of the unsourced completion branch;
+    \item reduced-gauge neutrality through the same combination \(\GaugeAux-\SubGaugeVec(H)\);
+    \item positive free-mode stiffness with no free-sector loading by \(\ResidualLift\).
+\end{enumerate}
+Moreover, its constrained coarse-grained elimination reproduces the same quadratic Hessian, the same reduced completion kernel, and the same microscopic-equilibrium reservoir \(\MicFunctional\).
+\end{theorem}
+
+\begin{proof}
+Item (1) is Proposition \ref{prop:forcedstationary}. Item (2) is Proposition \ref{prop:forcedneutral}. Item (3) is Proposition \ref{prop:forcedfree}. The recovery of the same microscopic-equilibrium reservoir is Theorem \ref{thm:recover}, and the recovery of the same reduced kernel is Corollary \ref{cor:kernel}.
+\end{proof}
+
+\section{Recovery of the Same Completion Solve and One Operative Metric}
+
+\begin{theorem}[Stationary coarse equations]
+\label{thm:stationary}
+Let \((\CompLift,\GaugeAux)\) be a stationary point of the coarse-grained reservoir \(\CoarseFunctional\). Then
+\begin{equation}
+\GaugeAux_A=\SubGaugeVec(\CompLift)_A,
+\label{eq:Yeq}
+\end{equation}
+and
+\begin{equation}
+\SubReducedEin(\CompLift)_{AB}
++\FreeStiff(\FreeProj\CompLift)_{AB}
+=
+-\ResidualLift_{AB}.
+\label{eq:Heq}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Since \(\CoarseFunctional=\MicFunctional\) by Theorem \ref{thm:recover}, the stationary equations are the same as in the previous deeper-origin note. Variation with respect to \(\GaugeAux_A\) gives \eqref{eq:Yeq}. Substituting \eqref{eq:Yeq} into \eqref{eq:Fcgrecovered} yields the reduced functional \eqref{eq:Fred}, and variation with respect to \(H_{AB}\) gives \eqref{eq:Heq}.
+\end{proof}
+
+\begin{proposition}[The same zero-free-mode outcome]
+\label{prop:freezero}
+The stationary coarse completion tensor satisfies
+\begin{equation}
+\FreeProj\CompLift=0.
+\label{eq:freezero}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Apply \(\FreeProj\) to \eqref{eq:Heq}. Since \(\CompFree=\ker\SubReducedEin\), one has \(\FreeProj\SubReducedEin(\CompLift)=0\). By \eqref{eq:sourcefree}, \(\FreeProj\ResidualLift=0\). Therefore
+\[
+\FreeStiff\,\FreeProj\CompLift=0.
+\]
+Because \(\FreeStiff>0\), equation \eqref{eq:freezero} follows.
+\end{proof}
+
+\begin{corollary}[The same substrate completion solve]
+\label{cor:subsolve}
+The stationary coarse completion tensor satisfies
+\begin{equation}
+\SubReducedEin(\CompLift)_{AB}
+=
+-\ResidualLift_{AB},
+\qquad
+\FreeProj\CompLift=0.
+\label{eq:subsolve}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+Substituting \eqref{eq:freezero} into \eqref{eq:Heq} gives \eqref{eq:subsolve}.
+\end{proof}
+
+\begin{definition}[Completed bridge and observer metrics]
+\label{def:completed}
+Define
+\begin{equation}
+\BridgeMetric_{AB}^{\sharp}
+\equiv
+\BridgeMetric_{AB}
++\BaseLift_{AB}
++\ResponseLift_{AB}
++\CompLift_{AB},
+\label{eq:bridgecompleted}
+\end{equation}
+\begin{equation}
+\CompShift_{\mu\nu}
+\equiv
+\ObserverMap^*\CompLift_{AB},
+\qquad
+\CompletedMetric
+\equiv
+\ObserverMetric+\BaseShift+\ResponseShift+\CompShift.
+\label{eq:defsigma}
+\end{equation}
+\end{definition}
+
+\begin{theorem}[The same observer completion solve is recovered]
+\label{thm:observer}
+The primitive-origin completion tensor satisfies exactly the same observer solve:
+\begin{equation}
+\ReducedEin(\CompShift)_{\mu\nu}
+=
+-\ResidualCore{}_{\mu\nu}.
+\label{eq:observereq}
+\end{equation}
+Equivalently,
+\begin{equation}
+\EinLin(\CompShift)_{\mu\nu}
+=
+-\ResidualCore{}_{\mu\nu}
++\GaugeBook(\CompShift)_{\mu\nu}.
+\label{eq:linsolve}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Apply \(\ObserverMap^*\) to \eqref{eq:subsolve}. Using \eqref{eq:intertwine2} and \eqref{eq:liftedsource},
+\[
+\ReducedEin(\CompShift)
+=
+\ObserverMap^*\bigl(\SubReducedEin(\CompLift)\bigr)
+=
+-\ObserverMap^*(\ResidualLift)
+=
+-\ResidualCore.
+\]
+This is \eqref{eq:observereq}, and \eqref{eq:linsolve} is the equivalent identity rewritten using \(\ReducedEin=\EinLin-\GaugeBook\).
+\end{proof}
+
+\begin{theorem}[The former genuine quartic residual sector remains removed]
+\label{thm:removed}
+The exact observer equation on the primitive-origin completed branch is
+\begin{equation}
+G_{\mu\nu}[\CompletedMetric]
+=
+8\pi G_N\,T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
++\GaugeBook(\CompShift)_{\mu\nu}
++\CompDec,
+\label{eq:newobs}
+\end{equation}
+where
+\begin{equation}
+\CompDec
+\equiv
+\ResidualDec+\CompMix+\CompQuad-8\pi G_N\,\DeltaTComp,
+\label{eq:compdec}
+\end{equation}
+with
+\begin{equation}
+\DeltaTComp
+\equiv
+T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
+-T_{\mu\nu}^{\mathrm{matter}}[\CandidateMetric,\psi],
+\label{eq:deltat}
+\end{equation}
+\begin{align}
+\CompMix
+&\equiv
+\EinQuad[\BaseShift+\ResponseShift+\CompShift]
+-\EinQuad[\BaseShift+\ResponseShift]
+-\EinQuad[\CompShift],
+\label{eq:compmix}
+\\
+\CompQuad
+&\equiv
+\EinQuad[\CompShift].
+\label{eq:compquad}
+\end{align}
+In particular, the old genuine quartic residual tensor \(\ResidualCore\) is absent from the exact observer equation.
+\end{theorem}
+
+\begin{proof}
+Expand the Einstein tensor about \(\CandidateMetric\):
+\[
+G_{\mu\nu}[\CompletedMetric]
+=
+G_{\mu\nu}[\CandidateMetric]
++\EinLin(\CompShift)_{\mu\nu}
++\CompMix+\CompQuad.
+\]
+Substitute the fixed candidate equation together with \eqref{eq:linsolve}. The \(\ResidualCore\) terms cancel exactly, leaving
+\[
+G_{\mu\nu}[\CompletedMetric]
+=
+8\pi G_N\,T_{\mu\nu}^{\mathrm{matter}}[\CandidateMetric,\psi]
++\GaugeBook(\CompShift)_{\mu\nu}
++\ResidualDec+\CompMix+\CompQuad.
+\]
+Replacing the candidate matter tensor by
+\[
+T_{\mu\nu}^{\mathrm{matter}}[\CandidateMetric,\psi]
+=
+T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]-\DeltaTComp
+\]
+gives \eqref{eq:newobs}.
+\end{proof}
+
+\begin{proposition}[The same one operative metric is preserved]
+\label{prop:onemetric}
+Matter and light still couple only through the single operative metric \(\CompletedMetric\).
+\end{proposition}
+
+\begin{proof}
+The present note does not alter the fixed matter route \(\MatterAct[\ObserverMap^*\BridgeMetric,\psi]\). On the completed branch the bridge tensor entering that route is \(\BridgeMetric^\sharp\), whose observer pullback is \(\CompletedMetric\) by Definition \ref{def:completed}. No second matter metric and no direct matter coupling to the primitive reservoir carriers are introduced.
+\end{proof}
+
+\begin{proposition}[The recorded Phase D / E package is preserved]
+\label{prop:phaseDE}
+The primitive-origin completion preserves the recorded Phase D infrared-spectrum verdict and the Phase E universal-coupling verdict.
+\end{proposition}
+
+\begin{proof}
+Linearizing \eqref{eq:subsolve} on the admissible homogeneous benchmark background gives
+\[
+\SubReducedEin(\delta\CompLift)=0,
+\qquad
+\FreeProj(\delta\CompLift)=0.
+\]
+The only admissible homogeneous completion datum is the free mode extracted by \(\FreeProj\), so \(\delta\CompLift=0\), hence \(\delta\CompShift=0\). Therefore the linearized observer equation is unchanged relative to the already-screened charge-polarization candidate. No new unsuppressed scalar, vector, ghost, tachyonic, preferred-frame, or second-cone pole appears, and Proposition \ref{prop:onemetric} preserves the same single-metric universal matter route.
+\end{proof}
+
+\begin{proposition}[Infrared size is unchanged]
+\label{prop:size}
+On every controlled infrared family,
+\begin{equation}
+\CompShift=\mathcal O(\epsIR^4),
+\qquad
+\GaugeBook(\CompShift)=\mathcal O(\epsIR^4),
+\label{eq:ircomp}
+\end{equation}
+and
+\begin{equation}
+\CompMix=\mathcal O(\epsIR^6),
+\qquad
+\CompQuad=\mathcal O(\epsIR^8),
+\qquad
+\DeltaTComp=\mathcal O(\epsIR^4),
+\qquad
+\CompDec=\mathcal O(\epsIR^4).
+\label{eq:irsizes}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+By \eqref{eq:irorders}, the source satisfies \(\ResidualLift=\mathcal O(\epsIR^4)\). The primitive-origin solve \eqref{eq:subsolve} is the same reduced solve already used in the redesign, anchoring, action, kernel-origin, and microscopic-equilibrium deeper-origin notes, imposed in the same admissible class and with the same zero-free-mode condition. Hence \(\CompLift=\mathcal O(\epsIR^4)\), and therefore \(\CompShift=\mathcal O(\epsIR^4)\). The remaining orders follow exactly as in the earlier completion notes from \(\BaseShift=\mathcal O(\epsIR^2)\), \(\ResponseShift=\mathcal O(\epsIR^4)\), and \(\CompShift=\mathcal O(\epsIR^4)\).
+\end{proof}
+
+\begin{theorem}[The recorded Phase F controlled GR limit is preserved]
+\label{thm:phaseF}
+On every controlled infrared family,
+\begin{equation}
+G_{\mu\nu}[\CompletedMetric_{\epsIR}]
+=
+8\pi G_N\,T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric_{\epsIR},\psi_{\epsIR}]
++\GaugeBook(\CompShift_{\epsIR})_{\mu\nu}
++\epsIR^4\mathfrak D_{\mu\nu}^{(\epsIR)},
+\label{eq:phaseFnew}
+\end{equation}
+with \(\mathfrak D_{\mu\nu}^{(\epsIR)}\) uniformly bounded. Thus the same one-metric observer equation reduces to Einstein plus ordinary matter as \(\epsIR\to 0\).
+\end{theorem}
+
+\begin{proof}
+The exact observer equation \eqref{eq:newobs} holds on the primitive-origin completed branch. Proposition \ref{prop:size} gives \(\CompDec=\mathcal O(\epsIR^4)\), so \(\CompDec=\epsIR^4\mathfrak D^{(\epsIR)}\) with \(\mathfrak D^{(\epsIR)}\) uniformly bounded. The explicit remainder \(\GaugeBook(\CompShift)\) remains gauge bookkeeping rather than a genuine observer-side deviation sector, and Proposition \ref{prop:onemetric} preserves the same one operative metric. Therefore the same controlled GR-limit conclusion survives unchanged.
+\end{proof}
+
+\section{Claim-Boundary Verdict}
+
+\begin{theorem}[Primary primitive-origin verdict]
+\label{thm:verdict}
+At the disciplined scope of the present note, the positive result is exactly the following.
+\begin{enumerate}
+    \item The microscopic-equilibrium completion reservoir of the previous deeper-origin note now receives a still-deeper primitive substrate origin.
+    \item The primitive block is carried by a branch-strain carrier \(\PrimStrain\), a neutral relabeling current \(\PrimNeutral\), and a positively gapped free homogeneous carrier \(\PrimFree\in\CompFree\).
+    \item Constrained coarse-grained elimination of that primitive block reproduces exactly the same equilibrium reservoir \(\MicFunctional[H,\GaugeAux]\), hence the same quadratic Hessian, the same reduced completion kernel, and the same neutral \( \GaugeAux-\SubGaugeVec(H)\) structure.
+    \item Branch stationarity of the unsourced branch is forced because the primitive unsourced reservoir is centered and has no linear term at the branch origin.
+    \item Reduced-gauge neutrality is forced because primitive relabeling information enters only through the neutral current \(\PrimNeutral-\SubGaugeVec(\PrimStrain)\).
+    \item Positive free-mode stiffness with no free-sector loading is forced because \(\PrimFree\) carries the positive gap \(\FreeStiff\) while the source couples only to \(\PrimStrain\).
+    \item The same substrate and observer solves are recovered:
+    \[
+    \SubReducedEin(\CompLift)=-\ResidualLift,
+    \qquad
+    \ReducedEin(\CompShift)=-\ResidualCore.
+    \]
+    \item The same one operative metric, the same Phase D / E package, the same Phase F controlled GR limit, and the same removal of the former genuine quartic residual tensor are preserved.
+    \item Stronger promotion language is still not justified here, because the note supplies a primitive origin for the current equilibrium reservoir without claiming a final ultraviolet completion or a theorem broader than the current one-metric claim boundary.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Item (1) is Theorem \ref{thm:recover}. Item (2) is Definition \ref{def:primitive}. Item (3) is Theorem \ref{thm:recover} and Corollary \ref{cor:kernel}. Item (4) is Proposition \ref{prop:branchstationary} and Proposition \ref{prop:forcedstationary}. Item (5) is Proposition \ref{prop:neutralprimitive} and Proposition \ref{prop:forcedneutral}. Item (6) is Proposition \ref{prop:forcedfree}. Item (7) is Corollary \ref{cor:subsolve} and Theorem \ref{thm:observer}. Item (8) is Theorem \ref{thm:removed}, Proposition \ref{prop:onemetric}, Proposition \ref{prop:phaseDE}, and Theorem \ref{thm:phaseF}. Item (9) is the claim-boundary discipline stated in the introduction.
+\end{proof}
+
+\begin{corollary}[What remains next]
+The primary active burden is now narrower again. It is no longer to explain why the microscopic-equilibrium reservoir exists at the current local two-derivative branch scope; that primitive origin is now recorded. The next honest burden is either a still deeper origin of the primitive branch-strain / neutral-current / free-mode reservoir itself, or another comparably concrete observer-equation gain on the same one-metric GR line. The anchored positive-pair continuation remains side work unless it directly supplies one of those.
+\end{corollary}
+
+\section{Conclusion}
+
+The previous deeper-origin note already showed why the completion kernel, reduced-gauge auxiliary block, and free-mode projector are selected by microscopic equilibrium. The present manuscript goes one layer lower again. It does not write another same-level completion action and it does not merely rename the earlier functional. Instead it derives that equilibrium reservoir from a more primitive substrate block whose carriers are a branch-strain mode, a neutral relabeling current, and a positively gapped free homogeneous reservoir mode.
+
+At primitive level, the unsourced branch is centered because the reservoir has no linear term at the branch origin. Reduced-gauge information enters only through the neutral current \(\PrimNeutral-\SubGaugeVec(\PrimStrain)\), so reduced-gauge relabeling neutrality is forced before coarse graining rather than inserted afterward. The source-free homogeneous carrier \(\PrimFree\) has positive stiffness \(\FreeStiff\), while the quartic loading source couples only to the branch-strain carrier \(\PrimStrain\); therefore the free sector remains stiff and source blind already at primitive level.
+
+Constrained coarse graining at fixed macroscopic completion data then reproduces exactly the previously recorded microscopic-equilibrium reservoir:
+\[
+\CoarseFunctional[H,\GaugeAux]=\MicFunctional[H,\GaugeAux].
+\]
+From that identity the same reduced completion kernel, the same neutral \( \GaugeAux-\SubGaugeVec(H)\) structure, the same zero-free-mode outcome \(\FreeProj\CompLift=0\), and the same completion solves follow again:
+\[
+\SubReducedEin(\CompLift)=-\ResidualLift,
+\qquad
+\ReducedEin(\CompShift)=-\ResidualCore.
+\]
+The old genuine quartic residual tensor therefore remains absent from the exact observer equation, the one operative metric remains preserved, and the recorded Phase D / E and Phase F gains stay intact.
+
+The scope remains honest. This note does not yet claim a final ultraviolet completion, does not widen the current theorem boundary, and does not license stronger promotion language. Its positive result is narrower and exactly the one now needed: the microscopic-equilibrium completion reservoir itself is no longer primitive at current scope, but is derived as the coarse-grained image of a deeper substrate reservoir block.
+
+\end{document}
