@@ -1,0 +1,977 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal A}
+\newcommand{\ObserverMap}{\Xi}
+\newcommand{\BridgeMetric}{\mathfrak g}
+\newcommand{\ObserverMetric}{g^{\mathrm{br}}}
+\newcommand{\CandidateMetric}{g^{\mathrm{cand}}}
+\newcommand{\CompletedMetric}{g^{\sharp}}
+\newcommand{\BaseShift}{\Sigma^{\mathrm{IER}}}
+\newcommand{\ResponseShift}{\Sigma^{\mathrm{resp}}}
+\newcommand{\CompShift}{\Sigma^{\mathrm{cmp}}}
+\newcommand{\BaseLift}{\widehat\Sigma^{\mathrm{IER}}}
+\newcommand{\ResponseLift}{\widehat\Sigma^{\mathrm{resp}}}
+\newcommand{\CompLift}{\widehat\Sigma^{\mathrm{cmp}}}
+\newcommand{\ReLongFour}{\widetilde{\mathcal R}_{\mu\nu}^{(\chi,\ge 4)}}
+\newcommand{\ResidualCore}{\mathcal V_{\mu\nu}^{\mathrm{res}}}
+\newcommand{\ResidualLift}{\widehat{\mathcal V}^{\mathrm{res}}}
+\newcommand{\SubReducedEin}{\widehat{\mathcal L}}
+\newcommand{\FreeProj}{\Pi_{\mathrm{free}}}
+\newcommand{\GaugeAux}{Y}
+\newcommand{\ReducedEin}{\mathcal L_{\ObserverMetric}}
+\newcommand{\CompClass}{\mathscr C_{\mathrm{cmp}}}
+\newcommand{\CompFree}{\mathscr C_{\mathrm{cmp}}^{\mathrm{free}}}
+\newcommand{\MicFunctional}{\mathscr F_{\mathrm{mic}}}
+\newcommand{\PrimFunctional}{\mathscr F_{\mathrm{prim}}}
+\newcommand{\CarrierFunctional}{\mathscr F_{\mathrm{car}}}
+\newcommand{\DeepFunctional}{\mathscr F_{\mathrm{deep}}}
+\newcommand{\ProtoFunctional}{\mathscr F_{\mathrm{proto}}}
+\newcommand{\UltraFunctional}{\mathscr F_{\mathrm{micro}}}
+\newcommand{\RootFunctional}{\mathscr F_{\mathrm{hess}}}
+\newcommand{\StemFunctional}{\mathscr F_{\mathrm{sel}}}
+\newcommand{\PrimStrain}{K}
+\newcommand{\PrimNeutral}{J}
+\newcommand{\PrimFree}{F}
+\newcommand{\CarrierClass}{\mathscr H_{\mathrm{car}}}
+\newcommand{\CarrierSeed}{\mathfrak S}
+\newcommand{\RelabelSeed}{\mathfrak R}
+\newcommand{\FreeSeed}{\mathfrak F}
+\newcommand{\epsIR}{\varepsilon}
+\newcommand{\ProtoTensorClass}{\mathscr Y_{\mathrm{car}}}
+\newcommand{\ProtoRelabelClass}{\mathscr Y_{\mathrm{cur}}}
+\newcommand{\ProtoFreeClass}{\mathscr Y_{\mathrm{hom}}}
+\newcommand{\ProtoTensor}{\mathfrak Y}
+\newcommand{\ProtoRelabel}{\mathfrak K}
+\newcommand{\ProtoFree}{\mathfrak Z}
+\newcommand{\UltraTensorClass}{\mathscr Z_{\mathrm{car}}}
+\newcommand{\UltraRelabelClass}{\mathscr Z_{\mathrm{cur}}}
+\newcommand{\UltraFreeClass}{\mathscr Z_{\mathrm{hom}}}
+\newcommand{\UltraTensor}{\mathfrak M}
+\newcommand{\UltraRelabel}{\mathfrak N}
+\newcommand{\UltraFree}{\mathfrak P}
+\newcommand{\UltraCarProj}{\Pi_{\mathrm{mic,car}}}
+\newcommand{\UltraCurProj}{\Pi_{\mathrm{mic,cur}}}
+\newcommand{\UltraHomProj}{\Pi_{\mathrm{mic,hom}}}
+\newcommand{\UltraCarGap}{\delta_{\mathrm{mic,car}}}
+\newcommand{\UltraCurGap}{\delta_{\mathrm{mic,cur}}}
+\newcommand{\UltraHomGap}{\delta_{\mathrm{mic,hom}}}
+\newcommand{\TensorDefect}{\mathcal D_{\mathrm{car}}}
+\newcommand{\CurDefect}{\mathcal D_{\mathrm{cur}}}
+\newcommand{\HomDefect}{\mathcal D_{\mathrm{hom}}}
+\newcommand{\RootTensorClass}{\mathscr U_{\mathrm{car}}}
+\newcommand{\RootRelabelClass}{\mathscr U_{\mathrm{cur}}}
+\newcommand{\RootFreeClass}{\mathscr U_{\mathrm{hom}}}
+\newcommand{\RootTensor}{\mathfrak U}
+\newcommand{\RootRelabel}{\mathfrak V}
+\newcommand{\RootFree}{\mathfrak Q}
+\newcommand{\TensorSymProj}{\Pi_{\mathrm{sym,car}}}
+\newcommand{\CurSymProj}{\Pi_{\mathrm{sym,cur}}}
+\newcommand{\HomSymProj}{\Pi_{\mathrm{sym,hom}}}
+\newcommand{\TensorCompat}{\mathcal C_{\mathrm{car}}}
+\newcommand{\CurCompat}{\mathcal C_{\mathrm{cur}}}
+\newcommand{\HomCompat}{\mathcal C_{\mathrm{hom}}}
+\newcommand{\TensorHess}{\mathcal H_{\mathrm{car}}}
+\newcommand{\CurHess}{\mathcal H_{\mathrm{cur}}}
+\newcommand{\HomHess}{\mathcal H_{\mathrm{hom}}}
+\newcommand{\TensorCmpProj}{\Pi_{\mathrm{cmp,car}}}
+\newcommand{\CurCmpProj}{\Pi_{\mathrm{cmp,cur}}}
+\newcommand{\HomCmpProj}{\Pi_{\mathrm{cmp,hom}}}
+\newcommand{\TensorSymAct}{\mathscr U_{\mathrm{car}}}
+\newcommand{\CurSymAct}{\mathscr U_{\mathrm{cur}}}
+\newcommand{\HomSymAct}{\mathscr U_{\mathrm{hom}}}
+\newcommand{\TensorResp}{\mathcal R_{\mathrm{sel,car}}}
+\newcommand{\CurResp}{\mathcal R_{\mathrm{sel,cur}}}
+\newcommand{\HomResp}{\mathcal R_{\mathrm{sel,hom}}}
+\newcommand{\StemCarGap}{\rho_{\mathrm{sel,car}}}
+\newcommand{\StemCurGap}{\rho_{\mathrm{sel,cur}}}
+\newcommand{\StemHomGap}{\rho_{\mathrm{sel,hom}}}
+\newcommand{\Fix}{\operatorname{Fix}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Substrate-Response / Self-Response Charge-Polarization Candidate\\
+\large Quartic-Completion Selection-Principle Primitive-Reservoir Carrier-Origin\\
+\large Precursor-Selection Exact-Preservation Normal-Form Microphysical-Hessian Deeper-Origin Note}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The exact-preservation normal-form microphysical-Hessian-origin note already shows that the previous defect-null microphysical construction is not primitive at present scope. The previous microphysical spaces are the closed symmetry-fixed compatibility sectors of still sharper substrate spaces
+\[
+\RootTensorClass,\qquad
+\RootRelabelClass,\qquad
+\RootFreeClass,
+\]
+and the previous defect operators are the square roots of reduced equilibrium Hessians
+\[
+\TensorHess,\qquad
+\CurHess,\qquad
+\HomHess
+\]
+on those sectors. What remained open is one layer deeper again: why those symmetry projectors, compatibility kernels, reduced Hessians, and their coercive positive-gap estimates should exist at all rather than being the present deepest disciplined postulate.
+
+The present note addresses exactly that burden at still sharper symmetry-charge / compatibility-response scope. It does not change the one-metric charge-polarization line, the exact-preservation normal form, the carrier-origin functional, the primitive reservoir, the microscopic-equilibrium reservoir, or the completion solve. Instead it equips the same sharper Hilbert sectors with more primitive exact-preserving structure:
+\begin{enumerate}
+    \item compact unitary symmetry actions whose Haar averages force the recorded symmetry projectors
+    \[
+    \TensorSymProj,\qquad
+    \CurSymProj,\qquad
+    \HomSymProj;
+    \]
+    \item exact-preserving compatibility-current maps whose linearizations force the recorded compatibility operators
+    \[
+    \TensorCompat,\qquad
+    \CurCompat,\qquad
+    \HomCompat;
+    \]
+    \item nonnegative self-adjoint primitive response operators
+    \[
+    \TensorResp,\qquad
+    \CurResp,\qquad
+    \HomResp
+    \]
+    whose compressions to the symmetry-fixed compatibility sectors are exactly the recorded reduced Hessians
+    \[
+    \TensorHess,\qquad
+    \CurHess,\qquad
+    \HomHess.
+    \]
+\end{enumerate}
+The symmetry-breaking energies are positive and vanish exactly on the fixed-point sectors. The compatibility energies are positive and vanish exactly on the compatibility kernels. The primitive response operators are nonnegative and carry positive spectral gaps on the orthogonal complements of their zero-response sectors. Hence the recorded microphysical spaces
+\[
+\UltraTensorClass=\operatorname{ran}\TensorSymProj\cap\ker\TensorCompat,\qquad
+\UltraRelabelClass=\operatorname{ran}\CurSymProj\cap\ker\CurCompat,\qquad
+\UltraFreeClass=\operatorname{ran}\HomSymProj\cap\ker\HomCompat
+\]
+are forced as the stationary unsuppressed sectors of a deeper selection functional, and the reduced Hessians inherit the same zero-response kernels, the same orthogonal kernel projectors, and the same coercive gaps.
+
+After reduction to those stationary unsuppressed sectors, the deeper selection functional becomes exactly the same recorded Hessian-layer functional
+\[
+\RootFunctional[\UltraTensor,\UltraRelabel,\UltraFree].
+\]
+By the previous note, that is exactly the same microphysical exact-preservation functional
+\[
+\UltraFunctional[\UltraTensor,\UltraRelabel,\UltraFree].
+\]
+Therefore the same exact-preservation normal form, the same carrier-origin functional, the same primitive reservoir, the same microscopic-equilibrium reservoir, the same \(\Sigma^{\mathrm{cmp}}\) solve, the same \(\Pi_{\mathrm{free}}H=0\) outcome, the same substrate and observer solves, the same one operative metric, and the recorded Phase D / E and Phase F gains are all preserved unchanged.
+
+The scope remains disciplined. This note does not claim a final ultraviolet completion or a unique ultimate substrate theory. Its exact positive claim is narrower: the symmetry-projector / compatibility-kernel / reduced-Hessian package of the previous note is no longer primitive at current scope, but is itself the reduced stationary output of a still more primitive symmetry-charge / compatibility-response layer while preserving the same downstream package.
+\end{abstract}
+
+\section{Introduction}
+
+The active charge-polarization line has already crossed the candidate, gate, controlled-limit, residual-sector, redesign, substrate-anchoring, substrate-action, kernel-origin, deeper-selection, primitive-reservoir, carrier-origin, precursor-selection, exact-preservation normal-form, microphysical-origin, and microphysical-Hessian-origin steps on the same one-metric GR route. The next burden therefore sharpens again. It is not another packaging pass. It is not stronger promotion language. It is not, by default, another anchored positive-pair side continuation. It is to go one layer below the current Hessian-layer construction and explain why that construction itself is forced.
+
+That burden has four parts. First, one must explain why the recorded symmetry projectors
+\[
+\TensorSymProj,\qquad
+\CurSymProj,\qquad
+\HomSymProj
+\]
+should exist rather than being declared by hand. Second, one must explain why the recorded compatibility operators
+\[
+\TensorCompat,\qquad
+\CurCompat,\qquad
+\HomCompat
+\]
+should define the admissible sectors, rather than merely being imposed. Third, one must explain why the reduced equilibrium Hessians
+\[
+\TensorHess,\qquad
+\CurHess,\qquad
+\HomHess
+\]
+and their coercive gaps should exist at all. Fourth, one must re-show that solving this deeper burden changes none of the already recorded downstream gains: the same exact-preservation normal form, the same carrier-origin functional, the same primitive and microscopic-equilibrium reservoirs, the same \(\Sigma^{\mathrm{cmp}}\) solve, the same \(\Pi_{\mathrm{free}}H=0\) outcome, the same one operative metric, and the same recorded Phase D / E and Phase F conclusions must remain intact.
+
+The key move of the present note is to place a still deeper exact-preserving quadratic layer under the Hessian construction. That deeper layer is not another new observer-level modification. It is a symmetry-charge / compatibility-response layer on the sharper substrate sectors themselves. Compact exact-preserving symmetry actions generate positive symmetry-breaking energies whose zero set is exactly the fixed-point sector. Compatibility-current maps generate positive compatibility energies whose zero set is exactly the compatibility kernel. Primitive response operators generate the remaining equilibrium-response energy on the fixed compatible sector, and their zero-response directions are the previously recorded exact-preserving ambient sectors. Because every exact-breaking direction is strictly positive at that deeper scope, the old Hessian-layer package appears as the reduced stationary unsuppressed sector rather than as a new primitive postulate.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active manuscript sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not claim a final microscopic completion, a uniqueness theorem for every conceivable deeper substrate model, or a wider theorem boundary than the current one-metric exact-preservation chain. Its narrower positive move is exact and current-scope: the symmetry-projector / compatibility-kernel / reduced-Hessian package of the previous note is itself forced as the stationary reduced form of a still more primitive symmetry-charge / compatibility-response layer, with no change to the downstream completion package.
+
+\section{Fixed Inputs from the Recorded Completion Line}
+
+\begin{definition}[Fixed charge-polarization branch and completion solve]
+\label{def:fixed_branch}
+The present note keeps fixed the same charge-polarization branch
+\begin{equation}
+\CandidateMetric
+=
+\ObserverMetric+\BaseShift+\ResponseShift,
+\qquad
+\CompletedMetric
+=
+\ObserverMetric+\BaseShift+\ResponseShift+\CompShift,
+\label{eq:fixed_metrics}
+\end{equation}
+with lifted variables satisfying
+\begin{equation}
+\ObserverMap^*\BaseLift=\BaseShift,
+\qquad
+\ObserverMap^*\ResponseLift=\ResponseShift,
+\qquad
+\ObserverMap^*\CompLift=\CompShift.
+\label{eq:fixed_lifts}
+\end{equation}
+The same completion class \(\CompClass\) and the same free-sector condition are also fixed:
+\begin{equation}
+\CompLift\in \CompClass,
+\qquad
+\FreeProj \CompLift=0.
+\label{eq:free_condition}
+\end{equation}
+The same substrate and observer completion equations remain fixed as well:
+\begin{equation}
+\SubReducedEin(\CompLift)=-\ResidualLift,
+\qquad
+\ReducedEin(\CompShift)=-\ResidualCore.
+\label{eq:fixed_solves}
+\end{equation}
+\end{definition}
+
+\begin{definition}[Recorded downstream exact-preservation chain]
+\label{def:downstream_chain}
+The symbols
+\[
+\DeepFunctional,\qquad
+\CarrierFunctional,\qquad
+\PrimFunctional,\qquad
+\MicFunctional
+\]
+denote the same exact-preservation normal form, carrier-origin functional, primitive reservoir, and microscopic-equilibrium completion reservoir already fixed in the preceding notes on the same one-metric line. The present note does not modify their formulas, their visible slots, or their elimination order.
+
+At fixed current scope, the downstream chain recorded above the present note is:
+\begin{equation}
+\text{deeper layer}
+\Longrightarrow
+\RootFunctional
+\Longrightarrow
+\UltraFunctional
+\Longrightarrow
+\DeepFunctional
+\Longrightarrow
+\CarrierFunctional
+\Longrightarrow
+\PrimFunctional
+\Longrightarrow
+\MicFunctional
+\Longrightarrow
+\Sigma^{\mathrm{cmp}}.
+\label{eq:chain}
+\end{equation}
+The present task is to derive the first arrow in \eqref{eq:chain} while leaving every later arrow unchanged.
+\end{definition}
+
+\begin{definition}[Recorded Hessian-layer package]
+\label{def:recorded_hessian}
+The previous microphysical-Hessian-origin note fixes sharper Hilbert sectors
+\[
+\RootTensorClass,\qquad
+\RootRelabelClass,\qquad
+\RootFreeClass
+\]
+equipped with symmetry projectors
+\[
+\TensorSymProj,\qquad
+\CurSymProj,\qquad
+\HomSymProj
+\]
+and bounded compatibility operators
+\[
+\TensorCompat,\qquad
+\CurCompat,\qquad
+\HomCompat.
+\]
+The recorded microphysical sectors are
+\begin{equation}
+\UltraTensorClass=\operatorname{ran}\TensorSymProj\cap\ker\TensorCompat,
+\qquad
+\UltraRelabelClass=\operatorname{ran}\CurSymProj\cap\ker\CurCompat,
+\qquad
+\UltraFreeClass=\operatorname{ran}\HomSymProj\cap\ker\HomCompat.
+\label{eq:ultra_sectors_recorded}
+\end{equation}
+On those sectors, the same note fixes nonnegative self-adjoint reduced Hessians
+\[
+\TensorHess,\qquad
+\CurHess,\qquad
+\HomHess
+\]
+whose kernels are the exact-preserving ambient projected sectors
+\[
+\ProtoTensorClass=\ker\TensorHess,
+\qquad
+\ProtoRelabelClass=\ker\CurHess,
+\qquad
+\ProtoFreeClass=\ker\HomHess,
+\]
+with orthogonal kernel projectors
+\[
+\UltraCarProj:\UltraTensorClass\to\ProtoTensorClass,\qquad
+\UltraCurProj:\UltraRelabelClass\to\ProtoRelabelClass,\qquad
+\UltraHomProj:\UltraFreeClass\to\ProtoFreeClass.
+\]
+The fixed reduced Hessian functional is
+\begin{equation}
+\begin{aligned}
+\RootFunctional[\UltraTensor,\UltraRelabel,\UltraFree]
+\equiv\;
+&\ProtoFunctional[
+\UltraCarProj\UltraTensor,\UltraCurProj\UltraRelabel,\UltraHomProj\UltraFree]
+\\
+&+\frac12\langle \TensorHess\UltraTensor,\UltraTensor\rangle_{\mathrm{micro,car}}
++\frac12\langle \CurHess\UltraRelabel,\UltraRelabel\rangle_{\mathrm{micro,cur}}
++\frac12\langle \HomHess\UltraFree,\UltraFree\rangle_{\mathrm{micro,hom}}.
+\end{aligned}
+\label{eq:Froot_recorded}
+\end{equation}
+The previous note already proves
+\begin{equation}
+\RootFunctional[\UltraTensor,\UltraRelabel,\UltraFree]
+=
+\UltraFunctional[\UltraTensor,\UltraRelabel,\UltraFree].
+\label{eq:Froot_equals_Fultra_recorded}
+\end{equation}
+\end{definition}
+
+\section{Still-Deeper Symmetry-Charge / Compatibility-Response Layer}
+
+\begin{definition}[Compact exact-preserving symmetry actions]
+\label{def:symmetry_actions}
+For each sharper sector, let
+\[
+G_{\mathrm{car}},\qquad
+G_{\mathrm{cur}},\qquad
+G_{\mathrm{hom}}
+\]
+be compact groups with normalized Haar measures
+\[
+\mu_{\mathrm{car}},\qquad
+\mu_{\mathrm{cur}},\qquad
+\mu_{\mathrm{hom}}
+\]
+and strongly continuous unitary representations
+\[
+\TensorSymAct:G_{\mathrm{car}}\to\mathcal U(\RootTensorClass),\qquad
+\CurSymAct:G_{\mathrm{cur}}\to\mathcal U(\RootRelabelClass),\qquad
+\HomSymAct:G_{\mathrm{hom}}\to\mathcal U(\RootFreeClass).
+\]
+Assume these actions are exact-preserving in the sense that they leave the fixed downstream visible functional data unchanged. Define the Haar-average projectors by
+\begin{equation}
+\TensorSymProj
+\equiv
+\int_{G_{\mathrm{car}}}\TensorSymAct(g)\,d\mu_{\mathrm{car}}(g),
+\qquad
+\CurSymProj
+\equiv
+\int_{G_{\mathrm{cur}}}\CurSymAct(g)\,d\mu_{\mathrm{cur}}(g),
+\qquad
+\HomSymProj
+\equiv
+\int_{G_{\mathrm{hom}}}\HomSymAct(g)\,d\mu_{\mathrm{hom}}(g).
+\label{eq:haar_projectors}
+\end{equation}
+For \(\RootTensor\in\RootTensorClass\), \(\RootRelabel\in\RootRelabelClass\), and \(\RootFree\in\RootFreeClass\), define the symmetry-breaking energies
+\begin{equation}
+\mathcal S_{\mathrm{car}}(\RootTensor)
+\equiv
+\frac12\int_{G_{\mathrm{car}}}
+\norm{\RootTensor-\TensorSymAct(g)\RootTensor}_{\mathrm{root,car}}^2
+\;d\mu_{\mathrm{car}}(g),
+\label{eq:scar}
+\end{equation}
+\begin{equation}
+\mathcal S_{\mathrm{cur}}(\RootRelabel)
+\equiv
+\frac12\int_{G_{\mathrm{cur}}}
+\norm{\RootRelabel-\CurSymAct(g)\RootRelabel}_{\mathrm{root,cur}}^2
+\;d\mu_{\mathrm{cur}}(g),
+\label{eq:scur}
+\end{equation}
+\begin{equation}
+\mathcal S_{\mathrm{hom}}(\RootFree)
+\equiv
+\frac12\int_{G_{\mathrm{hom}}}
+\norm{\RootFree-\HomSymAct(g)\RootFree}_{\mathrm{root,hom}}^2
+\;d\mu_{\mathrm{hom}}(g).
+\label{eq:shom}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[Why the symmetry projectors are forced]
+\label{prop:symmetry_forced}
+The operators in \eqref{eq:haar_projectors} are orthogonal projectors onto the fixed-point sectors of the compact exact-preserving symmetry actions:
+\[
+\operatorname{ran}\TensorSymProj=\Fix(\TensorSymAct),\qquad
+\operatorname{ran}\CurSymProj=\Fix(\CurSymAct),\qquad
+\operatorname{ran}\HomSymProj=\Fix(\HomSymAct).
+\]
+Moreover,
+\begin{equation}
+\mathcal S_{\mathrm{car}}(\RootTensor)
+=
+\norm{(\mathbf 1-\TensorSymProj)\RootTensor}_{\mathrm{root,car}}^2,
+\label{eq:scar_identity}
+\end{equation}
+\begin{equation}
+\mathcal S_{\mathrm{cur}}(\RootRelabel)
+=
+\norm{(\mathbf 1-\CurSymProj)\RootRelabel}_{\mathrm{root,cur}}^2,
+\label{eq:scur_identity}
+\end{equation}
+\begin{equation}
+\mathcal S_{\mathrm{hom}}(\RootFree)
+=
+\norm{(\mathbf 1-\HomSymProj)\RootFree}_{\mathrm{root,hom}}^2.
+\label{eq:shom_identity}
+\end{equation}
+Hence the symmetry-fixed sectors are exactly the zero-symmetry-breaking sectors.
+\end{proposition}
+
+\begin{proof}
+For a compact unitary representation, the Haar average is the orthogonal projector onto the fixed-point subspace. For the tensor sector,
+\[
+\begin{aligned}
+2\mathcal S_{\mathrm{car}}(\RootTensor)
+&=
+\int_{G_{\mathrm{car}}}
+\norm{\RootTensor-\TensorSymAct(g)\RootTensor}_{\mathrm{root,car}}^2
+\;d\mu_{\mathrm{car}}(g)
+\\
+&=
+2\norm{\RootTensor}_{\mathrm{root,car}}^2
+-2\Re\left\langle
+\int_{G_{\mathrm{car}}}\TensorSymAct(g)\,d\mu_{\mathrm{car}}(g)\,\RootTensor,
+\RootTensor
+\right\rangle_{\mathrm{root,car}}
+\\
+&=
+2\norm{\RootTensor}_{\mathrm{root,car}}^2
+-2\langle \TensorSymProj\RootTensor,\RootTensor\rangle_{\mathrm{root,car}}
+\\
+&=
+2\norm{(\mathbf 1-\TensorSymProj)\RootTensor}_{\mathrm{root,car}}^2,
+\end{aligned}
+\]
+which proves \eqref{eq:scar_identity}. The same calculation gives \eqref{eq:scur_identity} and \eqref{eq:shom_identity}. Since a squared norm vanishes exactly on the corresponding projector range, the fixed-point sectors are precisely the zero-symmetry-breaking sectors.
+\end{proof}
+
+\begin{definition}[Compatibility currents and kernel projectors]
+\label{def:compat_currents}
+Let
+\[
+\mathfrak c_{\mathrm{car}}:\operatorname{ran}\TensorSymProj\to \mathscr M_{\mathrm{car}},\qquad
+\mathfrak c_{\mathrm{cur}}:\operatorname{ran}\CurSymProj\to \mathscr M_{\mathrm{cur}},\qquad
+\mathfrak c_{\mathrm{hom}}:\operatorname{ran}\HomSymProj\to \mathscr M_{\mathrm{hom}}
+\]
+be exact-preserving compatibility-current maps into Hilbert spaces
+\[
+\mathscr M_{\mathrm{car}},\qquad
+\mathscr M_{\mathrm{cur}},\qquad
+\mathscr M_{\mathrm{hom}},
+\]
+with
+\[
+\mathfrak c_{\mathrm{car}}(0)=0,\qquad
+\mathfrak c_{\mathrm{cur}}(0)=0,\qquad
+\mathfrak c_{\mathrm{hom}}(0)=0.
+\]
+Assume their Fr\'echet derivatives at the fixed branch are exactly the recorded compatibility operators:
+\begin{equation}
+D\mathfrak c_{\mathrm{car}}(0)=\TensorCompat,\qquad
+D\mathfrak c_{\mathrm{cur}}(0)=\CurCompat,\qquad
+D\mathfrak c_{\mathrm{hom}}(0)=\HomCompat.
+\label{eq:compat_linearizations}
+\end{equation}
+At quadratic exact-preservation scope, the compatibility energies are therefore
+\begin{equation}
+\mathcal C_{\mathrm{car}}(\RootTensor)
+\equiv
+\frac12\norm{\TensorCompat\TensorSymProj\RootTensor}_{\mathrm{cmp,car}}^2,
+\label{eq:ccar}
+\end{equation}
+\begin{equation}
+\mathcal C_{\mathrm{cur}}(\RootRelabel)
+\equiv
+\frac12\norm{\CurCompat\CurSymProj\RootRelabel}_{\mathrm{cmp,cur}}^2,
+\label{eq:ccur}
+\end{equation}
+\begin{equation}
+\mathcal C_{\mathrm{hom}}(\RootFree)
+\equiv
+\frac12\norm{\HomCompat\HomSymProj\RootFree}_{\mathrm{cmp,hom}}^2.
+\label{eq:chom}
+\end{equation}
+Because bounded operators on Hilbert spaces have closed kernels, the orthogonal projectors onto the compatibility kernels inside the fixed-point sectors exist. Denote them by
+\[
+\TensorCmpProj:\operatorname{ran}\TensorSymProj\to\ker\TensorCompat,\qquad
+\CurCmpProj:\operatorname{ran}\CurSymProj\to\ker\CurCompat,\qquad
+\HomCmpProj:\operatorname{ran}\HomSymProj\to\ker\HomCompat.
+\]
+\end{definition}
+
+\begin{proposition}[Why the symmetry-fixed compatibility sectors are forced]
+\label{prop:compatibility_forced}
+At current quadratic exact-preservation scope, the stationary unsuppressed sectors are exactly the recorded symmetry-fixed compatibility sectors:
+\begin{equation}
+\operatorname{ran}\TensorCmpProj
+=
+\operatorname{ran}\TensorSymProj\cap\ker\TensorCompat
+=
+\UltraTensorClass,
+\label{eq:ultra_tensor_recovered}
+\end{equation}
+\begin{equation}
+\operatorname{ran}\CurCmpProj
+=
+\operatorname{ran}\CurSymProj\cap\ker\CurCompat
+=
+\UltraRelabelClass,
+\label{eq:ultra_cur_recovered}
+\end{equation}
+\begin{equation}
+\operatorname{ran}\HomCmpProj
+=
+\operatorname{ran}\HomSymProj\cap\ker\HomCompat
+=
+\UltraFreeClass.
+\label{eq:ultra_hom_recovered}
+\end{equation}
+Equivalently, the zero-symmetry-breaking and zero-compatibility sectors are precisely the recorded microphysical sectors.
+\end{proposition}
+
+\begin{proof}
+By Proposition \ref{prop:symmetry_forced}, zero symmetry-breaking means membership in the fixed-point sector. Inside that fixed-point sector, the compatibility energies \eqref{eq:ccar}--\eqref{eq:chom} vanish exactly when the linearized compatibility currents vanish. Hence
+\[
+\mathcal S_{\mathrm{car}}(\RootTensor)=0
+\quad\text{and}\quad
+\mathcal C_{\mathrm{car}}(\RootTensor)=0
+\]
+if and only if
+\[
+\RootTensor\in \operatorname{ran}\TensorSymProj\cap\ker\TensorCompat.
+\]
+The tensor identity \eqref{eq:ultra_tensor_recovered} follows because \(\TensorCmpProj\) is the orthogonal projector onto that closed kernel inside \(\operatorname{ran}\TensorSymProj\). The relabeling and homogeneous identities are identical.
+\end{proof}
+
+\begin{definition}[Primitive response operators and reduced Hessians]
+\label{def:primitive_response}
+Let
+\[
+\TensorResp:\operatorname{ran}\TensorSymProj\to\operatorname{ran}\TensorSymProj,\qquad
+\CurResp:\operatorname{ran}\CurSymProj\to\operatorname{ran}\CurSymProj,\qquad
+\HomResp:\operatorname{ran}\HomSymProj\to\operatorname{ran}\HomSymProj
+\]
+be nonnegative self-adjoint primitive response operators satisfying
+\begin{equation}
+\TensorResp\,\TensorCmpProj=\TensorCmpProj\,\TensorResp,\qquad
+\CurResp\,\CurCmpProj=\CurCmpProj\,\CurResp,\qquad
+\HomResp\,\HomCmpProj=\HomCmpProj\,\HomResp.
+\label{eq:commute_cmp}
+\end{equation}
+Define the reduced equilibrium Hessians as the compressions of the primitive response operators to the symmetry-fixed compatibility sectors:
+\begin{equation}
+\TensorHess
+\equiv
+\TensorCmpProj\TensorResp\TensorCmpProj\Big|_{\UltraTensorClass},
+\qquad
+\CurHess
+\equiv
+\CurCmpProj\CurResp\CurCmpProj\Big|_{\UltraRelabelClass},
+\qquad
+\HomHess
+\equiv
+\HomCmpProj\HomResp\HomCmpProj\Big|_{\UltraFreeClass}.
+\label{eq:hess_from_response}
+\end{equation}
+Their exact-preserving zero-response sectors are
+\begin{equation}
+\ProtoTensorClass=\ker\TensorHess,\qquad
+\ProtoRelabelClass=\ker\CurHess,\qquad
+\ProtoFreeClass=\ker\HomHess.
+\label{eq:proto_from_response}
+\end{equation}
+Assume moreover the primitive response gaps
+\begin{equation}
+\langle \TensorResp\UltraTensor,\UltraTensor\rangle_{\mathrm{root,car}}
+\ge
+\StemCarGap\norm{(\mathbf 1-\UltraCarProj)\UltraTensor}_{\mathrm{micro,car}}^2,
+\qquad
+\StemCarGap>0,
+\label{eq:resp_gap_car}
+\end{equation}
+\begin{equation}
+\langle \CurResp\UltraRelabel,\UltraRelabel\rangle_{\mathrm{root,cur}}
+\ge
+\StemCurGap\norm{(\mathbf 1-\UltraCurProj)\UltraRelabel}_{\mathrm{micro,cur}}^2,
+\qquad
+\StemCurGap>0,
+\label{eq:resp_gap_cur}
+\end{equation}
+\begin{equation}
+\langle \HomResp\UltraFree,\UltraFree\rangle_{\mathrm{root,hom}}
+\ge
+\StemHomGap\norm{(\mathbf 1-\UltraHomProj)\UltraFree}_{\mathrm{micro,hom}}^2,
+\qquad
+\StemHomGap>0,
+\label{eq:resp_gap_hom}
+\end{equation}
+for all
+\[
+\UltraTensor\in\UltraTensorClass,\qquad
+\UltraRelabel\in\UltraRelabelClass,\qquad
+\UltraFree\in\UltraFreeClass.
+\]
+\end{definition}
+
+\begin{proposition}[Why the reduced Hessians and gaps are forced]
+\label{prop:hess_gap_forced}
+The reduced equilibrium Hessians \eqref{eq:hess_from_response} are nonnegative self-adjoint operators on the recorded microphysical spaces. Their kernels are exactly the recorded ambient projected sectors \eqref{eq:proto_from_response}, and the orthogonal projectors
+\[
+\UltraCarProj,\qquad
+\UltraCurProj,\qquad
+\UltraHomProj
+\]
+are therefore forced as the orthogonal kernel projectors of those reduced Hessians. Moreover, the reduced Hessians inherit the same positive gaps:
+\begin{equation}
+\langle \TensorHess\UltraTensor,\UltraTensor\rangle_{\mathrm{micro,car}}
+\ge
+\StemCarGap\norm{(\mathbf 1-\UltraCarProj)\UltraTensor}_{\mathrm{micro,car}}^2,
+\label{eq:hess_gap_car}
+\end{equation}
+\begin{equation}
+\langle \CurHess\UltraRelabel,\UltraRelabel\rangle_{\mathrm{micro,cur}}
+\ge
+\StemCurGap\norm{(\mathbf 1-\UltraCurProj)\UltraRelabel}_{\mathrm{micro,cur}}^2,
+\label{eq:hess_gap_cur}
+\end{equation}
+\begin{equation}
+\langle \HomHess\UltraFree,\UltraFree\rangle_{\mathrm{micro,hom}}
+\ge
+\StemHomGap\norm{(\mathbf 1-\UltraHomProj)\UltraFree}_{\mathrm{micro,hom}}^2.
+\label{eq:hess_gap_hom}
+\end{equation}
+Hence one may identify
+\begin{equation}
+\UltraCarGap=\StemCarGap,\qquad
+\UltraCurGap=\StemCurGap,\qquad
+\UltraHomGap=\StemHomGap.
+\label{eq:gaps_identified}
+\end{equation}
+Finally, the previous defect operators are recovered again by functional calculus:
+\begin{equation}
+\TensorDefect=\TensorHess^{1/2},\qquad
+\CurDefect=\CurHess^{1/2},\qquad
+\HomDefect=\HomHess^{1/2}.
+\label{eq:defects_recovered_again}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Because \(\TensorCmpProj\) is an orthogonal projector onto a closed invariant subspace of the nonnegative self-adjoint operator \(\TensorResp\), the compression \(\TensorHess\) in \eqref{eq:hess_from_response} is itself nonnegative and self-adjoint on \(\UltraTensorClass\). The same holds for \(\CurHess\) and \(\HomHess\). Their kernels are closed Hilbert subspaces, so the orthogonal projectors onto those kernels exist and are exactly \(\UltraCarProj\), \(\UltraCurProj\), and \(\UltraHomProj\).
+
+For \(\UltraTensor\in\UltraTensorClass\), \(\TensorCmpProj\UltraTensor=\UltraTensor\), so
+\[
+\langle \TensorHess\UltraTensor,\UltraTensor\rangle_{\mathrm{micro,car}}
+=
+\langle \TensorResp\UltraTensor,\UltraTensor\rangle_{\mathrm{root,car}}.
+\]
+Applying \eqref{eq:resp_gap_car} yields \eqref{eq:hess_gap_car}. The relabeling and homogeneous estimates follow identically from \eqref{eq:resp_gap_cur} and \eqref{eq:resp_gap_hom}. This proves \eqref{eq:gaps_identified}. The defect identities \eqref{eq:defects_recovered_again} are the standard square-root identities for nonnegative self-adjoint operators.
+\end{proof}
+
+\begin{definition}[Primitive symmetry-response functional]
+\label{def:Fstem}
+The still deeper selection functional is
+\begin{equation}
+\begin{aligned}
+\StemFunctional[\RootTensor,\RootRelabel,\RootFree]
+\equiv\;
+&\ProtoFunctional[
+\UltraCarProj\TensorCmpProj\TensorSymProj\RootTensor,\,
+\UltraCurProj\CurCmpProj\CurSymProj\RootRelabel,\,
+\UltraHomProj\HomCmpProj\HomSymProj\RootFree]
+\\
+&+\mathcal S_{\mathrm{car}}(\RootTensor)
++\mathcal S_{\mathrm{cur}}(\RootRelabel)
++\mathcal S_{\mathrm{hom}}(\RootFree)
+\\
+&+\mathcal C_{\mathrm{car}}(\RootTensor)
++\mathcal C_{\mathrm{cur}}(\RootRelabel)
++\mathcal C_{\mathrm{hom}}(\RootFree)
+\\
+&+\frac12
+\langle \TensorResp\TensorCmpProj\TensorSymProj\RootTensor,\,
+\TensorCmpProj\TensorSymProj\RootTensor\rangle_{\mathrm{root,car}}
+\\
+&+\frac12
+\langle \CurResp\CurCmpProj\CurSymProj\RootRelabel,\,
+\CurCmpProj\CurSymProj\RootRelabel\rangle_{\mathrm{root,cur}}
+\\
+&+\frac12
+\langle \HomResp\HomCmpProj\HomSymProj\RootFree,\,
+\HomCmpProj\HomSymProj\RootFree\rangle_{\mathrm{root,hom}}.
+\end{aligned}
+\label{eq:Fstem}
+\end{equation}
+\end{definition}
+
+\begin{remark}[Why no additional visible slots appear]
+\label{rem:no_new_slots}
+The visible part of \(\StemFunctional\) is still routed only through
+\[
+\ProtoTensorClass,\qquad
+\ProtoRelabelClass,\qquad
+\ProtoFreeClass
+\]
+because the present note is required to preserve exactly the same downstream package. Any additional unsuppressed visible slot in \(\StemFunctional\) would alter the recorded ambient projected-sector construction, hence the recorded exact-preservation normal form and every later stage in the chain \eqref{eq:chain}. The deeper layer is therefore allowed to add only positive symmetry-breaking, compatibility-breaking, and response energies whose stationary reduction recovers the already fixed visible package.
+\end{remark}
+
+\section{Exact Recovery of the Same Hessian Layer and Downstream Package}
+
+\begin{theorem}[Exact recovery of the same Hessian functional]
+\label{thm:recover_root}
+For
+\begin{equation}
+\UltraTensor=\TensorCmpProj\TensorSymProj\RootTensor,
+\qquad
+\UltraRelabel=\CurCmpProj\CurSymProj\RootRelabel,
+\qquad
+\UltraFree=\HomCmpProj\HomSymProj\RootFree,
+\label{eq:ultra_from_root}
+\end{equation}
+the deeper functional \eqref{eq:Fstem} satisfies
+\begin{equation}
+\begin{aligned}
+\StemFunctional[\RootTensor,\RootRelabel,\RootFree]
+=\;
+&\RootFunctional[\UltraTensor,\UltraRelabel,\UltraFree]
+\\
+&+\norm{(\mathbf 1-\TensorSymProj)\RootTensor}_{\mathrm{root,car}}^2
++\norm{(\mathbf 1-\CurSymProj)\RootRelabel}_{\mathrm{root,cur}}^2
++\norm{(\mathbf 1-\HomSymProj)\RootFree}_{\mathrm{root,hom}}^2
+\\
+&+\frac12\norm{\TensorCompat\TensorSymProj\RootTensor}_{\mathrm{cmp,car}}^2
++\frac12\norm{\CurCompat\CurSymProj\RootRelabel}_{\mathrm{cmp,cur}}^2
++\frac12\norm{\HomCompat\HomSymProj\RootFree}_{\mathrm{cmp,hom}}^2.
+\end{aligned}
+\label{eq:Fstem_decomposed}
+\end{equation}
+In particular, on the stationary unsuppressed sector
+\[
+\RootTensor\in\operatorname{ran}\TensorSymProj\cap\ker\TensorCompat,\qquad
+\RootRelabel\in\operatorname{ran}\CurSymProj\cap\ker\CurCompat,\qquad
+\RootFree\in\operatorname{ran}\HomSymProj\cap\ker\HomCompat,
+\]
+one has the exact reduction
+\begin{equation}
+\StemFunctional[\RootTensor,\RootRelabel,\RootFree]
+=
+\RootFunctional[\RootTensor,\RootRelabel,\RootFree].
+\label{eq:Fstem_equals_Froot}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+By Proposition \ref{prop:symmetry_forced},
+\[
+\mathcal S_{\mathrm{car}}(\RootTensor)
+=
+\norm{(\mathbf 1-\TensorSymProj)\RootTensor}_{\mathrm{root,car}}^2,
+\]
+and similarly for the relabeling and homogeneous sectors. By Proposition \ref{prop:compatibility_forced}, the variables in \eqref{eq:ultra_from_root} lie in the recorded microphysical spaces. By Proposition \ref{prop:hess_gap_forced},
+\[
+\TensorHess\UltraTensor
+=
+\TensorCmpProj\TensorResp\TensorCmpProj\UltraTensor
+=
+\TensorResp\UltraTensor,
+\]
+because \(\UltraTensor\in\operatorname{ran}\TensorCmpProj\). Therefore
+\[
+\langle \TensorResp\TensorCmpProj\TensorSymProj\RootTensor,
+\TensorCmpProj\TensorSymProj\RootTensor\rangle_{\mathrm{root,car}}
+=
+\langle \TensorHess\UltraTensor,\UltraTensor\rangle_{\mathrm{micro,car}},
+\]
+and analogously for the relabeling and homogeneous sectors. Substituting these identities into \eqref{eq:Fstem} yields \eqref{eq:Fstem_decomposed}. If the symmetry-breaking and compatibility-breaking terms vanish, then \(\UltraTensor=\RootTensor\), \(\UltraRelabel=\RootRelabel\), and \(\UltraFree=\RootFree\), so \eqref{eq:Fstem_equals_Froot} follows.
+\end{proof}
+
+\begin{corollary}[Exact recovery of the same microphysical functional]
+\label{cor:recover_ultra}
+On the stationary unsuppressed sector,
+\begin{equation}
+\StemFunctional[\RootTensor,\RootRelabel,\RootFree]
+=
+\UltraFunctional[\RootTensor,\RootRelabel,\RootFree].
+\label{eq:Fstem_equals_Fultra}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+This is \eqref{eq:Fstem_equals_Froot} together with the previously recorded identity \eqref{eq:Froot_equals_Fultra_recorded}.
+\end{proof}
+
+\begin{theorem}[Same exact-preservation and downstream package]
+\label{thm:same_package}
+The deeper symmetry-charge / compatibility-response layer reproduces exactly the same downstream package already recorded in the microphysical-Hessian-origin note:
+\begin{enumerate}
+    \item the same ambient projected-sector functional \(\ProtoFunctional[\ProtoTensor,\ProtoRelabel,\ProtoFree]\);
+    \item the same exact-preservation normal form \(\DeepFunctional\);
+    \item the same carrier-origin functional \(\CarrierFunctional[\CarrierSeed,\RelabelSeed,\FreeSeed]\);
+    \item the same primitive reservoir \(\PrimFunctional[\PrimStrain,\PrimNeutral,\PrimFree]\);
+    \item the same microscopic-equilibrium completion reservoir \(\MicFunctional[H,\GaugeAux]\);
+    \item the same zero-free-mode verdict \(\FreeProj \CompLift=0\);
+    \item the same substrate solve \(\SubReducedEin(\CompLift)=-\ResidualLift\);
+    \item the same observer solve \(\ReducedEin(\CompShift)=-\ResidualCore\);
+    \item the same completion solve \(\Sigma^{\mathrm{cmp}}\), the same one operative metric, and the same recorded Phase D / E and Phase F gains.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+By Theorem \ref{thm:recover_root}, the stationary unsuppressed reduction of the deeper layer is exactly the recorded Hessian-layer functional \eqref{eq:Froot_recorded}. By Corollary \ref{cor:recover_ultra}, that same reduction is exactly the recorded microphysical exact-preservation functional. Every later elimination in \eqref{eq:chain} depends only on that reduced functional and on the same fixed visible slots. Since both are unchanged, the ambient projected-sector construction, the exact-preservation normal form, the carrier-origin functional, the primitive reservoir, the microscopic-equilibrium reservoir, the free-mode verdict, the substrate and observer completion solves, and the one-metric completion package are all reproduced verbatim.
+\end{proof}
+
+\begin{corollary}[Recorded gain package is preserved]
+\label{cor:gains}
+Because the same downstream package is recovered, the recorded Phase D / E infrared-spectrum and universal-coupling verdicts, the recorded Phase F controlled GR limit, and the recorded observer-equation removal of the former genuine quartic residual sector remain preserved without modification.
+\end{corollary}
+
+\begin{proof}
+This is the direct content of Theorem \ref{thm:same_package}.
+\end{proof}
+
+\section{Claim-Boundary Verdict}
+
+\begin{theorem}[Microphysical-Hessian deeper-origin verdict]
+\label{thm:verdict}
+At the disciplined scope of the present note, the exact positive result is the following.
+\begin{enumerate}
+    \item The symmetry projectors \(\TensorSymProj,\CurSymProj,\HomSymProj\) are no longer primitive at current scope.
+    \item They are forced to be the Haar-average orthogonal projectors of compact exact-preserving symmetry actions on the sharper substrate sectors \(\RootTensorClass,\RootRelabelClass,\RootFreeClass\).
+    \item The compatibility operators \(\TensorCompat,\CurCompat,\HomCompat\) are no longer primitive linear constraints either; they are the linearized exact-preserving compatibility currents of that deeper layer.
+    \item The recorded microphysical spaces \(\UltraTensorClass,\UltraRelabelClass,\UltraFreeClass\) are therefore the stationary zero-symmetry-breaking and zero-compatibility sectors \eqref{eq:ultra_tensor_recovered}--\eqref{eq:ultra_hom_recovered}, rather than free same-layer postulates.
+    \item The reduced equilibrium Hessians \(\TensorHess,\CurHess,\HomHess\) are no longer primitive response operators; they are the compressed primitive response operators \eqref{eq:hess_from_response} on the symmetry-fixed compatibility sectors.
+    \item Their zero-response kernels are exactly the recorded ambient projected sectors \(\ProtoTensorClass,\ProtoRelabelClass,\ProtoFreeClass\), so the orthogonal kernel projectors \(\UltraCarProj,\UltraCurProj,\UltraHomProj\) are forced again.
+    \item The reduced Hessians inherit the same coercive positive gaps \(\UltraCarGap,\UltraCurGap,\UltraHomGap\), and the previous defect operators are again their square roots \eqref{eq:defects_recovered_again}.
+    \item Reducing the deeper symmetry-charge / compatibility-response functional to its stationary unsuppressed sector reproduces exactly the same Hessian-layer functional \(\RootFunctional\), hence exactly the same microphysical exact-preservation functional \(\UltraFunctional\).
+    \item The same exact-preservation normal form, the same carrier-origin functional, the same primitive reservoir, the same microscopic-equilibrium reservoir, the same \(\Pi_{\mathrm{free}}H=0\) outcome, the same \(\Sigma^{\mathrm{cmp}}\) solve, the same substrate and observer solves, the same one operative metric, and the same recorded Phase D / E and Phase F gains therefore remain unchanged.
+    \item Stronger promotion language is still not justified here, because the present note explains only the origin of the Hessian-layer construction at deeper symmetry-charge / compatibility-response scope; it does not yet derive why those compact symmetry actions, compatibility-current maps, and primitive response operators themselves are unique, final, or inevitable beyond current scope.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Items (1) and (2) are Proposition \ref{prop:symmetry_forced}. Items (3) and (4) are Definition \ref{def:compat_currents} together with Proposition \ref{prop:compatibility_forced}. Items (5), (6), and (7) are Proposition \ref{prop:hess_gap_forced}. Items (8) and (9) are Theorem \ref{thm:recover_root}, Corollary \ref{cor:recover_ultra}, and Theorem \ref{thm:same_package}. Item (10) is the present claim-boundary discipline stated in the introduction and abstract.
+\end{proof}
+
+\begin{corollary}[What remains next]
+\label{cor:what_next}
+The primary active burden moves one layer deeper again. It is no longer to justify why the symmetry projectors, compatibility kernels, and reduced Hessians of the previous note are admissible at current scope; that step is now recorded. The next honest burden is either to derive or justify why the compact symmetry actions, compatibility-current maps, and primitive response operators introduced here arise from yet more primitive substrate structure, or else to produce another comparably concrete observer-equation gain on the same one-metric line. No packaging pass, no stronger promotion language, and no default move onto the anchored positive-pair side line are justified unless they directly discharge one of those burdens.
+\end{corollary}
+
+\section{Conclusion}
+
+The positive result of this note is that the Hessian-layer construction is no longer left primitive at present scope. It is recovered from a still deeper symmetry-charge / compatibility-response layer.
+
+At that deeper level, the same sharper substrate sectors
+\[
+\RootTensorClass,\qquad
+\RootRelabelClass,\qquad
+\RootFreeClass
+\]
+carry compact exact-preserving symmetry actions whose Haar averages are exactly the recorded symmetry projectors
+\[
+\TensorSymProj,\qquad
+\CurSymProj,\qquad
+\HomSymProj.
+\]
+The corresponding symmetry-breaking energies vanish exactly on the fixed-point sectors. Inside those fixed-point sectors, exact-preserving compatibility-current maps have linearizations
+\[
+\TensorCompat,\qquad
+\CurCompat,\qquad
+\HomCompat,
+\]
+so the compatibility energies vanish exactly on their kernels. The recorded microphysical sectors are therefore forced as
+\[
+\UltraTensorClass=\operatorname{ran}\TensorSymProj\cap\ker\TensorCompat,\qquad
+\UltraRelabelClass=\operatorname{ran}\CurSymProj\cap\ker\CurCompat,\qquad
+\UltraFreeClass=\operatorname{ran}\HomSymProj\cap\ker\HomCompat.
+\]
+
+On those same sectors, nonnegative self-adjoint primitive response operators
+\[
+\TensorResp,\qquad
+\CurResp,\qquad
+\HomResp
+\]
+compress to the recorded reduced Hessians
+\[
+\TensorHess,\qquad
+\CurHess,\qquad
+\HomHess.
+\]
+Their zero-response kernels are again the recorded ambient projected sectors
+\[
+\ProtoTensorClass=\ker\TensorHess,\qquad
+\ProtoRelabelClass=\ker\CurHess,\qquad
+\ProtoFreeClass=\ker\HomHess,
+\]
+and their positive parts inherit the same coercive gaps
+\[
+\UltraCarGap,\qquad
+\UltraCurGap,\qquad
+\UltraHomGap.
+\]
+The previous defect operators are therefore again the square roots of those reduced Hessians.
+
+The deeper selection functional
+\[
+\StemFunctional[\RootTensor,\RootRelabel,\RootFree]
+\]
+then decomposes into the recorded Hessian-layer functional plus strictly positive symmetry-breaking and compatibility-breaking penalties. On the stationary unsuppressed sector, those penalties vanish, and one recovers exactly
+\[
+\RootFunctional[\UltraTensor,\UltraRelabel,\UltraFree]
+=
+\UltraFunctional[\UltraTensor,\UltraRelabel,\UltraFree].
+\]
+Hence the same exact-preservation normal form, the same carrier-origin functional, the same primitive reservoir, the same microscopic-equilibrium reservoir, the same \(\Pi_{\mathrm{free}}H=0\) outcome, the same substrate and observer solves, the same completion \(\Sigma^{\mathrm{cmp}}\), and the same one operative metric survive unchanged. The recorded Phase D / E and Phase F gains remain intact.
+
+The scope remains honest. This note does not claim a final microscopic completion or a completed GR derivation from first principles. Its exact positive result is narrower and precisely the one now needed: the symmetry-projector / compatibility-kernel / reduced-Hessian package of the previous note is itself no longer primitive at current scope, but is the stationary reduced output of a still deeper symmetry-charge / compatibility-response layer while preserving the same downstream package. The next honest burden is one layer deeper again: whether those compact symmetry actions, compatibility-current maps, and primitive response operators can themselves be derived from yet more primitive substrate structure, or else superseded by another equally concrete observer-equation gain on the same one-metric line.
+
+\end{document}
