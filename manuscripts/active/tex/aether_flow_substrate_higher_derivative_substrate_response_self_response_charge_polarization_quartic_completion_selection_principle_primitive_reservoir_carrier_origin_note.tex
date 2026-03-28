@@ -1,0 +1,790 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal A}
+\newcommand{\ObserverMap}{\Xi}
+\newcommand{\BridgeMetric}{\mathfrak g}
+\newcommand{\ObserverMetric}{g^{\mathrm{br}}}
+\newcommand{\CandidateMetric}{g^{\mathrm{cand}}}
+\newcommand{\CompletedMetric}{g^{\sharp}}
+\newcommand{\BaseShift}{\Sigma^{\mathrm{IER}}}
+\newcommand{\ResponseShift}{\Sigma^{\mathrm{resp}}}
+\newcommand{\CompShift}{\Sigma^{\mathrm{cmp}}}
+\newcommand{\BaseLift}{\widehat\Sigma^{\mathrm{IER}}}
+\newcommand{\ResponseLift}{\widehat\Sigma^{\mathrm{resp}}}
+\newcommand{\CompLift}{\widehat\Sigma^{\mathrm{cmp}}}
+\newcommand{\ReLongFour}{\widetilde{\mathcal R}_{\mu\nu}^{(\chi,\ge 4)}}
+\newcommand{\ResidualCore}{\mathcal V_{\mu\nu}^{\mathrm{res}}}
+\newcommand{\ResidualLift}{\widehat{\mathcal V}^{\mathrm{res}}}
+\newcommand{\SubEinLin}{\widehat{\mathcal E}}
+\newcommand{\SubGaugeVec}{\widehat{\mathcal B}}
+\newcommand{\SubGaugeBook}{\widehat{\mathcal G}}
+\newcommand{\SubReducedEin}{\widehat{\mathcal L}}
+\newcommand{\FreeProj}{\Pi_{\mathrm{free}}}
+\newcommand{\GaugeAux}{Y}
+\newcommand{\ReducedEin}{\mathcal L_{\ObserverMetric}}
+\newcommand{\GaugeBook}{\mathcal G_{\ObserverMetric}}
+\newcommand{\EinLin}{\mathcal E_{\ObserverMetric}}
+\newcommand{\EinQuad}{\mathcal Q_{\ge 2}^{\mathrm{Ein}}}
+\newcommand{\MatterAct}{S_{\mathrm{matter}}}
+\newcommand{\CompClass}{\mathscr C_{\mathrm{cmp}}}
+\newcommand{\CompFree}{\mathscr C_{\mathrm{cmp}}^{\mathrm{free}}}
+\newcommand{\CompForced}{\mathscr C_{\mathrm{cmp}}^{\mathrm{for}}}
+\newcommand{\CompKernel}{\mathscr K_{\mathrm{cmp}}}
+\newcommand{\MicFunctional}{\mathscr F_{\mathrm{mic}}}
+\newcommand{\PrimFunctional}{\mathscr F_{\mathrm{prim}}}
+\newcommand{\CarrierFunctional}{\mathscr F_{\mathrm{car}}}
+\newcommand{\CarrierToPrim}{\mathscr F_{\mathrm{car}\to\mathrm{prim}}}
+\newcommand{\PrimReduced}{\mathscr F_{\mathrm{prim,red}}}
+\newcommand{\FreeStiff}{\kappa_{\mathrm{free}}}
+\newcommand{\PrimStrain}{K}
+\newcommand{\PrimNeutral}{J}
+\newcommand{\PrimFree}{F}
+\newcommand{\CarrierClass}{\mathscr H_{\mathrm{car}}}
+\newcommand{\CarrierProj}{\Pi_{\mathrm{str}}}
+\newcommand{\CarrierPerp}{\Pi_{\mathrm{str}}^{\perp}}
+\newcommand{\CarrierGap}{\kappa_{\mathrm{str}}}
+\newcommand{\CarrierSeed}{\mathfrak S}
+\newcommand{\RelabelSeed}{\mathfrak R}
+\newcommand{\FreeSeed}{\mathfrak F}
+\newcommand{\StrainMult}{\Lambda}
+\newcommand{\NeutralMult}{\Omega}
+\newcommand{\FreeMult}{\Theta}
+\newcommand{\epsIR}{\varepsilon}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Substrate-Response / Self-Response Charge-Polarization Candidate\\
+\large Quartic-Completion Selection-Principle Primitive-Reservoir Carrier-Origin Note}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The previous equilibrium-reservoir primitive-origin note already derives the microscopic-equilibrium completion reservoir as the constrained coarse-grained image of a primitive branch-strain / neutral-current / free-mode block
+\[
+(\PrimStrain_{AB},\PrimNeutral_A,\PrimFree_{AB})\in
+\CompClass\times T^*\Sub\times \CompFree,
+\]
+re-showing the same completion kernel, the same neutral \(Y-\widehat{\mathcal B}(H)\) structure, the same \(\Pi_{\mathrm{free}}H=0\) outcome, the same \(\Sigma^{\mathrm{cmp}}\) solve, and the same one operative metric. The remaining burden therefore moves one layer lower again: explain why those primitive carriers themselves are the correct deeper variables rather than taking them as the present deepest block.
+
+The present note supplies that next carrier-origin step at disciplined local two-derivative scope. It introduces a still-deeper tensor seed \(\CarrierSeed_{AB}\in\CarrierClass\), a relabeling-current seed \(\RelabelSeed_A\), and a source-free homogeneous seed \(\FreeSeed_{AB}\in\CompFree\). The tensor seed lives in a larger carrier space \(\CarrierClass=\CompClass\oplus \CompClass^\perp\) with orthogonal projector \(\CarrierProj:\CarrierClass\to\CompClass\). Only the branch-compatible projection \(\CarrierProj\CarrierSeed\) enters the reduced completion Hessian and the quartic loading source, while the orthogonal complement \(\CarrierPerp\CarrierSeed\) carries a positive gap \(\CarrierGap>0\). This forces the branch-strain carrier
+\[
+\PrimStrain\equiv \CarrierProj\CarrierSeed
+\]
+as the unique unsuppressed tensor readout whose quadratic Hessian is the same completion kernel.
+
+At the same scope, relabeling data can couple to the branch only through the covector \(\widehat{\mathcal B}(\CarrierProj\CarrierSeed)\). Therefore the correct deeper relabeling readout is a covector current
+\[
+\PrimNeutral\equiv \RelabelSeed,
+\]
+and the carrier-origin functional depends on relabeling information only through the neutral combination
+\[
+\PrimNeutral-\widehat{\mathcal B}(\PrimStrain).
+\]
+The homogeneous seed \(\FreeSeed\in\CompFree\) carries the same positive free-sector gap \(\FreeStiff\) and the fixed lifted source \(\ResidualLift\in\CompForced\) couples only to \(\PrimStrain\), so the free homogeneous carrier
+\[
+\PrimFree\equiv \FreeSeed
+\]
+is genuinely gapped and cannot be loaded by \(\ResidualLift\).
+
+Constrained elimination of the still-deeper carrier-origin sector at fixed coarse readouts \((\PrimStrain,\PrimNeutral,\PrimFree)\) reproduces exactly the primitive reservoir of the previous note. A second, previously recorded coarse-graining step at fixed \((H,\GaugeAux)\) then reproduces the same microscopic-equilibrium functional \(\MicFunctional[H,\GaugeAux]\). Consequently the same \(\Pi_{\mathrm{free}}H=0\) outcome, the same substrate solve
+\[
+\SubReducedEin(\CompLift)=-\ResidualLift,
+\]
+the same observer solve
+\[
+\ReducedEin(\CompShift)=-\ResidualCore,
+\]
+and the same one operative metric and recorded Phase D / E and Phase F gains follow once more.
+
+The result remains disciplined. This note does not claim a final ultraviolet completion or a uniqueness theorem beyond the present local carrier-origin scope. Its positive claim is narrower and exact: the previously primitive branch-strain, neutral-current, and free-mode reservoir carriers are now recovered as the coarse image of a still-deeper carrier-origin sector while preserving the same one-metric GR claim boundary.
+\end{abstract}
+
+\section{Introduction}
+
+The active charge-polarization line has already crossed the candidate, gate, controlled-limit, residual-sector, redesign, anchoring, substrate-action, kernel-origin, microscopic-equilibrium deeper-origin, and equilibrium-reservoir primitive-origin steps on the same one-metric GR route. The remaining burden is therefore sharper again. It is not another packaging pass. It is not another same-layer completion rewrite. It is not, by default, another anchored positive-pair continuation. It is to go one layer below the new primitive-origin note and explain why the primitive carriers \((\PrimStrain,\PrimNeutral,\PrimFree)\) themselves are forced.
+
+That is the exact task of the present manuscript. The previous note already showed that the microscopic-equilibrium completion reservoir is the constrained coarse-grained image of a primitive branch-strain / neutral-current / free-mode block. The narrower question now is why those three primitive slots exist as the correct deeper readouts. Why is the tensor carrier a branch-strain mode whose coarse image gives the same quadratic Hessian? Why is the relabeling carrier a covector current so that only the neutral combination \(\PrimNeutral-\SubGaugeVec(\PrimStrain)\) can appear? Why is the homogeneous free carrier genuinely gapped and source blind? And why does eliminating that still-deeper carrier-origin sector reproduce the same primitive reservoir and therefore the same macroscopic completion reservoir, the same \(\Pi_{\mathrm{free}}H=0\) outcome, the same \(\Sigma^{\mathrm{cmp}}\) solve, and the same one operative metric?
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not claim that every conceivable deeper carrier-origin sector has now been classified. It does not widen the current theorem boundary. It does make one narrower positive move: it recovers the primitive reservoir carriers as the coarse image of a still-deeper carrier-origin block while preserving the same completion functional, the same one operative metric, and the same already recorded observer-equation gains.
+
+\section{Fixed Inputs from the Recorded Completion Line}
+
+\begin{definition}[Fixed charge-polarization branch and source]
+\label{def:fixed}
+The present note takes as fixed the same charge-polarization branch
+\begin{equation}
+\CandidateMetric
+=
+\ObserverMetric+\BaseShift+\ResponseShift,
+\qquad
+\CompletedMetric
+=
+\ObserverMetric+\BaseShift+\ResponseShift+\CompShift,
+\label{eq:metrics}
+\end{equation}
+with lifted completion variables \(\BaseLift,\ResponseLift,\CompLift\) satisfying
+\begin{equation}
+\ObserverMap^*\BaseLift=\BaseShift,
+\qquad
+\ObserverMap^*\ResponseLift=\ResponseShift,
+\qquad
+\ObserverMap^*\CompLift=\CompShift.
+\label{eq:lifts}
+\end{equation}
+The unresolved observer-side quartic tensor and its fixed substrate lift are
+\begin{equation}
+\ResidualCore
+\equiv
+\ReLongFour
++\EinQuad[\BaseShift]
++\EinLin(\ResponseShift),
+\label{eq:vres}
+\end{equation}
+\begin{equation}
+\ResidualLift_{AB}
+\equiv
+\widehat{\mathcal R}_{AB}^{(\chi,\ge 4)}
++\widehat{\mathcal Q}_{AB}^{\mathrm{Ein}}[\BaseLift]
++\widehat{\mathcal E}_{AB}(\ResponseLift),
+\qquad
+\ObserverMap^*\ResidualLift=\ResidualCore.
+\label{eq:liftedsource}
+\end{equation}
+The fixed orders are
+\begin{equation}
+\BaseShift=\mathcal O_{\ge 2},
+\qquad
+\ResponseShift=\mathcal O_{\ge 4},
+\qquad
+\CompShift=\mathcal O_{\ge 4},
+\qquad
+\ResidualLift=\mathcal O_{\ge 4},
+\label{eq:orders}
+\end{equation}
+and on every controlled infrared family,
+\begin{equation}
+\BaseShift=\mathcal O(\epsIR^2),
+\qquad
+\ResponseShift=\mathcal O(\epsIR^4),
+\qquad
+\CompShift=\mathcal O(\epsIR^4),
+\qquad
+\ResidualLift=\mathcal O(\epsIR^4).
+\label{eq:irorders}
+\end{equation}
+\end{definition}
+
+\begin{definition}[Fixed bridge-response operators]
+\label{def:operators}
+Let \(\widehat\nabla\) denote the Levi-Civita connection of the unshifted bridge metric \(\BridgeMetric\). For any observer-compatible symmetric substrate tensor \(H_{AB}\), define
+\begin{equation}
+\SubGaugeVec(H)_A
+\equiv
+\widehat\nabla^B\!\left(
+H_{AB}
+-\frac12 \BridgeMetric_{AB}\BridgeMetric^{CD}H_{CD}
+\right),
+\label{eq:subB}
+\end{equation}
+\begin{equation}
+\SubGaugeBook(H)_{AB}
+\equiv
+\widehat\nabla_{(A}\SubGaugeVec(H)_{B)}
+-\frac12 \BridgeMetric_{AB}\widehat\nabla^C\SubGaugeVec(H)_C,
+\label{eq:subG}
+\end{equation}
+\begin{equation}
+\SubReducedEin(H)_{AB}
+\equiv
+\SubEinLin(H)_{AB}-\SubGaugeBook(H)_{AB},
+\label{eq:subL}
+\end{equation}
+chosen so that
+\begin{equation}
+\ObserverMap^*\bigl(\SubEinLin(H)\bigr)=\EinLin(\ObserverMap^*H),
+\qquad
+\ObserverMap^*\bigl(\SubGaugeBook(H)\bigr)=\GaugeBook(\ObserverMap^*H),
+\label{eq:intertwine1}
+\end{equation}
+and hence
+\begin{equation}
+\ObserverMap^*\bigl(\SubReducedEin(H)\bigr)
+=
+\ReducedEin(\ObserverMap^*H).
+\label{eq:intertwine2}
+\end{equation}
+\end{definition}
+
+\begin{definition}[Admissible completion class and free sector]
+\label{def:class}
+Let \(\CompClass\) denote the same observer-compatible reduced-harmonic Coulomb-plus-regular completion class used in the redesign, anchoring, action, kernel-origin, microscopic-equilibrium deeper-origin, and equilibrium-reservoir primitive-origin notes. The free homogeneous sector is
+\begin{equation}
+\CompFree
+\equiv
+\left\{
+H\in\CompClass:\SubReducedEin(H)=0
+\right\},
+\label{eq:freeclass}
+\end{equation}
+and \(\CompForced\) denotes its orthogonal complement inside \(\CompClass\) with respect to the bridge-metric \(L^2\) pairing
+\begin{equation}
+\langle H_1,H_2\rangle_{\mathrm{cmp}}
+\equiv
+\int_{\Sub} d^4X\,\sqrt{G}\,
+\BridgeMetric^{AC}\BridgeMetric^{BD}(H_1)_{AB}(H_2)_{CD}.
+\label{eq:inner}
+\end{equation}
+Let \(\FreeProj:\CompClass\to\CompFree\) be the orthogonal projector. The fixed source satisfies
+\begin{equation}
+\ResidualLift\in\CompForced,
+\qquad
+\FreeProj\ResidualLift=0.
+\label{eq:sourcefree}
+\end{equation}
+\end{definition}
+
+\begin{remark}
+The present note does not alter the source \(\ResidualLift\), the reduced operator \(\SubReducedEin\), the one-metric matter route, or the recorded admissible completion class. It asks why the primitive carriers of the previous note are themselves forced from still-deeper substrate data.
+\end{remark}
+
+\section{Fixed Primitive-Reservoir Target}
+
+\begin{definition}[Primitive reservoir fixed by the previous note]
+\label{def:primitive}
+The previous equilibrium-reservoir primitive-origin note fixed the primitive carrier block
+\[
+(\PrimStrain_{AB},\PrimNeutral_A,\PrimFree_{AB})
+\in
+\CompClass\times T^*\Sub\times \CompFree
+\]
+with functional
+\begin{equation}
+\begin{aligned}
+\PrimFunctional[\PrimStrain,\PrimNeutral,\PrimFree]
+\equiv
+\int_{\Sub} d^4X\,\sqrt{G}\,
+\Bigl[
+&\frac12 \PrimStrain^{AB}\SubEinLin(\PrimStrain)_{AB}
++\frac12\bigl(\PrimNeutral_A-\SubGaugeVec(\PrimStrain)_A\bigr)
+\bigl(\PrimNeutral^A-\SubGaugeVec(\PrimStrain)^A\bigr)
+\\
+&+\frac{\FreeStiff}{2}\PrimFree^{AB}\PrimFree_{AB}
++(\ResidualLift)^{AB}\PrimStrain_{AB}
+\Bigr],
+\qquad
+\FreeStiff>0.
+\end{aligned}
+\label{eq:primitive}
+\end{equation}
+\end{definition}
+
+\begin{definition}[Macroscopic reservoir already recovered from the primitive block]
+\label{def:mic}
+For fixed coarse completion data \((H,\GaugeAux)\in\CompClass\times T^*\Sub\), the previous note used the constrained primitive coarse-graining functional
+\begin{equation}
+\begin{aligned}
+\mathscr C_{\mathrm{prim}}[H,\GaugeAux;\PrimStrain,\PrimNeutral,\PrimFree,\StrainMult,\NeutralMult,\FreeMult]
+\equiv\;
+&\PrimFunctional[\PrimStrain,\PrimNeutral,\PrimFree]
+\\
+&+\int_{\Sub} d^4X\,\sqrt{G}\,
+\StrainMult^{AB}(H-\PrimStrain)_{AB}
+\\
+&+\int_{\Sub} d^4X\,\sqrt{G}\,
+\NeutralMult^A(\GaugeAux-\PrimNeutral)_A
+\\
+&+\int_{\Sub} d^4X\,\sqrt{G}\,
+\FreeMult^{AB}\bigl((\FreeProj H)-\PrimFree\bigr)_{AB},
+\end{aligned}
+\label{eq:Cprim}
+\end{equation}
+whose stationary value is the microscopic-equilibrium reservoir
+\begin{equation}
+\begin{aligned}
+\MicFunctional[H,\GaugeAux]
+=
+\int_{\Sub} d^4X\,\sqrt{G}\,
+\Bigl[
+&\frac12 H^{AB}\SubEinLin(H)_{AB}
++\frac12\bigl(\GaugeAux_A-\SubGaugeVec(H)_A\bigr)
+\bigl(\GaugeAux^A-\SubGaugeVec(H)^A\bigr)
+\\
+&+\frac{\FreeStiff}{2}(\FreeProj H)^{AB}(\FreeProj H)_{AB}
++(\ResidualLift)^{AB}H_{AB}
+\Bigr].
+\end{aligned}
+\label{eq:mic}
+\end{equation}
+\end{definition}
+
+\begin{remark}
+The present note takes \eqref{eq:primitive} and \eqref{eq:mic} as fixed targets. The new task is to derive \eqref{eq:primitive} from a still-deeper carrier-origin sector, not to change the already recorded macroscopic completion line.
+\end{remark}
+
+\section{Still-Deeper Carrier-Origin Block}
+
+\begin{definition}[Carrier-origin space and fields]
+\label{def:carrier}
+Let \(\CarrierClass\) be a Hilbert space of symmetric substrate two-tensors that splits orthogonally as
+\begin{equation}
+\CarrierClass=\CompClass\oplus \CompClass^\perp,
+\label{eq:carrierclass}
+\end{equation}
+with orthogonal projector
+\[
+\CarrierProj:\CarrierClass\to\CompClass,
+\]
+and complementary projector
+\[
+\CarrierPerp\equiv I-\CarrierProj.
+\]
+The still-deeper carrier-origin block consists of:
+\begin{enumerate}
+    \item a tensor seed \(\CarrierSeed_{AB}\in\CarrierClass\);
+    \item a relabeling-current seed \(\RelabelSeed_A\);
+    \item a source-free homogeneous seed \(\FreeSeed_{AB}\in\CompFree\).
+\end{enumerate}
+At disciplined local two-derivative scope, its unsourced free energy is
+\begin{equation}
+\begin{aligned}
+\CarrierFunctional^{(0)}[\CarrierSeed,\RelabelSeed,\FreeSeed]
+\equiv
+\int_{\Sub} d^4X\,\sqrt{G}\,
+\Bigl[
+&\frac12 (\CarrierProj\CarrierSeed)^{AB}
+\SubEinLin(\CarrierProj\CarrierSeed)_{AB}
++\frac{\CarrierGap}{2}(\CarrierPerp\CarrierSeed)^{AB}(\CarrierPerp\CarrierSeed)_{AB}
+\\
+&+\frac12\bigl(\RelabelSeed_A-\SubGaugeVec(\CarrierProj\CarrierSeed)_A\bigr)
+\bigl(\RelabelSeed^A-\SubGaugeVec(\CarrierProj\CarrierSeed)^A\bigr)
++\frac{\FreeStiff}{2}\FreeSeed^{AB}\FreeSeed_{AB}
+\Bigr],
+\\
+&\qquad\qquad \CarrierGap>0,\qquad \FreeStiff>0,
+\end{aligned}
+\label{eq:car0}
+\end{equation}
+and the loaded carrier-origin functional is
+\begin{equation}
+\CarrierFunctional[\CarrierSeed,\RelabelSeed,\FreeSeed]
+\equiv
+\CarrierFunctional^{(0)}[\CarrierSeed,\RelabelSeed,\FreeSeed]
++
+\int_{\Sub} d^4X\,\sqrt{G}\,
+(\ResidualLift)^{AB}(\CarrierProj\CarrierSeed)_{AB}.
+\label{eq:car}
+\end{equation}
+\end{definition}
+
+\begin{remark}
+The present representative is deliberately minimal. It does not claim uniqueness of the still-deeper carrier-origin sector beyond current local two-derivative scope. Its purpose is narrower: force the primitive carrier slots while preserving the already recorded completion package.
+\end{remark}
+
+\begin{definition}[Primitive carrier readout from the deeper sector]
+\label{def:readout}
+The primitive carriers are defined as the coarse carrier-origin readouts
+\begin{equation}
+\PrimStrain\equiv \CarrierProj\CarrierSeed\in\CompClass,
+\qquad
+\PrimNeutral\equiv \RelabelSeed,
+\qquad
+\PrimFree\equiv \FreeSeed\in\CompFree.
+\label{eq:readout}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[Why the branch-strain carrier is forced]
+\label{prop:strain}
+Within the carrier-origin block \eqref{eq:car}, the only unsuppressed tensor mode seen by the branch Hessian and by the fixed lifted source is the branch-compatible projection
+\[
+\PrimStrain=\CarrierProj\CarrierSeed\in\CompClass.
+\]
+The orthogonal component \(\CarrierPerp\CarrierSeed\) is a positively gapped spectator and has stationary value zero.
+\end{proposition}
+
+\begin{proof}
+Both the quadratic Hessian term and the source loading term in \eqref{eq:car} depend on the tensor seed only through \(\CarrierProj\CarrierSeed\). The complementary component \(\CarrierPerp\CarrierSeed\) appears only through the positive quadratic penalty \(\frac{\CarrierGap}{2}\norm{\CarrierPerp\CarrierSeed}_{L^2}^2\). Therefore variation of \eqref{eq:car} with respect to \(\CarrierPerp\CarrierSeed\) gives
+\[
+\CarrierGap\,\CarrierPerp\CarrierSeed=0,
+\]
+so \(\CarrierPerp\CarrierSeed=0\) at stationarity. Hence the only tensor readout that survives as an unsuppressed completion carrier is \(\CarrierProj\CarrierSeed=\PrimStrain\), and it carries exactly the same quadratic Hessian already used in the primitive reservoir.
+\end{proof}
+
+\begin{proposition}[Why the neutral current is the correct relabeling object]
+\label{prop:neutral}
+Within the present local two-derivative carrier-origin scope, relabeling data can couple to the branch only through a covector current. Consequently the deeper relabeling readout is
+\[
+\PrimNeutral=\RelabelSeed,
+\]
+and the carrier-origin functional depends on relabeling information only through the neutral combination
+\[
+\PrimNeutral-\SubGaugeVec(\PrimStrain).
+\]
+\end{proposition}
+
+\begin{proof}
+The branch relabeling imprint of any completion tensor \(H\in\CompClass\) is the covector \(\SubGaugeVec(H)\). At the present local two-derivative scope, a positive quadratic neutral term coupling deeper relabeling data to the branch must therefore pair a covector with that same covector. Scalars or higher-rank tensors would either fail to match the index structure of \(\SubGaugeVec(H)\) or require additional derivatives and therefore lie outside the current carrier-origin scope. In \eqref{eq:car0}, the only admissible relabeling coupling is therefore the covector square of \(\RelabelSeed-\SubGaugeVec(\CarrierProj\CarrierSeed)\). Using \eqref{eq:readout}, this is exactly \(\PrimNeutral-\SubGaugeVec(\PrimStrain)\).
+\end{proof}
+
+\begin{proposition}[Why the free homogeneous carrier is genuinely gapped and source blind]
+\label{prop:free}
+The free homogeneous carrier
+\[
+\PrimFree=\FreeSeed\in\CompFree
+\]
+is genuinely gapped and cannot be loaded by \(\ResidualLift\).
+\end{proposition}
+
+\begin{proof}
+By \eqref{eq:car0}, the homogeneous seed carries the positive quadratic cost
+\[
+\frac{\FreeStiff}{2}\FreeSeed^{AB}\FreeSeed_{AB},
+\qquad
+\FreeStiff>0.
+\]
+The loaded carrier-origin functional \eqref{eq:car} couples the fixed source only to \(\CarrierProj\CarrierSeed=\PrimStrain\), not to \(\FreeSeed\). Equivalently, because \(\FreeSeed\in\CompFree\) while \(\ResidualLift\in\CompForced\) by \eqref{eq:sourcefree}, the fixed source has no admissible free-sector pairing. Thus \(\PrimFree\) is both positively gapped and source blind.
+\end{proof}
+
+\section{Exact Recovery of the Primitive Reservoir}
+
+\begin{definition}[Carrier-origin coarse-graining functional]
+\label{def:carcg}
+For fixed primitive readouts \((\PrimStrain,\PrimNeutral,\PrimFree)\), define
+\begin{equation}
+\begin{aligned}
+\mathscr C_{\mathrm{car}}
+[\PrimStrain,\PrimNeutral,\PrimFree;\CarrierSeed,\RelabelSeed,\FreeSeed,\StrainMult,\NeutralMult,\FreeMult]
+\equiv\;
+&\CarrierFunctional[\CarrierSeed,\RelabelSeed,\FreeSeed]
+\\
+&+\int_{\Sub} d^4X\,\sqrt{G}\,
+\StrainMult^{AB}\bigl(\PrimStrain-\CarrierProj\CarrierSeed\bigr)_{AB}
+\\
+&+\int_{\Sub} d^4X\,\sqrt{G}\,
+\NeutralMult^A(\PrimNeutral-\RelabelSeed)_A
+\\
+&+\int_{\Sub} d^4X\,\sqrt{G}\,
+\FreeMult^{AB}(\PrimFree-\FreeSeed)_{AB},
+\end{aligned}
+\label{eq:Ccar}
+\end{equation}
+where \(\StrainMult_{AB}\in\CompClass\), \(\NeutralMult_A\) is a covector, and \(\FreeMult_{AB}\in\CompFree\). The carrier-origin stationary-value functional is
+\begin{equation}
+\CarrierToPrim[\PrimStrain,\PrimNeutral,\PrimFree]
+\equiv
+\operatorname*{stat}_{\CarrierSeed,\RelabelSeed,\FreeSeed,\StrainMult,\NeutralMult,\FreeMult}
+\mathscr C_{\mathrm{car}}.
+\label{eq:Fcarstat}
+\end{equation}
+\end{definition}
+
+\begin{theorem}[Exact recovery of the primitive reservoir]
+\label{thm:recoverprimitive}
+The stationary equations of \eqref{eq:Ccar} enforce
+\begin{equation}
+\CarrierProj\CarrierSeed=\PrimStrain,
+\qquad
+\RelabelSeed=\PrimNeutral,
+\qquad
+\FreeSeed=\PrimFree,
+\qquad
+\CarrierPerp\CarrierSeed=0.
+\label{eq:carconstraints}
+\end{equation}
+Consequently,
+\begin{equation}
+\CarrierToPrim[\PrimStrain,\PrimNeutral,\PrimFree]
+=
+\PrimFunctional[\PrimStrain,\PrimNeutral,\PrimFree].
+\label{eq:primitiveexact}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Stationarity of \eqref{eq:Ccar} with respect to the multipliers \(\StrainMult\), \(\NeutralMult\), and \(\FreeMult\) gives the first three identities in \eqref{eq:carconstraints}. Decompose
+\[
+\CarrierSeed=\CarrierProj\CarrierSeed+\CarrierPerp\CarrierSeed.
+\]
+Only \(\CarrierPerp\CarrierSeed\) remains unconstrained. Variation with respect to that component in \eqref{eq:Ccar} gives
+\[
+\CarrierGap\,\CarrierPerp\CarrierSeed=0.
+\]
+Because \(\CarrierGap>0\), one has \(\CarrierPerp\CarrierSeed=0\), giving the final identity in \eqref{eq:carconstraints}. Substituting \eqref{eq:carconstraints} into \eqref{eq:Ccar} removes the multiplier terms and leaves exactly
+\[
+\int_{\Sub} d^4X\,\sqrt{G}\,
+\Bigl[
+\frac12 \PrimStrain^{AB}\SubEinLin(\PrimStrain)_{AB}
++\frac12(\PrimNeutral-\SubGaugeVec(\PrimStrain))^2
++\frac{\FreeStiff}{2}\PrimFree^{AB}\PrimFree_{AB}
++(\ResidualLift)^{AB}\PrimStrain_{AB}
+\Bigr],
+\]
+which is \eqref{eq:primitive}. This proves \eqref{eq:primitiveexact}.
+\end{proof}
+
+\begin{corollary}[Same reduced carrier Hessian]
+\label{cor:hessian}
+Eliminating the neutral current from the recovered primitive reservoir gives the reduced primitive functional
+\begin{equation}
+\PrimReduced[\PrimStrain,\PrimFree]
+=
+\int_{\Sub} d^4X\,\sqrt{G}\,
+\Bigl[
+\frac12 \PrimStrain^{AB}\SubReducedEin(\PrimStrain)_{AB}
++\frac{\FreeStiff}{2}\PrimFree^{AB}\PrimFree_{AB}
++(\ResidualLift)^{AB}\PrimStrain_{AB}
+\Bigr].
+\label{eq:Fredprimitive}
+\end{equation}
+Its quadratic \(\PrimStrain\)-Hessian is the same completion kernel
+\begin{equation}
+\CompKernel(H_1,H_2)
+\equiv
+\int_{\Sub} d^4X\,\sqrt{G}\,
+H_1^{AB}\SubReducedEin(H_2)_{AB}.
+\label{eq:kernel}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+By \eqref{eq:primitiveexact}, variation of the recovered primitive reservoir with respect to \(\PrimNeutral_A\) gives
+\[
+\PrimNeutral_A=\SubGaugeVec(\PrimStrain)_A.
+\]
+Substituting this back into \eqref{eq:primitive} yields \eqref{eq:Fredprimitive}. Bilinearization of the quadratic \(\frac12\int \PrimStrain^{AB}\SubReducedEin(\PrimStrain)_{AB}\) term gives \eqref{eq:kernel}.
+\end{proof}
+
+\begin{remark}
+The previous note's primitive reservoir is therefore no longer the present deepest block. At current scope it is the stationary coarse image of a still-deeper carrier-origin sector.
+\end{remark}
+
+\section{Recovery of the Same Coarse Reservoir and Completion Solve}
+
+\begin{theorem}[Exact recovery of the same microscopic-equilibrium reservoir]
+\label{thm:recovermic}
+Using \eqref{eq:primitiveexact} inside the fixed primitive coarse-graining functional \eqref{eq:Cprim}, the same stationary-value macroscopic reservoir \eqref{eq:mic} is recovered:
+\begin{equation}
+\operatorname*{stat}_{\PrimStrain,\PrimNeutral,\PrimFree,\StrainMult,\NeutralMult,\FreeMult}
+\mathscr C_{\mathrm{prim}}
+=
+\MicFunctional[H,\GaugeAux].
+\label{eq:micrecover}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+By Theorem \ref{thm:recoverprimitive}, the primitive functional appearing in \eqref{eq:Cprim} is exactly the same \(\PrimFunctional\) used in the previous note. The stationarity equations of \eqref{eq:Cprim} therefore again enforce
+\[
+\PrimStrain=H,
+\qquad
+\PrimNeutral=\GaugeAux,
+\qquad
+\PrimFree=\FreeProj H,
+\]
+and substitution yields \eqref{eq:mic}. Hence \eqref{eq:micrecover} follows.
+\end{proof}
+
+\begin{theorem}[Same stationary completion equations]
+\label{thm:stationary}
+Let \((\CompLift,\GaugeAux)\) be a stationary point of the recovered macroscopic reservoir \(\MicFunctional\). Then
+\begin{equation}
+\GaugeAux_A=\SubGaugeVec(\CompLift)_A,
+\label{eq:Yeq}
+\end{equation}
+and
+\begin{equation}
+\SubReducedEin(\CompLift)_{AB}
++\FreeStiff(\FreeProj\CompLift)_{AB}
+=
+-\ResidualLift_{AB}.
+\label{eq:Heq}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Theorem \ref{thm:recovermic} shows that the macroscopic reservoir is exactly \eqref{eq:mic}. Variation of \eqref{eq:mic} with respect to \(\GaugeAux_A\) gives \eqref{eq:Yeq}. Substituting \eqref{eq:Yeq} back into \eqref{eq:mic} yields the reduced functional
+\[
+\int_{\Sub} d^4X\,\sqrt{G}\,
+\Bigl[
+\frac12 H^{AB}\SubReducedEin(H)_{AB}
++\frac{\FreeStiff}{2}(\FreeProj H)^{AB}(\FreeProj H)_{AB}
++(\ResidualLift)^{AB}H_{AB}
+\Bigr],
+\]
+and variation with respect to \(H_{AB}\) gives \eqref{eq:Heq}.
+\end{proof}
+
+\begin{proposition}[Same zero-free-mode outcome]
+\label{prop:freezero}
+The stationary completion tensor satisfies
+\begin{equation}
+\FreeProj\CompLift=0.
+\label{eq:freezero}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Apply \(\FreeProj\) to \eqref{eq:Heq}. Since \(\CompFree=\ker\SubReducedEin\), one has \(\FreeProj\SubReducedEin(\CompLift)=0\). By \eqref{eq:sourcefree}, \(\FreeProj\ResidualLift=0\). Therefore
+\[
+\FreeStiff\,\FreeProj\CompLift=0.
+\]
+Because \(\FreeStiff>0\), equation \eqref{eq:freezero} follows.
+\end{proof}
+
+\begin{corollary}[Same substrate completion solve]
+\label{cor:subsolve}
+The stationary completion tensor satisfies
+\begin{equation}
+\SubReducedEin(\CompLift)_{AB}
+=
+-\ResidualLift_{AB},
+\qquad
+\FreeProj\CompLift=0.
+\label{eq:subsolve}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+Substituting \eqref{eq:freezero} into \eqref{eq:Heq} gives \eqref{eq:subsolve}.
+\end{proof}
+
+\begin{definition}[Completed bridge and observer metrics]
+\label{def:completed}
+Define
+\begin{equation}
+\CompShift_{\mu\nu}
+\equiv
+\ObserverMap^*\CompLift_{AB},
+\qquad
+\CompletedMetric
+\equiv
+\ObserverMetric+\BaseShift+\ResponseShift+\CompShift.
+\label{eq:completedmetric}
+\end{equation}
+\end{definition}
+
+\begin{theorem}[Same observer solve and one operative metric]
+\label{thm:observer}
+The still-deeper carrier-origin sector reproduces exactly the same observer completion solve
+\begin{equation}
+\ReducedEin(\CompShift)_{\mu\nu}
+=
+-\ResidualCore{}_{\mu\nu}.
+\label{eq:observereq}
+\end{equation}
+Consequently the same completed observer metric \(\CompletedMetric\) remains the unique operative metric of the branch, with the same universal matter route and the same observer-equation removal of the former genuine quartic residual sector.
+\end{theorem}
+
+\begin{proof}
+Apply \(\ObserverMap^*\) to \eqref{eq:subsolve}. Using \eqref{eq:intertwine2} and \(\ObserverMap^*\ResidualLift=\ResidualCore\), one obtains \eqref{eq:observereq}. No new observer metric, bridge map, or matter-coupling rule is introduced anywhere in the carrier-origin construction. Therefore the same completed metric \(\CompletedMetric\) remains the unique operative metric, exactly as in the previous completion notes.
+\end{proof}
+
+\begin{corollary}[Recorded gain package is preserved]
+\label{cor:gains}
+Because the recovered macroscopic reservoir \eqref{eq:mic} and the stationary equations \eqref{eq:Yeq}--\eqref{eq:observereq} are unchanged, the recorded Phase D / E infrared-spectrum and universal-coupling verdicts, the recorded Phase F controlled GR limit, and the zero-free-mode verdict \(\Pi_{\mathrm{free}}H=0\) are preserved without modification.
+\end{corollary}
+
+\begin{proof}
+The carrier-origin note changes only the deepest origin story of the primitive reservoir. It leaves the macroscopic completion functional, the completion solve, and the one operative metric unchanged. Therefore all previously recorded observer-level consequences of that same macroscopic completion package survive verbatim.
+\end{proof}
+
+\section{Claim-Boundary Verdict}
+
+\begin{theorem}[Primitive-carrier-origin verdict]
+\label{thm:verdict}
+At the disciplined scope of the present note, the positive result is exactly the following.
+\begin{enumerate}
+    \item The primitive reservoir carriers of the previous note are no longer left as the present deepest block.
+    \item The branch-strain carrier is forced as the branch-compatible projection \(\PrimStrain=\CarrierProj\CarrierSeed\), whose quadratic Hessian is the same completion kernel while the orthogonal tensor sector is positively gapped and stationary at zero.
+    \item The neutral relabeling object is forced to be a covector current \(\PrimNeutral=\RelabelSeed\), so reduced-gauge information enters only through \(\PrimNeutral-\SubGaugeVec(\PrimStrain)\).
+    \item The free homogeneous carrier \(\PrimFree=\FreeSeed\in\CompFree\) is genuinely gapped and cannot be loaded by \(\ResidualLift\).
+    \item Eliminating the still-deeper carrier-origin sector reproduces exactly the primitive reservoir \(\PrimFunctional[\PrimStrain,\PrimNeutral,\PrimFree]\).
+    \item A second coarse-graining step therefore reproduces exactly the same macroscopic completion reservoir \(\MicFunctional[H,\GaugeAux]\), the same \(\Pi_{\mathrm{free}}H=0\) outcome, the same substrate solve \(\SubReducedEin(\CompLift)=-\ResidualLift\), the same observer solve \(\ReducedEin(\CompShift)=-\ResidualCore\), and the same one operative metric.
+    \item The recorded Phase D / E and Phase F gains remain preserved.
+    \item Stronger promotion language is still not justified here, because the note supplies a deeper carrier origin for the present reservoir without claiming a final ultraviolet completion or a theorem broader than the current one-metric claim boundary.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Item (1) is Theorem \ref{thm:recoverprimitive}. Item (2) is Proposition \ref{prop:strain} and Corollary \ref{cor:hessian}. Item (3) is Proposition \ref{prop:neutral}. Item (4) is Proposition \ref{prop:free}. Item (5) is Theorem \ref{thm:recoverprimitive}. Item (6) is Theorem \ref{thm:recovermic}, Proposition \ref{prop:freezero}, Corollary \ref{cor:subsolve}, and Theorem \ref{thm:observer}. Item (7) is Corollary \ref{cor:gains}. Item (8) is the claim-boundary discipline stated in the introduction.
+\end{proof}
+
+\begin{corollary}[What remains next]
+The primary active burden moves one layer deeper again. It is no longer to justify why the primitive branch-strain / neutral-current / free-mode carrier block is admissible at current carrier-origin scope; that step is now recorded. The next honest burden is either a still-deeper origin or selection principle below the present carrier-origin lift itself, or another comparably concrete observer-equation gain on the same one-metric line. The anchored positive-pair continuation remains side work unless it directly supplies one of those.
+\end{corollary}
+
+\section{Conclusion}
+
+The positive result of this note is that the primitive carrier layer of the current completion reservoir is no longer left unexplained. At disciplined present scope it is recovered as the coarse image of a still-deeper carrier-origin sector built from a tensor seed, a relabeling-current seed, and a source-free homogeneous seed.
+
+The tensor seed contributes to completion dynamics only through its branch-compatible projection \(\CarrierProj\CarrierSeed\), while the orthogonal tensor complement is positively gapped and stationary at zero. That is why the correct primitive tensor carrier is the branch-strain mode
+\[
+\PrimStrain=\CarrierProj\CarrierSeed,
+\]
+and why its quadratic Hessian is the same completion kernel already fixed downstream. The relabeling sector couples to the branch only through the covector \(\widehat{\mathcal B}(\PrimStrain)\), so the correct primitive relabeling readout is the neutral current \(\PrimNeutral\) and only the combination \(\PrimNeutral-\widehat{\mathcal B}(\PrimStrain)\) can appear at the present local two-derivative scope. The homogeneous seed \(\PrimFree\in\CompFree\) carries a positive gap \(\FreeStiff\) and remains source blind because \(\ResidualLift\) couples only to the branch-strain channel and has no free-sector component.
+
+Constrained elimination of the still-deeper carrier-origin sector then reproduces exactly the primitive reservoir of the previous note. A second, already recorded coarse-graining step therefore reproduces exactly the same macroscopic completion reservoir,
+\[
+\MicFunctional[H,\GaugeAux]
+=
+\int_{\Sub} d^4X\,\sqrt{G}\,
+\Bigl[
+\frac12 H^{AB}\SubEinLin(H)_{AB}
++\frac12\bigl(\GaugeAux-\SubGaugeVec(H)\bigr)^2
++\frac{\FreeStiff}{2}(\FreeProj H)^2
++\ResidualLift\cdot H
+\Bigr],
+\]
+and hence the same zero-free-mode outcome, the same substrate solve, the same observer solve, and the same one operative metric:
+\[
+\FreeProj\CompLift=0,
+\qquad
+\SubReducedEin(\CompLift)=-\ResidualLift,
+\qquad
+\ReducedEin(\CompShift)=-\ResidualCore.
+\]
+The recorded Phase D / E and Phase F gains therefore remain intact.
+
+The scope remains honest. This note does not claim a final ultraviolet completion and does not widen the current theorem boundary. Its exact positive result is narrower and precisely the one now needed: the primitive branch-strain / neutral-current / free-mode reservoir is no longer primitive at current scope, but is recovered as the coarse carrier readout of a still-deeper substrate sector. The next honest burden is one layer deeper again: whether that carrier-origin lift itself can be derived, selected more sharply, or superseded by another equally concrete observer-equation gain on the same one-metric line.
+
+\end{document}
