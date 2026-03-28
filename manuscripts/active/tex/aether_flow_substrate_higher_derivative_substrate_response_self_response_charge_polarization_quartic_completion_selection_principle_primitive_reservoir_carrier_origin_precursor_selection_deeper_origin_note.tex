@@ -1,0 +1,1154 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal A}
+\newcommand{\ObserverMap}{\Xi}
+\newcommand{\BridgeMetric}{\mathfrak g}
+\newcommand{\ObserverMetric}{g^{\mathrm{br}}}
+\newcommand{\CandidateMetric}{g^{\mathrm{cand}}}
+\newcommand{\CompletedMetric}{g^{\sharp}}
+\newcommand{\BaseShift}{\Sigma^{\mathrm{IER}}}
+\newcommand{\ResponseShift}{\Sigma^{\mathrm{resp}}}
+\newcommand{\CompShift}{\Sigma^{\mathrm{cmp}}}
+\newcommand{\BaseLift}{\widehat\Sigma^{\mathrm{IER}}}
+\newcommand{\ResponseLift}{\widehat\Sigma^{\mathrm{resp}}}
+\newcommand{\CompLift}{\widehat\Sigma^{\mathrm{cmp}}}
+\newcommand{\ReLongFour}{\widetilde{\mathcal R}_{\mu\nu}^{(\chi,\ge 4)}}
+\newcommand{\ResidualCore}{\mathcal V_{\mu\nu}^{\mathrm{res}}}
+\newcommand{\ResidualLift}{\widehat{\mathcal V}^{\mathrm{res}}}
+\newcommand{\SubEinLin}{\widehat{\mathcal E}}
+\newcommand{\SubGaugeVec}{\widehat{\mathcal B}}
+\newcommand{\SubGaugeBook}{\widehat{\mathcal G}}
+\newcommand{\SubReducedEin}{\widehat{\mathcal L}}
+\newcommand{\FreeProj}{\Pi_{\mathrm{free}}}
+\newcommand{\GaugeAux}{Y}
+\newcommand{\ReducedEin}{\mathcal L_{\ObserverMetric}}
+\newcommand{\GaugeBook}{\mathcal G_{\ObserverMetric}}
+\newcommand{\EinLin}{\mathcal E_{\ObserverMetric}}
+\newcommand{\EinQuad}{\mathcal Q_{\ge 2}^{\mathrm{Ein}}}
+\newcommand{\MatterAct}{S_{\mathrm{matter}}}
+\newcommand{\CompClass}{\mathscr C_{\mathrm{cmp}}}
+\newcommand{\CompFree}{\mathscr C_{\mathrm{cmp}}^{\mathrm{free}}}
+\newcommand{\CompForced}{\mathscr C_{\mathrm{cmp}}^{\mathrm{for}}}
+\newcommand{\CompKernel}{\mathscr K_{\mathrm{cmp}}}
+\newcommand{\MicFunctional}{\mathscr F_{\mathrm{mic}}}
+\newcommand{\PrimFunctional}{\mathscr F_{\mathrm{prim}}}
+\newcommand{\CarrierFunctional}{\mathscr F_{\mathrm{car}}}
+\newcommand{\CarrierToPrim}{\mathscr F_{\mathrm{car}\to\mathrm{prim}}}
+\newcommand{\PreFunctional}{\mathscr F_{\mathrm{pre}}}
+\newcommand{\PreToCar}{\mathscr F_{\mathrm{pre}\to\mathrm{car}}}
+\newcommand{\DeepFunctional}{\mathscr F_{\mathrm{deep}}}
+\newcommand{\DeepToCar}{\mathscr F_{\mathrm{deep}\to\mathrm{car}}}
+\newcommand{\FreeStiff}{\kappa_{\mathrm{free}}}
+\newcommand{\PrimStrain}{K}
+\newcommand{\PrimNeutral}{J}
+\newcommand{\PrimFree}{F}
+\newcommand{\CarrierClass}{\mathscr H_{\mathrm{car}}}
+\newcommand{\CarrierProj}{\Pi_{\mathrm{str}}}
+\newcommand{\CarrierPerp}{\Pi_{\mathrm{str}}^{\perp}}
+\newcommand{\CarrierGap}{\kappa_{\mathrm{str}}}
+\newcommand{\CarrierSeed}{\mathfrak S}
+\newcommand{\RelabelSeed}{\mathfrak R}
+\newcommand{\FreeSeed}{\mathfrak F}
+\newcommand{\PreTensorClass}{\mathscr U_{\mathrm{car}}}
+\newcommand{\PreRelabelClass}{\mathscr U_{\mathrm{rel}}}
+\newcommand{\PreFreeClass}{\mathscr U_{\mathrm{hom}}}
+\newcommand{\PreTensor}{U}
+\newcommand{\PreRelabel}{R}
+\newcommand{\PreFree}{W}
+\newcommand{\PreCarProj}{\Pi_{\mathrm{car},0}}
+\newcommand{\PreCarPerp}{\Pi_{\mathrm{car},0}^{\perp}}
+\newcommand{\CurrentProj}{\Pi_{\mathrm{cur}}}
+\newcommand{\CurrentPerp}{\Pi_{\mathrm{cur}}^{\perp}}
+\newcommand{\FreeReadProj}{\Pi_{\mathrm{hom}}}
+\newcommand{\FreeReadPerp}{\Pi_{\mathrm{hom}}^{\perp}}
+\newcommand{\PreCarGap}{\kappa_{\mathrm{car},0}}
+\newcommand{\CurrentGap}{\kappa_{\mathrm{cur}}}
+\newcommand{\HomGap}{\kappa_{\mathrm{hom}}}
+\newcommand{\StrainMult}{\Lambda}
+\newcommand{\NeutralMult}{\Omega}
+\newcommand{\FreeMult}{\Theta}
+\newcommand{\epsIR}{\varepsilon}
+\newcommand{\DeepTensorClass}{\mathscr X_{\mathrm{car}}}
+\newcommand{\DeepRelabelClass}{\mathscr X_{\mathrm{cur}}}
+\newcommand{\DeepFreeClass}{\mathscr X_{\mathrm{hom}}}
+\newcommand{\DeepTensor}{\mathfrak X}
+\newcommand{\DeepRelabel}{\mathfrak J}
+\newcommand{\DeepFree}{\mathfrak W}
+\newcommand{\CarRead}{\mathcal R_{\mathrm{car}}}
+\newcommand{\CurRead}{\mathcal R_{\mathrm{cur}}}
+\newcommand{\HomRead}{\mathcal R_{\mathrm{hom}}}
+\newcommand{\CarIso}{\mathcal U_{\mathrm{car}}}
+\newcommand{\CurIso}{\mathcal U_{\mathrm{cur}}}
+\newcommand{\HomIso}{\mathcal U_{\mathrm{hom}}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Substrate-Response / Self-Response Charge-Polarization Candidate\\
+\large Quartic-Completion Selection-Principle Primitive-Reservoir Carrier-Origin\\
+\large Precursor-Selection Deeper-Origin Note}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The carrier-origin precursor-selection note already shows that the previously recorded carrier-origin projection/current/gap sector is the unique unsuppressed stationary readout of three still-deeper precursor spaces
+\[
+\PreTensorClass,\qquad
+\PreRelabelClass,\qquad
+\PreFreeClass,
+\]
+with projected readouts into
+\[
+\CarrierClass,\qquad
+T^*\Sub,\qquad
+\CompFree,
+\]
+and with positively gapped orthogonal complements. What remains open is one layer deeper again: why those precursor spaces, those specific readout maps, and those positive complement gaps should exist at all rather than being the present deepest disciplined postulate.
+
+The present note gives that next deeper result at disciplined exact-preservation normal-form scope. It starts from a still-deeper raw selection sector
+\[
+\DeepTensorClass,\qquad
+\DeepRelabelClass,\qquad
+\DeepFreeClass
+\]
+equipped with bounded surjective readout maps
+\[
+\CarRead:\DeepTensorClass\to\CarrierClass,
+\qquad
+\CurRead:\DeepRelabelClass\to T^*\Sub,
+\qquad
+\HomRead:\DeepFreeClass\to\CompFree,
+\]
+and positive quadratic penalties on the corresponding kernels. The codomains above are not arbitrary: they are forced by the requirement that, after elimination, the same carrier-origin functional still be the downstream tensor/current/free-sector functional, with the same neutral covector structure, the same source-free homogeneous block, and the same one operative metric.
+
+Once the deeper readout maps are fixed only by that exact-preservation demand, a canonical image-plus-kernel decomposition follows. Each raw deeper space splits orthogonally into the visible sector \((\ker \mathcal R)^\perp\) and the invisible kernel \(\ker \mathcal R\). Using the pullback Hilbert structures induced by the visible-sector inverses, these decompositions identify the previous precursor spaces as
+\[
+\PreTensorClass\simeq \CarrierClass\oplus \ker\CarRead,\qquad
+\PreRelabelClass\simeq T^*\Sub\oplus \ker\CurRead,\qquad
+\PreFreeClass\simeq \CompFree\oplus \ker\HomRead,
+\]
+with the readout maps becoming exactly the orthogonal projectors
+\[
+\PreCarProj,\qquad
+\CurrentProj,\qquad
+\FreeReadProj.
+\]
+The positively penalized kernel sectors are therefore exactly the orthogonal precursor complements, and their coercive quadratic costs are exactly the positive complement gaps
+\[
+\PreCarGap>0,\qquad
+\CurrentGap>0,\qquad
+\HomGap>0.
+\]
+
+In this normal form, the deeper functional is unitarily identical to the precursor-selection functional of the previous note. Constrained elimination therefore reproduces exactly the same carrier-origin functional, and the previously recorded downstream eliminations then reproduce exactly the same primitive reservoir, the same microscopic-equilibrium completion reservoir, the same \(\Pi_{\mathrm{free}}H=0\) outcome, the same substrate and observer completion solves, and the same one operative metric.
+
+The scope remains disciplined. This note does not claim a final ultraviolet completion of the branch or a uniqueness theorem for every conceivable deeper microphysical sector. Its exact positive claim is narrower: at the current quadratic exact-preservation scope, the precursor-selection structure is not an extra same-layer postulate but the forced image-plus-kernel normal form of any still-deeper selection sector that preserves the recorded carrier-origin functional and hence the recorded one-metric completion chain.
+\end{abstract}
+
+\section{Introduction}
+
+The active charge-polarization line has already crossed the candidate, gate, controlled-limit, residual-sector, redesign, substrate-anchoring, substrate-action, kernel-origin, microscopic-equilibrium deeper-origin, equilibrium-reservoir primitive-origin, primitive-reservoir carrier-origin, and carrier-origin precursor-selection steps on the same one-metric GR route. The current primary burden therefore moves one layer deeper again. It is not another packaging pass. It is not another same-layer rewrite of the precursor-selection note. It is not, by default, another anchored positive-pair continuation. It is to explain why the precursor-selection structure itself exists.
+
+That question is sharper than the previous one. The precursor-selection note already showed that once the precursor spaces are present, only the projected readout into \(\CarrierClass\) survives as the carrier-origin tensor seed, only the projected covector current survives as the relabeling seed, only the projected free readout into \(\CompFree\) survives as the homogeneous seed, and the orthogonal precursor complements are positively gapped spectators. What still remained open was why such precursor spaces and such readout projectors should be the right deeper structure in the first place.
+
+The present note addresses exactly that burden. Its key move is to step one level deeper than the precursor spaces themselves and to formulate the most general current-scope selection sector that can still preserve the already recorded carrier-origin functional. At that exact-preservation scope, the visible parts of the deeper spaces are forced to map into \(\CarrierClass\), \(T^*\Sub\), and \(\CompFree\), because those are precisely the three downstream slots carried by the fixed carrier-origin functional. The invisible parts are then necessarily the kernels of those readout maps. The previous precursor spaces are therefore recovered as the image-plus-kernel normal forms of that deeper selection sector rather than left as independent same-level input.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not claim a final ultraviolet completion, a classification of every deeper microscopic model, or a theorem wider than the current one-metric benchmark. Its narrower positive move is to show that, at current exact-preservation scope, the precursor-selection structure itself is forced as the canonical image-plus-kernel normal form of any still-deeper sector that preserves the same carrier-origin functional and hence the same one-metric completion chain.
+
+\section{Fixed Inputs from the Recorded Completion Line}
+
+\begin{definition}[Fixed charge-polarization branch and source]
+\label{def:fixed}
+The present note takes as fixed the same charge-polarization branch
+\begin{equation}
+\CandidateMetric
+=
+\ObserverMetric+\BaseShift+\ResponseShift,
+\qquad
+\CompletedMetric
+=
+\ObserverMetric+\BaseShift+\ResponseShift+\CompShift,
+\label{eq:metrics}
+\end{equation}
+with lifted completion variables \(\BaseLift,\ResponseLift,\CompLift\) satisfying
+\begin{equation}
+\ObserverMap^*\BaseLift=\BaseShift,
+\qquad
+\ObserverMap^*\ResponseLift=\ResponseShift,
+\qquad
+\ObserverMap^*\CompLift=\CompShift.
+\label{eq:lifts}
+\end{equation}
+The unresolved observer-side quartic tensor and its fixed substrate lift are
+\begin{equation}
+\ResidualCore
+\equiv
+\ReLongFour
++\EinQuad[\BaseShift]
++\EinLin(\ResponseShift),
+\label{eq:vres}
+\end{equation}
+\begin{equation}
+\ResidualLift_{AB}
+\equiv
+\widehat{\mathcal R}_{AB}^{(\chi,\ge 4)}
++\widehat{\mathcal Q}_{AB}^{\mathrm{Ein}}[\BaseLift]
++\widehat{\mathcal E}_{AB}(\ResponseLift),
+\qquad
+\ObserverMap^*\ResidualLift=\ResidualCore.
+\label{eq:liftedsource}
+\end{equation}
+The fixed orders are
+\begin{equation}
+\BaseShift=\mathcal O_{\ge 2},
+\qquad
+\ResponseShift=\mathcal O_{\ge 4},
+\qquad
+\CompShift=\mathcal O_{\ge 4},
+\qquad
+\ResidualLift=\mathcal O_{\ge 4},
+\label{eq:orders}
+\end{equation}
+and on every controlled infrared family,
+\begin{equation}
+\BaseShift=\mathcal O(\epsIR^2),
+\qquad
+\ResponseShift=\mathcal O(\epsIR^4),
+\qquad
+\CompShift=\mathcal O(\epsIR^4),
+\qquad
+\ResidualLift=\mathcal O(\epsIR^4).
+\label{eq:irorders}
+\end{equation}
+\end{definition}
+
+\begin{definition}[Fixed bridge-response operators]
+\label{def:operators}
+Let \(\widehat\nabla\) denote the Levi-Civita connection of the unshifted bridge metric \(\BridgeMetric\). For any observer-compatible symmetric substrate tensor \(H_{AB}\), define
+\begin{equation}
+\SubGaugeVec(H)_A
+\equiv
+\widehat\nabla^B\!\left(
+H_{AB}
+-\frac12 \BridgeMetric_{AB}\BridgeMetric^{CD}H_{CD}
+\right),
+\label{eq:subB}
+\end{equation}
+\begin{equation}
+\SubGaugeBook(H)_{AB}
+\equiv
+\widehat\nabla_{(A}\SubGaugeVec(H)_{B)}
+-\frac12 \BridgeMetric_{AB}\widehat\nabla^C\SubGaugeVec(H)_C,
+\label{eq:subG}
+\end{equation}
+\begin{equation}
+\SubReducedEin(H)_{AB}
+\equiv
+\SubEinLin(H)_{AB}-\SubGaugeBook(H)_{AB},
+\label{eq:subL}
+\end{equation}
+chosen so that
+\begin{equation}
+\ObserverMap^*\bigl(\SubEinLin(H)\bigr)=\EinLin(\ObserverMap^*H),
+\qquad
+\ObserverMap^*\bigl(\SubGaugeBook(H)\bigr)=\GaugeBook(\ObserverMap^*H),
+\label{eq:intertwine1}
+\end{equation}
+and hence
+\begin{equation}
+\ObserverMap^*\bigl(\SubReducedEin(H)\bigr)
+=
+\ReducedEin(\ObserverMap^*H).
+\label{eq:intertwine2}
+\end{equation}
+\end{definition}
+
+\begin{definition}[Admissible completion class and free sector]
+\label{def:class}
+Let \(\CompClass\) denote the same observer-compatible reduced-harmonic Coulomb-plus-regular completion class used in the redesign, anchoring, action, kernel-origin, microscopic-equilibrium deeper-origin, equilibrium-reservoir primitive-origin, primitive-reservoir carrier-origin, and carrier-origin precursor-selection notes. The free homogeneous sector is
+\begin{equation}
+\CompFree
+\equiv
+\left\{
+H\in\CompClass:\SubReducedEin(H)=0
+\right\},
+\label{eq:freeclass}
+\end{equation}
+and \(\CompForced\) denotes its orthogonal complement inside \(\CompClass\) with respect to the bridge-metric \(L^2\) pairing
+\begin{equation}
+\langle H_1,H_2\rangle_{\mathrm{cmp}}
+\equiv
+\int_{\Sub} d^4X\,\sqrt{G}\,
+\BridgeMetric^{AC}\BridgeMetric^{BD}(H_1)_{AB}(H_2)_{CD}.
+\label{eq:inner}
+\end{equation}
+Let \(\FreeProj:\CompClass\to\CompFree\) be the orthogonal projector. The fixed source satisfies
+\begin{equation}
+\ResidualLift\in\CompForced,
+\qquad
+\FreeProj\ResidualLift=0.
+\label{eq:sourcefree}
+\end{equation}
+\end{definition}
+
+\begin{remark}
+The present note does not alter the source \(\ResidualLift\), the reduced operator \(\SubReducedEin\), the one-metric matter route, or the recorded admissible completion class. It asks one layer deeper than the previous note: why the precursor-selection structure itself should be the right exact-preserving deeper lift.
+\end{remark}
+
+\section{Fixed Carrier-Origin and Precursor-Selection Targets}
+
+\begin{definition}[Carrier-origin block fixed by the previous notes]
+\label{def:carrier}
+The primitive-reservoir carrier-origin note fixed a still-deeper carrier block with tensor seed
+\[
+\CarrierSeed\in\CarrierClass,
+\qquad
+\CarrierClass=\CompClass\oplus\CompClass^\perp,
+\]
+orthogonal projector
+\[
+\CarrierProj:\CarrierClass\to\CompClass,
+\qquad
+\CarrierPerp\equiv I-\CarrierProj,
+\]
+relabeling-current seed \(\RelabelSeed_A\in T^*\Sub\), and source-free homogeneous seed \(\FreeSeed_{AB}\in\CompFree\). Its functional is
+\begin{equation}
+\begin{aligned}
+\CarrierFunctional[\CarrierSeed,\RelabelSeed,\FreeSeed]
+\equiv
+\int_{\Sub} d^4X\,\sqrt{G}\,
+\Bigl[
+&\frac12 (\CarrierProj\CarrierSeed)^{AB}
+\SubEinLin(\CarrierProj\CarrierSeed)_{AB}
++\frac{\CarrierGap}{2}(\CarrierPerp\CarrierSeed)^{AB}(\CarrierPerp\CarrierSeed)_{AB}
+\\
+&+\frac12\bigl(\RelabelSeed_A-\SubGaugeVec(\CarrierProj\CarrierSeed)_A\bigr)
+\bigl(\RelabelSeed^A-\SubGaugeVec(\CarrierProj\CarrierSeed)^A\bigr)
+\\
+&+\frac{\FreeStiff}{2}\FreeSeed^{AB}\FreeSeed_{AB}
++(\ResidualLift)^{AB}(\CarrierProj\CarrierSeed)_{AB}
+\Bigr],
+\\
+&\qquad\qquad \CarrierGap>0,\qquad \FreeStiff>0.
+\end{aligned}
+\label{eq:car}
+\end{equation}
+The primitive readout from that carrier block is
+\begin{equation}
+\PrimStrain\equiv \CarrierProj\CarrierSeed,
+\qquad
+\PrimNeutral\equiv \RelabelSeed,
+\qquad
+\PrimFree\equiv \FreeSeed.
+\label{eq:readout}
+\end{equation}
+\end{definition}
+
+\begin{definition}[Precursor-selection lift fixed by the previous note]
+\label{def:precursor_target}
+The carrier-origin precursor-selection note introduced the precursor spaces
+\[
+\PreTensorClass,\qquad
+\PreRelabelClass,\qquad
+\PreFreeClass
+\]
+with orthogonal projectors
+\[
+\PreCarProj:\PreTensorClass\to\CarrierClass,
+\qquad
+\CurrentProj:\PreRelabelClass\to T^*\Sub,
+\qquad
+\FreeReadProj:\PreFreeClass\to\CompFree,
+\]
+complementary projectors
+\[
+\PreCarPerp\equiv I-\PreCarProj,
+\qquad
+\CurrentPerp\equiv I-\CurrentProj,
+\qquad
+\FreeReadPerp\equiv I-\FreeReadProj,
+\]
+and functional
+\begin{equation}
+\begin{aligned}
+\PreFunctional[\PreTensor,\PreRelabel,\PreFree]
+\equiv\;
+&\CarrierFunctional[\PreCarProj\PreTensor,\CurrentProj\PreRelabel,\FreeReadProj\PreFree]
+\\
+&+\frac{\PreCarGap}{2}\norm{\PreCarPerp\PreTensor}_{\mathrm{pre,car}}^2
++\frac{\CurrentGap}{2}\norm{\CurrentPerp\PreRelabel}_{\mathrm{pre,rel}}^2
++\frac{\HomGap}{2}\norm{\FreeReadPerp\PreFree}_{\mathrm{pre,hom}}^2,
+\\
+&\qquad\qquad
+\PreCarGap>0,\qquad
+\CurrentGap>0,\qquad
+\HomGap>0.
+\end{aligned}
+\label{eq:Fpre}
+\end{equation}
+whose projected carrier-origin readouts are
+\begin{equation}
+\CarrierSeed=\PreCarProj\PreTensor,
+\qquad
+\RelabelSeed=\CurrentProj\PreRelabel,
+\qquad
+\FreeSeed=\FreeReadProj\PreFree.
+\label{eq:pre_readout}
+\end{equation}
+\end{definition}
+
+\begin{definition}[Recorded downstream reservoirs]
+\label{def:downstream}
+The same previous notes already fixed the primitive reservoir
+\begin{equation}
+\begin{aligned}
+\PrimFunctional[\PrimStrain,\PrimNeutral,\PrimFree]
+\equiv
+\int_{\Sub} d^4X\,\sqrt{G}\,
+\Bigl[
+&\frac12 \PrimStrain^{AB}\SubEinLin(\PrimStrain)_{AB}
++\frac12\bigl(\PrimNeutral_A-\SubGaugeVec(\PrimStrain)_A\bigr)
+\bigl(\PrimNeutral^A-\SubGaugeVec(\PrimStrain)^A\bigr)
+\\
+&+\frac{\FreeStiff}{2}\PrimFree^{AB}\PrimFree_{AB}
++(\ResidualLift)^{AB}\PrimStrain_{AB}
+\Bigr],
+\end{aligned}
+\label{eq:primitive}
+\end{equation}
+and the microscopic-equilibrium completion reservoir
+\begin{equation}
+\begin{aligned}
+\MicFunctional[H,\GaugeAux]
+=
+\int_{\Sub} d^4X\,\sqrt{G}\,
+\Bigl[
+&\frac12 H^{AB}\SubEinLin(H)_{AB}
++\frac12\bigl(\GaugeAux_A-\SubGaugeVec(H)_A\bigr)
+\bigl(\GaugeAux^A-\SubGaugeVec(H)^A\bigr)
+\\
+&+\frac{\FreeStiff}{2}(\FreeProj H)^{AB}(\FreeProj H)_{AB}
++(\ResidualLift)^{AB}H_{AB}
+\Bigr].
+\end{aligned}
+\label{eq:mic}
+\end{equation}
+\end{definition}
+
+\begin{remark}
+The present manuscript takes \eqref{eq:car}, \eqref{eq:Fpre}, \eqref{eq:primitive}, and \eqref{eq:mic} as fixed downstream targets. Its new task is to derive or justify why the precursor spaces, their projector readouts, and their positive complement gaps themselves are forced at current scope.
+\end{remark}
+
+\section{Still-Deeper Exact-Preservation Sector}
+
+\begin{definition}[Raw deeper selection spaces and readout maps]
+\label{def:deep}
+Let
+\[
+\DeepTensorClass,\qquad
+\DeepRelabelClass,\qquad
+\DeepFreeClass
+\]
+be Hilbert spaces, and let
+\begin{equation}
+\CarRead:\DeepTensorClass\to\CarrierClass,
+\qquad
+\CurRead:\DeepRelabelClass\to T^*\Sub,
+\qquad
+\HomRead:\DeepFreeClass\to\CompFree
+\label{eq:maps}
+\end{equation}
+be bounded surjective linear maps. For every
+\[
+\DeepTensor\in\DeepTensorClass,\qquad
+\DeepRelabel\in\DeepRelabelClass,\qquad
+\DeepFree\in\DeepFreeClass,
+\]
+write the orthogonal decompositions
+\begin{equation}
+\DeepTensor=\DeepTensor^{\parallel}+\DeepTensor^{\perp},
+\qquad
+\DeepTensor^{\parallel}\in(\ker\CarRead)^\perp,
+\qquad
+\DeepTensor^{\perp}\in\ker\CarRead,
+\label{eq:Xsplit}
+\end{equation}
+\begin{equation}
+\DeepRelabel=\DeepRelabel^{\parallel}+\DeepRelabel^{\perp},
+\qquad
+\DeepRelabel^{\parallel}\in(\ker\CurRead)^\perp,
+\qquad
+\DeepRelabel^{\perp}\in\ker\CurRead,
+\label{eq:Jsplit}
+\end{equation}
+\begin{equation}
+\DeepFree=\DeepFree^{\parallel}+\DeepFree^{\perp},
+\qquad
+\DeepFree^{\parallel}\in(\ker\HomRead)^\perp,
+\qquad
+\DeepFree^{\perp}\in\ker\HomRead.
+\label{eq:Wsplit}
+\end{equation}
+At disciplined exact-preservation scope, the raw deeper functional is
+\begin{equation}
+\begin{aligned}
+\DeepFunctional[\DeepTensor,\DeepRelabel,\DeepFree]
+\equiv\;
+&\CarrierFunctional[\CarRead\DeepTensor,\CurRead\DeepRelabel,\HomRead\DeepFree]
+\\
+&+\frac{\PreCarGap}{2}\norm{\DeepTensor^{\perp}}_{\mathrm{deep,car}}^2
++\frac{\CurrentGap}{2}\norm{\DeepRelabel^{\perp}}_{\mathrm{deep,cur}}^2
++\frac{\HomGap}{2}\norm{\DeepFree^{\perp}}_{\mathrm{deep,hom}}^2,
+\\
+&\qquad\qquad
+\PreCarGap>0,\qquad
+\CurrentGap>0,\qquad
+\HomGap>0.
+\end{aligned}
+\label{eq:Fdeep}
+\end{equation}
+\end{definition}
+
+\begin{remark}
+The present deeper sector is intentionally minimal. It does not claim to classify all possible microscopic completions. It records only the exact-preservation structure needed for the next honest burden: if a still-deeper sector preserves the same downstream carrier-origin functional at current quadratic scope, then it can differ from that carrier-origin functional only by invisible kernel directions and their positive penalties.
+\end{remark}
+
+\begin{proposition}[Why the codomains \(\CarrierClass\), \(T^*\Sub\), and \(\CompFree\) are forced]
+\label{prop:codomains}
+If a still-deeper selection sector is required to reproduce the same carrier-origin functional \eqref{eq:car} after elimination, then its visible readouts must land precisely in
+\[
+\CarrierClass,\qquad
+T^*\Sub,\qquad
+\CompFree.
+\]
+\end{proposition}
+
+\begin{proof}
+The carrier-origin functional \eqref{eq:car} has exactly three downstream slots. Its tensor slot is \(\CarrierSeed\in\CarrierClass\), because the branch-compatible projector \(\CarrierProj\) and the fixed source loading are defined there. Any visible tensor readout landing elsewhere would either fail to define the same functional or introduce a new downstream tensor sector. Its relabeling slot is the covector current \(\RelabelSeed\in T^*\Sub\), because the only current-scope relabeling imprint of a tensor seed is the covector \(\SubGaugeVec(\CarrierProj\CarrierSeed)\); a scalar or higher-rank visible readout would not reproduce the same neutral term. Its homogeneous slot is \(\FreeSeed\in\CompFree\), because the recorded source-blind homogeneous block is exactly the free kernel of \(\SubReducedEin\), and the fixed source satisfies \(\ResidualLift\in\CompForced\), so only that free sector preserves the same unloaded homogeneous structure and the same later \(\Pi_{\mathrm{free}}H=0\) consequence.
+
+Therefore any still-deeper sector that is exact-preserving at carrier-origin level must read out into \(\CarrierClass\), \(T^*\Sub\), and \(\CompFree\), as in \eqref{eq:maps}. These are not optional codomains but the forced downstream target spaces of the already recorded carrier-origin functional.
+\end{proof}
+
+\section{Projector Normal Form of the Precursor-Selection Lift}
+
+\begin{theorem}[Forced precursor spaces and projector normal form]
+\label{thm:normalform}
+Define the precursor spaces by
+\begin{equation}
+\PreTensorClass\equiv \CarrierClass\oplus \ker\CarRead,
+\qquad
+\PreRelabelClass\equiv T^*\Sub\oplus \ker\CurRead,
+\qquad
+\PreFreeClass\equiv \CompFree\oplus \ker\HomRead,
+\label{eq:pre_spaces_new}
+\end{equation}
+equipped with the induced inner products
+\begin{equation}
+\begin{aligned}
+\left\langle (C,N),(C',N')\right\rangle_{\mathrm{pre,car}}
+\equiv\;
+&\left\langle
+\bigl(\CarRead|_{(\ker\CarRead)^\perp}\bigr)^{-1}C,
+\bigl(\CarRead|_{(\ker\CarRead)^\perp}\bigr)^{-1}C'
+\right\rangle_{\mathrm{deep,car}}
+\\
+&+\langle N,N'\rangle_{\mathrm{deep,car}},
+\end{aligned}
+\label{eq:inner_pre_car}
+\end{equation}
+\begin{equation}
+\begin{aligned}
+\left\langle (j,M),(j',M')\right\rangle_{\mathrm{pre,rel}}
+\equiv\;
+&\left\langle
+\bigl(\CurRead|_{(\ker\CurRead)^\perp}\bigr)^{-1}j,
+\bigl(\CurRead|_{(\ker\CurRead)^\perp}\bigr)^{-1}j'
+\right\rangle_{\mathrm{deep,cur}}
+\\
+&+\langle M,M'\rangle_{\mathrm{deep,cur}},
+\end{aligned}
+\label{eq:inner_pre_rel}
+\end{equation}
+\begin{equation}
+\begin{aligned}
+\left\langle (F,L),(F',L')\right\rangle_{\mathrm{pre,hom}}
+\equiv\;
+&\left\langle
+\bigl(\HomRead|_{(\ker\HomRead)^\perp}\bigr)^{-1}F,
+\bigl(\HomRead|_{(\ker\HomRead)^\perp}\bigr)^{-1}F'
+\right\rangle_{\mathrm{deep,hom}}
+\\
+&+\langle L,L'\rangle_{\mathrm{deep,hom}}.
+\end{aligned}
+\label{eq:inner_pre_hom}
+\end{equation}
+Let the orthogonal projectors onto the first factors be
+\begin{equation}
+\PreCarProj(C,N)=C,
+\qquad
+\CurrentProj(j,M)=j,
+\qquad
+\FreeReadProj(F,L)=F,
+\label{eq:projectors_new}
+\end{equation}
+with complementary projectors onto the second factors. Define
+\begin{equation}
+\CarIso(\DeepTensor)
+\equiv
+\bigl(\CarRead\DeepTensor^{\parallel},\DeepTensor^{\perp}\bigr),
+\qquad
+\CurIso(\DeepRelabel)
+\equiv
+\bigl(\CurRead\DeepRelabel^{\parallel},\DeepRelabel^{\perp}\bigr),
+\label{eq:UcarUcur}
+\end{equation}
+\begin{equation}
+\HomIso(\DeepFree)
+\equiv
+\bigl(\HomRead\DeepFree^{\parallel},\DeepFree^{\perp}\bigr).
+\label{eq:Uhom}
+\end{equation}
+Then \(\CarIso\), \(\CurIso\), and \(\HomIso\) are unitary isomorphisms, and under these identifications
+\begin{equation}
+\DeepFunctional[\DeepTensor,\DeepRelabel,\DeepFree]
+=
+\PreFunctional[\CarIso\DeepTensor,\CurIso\DeepRelabel,\HomIso\DeepFree].
+\label{eq:normalform}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Because \(\CarRead\) is bounded and surjective, its restriction
+\[
+\CarRead|_{(\ker\CarRead)^\perp}:(\ker\CarRead)^\perp\to\CarrierClass
+\]
+is a bounded bijection. The same is true for the restrictions of \(\CurRead\) and \(\HomRead\) to the orthogonal complements of their kernels. The inner products \eqref{eq:inner_pre_car}--\eqref{eq:inner_pre_hom} are therefore well-defined, and by construction the maps \eqref{eq:UcarUcur}--\eqref{eq:Uhom} preserve those inner products exactly, hence are unitary.
+
+For \(\PreTensor=\CarIso\DeepTensor\), \(\PreRelabel=\CurIso\DeepRelabel\), and \(\PreFree=\HomIso\DeepFree\), the projectors \eqref{eq:projectors_new} satisfy
+\[
+\PreCarProj\PreTensor=\CarRead\DeepTensor^{\parallel}=\CarRead\DeepTensor,
+\qquad
+\CurrentProj\PreRelabel=\CurRead\DeepRelabel^{\parallel}=\CurRead\DeepRelabel,
+\]
+\[
+\FreeReadProj\PreFree=\HomRead\DeepFree^{\parallel}=\HomRead\DeepFree,
+\]
+because the readout maps vanish on their kernels. The complementary projections satisfy
+\[
+\norm{\PreCarPerp\PreTensor}_{\mathrm{pre,car}}
+=
+\norm{\DeepTensor^{\perp}}_{\mathrm{deep,car}},
+\qquad
+\norm{\CurrentPerp\PreRelabel}_{\mathrm{pre,rel}}
+=
+\norm{\DeepRelabel^{\perp}}_{\mathrm{deep,cur}},
+\]
+\[
+\norm{\FreeReadPerp\PreFree}_{\mathrm{pre,hom}}
+=
+\norm{\DeepFree^{\perp}}_{\mathrm{deep,hom}},
+\]
+again by construction of the induced inner products. Substituting these identities into \eqref{eq:Fpre} yields exactly \eqref{eq:Fdeep}. This proves \eqref{eq:normalform}.
+\end{proof}
+
+\begin{corollary}[Why the precursor spaces and their unsuppressed sectors are forced]
+\label{cor:forced_precursor}
+At current exact-preservation scope, the precursor spaces are not extra same-level postulates. They are the forced image-plus-kernel Hilbert normal forms
+\[
+\PreTensorClass\simeq \CarrierClass\oplus \ker\CarRead,
+\qquad
+\PreRelabelClass\simeq T^*\Sub\oplus \ker\CurRead,
+\qquad
+\PreFreeClass\simeq \CompFree\oplus \ker\HomRead
+\]
+of the still-deeper readout maps \(\CarRead\), \(\CurRead\), and \(\HomRead\).
+\end{corollary}
+
+\begin{proof}
+This is exactly the content of Theorem \ref{thm:normalform}. The visible sectors are the first factors, determined by the codomains forced in Proposition \ref{prop:codomains}; the invisible sectors are the kernels of the deeper readout maps.
+\end{proof}
+
+\begin{corollary}[Why the orthogonal complement sectors carry positive gaps]
+\label{cor:gaps}
+Under the normal-form identification \eqref{eq:normalform}, the orthogonal precursor complements are exactly the kernel sectors
+\[
+\PreCarPerp\PreTensor\simeq \ker\CarRead,
+\qquad
+\CurrentPerp\PreRelabel\simeq \ker\CurRead,
+\qquad
+\FreeReadPerp\PreFree\simeq \ker\HomRead,
+\]
+and their quadratic costs are exactly the positive gap terms
+\[
+\frac{\PreCarGap}{2}\norm{\PreCarPerp\PreTensor}_{\mathrm{pre,car}}^2,
+\qquad
+\frac{\CurrentGap}{2}\norm{\CurrentPerp\PreRelabel}_{\mathrm{pre,rel}}^2,
+\qquad
+\frac{\HomGap}{2}\norm{\FreeReadPerp\PreFree}_{\mathrm{pre,hom}}^2.
+\]
+\end{corollary}
+
+\begin{proof}
+By Theorem \ref{thm:normalform}, the second factors in \eqref{eq:pre_spaces_new} are exactly the complements selected by the orthogonal projectors. In the normal form \eqref{eq:normalform}, those are penalized by the strictly positive coefficients \(\PreCarGap\), \(\CurrentGap\), and \(\HomGap\). Hence the precursor complements are positively gapped.
+\end{proof}
+
+\section{Exact Recovery of the Same Carrier-Origin Lift}
+
+\begin{definition}[Raw deeper coarse-graining functional]
+\label{def:deep_cg}
+For fixed carrier-origin readouts \((\CarrierSeed,\RelabelSeed,\FreeSeed)\), define
+\begin{equation}
+\begin{aligned}
+\mathscr C_{\mathrm{deep}}
+[\CarrierSeed,\RelabelSeed,\FreeSeed;\DeepTensor,\DeepRelabel,\DeepFree,\StrainMult,\NeutralMult,\FreeMult]
+\equiv\;
+&\DeepFunctional[\DeepTensor,\DeepRelabel,\DeepFree]
+\\
+&+\int_{\Sub} d^4X\,\sqrt{G}\,
+\StrainMult^{AB}\bigl(\CarrierSeed-\CarRead\DeepTensor\bigr)_{AB}
+\\
+&+\int_{\Sub} d^4X\,\sqrt{G}\,
+\NeutralMult^A\bigl(\RelabelSeed-\CurRead\DeepRelabel\bigr)_A
+\\
+&+\int_{\Sub} d^4X\,\sqrt{G}\,
+\FreeMult^{AB}\bigl(\FreeSeed-\HomRead\DeepFree\bigr)_{AB},
+\end{aligned}
+\label{eq:Cdeep}
+\end{equation}
+where \(\StrainMult\in\CarrierClass\), \(\NeutralMult\in T^*\Sub\), and \(\FreeMult\in\CompFree\). The raw deeper stationary-value functional is
+\begin{equation}
+\DeepToCar[\CarrierSeed,\RelabelSeed,\FreeSeed]
+\equiv
+\operatorname*{stat}_{\DeepTensor,\DeepRelabel,\DeepFree,\StrainMult,\NeutralMult,\FreeMult}
+\mathscr C_{\mathrm{deep}}.
+\label{eq:Fdeepstat}
+\end{equation}
+\end{definition}
+
+\begin{theorem}[Exact recovery of the same carrier-origin functional]
+\label{thm:recover_car}
+The stationary equations of \eqref{eq:Cdeep} enforce
+\begin{equation}
+\CarRead\DeepTensor=\CarrierSeed,
+\qquad
+\CurRead\DeepRelabel=\RelabelSeed,
+\qquad
+\HomRead\DeepFree=\FreeSeed,
+\label{eq:deep_constraints_1}
+\end{equation}
+together with
+\begin{equation}
+\DeepTensor^{\perp}=0,
+\qquad
+\DeepRelabel^{\perp}=0,
+\qquad
+\DeepFree^{\perp}=0.
+\label{eq:deep_constraints_2}
+\end{equation}
+Consequently,
+\begin{equation}
+\DeepToCar[\CarrierSeed,\RelabelSeed,\FreeSeed]
+=
+\CarrierFunctional[\CarrierSeed,\RelabelSeed,\FreeSeed].
+\label{eq:deep_to_carrier}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Stationarity of \eqref{eq:Cdeep} with respect to the multipliers \(\StrainMult\), \(\NeutralMult\), and \(\FreeMult\) gives \eqref{eq:deep_constraints_1}. The readout maps \(\CarRead\), \(\CurRead\), and \(\HomRead\) vanish on their kernels, so the only dependence of \eqref{eq:Cdeep} on the kernel pieces \(\DeepTensor^{\perp}\), \(\DeepRelabel^{\perp}\), and \(\DeepFree^{\perp}\) is through the positive quadratic penalties in \eqref{eq:Fdeep}. Variation therefore gives
+\[
+\PreCarGap\,\DeepTensor^{\perp}=0,
+\qquad
+\CurrentGap\,\DeepRelabel^{\perp}=0,
+\qquad
+\HomGap\,\DeepFree^{\perp}=0,
+\]
+and because the coefficients are strictly positive, \eqref{eq:deep_constraints_2} follows. Substituting \eqref{eq:deep_constraints_1}--\eqref{eq:deep_constraints_2} into \eqref{eq:Cdeep} removes the multiplier terms and annihilates the positive kernel penalties, leaving exactly
+\[
+\CarrierFunctional[\CarrierSeed,\RelabelSeed,\FreeSeed].
+\]
+This proves \eqref{eq:deep_to_carrier}.
+\end{proof}
+
+\begin{corollary}[Same carrier-origin readout package]
+\label{cor:same_car_package}
+The still-deeper exact-preservation sector reproduces exactly the same carrier-origin tensor seed \(\CarrierSeed\in\CarrierClass\), the same relabeling current \(\RelabelSeed\in T^*\Sub\), the same free homogeneous seed \(\FreeSeed\in\CompFree\), and the same carrier-origin functional \eqref{eq:car} recorded in the previous note.
+\end{corollary}
+
+\begin{proof}
+This is exactly Theorem \ref{thm:recover_car}.
+\end{proof}
+
+\section{Recovery of the Same Primitive Reservoir and Microscopic Reservoir}
+
+\begin{definition}[Fixed carrier coarse-graining functional]
+\label{def:car_cg}
+For fixed primitive readouts \((\PrimStrain,\PrimNeutral,\PrimFree)\), define
+\begin{equation}
+\begin{aligned}
+\mathscr C_{\mathrm{car}}
+[\PrimStrain,\PrimNeutral,\PrimFree;\CarrierSeed,\RelabelSeed,\FreeSeed,\StrainMult,\NeutralMult,\FreeMult]
+\equiv\;
+&\CarrierFunctional[\CarrierSeed,\RelabelSeed,\FreeSeed]
+\\
+&+\int_{\Sub} d^4X\,\sqrt{G}\,
+\StrainMult^{AB}\bigl(\PrimStrain-\CarrierProj\CarrierSeed\bigr)_{AB}
+\\
+&+\int_{\Sub} d^4X\,\sqrt{G}\,
+\NeutralMult^A(\PrimNeutral-\RelabelSeed)_A
+\\
+&+\int_{\Sub} d^4X\,\sqrt{G}\,
+\FreeMult^{AB}(\PrimFree-\FreeSeed)_{AB}.
+\end{aligned}
+\label{eq:Ccar}
+\end{equation}
+Its stationary-value functional is
+\begin{equation}
+\CarrierToPrim[\PrimStrain,\PrimNeutral,\PrimFree]
+\equiv
+\operatorname*{stat}_{\CarrierSeed,\RelabelSeed,\FreeSeed,\StrainMult,\NeutralMult,\FreeMult}
+\mathscr C_{\mathrm{car}}.
+\label{eq:Fcarstat}
+\end{equation}
+\end{definition}
+
+\begin{theorem}[Exact recovery of the same primitive reservoir]
+\label{thm:recoverprimitive}
+The still-deeper exact-preservation sector reproduces exactly the same primitive reservoir:
+\begin{equation}
+\CarrierToPrim[\PrimStrain,\PrimNeutral,\PrimFree]
+=
+\PrimFunctional[\PrimStrain,\PrimNeutral,\PrimFree].
+\label{eq:primitive_exact}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+By Theorem \ref{thm:recover_car}, the carrier functional appearing in \eqref{eq:Ccar} is exactly the same carrier-origin functional \eqref{eq:car} used in the primitive-reservoir carrier-origin note. The stationarity equations of \eqref{eq:Ccar} therefore again enforce
+\[
+\CarrierProj\CarrierSeed=\PrimStrain,
+\qquad
+\RelabelSeed=\PrimNeutral,
+\qquad
+\FreeSeed=\PrimFree,
+\qquad
+\CarrierPerp\CarrierSeed=0.
+\]
+Substituting these relations into \eqref{eq:Ccar} removes the multiplier terms and leaves exactly \eqref{eq:primitive}. This proves \eqref{eq:primitive_exact}.
+\end{proof}
+
+\begin{corollary}[Same reduced carrier Hessian]
+\label{cor:hessian}
+Eliminating the neutral current from the recovered primitive reservoir gives the same reduced primitive functional
+\begin{equation}
+\begin{aligned}
+\int_{\Sub} d^4X\,\sqrt{G}\,
+\Bigl[
+\frac12 \PrimStrain^{AB}\SubReducedEin(\PrimStrain)_{AB}
++\frac{\FreeStiff}{2}\PrimFree^{AB}\PrimFree_{AB}
++(\ResidualLift)^{AB}\PrimStrain_{AB}
+\Bigr],
+\end{aligned}
+\label{eq:Fredprimitive}
+\end{equation}
+whose quadratic \(\PrimStrain\)-Hessian is the same completion kernel
+\begin{equation}
+\CompKernel(H_1,H_2)
+\equiv
+\int_{\Sub} d^4X\,\sqrt{G}\,
+H_1^{AB}\SubReducedEin(H_2)_{AB}.
+\label{eq:kernel}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+By \eqref{eq:primitive_exact}, variation with respect to \(\PrimNeutral_A\) gives
+\[
+\PrimNeutral_A=\SubGaugeVec(\PrimStrain)_A.
+\]
+Substituting this back into \eqref{eq:primitive} yields \eqref{eq:Fredprimitive}. Bilinearization of the quadratic \(\frac12\int \PrimStrain^{AB}\SubReducedEin(\PrimStrain)_{AB}\) term gives \eqref{eq:kernel}.
+\end{proof}
+
+\begin{definition}[Fixed primitive coarse-graining functional]
+\label{def:prim_cg}
+For fixed coarse completion data \((H,\GaugeAux)\in\CompClass\times T^*\Sub\), define
+\begin{equation}
+\begin{aligned}
+\mathscr C_{\mathrm{prim}}[H,\GaugeAux;\PrimStrain,\PrimNeutral,\PrimFree,\StrainMult,\NeutralMult,\FreeMult]
+\equiv\;
+&\PrimFunctional[\PrimStrain,\PrimNeutral,\PrimFree]
+\\
+&+\int_{\Sub} d^4X\,\sqrt{G}\,
+\StrainMult^{AB}(H-\PrimStrain)_{AB}
+\\
+&+\int_{\Sub} d^4X\,\sqrt{G}\,
+\NeutralMult^A(\GaugeAux-\PrimNeutral)_A
+\\
+&+\int_{\Sub} d^4X\,\sqrt{G}\,
+\FreeMult^{AB}\bigl((\FreeProj H)-\PrimFree\bigr)_{AB}.
+\end{aligned}
+\label{eq:Cprim}
+\end{equation}
+\end{definition}
+
+\begin{theorem}[Exact recovery of the same microscopic-equilibrium reservoir]
+\label{thm:recovermic}
+Using \eqref{eq:primitive_exact} inside \eqref{eq:Cprim}, the same stationary-value macroscopic reservoir \eqref{eq:mic} is recovered:
+\begin{equation}
+\operatorname*{stat}_{\PrimStrain,\PrimNeutral,\PrimFree,\StrainMult,\NeutralMult,\FreeMult}
+\mathscr C_{\mathrm{prim}}
+=
+\MicFunctional[H,\GaugeAux].
+\label{eq:micrecover}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+By Theorem \ref{thm:recoverprimitive}, the primitive functional appearing in \eqref{eq:Cprim} is exactly the same \(\PrimFunctional\) already used in the equilibrium-reservoir primitive-origin note. The stationarity equations of \eqref{eq:Cprim} therefore again enforce
+\[
+\PrimStrain=H,
+\qquad
+\PrimNeutral=\GaugeAux,
+\qquad
+\PrimFree=\FreeProj H,
+\]
+and substitution yields \eqref{eq:mic}. Hence \eqref{eq:micrecover} follows.
+\end{proof}
+
+\section{Recovery of the Same Completion Solve and One Operative Metric}
+
+\begin{theorem}[Same stationary completion equations]
+\label{thm:stationary}
+Let \((\CompLift,\GaugeAux)\) be a stationary point of the recovered macroscopic reservoir \(\MicFunctional\). Then
+\begin{equation}
+\GaugeAux_A=\SubGaugeVec(\CompLift)_A,
+\label{eq:Yeq}
+\end{equation}
+and
+\begin{equation}
+\SubReducedEin(\CompLift)_{AB}
++\FreeStiff(\FreeProj\CompLift)_{AB}
+=
+-\ResidualLift_{AB}.
+\label{eq:Heq}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Theorem \ref{thm:recovermic} shows that the macroscopic reservoir is exactly \eqref{eq:mic}. Variation of \eqref{eq:mic} with respect to \(\GaugeAux_A\) gives \eqref{eq:Yeq}. Substituting \eqref{eq:Yeq} back into \eqref{eq:mic} yields the reduced functional
+\[
+\int_{\Sub} d^4X\,\sqrt{G}\,
+\Bigl[
+\frac12 H^{AB}\SubReducedEin(H)_{AB}
++\frac{\FreeStiff}{2}(\FreeProj H)^{AB}(\FreeProj H)_{AB}
++(\ResidualLift)^{AB}H_{AB}
+\Bigr],
+\]
+and variation with respect to \(H_{AB}\) gives \eqref{eq:Heq}.
+\end{proof}
+
+\begin{proposition}[Same zero-free-mode outcome]
+\label{prop:freezero}
+The stationary completion tensor satisfies
+\begin{equation}
+\FreeProj\CompLift=0.
+\label{eq:freezero}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Apply \(\FreeProj\) to \eqref{eq:Heq}. Since \(\CompFree=\ker\SubReducedEin\), one has \(\FreeProj\SubReducedEin(\CompLift)=0\). By \eqref{eq:sourcefree}, \(\FreeProj\ResidualLift=0\). Therefore
+\[
+\FreeStiff\,\FreeProj\CompLift=0.
+\]
+Because \(\FreeStiff>0\), equation \eqref{eq:freezero} follows.
+\end{proof}
+
+\begin{corollary}[Same substrate completion solve]
+\label{cor:subsolve}
+The stationary completion tensor satisfies
+\begin{equation}
+\SubReducedEin(\CompLift)_{AB}
+=
+-\ResidualLift_{AB},
+\qquad
+\FreeProj\CompLift=0.
+\label{eq:subsolve}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+Substituting \eqref{eq:freezero} into \eqref{eq:Heq} gives \eqref{eq:subsolve}.
+\end{proof}
+
+\begin{definition}[Completed bridge and observer metrics]
+\label{def:completed}
+Define
+\begin{equation}
+\CompShift_{\mu\nu}
+\equiv
+\ObserverMap^*\CompLift_{AB},
+\qquad
+\CompletedMetric
+\equiv
+\ObserverMetric+\BaseShift+\ResponseShift+\CompShift.
+\label{eq:completedmetric}
+\end{equation}
+\end{definition}
+
+\begin{theorem}[Same observer solve and one operative metric]
+\label{thm:observer}
+The still-deeper exact-preservation sector reproduces exactly the same observer completion solve
+\begin{equation}
+\ReducedEin(\CompShift)_{\mu\nu}
+=
+-\ResidualCore{}_{\mu\nu}.
+\label{eq:observereq}
+\end{equation}
+Consequently the same completed observer metric \(\CompletedMetric\) remains the unique operative metric of the branch, with the same universal matter route and the same observer-equation removal of the former genuine quartic residual sector.
+\end{theorem}
+
+\begin{proof}
+Apply \(\ObserverMap^*\) to \eqref{eq:subsolve}. Using \eqref{eq:intertwine2} and \(\ObserverMap^*\ResidualLift=\ResidualCore\), one obtains \eqref{eq:observereq}. No new observer metric, bridge map, or matter-coupling rule is introduced anywhere in the deeper exact-preservation sector. Therefore the same completed metric \(\CompletedMetric\) remains the unique operative metric, exactly as in the previous completion notes.
+\end{proof}
+
+\begin{corollary}[Recorded gain package is preserved]
+\label{cor:gains}
+Because the recovered carrier-origin functional \eqref{eq:car}, primitive reservoir \eqref{eq:primitive}, macroscopic reservoir \eqref{eq:mic}, and stationary equations \eqref{eq:Yeq}--\eqref{eq:observereq} are unchanged, the recorded Phase D / E infrared-spectrum and universal-coupling verdicts, the recorded Phase F controlled GR limit, and the zero-free-mode verdict \(\Pi_{\mathrm{free}}H=0\) are preserved without modification.
+\end{corollary}
+
+\begin{proof}
+The new note changes only the still-deeper origin of the precursor-selection lift. It leaves the carrier-origin functional, primitive reservoir, macroscopic completion functional, completion solve, and one operative metric unchanged. Therefore all previously recorded observer-level consequences of that same completion package survive verbatim.
+\end{proof}
+
+\section{Claim-Boundary Verdict}
+
+\begin{theorem}[Carrier-origin precursor-selection deeper-origin verdict]
+\label{thm:verdict}
+At the disciplined scope of the present note, the positive result is exactly the following.
+\begin{enumerate}
+    \item The precursor-selection lift of the previous note is no longer left as the present deepest disciplined block.
+    \item Any still-deeper exact-preserving sector must read out visibly into \(\CarrierClass\), \(T^*\Sub\), and \(\CompFree\), because those are precisely the tensor, relabeling, and homogeneous slots of the fixed carrier-origin functional.
+    \item The previous precursor spaces are recovered as the image-plus-kernel Hilbert normal forms of those deeper readout maps:
+    \[
+    \PreTensorClass\simeq \CarrierClass\oplus \ker\CarRead,
+    \qquad
+    \PreRelabelClass\simeq T^*\Sub\oplus \ker\CurRead,
+    \qquad
+    \PreFreeClass\simeq \CompFree\oplus \ker\HomRead.
+    \]
+    \item Under the induced Hilbert structures, the deeper readout maps become exactly the orthogonal projectors \(\PreCarProj\), \(\CurrentProj\), and \(\FreeReadProj\) of the precursor-selection note.
+    \item The orthogonal precursor complements are exactly the invisible kernel sectors and therefore carry the positive gaps \(\PreCarGap\), \(\CurrentGap\), and \(\HomGap\).
+    \item Constrained elimination of the still-deeper sector reproduces exactly the same carrier-origin functional \(\CarrierFunctional[\CarrierSeed,\RelabelSeed,\FreeSeed]\).
+    \item The already recorded downstream eliminations therefore reproduce exactly the same primitive reservoir \(\PrimFunctional[\PrimStrain,\PrimNeutral,\PrimFree]\), the same microscopic-equilibrium completion reservoir \(\MicFunctional[H,\GaugeAux]\), the same \(\Pi_{\mathrm{free}}H=0\) outcome, the same substrate solve \(\SubReducedEin(\CompLift)=-\ResidualLift\), the same observer solve \(\ReducedEin(\CompShift)=-\ResidualCore\), and the same one operative metric.
+    \item Stronger promotion language is still not justified here, because the note supplies only the deeper normal-form origin of the precursor-selection lift at current exact-preservation scope, not a final ultraviolet completion or a theorem broader than the current one-metric claim boundary.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Item (1) is the main framing claim of the introduction. Item (2) is Proposition \ref{prop:codomains}. Items (3) and (4) are Theorem \ref{thm:normalform} and Corollary \ref{cor:forced_precursor}. Item (5) is Corollary \ref{cor:gaps}. Item (6) is Theorem \ref{thm:recover_car}. Item (7) is Theorem \ref{thm:recoverprimitive}, Theorem \ref{thm:recovermic}, Proposition \ref{prop:freezero}, Corollary \ref{cor:subsolve}, Theorem \ref{thm:observer}, and Corollary \ref{cor:gains}. Item (8) is the claim-boundary discipline stated in the introduction.
+\end{proof}
+
+\begin{corollary}[What remains next]
+The primary active burden moves one layer deeper again. It is no longer to justify why the precursor spaces, their readout projectors, and their positive complement gaps are admissible at current scope; that step is now recorded. The next honest burden is either a still-deeper origin or sharper selection principle below the present exact-preservation normal form itself, or another comparably concrete observer-equation gain on the same one-metric line. The anchored positive-pair continuation remains side work unless it directly supplies one of those.
+\end{corollary}
+
+\section{Conclusion}
+
+The positive result of this note is that the precursor-selection structure is no longer left unexplained at present scope. It is recovered as the forced image-plus-kernel normal form of a still-deeper exact-preserving selection sector.
+
+At that deeper level, one begins not with the precursor spaces themselves but with raw deeper spaces
+\[
+\DeepTensorClass,\qquad
+\DeepRelabelClass,\qquad
+\DeepFreeClass
+\]
+and with surjective readout maps
+\[
+\CarRead:\DeepTensorClass\to\CarrierClass,
+\qquad
+\CurRead:\DeepRelabelClass\to T^*\Sub,
+\qquad
+\HomRead:\DeepFreeClass\to\CompFree.
+\]
+Those codomains are forced because the fixed carrier-origin functional has exactly those three visible slots and no others. The invisible parts of the deeper spaces are therefore precisely the kernels of the readout maps.
+
+Using the induced Hilbert structures pulled back from the visible sectors, the previous precursor spaces are then recovered as
+\[
+\PreTensorClass\simeq \CarrierClass\oplus \ker\CarRead,
+\qquad
+\PreRelabelClass\simeq T^*\Sub\oplus \ker\CurRead,
+\qquad
+\PreFreeClass\simeq \CompFree\oplus \ker\HomRead,
+\]
+and the deeper readouts become exactly the orthogonal projectors
+\[
+\PreCarProj,\qquad
+\CurrentProj,\qquad
+\FreeReadProj.
+\]
+That is why the unsuppressed precursor sectors are precisely the projected readouts into \(\CarrierClass\), \(T^*\Sub\), and \(\CompFree\), and why the orthogonal complements carry the positive gaps
+\[
+\PreCarGap>0,\qquad
+\CurrentGap>0,\qquad
+\HomGap>0.
+\]
+
+Constrained elimination of the raw deeper sector then reproduces exactly the same carrier-origin functional already recorded in the previous note. The previously recorded downstream eliminations therefore reproduce exactly the same primitive branch-strain / neutral-current / free-mode reservoir and exactly the same microscopic-equilibrium completion reservoir:
+\[
+\PrimFunctional[\PrimStrain,\PrimNeutral,\PrimFree],
+\qquad
+\MicFunctional[H,\GaugeAux].
+\]
+Hence the same zero-free-mode outcome, the same substrate solve, the same observer solve, and the same one operative metric follow once more:
+\[
+\FreeProj\CompLift=0,
+\qquad
+\SubReducedEin(\CompLift)=-\ResidualLift,
+\qquad
+\ReducedEin(\CompShift)=-\ResidualCore.
+\]
+The recorded Phase D / E and Phase F gains therefore remain intact.
+
+The scope remains honest. This note does not claim a final ultraviolet completion and does not widen the theorem boundary. Its exact positive result is narrower and precisely the one now needed: the precursor-selection lift is no longer primitive at current scope, but is recovered as the forced image-plus-kernel normal form of a still-deeper exact-preserving sector while preserving the same carrier-origin functional, the same primitive reservoir, the same microscopic-equilibrium reservoir, the same \(\Pi_{\mathrm{free}}H=0\) verdict, the same \(\Sigma^{\mathrm{cmp}}\) solve, and the same one operative metric. The next honest burden is one layer deeper again: whether that exact-preservation normal form itself can be derived from more explicit substrate microphysics, selected more sharply, or superseded by another equally concrete observer-equation gain on the same one-metric line.
+
+\end{document}
