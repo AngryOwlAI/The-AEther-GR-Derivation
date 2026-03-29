@@ -1,0 +1,1014 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal A}
+\newcommand{\ObserverMap}{\Xi}
+\newcommand{\BridgeMetric}{\mathfrak g}
+\newcommand{\ObserverMetric}{g^{\mathrm{br}}}
+\newcommand{\CandidateMetric}{g^{\mathrm{cand}}}
+\newcommand{\CompletedMetric}{g^{\sharp}}
+\newcommand{\BaseShift}{\Sigma^{\mathrm{IER}}}
+\newcommand{\ResponseShift}{\Sigma^{\mathrm{resp}}}
+\newcommand{\CompShift}{\Sigma^{\mathrm{cmp}}}
+\newcommand{\BaseLift}{\widehat\Sigma^{\mathrm{IER}}}
+\newcommand{\ResponseLift}{\widehat\Sigma^{\mathrm{resp}}}
+\newcommand{\CompLift}{\widehat\Sigma^{\mathrm{cmp}}}
+\newcommand{\ResidualCore}{\mathcal V_{\mu\nu}^{\mathrm{res}}}
+\newcommand{\ResidualLift}{\widehat{\mathcal V}^{\mathrm{res}}}
+\newcommand{\SubReducedEin}{\widehat{\mathcal L}}
+\newcommand{\FreeProj}{\Pi_{\mathrm{free}}}
+\newcommand{\GaugeAux}{Y}
+\newcommand{\ReducedEin}{\mathcal L_{\ObserverMetric}}
+\newcommand{\CompClass}{\mathscr C_{\mathrm{cmp}}}
+\newcommand{\MicFunctional}{\mathscr F_{\mathrm{mic}}}
+\newcommand{\PrimFunctional}{\mathscr F_{\mathrm{prim}}}
+\newcommand{\CarrierFunctional}{\mathscr F_{\mathrm{car}}}
+\newcommand{\DeepFunctional}{\mathscr F_{\mathrm{deep}}}
+\newcommand{\StemFunctional}{\mathscr F_{\mathrm{sel}}}
+\newcommand{\PrimStrain}{K}
+\newcommand{\PrimNeutral}{J}
+\newcommand{\PrimFree}{F}
+\newcommand{\CarrierSeed}{\mathfrak S}
+\newcommand{\RelabelSeed}{\mathfrak R}
+\newcommand{\FreeSeed}{\mathfrak F}
+\newcommand{\RootTensorClass}{\mathscr U_{\mathrm{car}}}
+\newcommand{\RootRelabelClass}{\mathscr U_{\mathrm{cur}}}
+\newcommand{\RootFreeClass}{\mathscr U_{\mathrm{hom}}}
+\newcommand{\TensorEqCmpProj}{\widetilde\Pi_{\mathrm{cmp,car}}}
+\newcommand{\CurEqCmpProj}{\widetilde\Pi_{\mathrm{cmp,cur}}}
+\newcommand{\HomEqCmpProj}{\widetilde\Pi_{\mathrm{cmp,hom}}}
+\newcommand{\TensorObjClass}{\mathcal O_{\mathrm{car}}}
+\newcommand{\CurObjClass}{\mathcal O_{\mathrm{cur}}}
+\newcommand{\HomObjClass}{\mathcal O_{\mathrm{hom}}}
+\newcommand{\TensorObjBase}{o_{\mathrm{car}}^0}
+\newcommand{\CurObjBase}{o_{\mathrm{cur}}^0}
+\newcommand{\HomObjBase}{o_{\mathrm{hom}}^0}
+\newcommand{\TensorWindowClass}{\mathfrak X_{\mathrm{car}}}
+\newcommand{\CurWindowClass}{\mathfrak X_{\mathrm{cur}}}
+\newcommand{\HomWindowClass}{\mathfrak X_{\mathrm{hom}}}
+\newcommand{\TensorCalGroup}{\mathcal C_{\mathrm{car}}^{\mathrm{cal}}}
+\newcommand{\CurCalGroup}{\mathcal C_{\mathrm{cur}}^{\mathrm{cal}}}
+\newcommand{\HomCalGroup}{\mathcal C_{\mathrm{hom}}^{\mathrm{cal}}}
+\newcommand{\TensorWindowRep}{\overline{\mathscr W}_{\mathrm{car}}}
+\newcommand{\CurWindowRep}{\overline{\mathscr W}_{\mathrm{cur}}}
+\newcommand{\HomWindowRep}{\overline{\mathscr W}_{\mathrm{hom}}}
+\newcommand{\TensorStatTagClass}{\mathcal Y_{\mathrm{car}}^{\mathrm{st}}}
+\newcommand{\CurStatTagClass}{\mathcal Y_{\mathrm{cur}}^{\mathrm{st}}}
+\newcommand{\HomStatTagClass}{\mathcal Y_{\mathrm{hom}}^{\mathrm{st}}}
+\newcommand{\TensorStatTag}{\varsigma_{\mathrm{car}}}
+\newcommand{\CurStatTag}{\varsigma_{\mathrm{cur}}}
+\newcommand{\HomStatTag}{\varsigma_{\mathrm{hom}}}
+\newcommand{\TensorLocalRate}{\mathfrak L_{\mathrm{car}}}
+\newcommand{\CurLocalRate}{\mathfrak L_{\mathrm{cur}}}
+\newcommand{\HomLocalRate}{\mathfrak L_{\mathrm{hom}}}
+\newcommand{\TensorDensityClass}{\mathscr N_{\mathrm{car}}}
+\newcommand{\CurDensityClass}{\mathscr N_{\mathrm{cur}}}
+\newcommand{\HomDensityClass}{\mathscr N_{\mathrm{hom}}}
+\newcommand{\TensorFluxClass}{\mathscr J_{\mathrm{car}}}
+\newcommand{\CurFluxClass}{\mathscr J_{\mathrm{cur}}}
+\newcommand{\HomFluxClass}{\mathscr J_{\mathrm{hom}}}
+\newcommand{\TensorWindowDensity}{\mathfrak q_{\mathrm{car}}}
+\newcommand{\CurWindowDensity}{\mathfrak q_{\mathrm{cur}}}
+\newcommand{\HomWindowDensity}{\mathfrak q_{\mathrm{hom}}}
+\newcommand{\TensorWindowFlux}{\mathfrak j_{\mathrm{car}}}
+\newcommand{\CurWindowFlux}{\mathfrak j_{\mathrm{cur}}}
+\newcommand{\HomWindowFlux}{\mathfrak j_{\mathrm{hom}}}
+\newcommand{\TensorPhaseReadClass}{\mathscr R_{\mathrm{car}}}
+\newcommand{\CurPhaseReadClass}{\mathscr R_{\mathrm{cur}}}
+\newcommand{\HomPhaseReadClass}{\mathscr R_{\mathrm{hom}}}
+\newcommand{\TensorEndpointReadSeed}{\mathscr R_{\mathrm{car}}^{\mathrm{end}}}
+\newcommand{\CurEndpointReadSeed}{\mathscr R_{\mathrm{cur}}^{\mathrm{end}}}
+\newcommand{\HomEndpointReadSeed}{\mathscr R_{\mathrm{hom}}^{\mathrm{end}}}
+\newcommand{\TensorStationaryWindow}{\mathfrak p_{\mathrm{car}}^{\mathrm{st}}}
+\newcommand{\CurStationaryWindow}{\mathfrak p_{\mathrm{cur}}^{\mathrm{st}}}
+\newcommand{\HomStationaryWindow}{\mathfrak p_{\mathrm{hom}}^{\mathrm{st}}}
+\newcommand{\TensorHistoryClass}{\mathfrak H_{\mathrm{car}}}
+\newcommand{\CurHistoryClass}{\mathfrak H_{\mathrm{cur}}}
+\newcommand{\HomHistoryClass}{\mathfrak H_{\mathrm{hom}}}
+\newcommand{\TensorThreadClass}{\mathfrak T_{\mathrm{car}}}
+\newcommand{\CurThreadClass}{\mathfrak T_{\mathrm{cur}}}
+\newcommand{\HomThreadClass}{\mathfrak T_{\mathrm{hom}}}
+\newcommand{\TensorThreadLength}{\ell_{\mathrm{car}}}
+\newcommand{\CurThreadLength}{\ell_{\mathrm{cur}}}
+\newcommand{\HomThreadLength}{\ell_{\mathrm{hom}}}
+\newcommand{\TensorThreadEval}{\gamma_{\mathrm{car}}}
+\newcommand{\CurThreadEval}{\gamma_{\mathrm{cur}}}
+\newcommand{\HomThreadEval}{\gamma_{\mathrm{hom}}}
+\newcommand{\TensorThreadUnit}{\mathbf 1_{\mathrm{car}}}
+\newcommand{\CurThreadUnit}{\mathbf 1_{\mathrm{cur}}}
+\newcommand{\HomThreadUnit}{\mathbf 1_{\mathrm{hom}}}
+\newcommand{\TensorThreadConcat}{\blacktriangleright_{\mathrm{car}}}
+\newcommand{\CurThreadConcat}{\blacktriangleright_{\mathrm{cur}}}
+\newcommand{\HomThreadConcat}{\blacktriangleright_{\mathrm{hom}}}
+\newcommand{\TensorThreadRev}{\mathfrak r_{\mathrm{car}}}
+\newcommand{\CurThreadRev}{\mathfrak r_{\mathrm{cur}}}
+\newcommand{\HomThreadRev}{\mathfrak r_{\mathrm{hom}}}
+\newcommand{\TensorThreadRep}{\mathbb U_{\mathrm{car}}}
+\newcommand{\CurThreadRep}{\mathbb U_{\mathrm{cur}}}
+\newcommand{\HomThreadRep}{\mathbb U_{\mathrm{hom}}}
+\newcommand{\TensorCalLie}{\mathfrak c_{\mathrm{car}}^{\mathrm{gen}}}
+\newcommand{\CurCalLie}{\mathfrak c_{\mathrm{cur}}^{\mathrm{gen}}}
+\newcommand{\HomCalLie}{\mathfrak c_{\mathrm{hom}}^{\mathrm{gen}}}
+\newcommand{\TensorCalMetric}{q_{\mathrm{car}}^{\mathrm{gen}}}
+\newcommand{\CurCalMetric}{q_{\mathrm{cur}}^{\mathrm{gen}}}
+\newcommand{\HomCalMetric}{q_{\mathrm{hom}}^{\mathrm{gen}}}
+\newcommand{\TensorCalLat}{\Lambda_{\mathrm{car}}^{\mathrm{gen}}}
+\newcommand{\CurCalLat}{\Lambda_{\mathrm{cur}}^{\mathrm{gen}}}
+\newcommand{\HomCalLat}{\Lambda_{\mathrm{hom}}^{\mathrm{gen}}}
+\newcommand{\TensorShadowDensity}{\upsilon_{\mathrm{car}}}
+\newcommand{\CurShadowDensity}{\upsilon_{\mathrm{cur}}}
+\newcommand{\HomShadowDensity}{\upsilon_{\mathrm{hom}}}
+\newcommand{\TensorRateDensity}{\lambda_{\mathrm{car}}}
+\newcommand{\CurRateDensity}{\lambda_{\mathrm{cur}}}
+\newcommand{\HomRateDensity}{\lambda_{\mathrm{hom}}}
+\newcommand{\TensorDensityField}{\widehat q_{\mathrm{car}}}
+\newcommand{\CurDensityField}{\widehat q_{\mathrm{cur}}}
+\newcommand{\HomDensityField}{\widehat q_{\mathrm{hom}}}
+\newcommand{\TensorFluxField}{\widehat j_{\mathrm{car}}}
+\newcommand{\CurFluxField}{\widehat j_{\mathrm{cur}}}
+\newcommand{\HomFluxField}{\widehat j_{\mathrm{hom}}}
+\newcommand{\TensorBoundaryRecorder}{\rho_{\mathrm{car}}^{\partial}}
+\newcommand{\CurBoundaryRecorder}{\rho_{\mathrm{cur}}^{\partial}}
+\newcommand{\HomBoundaryRecorder}{\rho_{\mathrm{hom}}^{\partial}}
+\newcommand{\TensorProcSpace}{\mathcal P_{\mathrm{car}}}
+\newcommand{\CurProcSpace}{\mathcal P_{\mathrm{cur}}}
+\newcommand{\HomProcSpace}{\mathcal P_{\mathrm{hom}}}
+\newcommand{\TensorProcRead}{\pi_{\mathrm{car}}}
+\newcommand{\CurProcRead}{\pi_{\mathrm{cur}}}
+\newcommand{\HomProcRead}{\pi_{\mathrm{hom}}}
+\newcommand{\TensorProcUnit}{u_{\mathrm{car}}^{\mathrm{proc}}}
+\newcommand{\CurProcUnit}{u_{\mathrm{cur}}^{\mathrm{proc}}}
+\newcommand{\HomProcUnit}{u_{\mathrm{hom}}^{\mathrm{proc}}}
+\newcommand{\TensorFlowField}{X_{\mathrm{car}}}
+\newcommand{\CurFlowField}{X_{\mathrm{cur}}}
+\newcommand{\HomFlowField}{X_{\mathrm{hom}}}
+\newcommand{\TensorOrbitFlow}{\Phi_{\mathrm{car}}}
+\newcommand{\CurOrbitFlow}{\Phi_{\mathrm{cur}}}
+\newcommand{\HomOrbitFlow}{\Phi_{\mathrm{hom}}}
+\newcommand{\TensorProcLength}{L_{\mathrm{car}}}
+\newcommand{\CurProcLength}{L_{\mathrm{cur}}}
+\newcommand{\HomProcLength}{L_{\mathrm{hom}}}
+\newcommand{\TensorProcTimeRev}{\chi_{\mathrm{car}}}
+\newcommand{\CurProcTimeRev}{\chi_{\mathrm{cur}}}
+\newcommand{\HomProcTimeRev}{\chi_{\mathrm{hom}}}
+\newcommand{\TensorProcMetric}{h_{\mathrm{car}}^{\perp}}
+\newcommand{\CurProcMetric}{h_{\mathrm{cur}}^{\perp}}
+\newcommand{\HomProcMetric}{h_{\mathrm{hom}}^{\perp}}
+\newcommand{\TensorProcLift}{\mathbb U_{\mathrm{car}}^{\mathrm{proc}}}
+\newcommand{\CurProcLift}{\mathbb U_{\mathrm{cur}}^{\mathrm{proc}}}
+\newcommand{\HomProcLift}{\mathbb U_{\mathrm{hom}}^{\mathrm{proc}}}
+\newcommand{\TensorShadowForm}{\boldsymbol{\varsigma}_{\mathrm{car}}}
+\newcommand{\CurShadowForm}{\boldsymbol{\varsigma}_{\mathrm{cur}}}
+\newcommand{\HomShadowForm}{\boldsymbol{\varsigma}_{\mathrm{hom}}}
+\newcommand{\TensorRateForm}{\boldsymbol{\lambda}_{\mathrm{car}}}
+\newcommand{\CurRateForm}{\boldsymbol{\lambda}_{\mathrm{cur}}}
+\newcommand{\HomRateForm}{\boldsymbol{\lambda}_{\mathrm{hom}}}
+\newcommand{\TensorDensitySource}{\boldsymbol{q}_{\mathrm{car}}}
+\newcommand{\CurDensitySource}{\boldsymbol{q}_{\mathrm{cur}}}
+\newcommand{\HomDensitySource}{\boldsymbol{q}_{\mathrm{hom}}}
+\newcommand{\TensorFluxSource}{\boldsymbol{j}_{\mathrm{car}}}
+\newcommand{\CurFluxSource}{\boldsymbol{j}_{\mathrm{cur}}}
+\newcommand{\HomFluxSource}{\boldsymbol{j}_{\mathrm{hom}}}
+\newcommand{\TensorBoundarySource}{\boldsymbol{\rho}_{\mathrm{car}}^{\partial}}
+\newcommand{\CurBoundarySource}{\boldsymbol{\rho}_{\mathrm{cur}}^{\partial}}
+\newcommand{\HomBoundarySource}{\boldsymbol{\rho}_{\mathrm{hom}}^{\partial}}
+\newcommand{\TensorThreadAction}{\mathscr A_{\mathrm{car}}^{\mathrm{thr}}}
+\newcommand{\CurThreadAction}{\mathscr A_{\mathrm{cur}}^{\mathrm{thr}}}
+\newcommand{\HomThreadAction}{\mathscr A_{\mathrm{hom}}^{\mathrm{thr}}}
+\newcommand{\Iso}{\operatorname{Iso}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Substrate-Response / Self-Response Charge-Polarization Candidate\\
+\large Exact-Preservation Reversible-Process-Thread / Calibration-Generator / Shadow-Current / Rate-Density / Boundary-Recorder\\
+\large Origin Note}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The exact-preservation reversible-process-window / calibration-action / stationary-shadow / local-rate / endpoint-recorder origin note already shows that the previously recorded reversible process-window layer is not primitive at present scope. It is recovered there from a still deeper reversible process-thread / calibration-generator / shadow-current / rate-density / boundary-recorder layer. What remained open is one layer deeper again: why those reversible exact-preserving process threads, their calibration-generator Lie algebras with invariant positive metrics and integral period lattices, their stationary-shadow currents, their rate-density / density / flux thread fields, their boundary-recorder fields, and the strict endpoint-transverse stationary reduction of the same thread action should themselves exist rather than becoming the present deepest disciplined postulate.
+
+The present note addresses exactly that narrower burden. It keeps fixed the same exact-preservation target: the same \(\StemFunctional\), the same exact-preservation normal form \(\DeepFunctional\), the same carrier-origin functional \(\CarrierFunctional[\CarrierSeed,\RelabelSeed,\FreeSeed]\), the same primitive reservoir \(\PrimFunctional[\PrimStrain,\PrimNeutral,\PrimFree]\), the same microscopic-equilibrium reservoir \(\MicFunctional[H,\GaugeAux]\), the same \(\Sigma^{\mathrm{cmp}}\) solve, the same \(\Pi_{\mathrm{free}}H=0\) outcome, the same one operative metric, and the same recorded Phase D / E and Phase F gains. Its positive move is to place the recorded reversible process-thread layer under a still deeper exact-preserving process-state / reversible-line-field / compact-calibration-fiber / basic-form construction:
+\begin{enumerate}
+    \item finite-dimensional exact-preserving process-state manifolds carrying complete reversible line fields whose admissible compact oriented orbit segments are exactly the recorded reversible process threads;
+    \item compact exact-preserving calibration fibers with preserved positive transverse metrics, whose vertical commuting Killing symmetries are exactly the recorded calibration-generator Lie algebras, whose averaged fiber metrics are exactly the recorded invariant positive metrics, and whose periodic-generator kernels are exactly the recorded integral period lattices, hence forcing the recorded compact calibration actions;
+    \item calibration-basic exact-preserving shadow one-forms whose contractions with the reversible line fields are exactly the recorded stationary-shadow currents;
+    \item calibration-basic exact-preserving rate one-forms together with density and flux source fields whose orbit pullbacks are exactly the recorded rate-density, density, and flux thread fields;
+    \item calibration-basic exact-preserving boundary potentials together with transverse convexity of the same fixed-endpoint rate-form action, forcing exactly the recorded boundary-recorder fields and the same strict endpoint-transverse stationary reduction.
+\end{enumerate}
+
+At current exact-preservation scope, the reversible process-thread / calibration-generator / shadow-current / rate-density / boundary-recorder layer is therefore no longer primitive either. Because the present note reproduces that layer exactly, the immediately preceding note applies verbatim. Consequently the same reversible process-window / calibration-action / stationary-shadow / local-rate / endpoint-recorder layer, the same reversible-history / endpoint-readout / cotangent-lift layer, the same reversible-groupoid / transport-action / constrained-stationary package, the same reconfiguration-group / transport-law / equilibrium-reduction package, the same derivation-algebra / balance-law / equilibrium-manifold layer, the same \(\StemFunctional\), the same exact-preservation normal form, the same carrier-origin functional, the same primitive and microscopic-equilibrium reservoirs, the same \(\Sigma^{\mathrm{cmp}}\) solve, the same \(\Pi_{\mathrm{free}}H=0\) outcome, the same one operative metric, and the same recorded Phase D / E and Phase F gains are preserved without change.
+
+The scope remains disciplined. This note does not claim a final microscopic completion, a unique ultimate substrate theory, or a completed first-principles derivation of GR. Its narrower exact positive claim is only that the recorded reversible process-thread / calibration-generator / shadow-current / rate-density / boundary-recorder layer is itself no longer primitive at present scope, but is forced by a still deeper process-state / reversible-line-field / compact-calibration-fiber / basic-form substrate layer while preserving the same downstream package.
+\end{abstract}
+
+\section{Introduction}
+
+The active one-metric charge-polarization line has now crossed the candidate, benchmark-gate, controlled-limit, residual-sector, redesign, substrate-anchoring, substrate-action, kernel-origin, deeper-selection, primitive-reservoir, carrier-origin, precursor-selection, exact-preservation normal-form, microphysical-Hessian, charge-generator, derivation-algebra, reconfiguration-group, reversible-groupoid, reversible-history, and reversible process-window origin steps on the same GR-directed route. The burden therefore sharpens again. It is not another packaging pass. It is not stronger promotion language. It is not, by default, a move onto the anchored positive-pair side line. It is to go one layer below the currently recorded reversible process-thread / calibration-generator / shadow-current / rate-density / boundary-recorder construction itself and explain why that construction is forced.
+
+That burden has five parts. First, one must explain why the exact-preserving reversible process threads
+\[
+\TensorThreadClass,\qquad
+\CurThreadClass,\qquad
+\HomThreadClass
+\]
+should exist rather than being declared. Second, one must explain why the calibration-generator Lie algebras
+\[
+\TensorCalLie,\qquad
+\CurCalLie,\qquad
+\HomCalLie
+\]
+and their invariant positive metrics and integral period lattices should be forced rather than chosen, and hence why the compact calibration actions should be forced rather than imposed. Third, one must explain why the stationary-shadow currents
+\[
+\TensorShadowDensity,\qquad
+\CurShadowDensity,\qquad
+\HomShadowDensity
+\]
+should exist rather than being inserted by hand. Fourth, one must explain why the rate-density, density, and flux thread fields
+\[
+\TensorRateDensity,\qquad
+\CurRateDensity,\qquad
+\HomRateDensity,\qquad
+\TensorDensityField,\qquad
+\CurDensityField,\qquad
+\HomDensityField,\qquad
+\TensorFluxField,\qquad
+\CurFluxField,\qquad
+\HomFluxField
+\]
+should arise from deeper substrate structure. Fifth, one must explain why the boundary-recorder fields
+\[
+\TensorBoundaryRecorder,\qquad
+\CurBoundaryRecorder,\qquad
+\HomBoundaryRecorder
+\]
+and the strict endpoint-transverse stationary reduction of the same thread action should be forced rather than postulated. As before, one must also re-show that solving those deeper burdens changes none of the already recorded downstream gains: the same \(\StemFunctional\), the same exact-preservation normal form, the same carrier-origin functional, the same primitive and microscopic-equilibrium reservoirs, the same \(\Sigma^{\mathrm{cmp}}\) solve, the same \(\Pi_{\mathrm{free}}H=0\) outcome, the same one operative metric, and the same recorded Phase D / E and Phase F gains must remain intact.
+
+The key move of the present note is to place one still deeper exact-preserving process-state layer under all five current objects at once. Complete reversible line fields on exact-preserving process-state manifolds force the recorded reversible process threads as admissible compact oriented orbit segments. Compact exact-preserving calibration fibers with preserved positive metrics force the recorded calibration-generator Lie algebras, invariant positive metrics, integral period lattices, and therefore the compact calibration actions. Calibration-basic shadow one-forms force the recorded stationary-shadow currents by contraction with the line fields. Calibration-basic rate one-forms and density / flux source fields force the recorded rate-density, density, and flux thread fields by orbit pullback. Calibration-basic boundary potentials together with transverse convexity of the same fixed-endpoint rate-form action force the recorded boundary-recorder fields and the same strict endpoint-transverse stationary reduction. The currently recorded reversible process-thread layer is therefore no longer primitive either.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active manuscript sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not claim a final ultraviolet completion, a uniqueness theorem for every conceivable deeper substrate model, or a wider theorem boundary than the current exact-preservation chain. Its narrower positive move is exact and current-scope: the reversible process-thread / calibration-generator / shadow-current / rate-density / boundary-recorder package of the previous note is itself forced as the reduced image of a still more primitive process-state / reversible-line-field / compact-calibration-fiber / basic-form layer, with no change to the downstream completion package.
+
+\section{Fixed Inputs from the Recorded Completion Line}
+
+\begin{definition}[Fixed branch and downstream completion target]
+\label{def:fixed_branch}
+The present note keeps fixed the same charge-polarization branch
+\begin{equation}
+\CandidateMetric
+=
+\ObserverMetric+\BaseShift+\ResponseShift,
+\qquad
+\CompletedMetric
+=
+\ObserverMetric+\BaseShift+\ResponseShift+\CompShift,
+\label{eq:fixed_metrics}
+\end{equation}
+with lifted variables satisfying
+\begin{equation}
+\ObserverMap^*\BaseLift=\BaseShift,
+\qquad
+\ObserverMap^*\ResponseLift=\ResponseShift,
+\qquad
+\ObserverMap^*\CompLift=\CompShift.
+\label{eq:fixed_lifts}
+\end{equation}
+The same completion class and the same free-sector condition are fixed:
+\begin{equation}
+\CompLift\in\CompClass,
+\qquad
+\FreeProj\CompLift=0.
+\label{eq:fixed_free}
+\end{equation}
+The same substrate and observer completion equations are fixed as well:
+\begin{equation}
+\SubReducedEin(\CompLift)=-\ResidualLift,
+\qquad
+\ReducedEin(\CompShift)=-\ResidualCore.
+\label{eq:fixed_solves}
+\end{equation}
+Every statement below must preserve these equations together with the same one operative metric \(\CompletedMetric\).
+\end{definition}
+
+\begin{definition}[Recorded reversible process-thread layer]
+\label{def:recorded_layer}
+The immediately preceding note fixes the following exact-preserving input layer.
+\begin{enumerate}
+    \item Finite-dimensional exact-preserving reversible process-thread manifolds
+    \[
+    \TensorThreadClass,\qquad
+    \CurThreadClass,\qquad
+    \HomThreadClass
+    \]
+    with thread-length maps
+    \[
+    \TensorThreadLength,\qquad
+    \CurThreadLength,\qquad
+    \HomThreadLength,
+    \]
+    thread-evaluation maps
+    \[
+    \TensorThreadEval,\qquad
+    \CurThreadEval,\qquad
+    \HomThreadEval,
+    \]
+    exact-preserving unit-thread lifts
+    \[
+    \TensorThreadUnit,\qquad
+    \CurThreadUnit,\qquad
+    \HomThreadUnit,
+    \]
+    partial concatenations
+    \[
+    \TensorThreadConcat,\qquad
+    \CurThreadConcat,\qquad
+    \HomThreadConcat,
+    \]
+    reversals
+    \[
+    \TensorThreadRev,\qquad
+    \CurThreadRev,\qquad
+    \HomThreadRev,
+    \]
+    and exact-preserving unitary thread transport cocycles
+    \[
+    \TensorThreadRep,\qquad
+    \CurThreadRep,\qquad
+    \HomThreadRep.
+    \]
+    \item Exact-preserving calibration-generator Lie algebras
+    \[
+    \TensorCalLie,\qquad
+    \CurCalLie,\qquad
+    \HomCalLie
+    \]
+    with invariant positive metrics
+    \[
+    \TensorCalMetric,\qquad
+    \CurCalMetric,\qquad
+    \HomCalMetric,
+    \]
+    integral period lattices
+    \[
+    \TensorCalLat,\qquad
+    \CurCalLat,\qquad
+    \HomCalLat,
+    \]
+    and the corresponding compact calibration groups
+    \[
+    \TensorCalGroup,\qquad
+    \CurCalGroup,\qquad
+    \HomCalGroup
+    \]
+    acting on the same thread manifolds.
+    \item Calibration-basic exact-preserving stationary-shadow currents
+    \[
+    \TensorShadowDensity,\qquad
+    \CurShadowDensity,\qquad
+    \HomShadowDensity
+    \]
+    on the thread interval bundles.
+    \item Calibration-basic exact-preserving rate-density fields
+    \[
+    \TensorRateDensity,\qquad
+    \CurRateDensity,\qquad
+    \HomRateDensity,
+    \]
+    together with calibration-basic exact-preserving density and flux thread fields
+    \[
+    \TensorDensityField,\qquad
+    \CurDensityField,\qquad
+    \HomDensityField,\qquad
+    \TensorFluxField,\qquad
+    \CurFluxField,\qquad
+    \HomFluxField.
+    \]
+    \item Calibration-basic exact-preserving boundary-recorder fields
+    \[
+    \TensorBoundaryRecorder,\qquad
+    \CurBoundaryRecorder,\qquad
+    \HomBoundaryRecorder
+    \]
+    on the same thread interval bundles, together with the strict endpoint-transverse stationary reduction of the induced thread action at fixed endpoint data, whose segment reduction gives the same unique stationary windows
+    \[
+    \TensorStationaryWindow,\qquad
+    \CurStationaryWindow,\qquad
+    \HomStationaryWindow
+    \]
+    used in the immediately preceding process-window note.
+\end{enumerate}
+These data are exact fixed inputs for the present note. The only admissible positive result is to derive or justify why this entire layer is itself forced while keeping it unchanged.
+\end{definition}
+
+\begin{definition}[Recorded exact-preservation target]
+\label{def:recorded_target}
+The present note must preserve, without any modification,
+\begin{equation}
+\StemFunctional,
+\qquad
+\DeepFunctional,
+\qquad
+\CarrierFunctional[\CarrierSeed,\RelabelSeed,\FreeSeed],
+\qquad
+\PrimFunctional[\PrimStrain,\PrimNeutral,\PrimFree],
+\qquad
+\MicFunctional[H,\GaugeAux],
+\label{eq:target_functionals}
+\end{equation}
+together with the fixed free-sector verdict
+\begin{equation}
+\FreeProj\CompLift=0,
+\label{eq:target_free}
+\end{equation}
+and hence the same previously recorded \(\Pi_{\mathrm{free}}H=0\) outcome, the same completion solve
+\begin{equation}
+\CompShift=\Sigma^{\mathrm{cmp}},
+\label{eq:target_sigma}
+\end{equation}
+the same one operative metric \(\CompletedMetric\), and the same recorded Phase D / E infrared-spectrum and universal-coupling verdicts together with the same Phase F controlled GR limit.
+\end{definition}
+
+\section{Process-State and Compact-Calibration-Fiber Origin of the Reversible Process Threads and Calibration Generators}
+
+\begin{definition}[Primitive exact-preserving process-state and symmetry-kernel data]
+\label{def:process_state}
+For each sharper sector, let
+\[
+\TensorProcSpace,\qquad
+\CurProcSpace,\qquad
+\HomProcSpace
+\]
+be finite-dimensional \(C^2\) manifolds of exact-preserving process states. Assume:
+\begin{enumerate}
+    \item there are smooth visible readout maps
+    \[
+    \TensorProcRead:\TensorProcSpace\to\TensorObjClass,\qquad
+    \CurProcRead:\CurProcSpace\to\CurObjClass,\qquad
+    \HomProcRead:\HomProcSpace\to\HomObjClass,
+    \]
+    together with exact-preserving unit-state sections
+    \[
+    \TensorProcUnit:\TensorObjClass\to\TensorProcSpace,\qquad
+    \CurProcUnit:\CurObjClass\to\CurProcSpace,\qquad
+    \HomProcUnit:\HomObjClass\to\HomProcSpace
+    \]
+    satisfying
+    \[
+    \TensorProcRead\circ\TensorProcUnit=\mathrm{id}_{\TensorObjClass},\qquad
+    \CurProcRead\circ\CurProcUnit=\mathrm{id}_{\CurObjClass},\qquad
+    \HomProcRead\circ\HomProcUnit=\mathrm{id}_{\HomObjClass},
+    \]
+    and
+    \[
+    \TensorProcUnit(\TensorObjBase)\in\TensorProcSpace,\qquad
+    \CurProcUnit(\CurObjBase)\in\CurProcSpace,\qquad
+    \HomProcUnit(\HomObjBase)\in\HomProcSpace.
+    \]
+    \item there are complete smooth exact-preserving process vector fields
+    \[
+    \TensorFlowField,\qquad
+    \CurFlowField,\qquad
+    \HomFlowField
+    \]
+    with flows \(\TensorOrbitFlow^\sigma,\CurOrbitFlow^\sigma,\HomOrbitFlow^\sigma\), smooth nonnegative admissible-time ceilings
+    \[
+    \TensorProcLength:\TensorProcSpace\to[0,\infty),\qquad
+    \CurProcLength:\CurProcSpace\to[0,\infty),\qquad
+    \HomProcLength:\HomProcSpace\to[0,\infty),
+    \]
+    and smooth involutive exact-preserving time-reversal maps
+    \[
+    \TensorProcTimeRev:\TensorProcSpace\to\TensorProcSpace,\qquad
+    \CurProcTimeRev:\CurProcSpace\to\CurProcSpace,\qquad
+    \HomProcTimeRev:\HomProcSpace\to\HomProcSpace
+    \]
+    such that
+    \[
+    (\TensorProcTimeRev)_*\TensorFlowField=-\TensorFlowField,\qquad
+    (\CurProcTimeRev)_*\CurFlowField=-\CurFlowField,\qquad
+    (\HomProcTimeRev)_*\HomFlowField=-\HomFlowField,
+    \]
+    together with
+    \[
+    \TensorProcTimeRev\circ\TensorProcUnit=\TensorProcUnit,\qquad
+    \CurProcTimeRev\circ\CurProcUnit=\CurProcUnit,\qquad
+    \HomProcTimeRev\circ\HomProcUnit=\HomProcUnit,
+    \]
+    and
+    \[
+    \TensorProcRead\circ\TensorProcTimeRev=\TensorProcRead,\qquad
+    \CurProcRead\circ\CurProcTimeRev=\CurProcRead,\qquad
+    \HomProcRead\circ\HomProcTimeRev=\HomProcRead.
+    \]
+    \item there are exact-preserving unitary process lifts
+    \[
+    \TensorProcLift(p;a,b)\in\mathcal U(\RootTensorClass),\qquad
+    \CurProcLift(q;a,b)\in\mathcal U(\RootRelabelClass),\qquad
+    \HomProcLift(r;a,b)\in\mathcal U(\RootFreeClass)
+    \]
+    for all admissible \(0\le a\le b\le \TensorProcLength(p)\), \(0\le a\le b\le \CurProcLength(q)\), and \(0\le a\le b\le \HomProcLength(r)\), which are identity on degenerate intervals, multiplicative under interval concatenation, inverse under time reversal, and exact-preserving on the fixed branch.
+    \item each exact-preserving visible fiber of \(\TensorProcRead,\CurProcRead,\HomProcRead\) is compact and carries a smooth positive-definite metric
+    \[
+    \TensorProcMetric,\qquad
+    \CurProcMetric,\qquad
+    \HomProcMetric
+    \]
+    preserved by the corresponding process flows, time reversals, and process lifts. Let
+    \[
+    \TensorCalLie,\qquad
+    \CurCalLie,\qquad
+    \HomCalLie
+    \]
+    be the finite-dimensional Lie algebras of complete vertical vector fields on \(\TensorProcSpace,\CurProcSpace,\HomProcSpace\) that commute with the corresponding process vector fields, are Killing for the corresponding fiber metrics, and preserve the exact-preserving process lifts. Let
+    \[
+    \TensorCalMetric,\qquad
+    \CurCalMetric,\qquad
+    \HomCalMetric
+    \]
+    be the positive-definite Ad-invariant forms obtained by averaging the corresponding fiber metrics over the exact-preserving calibration fibers. Define the integral period lattices by
+    \begin{equation}
+    \TensorCalLat
+    \equiv
+    \left\{
+    A\in\TensorCalLie\,\middle|\,
+    \exp(2\pi A)\text{ acts trivially on the exact-preserving calibration fibers}
+    \right\},
+    \label{eq:period_lattice_car}
+    \end{equation}
+    \begin{equation}
+    \CurCalLat
+    \equiv
+    \left\{
+    B\in\CurCalLie\,\middle|\,
+    \exp(2\pi B)\text{ acts trivially on the exact-preserving calibration fibers}
+    \right\},
+    \label{eq:period_lattice_cur}
+    \end{equation}
+    \begin{equation}
+    \HomCalLat
+    \equiv
+    \left\{
+    C\in\HomCalLie\,\middle|\,
+    \exp(2\pi C)\text{ acts trivially on the exact-preserving calibration fibers}
+    \right\}.
+    \label{eq:period_lattice_hom}
+    \end{equation}
+    Let
+    \[
+    \TensorCalGroup,\qquad
+    \CurCalGroup,\qquad
+    \HomCalGroup
+    \]
+    be the connected compact Lie groups integrating those symmetry algebras with those period lattices. Their actions on the process-state manifolds are vertical, exact preserving, and commute with the process flows and time reversals.
+\end{enumerate}
+
+Define the recorded thread manifolds as the admissible compact oriented orbit-segment spaces
+\begin{equation}
+\TensorThreadClass
+\equiv
+\left\{
+(p,\ell)\,\middle|\,
+p\in\TensorProcSpace,\ 0\le\ell\le\TensorProcLength(p)
+\right\},
+\label{eq:thread_from_process_car}
+\end{equation}
+\begin{equation}
+\CurThreadClass
+\equiv
+\left\{
+(q,\ell)\,\middle|\,
+q\in\CurProcSpace,\ 0\le\ell\le\CurProcLength(q)
+\right\},
+\label{eq:thread_from_process_cur}
+\end{equation}
+\begin{equation}
+\HomThreadClass
+\equiv
+\left\{
+(r,\ell)\,\middle|\,
+r\in\HomProcSpace,\ 0\le\ell\le\HomProcLength(r)
+\right\}.
+\label{eq:thread_from_process_hom}
+\end{equation}
+Define the thread-length maps by
+\begin{equation}
+\TensorThreadLength(p,\ell)\equiv\ell,\qquad
+\CurThreadLength(q,\ell)\equiv\ell,\qquad
+\HomThreadLength(r,\ell)\equiv\ell.
+\label{eq:thread_lengths}
+\end{equation}
+Define the thread-evaluation maps by
+\begin{equation}
+\TensorThreadEval((p,\ell),\sigma)\equiv\TensorProcRead(\TensorOrbitFlow^\sigma(p)),
+\qquad
+0\le\sigma\le\ell,
+\label{eq:thread_eval_car}
+\end{equation}
+\begin{equation}
+\CurThreadEval((q,\ell),\sigma)\equiv\CurProcRead(\CurOrbitFlow^\sigma(q)),
+\qquad
+0\le\sigma\le\ell,
+\label{eq:thread_eval_cur}
+\end{equation}
+\begin{equation}
+\HomThreadEval((r,\ell),\sigma)\equiv\HomProcRead(\HomOrbitFlow^\sigma(r)),
+\qquad
+0\le\sigma\le\ell.
+\label{eq:thread_eval_hom}
+\end{equation}
+Define the exact-preserving unit-thread lifts by
+\begin{equation}
+\TensorThreadUnit(x)\equiv(\TensorProcUnit(x),0),\qquad
+\CurThreadUnit(y)\equiv(\CurProcUnit(y),0),\qquad
+\HomThreadUnit(z)\equiv(\HomProcUnit(z),0),
+\label{eq:thread_units}
+\end{equation}
+the partial concatenations by
+\begin{equation}
+(p,\ell_1)\TensorThreadConcat(\TensorOrbitFlow^{\ell_1}(p),\ell_2)
+\equiv
+(p,\ell_1+\ell_2),
+\label{eq:thread_concat_car}
+\end{equation}
+with the analogous formulas in the \(\mathrm{cur}\) and \(\mathrm{hom}\) sectors, and the reversals by
+\begin{equation}
+\TensorThreadRev(p,\ell)\equiv(\TensorProcTimeRev(\TensorOrbitFlow^\ell(p)),\ell),
+\label{eq:thread_rev_car}
+\end{equation}
+\begin{equation}
+\CurThreadRev(q,\ell)\equiv(\CurProcTimeRev(\CurOrbitFlow^\ell(q)),\ell),
+\label{eq:thread_rev_cur}
+\end{equation}
+\begin{equation}
+\HomThreadRev(r,\ell)\equiv(\HomProcTimeRev(\HomOrbitFlow^\ell(r)),\ell).
+\label{eq:thread_rev_hom}
+\end{equation}
+Define the recorded thread transport cocycles by restriction of the process lifts:
+\begin{equation}
+\begin{aligned}
+\TensorThreadRep((p,\ell);a,b)&\equiv\TensorProcLift(p;a,b),\\
+\CurThreadRep((q,\ell);a,b)&\equiv\CurProcLift(q;a,b),\\
+\HomThreadRep((r,\ell);a,b)&\equiv\HomProcLift(r;a,b),
+\end{aligned}
+\label{eq:thread_lifts_from_process}
+\end{equation}
+and define the calibration actions on the threads by
+\begin{equation}
+c\cdot(p,\ell)\equiv(c\cdot p,\ell),
+\qquad
+c\in\TensorCalGroup,
+\label{eq:thread_cal_action_car}
+\end{equation}
+with the corresponding formulas in the \(\mathrm{cur}\) and \(\mathrm{hom}\) sectors.
+\end{definition}
+
+\begin{proposition}[The reversible process threads and calibration-generator data are forced]
+\label{prop:threads_forced}
+The process-state and compact-calibration-fiber data of Definition \ref{def:process_state} recover exactly the recorded reversible process-thread / calibration-generator layer.
+\begin{enumerate}
+    \item The orbit-segment spaces \eqref{eq:thread_from_process_car}--\eqref{eq:thread_from_process_hom} are finite-dimensional exact-preserving reversible process-thread manifolds near the exact-preserving branch, with the recorded thread-length maps, thread-evaluation maps, unit-thread lifts, concatenation, and reversal induced by the deeper process-state structure.
+    \item The process lifts \eqref{eq:thread_lifts_from_process} are exactly the recorded exact-preserving unitary thread transport cocycles.
+    \item The vertical commuting Killing symmetries of the compact calibration fibers are exactly the recorded calibration-generator Lie algebras \(\TensorCalLie,\CurCalLie,\HomCalLie\); the averaged fiber metrics are exactly the recorded invariant positive metrics \(\TensorCalMetric,\CurCalMetric,\HomCalMetric\); the periodic-generator kernels \eqref{eq:period_lattice_car}--\eqref{eq:period_lattice_hom} are exactly the recorded integral period lattices; and the integrated connected isometry groups are exactly the recorded compact calibration groups \(\TensorCalGroup,\CurCalGroup,\HomCalGroup\).
+    \item Consequently the reversible exact-preserving process threads, the calibration-generator Lie algebras, the invariant positive metrics, the integral period lattices, and the compact calibration actions are no longer primitive at present scope; they are forced by a deeper process-state / reversible-line-field / compact-calibration-fiber substrate layer.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Item (1) is the standard orbit-segment construction. The segment parameter \(\ell\) varies smoothly with the process state, the readout maps are smooth, and the flows are complete. Hence the orbit-segment spaces are finite-dimensional \(C^2\) manifolds near the exact-preserving branch. The recorded thread-length maps, thread-evaluation maps, unit-thread lifts, concatenation, and reversal are induced directly from the deeper admissible-time ceilings, readouts, unit-state sections, flows, and time-reversal involutions.
+
+Item (2) is immediate from \eqref{eq:thread_lifts_from_process}. Identity on degenerate intervals, multiplicativity under interval subdivision, inversion under time reversal, and exact preservation on the fixed branch descend unchanged from the process lifts to the recorded thread transport cocycles.
+
+Item (3) follows from the compact positive fiber geometry. The vertical Killing fields of a compact positive-definite fiber metric form a finite-dimensional compact Lie algebra. Commuting with the corresponding process flow and preserving the exact-preserving process lifts cuts out exactly the recorded calibration-generator symmetry algebra. Averaging the preserved positive fiber metric over the exact-preserving fibers gives the recorded Ad-invariant positive metric on that Lie algebra. The generators with \(2\pi\)-periodic action form exactly the recorded integral period lattice, and the connected fiber-isometry group integrating that Lie algebra is compact. Because those vertical isometries commute with the process flows and preserve the readout maps, they act on orbit segments by \eqref{eq:thread_cal_action_car} and its sector analogues, giving exactly the recorded compact calibration actions.
+
+Item (4) is therefore immediate: the currently recorded process-thread / calibration-generator layer is recovered verbatim, but it is no longer primitive.
+\end{proof}
+
+\section{Basic-Form Origin of the Shadow Currents, Rate/Density/Flux Thread Fields, and Boundary Reduction}
+
+\begin{definition}[Primitive exact-preserving basic-form and boundary data]
+\label{def:basic_forms}
+Assume the process-state layer of Definition \ref{def:process_state} is fixed. Here \emph{calibration-basic} means invariant under the corresponding compact calibration action and annihilating the corresponding vertical calibration-generator directions. Assume further:
+\begin{enumerate}
+    \item there are calibration-basic exact-preserving shadow one-forms
+    \[
+    \TensorShadowForm\in\Omega^1(\TensorProcSpace;\TensorStatTagClass),\qquad
+    \CurShadowForm\in\Omega^1(\CurProcSpace;\CurStatTagClass),\qquad
+    \HomShadowForm\in\Omega^1(\HomProcSpace;\HomStatTagClass),
+    \]
+    invariant under the corresponding process flows and compatible with the corresponding time reversals. They force the recorded stationary-shadow currents on the threads by contraction with the reversible line fields:
+    \begin{equation}
+    \TensorShadowDensity((p,\ell),\sigma)
+    \equiv
+    \left(\TensorShadowForm(\TensorFlowField)\right)(\TensorOrbitFlow^\sigma(p)),
+    \qquad
+    0\le\sigma\le\ell,
+    \label{eq:shadow_density_from_form_car}
+    \end{equation}
+    \begin{equation}
+    \CurShadowDensity((q,\ell),\sigma)
+    \equiv
+    \left(\CurShadowForm(\CurFlowField)\right)(\CurOrbitFlow^\sigma(q)),
+    \qquad
+    0\le\sigma\le\ell,
+    \label{eq:shadow_density_from_form_cur}
+    \end{equation}
+    \begin{equation}
+    \HomShadowDensity((r,\ell),\sigma)
+    \equiv
+    \left(\HomShadowForm(\HomFlowField)\right)(\HomOrbitFlow^\sigma(r)),
+    \qquad
+    0\le\sigma\le\ell.
+    \label{eq:shadow_density_from_form_hom}
+    \end{equation}
+    \item there are calibration-basic exact-preserving rate one-forms
+    \[
+    \TensorRateForm\in\Omega^1(\TensorProcSpace),\qquad
+    \CurRateForm\in\Omega^1(\CurProcSpace),\qquad
+    \HomRateForm\in\Omega^1(\HomProcSpace),
+    \]
+    invariant under the corresponding process flows and even under the corresponding time reversals. They force the recorded rate-density fields by the same contraction rule:
+    \begin{equation}
+    \TensorRateDensity((p,\ell),\sigma)
+    \equiv
+    \left(\TensorRateForm(\TensorFlowField)\right)(\TensorOrbitFlow^\sigma(p)),
+    \label{eq:rate_density_from_form_car}
+    \end{equation}
+    \begin{equation}
+    \CurRateDensity((q,\ell),\sigma)
+    \equiv
+    \left(\CurRateForm(\CurFlowField)\right)(\CurOrbitFlow^\sigma(q)),
+    \label{eq:rate_density_from_form_cur}
+    \end{equation}
+    \begin{equation}
+    \HomRateDensity((r,\ell),\sigma)
+    \equiv
+    \left(\HomRateForm(\HomFlowField)\right)(\HomOrbitFlow^\sigma(r)).
+    \label{eq:rate_density_from_form_hom}
+    \end{equation}
+    \item there are calibration-basic exact-preserving density and flux source fields
+    \[
+    \TensorDensitySource:\TensorProcSpace\to\TensorDensityClass,\qquad
+    \CurDensitySource:\CurProcSpace\to\CurDensityClass,\qquad
+    \HomDensitySource:\HomProcSpace\to\HomDensityClass,
+    \]
+    and
+    \[
+    \TensorFluxSource:\TensorProcSpace\to\TensorFluxClass,\qquad
+    \CurFluxSource:\CurProcSpace\to\CurFluxClass,\qquad
+    \HomFluxSource:\HomProcSpace\to\HomFluxClass,
+    \]
+    preserved by the corresponding process flows and compatible with the corresponding time reversals. They force the recorded density and flux thread fields by orbit pullback:
+    \begin{equation}
+    \TensorDensityField((p,\ell),\sigma)\equiv\TensorDensitySource(\TensorOrbitFlow^\sigma(p)),\qquad
+    \TensorFluxField((p,\ell),\sigma)\equiv\TensorFluxSource(\TensorOrbitFlow^\sigma(p)),
+    \label{eq:density_flux_from_source_car}
+    \end{equation}
+    with the corresponding formulas in the \(\mathrm{cur}\) and \(\mathrm{hom}\) sectors.
+    \item there are calibration-basic exact-preserving boundary potentials
+    \[
+    \TensorBoundarySource:\TensorProcSpace\to\TensorPhaseReadClass,\qquad
+    \CurBoundarySource:\CurProcSpace\to\CurPhaseReadClass,\qquad
+    \HomBoundarySource:\HomProcSpace\to\HomPhaseReadClass,
+    \]
+    vanishing on the corresponding unit-state sections. They force the recorded boundary-recorder fields by orbit evaluation:
+    \begin{equation}
+    \TensorBoundaryRecorder((p,\ell),\sigma)
+    \equiv
+    \TensorBoundarySource(\TensorOrbitFlow^\sigma(p)),
+    \label{eq:boundary_recorder_from_source_car}
+    \end{equation}
+    \begin{equation}
+    \CurBoundaryRecorder((q,\ell),\sigma)
+    \equiv
+    \CurBoundarySource(\CurOrbitFlow^\sigma(q)),
+    \label{eq:boundary_recorder_from_source_cur}
+    \end{equation}
+    \begin{equation}
+    \HomBoundaryRecorder((r,\ell),\sigma)
+    \equiv
+    \HomBoundarySource(\HomOrbitFlow^\sigma(r)).
+    \label{eq:boundary_recorder_from_source_hom}
+    \end{equation}
+    \item for each base point in the ambient compatibility sectors,
+    \[
+    \eta\in\operatorname{ran}\TensorEqCmpProj,\qquad
+    \zeta\in\operatorname{ran}\CurEqCmpProj,\qquad
+    \omega\in\operatorname{ran}\HomEqCmpProj,
+    \]
+    the corresponding fixed-endpoint admissible thread families are nonempty. Define the exact-preserving fixed-endpoint thread actions by
+    \begin{equation}
+    \TensorThreadAction(p,\ell)
+    \equiv
+    \int_0^\ell \left(\TensorRateForm(\TensorFlowField)\right)(\TensorOrbitFlow^\sigma(p))\,d\sigma,
+    \label{eq:thread_action_car}
+    \end{equation}
+    \begin{equation}
+    \CurThreadAction(q,\ell)
+    \equiv
+    \int_0^\ell \left(\CurRateForm(\CurFlowField)\right)(\CurOrbitFlow^\sigma(q))\,d\sigma,
+    \label{eq:thread_action_cur}
+    \end{equation}
+    \begin{equation}
+    \HomThreadAction(r,\ell)
+    \equiv
+    \int_0^\ell \left(\HomRateForm(\HomFlowField)\right)(\HomOrbitFlow^\sigma(r))\,d\sigma.
+    \label{eq:thread_action_hom}
+    \end{equation}
+    Assume their first variations vanish automatically along the process-flow and calibration directions and that their second variations are positive definite on smooth exact-preserving complements to those directions at fixed endpoint data. Therefore the fixed-endpoint thread action is strictly endpoint-transverse in exactly the recorded sense, and its stationary orbit segments descend to the same unique stationary windows
+    \[
+    \TensorStationaryWindow,\qquad
+    \CurStationaryWindow,\qquad
+    \HomStationaryWindow
+    \]
+    used in the immediately preceding note.
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}[The stationary-shadow currents, rate/density/flux thread fields, and boundary reduction are forced]
+\label{prop:thread_fields_forced}
+The basic-form and boundary data of Definition \ref{def:basic_forms} recover exactly the remaining recorded reversible process-thread layer.
+\begin{enumerate}
+    \item The contractions \eqref{eq:shadow_density_from_form_car}--\eqref{eq:shadow_density_from_form_hom} are exactly the recorded stationary-shadow currents \(\TensorShadowDensity,\CurShadowDensity,\HomShadowDensity\).
+    \item The contractions \eqref{eq:rate_density_from_form_car}--\eqref{eq:rate_density_from_form_hom} and the orbit pullbacks \eqref{eq:density_flux_from_source_car} and their sector analogues are exactly the recorded rate-density, density, and flux thread fields.
+    \item The orbit evaluations \eqref{eq:boundary_recorder_from_source_car}--\eqref{eq:boundary_recorder_from_source_hom} are exactly the recorded boundary-recorder fields.
+    \item The fixed-endpoint action geometry \eqref{eq:thread_action_car}--\eqref{eq:thread_action_hom} forces exactly the recorded strict endpoint-transverse stationary reduction, and hence the same unique stationary windows after segment reduction.
+    \item Consequently the stationary-shadow currents, the rate-density / density / flux thread fields, the boundary-recorder fields, and the strict endpoint-transverse stationary reduction are no longer primitive at present scope; they are forced by a deeper basic-form and transverse-convexity structure on the process-state manifolds.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Item (1) is the contraction construction itself. Because the shadow one-forms are calibration basic and preserved by the corresponding process flows, their contractions with the reversible line fields are well defined on the recorded thread manifolds and inherit exactly the recorded exact-preserving compatibility under concatenation, reversal, and later segment reduction.
+
+Item (2) follows from the same mechanism. The rate one-forms determine the recorded rate-density fields by contraction with the reversible line fields, while the density and flux source fields determine the recorded density and flux thread fields by orbit pullback. Calibration basicness guarantees compatibility with the recorded compact calibration actions, and process-flow invariance gives exactly the recorded interval behavior.
+
+Item (3) is immediate from the orbit-evaluation formulas \eqref{eq:boundary_recorder_from_source_car}--\eqref{eq:boundary_recorder_from_source_hom}. Vanishing of the boundary potentials on the unit-state sections gives vanishing of the recorded boundary-recorder fields on the unit threads.
+
+Item (4) follows from the fixed-endpoint rate-form action. Invariance of the rate one-forms under the process flows and calibration actions makes the first variation vanish automatically along those directions. The assumed positivity of the second variation on a smooth complement is exactly the recorded strict endpoint-transverse coercivity. Standard Morse-Bott / implicit-function reasoning then yields unique fixed-endpoint stationary orbit segments depending smoothly on the endpoint data. Passing to admissible compact segments gives exactly the same stationary windows used in the immediately preceding process-window note.
+
+Item (5) is therefore immediate: every remaining visible component of the recorded reversible process-thread layer is recovered verbatim, but it is no longer primitive.
+\end{proof}
+
+\section{Exact Recovery of the Recorded Layer and Downstream Package}
+
+\begin{theorem}[Same reversible process-thread layer]
+\label{thm:same_thread_layer}
+The deeper process-state / reversible-line-field / compact-calibration-fiber / basic-form construction introduced above recovers exactly the recorded layer of Definition \ref{def:recorded_layer}.
+\begin{enumerate}
+    \item Proposition \ref{prop:threads_forced} recovers the same reversible process-thread manifolds \(\TensorThreadClass,\CurThreadClass,\HomThreadClass\), the same thread lengths, the same thread evaluations, the same unit-thread lifts, the same concatenation and reversal operations, the same exact-preserving unitary thread transport cocycles, the same calibration-generator Lie algebras, the same invariant positive metrics, the same integral period lattices, and the same compact calibration groups and actions.
+    \item Proposition \ref{prop:thread_fields_forced} recovers the same stationary-shadow currents
+    \[
+    \TensorShadowDensity,\qquad
+    \CurShadowDensity,\qquad
+    \HomShadowDensity,
+    \]
+    the same rate-density, density, and flux thread fields
+    \[
+    \TensorRateDensity,\qquad
+    \CurRateDensity,\qquad
+    \HomRateDensity,\qquad
+    \TensorDensityField,\qquad
+    \CurDensityField,\qquad
+    \HomDensityField,\qquad
+    \TensorFluxField,\qquad
+    \CurFluxField,\qquad
+    \HomFluxField,
+    \]
+    the same boundary-recorder fields
+    \[
+    \TensorBoundaryRecorder,\qquad
+    \CurBoundaryRecorder,\qquad
+    \HomBoundaryRecorder,
+    \]
+    and the same strict endpoint-transverse stationary reduction.
+    \item Therefore the reversible process-thread / calibration-generator / shadow-current / rate-density / boundary-recorder layer of the immediately preceding note is reproduced without change.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Items (1) and (2) are exactly Propositions \ref{prop:threads_forced} and \ref{prop:thread_fields_forced}. Item (3) is a direct restatement: once all visible thread, symmetry, current, rate, flux, recorder, and stationary-reduction data of the immediately preceding note are recovered verbatim, its construction applies verbatim as well.
+\end{proof}
+
+\begin{theorem}[Same reversible process-window layer and same downstream package]
+\label{thm:same_package}
+Because the same reversible process-thread / calibration-generator / shadow-current / rate-density / boundary-recorder layer is recovered, the immediately preceding origin note applies verbatim. Consequently the same downstream package is reproduced without change:
+\begin{enumerate}
+    \item the same reversible process-window / calibration-action / stationary-shadow / local-rate / endpoint-recorder layer;
+    \item the same reversible-history / stationary-equivalence / short-history-action / endpoint-readout / cotangent-lift layer;
+    \item the same reversible-groupoid / transport-action / constrained-stationary package;
+    \item the same reconfiguration-group / transport-law / equilibrium-reduction package;
+    \item the same derivation-algebra / balance-law / equilibrium-manifold layer;
+    \item the same \(\StemFunctional\);
+    \item the same exact-preservation normal form \(\DeepFunctional\);
+    \item the same carrier-origin functional \(\CarrierFunctional[\CarrierSeed,\RelabelSeed,\FreeSeed]\);
+    \item the same primitive reservoir \(\PrimFunctional[\PrimStrain,\PrimNeutral,\PrimFree]\);
+    \item the same microscopic-equilibrium reservoir \(\MicFunctional[H,\GaugeAux]\);
+    \item the same free-sector verdict \(\FreeProj\CompLift=0\), and hence the same \(\Pi_{\mathrm{free}}H=0\) outcome;
+    \item the same substrate and observer completion solves \eqref{eq:fixed_solves};
+    \item the same \(\Sigma^{\mathrm{cmp}}\) solve, the same one operative metric \(\CompletedMetric\), and the same recorded Phase D / E and Phase F gains.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Theorem \ref{thm:same_thread_layer} reproduces exactly the input layer required by the immediately preceding reversible process-window / calibration-action / stationary-shadow / local-rate / endpoint-recorder origin note. That note already proves that once this layer is fixed, the same reversible process-window layer and hence the same downstream chain follow. Since none of the visible slots, elimination steps, or completion equations are altered here, every downstream object listed above is reproduced verbatim.
+\end{proof}
+
+\begin{corollary}[Recorded gain package is preserved]
+\label{cor:gains}
+Because the same downstream package is recovered, the recorded Phase D / E infrared-spectrum and universal-coupling verdicts, the recorded Phase F controlled GR limit, and the already recorded observer-equation closure package remain preserved without modification.
+\end{corollary}
+
+\begin{proof}
+This is the direct content of Theorem \ref{thm:same_package}.
+\end{proof}
+
+\section{Claim-Boundary Verdict}
+
+\begin{theorem}[Reversible process-thread origin verdict]
+\label{thm:verdict}
+At the disciplined scope of the present note, the exact positive result is the following.
+\begin{enumerate}
+    \item The reversible exact-preserving process threads \(\TensorThreadClass,\CurThreadClass,\HomThreadClass\) are no longer primitive at current scope.
+    \item They arise as admissible compact oriented orbit segments of finite-dimensional exact-preserving process-state manifolds equipped with complete reversible line fields and exact readout maps.
+    \item The calibration-generator Lie algebras \(\TensorCalLie,\CurCalLie,\HomCalLie\) are no longer primitive either.
+    \item They arise as vertical commuting Killing symmetries of compact exact-preserving calibration fibers on those deeper process-state manifolds.
+    \item The invariant positive metrics \(\TensorCalMetric,\CurCalMetric,\HomCalMetric\) are no longer primitive either.
+    \item They arise by averaging the preserved positive fiber metrics of those compact calibration fibers over the exact-preserving branch.
+    \item The integral period lattices \(\TensorCalLat,\CurCalLat,\HomCalLat\) are no longer primitive either.
+    \item They arise as the periodic-generator kernels of the same compact calibration-fiber symmetry groups, and hence force the compact calibration actions rather than merely accompanying them.
+    \item The stationary-shadow currents \(\TensorShadowDensity,\CurShadowDensity,\HomShadowDensity\) are no longer primitive either.
+    \item They arise as contractions of deeper calibration-basic shadow one-forms with the reversible process line fields.
+    \item The rate-density, density, and flux thread fields are no longer primitive either.
+    \item They arise as contractions or orbit pullbacks of deeper calibration-basic rate one-forms and density / flux source fields on the process-state manifolds.
+    \item The boundary-recorder fields \(\TensorBoundaryRecorder,\CurBoundaryRecorder,\HomBoundaryRecorder\) and the strict endpoint-transverse stationary reduction are no longer primitive either.
+    \item They arise from deeper calibration-basic boundary potentials together with transverse convexity of the same fixed-endpoint rate-form action on the orbit segments.
+    \item Therefore the full recorded reversible process-thread / calibration-generator / shadow-current / rate-density / boundary-recorder layer of the immediately preceding note is recovered without change.
+    \item Consequently the same reversible process-window / calibration-action / stationary-shadow / local-rate / endpoint-recorder layer, the same reversible-history / endpoint-readout layer, the same \(\StemFunctional\), the same exact-preservation normal form, the same carrier-origin functional, the same primitive reservoir, the same microscopic-equilibrium reservoir, the same \(\Sigma^{\mathrm{cmp}}\) solve, the same \(\Pi_{\mathrm{free}}H=0\) outcome, the same one operative metric, and the same recorded Phase D / E and Phase F gains remain unchanged.
+    \item Stronger promotion language is still not justified here, because the present note explains only why the previous reversible process-thread layer arises from a deeper process-state / reversible-line-field / compact-calibration-fiber / basic-form substrate layer; it does not yet derive why that new deeper layer is itself unique, final, or inevitable beyond current scope.
+    \item No broader packaging consequence or default side-line continuation follows from the mathematical content of this note alone. The remaining honest burden is one layer deeper again on this same exact-preservation line, or else another comparably concrete observer-equation gain on the same one-metric route.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Items (1)--(8) are Proposition \ref{prop:threads_forced}. Items (9)--(14) are Proposition \ref{prop:thread_fields_forced}. Items (15) and (16) are Theorems \ref{thm:same_thread_layer} and \ref{thm:same_package} together with Corollary \ref{cor:gains}. Items (17) and (18) are the present claim-boundary discipline stated in the abstract and introduction.
+\end{proof}
+
+\begin{corollary}[What remains next]
+\label{cor:what_next}
+The primary active burden moves one layer deeper again. It is no longer to justify why the reversible exact-preserving process threads, their calibration-generator Lie algebras with invariant positive metrics and integral period lattices, their stationary-shadow currents, their rate-density / density / flux thread fields, their boundary-recorder fields, and their strict endpoint-transverse stationary reduction are admissible at current scope; that step is now recorded. The next honest burden is either to derive or justify why the exact-preserving process-state manifolds, their reversible line fields and readout maps, their compact calibration fibers, their calibration-basic shadow / rate / density / flux / boundary forms, and their transverse-convex fixed-endpoint action are themselves forced by yet more primitive substrate structure, or else to produce another comparably concrete observer-equation gain on the same one-metric line. No stronger promotion language, no packaging pass, and no default move onto the anchored positive-pair side line are justified unless they directly discharge one of those burdens.
+\end{corollary}
+
+\section{Conclusion}
+
+The positive result of this note is that the reversible process-thread / calibration-generator / shadow-current / rate-density / boundary-recorder layer is no longer left primitive at present scope. It is recovered from a still deeper process-state / reversible-line-field / compact-calibration-fiber / basic-form substrate layer.
+
+At that deeper level, the recorded reversible process threads
+\[
+\TensorThreadClass,\qquad
+\CurThreadClass,\qquad
+\HomThreadClass
+\]
+are admissible compact oriented orbit segments of exact-preserving process-state flows. Their recorded calibration-generator Lie algebras are the vertical commuting Killing symmetries of compact calibration fibers, their recorded invariant positive metrics are the averaged preserved fiber metrics, and their recorded integral period lattices are the periodic-generator kernels forcing the same compact calibration actions. Their recorded stationary-shadow currents are contractions of deeper calibration-basic shadow one-forms. Their recorded rate-density, density, and flux thread fields are contractions or orbit pullbacks of deeper calibration-basic rate and source fields. Their recorded boundary-recorder fields are orbit evaluations of deeper boundary potentials, and the same strict endpoint-transverse stationary reduction is forced by the transverse convexity of the same fixed-endpoint rate-form action.
+
+Because that deeper construction reproduces the full recorded reversible process-thread / calibration-generator / shadow-current / rate-density / boundary-recorder layer without changing any of its visible slots, the immediately preceding note applies verbatim. Consequently the same reversible process-window / calibration-action / stationary-shadow / local-rate / endpoint-recorder layer, the same reversible-history / endpoint-readout / cotangent-lift layer, the same reversible-groupoid / transport-action / constrained-stationary package, the same reconfiguration-group / transport-law / equilibrium-reduction package, the same derivation-algebra / balance-law / equilibrium-manifold layer, the same \(\StemFunctional\), the same exact-preservation normal form, the same carrier-origin functional, the same primitive reservoir, the same microscopic-equilibrium reservoir, the same \(\Sigma^{\mathrm{cmp}}\) solve, the same \(\Pi_{\mathrm{free}}H=0\) outcome, the same one operative metric, and the same recorded Phase D / E and Phase F gains remain unchanged.
+
+The scope is still disciplined rather than final. The present note does not prove that the deeper process-state / reversible-line-field / compact-calibration-fiber / basic-form layer is unique or ultimate. The next honest burden is to derive or justify why that new deeper layer itself is forced by still more primitive substrate structure, or else to record another comparably concrete observer-equation gain on the same one-metric line.
+
+\end{document}
