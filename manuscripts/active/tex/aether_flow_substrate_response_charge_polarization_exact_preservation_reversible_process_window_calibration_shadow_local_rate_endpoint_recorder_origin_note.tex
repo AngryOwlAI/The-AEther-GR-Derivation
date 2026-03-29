@@ -1,0 +1,846 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal A}
+\newcommand{\ObserverMap}{\Xi}
+\newcommand{\BridgeMetric}{\mathfrak g}
+\newcommand{\ObserverMetric}{g^{\mathrm{br}}}
+\newcommand{\CandidateMetric}{g^{\mathrm{cand}}}
+\newcommand{\CompletedMetric}{g^{\sharp}}
+\newcommand{\BaseShift}{\Sigma^{\mathrm{IER}}}
+\newcommand{\ResponseShift}{\Sigma^{\mathrm{resp}}}
+\newcommand{\CompShift}{\Sigma^{\mathrm{cmp}}}
+\newcommand{\BaseLift}{\widehat\Sigma^{\mathrm{IER}}}
+\newcommand{\ResponseLift}{\widehat\Sigma^{\mathrm{resp}}}
+\newcommand{\CompLift}{\widehat\Sigma^{\mathrm{cmp}}}
+\newcommand{\ResidualCore}{\mathcal V_{\mu\nu}^{\mathrm{res}}}
+\newcommand{\ResidualLift}{\widehat{\mathcal V}^{\mathrm{res}}}
+\newcommand{\SubReducedEin}{\widehat{\mathcal L}}
+\newcommand{\FreeProj}{\Pi_{\mathrm{free}}}
+\newcommand{\GaugeAux}{Y}
+\newcommand{\ReducedEin}{\mathcal L_{\ObserverMetric}}
+\newcommand{\CompClass}{\mathscr C_{\mathrm{cmp}}}
+\newcommand{\MicFunctional}{\mathscr F_{\mathrm{mic}}}
+\newcommand{\PrimFunctional}{\mathscr F_{\mathrm{prim}}}
+\newcommand{\CarrierFunctional}{\mathscr F_{\mathrm{car}}}
+\newcommand{\DeepFunctional}{\mathscr F_{\mathrm{deep}}}
+\newcommand{\StemFunctional}{\mathscr F_{\mathrm{sel}}}
+\newcommand{\PrimStrain}{K}
+\newcommand{\PrimNeutral}{J}
+\newcommand{\PrimFree}{F}
+\newcommand{\CarrierSeed}{\mathfrak S}
+\newcommand{\RelabelSeed}{\mathfrak R}
+\newcommand{\FreeSeed}{\mathfrak F}
+\newcommand{\RootTensorClass}{\mathscr U_{\mathrm{car}}}
+\newcommand{\RootRelabelClass}{\mathscr U_{\mathrm{cur}}}
+\newcommand{\RootFreeClass}{\mathscr U_{\mathrm{hom}}}
+\newcommand{\TensorEqCmpProj}{\widetilde\Pi_{\mathrm{cmp,car}}}
+\newcommand{\CurEqCmpProj}{\widetilde\Pi_{\mathrm{cmp,cur}}}
+\newcommand{\HomEqCmpProj}{\widetilde\Pi_{\mathrm{cmp,hom}}}
+\newcommand{\TensorObjClass}{\mathcal O_{\mathrm{car}}}
+\newcommand{\CurObjClass}{\mathcal O_{\mathrm{cur}}}
+\newcommand{\HomObjClass}{\mathcal O_{\mathrm{hom}}}
+\newcommand{\TensorObjBase}{o_{\mathrm{car}}^0}
+\newcommand{\CurObjBase}{o_{\mathrm{cur}}^0}
+\newcommand{\HomObjBase}{o_{\mathrm{hom}}^0}
+\newcommand{\TensorWindowClass}{\mathfrak X_{\mathrm{car}}}
+\newcommand{\CurWindowClass}{\mathfrak X_{\mathrm{cur}}}
+\newcommand{\HomWindowClass}{\mathfrak X_{\mathrm{hom}}}
+\newcommand{\TensorCalGroup}{\mathcal C_{\mathrm{car}}^{\mathrm{cal}}}
+\newcommand{\CurCalGroup}{\mathcal C_{\mathrm{cur}}^{\mathrm{cal}}}
+\newcommand{\HomCalGroup}{\mathcal C_{\mathrm{hom}}^{\mathrm{cal}}}
+\newcommand{\TensorWindowRep}{\overline{\mathscr W}_{\mathrm{car}}}
+\newcommand{\CurWindowRep}{\overline{\mathscr W}_{\mathrm{cur}}}
+\newcommand{\HomWindowRep}{\overline{\mathscr W}_{\mathrm{hom}}}
+\newcommand{\TensorStatTagClass}{\mathcal Y_{\mathrm{car}}^{\mathrm{st}}}
+\newcommand{\CurStatTagClass}{\mathcal Y_{\mathrm{cur}}^{\mathrm{st}}}
+\newcommand{\HomStatTagClass}{\mathcal Y_{\mathrm{hom}}^{\mathrm{st}}}
+\newcommand{\TensorStatTag}{\varsigma_{\mathrm{car}}}
+\newcommand{\CurStatTag}{\varsigma_{\mathrm{cur}}}
+\newcommand{\HomStatTag}{\varsigma_{\mathrm{hom}}}
+\newcommand{\TensorLocalRate}{\mathfrak L_{\mathrm{car}}}
+\newcommand{\CurLocalRate}{\mathfrak L_{\mathrm{cur}}}
+\newcommand{\HomLocalRate}{\mathfrak L_{\mathrm{hom}}}
+\newcommand{\TensorDensityClass}{\mathscr N_{\mathrm{car}}}
+\newcommand{\CurDensityClass}{\mathscr N_{\mathrm{cur}}}
+\newcommand{\HomDensityClass}{\mathscr N_{\mathrm{hom}}}
+\newcommand{\TensorFluxClass}{\mathscr J_{\mathrm{car}}}
+\newcommand{\CurFluxClass}{\mathscr J_{\mathrm{cur}}}
+\newcommand{\HomFluxClass}{\mathscr J_{\mathrm{hom}}}
+\newcommand{\TensorWindowDensity}{\mathfrak q_{\mathrm{car}}}
+\newcommand{\CurWindowDensity}{\mathfrak q_{\mathrm{cur}}}
+\newcommand{\HomWindowDensity}{\mathfrak q_{\mathrm{hom}}}
+\newcommand{\TensorWindowFlux}{\mathfrak j_{\mathrm{car}}}
+\newcommand{\CurWindowFlux}{\mathfrak j_{\mathrm{cur}}}
+\newcommand{\HomWindowFlux}{\mathfrak j_{\mathrm{hom}}}
+\newcommand{\TensorPhaseReadClass}{\mathscr R_{\mathrm{car}}}
+\newcommand{\CurPhaseReadClass}{\mathscr R_{\mathrm{cur}}}
+\newcommand{\HomPhaseReadClass}{\mathscr R_{\mathrm{hom}}}
+\newcommand{\TensorEndpointReadSeed}{\mathscr R_{\mathrm{car}}^{\mathrm{end}}}
+\newcommand{\CurEndpointReadSeed}{\mathscr R_{\mathrm{cur}}^{\mathrm{end}}}
+\newcommand{\HomEndpointReadSeed}{\mathscr R_{\mathrm{hom}}^{\mathrm{end}}}
+\newcommand{\TensorStationaryWindow}{\mathfrak p_{\mathrm{car}}^{\mathrm{st}}}
+\newcommand{\CurStationaryWindow}{\mathfrak p_{\mathrm{cur}}^{\mathrm{st}}}
+\newcommand{\HomStationaryWindow}{\mathfrak p_{\mathrm{hom}}^{\mathrm{st}}}
+\newcommand{\TensorHistoryClass}{\mathfrak H_{\mathrm{car}}}
+\newcommand{\CurHistoryClass}{\mathfrak H_{\mathrm{cur}}}
+\newcommand{\HomHistoryClass}{\mathfrak H_{\mathrm{hom}}}
+\newcommand{\TensorHistoryAction}{\mathscr S_{\mathrm{car}}}
+\newcommand{\CurHistoryAction}{\mathscr S_{\mathrm{cur}}}
+\newcommand{\HomHistoryAction}{\mathscr S_{\mathrm{hom}}}
+\newcommand{\TensorHistoryRep}{\widetilde{\mathscr W}_{\mathrm{car}}}
+\newcommand{\CurHistoryRep}{\widetilde{\mathscr W}_{\mathrm{cur}}}
+\newcommand{\HomHistoryRep}{\widetilde{\mathscr W}_{\mathrm{hom}}}
+\newcommand{\TensorThreadClass}{\mathfrak T_{\mathrm{car}}}
+\newcommand{\CurThreadClass}{\mathfrak T_{\mathrm{cur}}}
+\newcommand{\HomThreadClass}{\mathfrak T_{\mathrm{hom}}}
+\newcommand{\TensorThreadLength}{\ell_{\mathrm{car}}}
+\newcommand{\CurThreadLength}{\ell_{\mathrm{cur}}}
+\newcommand{\HomThreadLength}{\ell_{\mathrm{hom}}}
+\newcommand{\TensorThreadEval}{\gamma_{\mathrm{car}}}
+\newcommand{\CurThreadEval}{\gamma_{\mathrm{cur}}}
+\newcommand{\HomThreadEval}{\gamma_{\mathrm{hom}}}
+\newcommand{\TensorThreadUnit}{\mathbf 1_{\mathrm{car}}}
+\newcommand{\CurThreadUnit}{\mathbf 1_{\mathrm{cur}}}
+\newcommand{\HomThreadUnit}{\mathbf 1_{\mathrm{hom}}}
+\newcommand{\TensorThreadConcat}{\blacktriangleright_{\mathrm{car}}}
+\newcommand{\CurThreadConcat}{\blacktriangleright_{\mathrm{cur}}}
+\newcommand{\HomThreadConcat}{\blacktriangleright_{\mathrm{hom}}}
+\newcommand{\TensorThreadRev}{\mathfrak r_{\mathrm{car}}}
+\newcommand{\CurThreadRev}{\mathfrak r_{\mathrm{cur}}}
+\newcommand{\HomThreadRev}{\mathfrak r_{\mathrm{hom}}}
+\newcommand{\TensorThreadRep}{\mathbb U_{\mathrm{car}}}
+\newcommand{\CurThreadRep}{\mathbb U_{\mathrm{cur}}}
+\newcommand{\HomThreadRep}{\mathbb U_{\mathrm{hom}}}
+\newcommand{\TensorCalLie}{\mathfrak c_{\mathrm{car}}^{\mathrm{gen}}}
+\newcommand{\CurCalLie}{\mathfrak c_{\mathrm{cur}}^{\mathrm{gen}}}
+\newcommand{\HomCalLie}{\mathfrak c_{\mathrm{hom}}^{\mathrm{gen}}}
+\newcommand{\TensorCalMetric}{q_{\mathrm{car}}^{\mathrm{gen}}}
+\newcommand{\CurCalMetric}{q_{\mathrm{cur}}^{\mathrm{gen}}}
+\newcommand{\HomCalMetric}{q_{\mathrm{hom}}^{\mathrm{gen}}}
+\newcommand{\TensorCalLat}{\Lambda_{\mathrm{car}}^{\mathrm{gen}}}
+\newcommand{\CurCalLat}{\Lambda_{\mathrm{cur}}^{\mathrm{gen}}}
+\newcommand{\HomCalLat}{\Lambda_{\mathrm{hom}}^{\mathrm{gen}}}
+\newcommand{\TensorShadowDensity}{\upsilon_{\mathrm{car}}}
+\newcommand{\CurShadowDensity}{\upsilon_{\mathrm{cur}}}
+\newcommand{\HomShadowDensity}{\upsilon_{\mathrm{hom}}}
+\newcommand{\TensorRateDensity}{\lambda_{\mathrm{car}}}
+\newcommand{\CurRateDensity}{\lambda_{\mathrm{cur}}}
+\newcommand{\HomRateDensity}{\lambda_{\mathrm{hom}}}
+\newcommand{\TensorDensityField}{\widehat q_{\mathrm{car}}}
+\newcommand{\CurDensityField}{\widehat q_{\mathrm{cur}}}
+\newcommand{\HomDensityField}{\widehat q_{\mathrm{hom}}}
+\newcommand{\TensorFluxField}{\widehat j_{\mathrm{car}}}
+\newcommand{\CurFluxField}{\widehat j_{\mathrm{cur}}}
+\newcommand{\HomFluxField}{\widehat j_{\mathrm{hom}}}
+\newcommand{\TensorBoundaryRecorder}{\rho_{\mathrm{car}}^{\partial}}
+\newcommand{\CurBoundaryRecorder}{\rho_{\mathrm{cur}}^{\partial}}
+\newcommand{\HomBoundaryRecorder}{\rho_{\mathrm{hom}}^{\partial}}
+\newcommand{\Iso}{\operatorname{Iso}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Substrate-Response / Self-Response Charge-Polarization Candidate\\
+\large Exact-Preservation Reversible-Process-Window / Calibration-Action / Stationary-Shadow / Local-Rate / Endpoint-Recorder\\
+\large Origin Note}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The exact-preservation reversible-history / stationary-equivalence / short-history-action / endpoint-readout origin note already shows that the previously recorded reversible-history / endpoint-readout layer is not primitive at present scope. It is recovered there from a still deeper reversible process-window / calibration-quotient / local-rate / endpoint-recorder layer. What remained open is one layer deeper again: why those reversible exact-preserving process windows, their compact calibration actions, their stationary-shadow maps, their local rate densities, and their endpoint-recorder fields should themselves exist rather than becoming the present deepest disciplined postulate.
+
+The present note addresses exactly that narrower burden. It keeps fixed the same exact-preservation target: the same \(\StemFunctional\), the same exact-preservation normal form \(\DeepFunctional\), the same carrier-origin functional \(\CarrierFunctional[\CarrierSeed,\RelabelSeed,\FreeSeed]\), the same primitive reservoir \(\PrimFunctional[\PrimStrain,\PrimNeutral,\PrimFree]\), the same microscopic-equilibrium reservoir \(\MicFunctional[H,\GaugeAux]\), the same \(\Sigma^{\mathrm{cmp}}\) solve, the same \(\Pi_{\mathrm{free}}H=0\) outcome, the same one operative metric, and the same recorded Phase D / E and Phase F gains. Its positive move is to place the recorded reversible process-window / calibration-action / stationary-shadow / local-rate / endpoint-recorder layer under a still deeper reversible process-thread construction:
+\begin{enumerate}
+    \item finite-dimensional exact-preserving reversible process-thread manifolds whose admissible compact oriented segments are exactly the recorded reversible process windows;
+    \item exact-preserving calibration-generator Lie algebras with invariant positive metrics and integral period lattices, whose integrated actions force exactly the recorded compact calibration groups acting on those windows;
+    \item calibration-basic stationary-shadow currents on the process threads, whose interval reductions force exactly the recorded stationary-shadow maps;
+    \item calibration-basic rate, density, and flux thread fields whose interval reductions force exactly the recorded local rate densities and window recorder maps;
+    \item calibration-basic boundary-recorder fields together with strict endpoint-transverse stationarity of the same thread action, forcing exactly the recorded endpoint-recorder fields and the same stationary representatives at fixed endpoint data.
+\end{enumerate}
+
+At current exact-preservation scope, the reversible process-window / calibration-action / stationary-shadow / local-rate / endpoint-recorder layer is therefore no longer primitive either. Because the present note reproduces that layer exactly, the immediately preceding note applies verbatim. Consequently the same reversible-history / endpoint-readout / cotangent-lift layer, the same reversible-groupoid / transport-action / constrained-stationary package, the same reconfiguration-group / transport-law / equilibrium-reduction package, the same \(\StemFunctional\), the same exact-preservation normal form, the same carrier-origin functional, the same primitive and microscopic-equilibrium reservoirs, the same \(\Sigma^{\mathrm{cmp}}\) solve, the same \(\Pi_{\mathrm{free}}H=0\) outcome, the same one operative metric, and the same recorded Phase D / E and Phase F gains are preserved without change.
+
+The scope remains disciplined. This note does not claim a final microscopic completion, a unique ultimate substrate theory, or a completed first-principles derivation of GR. Its narrower exact positive claim is only that the recorded reversible process-window / calibration-action / stationary-shadow / local-rate / endpoint-recorder layer is itself no longer primitive at present scope, but is forced by a still deeper reversible process-thread / calibration-generator / shadow-current / rate-density / boundary-recorder substrate layer while preserving the same downstream package.
+\end{abstract}
+
+\section{Introduction}
+
+The active one-metric charge-polarization line has now crossed the candidate, benchmark-gate, controlled-limit, residual-sector, redesign, substrate-anchoring, substrate-action, kernel-origin, deeper-selection, primitive-reservoir, carrier-origin, precursor-selection, exact-preservation normal-form, microphysical-Hessian, charge-generator, derivation-algebra, reconfiguration-group, reversible-groupoid, reversible-history, and reversible process-window origin steps on the same GR-directed route. The burden therefore sharpens again. It is not another packaging pass. It is not stronger promotion language. It is not, by default, a move onto the anchored positive-pair side line. It is to go one layer below the currently recorded reversible process-window / calibration-action / stationary-shadow / local-rate / endpoint-recorder construction itself and explain why that construction is forced.
+
+That burden has five parts. First, one must explain why the exact-preserving reversible process windows
+\[
+\TensorWindowClass,\qquad
+\CurWindowClass,\qquad
+\HomWindowClass
+\]
+should exist rather than being declared. Second, one must explain why the compact calibration actions
+\[
+\TensorCalGroup,\qquad
+\CurCalGroup,\qquad
+\HomCalGroup
+\]
+should be forced rather than chosen. Third, one must explain why the stationary-shadow maps
+\[
+\TensorStatTag,\qquad
+\CurStatTag,\qquad
+\HomStatTag
+\]
+should exist rather than being inserted by hand. Fourth, one must explain why the local rate densities
+\[
+\TensorLocalRate,\qquad
+\CurLocalRate,\qquad
+\HomLocalRate
+\]
+and the associated window recorder maps should arise from deeper substrate structure. Fifth, one must explain why the endpoint-recorder fields
+\[
+\TensorEndpointReadSeed,\qquad
+\CurEndpointReadSeed,\qquad
+\HomEndpointReadSeed
+\]
+and the corresponding stationary representative maps should be forced rather than postulated. As before, one must also re-show that solving this deeper burden changes none of the already recorded downstream package.
+
+The key move of the present note is to place one still deeper exact-preserving process-thread layer under all five current objects at once. Admissible oriented compact segments of deeper reversible process threads force the recorded process windows. Positive exact-preserving calibration-generator Lie algebras with integral period lattices force the recorded compact calibration groups and their actions. Calibration-basic stationary-shadow currents on the threads force the recorded stationary-shadow maps by interval reduction. Calibration-basic rate, density, and flux thread fields force the recorded local rate densities and window recorder maps by the same interval reduction. Calibration-basic boundary-recorder fields together with strict endpoint-transverse stationarity of the same thread action force the recorded endpoint-recorder fields and the same unique stationary representatives. The current reversible process-window / calibration-action / stationary-shadow / local-rate / endpoint-recorder layer is therefore no longer primitive either.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active manuscript sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not claim a final ultraviolet completion, a uniqueness theorem for every conceivable deeper substrate model, or a wider theorem boundary than the current exact-preservation chain. Its narrower positive move is exact and current-scope: the reversible process-window / calibration-action / stationary-shadow / local-rate / endpoint-recorder package of the previous note is itself forced as the reduced image of a still more primitive reversible process-thread / calibration-generator / shadow-current / rate-density / boundary-recorder layer, with no change to the downstream completion package.
+
+\section{Fixed Inputs from the Recorded Completion Line}
+
+\begin{definition}[Fixed branch and downstream completion target]
+\label{def:fixed_branch}
+The present note keeps fixed the same charge-polarization branch
+\begin{equation}
+\CandidateMetric
+=
+\ObserverMetric+\BaseShift+\ResponseShift,
+\qquad
+\CompletedMetric
+=
+\ObserverMetric+\BaseShift+\ResponseShift+\CompShift,
+\label{eq:fixed_metrics}
+\end{equation}
+with lifted variables satisfying
+\begin{equation}
+\ObserverMap^*\BaseLift=\BaseShift,
+\qquad
+\ObserverMap^*\ResponseLift=\ResponseShift,
+\qquad
+\ObserverMap^*\CompLift=\CompShift.
+\label{eq:fixed_lifts}
+\end{equation}
+The same completion class and the same free-sector condition are fixed:
+\begin{equation}
+\CompLift\in\CompClass,
+\qquad
+\FreeProj\CompLift=0.
+\label{eq:fixed_free}
+\end{equation}
+The same substrate and observer completion equations are fixed as well:
+\begin{equation}
+\SubReducedEin(\CompLift)=-\ResidualLift,
+\qquad
+\ReducedEin(\CompShift)=-\ResidualCore.
+\label{eq:fixed_solves}
+\end{equation}
+Every statement below must preserve these equations together with the same one operative metric \(\CompletedMetric\).
+\end{definition}
+
+\begin{definition}[Recorded reversible process-window layer]
+\label{def:recorded_layer}
+The immediately preceding note fixes the following exact-preserving input layer.
+\begin{enumerate}
+    \item Exact-preserving reversible process-window manifolds
+    \[
+    \TensorWindowClass,\qquad
+    \CurWindowClass,\qquad
+    \HomWindowClass
+    \]
+    with endpoint maps
+    \[
+    \epsilon_{\mathrm{car}}^{-},\epsilon_{\mathrm{car}}^{+},\qquad
+    \epsilon_{\mathrm{cur}}^{-},\epsilon_{\mathrm{cur}}^{+},\qquad
+    \epsilon_{\mathrm{hom}}^{-},\epsilon_{\mathrm{hom}}^{+},
+    \]
+    exact-preserving unit windows
+    \[
+    \mathbf u_{\mathrm{car}},\qquad
+    \mathbf u_{\mathrm{cur}},\qquad
+    \mathbf u_{\mathrm{hom}},
+    \]
+    partial concatenations \(\diamond_{\mathrm{car}},\diamond_{\mathrm{cur}},\diamond_{\mathrm{hom}}\), reversals \(\varrho_{\mathrm{car}},\varrho_{\mathrm{cur}},\varrho_{\mathrm{hom}}\), compact calibration groups
+    \[
+    \TensorCalGroup,\qquad
+    \CurCalGroup,\qquad
+    \HomCalGroup,
+    \]
+    exact-preserving unitary window transport maps
+    \[
+    \TensorWindowRep,\qquad
+    \CurWindowRep,\qquad
+    \HomWindowRep,
+    \]
+    and stationary-shadow maps
+    \[
+    \TensorStatTag,\qquad
+    \CurStatTag,\qquad
+    \HomStatTag.
+    \]
+    \item Calibrated short-window families
+    \[
+    W_{\mathrm{car}}(x,v,\tau),\qquad
+    W_{\mathrm{cur}}(y,w,\tau),\qquad
+    W_{\mathrm{hom}}(z,u,\tau),
+    \]
+    exact-preserving local rate densities
+    \[
+    \TensorLocalRate,\qquad
+    \CurLocalRate,\qquad
+    \HomLocalRate,
+    \]
+    and exact-preserving window recorder maps
+    \[
+    \TensorWindowDensity,\qquad
+    \CurWindowDensity,\qquad
+    \HomWindowDensity,\qquad
+    \TensorWindowFlux,\qquad
+    \CurWindowFlux,\qquad
+    \HomWindowFlux.
+    \]
+    \item Unique stationary representatives
+    \[
+    \TensorStationaryWindow,\qquad
+    \CurStationaryWindow,\qquad
+    \HomStationaryWindow
+    \]
+    at fixed endpoint data, together with exact-preserving endpoint-recorder fields
+    \[
+    \TensorEndpointReadSeed,\qquad
+    \CurEndpointReadSeed,\qquad
+    \HomEndpointReadSeed,
+    \]
+    whose stationary reductions feed exactly the same reversible-history / endpoint-readout / cotangent-lift layer already recorded in the immediately preceding note.
+\end{enumerate}
+These data are exact fixed inputs for the present note. The only admissible positive result is to derive or justify why this entire layer is itself forced while keeping it unchanged.
+\end{definition}
+
+\begin{definition}[Recorded exact-preservation target]
+\label{def:recorded_target}
+The present note must preserve, without any modification,
+\begin{equation}
+\StemFunctional,
+\qquad
+\DeepFunctional,
+\qquad
+\CarrierFunctional[\CarrierSeed,\RelabelSeed,\FreeSeed],
+\qquad
+\PrimFunctional[\PrimStrain,\PrimNeutral,\PrimFree],
+\qquad
+\MicFunctional[H,\GaugeAux],
+\label{eq:target_functionals}
+\end{equation}
+together with the fixed free-sector condition
+\begin{equation}
+\FreeProj\CompLift=0,
+\label{eq:target_free}
+\end{equation}
+the same completion solve
+\begin{equation}
+\CompShift=\Sigma^{\mathrm{cmp}},
+\label{eq:target_sigma}
+\end{equation}
+the same one operative metric \(\CompletedMetric\), and the same recorded Phase D / E infrared-spectrum and universal-coupling verdicts together with the same Phase F controlled GR limit.
+\end{definition}
+
+\section{Process-Thread and Calibration-Generator Origin of the Process Windows and Compact Calibration Actions}
+
+\begin{definition}[Primitive exact-preserving reversible process-thread and calibration-generator data]
+\label{def:threads}
+For each sharper sector, let
+\[
+\TensorThreadClass,\qquad
+\CurThreadClass,\qquad
+\HomThreadClass
+\]
+be finite-dimensional \(C^2\) manifolds of exact-preserving reversible process threads. Assume:
+\begin{enumerate}
+    \item there are smooth nonnegative thread-length functions
+    \[
+    \TensorThreadLength:\TensorThreadClass\to[0,\infty),\qquad
+    \CurThreadLength:\CurThreadClass\to[0,\infty),\qquad
+    \HomThreadLength:\HomThreadClass\to[0,\infty),
+    \]
+    smooth evaluation maps on the corresponding interval bundles
+    \[
+    \TensorThreadEval(\Gamma,\sigma)\in\TensorObjClass,\qquad
+    \CurThreadEval(\Upsilon,\sigma)\in\CurObjClass,\qquad
+    \HomThreadEval(\Omega,\sigma)\in\HomObjClass,
+    \]
+    defined for \(0\le \sigma\le \TensorThreadLength(\Gamma)\), \(0\le \sigma\le \CurThreadLength(\Upsilon)\), and \(0\le \sigma\le \HomThreadLength(\Omega)\), and exact-preserving unit-thread lifts
+    \[
+    \TensorThreadUnit:\TensorObjClass\to\TensorThreadClass,\qquad
+    \CurThreadUnit:\CurObjClass\to\CurThreadClass,\qquad
+    \HomThreadUnit:\HomObjClass\to\HomThreadClass
+    \]
+    satisfying
+    \[
+    \TensorThreadLength(\TensorThreadUnit(x))=0,\quad
+    \CurThreadLength(\CurThreadUnit(y))=0,\quad
+    \HomThreadLength(\HomThreadUnit(z))=0,
+    \]
+    and
+    \[
+    \TensorThreadEval(\TensorThreadUnit(x),0)=x,\quad
+    \CurThreadEval(\CurThreadUnit(y),0)=y,\quad
+    \HomThreadEval(\HomThreadUnit(z),0)=z.
+    \]
+    \item there are smooth partial concatenations
+    \[
+    \TensorThreadConcat,\qquad
+    \CurThreadConcat,\qquad
+    \HomThreadConcat
+    \]
+    on the usual endpoint-compatible loci and smooth reversal involutions
+    \[
+    \TensorThreadRev:\TensorThreadClass\to\TensorThreadClass,\qquad
+    \CurThreadRev:\CurThreadClass\to\CurThreadClass,\qquad
+    \HomThreadRev:\HomThreadClass\to\HomThreadClass,
+    \]
+    exchanging the thread endpoints, fixing the unit threads, and satisfying the expected unit, associativity, and reversal identities on their domains;
+    \item there are exact-preserving unitary thread transport cocycles
+    \[
+    \TensorThreadRep(\Gamma;a,b)\in\mathcal U(\RootTensorClass),\qquad
+    \CurThreadRep(\Upsilon;a,b)\in\mathcal U(\RootRelabelClass),\qquad
+    \HomThreadRep(\Omega;a,b)\in\mathcal U(\RootFreeClass),
+    \]
+    for all admissible \(0\le a\le b\), which are identity on degenerate intervals, multiplicative under interval concatenation, inverse under thread reversal, and exact-preserving on the fixed branch;
+    \item there are finite-dimensional exact-preserving calibration-generator Lie algebras
+    \[
+    \TensorCalLie,\qquad
+    \CurCalLie,\qquad
+    \HomCalLie
+    \]
+    acting by complete smooth vertical vector fields on the thread manifolds, preserving thread lengths, thread evaluations, unit threads, thread concatenation, reversal, and the exact-preserving branch;
+    \item there are Ad-invariant positive-definite bilinear forms
+    \[
+    \TensorCalMetric,\qquad
+    \CurCalMetric,\qquad
+    \HomCalMetric
+    \]
+    on the corresponding generator Lie algebras together with full-rank period lattices
+    \[
+    \TensorCalLat\subset\TensorCalLie,\qquad
+    \CurCalLat\subset\CurCalLie,\qquad
+    \HomCalLat\subset\HomCalLie
+    \]
+    so that the integrated compact Lie groups
+    \[
+    \TensorCalGroup\equiv\exp(\TensorCalLie/\TensorCalLat),\qquad
+    \CurCalGroup\equiv\exp(\CurCalLie/\CurCalLat),\qquad
+    \HomCalGroup\equiv\exp(\HomCalLie/\HomCalLat)
+    \]
+    act freely and properly on the same exact-preserving thread manifolds.
+\end{enumerate}
+
+Define the recorded process-window manifolds as the oriented compact-segment spaces
+\begin{equation}
+\TensorWindowClass
+\equiv
+\left\{(\Gamma,a,b)\,\middle|\,\Gamma\in\TensorThreadClass,\ 0\le a\le b\le \TensorThreadLength(\Gamma)\right\},
+\label{eq:window_car}
+\end{equation}
+\begin{equation}
+\CurWindowClass
+\equiv
+\left\{(\Upsilon,a,b)\,\middle|\,\Upsilon\in\CurThreadClass,\ 0\le a\le b\le \CurThreadLength(\Upsilon)\right\},
+\label{eq:window_cur}
+\end{equation}
+\begin{equation}
+\HomWindowClass
+\equiv
+\left\{(\Omega,a,b)\,\middle|\,\Omega\in\HomThreadClass,\ 0\le a\le b\le \HomThreadLength(\Omega)\right\}.
+\label{eq:window_hom}
+\end{equation}
+Define their endpoint maps by evaluation,
+\begin{equation}
+\epsilon_{\mathrm{car}}^{-}(\Gamma,a,b)\equiv \TensorThreadEval(\Gamma,a),\qquad
+\epsilon_{\mathrm{car}}^{+}(\Gamma,a,b)\equiv \TensorThreadEval(\Gamma,b),
+\label{eq:window_endpoints_car}
+\end{equation}
+and analogously in the \(\mathrm{cur}\) and \(\mathrm{hom}\) sectors. Define the exact-preserving unit windows by
+\begin{equation}
+\mathbf u_{\mathrm{car}}(x)\equiv(\TensorThreadUnit(x),0,0),\qquad
+\mathbf u_{\mathrm{cur}}(y)\equiv(\CurThreadUnit(y),0,0),\qquad
+\mathbf u_{\mathrm{hom}}(z)\equiv(\HomThreadUnit(z),0,0).
+\label{eq:window_units}
+\end{equation}
+Define window concatenation by concatenating compatible threads and adjoining adjacent intervals, define reversal by
+\begin{equation}
+\varrho_{\mathrm{car}}(\Gamma,a,b)\equiv
+\left(\TensorThreadRev(\Gamma),\TensorThreadLength(\Gamma)-b,\TensorThreadLength(\Gamma)-a\right),
+\label{eq:window_reversal_car}
+\end{equation}
+and analogously in the other sectors, and define the calibration actions by
+\begin{equation}
+c\cdot(\Gamma,a,b)\equiv(c\cdot\Gamma,a,b),
+\qquad
+c\in\TensorCalGroup,
+\label{eq:window_calibration_car}
+\end{equation}
+with the corresponding formulas in the \(\mathrm{cur}\) and \(\mathrm{hom}\) sectors. Finally define the recorded unitary window transport maps by thread restriction:
+\begin{equation}
+\TensorWindowRep(\Gamma,a,b)\equiv\TensorThreadRep(\Gamma;a,b),\qquad
+\CurWindowRep(\Upsilon,a,b)\equiv\CurThreadRep(\Upsilon;a,b),\qquad
+\HomWindowRep(\Omega,a,b)\equiv\HomThreadRep(\Omega;a,b).
+\label{eq:window_transport}
+\end{equation}
+Assume moreover that local thread charts near the exact-preserving branch produce calibrated short-window families
+\begin{equation}
+W_{\mathrm{car}}(x,v,\tau)\equiv(\Gamma_{x,v},0,\tau),\qquad
+W_{\mathrm{cur}}(y,w,\tau)\equiv(\Upsilon_{y,w},0,\tau),\qquad
+W_{\mathrm{hom}}(z,u,\tau)\equiv(\Omega_{z,u},0,\tau),
+\label{eq:short_windows_from_threads}
+\end{equation}
+with the same base-point and zero-time normalization as in the recorded layer.
+\end{definition}
+
+\begin{proposition}[The reversible process windows and compact calibration actions are forced by process threads and calibration generators]
+\label{prop:windows_forced}
+The process-thread and calibration-generator data of Definition \ref{def:threads} recover exactly the recorded reversible process-window / calibration-action layer.
+\begin{enumerate}
+    \item The segment spaces \eqref{eq:window_car}--\eqref{eq:window_hom} are finite-dimensional exact-preserving reversible process-window manifolds near the exact-preserving branch, with the recorded endpoint maps, unit windows, concatenation, and reversal induced by the deeper thread structure.
+    \item The generator Lie algebras together with the positive invariant metrics and integral period lattices force exactly the compact calibration groups \(\TensorCalGroup,\CurCalGroup,\HomCalGroup\), and their induced actions \eqref{eq:window_calibration_car} and its analogues are exactly the recorded free proper compact calibration actions on the process windows.
+    \item The thread transport cocycles \eqref{eq:window_transport} are exactly the recorded exact-preserving unitary window transport maps.
+    \item The short-window families \eqref{eq:short_windows_from_threads} are exactly the recorded calibrated short-window families.
+    \item Consequently the reversible exact-preserving process windows and their compact calibration actions are no longer primitive at present scope; they are forced by a deeper reversible process-thread / calibration-generator substrate layer.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Item (1) is the standard segment-space construction. The interval endpoints vary smoothly with the thread and interval parameters, so the segment spaces are finite-dimensional \(C^2\) manifolds near the exact-preserving branch. All process-window structural maps are induced directly from the deeper thread evaluation, unit, concatenation, and reversal structure.
+
+Item (2) follows from the Lie-theoretic data. The positive-definite invariant metrics make the calibration-generator Lie algebras compact, and quotienting by the full-rank period lattices integrates them to the compact Lie groups displayed in Definition \ref{def:threads}. Because the underlying generator fields preserve the thread evaluations, lengths, units, concatenation, and reversal, the induced window actions preserve the full recorded process-window structure as well.
+
+Item (3) is immediate from the restriction formula \eqref{eq:window_transport}. Since the thread cocycles are multiplicative under interval concatenation, inverse under reversal, identity on degenerate intervals, and exact-preserving on the fixed branch, the same is true of the induced window transport maps.
+
+Item (4) is the local segment-chart statement in \eqref{eq:short_windows_from_threads}. The same base-point and zero-time normalization are built in by construction.
+
+Item (5) is exactly the content of items (1)--(4): the recorded process-window / calibration-action structure is recovered verbatim, but it is no longer primitive.
+\end{proof}
+
+\section{Shadow-Current, Local-Rate, and Boundary-Recorder Origin of the Stationary-Shadow Maps, Local Rates, and Endpoint Recorders}
+
+\begin{definition}[Primitive exact-preserving shadow-current, rate-density, and boundary-recorder data]
+\label{def:shadow_rate_recorder}
+Assume the process-thread layer of Definition \ref{def:threads} is fixed. Assume further:
+\begin{enumerate}
+    \item there are calibration-basic exact-preserving stationary-shadow current densities
+    \[
+    \TensorShadowDensity(\Gamma,\sigma)\in\TensorStatTagClass,\qquad
+    \CurShadowDensity(\Upsilon,\sigma)\in\CurStatTagClass,\qquad
+    \HomShadowDensity(\Omega,\sigma)\in\HomStatTagClass,
+    \]
+    smooth on the corresponding thread interval bundles, additive under interval concatenation, and compatible with thread reversal. Define the recorded stationary-shadow maps on process windows by interval reduction:
+    \begin{equation}
+    \TensorStatTag(\Gamma,a,b)\equiv\int_a^b \TensorShadowDensity(\Gamma,\sigma)\,d\sigma,
+    \label{eq:shadow_car}
+    \end{equation}
+    \begin{equation}
+    \CurStatTag(\Upsilon,a,b)\equiv\int_a^b \CurShadowDensity(\Upsilon,\sigma)\,d\sigma,
+    \label{eq:shadow_cur}
+    \end{equation}
+    \begin{equation}
+    \HomStatTag(\Omega,a,b)\equiv\int_a^b \HomShadowDensity(\Omega,\sigma)\,d\sigma.
+    \label{eq:shadow_hom}
+    \end{equation}
+    \item there are calibration-basic exact-preserving rate densities
+    \[
+    \TensorRateDensity(\Gamma,\sigma),\qquad
+    \CurRateDensity(\Upsilon,\sigma),\qquad
+    \HomRateDensity(\Omega,\sigma),
+    \]
+    smooth on the thread interval bundles, additive under interval concatenation, and symmetric under thread reversal. They define the recorded local rate densities by restriction to the segment intervals:
+    \begin{equation}
+    \int_{(\Gamma,a,b)}\TensorLocalRate
+    \equiv
+    \int_a^b \TensorRateDensity(\Gamma,\sigma)\,d\sigma,
+    \label{eq:local_rate_car}
+    \end{equation}
+    \begin{equation}
+    \int_{(\Upsilon,a,b)}\CurLocalRate
+    \equiv
+    \int_a^b \CurRateDensity(\Upsilon,\sigma)\,d\sigma,
+    \label{eq:local_rate_cur}
+    \end{equation}
+    \begin{equation}
+    \int_{(\Omega,a,b)}\HomLocalRate
+    \equiv
+    \int_a^b \HomRateDensity(\Omega,\sigma)\,d\sigma.
+    \label{eq:local_rate_hom}
+    \end{equation}
+    \item there are calibration-basic exact-preserving density and flux thread fields
+    \[
+    \TensorDensityField(\Gamma,\sigma)\in\TensorDensityClass,\qquad
+    \CurDensityField(\Upsilon,\sigma)\in\CurDensityClass,\qquad
+    \HomDensityField(\Omega,\sigma)\in\HomDensityClass,
+    \]
+    and
+    \[
+    \TensorFluxField(\Gamma,\sigma)\in\TensorFluxClass,\qquad
+    \CurFluxField(\Upsilon,\sigma)\in\CurFluxClass,\qquad
+    \HomFluxField(\Omega,\sigma)\in\HomFluxClass,
+    \]
+    whose interval reductions define the recorded window recorder maps:
+    \begin{equation}
+    \TensorWindowDensity(\Gamma,a,b)\equiv\int_a^b \TensorDensityField(\Gamma,\sigma)\,d\sigma,\qquad
+    \TensorWindowFlux(\Gamma,a,b)\equiv\int_a^b \TensorFluxField(\Gamma,\sigma)\,d\sigma,
+    \label{eq:window_density_flux_car}
+    \end{equation}
+    with the corresponding formulas in the \(\mathrm{cur}\) and \(\mathrm{hom}\) sectors.
+    \item there are calibration-basic exact-preserving boundary-recorder fields
+    \[
+    \TensorBoundaryRecorder(\Gamma,\sigma)\in\TensorPhaseReadClass,\qquad
+    \CurBoundaryRecorder(\Upsilon,\sigma)\in\CurPhaseReadClass,\qquad
+    \HomBoundaryRecorder(\Omega,\sigma)\in\HomPhaseReadClass,
+    \]
+    smooth on the same thread interval bundles and vanishing on the unit threads. They define the recorded endpoint-recorder fields on process windows by endpoint evaluation:
+    \begin{equation}
+    \TensorEndpointReadSeed(\Gamma,a,b)
+    \equiv
+    \TensorBoundaryRecorder(\Gamma,b)-\TensorBoundaryRecorder(\Gamma,a),
+    \label{eq:end_rec_car}
+    \end{equation}
+    \begin{equation}
+    \CurEndpointReadSeed(\Upsilon,a,b)
+    \equiv
+    \CurBoundaryRecorder(\Upsilon,b)-\CurBoundaryRecorder(\Upsilon,a),
+    \label{eq:end_rec_cur}
+    \end{equation}
+    \begin{equation}
+    \HomEndpointReadSeed(\Omega,a,b)
+    \equiv
+    \HomBoundaryRecorder(\Omega,b)-\HomBoundaryRecorder(\Omega,a).
+    \label{eq:end_rec_hom}
+    \end{equation}
+    \item for each base point in the ambient compatibility sectors,
+    \[
+    \eta\in\operatorname{ran}\TensorEqCmpProj,\qquad
+    \zeta\in\operatorname{ran}\CurEqCmpProj,\qquad
+    \omega\in\operatorname{ran}\HomEqCmpProj,
+    \]
+    there are nonempty families of admissible exact-preserving process windows carrying those endpoint data, and the rate integral induced by \eqref{eq:local_rate_car}--\eqref{eq:local_rate_hom} is strictly stationary-transverse to the calibration directions on those families. Therefore there exist unique stationary windows
+    \[
+    \TensorStationaryWindow(\eta)\in\TensorWindowClass,\qquad
+    \CurStationaryWindow(\zeta)\in\CurWindowClass,\qquad
+    \HomStationaryWindow(\omega)\in\HomWindowClass,
+    \]
+    depending smoothly on the base point and normalized by
+    \[
+    \TensorStationaryWindow(0)=\mathbf u_{\mathrm{car}}(\TensorObjBase),\qquad
+    \CurStationaryWindow(0)=\mathbf u_{\mathrm{cur}}(\CurObjBase),\qquad
+    \HomStationaryWindow(0)=\mathbf u_{\mathrm{hom}}(\HomObjBase).
+    \]
+    Their stationary reductions define the same base energies
+    \begin{equation}
+    \mathcal U_{\mathrm{car}}^{\mathrm{hist}}(\eta)\equiv\int_{\TensorStationaryWindow(\eta)}\TensorLocalRate,\qquad
+    \mathcal U_{\mathrm{cur}}^{\mathrm{hist}}(\zeta)\equiv\int_{\CurStationaryWindow(\zeta)}\CurLocalRate,\qquad
+    \mathcal U_{\mathrm{hom}}^{\mathrm{hist}}(\omega)\equiv\int_{\HomStationaryWindow(\omega)}\HomLocalRate,
+    \label{eq:base_energies}
+    \end{equation}
+    and the same stationary base readout maps
+    \begin{equation}
+    \rho_{\mathrm{car}}^{\mathrm{hist}}(\eta)\equiv\TensorEndpointReadSeed(\TensorStationaryWindow(\eta)),\qquad
+    \rho_{\mathrm{cur}}^{\mathrm{hist}}(\zeta)\equiv\CurEndpointReadSeed(\CurStationaryWindow(\zeta)),\qquad
+    \rho_{\mathrm{hom}}^{\mathrm{hist}}(\omega)\equiv\HomEndpointReadSeed(\HomStationaryWindow(\omega)).
+    \label{eq:base_readouts}
+    \end{equation}
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}[The stationary-shadow maps, local rates, and endpoint-recorder fields are forced]
+\label{prop:shadow_rate_recorder}
+The shadow-current, rate-density, and boundary-recorder data of Definition \ref{def:shadow_rate_recorder} recover exactly the remaining recorded reversible process-window layer.
+\begin{enumerate}
+    \item The stationary-shadow maps \eqref{eq:shadow_car}--\eqref{eq:shadow_hom} are exactly the recorded stationary-shadow maps, and their functorial properties are inherited from interval additivity and reversal compatibility of the deeper shadow-current densities.
+    \item The local rate densities \eqref{eq:local_rate_car}--\eqref{eq:local_rate_hom} are exactly the recorded exact-preserving local rate densities on the process windows.
+    \item The interval reductions \eqref{eq:window_density_flux_car} and its sector analogues are exactly the recorded exact-preserving window density and flux recorder maps.
+    \item The endpoint-recorder fields \eqref{eq:end_rec_car}--\eqref{eq:end_rec_hom} are exactly the recorded endpoint-recorder fields, and the same strict stationary-transverse reduction forces the same unique stationary windows at fixed endpoint data.
+    \item Consequently the stationary-shadow maps, local rate densities, and endpoint-recorder fields are no longer primitive at present scope; they are forced by a deeper shadow-current / rate-density / boundary-recorder structure on the reversible process threads.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Item (1) follows from the integral formulas \eqref{eq:shadow_car}--\eqref{eq:shadow_hom}. Calibration basicness makes the shadow maps invariant under the calibration actions, interval additivity makes them compatible with concatenation, and reversal compatibility of the shadow-current densities gives the recorded reversal compatibility.
+
+Item (2) is the restriction construction \eqref{eq:local_rate_car}--\eqref{eq:local_rate_hom}. Because the thread rate densities are calibration basic, additive, and reversal symmetric, the induced local rate densities on windows have exactly the same properties required in the recorded layer.
+
+Item (3) is the same interval-reduction mechanism applied to the deeper density and flux thread fields. Calibration basicness again makes the reduced maps well defined on the recorded process windows.
+
+Item (4) follows from the endpoint-evaluation formulas \eqref{eq:end_rec_car}--\eqref{eq:end_rec_hom}. Vanishing on the unit threads gives vanishing on the unit windows. The strict stationary-transverse hypothesis eliminates calibration drift and forces uniqueness of the stationary representatives at fixed endpoint data, so the same stationary-window maps and the same stationary reductions are recovered.
+
+Item (5) is therefore immediate: every remaining visible component of the recorded reversible process-window layer is recovered verbatim, but it is no longer primitive.
+\end{proof}
+
+\section{Exact Recovery of the Recorded Layer and Downstream Package}
+
+\begin{theorem}[Same reversible process-window layer]
+\label{thm:same_layer}
+The deeper reversible process-thread / calibration-generator / shadow-current / rate-density / boundary-recorder construction introduced above recovers exactly the recorded layer of Definition \ref{def:recorded_layer}.
+\begin{enumerate}
+    \item Proposition \ref{prop:windows_forced} recovers the same reversible process-window manifolds \(\TensorWindowClass,\CurWindowClass,\HomWindowClass\), the same endpoint maps, the same unit windows, the same concatenation and reversal operations, the same compact calibration groups and actions, the same exact-preserving unitary window transport maps, and the same calibrated short-window families.
+    \item Proposition \ref{prop:shadow_rate_recorder} recovers the same stationary-shadow maps
+    \[
+    \TensorStatTag,\qquad
+    \CurStatTag,\qquad
+    \HomStatTag,
+    \]
+    the same local rate densities
+    \[
+    \TensorLocalRate,\qquad
+    \CurLocalRate,\qquad
+    \HomLocalRate,
+    \]
+    the same window recorder maps
+    \[
+    \TensorWindowDensity,\qquad
+    \CurWindowDensity,\qquad
+    \HomWindowDensity,\qquad
+    \TensorWindowFlux,\qquad
+    \CurWindowFlux,\qquad
+    \HomWindowFlux,
+    \]
+    and the same endpoint-recorder fields and stationary windows
+    \[
+    \TensorEndpointReadSeed,\qquad
+    \CurEndpointReadSeed,\qquad
+    \HomEndpointReadSeed,\qquad
+    \TensorStationaryWindow,\qquad
+    \CurStationaryWindow,\qquad
+    \HomStationaryWindow.
+    \]
+    \item Therefore the reversible process-window / calibration-action / stationary-shadow / local-rate / endpoint-recorder layer of the immediately preceding note is reproduced without change.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Items (1) and (2) are exactly Propositions \ref{prop:windows_forced} and \ref{prop:shadow_rate_recorder}. Item (3) is a direct restatement: once all visible process-window, calibration, shadow, rate, recorder, and stationary-representative data of the immediately preceding note are recovered verbatim, its construction applies verbatim as well.
+\end{proof}
+
+\begin{theorem}[Same reversible-history layer and same downstream package]
+\label{thm:same_package}
+Because the same reversible process-window / calibration-action / stationary-shadow / local-rate / endpoint-recorder layer is recovered, the immediately preceding origin note applies verbatim. Consequently the same downstream package is reproduced without change:
+\begin{enumerate}
+    \item the same reversible-history / stationary-equivalence / short-history-action / endpoint-readout / cotangent-lift layer;
+    \item the same reversible-groupoid / transport-action / constrained-stationary package;
+    \item the same reconfiguration-group / transport-law / equilibrium-reduction package;
+    \item the same derivation-algebra / balance-law / equilibrium-manifold layer;
+    \item the same \(\StemFunctional\);
+    \item the same exact-preservation normal form \(\DeepFunctional\);
+    \item the same carrier-origin functional \(\CarrierFunctional[\CarrierSeed,\RelabelSeed,\FreeSeed]\);
+    \item the same primitive reservoir \(\PrimFunctional[\PrimStrain,\PrimNeutral,\PrimFree]\);
+    \item the same microscopic-equilibrium reservoir \(\MicFunctional[H,\GaugeAux]\);
+    \item the same free-sector verdict \(\FreeProj\CompLift=0\);
+    \item the same substrate and observer completion solves \eqref{eq:fixed_solves};
+    \item the same \(\Sigma^{\mathrm{cmp}}\) solve, the same one operative metric \(\CompletedMetric\), and the same recorded Phase D / E and Phase F gains.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Theorem \ref{thm:same_layer} reproduces exactly the input layer required by the immediately preceding reversible process-window / calibration-action / stationary-shadow / local-rate / endpoint-recorder origin note. That note already proves that once this layer is fixed, the same reversible-history / endpoint-readout / cotangent-lift layer and hence the same downstream chain follow. Since none of the visible slots, elimination steps, or completion equations are altered here, every downstream object listed above is reproduced verbatim.
+\end{proof}
+
+\begin{corollary}[Recorded gain package is preserved]
+\label{cor:gains}
+Because the same downstream package is recovered, the recorded Phase D / E infrared-spectrum and universal-coupling verdicts, the recorded Phase F controlled GR limit, and the already recorded observer-equation closure package remain preserved without modification.
+\end{corollary}
+
+\begin{proof}
+This is the direct content of Theorem \ref{thm:same_package}.
+\end{proof}
+
+\section{Claim-Boundary Verdict}
+
+\begin{theorem}[Reversible process-window origin verdict]
+\label{thm:verdict}
+At the disciplined scope of the present note, the exact positive result is the following.
+\begin{enumerate}
+    \item The reversible exact-preserving process windows \(\TensorWindowClass,\CurWindowClass,\HomWindowClass\) are no longer primitive at current scope.
+    \item They arise as admissible compact oriented segments of finite-dimensional exact-preserving reversible process-thread manifolds.
+    \item The compact calibration actions \(\TensorCalGroup,\CurCalGroup,\HomCalGroup\) are no longer primitive either.
+    \item They are forced by exact-preserving calibration-generator Lie algebras equipped with invariant positive metrics and integral period lattices, so compactness is derived rather than merely imposed.
+    \item The stationary-shadow maps \(\TensorStatTag,\CurStatTag,\HomStatTag\) are no longer primitive either.
+    \item They arise as interval reductions of deeper calibration-basic stationary-shadow currents on the process threads.
+    \item The local rate densities \(\TensorLocalRate,\CurLocalRate,\HomLocalRate\) and the associated window recorder maps are no longer primitive either.
+    \item They arise as interval reductions of deeper calibration-basic exact-preserving rate, density, and flux thread fields.
+    \item The endpoint-recorder fields \(\TensorEndpointReadSeed,\CurEndpointReadSeed,\HomEndpointReadSeed\) are no longer primitive either.
+    \item They arise as endpoint evaluations of deeper calibration-basic boundary-recorder fields, while the same unique stationary representatives are forced by strict endpoint-transverse stationarity of the same thread action.
+    \item Therefore the full recorded reversible process-window / calibration-action / stationary-shadow / local-rate / endpoint-recorder layer of the immediately preceding note is recovered without change.
+    \item Consequently the same reversible-history / endpoint-readout layer, the same \(\StemFunctional\), the same exact-preservation normal form, the same carrier-origin functional, the same primitive reservoir, the same microscopic-equilibrium reservoir, the same \(\Sigma^{\mathrm{cmp}}\) solve, the same \(\Pi_{\mathrm{free}}H=0\) outcome, the same one operative metric, and the same recorded Phase D / E and Phase F gains remain unchanged.
+    \item Stronger promotion language is still not justified here, because the present note explains only why the previous reversible process-window layer arises from a deeper reversible process-thread / calibration-generator / shadow-current / rate-density / boundary-recorder substrate layer; it does not yet derive why that new deeper layer is itself unique, final, or inevitable beyond current scope.
+    \item No broader packaging consequence or default side-line continuation follows from the mathematical content of this note alone. The remaining honest burden is one layer deeper again on this same exact-preservation line, or else another comparably concrete observer-equation gain on the same one-metric route.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Items (1)--(4) are Proposition \ref{prop:windows_forced}. Items (5)--(10) are Proposition \ref{prop:shadow_rate_recorder}. Items (11) and (12) are Theorems \ref{thm:same_layer} and \ref{thm:same_package} together with Corollary \ref{cor:gains}. Items (13) and (14) are the present claim-boundary discipline stated in the abstract and introduction.
+\end{proof}
+
+\begin{corollary}[What remains next]
+\label{cor:what_next}
+The primary active burden moves one layer deeper again. It is no longer to justify why the reversible exact-preserving process windows, their compact calibration actions, their stationary-shadow maps, their local rate densities, and their endpoint-recorder fields of the previous note are admissible at current scope; that step is now recorded. The next honest burden is either to derive or justify why the reversible exact-preserving process threads, their calibration-generator Lie algebras with compact integration data, their stationary-shadow currents, their rate-density fields, and their boundary-recorder fields introduced here are themselves forced by yet more primitive substrate structure, or else to produce another comparably concrete observer-equation gain on the same one-metric line. No stronger promotion language, no packaging pass, and no default move onto the anchored positive-pair side line are justified unless they directly discharge one of those burdens.
+\end{corollary}
+
+\section{Conclusion}
+
+The positive result of this note is that the reversible process-window / calibration-action / stationary-shadow / local-rate / endpoint-recorder layer is no longer left primitive at present scope. It is recovered from a still deeper reversible process-thread / calibration-generator / shadow-current / rate-density / boundary-recorder substrate layer.
+
+At that deeper level, the recorded reversible process windows
+\[
+\TensorWindowClass,\qquad
+\CurWindowClass,\qquad
+\HomWindowClass
+\]
+are admissible compact oriented segments of exact-preserving reversible process threads. Their recorded compact calibration actions are integrated exact-preserving calibration-generator actions with positive compactness data. Their recorded stationary-shadow maps are interval reductions of deeper stationary-shadow currents. Their recorded local rate densities and window recorder maps are interval reductions of deeper exact-preserving thread fields. Their recorded endpoint-recorder fields are endpoint evaluations of deeper boundary-recorder fields, and the same unique stationary representatives are forced by the strict endpoint-transverse stationary reduction of the same thread action.
+
+Because that deeper construction reproduces the full recorded reversible process-window / calibration-action / stationary-shadow / local-rate / endpoint-recorder layer without changing any of its visible slots, the immediately preceding note applies verbatim. Consequently the same reversible-history / endpoint-readout / cotangent-lift layer, the same reversible-groupoid / transport-action / constrained-stationary package, the same reconfiguration-group / transport-law / equilibrium-reduction package, the same \(\StemFunctional\), the same exact-preservation normal form, the same carrier-origin functional, the same primitive reservoir, the same microscopic-equilibrium reservoir, the same \(\Sigma^{\mathrm{cmp}}\) solve, the same \(\Pi_{\mathrm{free}}H=0\) outcome, the same one operative metric, and the same recorded Phase D / E and Phase F gains remain unchanged.
+
+The scope is still disciplined rather than final. The present note does not prove that the deeper reversible process-thread / calibration-generator / shadow-current / rate-density / boundary-recorder layer is unique or ultimate. The next honest burden is to derive or justify why that new deeper layer itself is forced by still more primitive substrate structure, or else to record another comparably concrete observer-equation gain on the same one-metric line.
+
+\end{document}
