@@ -1,0 +1,811 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal A}
+\newcommand{\ObserverMap}{\Xi}
+\newcommand{\BridgeMetric}{\mathfrak g}
+\newcommand{\ObserverMetric}{g^{\mathrm{br}}}
+\newcommand{\CandidateMetric}{g^{\mathrm{cand}}}
+\newcommand{\CompletedMetric}{g^{\sharp}}
+\newcommand{\BaseShift}{\Sigma^{\mathrm{IER}}}
+\newcommand{\ResponseShift}{\Sigma^{\mathrm{resp}}}
+\newcommand{\CompShift}{\Sigma^{\mathrm{cmp}}}
+\newcommand{\BaseLift}{\widehat\Sigma^{\mathrm{IER}}}
+\newcommand{\ResponseLift}{\widehat\Sigma^{\mathrm{resp}}}
+\newcommand{\CompLift}{\widehat\Sigma^{\mathrm{cmp}}}
+\newcommand{\ResidualCore}{\mathcal V_{\mu\nu}^{\mathrm{res}}}
+\newcommand{\ResidualLift}{\widehat{\mathcal V}^{\mathrm{res}}}
+\newcommand{\SubReducedEin}{\widehat{\mathcal L}}
+\newcommand{\FreeProj}{\Pi_{\mathrm{free}}}
+\newcommand{\GaugeAux}{Y}
+\newcommand{\ReducedEin}{\mathcal L_{\ObserverMetric}}
+\newcommand{\CompClass}{\mathscr C_{\mathrm{cmp}}}
+\newcommand{\MicFunctional}{\mathscr F_{\mathrm{mic}}}
+\newcommand{\PrimFunctional}{\mathscr F_{\mathrm{prim}}}
+\newcommand{\CarrierFunctional}{\mathscr F_{\mathrm{car}}}
+\newcommand{\DeepFunctional}{\mathscr F_{\mathrm{deep}}}
+\newcommand{\StemFunctional}{\mathscr F_{\mathrm{sel}}}
+\newcommand{\PrimStrain}{K}
+\newcommand{\PrimNeutral}{J}
+\newcommand{\PrimFree}{F}
+\newcommand{\CarrierSeed}{\mathfrak S}
+\newcommand{\RelabelSeed}{\mathfrak R}
+\newcommand{\FreeSeed}{\mathfrak F}
+\newcommand{\RootTensorClass}{\mathscr U_{\mathrm{car}}}
+\newcommand{\RootRelabelClass}{\mathscr U_{\mathrm{cur}}}
+\newcommand{\RootFreeClass}{\mathscr U_{\mathrm{hom}}}
+\newcommand{\RootTensor}{\mathfrak U}
+\newcommand{\RootRelabel}{\mathfrak V}
+\newcommand{\RootFree}{\mathfrak Q}
+\newcommand{\TensorSymProj}{\Pi_{\mathrm{sym,car}}}
+\newcommand{\CurSymProj}{\Pi_{\mathrm{sym,cur}}}
+\newcommand{\HomSymProj}{\Pi_{\mathrm{sym,hom}}}
+\newcommand{\TensorDensityClass}{\mathscr N_{\mathrm{car}}}
+\newcommand{\CurDensityClass}{\mathscr N_{\mathrm{cur}}}
+\newcommand{\HomDensityClass}{\mathscr N_{\mathrm{hom}}}
+\newcommand{\TensorDensity}{\mathcal Q_{\mathrm{car}}}
+\newcommand{\CurDensity}{\mathcal Q_{\mathrm{cur}}}
+\newcommand{\HomDensity}{\mathcal Q_{\mathrm{hom}}}
+\newcommand{\TensorCont}{\partial_{\mathrm{car}}}
+\newcommand{\CurCont}{\partial_{\mathrm{cur}}}
+\newcommand{\HomCont}{\partial_{\mathrm{hom}}}
+\newcommand{\TensorCurrent}{\mathfrak c_{\mathrm{car}}}
+\newcommand{\CurCurrent}{\mathfrak c_{\mathrm{cur}}}
+\newcommand{\HomCurrent}{\mathfrak c_{\mathrm{hom}}}
+\newcommand{\TensorEqClass}{\mathscr E_{\mathrm{car}}}
+\newcommand{\CurEqClass}{\mathscr E_{\mathrm{cur}}}
+\newcommand{\HomEqClass}{\mathscr E_{\mathrm{hom}}}
+\newcommand{\TensorEqCmpProj}{\widetilde\Pi_{\mathrm{cmp,car}}}
+\newcommand{\CurEqCmpProj}{\widetilde\Pi_{\mathrm{cmp,cur}}}
+\newcommand{\HomEqCmpProj}{\widetilde\Pi_{\mathrm{cmp,hom}}}
+\newcommand{\TensorReconGroup}{\mathcal G_{\mathrm{car}}^{\mathrm{rec}}}
+\newcommand{\CurReconGroup}{\mathcal G_{\mathrm{cur}}^{\mathrm{rec}}}
+\newcommand{\HomReconGroup}{\mathcal G_{\mathrm{hom}}^{\mathrm{rec}}}
+\newcommand{\TensorReconAct}{\mathscr V_{\mathrm{car}}}
+\newcommand{\CurReconAct}{\mathscr V_{\mathrm{cur}}}
+\newcommand{\HomReconAct}{\mathscr V_{\mathrm{hom}}}
+\newcommand{\TensorStateManifold}{\mathcal S_{\mathrm{car}}}
+\newcommand{\CurStateManifold}{\mathcal S_{\mathrm{cur}}}
+\newcommand{\HomStateManifold}{\mathcal S_{\mathrm{hom}}}
+\newcommand{\TensorStateBase}{s_{\mathrm{car}}^{0}}
+\newcommand{\CurStateBase}{s_{\mathrm{cur}}^{0}}
+\newcommand{\HomStateBase}{s_{\mathrm{hom}}^{0}}
+\newcommand{\TensorStateEmbed}{\iota_{\mathrm{car}}}
+\newcommand{\CurStateEmbed}{\iota_{\mathrm{cur}}}
+\newcommand{\HomStateEmbed}{\iota_{\mathrm{hom}}}
+\newcommand{\TensorRawDensity}{\boldsymbol{\mathcal Q}_{\mathrm{car}}}
+\newcommand{\CurRawDensity}{\boldsymbol{\mathcal Q}_{\mathrm{cur}}}
+\newcommand{\HomRawDensity}{\boldsymbol{\mathcal Q}_{\mathrm{hom}}}
+\newcommand{\TensorTransport}{\mathbb V_{\mathrm{car}}}
+\newcommand{\CurTransport}{\mathbb V_{\mathrm{cur}}}
+\newcommand{\HomTransport}{\mathbb V_{\mathrm{hom}}}
+\newcommand{\TensorFluxClass}{\mathscr J_{\mathrm{car}}}
+\newcommand{\CurFluxClass}{\mathscr J_{\mathrm{cur}}}
+\newcommand{\HomFluxClass}{\mathscr J_{\mathrm{hom}}}
+\newcommand{\TensorFlux}{\mathbb J_{\mathrm{car}}}
+\newcommand{\CurFlux}{\mathbb J_{\mathrm{cur}}}
+\newcommand{\HomFlux}{\mathbb J_{\mathrm{hom}}}
+\newcommand{\TensorDiv}{\mathbb B_{\mathrm{car}}}
+\newcommand{\CurDiv}{\mathbb B_{\mathrm{cur}}}
+\newcommand{\HomDiv}{\mathbb B_{\mathrm{hom}}}
+\newcommand{\TensorRawBalance}{\boldsymbol{\mathfrak c}_{\mathrm{car}}}
+\newcommand{\CurRawBalance}{\boldsymbol{\mathfrak c}_{\mathrm{cur}}}
+\newcommand{\HomRawBalance}{\boldsymbol{\mathfrak c}_{\mathrm{hom}}}
+\newcommand{\TensorPrimitiveDensity}{\widehat{\mathcal Q}_{\mathrm{car}}}
+\newcommand{\CurPrimitiveDensity}{\widehat{\mathcal Q}_{\mathrm{cur}}}
+\newcommand{\HomPrimitiveDensity}{\widehat{\mathcal Q}_{\mathrm{hom}}}
+\newcommand{\TensorBalance}{\widehat{\mathfrak c}_{\mathrm{car}}}
+\newcommand{\CurBalance}{\widehat{\mathfrak c}_{\mathrm{cur}}}
+\newcommand{\HomBalance}{\widehat{\mathfrak c}_{\mathrm{hom}}}
+\newcommand{\TensorRawEqClass}{\widetilde{\mathscr E}_{\mathrm{car}}}
+\newcommand{\CurRawEqClass}{\widetilde{\mathscr E}_{\mathrm{cur}}}
+\newcommand{\HomRawEqClass}{\widetilde{\mathscr E}_{\mathrm{hom}}}
+\newcommand{\TensorEqReduce}{\mathfrak R_{\mathrm{car}}}
+\newcommand{\CurEqReduce}{\mathfrak R_{\mathrm{cur}}}
+\newcommand{\HomEqReduce}{\mathfrak R_{\mathrm{hom}}}
+\newcommand{\TensorRawEnergy}{\widetilde{\mathcal U}_{\mathrm{car}}}
+\newcommand{\CurRawEnergy}{\widetilde{\mathcal U}_{\mathrm{cur}}}
+\newcommand{\HomRawEnergy}{\widetilde{\mathcal U}_{\mathrm{hom}}}
+\newcommand{\TensorRawEqManifold}{\widetilde{\mathcal N}_{\mathrm{car}}}
+\newcommand{\CurRawEqManifold}{\widetilde{\mathcal N}_{\mathrm{cur}}}
+\newcommand{\HomRawEqManifold}{\widetilde{\mathcal N}_{\mathrm{hom}}}
+\newcommand{\RawCarGap}{\widetilde\rho_{\mathrm{eq,car}}}
+\newcommand{\RawCurGap}{\widetilde\rho_{\mathrm{eq,cur}}}
+\newcommand{\RawHomGap}{\widetilde\rho_{\mathrm{eq,hom}}}
+\newcommand{\TensorGroupoid}{\mathfrak G_{\mathrm{car}}}
+\newcommand{\CurGroupoid}{\mathfrak G_{\mathrm{cur}}}
+\newcommand{\HomGroupoid}{\mathfrak G_{\mathrm{hom}}}
+\newcommand{\TensorObjClass}{\mathcal O_{\mathrm{car}}}
+\newcommand{\CurObjClass}{\mathcal O_{\mathrm{cur}}}
+\newcommand{\HomObjClass}{\mathcal O_{\mathrm{hom}}}
+\newcommand{\TensorObjBase}{o_{\mathrm{car}}^0}
+\newcommand{\CurObjBase}{o_{\mathrm{cur}}^0}
+\newcommand{\HomObjBase}{o_{\mathrm{hom}}^0}
+\newcommand{\TensorActionDensity}{\mathscr A_{\mathrm{car}}}
+\newcommand{\CurActionDensity}{\mathscr A_{\mathrm{cur}}}
+\newcommand{\HomActionDensity}{\mathscr A_{\mathrm{hom}}}
+\newcommand{\TensorFluxRead}{\mathfrak F_{\mathrm{car}}}
+\newcommand{\CurFluxRead}{\mathfrak F_{\mathrm{cur}}}
+\newcommand{\HomFluxRead}{\mathfrak F_{\mathrm{hom}}}
+\newcommand{\TensorPhaseClass}{\mathscr P_{\mathrm{car}}}
+\newcommand{\CurPhaseClass}{\mathscr P_{\mathrm{cur}}}
+\newcommand{\HomPhaseClass}{\mathscr P_{\mathrm{hom}}}
+\newcommand{\TensorPhaseReadClass}{\mathscr R_{\mathrm{car}}}
+\newcommand{\CurPhaseReadClass}{\mathscr R_{\mathrm{cur}}}
+\newcommand{\HomPhaseReadClass}{\mathscr R_{\mathrm{hom}}}
+\newcommand{\TensorPhaseProj}{\pi_{\mathrm{car}}}
+\newcommand{\CurPhaseProj}{\pi_{\mathrm{cur}}}
+\newcommand{\HomPhaseProj}{\pi_{\mathrm{hom}}}
+\newcommand{\TensorPhaseRead}{\rho_{\mathrm{car}}}
+\newcommand{\CurPhaseRead}{\rho_{\mathrm{cur}}}
+\newcommand{\HomPhaseRead}{\rho_{\mathrm{hom}}}
+\newcommand{\TensorConstraint}{\mathcal K_{\mathrm{car}}}
+\newcommand{\CurConstraint}{\mathcal K_{\mathrm{cur}}}
+\newcommand{\HomConstraint}{\mathcal K_{\mathrm{hom}}}
+\newcommand{\TensorPhaseEnergy}{\overline{\mathcal U}_{\mathrm{car}}}
+\newcommand{\CurPhaseEnergy}{\overline{\mathcal U}_{\mathrm{cur}}}
+\newcommand{\HomPhaseEnergy}{\overline{\mathcal U}_{\mathrm{hom}}}
+\newcommand{\TensorStationaryManifold}{\mathcal Z_{\mathrm{car}}^{\mathrm{st}}}
+\newcommand{\CurStationaryManifold}{\mathcal Z_{\mathrm{cur}}^{\mathrm{st}}}
+\newcommand{\HomStationaryManifold}{\mathcal Z_{\mathrm{hom}}^{\mathrm{st}}}
+\newcommand{\TensorStationarySolve}{\mathfrak s_{\mathrm{car}}}
+\newcommand{\CurStationarySolve}{\mathfrak s_{\mathrm{cur}}}
+\newcommand{\HomStationarySolve}{\mathfrak s_{\mathrm{hom}}}
+\newcommand{\TensorHistoryClass}{\mathfrak H_{\mathrm{car}}}
+\newcommand{\CurHistoryClass}{\mathfrak H_{\mathrm{cur}}}
+\newcommand{\HomHistoryClass}{\mathfrak H_{\mathrm{hom}}}
+\newcommand{\TensorHistoryAction}{\mathscr S_{\mathrm{car}}}
+\newcommand{\CurHistoryAction}{\mathscr S_{\mathrm{cur}}}
+\newcommand{\HomHistoryAction}{\mathscr S_{\mathrm{hom}}}
+\newcommand{\TensorHistoryRep}{\widetilde{\mathscr W}_{\mathrm{car}}}
+\newcommand{\CurHistoryRep}{\widetilde{\mathscr W}_{\mathrm{cur}}}
+\newcommand{\HomHistoryRep}{\widetilde{\mathscr W}_{\mathrm{hom}}}
+\newcommand{\TensorWindowClass}{\mathfrak X_{\mathrm{car}}}
+\newcommand{\CurWindowClass}{\mathfrak X_{\mathrm{cur}}}
+\newcommand{\HomWindowClass}{\mathfrak X_{\mathrm{hom}}}
+\newcommand{\TensorCalGroup}{\mathcal C_{\mathrm{car}}^{\mathrm{cal}}}
+\newcommand{\CurCalGroup}{\mathcal C_{\mathrm{cur}}^{\mathrm{cal}}}
+\newcommand{\HomCalGroup}{\mathcal C_{\mathrm{hom}}^{\mathrm{cal}}}
+\newcommand{\TensorWindowRep}{\overline{\mathscr W}_{\mathrm{car}}}
+\newcommand{\CurWindowRep}{\overline{\mathscr W}_{\mathrm{cur}}}
+\newcommand{\HomWindowRep}{\overline{\mathscr W}_{\mathrm{hom}}}
+\newcommand{\TensorStatTagClass}{\mathcal Y_{\mathrm{car}}^{\mathrm{st}}}
+\newcommand{\CurStatTagClass}{\mathcal Y_{\mathrm{cur}}^{\mathrm{st}}}
+\newcommand{\HomStatTagClass}{\mathcal Y_{\mathrm{hom}}^{\mathrm{st}}}
+\newcommand{\TensorStatTag}{\varsigma_{\mathrm{car}}}
+\newcommand{\CurStatTag}{\varsigma_{\mathrm{cur}}}
+\newcommand{\HomStatTag}{\varsigma_{\mathrm{hom}}}
+\newcommand{\TensorLocalRate}{\mathfrak L_{\mathrm{car}}}
+\newcommand{\CurLocalRate}{\mathfrak L_{\mathrm{cur}}}
+\newcommand{\HomLocalRate}{\mathfrak L_{\mathrm{hom}}}
+\newcommand{\TensorWindowDensity}{\mathfrak q_{\mathrm{car}}}
+\newcommand{\CurWindowDensity}{\mathfrak q_{\mathrm{cur}}}
+\newcommand{\HomWindowDensity}{\mathfrak q_{\mathrm{hom}}}
+\newcommand{\TensorWindowFlux}{\mathfrak j_{\mathrm{car}}}
+\newcommand{\CurWindowFlux}{\mathfrak j_{\mathrm{cur}}}
+\newcommand{\HomWindowFlux}{\mathfrak j_{\mathrm{hom}}}
+\newcommand{\TensorEndpointReadSeed}{\mathscr R_{\mathrm{car}}^{\mathrm{end}}}
+\newcommand{\CurEndpointReadSeed}{\mathscr R_{\mathrm{cur}}^{\mathrm{end}}}
+\newcommand{\HomEndpointReadSeed}{\mathscr R_{\mathrm{hom}}^{\mathrm{end}}}
+\newcommand{\TensorStationaryWindow}{\mathfrak p_{\mathrm{car}}^{\mathrm{st}}}
+\newcommand{\CurStationaryWindow}{\mathfrak p_{\mathrm{cur}}^{\mathrm{st}}}
+\newcommand{\HomStationaryWindow}{\mathfrak p_{\mathrm{hom}}^{\mathrm{st}}}
+\newcommand{\Iso}{\operatorname{Iso}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Substrate-Response / Self-Response Charge-Polarization Candidate\\
+\large Exact-Preservation Reversible-History / Stationary-Equivalence / Short-History-Action / Endpoint-Readout\\
+\large Origin Note}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The exact-preservation reversible-groupoid / transport-action / constrained-stationary origin note already shows that the previously recorded reversible-groupoid / transport-action / constrained-stationary layer is not primitive at present scope. It is recovered there from a still deeper reversible-history / endpoint-readout / cotangent-lift layer. What remained open is one layer deeper again: why those reversible exact-preserving histories, their stationary equivalence relations, their short-history actions, and their endpoint readout data should themselves exist rather than becoming the present deepest disciplined postulate.
+
+The present note addresses exactly that narrower burden. It keeps fixed the same exact-preservation target: the same \(\StemFunctional\), the same exact-preservation normal form \(\DeepFunctional\), the same carrier-origin functional \(\CarrierFunctional[\CarrierSeed,\RelabelSeed,\FreeSeed]\), the same primitive reservoir \(\PrimFunctional[\PrimStrain,\PrimNeutral,\PrimFree]\), the same microscopic-equilibrium reservoir \(\MicFunctional[H,\GaugeAux]\), the same \(\Sigma^{\mathrm{cmp}}\) solve, the same \(\Pi_{\mathrm{free}}H=0\) outcome, the same one operative metric, and the same recorded Phase D / E and Phase F gains. Its positive move is to place the recorded reversible-history / endpoint-readout layer under a still deeper reversible process-window / calibration-quotient / local-rate / endpoint-recorder construction:
+\begin{enumerate}
+    \item finite-dimensional exact-preserving reversible process-window manifolds carrying compact calibration actions whose orbit spaces are exactly the recorded reversible history manifolds;
+    \item stationary-shadow maps on those windows whose quotient fibers force exactly the recorded regular stationary equivalence relations;
+    \item local exact-preserving rate densities and recorder fields on those windows whose calibration-invariant orbit integrals force exactly the recorded short-history actions, history density observables, and history flux observables;
+    \item unique stationary representatives at fixed endpoint data whose endpoint variation and endpoint recorder evaluation force exactly the recorded endpoint one-forms, base energies, and base readout maps, and therefore leave the cotangent-lift phase construction of the immediately preceding note unchanged.
+\end{enumerate}
+
+At current exact-preservation scope, the reversible-history / endpoint-readout layer is therefore no longer primitive either. Because the present note reproduces that layer exactly, the immediately preceding note applies verbatim. Consequently the same reversible-groupoid / transport-action / constrained-stationary package, the same reconfiguration-group / transport-law / equilibrium-reduction package, the same \(\StemFunctional\), the same exact-preservation normal form, the same carrier-origin functional, the same primitive and microscopic-equilibrium reservoirs, the same \(\Sigma^{\mathrm{cmp}}\) solve, the same \(\Pi_{\mathrm{free}}H=0\) outcome, the same one operative metric, and the same recorded Phase D / E and Phase F gains are preserved without change.
+
+The scope remains disciplined. This note does not claim a final microscopic completion, a unique ultimate substrate theory, or a completed first-principles derivation of GR. Its narrower exact positive claim is only that the recorded reversible-history / endpoint-readout layer is itself no longer primitive at present scope, but is forced by a still deeper reversible process-window / calibration-quotient / local-rate / endpoint-recorder substrate layer while preserving the same downstream package.
+\end{abstract}
+
+\section{Introduction}
+
+The active one-metric charge-polarization line has now crossed the candidate, benchmark-gate, controlled-limit, residual-sector, redesign, substrate-anchoring, substrate-action, kernel-origin, deeper-selection, primitive-reservoir, carrier-origin, precursor-selection, exact-preservation normal-form, microphysical-Hessian, charge-generator, derivation-algebra, reconfiguration-group, and reversible-history origin steps on the same GR-directed route. The burden therefore sharpens again. It is not another packaging pass. It is not stronger promotion language. It is not, by default, a move onto the anchored positive-pair side line. It is to go one layer below the currently recorded reversible-history / endpoint-readout construction itself and explain why that construction is forced.
+
+That burden has four parts. First, one must explain why the exact-preserving reversible histories
+\[
+\TensorHistoryClass,\qquad
+\CurHistoryClass,\qquad
+\HomHistoryClass
+\]
+should exist rather than being declared. Second, one must explain why their regular stationary equivalence relations should exist rather than being imposed by hand. Third, one must explain why the short-history actions
+\[
+\TensorHistoryAction,\qquad
+\CurHistoryAction,\qquad
+\HomHistoryAction
+\]
+should arise from deeper substrate structure rather than being postulated at the current layer. Fourth, one must explain why the endpoint one-forms, base energies, and base readout maps that feed the cotangent-lift phase construction should themselves be forced rather than simply inserted. As before, one must also re-show that solving this deeper burden changes none of the already recorded downstream package.
+
+The key move of the present note is to place one still deeper exact-preserving process-window layer under all four objects at once. Reversible process windows with compact calibration actions force the recorded histories as orbit spaces. Stationary-shadow maps on those windows force the recorded stationary equivalence relations by equality of shadow data. Local exact-preserving rate densities and recorder fields force the recorded short-history actions and history density/flux observables by calibration-invariant orbit integrals. Unique stationary representatives at fixed endpoint data force the recorded endpoint one-forms, base energies, and base readout maps by endpoint variation and endpoint-recorder evaluation. The current reversible-history / endpoint-readout layer is therefore no longer primitive either.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active manuscript sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not claim a final ultraviolet completion, a uniqueness theorem for every conceivable deeper substrate model, or a wider theorem boundary than the current exact-preservation chain. Its narrower positive move is exact and current-scope: the reversible-history / endpoint-readout package of the previous note is itself forced as the reduced image of a still more primitive reversible process-window / calibration-quotient / local-rate / endpoint-recorder layer, with no change to the downstream completion package.
+
+\section{Fixed Inputs from the Recorded Completion Line}
+
+\begin{definition}[Fixed branch and downstream completion target]
+\label{def:fixed_branch}
+The present note keeps fixed the same charge-polarization branch
+\begin{equation}
+\CandidateMetric
+=
+\ObserverMetric+\BaseShift+\ResponseShift,
+\qquad
+\CompletedMetric
+=
+\ObserverMetric+\BaseShift+\ResponseShift+\CompShift,
+\label{eq:fixed_metrics}
+\end{equation}
+with lifted variables satisfying
+\begin{equation}
+\ObserverMap^*\BaseLift=\BaseShift,
+\qquad
+\ObserverMap^*\ResponseLift=\ResponseShift,
+\qquad
+\ObserverMap^*\CompLift=\CompShift.
+\label{eq:fixed_lifts}
+\end{equation}
+The same completion class and the same free-sector condition are fixed:
+\begin{equation}
+\CompLift\in\CompClass,
+\qquad
+\FreeProj\CompLift=0.
+\label{eq:fixed_free}
+\end{equation}
+The same substrate and observer completion equations are fixed as well:
+\begin{equation}
+\SubReducedEin(\CompLift)=-\ResidualLift,
+\qquad
+\ReducedEin(\CompShift)=-\ResidualCore.
+\label{eq:fixed_solves}
+\end{equation}
+Every statement below must preserve these equations together with the same one operative metric \(\CompletedMetric\).
+\end{definition}
+
+\begin{definition}[Recorded reversible-history / endpoint-readout layer]
+\label{def:recorded_layer}
+The immediately preceding note fixes the following exact-preserving input layer.
+\begin{enumerate}
+    \item Exact-preserving reversible history manifolds
+    \[
+    \TensorHistoryClass,\qquad
+    \CurHistoryClass,\qquad
+    \HomHistoryClass
+    \]
+    with source and target maps
+    \[
+    s_{\mathrm{car}},t_{\mathrm{car}},\qquad
+    s_{\mathrm{cur}},t_{\mathrm{cur}},\qquad
+    s_{\mathrm{hom}},t_{\mathrm{hom}},
+    \]
+    exact-preserving unit maps
+    \[
+    u_{\mathrm{car}},\qquad
+    u_{\mathrm{cur}},\qquad
+    u_{\mathrm{hom}},
+    \]
+    partial concatenations \(\star_{\mathrm{car}},\star_{\mathrm{cur}},\star_{\mathrm{hom}}\), reversals \(r_{\mathrm{car}},r_{\mathrm{cur}},r_{\mathrm{hom}}\), regular stationary equivalence relations \(\sim_{\mathrm{car}},\sim_{\mathrm{cur}},\sim_{\mathrm{hom}}\), and exact-preserving unitary history transport maps
+    \[
+    \TensorHistoryRep,\qquad
+    \CurHistoryRep,\qquad
+    \HomHistoryRep.
+    \]
+    \item Exact-preserving short-history families
+    \[
+    h_{\mathrm{car}}(x,v,\tau),\qquad
+    h_{\mathrm{cur}}(y,w,\tau),\qquad
+    h_{\mathrm{hom}}(z,u,\tau),
+    \]
+    history actions
+    \[
+    \TensorHistoryAction,\qquad
+    \CurHistoryAction,\qquad
+    \HomHistoryAction,
+    \]
+    history density observables
+    \[
+    \mathcal Q_{\mathrm{car}}^{\mathrm{hist}},\qquad
+    \mathcal Q_{\mathrm{cur}}^{\mathrm{hist}},\qquad
+    \mathcal Q_{\mathrm{hom}}^{\mathrm{hist}},
+    \]
+    and history flux observables
+    \[
+    \mathfrak F_{\mathrm{car}}^{\mathrm{hist}},\qquad
+    \mathfrak F_{\mathrm{cur}}^{\mathrm{hist}},\qquad
+    \mathfrak F_{\mathrm{hom}}^{\mathrm{hist}}.
+    \]
+    \item Exact-preserving endpoint one-forms
+    \[
+    \vartheta_{\mathrm{car}},\qquad
+    \vartheta_{\mathrm{cur}},\qquad
+    \vartheta_{\mathrm{hom}},
+    \]
+    base energies
+    \[
+    \mathcal U_{\mathrm{car}}^{\mathrm{hist}},\qquad
+    \mathcal U_{\mathrm{cur}}^{\mathrm{hist}},\qquad
+    \mathcal U_{\mathrm{hom}}^{\mathrm{hist}},
+    \]
+    and base readout maps
+    \[
+    \rho_{\mathrm{car}}^{\mathrm{hist}},\qquad
+    \rho_{\mathrm{cur}}^{\mathrm{hist}},\qquad
+    \rho_{\mathrm{hom}}^{\mathrm{hist}},
+    \]
+    which feed the same cotangent-plus-multiplier phase construction and hence the same constrained-stationary phase layer already recorded in the immediately preceding note.
+\end{enumerate}
+These data are exact fixed inputs for the present note. The only admissible positive result is to derive or justify why this entire layer is itself forced while keeping it unchanged.
+\end{definition}
+
+\begin{definition}[Recorded exact-preservation target]
+\label{def:recorded_target}
+The present note must preserve, without any modification,
+\begin{equation}
+\StemFunctional,
+\qquad
+\DeepFunctional,
+\qquad
+\CarrierFunctional[\CarrierSeed,\RelabelSeed,\FreeSeed],
+\qquad
+\PrimFunctional[\PrimStrain,\PrimNeutral,\PrimFree],
+\qquad
+\MicFunctional[H,\GaugeAux],
+\label{eq:target_functionals}
+\end{equation}
+together with the fixed free-sector condition
+\begin{equation}
+\FreeProj\CompLift=0,
+\label{eq:target_free}
+\end{equation}
+the same completion solve
+\begin{equation}
+\CompShift=\Sigma^{\mathrm{cmp}},
+\label{eq:target_sigma}
+\end{equation}
+the same one operative metric \(\CompletedMetric\), and the same recorded Phase D / E infrared-spectrum and universal-coupling verdicts together with the same Phase F controlled GR limit.
+\end{definition}
+
+\section{Process-Window Origin of the Reversible Histories and Stationary Equivalence}
+
+\begin{definition}[Primitive exact-preserving reversible process-window data]
+\label{def:process_windows}
+For each sharper sector, let
+\[
+\TensorWindowClass,\qquad
+\CurWindowClass,\qquad
+\HomWindowClass
+\]
+be finite-dimensional \(C^2\) manifolds of exact-preserving reversible process windows. Assume:
+\begin{enumerate}
+    \item there are smooth endpoint maps
+    \[
+    \epsilon_{\mathrm{car}}^{-},\epsilon_{\mathrm{car}}^{+}:\TensorWindowClass\to\TensorObjClass,\qquad
+    \epsilon_{\mathrm{cur}}^{-},\epsilon_{\mathrm{cur}}^{+}:\CurWindowClass\to\CurObjClass,\qquad
+    \epsilon_{\mathrm{hom}}^{-},\epsilon_{\mathrm{hom}}^{+}:\HomWindowClass\to\HomObjClass,
+    \]
+    together with exact-preserving unit windows
+    \[
+    \mathbf u_{\mathrm{car}}:\TensorObjClass\to\TensorWindowClass,\qquad
+    \mathbf u_{\mathrm{cur}}:\CurObjClass\to\CurWindowClass,\qquad
+    \mathbf u_{\mathrm{hom}}:\HomObjClass\to\HomWindowClass;
+    \]
+    \item there are smooth partial concatenation maps
+    \[
+    \diamond_{\mathrm{car}},\qquad
+    \diamond_{\mathrm{cur}},\qquad
+    \diamond_{\mathrm{hom}}
+    \]
+    on the usual composable loci and smooth reversal involutions
+    \[
+    \varrho_{\mathrm{car}}:\TensorWindowClass\to\TensorWindowClass,\qquad
+    \varrho_{\mathrm{cur}}:\CurWindowClass\to\CurWindowClass,\qquad
+    \varrho_{\mathrm{hom}}:\HomWindowClass\to\HomWindowClass,
+    \]
+    exchanging \(\epsilon^{-}\) and \(\epsilon^{+}\), fixing the unit windows, and satisfying the expected unit, associativity, and reversal identities;
+    \item there are free proper compact calibration-group actions
+    \[
+    \TensorCalGroup\curvearrowright\TensorWindowClass,\qquad
+    \CurCalGroup\curvearrowright\CurWindowClass,\qquad
+    \HomCalGroup\curvearrowright\HomWindowClass
+    \]
+    preserving endpoints, unit windows, concatenation, reversal, and the exact-preserving branch;
+    \item there are exact-preserving unitary window transport maps
+    \[
+    \TensorWindowRep:\TensorWindowClass\to\mathcal U(\RootTensorClass),\qquad
+    \CurWindowRep:\CurWindowClass\to\mathcal U(\RootRelabelClass),\qquad
+    \HomWindowRep:\HomWindowClass\to\mathcal U(\RootFreeClass)
+    \]
+    that are invariant under the calibration-group actions, multiplicative under concatenation, inverse under reversal, and equal to the identity on the unit windows;
+    \item there are smooth stationary-shadow maps
+    \[
+    \TensorStatTag:\TensorWindowClass\to\TensorStatTagClass,\qquad
+    \CurStatTag:\CurWindowClass\to\CurStatTagClass,\qquad
+    \HomStatTag:\HomWindowClass\to\HomStatTagClass
+    \]
+    that are invariant under the calibration-group actions, constant on the exact-preserving unit windows, compatible with concatenation and reversal, and are submersions near the exact-preserving unit windows.
+\end{enumerate}
+
+Define the recorded history manifolds as the orbit spaces
+\begin{equation}
+\TensorHistoryClass\equiv\TensorWindowClass/\TensorCalGroup,\qquad
+\CurHistoryClass\equiv\CurWindowClass/\CurCalGroup,\qquad
+\HomHistoryClass\equiv\HomWindowClass/\HomCalGroup,
+\label{eq:history_from_windows}
+\end{equation}
+with source, target, unit, concatenation, and reversal induced from the process-window structure. Define the recorded history transport maps by
+\begin{equation}
+\TensorHistoryRep([W])\equiv\TensorWindowRep(W),\qquad
+\CurHistoryRep([V])\equiv\CurWindowRep(V),\qquad
+\HomHistoryRep([U])\equiv\HomWindowRep(U).
+\label{eq:history_transport_from_windows}
+\end{equation}
+Finally define the recorded stationary equivalence relations by equality of stationary-shadow data:
+\begin{equation}
+[W_1]\sim_{\mathrm{car}}[W_2]
+\iff
+\TensorStatTag(W_1)=\TensorStatTag(W_2),
+\label{eq:stationary_equiv_car}
+\end{equation}
+\begin{equation}
+[V_1]\sim_{\mathrm{cur}}[V_2]
+\iff
+\CurStatTag(V_1)=\CurStatTag(V_2),
+\label{eq:stationary_equiv_cur}
+\end{equation}
+\begin{equation}
+[U_1]\sim_{\mathrm{hom}}[U_2]
+\iff
+\HomStatTag(U_1)=\HomStatTag(U_2).
+\label{eq:stationary_equiv_hom}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[The reversible histories and their stationary equivalence relations are forced by process windows]
+\label{prop:histories_from_windows}
+The process-window data of Definition \ref{def:process_windows} recover exactly the recorded reversible-history layer.
+\begin{enumerate}
+    \item The orbit spaces \eqref{eq:history_from_windows} are finite-dimensional exact-preserving reversible history manifolds near the exact-preserving branch, with source, target, units, concatenation, and reversal induced by the process-window operations.
+    \item The quotient transport maps \eqref{eq:history_transport_from_windows} are exactly the recorded exact-preserving unitary history transport maps.
+    \item The stationary equivalence relations \eqref{eq:stationary_equiv_car}--\eqref{eq:stationary_equiv_hom} are exactly the recorded regular stationary equivalence relations, and they are automatically compatible with source, target, units, concatenation, and reversal because the stationary-shadow maps have those same functorial properties.
+    \item Consequently the reversible exact-preserving histories and their stationary equivalence relations are no longer primitive at present scope; they are forced by a deeper reversible process-window / calibration-quotient substrate layer.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Item (1) is the standard quotient construction for free proper compact group actions. Because the calibration actions preserve all structural maps, every history operation descends to the orbit spaces. Exact preservation is inherited because the exact-preserving unit windows descend to the exact-preserving unit histories.
+
+Item (2) follows from calibration invariance of the window transport maps. Since the transport maps are also multiplicative under concatenation and inverse under reversal, the descended maps are exactly the recorded history transport maps.
+
+Item (3) follows because equality of stationary-shadow values defines a regular equivalence relation whenever the shadow maps are submersions. Compatibility with source, target, units, concatenation, and reversal is inherited from the corresponding compatibilities of the stationary-shadow maps themselves.
+
+Item (4) is precisely the content of items (1)--(3): the currently recorded history manifolds and stationary equivalence relations are recovered verbatim, but they are no longer primitive.
+\end{proof}
+
+\section{Local-Rate and Endpoint-Recorder Origin of the Short-History Actions and Endpoint Data}
+
+\begin{definition}[Primitive exact-preserving local-rate and endpoint-recorder data]
+\label{def:local_rate_endpoint}
+Assume the process-window layer of Definition \ref{def:process_windows} is fixed. Assume further:
+\begin{enumerate}
+    \item there are \(C^2\) calibrated short-window families
+    \[
+    W_{\mathrm{car}}(x,v,\tau)\in\TensorWindowClass,\qquad
+    W_{\mathrm{cur}}(y,w,\tau)\in\CurWindowClass,\qquad
+    W_{\mathrm{hom}}(z,u,\tau)\in\HomWindowClass,
+    \]
+    defined near the exact-preserving branch, satisfying
+    \[
+    \epsilon_{\mathrm{car}}^{-}(W_{\mathrm{car}}(x,v,\tau))=x,\qquad
+    \epsilon_{\mathrm{cur}}^{-}(W_{\mathrm{cur}}(y,w,\tau))=y,\qquad
+    \epsilon_{\mathrm{hom}}^{-}(W_{\mathrm{hom}}(z,u,\tau))=z,
+    \]
+    and
+    \[
+    W_{\mathrm{car}}(x,0,0)=\mathbf u_{\mathrm{car}}(x),\qquad
+    W_{\mathrm{cur}}(y,0,0)=\mathbf u_{\mathrm{cur}}(y),\qquad
+    W_{\mathrm{hom}}(z,0,0)=\mathbf u_{\mathrm{hom}}(z).
+    \]
+    Their calibration orbits are, by definition, the recorded short histories:
+    \begin{equation}
+    \begin{aligned}
+    h_{\mathrm{car}}(x,v,\tau)&\equiv[W_{\mathrm{car}}(x,v,\tau)],\\
+    h_{\mathrm{cur}}(y,w,\tau)&\equiv[W_{\mathrm{cur}}(y,w,\tau)],\\
+    h_{\mathrm{hom}}(z,u,\tau)&\equiv[W_{\mathrm{hom}}(z,u,\tau)].
+    \end{aligned}
+    \label{eq:short_histories_from_windows}
+    \end{equation}
+    \item there are exact-preserving local rate densities \(\TensorLocalRate,\CurLocalRate,\HomLocalRate\) on the process windows, invariant under the calibration-group actions, additive under short concatenations, and symmetric under reversal. Define the recorded history actions on general histories by
+    \begin{equation}
+    \TensorHistoryAction([W])\equiv\int_{W}\TensorLocalRate,\qquad
+    \CurHistoryAction([V])\equiv\int_{V}\CurLocalRate,\qquad
+    \HomHistoryAction([U])\equiv\int_{U}\HomLocalRate.
+    \label{eq:history_action_from_rate}
+    \end{equation}
+    \item there are exact-preserving calibration-invariant window recorder maps
+    \[
+    \TensorWindowDensity:\TensorWindowClass\to\TensorDensityClass,\qquad
+    \CurWindowDensity:\CurWindowClass\to\CurDensityClass,\qquad
+    \HomWindowDensity:\HomWindowClass\to\HomDensityClass,
+    \]
+    and
+    \[
+    \TensorWindowFlux:\TensorWindowClass\to\TensorFluxClass,\qquad
+    \CurWindowFlux:\CurWindowClass\to\CurFluxClass,\qquad
+    \HomWindowFlux:\HomWindowClass\to\HomFluxClass,
+    \]
+    defining the recorded history density and flux observables by
+    \begin{equation}
+    \mathcal Q_{\mathrm{car}}^{\mathrm{hist}}([W])\equiv\TensorWindowDensity(W),\qquad
+    \mathcal Q_{\mathrm{cur}}^{\mathrm{hist}}([V])\equiv\CurWindowDensity(V),\qquad
+    \mathcal Q_{\mathrm{hom}}^{\mathrm{hist}}([U])\equiv\HomWindowDensity(U),
+    \label{eq:history_density_from_windows}
+    \end{equation}
+    \begin{equation}
+    \mathfrak F_{\mathrm{car}}^{\mathrm{hist}}([W])\equiv\TensorWindowFlux(W),\qquad
+    \mathfrak F_{\mathrm{cur}}^{\mathrm{hist}}([V])\equiv\CurWindowFlux(V),\qquad
+    \mathfrak F_{\mathrm{hom}}^{\mathrm{hist}}([U])\equiv\HomWindowFlux(U).
+    \label{eq:history_flux_from_windows}
+    \end{equation}
+    \item for each sector and each base point in the ambient compatibility sector,
+    \[
+    \eta\in\operatorname{ran}\TensorEqCmpProj,\qquad
+    \zeta\in\operatorname{ran}\CurEqCmpProj,\qquad
+    \omega\in\operatorname{ran}\HomEqCmpProj,
+    \]
+    there are nonempty \(C^2\) families of admissible exact-preserving process windows with unique stationary representatives
+    \[
+    \TensorStationaryWindow(\eta)\in\TensorWindowClass,\qquad
+    \CurStationaryWindow(\zeta)\in\CurWindowClass,\qquad
+    \HomStationaryWindow(\omega)\in\HomWindowClass,
+    \]
+    depending smoothly on the base point and normalized by
+    \[
+    \TensorStationaryWindow(0)=\mathbf u_{\mathrm{car}}(\TensorObjBase),\qquad
+    \CurStationaryWindow(0)=\mathbf u_{\mathrm{cur}}(\CurObjBase),\qquad
+    \HomStationaryWindow(0)=\mathbf u_{\mathrm{hom}}(\HomObjBase).
+    \]
+    \item there are exact-preserving endpoint-recorder maps
+    \[
+    \TensorEndpointReadSeed:\TensorWindowClass\to\TensorPhaseReadClass,\qquad
+    \CurEndpointReadSeed:\CurWindowClass\to\CurPhaseReadClass,\qquad
+    \HomEndpointReadSeed:\HomWindowClass\to\HomPhaseReadClass,
+    \]
+    with vanishing values on the exact-preserving unit windows. Define the recorded base energies by stationary reduction,
+    \begin{equation}
+    \mathcal U_{\mathrm{car}}^{\mathrm{hist}}(\eta)\equiv\int_{\TensorStationaryWindow(\eta)}\TensorLocalRate,\qquad
+    \mathcal U_{\mathrm{cur}}^{\mathrm{hist}}(\zeta)\equiv\int_{\CurStationaryWindow(\zeta)}\CurLocalRate,\qquad
+    \mathcal U_{\mathrm{hom}}^{\mathrm{hist}}(\omega)\equiv\int_{\HomStationaryWindow(\omega)}\HomLocalRate,
+    \label{eq:base_energies_from_windows}
+    \end{equation}
+    define the recorded endpoint one-forms by stationary endpoint variation,
+    \begin{equation}
+    \vartheta_{\mathrm{car}}(\eta)[\delta\eta]
+    \equiv
+    \left.\frac{d}{d\epsilon}\right|_{\epsilon=0}
+    \int_{\TensorStationaryWindow(\eta+\epsilon\delta\eta)}\TensorLocalRate,
+    \label{eq:endpoint_one_form_car}
+    \end{equation}
+    \begin{equation}
+    \vartheta_{\mathrm{cur}}(\zeta)[\delta\zeta]
+    \equiv
+    \left.\frac{d}{d\epsilon}\right|_{\epsilon=0}
+    \int_{\CurStationaryWindow(\zeta+\epsilon\delta\zeta)}\CurLocalRate,
+    \label{eq:endpoint_one_form_cur}
+    \end{equation}
+    \begin{equation}
+    \vartheta_{\mathrm{hom}}(\omega)[\delta\omega]
+    \equiv
+    \left.\frac{d}{d\epsilon}\right|_{\epsilon=0}
+    \int_{\HomStationaryWindow(\omega+\epsilon\delta\omega)}\HomLocalRate,
+    \label{eq:endpoint_one_form_hom}
+    \end{equation}
+    and define the recorded base readout maps by stationary endpoint recorder evaluation,
+    \begin{equation}
+    \rho_{\mathrm{car}}^{\mathrm{hist}}(\eta)\equiv\TensorEndpointReadSeed(\TensorStationaryWindow(\eta)),\qquad
+    \rho_{\mathrm{cur}}^{\mathrm{hist}}(\zeta)\equiv\CurEndpointReadSeed(\CurStationaryWindow(\zeta)),\qquad
+    \rho_{\mathrm{hom}}^{\mathrm{hist}}(\omega)\equiv\HomEndpointReadSeed(\HomStationaryWindow(\omega)).
+    \label{eq:base_readout_from_windows}
+    \end{equation}
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}[The short-history actions and endpoint readout data are forced by local rates and endpoint recorders]
+\label{prop:actions_and_readouts}
+The local-rate and endpoint-recorder data of Definition \ref{def:local_rate_endpoint} recover exactly the recorded short-history / endpoint-readout layer.
+\begin{enumerate}
+    \item The recorded short-history families are exactly the calibration-orbit images \eqref{eq:short_histories_from_windows} of the calibrated short-window families.
+    \item The recorded history actions are exactly the calibration-invariant local-rate integrals \eqref{eq:history_action_from_rate}. Their reversal symmetry and short-concatenation additivity are inherited from the corresponding symmetries of the local rate densities.
+    \item The recorded history density and flux observables are exactly the quotient window-recorder maps \eqref{eq:history_density_from_windows}--\eqref{eq:history_flux_from_windows}.
+    \item The recorded endpoint one-forms, base energies, and base readout maps are exactly the stationary reductions \eqref{eq:base_energies_from_windows}--\eqref{eq:base_readout_from_windows} of the same local-rate and endpoint-recorder data.
+    \item Consequently the short-history actions and endpoint readout data are no longer primitive at present scope; they are forced by a deeper local-rate / endpoint-recorder structure on the reversible process windows.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Item (1) is the definition of the short-history families as calibration orbits of the calibrated short-window representatives.
+
+Item (2) follows because the local rate densities are calibration invariant. Hence their orbit integrals are well defined on histories. Reversal symmetry and short-concatenation additivity descend directly from the corresponding properties of the local rate densities on the process windows.
+
+Item (3) follows for the same reason: calibration invariance makes the window-recorder maps well defined on the history orbit spaces, so they are exactly the recorded history density and flux observables.
+
+Item (4) is the stationary endpoint-reduction construction itself. The unique stationary representatives at fixed endpoint data make the stationary reduced action and stationary endpoint recorder evaluation single-valued. Their first endpoint variations are exactly the recorded endpoint one-forms, while their stationary values are the recorded base energies and base readout maps.
+
+Item (5) is therefore immediate: the currently recorded short-history-action / endpoint-readout layer is recovered verbatim, but it is no longer primitive.
+\end{proof}
+
+\section{Exact Recovery of the Recorded Layer and Downstream Package}
+
+\begin{theorem}[Same reversible-history / endpoint-readout layer]
+\label{thm:same_layer}
+The deeper reversible process-window / calibration-quotient / local-rate / endpoint-recorder construction introduced above recovers exactly the recorded layer of Definition \ref{def:recorded_layer}.
+\begin{enumerate}
+    \item Proposition \ref{prop:histories_from_windows} recovers the same reversible history manifolds \(\TensorHistoryClass,\CurHistoryClass,\HomHistoryClass\), the same source and target maps, the same unit maps, the same concatenation and reversal operations, the same regular stationary equivalence relations, and the same exact-preserving unitary history transport maps \(\TensorHistoryRep,\CurHistoryRep,\HomHistoryRep\).
+    \item Proposition \ref{prop:actions_and_readouts} recovers the same calibrated short-history families, together with
+    \[
+    \TensorHistoryAction,\qquad
+    \CurHistoryAction,\qquad
+    \HomHistoryAction,
+    \]
+    the same history density and flux observables
+    \[
+    \mathcal Q_{\mathrm{car}}^{\mathrm{hist}},\qquad
+    \mathcal Q_{\mathrm{cur}}^{\mathrm{hist}},\qquad
+    \mathcal Q_{\mathrm{hom}}^{\mathrm{hist}},\qquad
+    \mathfrak F_{\mathrm{car}}^{\mathrm{hist}},\qquad
+    \mathfrak F_{\mathrm{cur}}^{\mathrm{hist}},\qquad
+    \mathfrak F_{\mathrm{hom}}^{\mathrm{hist}},
+    \]
+    and the same endpoint one-forms, base energies, and base readout maps
+    \[
+    \vartheta_{\mathrm{car}},\qquad
+    \vartheta_{\mathrm{cur}},\qquad
+    \vartheta_{\mathrm{hom}},\qquad
+    \mathcal U_{\mathrm{car}}^{\mathrm{hist}},\qquad
+    \mathcal U_{\mathrm{cur}}^{\mathrm{hist}},\qquad
+    \mathcal U_{\mathrm{hom}}^{\mathrm{hist}},\qquad
+    \rho_{\mathrm{car}}^{\mathrm{hist}},\qquad
+    \rho_{\mathrm{cur}}^{\mathrm{hist}},\qquad
+    \rho_{\mathrm{hom}}^{\mathrm{hist}}.
+    \]
+    \item Therefore the reversible-history / endpoint-readout / cotangent-lift layer of the immediately preceding note is reproduced without change.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Items (1) and (2) are exactly Propositions \ref{prop:histories_from_windows} and \ref{prop:actions_and_readouts}. Item (3) is a direct restatement: once the primitive history data, short-history actions, and endpoint data of the immediately preceding note are recovered verbatim, its cotangent-lift phase construction applies verbatim as well.
+\end{proof}
+
+\begin{theorem}[Same reversible-groupoid / transport-action / constrained-stationary layer and same downstream package]
+\label{thm:same_package}
+Because the same reversible-history / endpoint-readout / cotangent-lift layer is recovered, the immediately preceding origin note applies verbatim. Consequently the same downstream package is reproduced without change:
+\begin{enumerate}
+    \item the same reversible-groupoid / transport-action / constrained-stationary package;
+    \item the same reconfiguration-group / transport-law / equilibrium-reduction package;
+    \item the same derivation-algebra / balance-law / equilibrium-manifold layer;
+    \item the same \(\StemFunctional\);
+    \item the same exact-preservation normal form \(\DeepFunctional\);
+    \item the same carrier-origin functional \(\CarrierFunctional[\CarrierSeed,\RelabelSeed,\FreeSeed]\);
+    \item the same primitive reservoir \(\PrimFunctional[\PrimStrain,\PrimNeutral,\PrimFree]\);
+    \item the same microscopic-equilibrium reservoir \(\MicFunctional[H,\GaugeAux]\);
+    \item the same free-sector verdict \(\FreeProj\CompLift=0\);
+    \item the same substrate and observer completion solves \eqref{eq:fixed_solves};
+    \item the same \(\Sigma^{\mathrm{cmp}}\) solve, the same one operative metric \(\CompletedMetric\), and the same recorded Phase D / E and Phase F gains.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Theorem \ref{thm:same_layer} reproduces exactly the input layer required by the immediately preceding reversible-history / endpoint-readout / cotangent-lift origin note. That note already proves that once this layer is fixed, the same reversible-groupoid / transport-action / constrained-stationary layer and hence the same downstream chain follow. Since none of the visible slots, elimination steps, or completion equations are altered here, every downstream object listed above is reproduced verbatim.
+\end{proof}
+
+\begin{corollary}[Recorded gain package is preserved]
+\label{cor:gains}
+Because the same downstream package is recovered, the recorded Phase D / E infrared-spectrum and universal-coupling verdicts, the recorded Phase F controlled GR limit, and the already recorded observer-equation closure package remain preserved without modification.
+\end{corollary}
+
+\begin{proof}
+This is the direct content of Theorem \ref{thm:same_package}.
+\end{proof}
+
+\section{Claim-Boundary Verdict}
+
+\begin{theorem}[Reversible-history / endpoint-readout origin verdict]
+\label{thm:verdict}
+At the disciplined scope of the present note, the exact positive result is the following.
+\begin{enumerate}
+    \item The reversible exact-preserving histories \(\TensorHistoryClass,\CurHistoryClass,\HomHistoryClass\) are no longer primitive at current scope.
+    \item They arise as compact-calibration orbit spaces of finite-dimensional exact-preserving reversible process-window manifolds, and the recorded history transport maps arise by quotienting exact-preserving unitary window transport.
+    \item The regular stationary equivalence relations on those histories are no longer primitive either.
+    \item They arise as equality of deeper stationary-shadow data on the process-window layer, so their regularity and compatibility with source, target, units, concatenation, and reversal are forced rather than imposed.
+    \item The short-history actions \(\TensorHistoryAction,\CurHistoryAction,\HomHistoryAction\) are no longer primitive either.
+    \item They arise as calibration-invariant orbit integrals of exact-preserving local rate densities on the deeper process-window layer, while the recorded history density and flux observables arise as quotient window-recorder maps.
+    \item The endpoint one-forms, base energies, and base readout maps feeding the cotangent-lift phase construction are no longer primitive either.
+    \item They arise as stationary endpoint reductions of the same local-rate and endpoint-recorder data on the process-window layer.
+    \item Therefore the full recorded reversible-history / endpoint-readout / cotangent-lift layer of the immediately preceding note is recovered without change.
+    \item Consequently the same reversible-groupoid / transport-action / constrained-stationary package, the same \(\StemFunctional\), the same exact-preservation normal form, the same carrier-origin functional, the same primitive reservoir, the same microscopic-equilibrium reservoir, the same \(\Sigma^{\mathrm{cmp}}\) solve, the same \(\Pi_{\mathrm{free}}H=0\) outcome, the same one operative metric, and the same recorded Phase D / E and Phase F gains remain unchanged.
+    \item Stronger promotion language is still not justified here, because the present note explains only why the previous reversible-history / endpoint-readout layer arises from a deeper reversible process-window / calibration-quotient / local-rate / endpoint-recorder substrate layer; it does not yet derive why that new deeper layer is itself unique, final, or inevitable beyond current scope.
+    \item No broader packaging consequence or default side-line continuation follows from the mathematical content of this note alone. The remaining honest burden is one layer deeper again on this same exact-preservation line, or else another comparably concrete observer-equation gain on the same one-metric route.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Items (1)--(4) are Proposition \ref{prop:histories_from_windows}. Items (5)--(8) are Proposition \ref{prop:actions_and_readouts}. Items (9) and (10) are Theorems \ref{thm:same_layer} and \ref{thm:same_package} together with Corollary \ref{cor:gains}. Items (11) and (12) are the present claim-boundary discipline stated in the abstract and introduction.
+\end{proof}
+
+\begin{corollary}[What remains next]
+\label{cor:what_next}
+The primary active burden moves one layer deeper again. It is no longer to justify why the reversible exact-preserving histories, their stationary equivalence relations, their short-history actions, and their endpoint readout data of the previous note are admissible at current scope; that step is now recorded. The next honest burden is either to derive or justify why the reversible exact-preserving process windows, their compact calibration actions, their stationary-shadow maps, their local rate densities, and their endpoint-recorder fields introduced here are themselves forced by yet more primitive substrate structure, or else to produce another comparably concrete observer-equation gain on the same one-metric line. No stronger promotion language, no packaging pass, and no default move onto the anchored positive-pair side line are justified unless they directly discharge one of those burdens.
+\end{corollary}
+
+\section{Conclusion}
+
+The positive result of this note is that the reversible-history / endpoint-readout layer is no longer left primitive at present scope. It is recovered from a still deeper reversible process-window / calibration-quotient / local-rate / endpoint-recorder substrate layer.
+
+At that deeper level, the recorded reversible histories
+\[
+\TensorHistoryClass,\qquad
+\CurHistoryClass,\qquad
+\HomHistoryClass
+\]
+are orbit spaces of exact-preserving reversible process-window manifolds under compact calibration actions. Their recorded stationary equivalence relations are equality of deeper stationary-shadow data. Their recorded short-history actions are calibration-invariant orbit integrals of exact-preserving local rate densities, and their recorded endpoint one-forms, base energies, and base readout maps are stationary endpoint reductions of the same local-rate and endpoint-recorder structure.
+
+Because that deeper construction reproduces the full recorded reversible-history / endpoint-readout / cotangent-lift layer without changing any of its visible slots, the immediately preceding note applies verbatim. Consequently the same reversible-groupoid / transport-action / constrained-stationary package, the same reconfiguration-group / transport-law / equilibrium-reduction package, the same \(\StemFunctional\), the same exact-preservation normal form, the same carrier-origin functional, the same primitive reservoir, the same microscopic-equilibrium reservoir, the same \(\Sigma^{\mathrm{cmp}}\) solve, the same \(\Pi_{\mathrm{free}}H=0\) outcome, the same one operative metric, and the same recorded Phase D / E and Phase F gains remain unchanged.
+
+The scope is still disciplined rather than final. The present note does not prove that the deeper process-window / calibration-quotient / local-rate / endpoint-recorder layer is unique or ultimate. The next honest burden is to derive or justify why that new deeper layer itself is forced by still more primitive substrate structure, or else to record another comparably concrete observer-equation gain on the same one-metric line.
+
+\end{document}
