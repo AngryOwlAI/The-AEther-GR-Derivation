@@ -1,0 +1,1277 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal A}
+\newcommand{\ObserverMap}{\Xi}
+\newcommand{\BridgeMetric}{\mathfrak g}
+\newcommand{\ObserverMetric}{g^{\mathrm{br}}}
+\newcommand{\CandidateMetric}{g^{\mathrm{cand}}}
+\newcommand{\CompletedMetric}{g^{\sharp}}
+\newcommand{\BaseShift}{\Sigma^{\mathrm{IER}}}
+\newcommand{\ResponseShift}{\Sigma^{\mathrm{resp}}}
+\newcommand{\CompShift}{\Sigma^{\mathrm{cmp}}}
+\newcommand{\BaseLift}{\widehat\Sigma^{\mathrm{IER}}}
+\newcommand{\ResponseLift}{\widehat\Sigma^{\mathrm{resp}}}
+\newcommand{\CompLift}{\widehat\Sigma^{\mathrm{cmp}}}
+\newcommand{\ResidualCore}{\mathcal V_{\mu\nu}^{\mathrm{res}}}
+\newcommand{\ResidualLift}{\widehat{\mathcal V}^{\mathrm{res}}}
+\newcommand{\SubReducedEin}{\widehat{\mathcal L}}
+\newcommand{\FreeProj}{\Pi_{\mathrm{free}}}
+\newcommand{\GaugeAux}{Y}
+\newcommand{\ReducedEin}{\mathcal L_{\ObserverMetric}}
+\newcommand{\CompClass}{\mathscr C_{\mathrm{cmp}}}
+\newcommand{\MicFunctional}{\mathscr F_{\mathrm{mic}}}
+\newcommand{\PrimFunctional}{\mathscr F_{\mathrm{prim}}}
+\newcommand{\CarrierFunctional}{\mathscr F_{\mathrm{car}}}
+\newcommand{\DeepFunctional}{\mathscr F_{\mathrm{deep}}}
+\newcommand{\ProtoFunctional}{\mathscr F_{\mathrm{proto}}}
+\newcommand{\UltraFunctional}{\mathscr F_{\mathrm{micro}}}
+\newcommand{\RootFunctional}{\mathscr F_{\mathrm{hess}}}
+\newcommand{\StemFunctional}{\mathscr F_{\mathrm{sel}}}
+\newcommand{\PrimStrain}{K}
+\newcommand{\PrimNeutral}{J}
+\newcommand{\PrimFree}{F}
+\newcommand{\CarrierClass}{\mathscr H_{\mathrm{car}}}
+\newcommand{\CarrierSeed}{\mathfrak S}
+\newcommand{\RelabelSeed}{\mathfrak R}
+\newcommand{\FreeSeed}{\mathfrak F}
+\newcommand{\ProtoTensorClass}{\mathscr Y_{\mathrm{car}}}
+\newcommand{\ProtoRelabelClass}{\mathscr Y_{\mathrm{cur}}}
+\newcommand{\ProtoFreeClass}{\mathscr Y_{\mathrm{hom}}}
+\newcommand{\ProtoTensor}{\mathfrak Y}
+\newcommand{\ProtoRelabel}{\mathfrak K}
+\newcommand{\ProtoFree}{\mathfrak Z}
+\newcommand{\UltraTensorClass}{\mathscr Z_{\mathrm{car}}}
+\newcommand{\UltraRelabelClass}{\mathscr Z_{\mathrm{cur}}}
+\newcommand{\UltraFreeClass}{\mathscr Z_{\mathrm{hom}}}
+\newcommand{\UltraTensor}{\mathfrak M}
+\newcommand{\UltraRelabel}{\mathfrak N}
+\newcommand{\UltraFree}{\mathfrak P}
+\newcommand{\UltraCarProj}{\Pi_{\mathrm{mic,car}}}
+\newcommand{\UltraCurProj}{\Pi_{\mathrm{mic,cur}}}
+\newcommand{\UltraHomProj}{\Pi_{\mathrm{mic,hom}}}
+\newcommand{\UltraCarGap}{\delta_{\mathrm{mic,car}}}
+\newcommand{\UltraCurGap}{\delta_{\mathrm{mic,cur}}}
+\newcommand{\UltraHomGap}{\delta_{\mathrm{mic,hom}}}
+\newcommand{\TensorDefect}{\mathcal D_{\mathrm{car}}}
+\newcommand{\CurDefect}{\mathcal D_{\mathrm{cur}}}
+\newcommand{\HomDefect}{\mathcal D_{\mathrm{hom}}}
+\newcommand{\RootTensorClass}{\mathscr U_{\mathrm{car}}}
+\newcommand{\RootRelabelClass}{\mathscr U_{\mathrm{cur}}}
+\newcommand{\RootFreeClass}{\mathscr U_{\mathrm{hom}}}
+\newcommand{\RootTensor}{\mathfrak U}
+\newcommand{\RootRelabel}{\mathfrak V}
+\newcommand{\RootFree}{\mathfrak Q}
+\newcommand{\TensorSymProj}{\Pi_{\mathrm{sym,car}}}
+\newcommand{\CurSymProj}{\Pi_{\mathrm{sym,cur}}}
+\newcommand{\HomSymProj}{\Pi_{\mathrm{sym,hom}}}
+\newcommand{\TensorCompat}{\mathcal C_{\mathrm{car}}}
+\newcommand{\CurCompat}{\mathcal C_{\mathrm{cur}}}
+\newcommand{\HomCompat}{\mathcal C_{\mathrm{hom}}}
+\newcommand{\TensorHess}{\mathcal H_{\mathrm{car}}}
+\newcommand{\CurHess}{\mathcal H_{\mathrm{cur}}}
+\newcommand{\HomHess}{\mathcal H_{\mathrm{hom}}}
+\newcommand{\TensorCmpProj}{\Pi_{\mathrm{cmp,car}}}
+\newcommand{\CurCmpProj}{\Pi_{\mathrm{cmp,cur}}}
+\newcommand{\HomCmpProj}{\Pi_{\mathrm{cmp,hom}}}
+\newcommand{\TensorSymGroup}{G_{\mathrm{car}}}
+\newcommand{\CurSymGroup}{G_{\mathrm{cur}}}
+\newcommand{\HomSymGroup}{G_{\mathrm{hom}}}
+\newcommand{\TensorSymAct}{\mathscr U_{\mathrm{car}}}
+\newcommand{\CurSymAct}{\mathscr U_{\mathrm{cur}}}
+\newcommand{\HomSymAct}{\mathscr U_{\mathrm{hom}}}
+\newcommand{\TensorCurrent}{\mathfrak c_{\mathrm{car}}}
+\newcommand{\CurCurrent}{\mathfrak c_{\mathrm{cur}}}
+\newcommand{\HomCurrent}{\mathfrak c_{\mathrm{hom}}}
+\newcommand{\TensorResp}{\mathcal R_{\mathrm{sel,car}}}
+\newcommand{\CurResp}{\mathcal R_{\mathrm{sel,cur}}}
+\newcommand{\HomResp}{\mathcal R_{\mathrm{sel,hom}}}
+\newcommand{\StemCarGap}{\rho_{\mathrm{sel,car}}}
+\newcommand{\StemCurGap}{\rho_{\mathrm{sel,cur}}}
+\newcommand{\StemHomGap}{\rho_{\mathrm{sel,hom}}}
+\newcommand{\TensorChargeAlg}{\mathfrak g_{\mathrm{car}}}
+\newcommand{\CurChargeAlg}{\mathfrak g_{\mathrm{cur}}}
+\newcommand{\HomChargeAlg}{\mathfrak g_{\mathrm{hom}}}
+\newcommand{\TensorGen}{\Gamma_{\mathrm{car}}}
+\newcommand{\CurGen}{\Gamma_{\mathrm{cur}}}
+\newcommand{\HomGen}{\Gamma_{\mathrm{hom}}}
+\newcommand{\TensorCasimir}{\mathbb C_{\mathrm{car}}}
+\newcommand{\CurCasimir}{\mathbb C_{\mathrm{cur}}}
+\newcommand{\HomCasimir}{\mathbb C_{\mathrm{hom}}}
+\newcommand{\TensorDensityClass}{\mathscr N_{\mathrm{car}}}
+\newcommand{\CurDensityClass}{\mathscr N_{\mathrm{cur}}}
+\newcommand{\HomDensityClass}{\mathscr N_{\mathrm{hom}}}
+\newcommand{\TensorDensity}{\mathcal Q_{\mathrm{car}}}
+\newcommand{\CurDensity}{\mathcal Q_{\mathrm{cur}}}
+\newcommand{\HomDensity}{\mathcal Q_{\mathrm{hom}}}
+\newcommand{\TensorCont}{\partial_{\mathrm{car}}}
+\newcommand{\CurCont}{\partial_{\mathrm{cur}}}
+\newcommand{\HomCont}{\partial_{\mathrm{hom}}}
+\newcommand{\TensorEqClass}{\mathscr E_{\mathrm{car}}}
+\newcommand{\CurEqClass}{\mathscr E_{\mathrm{cur}}}
+\newcommand{\HomEqClass}{\mathscr E_{\mathrm{hom}}}
+\newcommand{\TensorEqRead}{\mathcal A_{\mathrm{car}}}
+\newcommand{\CurEqRead}{\mathcal A_{\mathrm{cur}}}
+\newcommand{\HomEqRead}{\mathcal A_{\mathrm{hom}}}
+\newcommand{\TensorAmbientHess}{\mathbb H_{\mathrm{car}}}
+\newcommand{\CurAmbientHess}{\mathbb H_{\mathrm{cur}}}
+\newcommand{\HomAmbientHess}{\mathbb H_{\mathrm{hom}}}
+\newcommand{\TensorEqCmpProj}{\widetilde\Pi_{\mathrm{cmp,car}}}
+\newcommand{\CurEqCmpProj}{\widetilde\Pi_{\mathrm{cmp,cur}}}
+\newcommand{\HomEqCmpProj}{\widetilde\Pi_{\mathrm{cmp,hom}}}
+\newcommand{\TensorEqKerProj}{\widetilde\Pi_{\mathrm{mic,car}}}
+\newcommand{\CurEqKerProj}{\widetilde\Pi_{\mathrm{mic,cur}}}
+\newcommand{\HomEqKerProj}{\widetilde\Pi_{\mathrm{mic,hom}}}
+\newcommand{\EqCarGap}{\rho_{\mathrm{eq,car}}}
+\newcommand{\EqCurGap}{\rho_{\mathrm{eq,cur}}}
+\newcommand{\EqHomGap}{\rho_{\mathrm{eq,hom}}}
+\newcommand{\TensorDerAlg}{\mathfrak d_{\mathrm{car}}}
+\newcommand{\CurDerAlg}{\mathfrak d_{\mathrm{cur}}}
+\newcommand{\HomDerAlg}{\mathfrak d_{\mathrm{hom}}}
+\newcommand{\TensorPrimitiveDensity}{\widehat{\mathcal Q}_{\mathrm{car}}}
+\newcommand{\CurPrimitiveDensity}{\widehat{\mathcal Q}_{\mathrm{cur}}}
+\newcommand{\HomPrimitiveDensity}{\widehat{\mathcal Q}_{\mathrm{hom}}}
+\newcommand{\TensorBalance}{\widehat{\mathfrak c}_{\mathrm{car}}}
+\newcommand{\CurBalance}{\widehat{\mathfrak c}_{\mathrm{cur}}}
+\newcommand{\HomBalance}{\widehat{\mathfrak c}_{\mathrm{hom}}}
+\newcommand{\TensorAmbientEnergy}{\mathcal U_{\mathrm{car}}}
+\newcommand{\CurAmbientEnergy}{\mathcal U_{\mathrm{cur}}}
+\newcommand{\HomAmbientEnergy}{\mathcal U_{\mathrm{hom}}}
+\newcommand{\TensorEqManifold}{\mathcal N_{\mathrm{car}}}
+\newcommand{\CurEqManifold}{\mathcal N_{\mathrm{cur}}}
+\newcommand{\HomEqManifold}{\mathcal N_{\mathrm{hom}}}
+\newcommand{\TensorReconGroup}{\mathcal G_{\mathrm{car}}^{\mathrm{rec}}}
+\newcommand{\CurReconGroup}{\mathcal G_{\mathrm{cur}}^{\mathrm{rec}}}
+\newcommand{\HomReconGroup}{\mathcal G_{\mathrm{hom}}^{\mathrm{rec}}}
+\newcommand{\TensorReconAct}{\mathscr V_{\mathrm{car}}}
+\newcommand{\CurReconAct}{\mathscr V_{\mathrm{cur}}}
+\newcommand{\HomReconAct}{\mathscr V_{\mathrm{hom}}}
+\newcommand{\TensorStateManifold}{\mathcal S_{\mathrm{car}}}
+\newcommand{\CurStateManifold}{\mathcal S_{\mathrm{cur}}}
+\newcommand{\HomStateManifold}{\mathcal S_{\mathrm{hom}}}
+\newcommand{\TensorStateBase}{s_{\mathrm{car}}^{0}}
+\newcommand{\CurStateBase}{s_{\mathrm{cur}}^{0}}
+\newcommand{\HomStateBase}{s_{\mathrm{hom}}^{0}}
+\newcommand{\TensorStateEmbed}{\iota_{\mathrm{car}}}
+\newcommand{\CurStateEmbed}{\iota_{\mathrm{cur}}}
+\newcommand{\HomStateEmbed}{\iota_{\mathrm{hom}}}
+\newcommand{\TensorRawDensity}{\boldsymbol{\mathcal Q}_{\mathrm{car}}}
+\newcommand{\CurRawDensity}{\boldsymbol{\mathcal Q}_{\mathrm{cur}}}
+\newcommand{\HomRawDensity}{\boldsymbol{\mathcal Q}_{\mathrm{hom}}}
+\newcommand{\TensorTransport}{\mathbb V_{\mathrm{car}}}
+\newcommand{\CurTransport}{\mathbb V_{\mathrm{cur}}}
+\newcommand{\HomTransport}{\mathbb V_{\mathrm{hom}}}
+\newcommand{\TensorFluxClass}{\mathscr J_{\mathrm{car}}}
+\newcommand{\CurFluxClass}{\mathscr J_{\mathrm{cur}}}
+\newcommand{\HomFluxClass}{\mathscr J_{\mathrm{hom}}}
+\newcommand{\TensorFlux}{\mathbb J_{\mathrm{car}}}
+\newcommand{\CurFlux}{\mathbb J_{\mathrm{cur}}}
+\newcommand{\HomFlux}{\mathbb J_{\mathrm{hom}}}
+\newcommand{\TensorDiv}{\mathbb B_{\mathrm{car}}}
+\newcommand{\CurDiv}{\mathbb B_{\mathrm{cur}}}
+\newcommand{\HomDiv}{\mathbb B_{\mathrm{hom}}}
+\newcommand{\TensorRawBalance}{\boldsymbol{\mathfrak c}_{\mathrm{car}}}
+\newcommand{\CurRawBalance}{\boldsymbol{\mathfrak c}_{\mathrm{cur}}}
+\newcommand{\HomRawBalance}{\boldsymbol{\mathfrak c}_{\mathrm{hom}}}
+\newcommand{\TensorRawEqClass}{\widetilde{\mathscr E}_{\mathrm{car}}}
+\newcommand{\CurRawEqClass}{\widetilde{\mathscr E}_{\mathrm{cur}}}
+\newcommand{\HomRawEqClass}{\widetilde{\mathscr E}_{\mathrm{hom}}}
+\newcommand{\TensorEqReduce}{\mathfrak R_{\mathrm{car}}}
+\newcommand{\CurEqReduce}{\mathfrak R_{\mathrm{cur}}}
+\newcommand{\HomEqReduce}{\mathfrak R_{\mathrm{hom}}}
+\newcommand{\TensorRawEnergy}{\widetilde{\mathcal U}_{\mathrm{car}}}
+\newcommand{\CurRawEnergy}{\widetilde{\mathcal U}_{\mathrm{cur}}}
+\newcommand{\HomRawEnergy}{\widetilde{\mathcal U}_{\mathrm{hom}}}
+\newcommand{\TensorRawEqManifold}{\widetilde{\mathcal N}_{\mathrm{car}}}
+\newcommand{\CurRawEqManifold}{\widetilde{\mathcal N}_{\mathrm{cur}}}
+\newcommand{\HomRawEqManifold}{\widetilde{\mathcal N}_{\mathrm{hom}}}
+\newcommand{\RawCarGap}{\widetilde\rho_{\mathrm{eq,car}}}
+\newcommand{\RawCurGap}{\widetilde\rho_{\mathrm{eq,cur}}}
+\newcommand{\RawHomGap}{\widetilde\rho_{\mathrm{eq,hom}}}
+
+\newcommand{\TensorGroupoid}{\mathfrak G_{\mathrm{car}}}
+\newcommand{\CurGroupoid}{\mathfrak G_{\mathrm{cur}}}
+\newcommand{\HomGroupoid}{\mathfrak G_{\mathrm{hom}}}
+\newcommand{\TensorObjClass}{\mathcal O_{\mathrm{car}}}
+\newcommand{\CurObjClass}{\mathcal O_{\mathrm{cur}}}
+\newcommand{\HomObjClass}{\mathcal O_{\mathrm{hom}}}
+\newcommand{\TensorObjBase}{o_{\mathrm{car}}^0}
+\newcommand{\CurObjBase}{o_{\mathrm{cur}}^0}
+\newcommand{\HomObjBase}{o_{\mathrm{hom}}^0}
+\newcommand{\TensorGroupoidRep}{\mathscr W_{\mathrm{car}}}
+\newcommand{\CurGroupoidRep}{\mathscr W_{\mathrm{cur}}}
+\newcommand{\HomGroupoidRep}{\mathscr W_{\mathrm{hom}}}
+\newcommand{\TensorObjDensity}{\underline{\mathcal Q}_{\mathrm{car}}}
+\newcommand{\CurObjDensity}{\underline{\mathcal Q}_{\mathrm{cur}}}
+\newcommand{\HomObjDensity}{\underline{\mathcal Q}_{\mathrm{hom}}}
+\newcommand{\TensorMobility}{\mathbb M_{\mathrm{car}}}
+\newcommand{\CurMobility}{\mathbb M_{\mathrm{cur}}}
+\newcommand{\HomMobility}{\mathbb M_{\mathrm{hom}}}
+\newcommand{\TensorDrive}{\mathcal P_{\mathrm{car}}}
+\newcommand{\CurDrive}{\mathcal P_{\mathrm{cur}}}
+\newcommand{\HomDrive}{\mathcal P_{\mathrm{hom}}}
+\newcommand{\TensorActionDensity}{\mathscr A_{\mathrm{car}}}
+\newcommand{\CurActionDensity}{\mathscr A_{\mathrm{cur}}}
+\newcommand{\HomActionDensity}{\mathscr A_{\mathrm{hom}}}
+\newcommand{\TensorFluxRead}{\mathfrak F_{\mathrm{car}}}
+\newcommand{\CurFluxRead}{\mathfrak F_{\mathrm{cur}}}
+\newcommand{\HomFluxRead}{\mathfrak F_{\mathrm{hom}}}
+\newcommand{\TensorPhaseClass}{\mathscr P_{\mathrm{car}}}
+\newcommand{\CurPhaseClass}{\mathscr P_{\mathrm{cur}}}
+\newcommand{\HomPhaseClass}{\mathscr P_{\mathrm{hom}}}
+\newcommand{\TensorPhaseReadClass}{\mathscr R_{\mathrm{car}}}
+\newcommand{\CurPhaseReadClass}{\mathscr R_{\mathrm{cur}}}
+\newcommand{\HomPhaseReadClass}{\mathscr R_{\mathrm{hom}}}
+\newcommand{\TensorPhaseBase}{p_{\mathrm{car}}^0}
+\newcommand{\CurPhaseBase}{p_{\mathrm{cur}}^0}
+\newcommand{\HomPhaseBase}{p_{\mathrm{hom}}^0}
+\newcommand{\TensorPhaseProj}{\pi_{\mathrm{car}}}
+\newcommand{\CurPhaseProj}{\pi_{\mathrm{cur}}}
+\newcommand{\HomPhaseProj}{\pi_{\mathrm{hom}}}
+\newcommand{\TensorPhaseRead}{\rho_{\mathrm{car}}}
+\newcommand{\CurPhaseRead}{\rho_{\mathrm{cur}}}
+\newcommand{\HomPhaseRead}{\rho_{\mathrm{hom}}}
+\newcommand{\TensorConstraint}{\mathcal K_{\mathrm{car}}}
+\newcommand{\CurConstraint}{\mathcal K_{\mathrm{cur}}}
+\newcommand{\HomConstraint}{\mathcal K_{\mathrm{hom}}}
+\newcommand{\TensorPhaseEnergy}{\overline{\mathcal U}_{\mathrm{car}}}
+\newcommand{\CurPhaseEnergy}{\overline{\mathcal U}_{\mathrm{cur}}}
+\newcommand{\HomPhaseEnergy}{\overline{\mathcal U}_{\mathrm{hom}}}
+\newcommand{\TensorStationaryManifold}{\mathcal Z_{\mathrm{car}}^{\mathrm{st}}}
+\newcommand{\CurStationaryManifold}{\mathcal Z_{\mathrm{cur}}^{\mathrm{st}}}
+\newcommand{\HomStationaryManifold}{\mathcal Z_{\mathrm{hom}}^{\mathrm{st}}}
+\newcommand{\TensorPhaseEqManifold}{\mathcal Z_{\mathrm{car}}^{\mathrm{eq}}}
+\newcommand{\CurPhaseEqManifold}{\mathcal Z_{\mathrm{cur}}^{\mathrm{eq}}}
+\newcommand{\HomPhaseEqManifold}{\mathcal Z_{\mathrm{hom}}^{\mathrm{eq}}}
+\newcommand{\TensorStationarySolve}{\mathfrak s_{\mathrm{car}}}
+\newcommand{\CurStationarySolve}{\mathfrak s_{\mathrm{cur}}}
+\newcommand{\HomStationarySolve}{\mathfrak s_{\mathrm{hom}}}
+\newcommand{\PhaseCarGap}{\overline\rho_{\mathrm{eq,car}}}
+\newcommand{\PhaseCurGap}{\overline\rho_{\mathrm{eq,cur}}}
+\newcommand{\PhaseHomGap}{\overline\rho_{\mathrm{eq,hom}}}
+\newcommand{\Iso}{\operatorname{Iso}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Substrate-Response / Self-Response Charge-Polarization Candidate\\
+\large Exact-Preservation Reconfiguration-Group / Transport-Law / Equilibrium-Reduction\\
+\large Origin Note}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The exact-preservation derivation-algebra / balance-law / equilibrium-manifold origin note already shows that the previously recorded derivation layer is not primitive at present scope. The exact-preserving derivation algebras arise there as visible tangent quotients of reconfiguration groups, the primitive nonlinear density and balance laws arise as pullbacks of raw substrate transport laws, and the primitive ambient equilibrium energies and manifolds arise as reduced pullbacks of a raw equilibrium-reduction layer. What remained open is one layer deeper again: why that reconfiguration-group / transport-law / equilibrium-reduction package should itself exist at all rather than becoming the present deepest disciplined postulate.
+
+The present note addresses exactly that narrower burden. It keeps fixed the same exact-preservation target: the same \(\StemFunctional\), the same exact-preservation normal form, the same carrier-origin functional, the same primitive reservoir, the same microscopic-equilibrium completion reservoir, the same \(\Sigma^{\mathrm{cmp}}\) solve, the same \(\Pi_{\mathrm{free}}H=0\) outcome, the same one operative metric, and the same recorded Phase D / E and Phase F gains. Its positive move is to place the recorded reconfiguration-group / transport-law / equilibrium-reduction layer under three still deeper substrate ingredients:
+\begin{enumerate}
+    \item finite-dimensional exact-preserving reversible Lie groupoids whose isotropy groups at the exact-preserving base objects are exactly the recorded reconfiguration groups, with their unitary actions obtained by restriction of exact-preserving groupoid representations;
+    \item exact-preserving transport-action densities on the corresponding object manifolds, whose unique stationary velocity fields and flux readouts are exactly the recorded raw transport vector fields and flux maps, so the same primitive density and balance laws follow by pullback;
+    \item constrained stationary phase bundles whose stationary readout images are exactly the recorded raw equilibrium-reduction classes, whose stationary elimination maps are exactly the recorded reduction maps, and whose constrained transverse coercivity forces the same raw and visible positive gaps.
+\end{enumerate}
+
+At current exact-preservation scope, the reconfiguration-group / transport-law / equilibrium-reduction layer is therefore no longer primitive either. The recorded exact-preserving reconfiguration groups
+\[
+\TensorReconGroup,\qquad
+\CurReconGroup,\qquad
+\HomReconGroup
+\]
+are the isotropy groups of a still deeper reversible substrate groupoid layer. The recorded transport laws are no longer primitive: the state manifolds become local object charts of that deeper layer, and the raw transport vector fields and flux maps become the stationary outputs of exact-preserving transport actions. The recorded equilibrium-reduction layer is no longer primitive either: the raw equilibrium classes, reduction maps, energies, and equilibrium manifolds become the visible stationary image of a still deeper constrained phase-bundle layer.
+
+Because the present note recovers exactly the same reconfiguration-group / transport-law / equilibrium-reduction package, the immediately preceding note applies without change. Consequently the same derivation-algebra / balance-law / equilibrium-manifold layer, the same \(\StemFunctional\), the same exact-preservation normal form, the same carrier-origin functional, the same primitive and microscopic-equilibrium reservoirs, the same \(\Pi_{\mathrm{free}}H=0\) outcome, the same \(\Sigma^{\mathrm{cmp}}\) solve, and the same one-metric completion package are preserved verbatim.
+
+The scope remains disciplined. This note does not claim a final microscopic completion, a unique ultimate substrate theory, or a completed first-principles derivation of GR. Its narrower exact positive claim is only that the recorded reconfiguration-group / transport-law / equilibrium-reduction layer is itself no longer primitive at present scope, but is forced by a still deeper groupoid / transport-action / constrained-stationary substrate layer while preserving the same downstream package.
+\end{abstract}
+
+\section{Introduction}
+
+The active one-metric charge-polarization line has now reached the point at which the derivation-algebra / balance-law / equilibrium-manifold layer is already recorded as the induced image of a deeper reconfiguration-group / transport-law / equilibrium-reduction construction. The next burden therefore narrows again. It is not a packaging pass. It is not stronger promotion language. It is not, by default, another move onto the anchored positive-pair side line. It is to go one layer below the newly recorded reconfiguration / transport / reduction package itself and explain why \emph{that} layer is forced.
+
+That burden again has four parts. First, one must explain why the exact-preserving reconfiguration groups
+\[
+\TensorReconGroup,\qquad
+\CurReconGroup,\qquad
+\HomReconGroup
+\]
+and their unitary actions on the sharper sectors should exist rather than being inserted by hand as the present deepest disciplined reversible structure. Second, one must explain why the raw substrate transport laws should exist at all: why the state manifolds, raw density observables, transport vector fields, and flux maps should arise from yet more primitive substrate data rather than being postulated directly. Third, one must explain why the raw equilibrium-reduction classes
+\[
+\TensorRawEqClass,\qquad
+\CurRawEqClass,\qquad
+\HomRawEqClass
+\]
+their reduction maps
+\[
+\TensorEqReduce,\qquad
+\CurEqReduce,\qquad
+\HomEqReduce
+\]
+and their raw equilibrium energies and manifolds should arise from still deeper constrained stationary structure. Fourth, one must re-show that solving those deeper burdens changes none of the already recorded gains: the same \(\StemFunctional\), the same exact-preservation normal form, the same carrier-origin functional, the same primitive and microscopic-equilibrium reservoirs, the same \(\Sigma^{\mathrm{cmp}}\) solve, the same \(\Pi_{\mathrm{free}}H=0\) outcome, the same one operative metric, and the same recorded Phase D / E and Phase F gains must remain intact.
+
+The key move of the present note is to replace the primitive postulation of the current reconfiguration-group / transport-law / equilibrium-reduction layer by three still more primitive substrate ingredients. First come exact-preserving reversible Lie groupoids. Their isotropy groups at the exact-preserving base objects are exactly the recorded reconfiguration groups, and their groupoid representations restrict to exactly the recorded unitary reconfiguration actions. Second come exact-preserving transport-action densities on the corresponding object manifolds. Their unique stationary velocity sections and flux readouts give exactly the recorded raw transport vector fields and flux maps, and the same balance defects then follow from the same continuity form. Third come constrained stationary phase bundles over the visible ambient compatibility sectors. Their stationary readout images are exactly the recorded raw equilibrium-reduction classes, their stationary elimination maps are exactly the recorded reduction maps, and their constrained transverse coercivity yields the same raw positive gaps. Since the immediately preceding note already proves that every later stage depends only on the induced reconfiguration / transport / reduction layer, preserving that layer preserves the full downstream chain.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact relativistic theory statement in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active manuscript sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not claim a final microscopic completion, a uniqueness theorem for every conceivable deeper substrate realization, or a completed GR derivation from first principles. Its narrower exact claim is only that the recorded reconfiguration-group / transport-law / equilibrium-reduction layer itself arises from a still more primitive groupoid / transport-action / constrained-stationary substrate layer, with no change to the already recorded downstream package.
+
+\section{Fixed Inputs from the Recorded Completion Line}
+
+\begin{definition}[Fixed branch and downstream completion target]
+\label{def:fixed_branch}
+The present note keeps fixed the same charge-polarization branch
+\begin{equation}
+\CandidateMetric
+=
+\ObserverMetric+\BaseShift+\ResponseShift,
+\qquad
+\CompletedMetric
+=
+\ObserverMetric+\BaseShift+\ResponseShift+\CompShift,
+\label{eq:fixed_metrics}
+\end{equation}
+with lifted variables satisfying
+\begin{equation}
+\ObserverMap^*\BaseLift=\BaseShift,
+\qquad
+\ObserverMap^*\ResponseLift=\ResponseShift,
+\qquad
+\ObserverMap^*\CompLift=\CompShift.
+\label{eq:fixed_lifts}
+\end{equation}
+The same completion class and free-sector verdict remain fixed:
+\begin{equation}
+\CompLift\in\CompClass,
+\qquad
+\FreeProj\CompLift=0.
+\label{eq:fixed_free}
+\end{equation}
+The same substrate and observer completion solves remain fixed as well:
+\begin{equation}
+\SubReducedEin(\CompLift)=-\ResidualLift,
+\qquad
+\ReducedEin(\CompShift)=-\ResidualCore.
+\label{eq:fixed_solves}
+\end{equation}
+Any deeper note is admissible here only if it preserves \eqref{eq:fixed_metrics}--\eqref{eq:fixed_solves} exactly.
+\end{definition}
+
+\begin{definition}[Recorded reconfiguration-group / transport-law / equilibrium-reduction layer]
+\label{def:recorded_layer}
+The current derivation-algebra / balance-law / equilibrium-manifold origin note fixes the following exact-preserving layer on the same sharper sectors
+\[
+\RootTensorClass,\qquad
+\RootRelabelClass,\qquad
+\RootFreeClass.
+\]
+
+\paragraph{Recorded reconfiguration data.}
+It fixes finite-dimensional exact-preserving reconfiguration groups
+\[
+\TensorReconGroup,\qquad
+\CurReconGroup,\qquad
+\HomReconGroup
+\]
+with bi-invariant Riemannian metrics and strongly continuous exact-preserving unitary actions
+\[
+\TensorReconAct:\TensorReconGroup\to\mathcal U(\RootTensorClass),\qquad
+\CurReconAct:\CurReconGroup\to\mathcal U(\RootRelabelClass),\qquad
+\HomReconAct:\HomReconGroup\to\mathcal U(\RootFreeClass).
+\]
+Their visible tangent quotients recover the recorded derivation algebras, and hence the immediately previous note recovers the same charge Lie algebras, generator maps, compact symmetry actions, symmetry projectors, and Casimir operators.
+
+\paragraph{Recorded transport data.}
+It fixes state manifolds
+\[
+\TensorStateManifold,\qquad
+\CurStateManifold,\qquad
+\HomStateManifold
+\]
+with exact-preserving base states
+\[
+\TensorStateBase,\qquad
+\CurStateBase,\qquad
+\HomStateBase,
+\]
+exact-preserving embeddings
+\[
+\TensorStateEmbed:\operatorname{ran}\TensorSymProj\to\TensorStateManifold,\qquad
+\CurStateEmbed:\operatorname{ran}\CurSymProj\to\CurStateManifold,\qquad
+\HomStateEmbed:\operatorname{ran}\HomSymProj\to\HomStateManifold
+\]
+whose linearizations at the origin are isometric injections, raw density observables
+\[
+\TensorRawDensity,\qquad
+\CurRawDensity,\qquad
+\HomRawDensity,
+\]
+raw transport vector fields
+\[
+\TensorTransport,\qquad
+\CurTransport,\qquad
+\HomTransport,
+\]
+raw flux maps
+\[
+\TensorFlux,\qquad
+\CurFlux,\qquad
+\HomFlux,
+\]
+and bounded flux-divergence operators
+\[
+\TensorDiv,\qquad
+\CurDiv,\qquad
+\HomDiv.
+\]
+The recorded raw balance defects are
+\begin{equation}
+\TensorRawBalance(s)
+\equiv
+D\TensorRawDensity(s)[\TensorTransport(s)]
++\TensorDiv\TensorFlux(s),
+\label{eq:recorded_raw_balance_car}
+\end{equation}
+\begin{equation}
+\CurRawBalance(r)
+\equiv
+D\CurRawDensity(r)[\CurTransport(r)]
++\CurDiv\CurFlux(r),
+\label{eq:recorded_raw_balance_cur}
+\end{equation}
+\begin{equation}
+\HomRawBalance(h)
+\equiv
+D\HomRawDensity(h)[\HomTransport(h)]
++\HomDiv\HomFlux(h).
+\label{eq:recorded_raw_balance_hom}
+\end{equation}
+Pullback along the exact-preserving embeddings yields
+\begin{equation}
+\TensorPrimitiveDensity\equiv\TensorRawDensity\circ\TensorStateEmbed,\qquad
+\CurPrimitiveDensity\equiv\CurRawDensity\circ\CurStateEmbed,\qquad
+\HomPrimitiveDensity\equiv\HomRawDensity\circ\HomStateEmbed,
+\label{eq:recorded_primitive_density}
+\end{equation}
+\begin{equation}
+\TensorBalance\equiv\TensorRawBalance\circ\TensorStateEmbed,\qquad
+\CurBalance\equiv\CurRawBalance\circ\CurStateEmbed,\qquad
+\HomBalance\equiv\HomRawBalance\circ\HomStateEmbed.
+\label{eq:recorded_primitive_balance}
+\end{equation}
+Their linearizations give the recorded density readouts
+\begin{equation}
+\TensorDensity\equiv D\TensorPrimitiveDensity(0),\qquad
+\CurDensity\equiv D\CurPrimitiveDensity(0),\qquad
+\HomDensity\equiv D\HomPrimitiveDensity(0),
+\label{eq:recorded_density_maps}
+\end{equation}
+and the recorded continuity operators are the unique bounded maps on the visible density ranges satisfying
+\begin{equation}
+D\TensorBalance(0)=\TensorCont\TensorDensity,\qquad
+D\CurBalance(0)=\CurCont\CurDensity,\qquad
+D\HomBalance(0)=\HomCont\HomDensity.
+\label{eq:recorded_cont_factor}
+\end{equation}
+The recorded compatibility-current maps are identified with the balance defects:
+\begin{equation}
+\TensorCurrent\equiv\TensorBalance,\qquad
+\CurCurrent\equiv\CurBalance,\qquad
+\HomCurrent\equiv\HomBalance.
+\label{eq:recorded_currents}
+\end{equation}
+
+\paragraph{Recorded equilibrium-reduction data.}
+It also fixes raw equilibrium-reduction classes
+\[
+\TensorRawEqClass,\qquad
+\CurRawEqClass,\qquad
+\HomRawEqClass,
+\]
+exact-preserving reduction maps
+\[
+\TensorEqReduce:\operatorname{ran}\TensorEqCmpProj\to\TensorRawEqClass,\qquad
+\CurEqReduce:\operatorname{ran}\CurEqCmpProj\to\CurRawEqClass,\qquad
+\HomEqReduce:\operatorname{ran}\HomEqCmpProj\to\HomRawEqClass,
+\]
+raw equilibrium energies
+\[
+\TensorRawEnergy,\qquad
+\CurRawEnergy,\qquad
+\HomRawEnergy,
+\]
+and raw equilibrium manifolds
+\[
+\TensorRawEqManifold,\qquad
+\CurRawEqManifold,\qquad
+\HomRawEqManifold
+\]
+through the origin. Pullback gives the recorded primitive ambient equilibrium energies and manifolds
+\begin{equation}
+\TensorAmbientEnergy\equiv\TensorRawEnergy\circ\TensorEqReduce,\qquad
+\CurAmbientEnergy\equiv\CurRawEnergy\circ\CurEqReduce,\qquad
+\HomAmbientEnergy\equiv\HomRawEnergy\circ\HomEqReduce,
+\label{eq:recorded_ambient_energy}
+\end{equation}
+\begin{equation}
+\TensorEqManifold\equiv\TensorEqReduce^{-1}(\TensorRawEqManifold),\qquad
+\CurEqManifold\equiv\CurEqReduce^{-1}(\CurRawEqManifold),\qquad
+\HomEqManifold\equiv\HomEqReduce^{-1}(\HomRawEqManifold).
+\label{eq:recorded_eq_manifolds}
+\end{equation}
+Their ambient Hessians, tangent kernel projectors, and positive gaps are exactly the recorded
+\[
+\TensorAmbientHess,\ \CurAmbientHess,\ \HomAmbientHess,\qquad
+\TensorEqKerProj,\ \CurEqKerProj,\ \HomEqKerProj,\qquad
+\EqCarGap,\ \EqCurGap,\ \EqHomGap,
+\]
+and therefore the same primitive response operators
+\[
+\TensorResp,\qquad
+\CurResp,\qquad
+\HomResp
+\]
+the same reduced Hessians
+\[
+\TensorHess,\qquad
+\CurHess,\qquad
+\HomHess
+\]
+and the same microphysical kernel projectors and gaps
+\[
+\UltraCarProj,\ \UltraCurProj,\ \UltraHomProj,\qquad
+\UltraCarGap,\ \UltraCurGap,\ \UltraHomGap
+\]
+follow again.
+\end{definition}
+
+\begin{definition}[Recorded exact-preservation target]
+\label{def:recorded_target}
+Once the layer of Definition \ref{def:recorded_layer} is recovered, the immediately preceding note applies without change and therefore recovers the same functional \(\StemFunctional\) and the same fixed chain
+\begin{equation}
+\StemFunctional
+\Longrightarrow
+\RootFunctional=\UltraFunctional
+\Longrightarrow
+\DeepFunctional
+\Longrightarrow
+\CarrierFunctional
+\Longrightarrow
+\PrimFunctional
+\Longrightarrow
+\MicFunctional.
+\label{eq:chain}
+\end{equation}
+The present task is to derive the input layer of \eqref{eq:chain} while preserving its output exactly.
+\end{definition}
+
+\section{Groupoid Origin of the Exact-Preserving Reconfiguration Groups}
+
+\begin{definition}[Primitive exact-preserving reversible groupoid data]
+\label{def:primitive_groupoid}
+For each sharper sector, let
+\[
+\TensorGroupoid\rightrightarrows\TensorObjClass,\qquad
+\CurGroupoid\rightrightarrows\CurObjClass,\qquad
+\HomGroupoid\rightrightarrows\HomObjClass
+\]
+be finite-dimensional Lie groupoids with distinguished exact-preserving base objects
+\[
+\TensorObjBase\in\TensorObjClass,\qquad
+\CurObjBase\in\CurObjClass,\qquad
+\HomObjBase\in\HomObjClass.
+\]
+Let
+\[
+\TensorGroupoidRep:\TensorGroupoid\to\mathcal U(\RootTensorClass),\qquad
+\CurGroupoidRep:\CurGroupoid\to\mathcal U(\RootRelabelClass),\qquad
+\HomGroupoidRep:\HomGroupoid\to\mathcal U(\RootFreeClass)
+\]
+be smooth exact-preserving unitary representations satisfying
+\[
+\TensorGroupoidRep(1_{\TensorObjBase})=\mathbf 1,\qquad
+\CurGroupoidRep(1_{\CurObjBase})=\mathbf 1,\qquad
+\HomGroupoidRep(1_{\HomObjBase})=\mathbf 1.
+\]
+Assume:
+\begin{enumerate}
+    \item the isotropy groups at the base objects,
+    \[
+    \Iso_{\TensorGroupoid}(\TensorObjBase),\qquad
+    \Iso_{\CurGroupoid}(\CurObjBase),\qquad
+    \Iso_{\HomGroupoid}(\HomObjBase),
+    \]
+    carry smooth exact-preserving conjugation-invariant Riemannian metrics induced from the primitive substrate cost on reversible arrows;
+    \item the object neighborhoods and constrained phase bundles used in Definitions \ref{def:primitive_transport_action} and \ref{def:primitive_stationary_phase} are invariant under these isotropy actions at current scope;
+    \item the exact-preserving branch corresponds to the identity arrows
+    \[
+    1_{\TensorObjBase},\qquad
+    1_{\CurObjBase},\qquad
+    1_{\HomObjBase}.
+    \]
+\end{enumerate}
+Define
+\begin{equation}
+\TensorReconGroup\equiv\Iso_{\TensorGroupoid}(\TensorObjBase),\qquad
+\CurReconGroup\equiv\Iso_{\CurGroupoid}(\CurObjBase),\qquad
+\HomReconGroup\equiv\Iso_{\HomGroupoid}(\HomObjBase),
+\label{eq:recon_from_groupoid}
+\end{equation}
+and define their recorded actions by restriction of the groupoid representations:
+\begin{equation}
+\TensorReconAct(g)\RootTensor\equiv\TensorGroupoidRep(g)\RootTensor,
+\qquad
+g\in\TensorReconGroup,
+\label{eq:recon_action_from_groupoid_car}
+\end{equation}
+\begin{equation}
+\CurReconAct(g)\RootRelabel\equiv\CurGroupoidRep(g)\RootRelabel,
+\qquad
+g\in\CurReconGroup,
+\label{eq:recon_action_from_groupoid_cur}
+\end{equation}
+\begin{equation}
+\HomReconAct(g)\RootFree\equiv\HomGroupoidRep(g)\RootFree,
+\qquad
+g\in\HomReconGroup.
+\label{eq:recon_action_from_groupoid_hom}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[The exact-preserving reconfiguration groups are forced by reversible groupoids]
+\label{prop:reconfiguration_from_groupoid}
+The data of Definition \ref{def:primitive_groupoid} recover exactly the recorded reconfiguration-group layer.
+\begin{enumerate}
+    \item The isotropy sets in \eqref{eq:recon_from_groupoid} are finite-dimensional Lie groups.
+    \item The conjugation-invariant primitive metrics on those isotropy groups are bi-invariant.
+    \item The restricted maps \eqref{eq:recon_action_from_groupoid_car}--\eqref{eq:recon_action_from_groupoid_hom} are strongly continuous exact-preserving unitary actions on the sharper sectors.
+    \item Consequently the reconfiguration groups and actions of Definition \ref{def:recorded_layer} are no longer primitive at present scope; they are exactly the isotropy-group restrictions of a still deeper reversible exact-preserving groupoid layer.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+For any Lie groupoid, the isotropy set at a fixed object is a finite-dimensional Lie group under composition of arrows. This proves item (1). Because the primitive substrate metric is assumed conjugation invariant on those isotropy groups, left and right translations preserve it, so the induced Riemannian metrics are bi-invariant. This proves item (2).
+
+Item (3) follows by restriction. A smooth unitary groupoid representation restricted to the isotropy group at a fixed object gives a strongly continuous unitary representation on the corresponding sector. Exact preservation is inherited because the full groupoid representation is exact preserving and the base branch is the identity arrow. Therefore the restricted actions are exactly the recorded reconfiguration actions.
+
+Item (4) is then immediate from the definitions \eqref{eq:recon_from_groupoid}--\eqref{eq:recon_action_from_groupoid_hom}.
+\end{proof}
+
+\section{Transport-Action Origin of the Raw Transport Layer}
+
+\begin{definition}[Primitive exact-preserving transport-action data]
+\label{def:primitive_transport_action}
+Let
+\[
+\TensorStateManifold\subset\TensorObjClass,\qquad
+\CurStateManifold\subset\CurObjClass,\qquad
+\HomStateManifold\subset\HomObjClass
+\]
+be exact-preserving neighborhoods of the base objects
+\[
+\TensorStateBase\equiv\TensorObjBase,\qquad
+\CurStateBase\equiv\CurObjBase,\qquad
+\HomStateBase\equiv\HomObjBase.
+\]
+Thus the recorded state manifolds are not primitive at current scope; they are local object charts of the deeper groupoid layer.
+
+Let
+\[
+\TensorStateEmbed:\operatorname{ran}\TensorSymProj\to\TensorStateManifold,\qquad
+\CurStateEmbed:\operatorname{ran}\CurSymProj\to\CurStateManifold,\qquad
+\HomStateEmbed:\operatorname{ran}\HomSymProj\to\HomStateManifold
+\]
+be \(C^2\) exact-preserving embeddings satisfying
+\begin{equation}
+\TensorStateEmbed(0)=\TensorStateBase,\qquad
+\CurStateEmbed(0)=\CurStateBase,\qquad
+\HomStateEmbed(0)=\HomStateBase,
+\label{eq:transport_embed_zero}
+\end{equation}
+and assume their linearizations at the origin are isometric injections.
+
+Let
+\[
+\TensorObjDensity:\TensorStateManifold\to\TensorDensityClass,\qquad
+\CurObjDensity:\CurStateManifold\to\CurDensityClass,\qquad
+\HomObjDensity:\HomStateManifold\to\HomDensityClass
+\]
+be \(C^2\) exact-preserving density observables with
+\begin{equation}
+\TensorObjDensity(\TensorStateBase)=0,\qquad
+\CurObjDensity(\CurStateBase)=0,\qquad
+\HomObjDensity(\HomStateBase)=0.
+\label{eq:object_density_zero}
+\end{equation}
+Let
+\[
+\TensorMobility(s):T_s\TensorStateManifold\to T_s\TensorStateManifold,\qquad
+\CurMobility(r):T_r\CurStateManifold\to T_r\CurStateManifold,\qquad
+\HomMobility(h):T_h\HomStateManifold\to T_h\HomStateManifold
+\]
+be smooth positive self-adjoint bundle automorphisms, and let
+\[
+\TensorDrive:\TensorStateManifold\to\mathbb R,\qquad
+\CurDrive:\CurStateManifold\to\mathbb R,\qquad
+\HomDrive:\HomStateManifold\to\mathbb R
+\]
+be \(C^2\) exact-preserving transport potentials satisfying
+\begin{equation}
+D\TensorDrive(\TensorStateBase)=0,\qquad
+D\CurDrive(\CurStateBase)=0,\qquad
+D\HomDrive(\HomStateBase)=0.
+\label{eq:drive_zero}
+\end{equation}
+Let
+\[
+\TensorFluxRead(s):T_s\TensorStateManifold\to\TensorFluxClass,\qquad
+\CurFluxRead(r):T_r\CurStateManifold\to\CurFluxClass,\qquad
+\HomFluxRead(h):T_h\HomStateManifold\to\HomFluxClass
+\]
+be smooth bounded linear velocity-to-flux readouts, and let
+\[
+\TensorDiv:\TensorFluxClass\to\mathscr M_{\mathrm{car}},\qquad
+\CurDiv:\CurFluxClass\to\mathscr M_{\mathrm{cur}},\qquad
+\HomDiv:\HomFluxClass\to\mathscr M_{\mathrm{hom}}
+\]
+be bounded linear divergence operators.
+
+Define the exact-preserving transport-action densities on the tangent bundles by
+\begin{equation}
+\TensorActionDensity(s,v)
+\equiv
+\frac12\langle \TensorMobility(s)^{-1}v,v\rangle_{\mathrm{obj,car}}
++D\TensorDrive(s)[v],
+\label{eq:transport_action_car}
+\end{equation}
+\begin{equation}
+\CurActionDensity(r,w)
+\equiv
+\frac12\langle \CurMobility(r)^{-1}w,w\rangle_{\mathrm{obj,cur}}
++D\CurDrive(r)[w],
+\label{eq:transport_action_cur}
+\end{equation}
+\begin{equation}
+\HomActionDensity(h,u)
+\equiv
+\frac12\langle \HomMobility(h)^{-1}u,u\rangle_{\mathrm{obj,hom}}
++D\HomDrive(h)[u].
+\label{eq:transport_action_hom}
+\end{equation}
+Strict convexity in the velocity variable yields unique stationary velocity sections
+\[
+\TensorTransport\in\Gamma(T\TensorStateManifold),\qquad
+\CurTransport\in\Gamma(T\CurStateManifold),\qquad
+\HomTransport\in\Gamma(T\HomStateManifold)
+\]
+characterized by
+\begin{equation}
+D_v\TensorActionDensity(s,\TensorTransport(s))=0,\qquad
+D_v\CurActionDensity(r,\CurTransport(r))=0,\qquad
+D_v\HomActionDensity(h,\HomTransport(h))=0,
+\label{eq:stationary_transport}
+\end{equation}
+so in particular
+\begin{equation}
+\TensorTransport(\TensorStateBase)=0,\qquad
+\CurTransport(\CurStateBase)=0,\qquad
+\HomTransport(\HomStateBase)=0.
+\label{eq:transport_base_zero}
+\end{equation}
+Define the recorded raw density and flux maps by
+\begin{equation}
+\TensorRawDensity\equiv\TensorObjDensity,\qquad
+\CurRawDensity\equiv\CurObjDensity,\qquad
+\HomRawDensity\equiv\HomObjDensity,
+\label{eq:raw_density_from_action}
+\end{equation}
+\begin{equation}
+\TensorFlux(s)\equiv\TensorFluxRead(s)\bigl(\TensorTransport(s)\bigr),\qquad
+\CurFlux(r)\equiv\CurFluxRead(r)\bigl(\CurTransport(r)\bigr),\qquad
+\HomFlux(h)\equiv\HomFluxRead(h)\bigl(\HomTransport(h)\bigr).
+\label{eq:raw_flux_from_action}
+\end{equation}
+The raw balance defects are then exactly
+\begin{equation}
+\TensorRawBalance(s)
+\equiv
+D\TensorRawDensity(s)[\TensorTransport(s)]
++\TensorDiv\TensorFlux(s),
+\label{eq:action_raw_balance_car}
+\end{equation}
+\begin{equation}
+\CurRawBalance(r)
+\equiv
+D\CurRawDensity(r)[\CurTransport(r)]
++\CurDiv\CurFlux(r),
+\label{eq:action_raw_balance_cur}
+\end{equation}
+\begin{equation}
+\HomRawBalance(h)
+\equiv
+D\HomRawDensity(h)[\HomTransport(h)]
++\HomDiv\HomFlux(h).
+\label{eq:action_raw_balance_hom}
+\end{equation}
+Pulling back along the exact-preserving embeddings defines the recorded primitive density and balance layer by the same formulas
+\begin{equation}
+\TensorPrimitiveDensity\equiv\TensorRawDensity\circ\TensorStateEmbed,\qquad
+\CurPrimitiveDensity\equiv\CurRawDensity\circ\CurStateEmbed,\qquad
+\HomPrimitiveDensity\equiv\HomRawDensity\circ\HomStateEmbed,
+\label{eq:primitive_density_from_action}
+\end{equation}
+\begin{equation}
+\TensorBalance\equiv\TensorRawBalance\circ\TensorStateEmbed,\qquad
+\CurBalance\equiv\CurRawBalance\circ\CurStateEmbed,\qquad
+\HomBalance\equiv\HomRawBalance\circ\HomStateEmbed.
+\label{eq:primitive_balance_from_action}
+\end{equation}
+Define the recorded density readouts by linearization:
+\begin{equation}
+\TensorDensity\equiv D\TensorPrimitiveDensity(0),\qquad
+\CurDensity\equiv D\CurPrimitiveDensity(0),\qquad
+\HomDensity\equiv D\HomPrimitiveDensity(0).
+\label{eq:density_from_action}
+\end{equation}
+Assume the visible density ranges are closed and satisfy the same kernel factorization condition
+\begin{equation}
+\ker\TensorDensity\subseteq\ker D\TensorBalance(0),\qquad
+\ker\CurDensity\subseteq\ker D\CurBalance(0),\qquad
+\ker\HomDensity\subseteq\ker D\HomBalance(0).
+\label{eq:action_kernel_factor}
+\end{equation}
+Then the unique bounded continuity operators on the visible density ranges satisfy
+\begin{equation}
+D\TensorBalance(0)=\TensorCont\TensorDensity,\qquad
+D\CurBalance(0)=\CurCont\CurDensity,\qquad
+D\HomBalance(0)=\HomCont\HomDensity.
+\label{eq:action_cont_factor}
+\end{equation}
+As in the recorded layer, identify the compatibility-current maps with the balance defects:
+\begin{equation}
+\TensorCurrent\equiv\TensorBalance,\qquad
+\CurCurrent\equiv\CurBalance,\qquad
+\HomCurrent\equiv\HomBalance.
+\label{eq:action_currents}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[The recorded transport layer is forced by transport actions]
+\label{prop:transport_from_action}
+At current exact-preservation scope, the transport-action data of Definition \ref{def:primitive_transport_action} recover exactly the recorded transport-law layer.
+\begin{enumerate}
+    \item The recorded state manifolds are local object charts of the deeper reversible groupoid layer rather than independent primitive manifolds.
+    \item The recorded raw transport vector fields are the unique stationary velocity sections of the exact-preserving transport-action densities \eqref{eq:transport_action_car}--\eqref{eq:transport_action_hom}, and the recorded raw flux maps are their bounded velocity readouts \eqref{eq:raw_flux_from_action}.
+    \item The recorded raw balance defects are exactly \eqref{eq:action_raw_balance_car}--\eqref{eq:action_raw_balance_hom}; pulling them back along the exact-preserving embeddings gives exactly the recorded primitive density and balance laws \eqref{eq:primitive_density_from_action}--\eqref{eq:primitive_balance_from_action}.
+    \item Their linearizations are exactly the recorded density readouts \(\TensorDensity,\CurDensity,\HomDensity\), the recorded continuity operators \(\TensorCont,\CurCont,\HomCont\), and the recorded compatibility-current maps \(\TensorCurrent,\CurCurrent,\HomCurrent\).
+\end{enumerate}
+Hence the transport-law layer of Definition \ref{def:recorded_layer} is no longer primitive at present scope; it is the visible stationary image of a deeper exact-preserving transport-action structure.
+\end{proposition}
+
+\begin{proof}
+Item (1) is part of the definition itself: the recorded state manifolds are chosen as neighborhoods of the deeper groupoid objects. For item (2), strict convexity of the action densities in the velocity variable gives unique critical velocities, and those critical velocities are exactly the recorded transport vector fields by \eqref{eq:stationary_transport}. The flux identities \eqref{eq:raw_flux_from_action} are then definitional.
+
+Item (3) is the direct continuity construction \eqref{eq:action_raw_balance_car}--\eqref{eq:action_raw_balance_hom} followed by the pullbacks \eqref{eq:primitive_density_from_action}--\eqref{eq:primitive_balance_from_action}. Because the base densities vanish and the base-point transport fields vanish, the same exact-preserving branch conditions hold:
+\[
+\TensorPrimitiveDensity(0)=\CurPrimitiveDensity(0)=\HomPrimitiveDensity(0)=0,
+\]
+\[
+\TensorBalance(0)=\CurBalance(0)=\HomBalance(0)=0.
+\]
+
+Item (4) follows by differentiating the pullback formulas at the origin and using the kernel factorization condition \eqref{eq:action_kernel_factor}. That condition guarantees the unique bounded operators \(\TensorCont,\CurCont,\HomCont\) satisfying \eqref{eq:action_cont_factor}. The current maps are again the balance defects by \eqref{eq:action_currents}. Therefore the recorded transport layer is recovered verbatim.
+\end{proof}
+
+\section{Constrained-Stationary Origin of the Raw Equilibrium-Reduction Layer}
+
+\begin{definition}[Primitive constrained stationary phase data]
+\label{def:primitive_stationary_phase}
+On the ambient compatibility sectors
+\[
+\operatorname{ran}\TensorEqCmpProj\subset\TensorEqClass,\qquad
+\operatorname{ran}\CurEqCmpProj\subset\CurEqClass,\qquad
+\operatorname{ran}\HomEqCmpProj\subset\HomEqClass,
+\]
+let
+\[
+\TensorPhaseClass,\qquad
+\CurPhaseClass,\qquad
+\HomPhaseClass
+\]
+be Hilbert manifolds with distinguished base points
+\[
+\TensorPhaseBase,\qquad
+\CurPhaseBase,\qquad
+\HomPhaseBase.
+\]
+Let
+\[
+\TensorPhaseProj:\TensorPhaseClass\to\operatorname{ran}\TensorEqCmpProj,\qquad
+\CurPhaseProj:\CurPhaseClass\to\operatorname{ran}\CurEqCmpProj,\qquad
+\HomPhaseProj:\HomPhaseClass\to\operatorname{ran}\HomEqCmpProj
+\]
+and
+\[
+\TensorPhaseRead:\TensorPhaseClass\to\TensorPhaseReadClass,\qquad
+\CurPhaseRead:\CurPhaseClass\to\CurPhaseReadClass,\qquad
+\HomPhaseRead:\HomPhaseClass\to\HomPhaseReadClass
+\]
+be \(C^2\) exact-preserving maps satisfying
+\begin{equation}
+\TensorPhaseProj(\TensorPhaseBase)=0,\qquad
+\CurPhaseProj(\CurPhaseBase)=0,\qquad
+\HomPhaseProj(\HomPhaseBase)=0,
+\label{eq:phase_proj_zero}
+\end{equation}
+\begin{equation}
+\TensorPhaseRead(\TensorPhaseBase)=0,\qquad
+\CurPhaseRead(\CurPhaseBase)=0,\qquad
+\HomPhaseRead(\HomPhaseBase)=0.
+\label{eq:phase_read_zero}
+\end{equation}
+
+Let
+\[
+\TensorConstraint:\TensorPhaseClass\to\mathscr K_{\mathrm{car}},\qquad
+\CurConstraint:\CurPhaseClass\to\mathscr K_{\mathrm{cur}},\qquad
+\HomConstraint:\HomPhaseClass\to\mathscr K_{\mathrm{hom}}
+\]
+be \(C^1\) exact-preserving constraint maps, and let
+\[
+\TensorPhaseEnergy:\TensorPhaseClass\to\mathbb R,\qquad
+\CurPhaseEnergy:\CurPhaseClass\to\mathbb R,\qquad
+\HomPhaseEnergy:\HomPhaseClass\to\mathbb R
+\]
+be \(C^2\) exact-preserving phase energies. Define the constrained stationary manifolds by
+\begin{equation}
+\TensorStationaryManifold
+\equiv
+\left\{
+p\in\TensorPhaseClass:
+\TensorConstraint(p)=0,\
+D\TensorPhaseEnergy(p)\big|_{\ker D\TensorConstraint(p)}=0
+\right\},
+\label{eq:stationary_manifold_car}
+\end{equation}
+\begin{equation}
+\CurStationaryManifold
+\equiv
+\left\{
+q\in\CurPhaseClass:
+\CurConstraint(q)=0,\
+D\CurPhaseEnergy(q)\big|_{\ker D\CurConstraint(q)}=0
+\right\},
+\label{eq:stationary_manifold_cur}
+\end{equation}
+\begin{equation}
+\HomStationaryManifold
+\equiv
+\left\{
+r\in\HomPhaseClass:
+\HomConstraint(r)=0,\
+D\HomPhaseEnergy(r)\big|_{\ker D\HomConstraint(r)}=0
+\right\}.
+\label{eq:stationary_manifold_hom}
+\end{equation}
+Assume:
+\begin{enumerate}
+    \item each constrained stationary set is a closed \(C^2\) submanifold through the corresponding base point;
+    \item the restrictions of the projection maps to those constrained stationary manifolds are local \(C^2\) diffeomorphisms onto neighborhoods of the origin in the corresponding ambient compatibility sectors;
+    \item the restrictions of the readout maps to those constrained stationary manifolds are local \(C^2\) embeddings onto their images.
+\end{enumerate}
+Denote the inverse stationary elimination maps of the projection restrictions by
+\[
+\TensorStationarySolve,\qquad
+\CurStationarySolve,\qquad
+\HomStationarySolve.
+\]
+Define the recorded raw equilibrium-reduction classes as the stationary readout images
+\begin{equation}
+\TensorRawEqClass\equiv\TensorPhaseRead(\TensorStationaryManifold),\qquad
+\CurRawEqClass\equiv\CurPhaseRead(\CurStationaryManifold),\qquad
+\HomRawEqClass\equiv\HomPhaseRead(\HomStationaryManifold),
+\label{eq:raw_eq_class_from_phase}
+\end{equation}
+define the recorded reduction maps by
+\begin{equation}
+\TensorEqReduce\equiv\TensorPhaseRead\circ\TensorStationarySolve,\qquad
+\CurEqReduce\equiv\CurPhaseRead\circ\CurStationarySolve,\qquad
+\HomEqReduce\equiv\HomPhaseRead\circ\HomStationarySolve,
+\label{eq:reduction_from_stationary_solve}
+\end{equation}
+and define the recorded raw equilibrium energies by descent along the stationary readout:
+\begin{equation}
+\TensorRawEnergy(\eta)
+\equiv
+\TensorPhaseEnergy\!\left(
+\left(\TensorPhaseRead\big|_{\TensorStationaryManifold}\right)^{-1}\eta
+\right),
+\qquad
+\eta\in\TensorRawEqClass,
+\label{eq:raw_energy_from_phase_car}
+\end{equation}
+\begin{equation}
+\CurRawEnergy(\zeta)
+\equiv
+\CurPhaseEnergy\!\left(
+\left(\CurPhaseRead\big|_{\CurStationaryManifold}\right)^{-1}\zeta
+\right),
+\qquad
+\zeta\in\CurRawEqClass,
+\label{eq:raw_energy_from_phase_cur}
+\end{equation}
+\begin{equation}
+\HomRawEnergy(\omega)
+\equiv
+\HomPhaseEnergy\!\left(
+\left(\HomPhaseRead\big|_{\HomStationaryManifold}\right)^{-1}\omega
+\right),
+\qquad
+\omega\in\HomRawEqClass.
+\label{eq:raw_energy_from_phase_hom}
+\end{equation}
+
+Let
+\[
+\TensorPhaseEqManifold\subset\TensorStationaryManifold,\qquad
+\CurPhaseEqManifold\subset\CurStationaryManifold,\qquad
+\HomPhaseEqManifold\subset\HomStationaryManifold
+\]
+be closed exact-preserving \(C^2\) submanifolds through the base points. Define the recorded raw equilibrium manifolds by stationary readout:
+\begin{equation}
+\TensorRawEqManifold\equiv\TensorPhaseRead(\TensorPhaseEqManifold),\qquad
+\CurRawEqManifold\equiv\CurPhaseRead(\CurPhaseEqManifold),\qquad
+\HomRawEqManifold\equiv\HomPhaseRead(\HomPhaseEqManifold).
+\label{eq:raw_eq_manifold_from_phase}
+\end{equation}
+Assume the phase energies are constant on the phase equilibrium manifolds and satisfy constrained transverse coercivity there:
+\begin{equation}
+\TensorPhaseEnergy(p)
+\ge
+\frac{\PhaseCarGap}{2}\operatorname{dist}(p,\TensorPhaseEqManifold)^2
++o(\norm{p}_{\mathrm{phase,car}}^2),
+\qquad
+\PhaseCarGap>0,
+\label{eq:phase_gap_car}
+\end{equation}
+\begin{equation}
+\CurPhaseEnergy(q)
+\ge
+\frac{\PhaseCurGap}{2}\operatorname{dist}(q,\CurPhaseEqManifold)^2
++o(\norm{q}_{\mathrm{phase,cur}}^2),
+\qquad
+\PhaseCurGap>0,
+\label{eq:phase_gap_cur}
+\end{equation}
+\begin{equation}
+\HomPhaseEnergy(r)
+\ge
+\frac{\PhaseHomGap}{2}\operatorname{dist}(r,\HomPhaseEqManifold)^2
++o(\norm{r}_{\mathrm{phase,hom}}^2),
+\qquad
+\PhaseHomGap>0.
+\label{eq:phase_gap_hom}
+\end{equation}
+Because the stationary readout maps are local \(C^2\) embeddings, these phase gaps induce the recorded raw positive constants
+\[
+\RawCarGap,\qquad
+\RawCurGap,\qquad
+\RawHomGap
+\]
+for which the raw gap inequalities of Definition \ref{def:recorded_layer} hold.
+\end{definition}
+
+\begin{proposition}[The raw equilibrium-reduction layer is forced by constrained stationary phase bundles]
+\label{prop:equilibrium_from_phase}
+The data of Definition \ref{def:primitive_stationary_phase} recover exactly the recorded raw equilibrium-reduction layer.
+\begin{enumerate}
+    \item The recorded raw equilibrium-reduction classes are exactly the stationary readout images \eqref{eq:raw_eq_class_from_phase}, and the recorded reduction maps are exactly the stationary elimination maps \eqref{eq:reduction_from_stationary_solve}.
+    \item The recorded raw equilibrium energies and raw equilibrium manifolds are exactly the descended stationary readouts \eqref{eq:raw_energy_from_phase_car}--\eqref{eq:raw_energy_from_phase_hom} and \eqref{eq:raw_eq_manifold_from_phase}.
+    \item The recorded raw positive gaps \(\RawCarGap,\RawCurGap,\RawHomGap\) are forced by the constrained transverse coercivity \eqref{eq:phase_gap_car}--\eqref{eq:phase_gap_hom}.
+    \item Consequently the raw equilibrium-reduction layer of Definition \ref{def:recorded_layer} is no longer primitive at present scope; it is the visible stationary image of a still deeper constrained phase-bundle layer.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Item (1) is the definition of the stationary readout image and the stationary elimination maps. The projection restrictions are local diffeomorphisms on the constrained stationary manifolds, so the maps \(\TensorStationarySolve,\CurStationarySolve,\HomStationarySolve\) are well-defined near the exact-preserving branch. This yields the recorded reduction maps directly.
+
+Item (2) is the descent construction itself: the raw energies are the phase energies transported through the stationary readout, and the raw equilibrium manifolds are the stationary readout images of the phase equilibrium manifolds. Because the readout maps are \(C^2\) local embeddings, the descended objects are again \(C^2\) near the branch.
+
+For item (3), constrained transverse coercivity on the phase equilibrium manifolds together with local bi-Lipschitz control of the stationary readout maps implies the same quadratic lower bounds on the descended raw energies relative to the descended raw equilibrium manifolds. This is exactly the recorded raw gap package.
+
+Item (4) is the content of items (1)--(3): the current raw equilibrium-reduction layer is recovered verbatim, but it is no longer primitive.
+\end{proof}
+
+\section{Exact Recovery of the Recorded Derivation Layer and Downstream Package}
+
+\begin{theorem}[Same reconfiguration-group / transport-law / equilibrium-reduction layer]
+\label{thm:same_layer}
+The deeper groupoid / transport-action / constrained-stationary construction introduced above recovers exactly the recorded reconfiguration-group / transport-law / equilibrium-reduction layer:
+\begin{enumerate}
+    \item Proposition \ref{prop:reconfiguration_from_groupoid} recovers the same exact-preserving reconfiguration groups \(\TensorReconGroup,\CurReconGroup,\HomReconGroup\) and the same unitary actions \(\TensorReconAct,\CurReconAct,\HomReconAct\).
+    \item Proposition \ref{prop:transport_from_action} recovers the same state manifolds \(\TensorStateManifold,\CurStateManifold,\HomStateManifold\), the same exact-preserving embeddings \(\TensorStateEmbed,\CurStateEmbed,\HomStateEmbed\), the same raw density observables \(\TensorRawDensity,\CurRawDensity,\HomRawDensity\), the same raw transport vector fields \(\TensorTransport,\CurTransport,\HomTransport\), the same raw flux maps \(\TensorFlux,\CurFlux,\HomFlux\), the same raw balance defects \(\TensorRawBalance,\CurRawBalance,\HomRawBalance\), the same primitive density and balance laws \(\TensorPrimitiveDensity,\CurPrimitiveDensity,\HomPrimitiveDensity,\TensorBalance,\CurBalance,\HomBalance\), and the same density / continuity / current data \(\TensorDensity,\CurDensity,\HomDensity,\TensorCont,\CurCont,\HomCont,\TensorCurrent,\CurCurrent,\HomCurrent\).
+    \item Proposition \ref{prop:equilibrium_from_phase} recovers the same raw equilibrium-reduction classes \(\TensorRawEqClass,\CurRawEqClass,\HomRawEqClass\), the same reduction maps \(\TensorEqReduce,\CurEqReduce,\HomEqReduce\), the same raw equilibrium energies \(\TensorRawEnergy,\CurRawEnergy,\HomRawEnergy\), the same raw equilibrium manifolds \(\TensorRawEqManifold,\CurRawEqManifold,\HomRawEqManifold\), and the same raw positive gaps \(\RawCarGap,\RawCurGap,\RawHomGap\).
+    \item Therefore Definition \ref{def:recorded_layer} is reproduced without change.
+\end{enumerate}
+In particular, the reconfiguration-group / transport-law / equilibrium-reduction layer of the immediately preceding note is no longer primitive at current scope; it is itself the induced image of the deeper groupoid / transport-action / constrained-stationary substrate layer.
+\end{theorem}
+
+\begin{proof}
+Items (1), (2), and (3) are exactly Propositions \ref{prop:reconfiguration_from_groupoid}, \ref{prop:transport_from_action}, and \ref{prop:equilibrium_from_phase}. Item (4) is a direct restatement of those recoveries.
+\end{proof}
+
+\begin{theorem}[Same exact-preservation and downstream package]
+\label{thm:same_package}
+Because the same reconfiguration-group / transport-law / equilibrium-reduction layer is recovered, the immediately preceding derivation-algebra / balance-law / equilibrium-manifold origin note applies verbatim. Consequently the same full downstream package is reproduced without change:
+\begin{enumerate}
+    \item the same exact-preserving derivation algebras \(\TensorDerAlg,\CurDerAlg,\HomDerAlg\);
+    \item the same visible charge Lie algebras \(\TensorChargeAlg,\CurChargeAlg,\HomChargeAlg\), generator maps \(\TensorGen,\CurGen,\HomGen\), compact symmetry actions \(\TensorSymAct,\CurSymAct,\HomSymAct\), symmetry projectors \(\TensorSymProj,\CurSymProj,\HomSymProj\), and Casimir operators \(\TensorCasimir,\CurCasimir,\HomCasimir\);
+    \item the same primitive ambient equilibrium energies \(\TensorAmbientEnergy,\CurAmbientEnergy,\HomAmbientEnergy\), the same equilibrium manifolds \(\TensorEqManifold,\CurEqManifold,\HomEqManifold\), the same ambient Hessians \(\TensorAmbientHess,\CurAmbientHess,\HomAmbientHess\), the same ambient kernel projectors \(\TensorEqKerProj,\CurEqKerProj,\HomEqKerProj\), and the same positive gaps \(\EqCarGap,\EqCurGap,\EqHomGap\);
+    \item the same primitive response operators \(\TensorResp,\CurResp,\HomResp\), the same reduced Hessians \(\TensorHess,\CurHess,\HomHess\), and the same microphysical kernel projectors and gaps \(\UltraCarProj,\UltraCurProj,\UltraHomProj,\UltraCarGap,\UltraCurGap,\UltraHomGap\);
+    \item the same functional \(\StemFunctional\);
+    \item the same Hessian-layer functional \(\RootFunctional\);
+    \item the same microphysical exact-preservation functional \(\UltraFunctional\);
+    \item the same exact-preservation normal form \(\DeepFunctional\);
+    \item the same carrier-origin functional \(\CarrierFunctional[\CarrierSeed,\RelabelSeed,\FreeSeed]\);
+    \item the same primitive reservoir \(\PrimFunctional[\PrimStrain,\PrimNeutral,\PrimFree]\);
+    \item the same microscopic-equilibrium completion reservoir \(\MicFunctional[H,\GaugeAux]\);
+    \item the same zero-free-mode verdict \(\FreeProj\CompLift=0\);
+    \item the same substrate solve \(\SubReducedEin(\CompLift)=-\ResidualLift\);
+    \item the same observer solve \(\ReducedEin(\CompShift)=-\ResidualCore\);
+    \item the same \(\Sigma^{\mathrm{cmp}}\) solve, the same one operative metric, and the same recorded Phase D / E and Phase F gains.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Theorem \ref{thm:same_layer} reproduces exactly the input layer required by the current derivation-algebra / balance-law / equilibrium-manifold origin note. That note already proves that once this layer is fixed, the same derivation-algebra / balance-law / equilibrium-manifold package and hence the same \(\StemFunctional\) follow. Definition \ref{def:recorded_target} then gives the same downstream chain \eqref{eq:chain}. Since none of the visible slots or later eliminations are changed here, every downstream object listed above is reproduced verbatim.
+\end{proof}
+
+\begin{corollary}[Recorded gain package is preserved]
+\label{cor:gains}
+Because the same downstream package is recovered, the recorded Phase D / E infrared-spectrum and universal-coupling verdicts, the recorded Phase F controlled GR limit, and the recorded observer-equation removal of the former genuine quartic residual sector remain preserved without modification.
+\end{corollary}
+
+\begin{proof}
+This is the direct content of Theorem \ref{thm:same_package}.
+\end{proof}
+
+\section{Claim-Boundary Verdict}
+
+\begin{theorem}[Reconfiguration / transport / reduction origin verdict]
+\label{thm:verdict}
+At the disciplined scope of the present note, the exact positive result is the following.
+\begin{enumerate}
+    \item The exact-preserving reconfiguration groups \(\TensorReconGroup,\CurReconGroup,\HomReconGroup\) are no longer primitive at current scope.
+    \item They arise as the isotropy groups at the exact-preserving base objects of finite-dimensional exact-preserving reversible Lie groupoids, and their unitary actions arise by restriction of the corresponding exact-preserving groupoid representations.
+    \item The raw substrate transport layer is no longer primitive either.
+    \item The recorded state manifolds are local object charts of that deeper groupoid layer, while the recorded raw transport vector fields and flux maps arise as the unique stationary velocity sections and flux readouts of exact-preserving transport-action densities on those object manifolds.
+    \item The raw equilibrium-reduction layer is no longer primitive either.
+    \item The recorded raw equilibrium-reduction classes, reduction maps, raw equilibrium energies, and raw equilibrium manifolds arise as the stationary readout image of a deeper constrained phase-bundle layer, and the recorded raw positive gaps are forced by constrained transverse coercivity there.
+    \item Therefore the full recorded reconfiguration-group / transport-law / equilibrium-reduction package of the immediately preceding note is recovered without change.
+    \item Consequently the same derivation-algebra / balance-law / equilibrium-manifold layer, the same \(\StemFunctional\), the same exact-preservation normal form, the same carrier-origin functional, the same primitive reservoir, the same microscopic-equilibrium reservoir, the same \(\Pi_{\mathrm{free}}H=0\) outcome, the same \(\Sigma^{\mathrm{cmp}}\) solve, the same substrate and observer solves, the same one operative metric, and the same recorded Phase D / E and Phase F gains remain unchanged.
+    \item Stronger promotion language is still not justified here, because the present note explains only why the previous reconfiguration-group / transport-law / equilibrium-reduction layer arises from a deeper groupoid / transport-action / constrained-stationary substrate layer; it does not yet derive why that new deeper layer is itself unique, final, or inevitable beyond current scope.
+    \item No broader packaging consequence or default side-line continuation follows from the mathematical content of this note alone. The remaining honest burden is one layer deeper again on this same exact-preservation line, or else another comparably concrete observer-equation gain on the same one-metric route.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Items (1) and (2) are Proposition \ref{prop:reconfiguration_from_groupoid}. Items (3) and (4) are Proposition \ref{prop:transport_from_action}. Items (5) and (6) are Proposition \ref{prop:equilibrium_from_phase}. Items (7) and (8) are Theorems \ref{thm:same_layer} and \ref{thm:same_package} together with Corollary \ref{cor:gains}. Items (9) and (10) are the present claim-boundary discipline stated in the abstract and introduction.
+\end{proof}
+
+\begin{corollary}[What remains next]
+\label{cor:what_next}
+The primary active burden moves one layer deeper again. It is no longer to justify why the exact-preserving reconfiguration groups, raw transport laws, and raw equilibrium-reduction geometry of the previous note are admissible at current scope; that step is now recorded. The next honest burden is either to derive or justify why the reversible groupoids, transport-action densities with their continuity readouts, and constrained stationary phase bundles introduced here are themselves forced by yet more primitive substrate structure, or else to produce another comparably concrete observer-equation gain on the same one-metric line. No stronger promotion language, no packaging pass, and no default move onto the anchored positive-pair side line are justified unless they directly discharge one of those burdens.
+\end{corollary}
+
+\section{Conclusion}
+
+The positive result of this note is that the exact-preserving reconfiguration-group / transport-law / equilibrium-reduction layer is no longer left primitive at present scope. It is recovered from a still deeper groupoid / transport-action / constrained-stationary substrate layer.
+
+At that deeper level, the recorded reconfiguration groups
+\[
+\TensorReconGroup,\qquad
+\CurReconGroup,\qquad
+\HomReconGroup
+\]
+are the isotropy groups of exact-preserving reversible Lie groupoids at the exact-preserving base objects
+\[
+\TensorObjBase,\qquad
+\CurObjBase,\qquad
+\HomObjBase.
+\]
+Their recorded actions on the sharper sectors
+\[
+\RootTensorClass,\qquad
+\RootRelabelClass,\qquad
+\RootFreeClass
+\]
+are simply the restricted exact-preserving groupoid representations. The recorded transport layer is no longer primitive either. The state manifolds
+\[
+\TensorStateManifold,\qquad
+\CurStateManifold,\qquad
+\HomStateManifold
+\]
+are local object charts of the same deeper reversible substrate layer, and the recorded raw transport vector fields
+\[
+\TensorTransport,\qquad
+\CurTransport,\qquad
+\HomTransport
+\]
+arise as the unique stationary velocity sections of exact-preserving transport-action densities. Their flux readouts recover the recorded raw flux maps
+\[
+\TensorFlux,\qquad
+\CurFlux,\qquad
+\HomFlux,
+\]
+so the same raw balance defects, primitive density laws, continuity operators, and compatibility-current maps follow again.
+
+Likewise the recorded equilibrium-reduction layer is no longer primitive. The raw equilibrium-reduction classes
+\[
+\TensorRawEqClass,\qquad
+\CurRawEqClass,\qquad
+\HomRawEqClass
+\]
+and their reduction maps
+\[
+\TensorEqReduce,\qquad
+\CurEqReduce,\qquad
+\HomEqReduce
+\]
+are the stationary readout image of deeper constrained phase bundles. The raw equilibrium energies and raw equilibrium manifolds descend from the same constrained stationary geometry, and the same raw positive gaps are forced by constrained transverse coercivity there. Therefore the exact same reconfiguration-group / transport-law / equilibrium-reduction package is recovered. By the immediately preceding note, that same package again yields the same derivation-algebra / balance-law / equilibrium-manifold layer, the same \(\StemFunctional\), the same exact-preservation normal form, the same carrier-origin functional, the same primitive reservoir, the same microscopic-equilibrium reservoir, the same \(\Pi_{\mathrm{free}}H=0\) outcome, the same \(\Sigma^{\mathrm{cmp}}\) solve, the same one operative metric, and the same recorded Phase D / E and Phase F gains.
+
+The scope remains honest. This note does not claim a final ultraviolet completion or a completed first-principles GR derivation. Its exact positive result is narrower and precisely the one now needed: the previous reconfiguration-group / transport-law / equilibrium-reduction layer is itself no longer primitive at current scope, but arises from a still deeper groupoid / transport-action / constrained-stationary substrate layer while preserving the same downstream package. The next honest burden is one layer deeper again: whether that new deeper layer can itself be derived from yet more primitive substrate structure, or else superseded by another equally concrete observer-equation gain on the same one-metric line.
+
+\end{document}
