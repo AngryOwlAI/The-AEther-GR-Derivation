@@ -1,0 +1,1174 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal A}
+\newcommand{\ObserverMap}{\Xi}
+\newcommand{\ObserverMetric}{g^{\mathrm{br}}}
+\newcommand{\CandidateMetric}{g^{\mathrm{cand}}}
+\newcommand{\CompletedMetric}{g^{\sharp}}
+\newcommand{\BaseShift}{\Sigma^{\mathrm{IER}}}
+\newcommand{\ResponseShift}{\Sigma^{\mathrm{resp}}}
+\newcommand{\CompShift}{\Sigma^{\mathrm{cmp}}}
+\newcommand{\BaseLift}{\widehat\Sigma^{\mathrm{IER}}}
+\newcommand{\ResponseLift}{\widehat\Sigma^{\mathrm{resp}}}
+\newcommand{\CompLift}{\widehat\Sigma^{\mathrm{cmp}}}
+\newcommand{\ResidualCore}{\mathcal V_{\mu\nu}^{\mathrm{res}}}
+\newcommand{\ResidualLift}{\widehat{\mathcal V}^{\mathrm{res}}}
+\newcommand{\SubReducedEin}{\widehat{\mathcal L}}
+\newcommand{\FreeProj}{\Pi_{\mathrm{free}}}
+\newcommand{\GaugeAux}{Y}
+\newcommand{\ReducedEin}{\mathcal L_{\ObserverMetric}}
+\newcommand{\CompClass}{\mathscr C_{\mathrm{cmp}}}
+\newcommand{\MicFunctional}{\mathscr F_{\mathrm{mic}}}
+\newcommand{\PrimFunctional}{\mathscr F_{\mathrm{prim}}}
+\newcommand{\CarrierFunctional}{\mathscr F_{\mathrm{car}}}
+\newcommand{\DeepFunctional}{\mathscr F_{\mathrm{deep}}}
+\newcommand{\StemFunctional}{\mathscr F_{\mathrm{sel}}}
+\newcommand{\PrimStrain}{K}
+\newcommand{\PrimNeutral}{J}
+\newcommand{\PrimFree}{F}
+\newcommand{\CarrierSeed}{\mathfrak S}
+\newcommand{\RelabelSeed}{\mathfrak R}
+\newcommand{\FreeSeed}{\mathfrak F}
+\newcommand{\RootTensorClass}{\mathscr U_{\mathrm{car}}}
+\newcommand{\RootRelabelClass}{\mathscr U_{\mathrm{cur}}}
+\newcommand{\RootFreeClass}{\mathscr U_{\mathrm{hom}}}
+\newcommand{\TensorObjClass}{\mathcal O_{\mathrm{car}}}
+\newcommand{\CurObjClass}{\mathcal O_{\mathrm{cur}}}
+\newcommand{\HomObjClass}{\mathcal O_{\mathrm{hom}}}
+\newcommand{\TensorStatTagClass}{\mathcal Y_{\mathrm{car}}^{\mathrm{st}}}
+\newcommand{\CurStatTagClass}{\mathcal Y_{\mathrm{cur}}^{\mathrm{st}}}
+\newcommand{\HomStatTagClass}{\mathcal Y_{\mathrm{hom}}^{\mathrm{st}}}
+\newcommand{\TensorDensityClass}{\mathscr N_{\mathrm{car}}}
+\newcommand{\CurDensityClass}{\mathscr N_{\mathrm{cur}}}
+\newcommand{\HomDensityClass}{\mathscr N_{\mathrm{hom}}}
+\newcommand{\TensorFluxClass}{\mathscr J_{\mathrm{car}}}
+\newcommand{\CurFluxClass}{\mathscr J_{\mathrm{cur}}}
+\newcommand{\HomFluxClass}{\mathscr J_{\mathrm{hom}}}
+\newcommand{\TensorPhaseReadClass}{\mathscr R_{\mathrm{car}}}
+\newcommand{\CurPhaseReadClass}{\mathscr R_{\mathrm{cur}}}
+\newcommand{\HomPhaseReadClass}{\mathscr R_{\mathrm{hom}}}
+
+\newcommand{\TensorSeedSpace}{\mathcal B_{\mathrm{car}}}
+\newcommand{\CurSeedSpace}{\mathcal B_{\mathrm{cur}}}
+\newcommand{\HomSeedSpace}{\mathcal B_{\mathrm{hom}}}
+\newcommand{\TensorSeedRead}{\Pi_{\mathrm{car}}^{\mathrm{seed}}}
+\newcommand{\CurSeedRead}{\Pi_{\mathrm{cur}}^{\mathrm{seed}}}
+\newcommand{\HomSeedRead}{\Pi_{\mathrm{hom}}^{\mathrm{seed}}}
+\newcommand{\TensorSeedUnit}{u_{\mathrm{car}}^{\mathrm{seed}}}
+\newcommand{\CurSeedUnit}{u_{\mathrm{cur}}^{\mathrm{seed}}}
+\newcommand{\HomSeedUnit}{u_{\mathrm{hom}}^{\mathrm{seed}}}
+\newcommand{\TensorSeedTimeRev}{\tau_{\mathrm{car}}}
+\newcommand{\CurSeedTimeRev}{\tau_{\mathrm{cur}}}
+\newcommand{\HomSeedTimeRev}{\tau_{\mathrm{hom}}}
+\newcommand{\TensorSeedMetric}{G_{\mathrm{car}}}
+\newcommand{\CurSeedMetric}{G_{\mathrm{cur}}}
+\newcommand{\HomSeedMetric}{G_{\mathrm{hom}}}
+\newcommand{\TensorConstraintTarget}{\mathcal K_{\mathrm{car}}}
+\newcommand{\CurConstraintTarget}{\mathcal K_{\mathrm{cur}}}
+\newcommand{\HomConstraintTarget}{\mathcal K_{\mathrm{hom}}}
+\newcommand{\TensorConstraintMetric}{m_{\mathrm{car}}^{\mathrm{con}}}
+\newcommand{\CurConstraintMetric}{m_{\mathrm{cur}}^{\mathrm{con}}}
+\newcommand{\HomConstraintMetric}{m_{\mathrm{hom}}^{\mathrm{con}}}
+\newcommand{\TensorConstraintMap}{\mathfrak C_{\mathrm{car}}}
+\newcommand{\CurConstraintMap}{\mathfrak C_{\mathrm{cur}}}
+\newcommand{\HomConstraintMap}{\mathfrak C_{\mathrm{hom}}}
+\newcommand{\TensorConstraintGap}{\delta_{\mathrm{car}}}
+\newcommand{\CurConstraintGap}{\delta_{\mathrm{cur}}}
+\newcommand{\HomConstraintGap}{\delta_{\mathrm{hom}}}
+\newcommand{\TensorSeedLiouville}{\boldsymbol{\alpha}_{\mathrm{car}}}
+\newcommand{\CurSeedLiouville}{\boldsymbol{\alpha}_{\mathrm{cur}}}
+\newcommand{\HomSeedLiouville}{\boldsymbol{\alpha}_{\mathrm{hom}}}
+\newcommand{\TensorSeedSymplectic}{\boldsymbol{\Omega}_{\mathrm{car}}}
+\newcommand{\CurSeedSymplectic}{\boldsymbol{\Omega}_{\mathrm{cur}}}
+\newcommand{\HomSeedSymplectic}{\boldsymbol{\Omega}_{\mathrm{hom}}}
+\newcommand{\TensorSeedTransport}{\mathbb H_{\mathrm{car}}}
+\newcommand{\CurSeedTransport}{\mathbb H_{\mathrm{cur}}}
+\newcommand{\HomSeedTransport}{\mathbb H_{\mathrm{hom}}}
+\newcommand{\TensorSeedShadowForm}{\boldsymbol{\varsigma}_{\mathrm{car}}^{\mathrm{sub}}}
+\newcommand{\CurSeedShadowForm}{\boldsymbol{\varsigma}_{\mathrm{cur}}^{\mathrm{sub}}}
+\newcommand{\HomSeedShadowForm}{\boldsymbol{\varsigma}_{\mathrm{hom}}^{\mathrm{sub}}}
+\newcommand{\TensorSeedRateForm}{\boldsymbol{\lambda}_{\mathrm{car}}^{\mathrm{sub}}}
+\newcommand{\CurSeedRateForm}{\boldsymbol{\lambda}_{\mathrm{cur}}^{\mathrm{sub}}}
+\newcommand{\HomSeedRateForm}{\boldsymbol{\lambda}_{\mathrm{hom}}^{\mathrm{sub}}}
+\newcommand{\TensorSeedDensitySource}{\boldsymbol{q}_{\mathrm{car}}^{\mathrm{sub}}}
+\newcommand{\CurSeedDensitySource}{\boldsymbol{q}_{\mathrm{cur}}^{\mathrm{sub}}}
+\newcommand{\HomSeedDensitySource}{\boldsymbol{q}_{\mathrm{hom}}^{\mathrm{sub}}}
+\newcommand{\TensorSeedFluxSource}{\boldsymbol{j}_{\mathrm{car}}^{\mathrm{sub}}}
+\newcommand{\CurSeedFluxSource}{\boldsymbol{j}_{\mathrm{cur}}^{\mathrm{sub}}}
+\newcommand{\HomSeedFluxSource}{\boldsymbol{j}_{\mathrm{hom}}^{\mathrm{sub}}}
+\newcommand{\TensorSeedBoundarySource}{\boldsymbol{\rho}_{\mathrm{car}}^{\partial,\mathrm{sub}}}
+\newcommand{\CurSeedBoundarySource}{\boldsymbol{\rho}_{\mathrm{cur}}^{\partial,\mathrm{sub}}}
+\newcommand{\HomSeedBoundarySource}{\boldsymbol{\rho}_{\mathrm{hom}}^{\partial,\mathrm{sub}}}
+\newcommand{\TensorSeedAction}{\mathscr A_{\mathrm{car}}^{\mathrm{sub}}}
+\newcommand{\CurSeedAction}{\mathscr A_{\mathrm{cur}}^{\mathrm{sub}}}
+\newcommand{\HomSeedAction}{\mathscr A_{\mathrm{hom}}^{\mathrm{sub}}}
+
+\newcommand{\TensorAmbientSpace}{\mathcal X_{\mathrm{car}}}
+\newcommand{\CurAmbientSpace}{\mathcal X_{\mathrm{cur}}}
+\newcommand{\HomAmbientSpace}{\mathcal X_{\mathrm{hom}}}
+\newcommand{\TensorAmbientRead}{\Pi_{\mathrm{car}}^{\mathrm{amb}}}
+\newcommand{\CurAmbientRead}{\Pi_{\mathrm{cur}}^{\mathrm{amb}}}
+\newcommand{\HomAmbientRead}{\Pi_{\mathrm{hom}}^{\mathrm{amb}}}
+\newcommand{\TensorAmbientUnit}{u_{\mathrm{car}}^{\mathrm{amb}}}
+\newcommand{\CurAmbientUnit}{u_{\mathrm{cur}}^{\mathrm{amb}}}
+\newcommand{\HomAmbientUnit}{u_{\mathrm{hom}}^{\mathrm{amb}}}
+\newcommand{\TensorAmbientTimeRev}{\rho_{\mathrm{car}}^{\mathrm{amb}}}
+\newcommand{\CurAmbientTimeRev}{\rho_{\mathrm{cur}}^{\mathrm{amb}}}
+\newcommand{\HomAmbientTimeRev}{\rho_{\mathrm{hom}}^{\mathrm{amb}}}
+\newcommand{\TensorAmbientMetric}{M_{\mathrm{car}}}
+\newcommand{\CurAmbientMetric}{M_{\mathrm{cur}}}
+\newcommand{\HomAmbientMetric}{M_{\mathrm{hom}}}
+\newcommand{\TensorShellTarget}{\mathcal E_{\mathrm{car}}}
+\newcommand{\CurShellTarget}{\mathcal E_{\mathrm{cur}}}
+\newcommand{\HomShellTarget}{\mathcal E_{\mathrm{hom}}}
+\newcommand{\TensorShellMetric}{m_{\mathrm{car}}^{\mathrm{sh}}}
+\newcommand{\CurShellMetric}{m_{\mathrm{cur}}^{\mathrm{sh}}}
+\newcommand{\HomShellMetric}{m_{\mathrm{hom}}^{\mathrm{sh}}}
+\newcommand{\TensorShellSection}{\mathfrak D_{\mathrm{car}}}
+\newcommand{\CurShellSection}{\mathfrak D_{\mathrm{cur}}}
+\newcommand{\HomShellSection}{\mathfrak D_{\mathrm{hom}}}
+\newcommand{\TensorShellGap}{\eta_{\mathrm{car}}}
+\newcommand{\CurShellGap}{\eta_{\mathrm{cur}}}
+\newcommand{\HomShellGap}{\eta_{\mathrm{hom}}}
+\newcommand{\TensorAmbientConstraintMap}{\widetilde{\mathfrak C}_{\mathrm{car}}}
+\newcommand{\CurAmbientConstraintMap}{\widetilde{\mathfrak C}_{\mathrm{cur}}}
+\newcommand{\HomAmbientConstraintMap}{\widetilde{\mathfrak C}_{\mathrm{hom}}}
+\newcommand{\TensorConfigSpace}{\mathcal Q_{\mathrm{car}}}
+\newcommand{\CurConfigSpace}{\mathcal Q_{\mathrm{cur}}}
+\newcommand{\HomConfigSpace}{\mathcal Q_{\mathrm{hom}}}
+\newcommand{\TensorCotangentRealization}{\Psi_{\mathrm{car}}}
+\newcommand{\CurCotangentRealization}{\Psi_{\mathrm{cur}}}
+\newcommand{\HomCotangentRealization}{\Psi_{\mathrm{hom}}}
+\newcommand{\TensorAmbientLiouville}{\boldsymbol{\Lambda}_{\mathrm{car}}}
+\newcommand{\CurAmbientLiouville}{\boldsymbol{\Lambda}_{\mathrm{cur}}}
+\newcommand{\HomAmbientLiouville}{\boldsymbol{\Lambda}_{\mathrm{hom}}}
+\newcommand{\TensorAmbientTwo}{\boldsymbol{\Xi}_{\mathrm{car}}}
+\newcommand{\CurAmbientTwo}{\boldsymbol{\Xi}_{\mathrm{cur}}}
+\newcommand{\HomAmbientTwo}{\boldsymbol{\Xi}_{\mathrm{hom}}}
+\newcommand{\TensorAmbientTransport}{\mathbb T_{\mathrm{car}}}
+\newcommand{\CurAmbientTransport}{\mathbb T_{\mathrm{cur}}}
+\newcommand{\HomAmbientTransport}{\mathbb T_{\mathrm{hom}}}
+\newcommand{\TensorAmbientShadowForm}{\boldsymbol{\varsigma}_{\mathrm{car}}^{\mathrm{amb}}}
+\newcommand{\CurAmbientShadowForm}{\boldsymbol{\varsigma}_{\mathrm{cur}}^{\mathrm{amb}}}
+\newcommand{\HomAmbientShadowForm}{\boldsymbol{\varsigma}_{\mathrm{hom}}^{\mathrm{amb}}}
+\newcommand{\TensorAmbientRateForm}{\boldsymbol{\lambda}_{\mathrm{car}}^{\mathrm{amb}}}
+\newcommand{\CurAmbientRateForm}{\boldsymbol{\lambda}_{\mathrm{cur}}^{\mathrm{amb}}}
+\newcommand{\HomAmbientRateForm}{\boldsymbol{\lambda}_{\mathrm{hom}}^{\mathrm{amb}}}
+\newcommand{\TensorAmbientDensitySource}{\boldsymbol{q}_{\mathrm{car}}^{\mathrm{amb}}}
+\newcommand{\CurAmbientDensitySource}{\boldsymbol{q}_{\mathrm{cur}}^{\mathrm{amb}}}
+\newcommand{\HomAmbientDensitySource}{\boldsymbol{q}_{\mathrm{hom}}^{\mathrm{amb}}}
+\newcommand{\TensorAmbientFluxSource}{\boldsymbol{j}_{\mathrm{car}}^{\mathrm{amb}}}
+\newcommand{\CurAmbientFluxSource}{\boldsymbol{j}_{\mathrm{cur}}^{\mathrm{amb}}}
+\newcommand{\HomAmbientFluxSource}{\boldsymbol{j}_{\mathrm{hom}}^{\mathrm{amb}}}
+\newcommand{\TensorAmbientBoundarySource}{\boldsymbol{\rho}_{\mathrm{car}}^{\partial,\mathrm{amb}}}
+\newcommand{\CurAmbientBoundarySource}{\boldsymbol{\rho}_{\mathrm{cur}}^{\partial,\mathrm{amb}}}
+\newcommand{\HomAmbientBoundarySource}{\boldsymbol{\rho}_{\mathrm{hom}}^{\partial,\mathrm{amb}}}
+\newcommand{\TensorAmbientAction}{\mathscr A_{\mathrm{car}}^{\mathrm{amb}}}
+\newcommand{\CurAmbientAction}{\mathscr A_{\mathrm{cur}}^{\mathrm{amb}}}
+\newcommand{\HomAmbientAction}{\mathscr A_{\mathrm{hom}}^{\mathrm{amb}}}
+
+\newcommand{\TensorOriginSpace}{\mathcal M_{\mathrm{car}}}
+\newcommand{\CurOriginSpace}{\mathcal M_{\mathrm{cur}}}
+\newcommand{\HomOriginSpace}{\mathcal M_{\mathrm{hom}}}
+\newcommand{\TensorOriginRead}{\Pi_{\mathrm{car}}^{\mathrm{orig}}}
+\newcommand{\CurOriginRead}{\Pi_{\mathrm{cur}}^{\mathrm{orig}}}
+\newcommand{\HomOriginRead}{\Pi_{\mathrm{hom}}^{\mathrm{orig}}}
+\newcommand{\TensorOriginUnit}{u_{\mathrm{car}}^{\mathrm{orig}}}
+\newcommand{\CurOriginUnit}{u_{\mathrm{cur}}^{\mathrm{orig}}}
+\newcommand{\HomOriginUnit}{u_{\mathrm{hom}}^{\mathrm{orig}}}
+\newcommand{\TensorOriginTimeRev}{\rho_{\mathrm{car}}^{\mathrm{orig}}}
+\newcommand{\CurOriginTimeRev}{\rho_{\mathrm{cur}}^{\mathrm{orig}}}
+\newcommand{\HomOriginTimeRev}{\rho_{\mathrm{hom}}^{\mathrm{orig}}}
+\newcommand{\TensorOriginSpaceMetric}{\widetilde M_{\mathrm{car}}}
+\newcommand{\CurOriginSpaceMetric}{\widetilde M_{\mathrm{cur}}}
+\newcommand{\HomOriginSpaceMetric}{\widetilde M_{\mathrm{hom}}}
+\newcommand{\TensorOriginTarget}{\mathcal H_{\mathrm{car}}^{\mathrm{orig}}}
+\newcommand{\CurOriginTarget}{\mathcal H_{\mathrm{cur}}^{\mathrm{orig}}}
+\newcommand{\HomOriginTarget}{\mathcal H_{\mathrm{hom}}^{\mathrm{orig}}}
+\newcommand{\TensorOriginTargetMetric}{n_{\mathrm{car}}^{\mathrm{orig}}}
+\newcommand{\CurOriginTargetMetric}{n_{\mathrm{cur}}^{\mathrm{orig}}}
+\newcommand{\HomOriginTargetMetric}{n_{\mathrm{hom}}^{\mathrm{orig}}}
+\newcommand{\TensorOriginSection}{\mathfrak S_{\mathrm{car}}^{\mathrm{orig}}}
+\newcommand{\CurOriginSection}{\mathfrak S_{\mathrm{cur}}^{\mathrm{orig}}}
+\newcommand{\HomOriginSection}{\mathfrak S_{\mathrm{hom}}^{\mathrm{orig}}}
+\newcommand{\TensorOriginGap}{\epsilon_{\mathrm{car}}^{\mathrm{orig}}}
+\newcommand{\CurOriginGap}{\epsilon_{\mathrm{cur}}^{\mathrm{orig}}}
+\newcommand{\HomOriginGap}{\epsilon_{\mathrm{hom}}^{\mathrm{orig}}}
+\newcommand{\TensorAmbientInc}{\iota_{\mathrm{car}}^{\mathrm{amb}}}
+\newcommand{\CurAmbientInc}{\iota_{\mathrm{cur}}^{\mathrm{amb}}}
+\newcommand{\HomAmbientInc}{\iota_{\mathrm{hom}}^{\mathrm{amb}}}
+\newcommand{\TensorLiftedShellSection}{\widehat{\mathfrak D}_{\mathrm{car}}}
+\newcommand{\CurLiftedShellSection}{\widehat{\mathfrak D}_{\mathrm{cur}}}
+\newcommand{\HomLiftedShellSection}{\widehat{\mathfrak D}_{\mathrm{hom}}}
+\newcommand{\TensorOriginConstraintMap}{\widehat{\mathfrak C}_{\mathrm{car}}}
+\newcommand{\CurOriginConstraintMap}{\widehat{\mathfrak C}_{\mathrm{cur}}}
+\newcommand{\HomOriginConstraintMap}{\widehat{\mathfrak C}_{\mathrm{hom}}}
+\newcommand{\TensorOriginCotangentRealization}{\widehat\Psi_{\mathrm{car}}}
+\newcommand{\CurOriginCotangentRealization}{\widehat\Psi_{\mathrm{cur}}}
+\newcommand{\HomOriginCotangentRealization}{\widehat\Psi_{\mathrm{hom}}}
+\newcommand{\TensorOriginLiouville}{\boldsymbol{\Lambda}_{\mathrm{car}}^{\mathrm{orig}}}
+\newcommand{\CurOriginLiouville}{\boldsymbol{\Lambda}_{\mathrm{cur}}^{\mathrm{orig}}}
+\newcommand{\HomOriginLiouville}{\boldsymbol{\Lambda}_{\mathrm{hom}}^{\mathrm{orig}}}
+\newcommand{\TensorOriginTwo}{\boldsymbol{\Xi}_{\mathrm{car}}^{\mathrm{orig}}}
+\newcommand{\CurOriginTwo}{\boldsymbol{\Xi}_{\mathrm{cur}}^{\mathrm{orig}}}
+\newcommand{\HomOriginTwo}{\boldsymbol{\Xi}_{\mathrm{hom}}^{\mathrm{orig}}}
+\newcommand{\TensorConnectionForm}{\mathcal A_{\mathrm{car}}^{\mathrm{conn}}}
+\newcommand{\CurConnectionForm}{\mathcal A_{\mathrm{cur}}^{\mathrm{conn}}}
+\newcommand{\HomConnectionForm}{\mathcal A_{\mathrm{hom}}^{\mathrm{conn}}}
+\newcommand{\TensorOriginTransport}{\widehat{\mathbb T}_{\mathrm{car}}}
+\newcommand{\CurOriginTransport}{\widehat{\mathbb T}_{\mathrm{cur}}}
+\newcommand{\HomOriginTransport}{\widehat{\mathbb T}_{\mathrm{hom}}}
+\newcommand{\TensorOriginShadowForm}{\boldsymbol{\varsigma}_{\mathrm{car}}^{\mathrm{orig}}}
+\newcommand{\CurOriginShadowForm}{\boldsymbol{\varsigma}_{\mathrm{cur}}^{\mathrm{orig}}}
+\newcommand{\HomOriginShadowForm}{\boldsymbol{\varsigma}_{\mathrm{hom}}^{\mathrm{orig}}}
+\newcommand{\TensorOriginRateForm}{\boldsymbol{\lambda}_{\mathrm{car}}^{\mathrm{orig}}}
+\newcommand{\CurOriginRateForm}{\boldsymbol{\lambda}_{\mathrm{cur}}^{\mathrm{orig}}}
+\newcommand{\HomOriginRateForm}{\boldsymbol{\lambda}_{\mathrm{hom}}^{\mathrm{orig}}}
+\newcommand{\TensorOriginDensitySource}{\boldsymbol{q}_{\mathrm{car}}^{\mathrm{orig}}}
+\newcommand{\CurOriginDensitySource}{\boldsymbol{q}_{\mathrm{cur}}^{\mathrm{orig}}}
+\newcommand{\HomOriginDensitySource}{\boldsymbol{q}_{\mathrm{hom}}^{\mathrm{orig}}}
+\newcommand{\TensorOriginFluxSource}{\boldsymbol{j}_{\mathrm{car}}^{\mathrm{orig}}}
+\newcommand{\CurOriginFluxSource}{\boldsymbol{j}_{\mathrm{cur}}^{\mathrm{orig}}}
+\newcommand{\HomOriginFluxSource}{\boldsymbol{j}_{\mathrm{hom}}^{\mathrm{orig}}}
+\newcommand{\TensorOriginBoundarySource}{\boldsymbol{\rho}_{\mathrm{car}}^{\partial,\mathrm{orig}}}
+\newcommand{\CurOriginBoundarySource}{\boldsymbol{\rho}_{\mathrm{cur}}^{\partial,\mathrm{orig}}}
+\newcommand{\HomOriginBoundarySource}{\boldsymbol{\rho}_{\mathrm{hom}}^{\partial,\mathrm{orig}}}
+\newcommand{\TensorOriginAction}{\mathscr A_{\mathrm{car}}^{\mathrm{orig}}}
+\newcommand{\CurOriginAction}{\mathscr A_{\mathrm{cur}}^{\mathrm{orig}}}
+\newcommand{\HomOriginAction}{\mathscr A_{\mathrm{hom}}^{\mathrm{orig}}}
+
+\newcommand{\TensorRootSpace}{\mathcal R_{\mathrm{car}}}
+\newcommand{\CurRootSpace}{\mathcal R_{\mathrm{cur}}}
+\newcommand{\HomRootSpace}{\mathcal R_{\mathrm{hom}}}
+\newcommand{\TensorRootRead}{\Pi_{\mathrm{car}}^{\mathrm{root}}}
+\newcommand{\CurRootRead}{\Pi_{\mathrm{cur}}^{\mathrm{root}}}
+\newcommand{\HomRootRead}{\Pi_{\mathrm{hom}}^{\mathrm{root}}}
+\newcommand{\TensorRootUnit}{u_{\mathrm{car}}^{\mathrm{root}}}
+\newcommand{\CurRootUnit}{u_{\mathrm{cur}}^{\mathrm{root}}}
+\newcommand{\HomRootUnit}{u_{\mathrm{hom}}^{\mathrm{root}}}
+\newcommand{\TensorRootTimeRev}{\varrho_{\mathrm{car}}^{\mathrm{root}}}
+\newcommand{\CurRootTimeRev}{\varrho_{\mathrm{cur}}^{\mathrm{root}}}
+\newcommand{\HomRootTimeRev}{\varrho_{\mathrm{hom}}^{\mathrm{root}}}
+\newcommand{\TensorRootSpaceMetric}{\overline M_{\mathrm{car}}}
+\newcommand{\CurRootSpaceMetric}{\overline M_{\mathrm{cur}}}
+\newcommand{\HomRootSpaceMetric}{\overline M_{\mathrm{hom}}}
+\newcommand{\TensorRootTarget}{\mathcal Z_{\mathrm{car}}^{\mathrm{root}}}
+\newcommand{\CurRootTarget}{\mathcal Z_{\mathrm{cur}}^{\mathrm{root}}}
+\newcommand{\HomRootTarget}{\mathcal Z_{\mathrm{hom}}^{\mathrm{root}}}
+\newcommand{\TensorRootTargetMetric}{p_{\mathrm{car}}^{\mathrm{root}}}
+\newcommand{\CurRootTargetMetric}{p_{\mathrm{cur}}^{\mathrm{root}}}
+\newcommand{\HomRootTargetMetric}{p_{\mathrm{hom}}^{\mathrm{root}}}
+\newcommand{\TensorRootSection}{\mathfrak Z_{\mathrm{car}}^{\mathrm{root}}}
+\newcommand{\CurRootSection}{\mathfrak Z_{\mathrm{cur}}^{\mathrm{root}}}
+\newcommand{\HomRootSection}{\mathfrak Z_{\mathrm{hom}}^{\mathrm{root}}}
+\newcommand{\TensorRootGap}{\kappa_{\mathrm{car}}^{\mathrm{root}}}
+\newcommand{\CurRootGap}{\kappa_{\mathrm{cur}}^{\mathrm{root}}}
+\newcommand{\HomRootGap}{\kappa_{\mathrm{hom}}^{\mathrm{root}}}
+\newcommand{\TensorOriginInc}{\iota_{\mathrm{car}}^{\mathrm{orig}}}
+\newcommand{\CurOriginInc}{\iota_{\mathrm{cur}}^{\mathrm{orig}}}
+\newcommand{\HomOriginInc}{\iota_{\mathrm{hom}}^{\mathrm{orig}}}
+\newcommand{\TensorLiftedAmbientSection}{\widetilde{\mathfrak S}_{\mathrm{car}}^{\mathrm{orig}}}
+\newcommand{\CurLiftedAmbientSection}{\widetilde{\mathfrak S}_{\mathrm{cur}}^{\mathrm{orig}}}
+\newcommand{\HomLiftedAmbientSection}{\widetilde{\mathfrak S}_{\mathrm{hom}}^{\mathrm{orig}}}
+\newcommand{\TensorRootLiftedShellSection}{\widetilde{\mathfrak D}_{\mathrm{car}}^{\mathrm{root}}}
+\newcommand{\CurRootLiftedShellSection}{\widetilde{\mathfrak D}_{\mathrm{cur}}^{\mathrm{root}}}
+\newcommand{\HomRootLiftedShellSection}{\widetilde{\mathfrak D}_{\mathrm{hom}}^{\mathrm{root}}}
+\newcommand{\TensorRootConstraintMap}{\widetilde{\mathfrak C}_{\mathrm{car}}^{\mathrm{root}}}
+\newcommand{\CurRootConstraintMap}{\widetilde{\mathfrak C}_{\mathrm{cur}}^{\mathrm{root}}}
+\newcommand{\HomRootConstraintMap}{\widetilde{\mathfrak C}_{\mathrm{hom}}^{\mathrm{root}}}
+\newcommand{\TensorRootCotangentRealization}{\widetilde{\Psi}_{\mathrm{car}}^{\mathrm{root}}}
+\newcommand{\CurRootCotangentRealization}{\widetilde{\Psi}_{\mathrm{cur}}^{\mathrm{root}}}
+\newcommand{\HomRootCotangentRealization}{\widetilde{\Psi}_{\mathrm{hom}}^{\mathrm{root}}}
+\newcommand{\TensorRootLiouville}{\boldsymbol{\Lambda}_{\mathrm{car}}^{\mathrm{root}}}
+\newcommand{\CurRootLiouville}{\boldsymbol{\Lambda}_{\mathrm{cur}}^{\mathrm{root}}}
+\newcommand{\HomRootLiouville}{\boldsymbol{\Lambda}_{\mathrm{hom}}^{\mathrm{root}}}
+\newcommand{\TensorRootTwo}{\boldsymbol{\Xi}_{\mathrm{car}}^{\mathrm{root}}}
+\newcommand{\CurRootTwo}{\boldsymbol{\Xi}_{\mathrm{cur}}^{\mathrm{root}}}
+\newcommand{\HomRootTwo}{\boldsymbol{\Xi}_{\mathrm{hom}}^{\mathrm{root}}}
+\newcommand{\TensorRootConnectionForm}{\mathcal B_{\mathrm{car}}^{\mathrm{conn}}}
+\newcommand{\CurRootConnectionForm}{\mathcal B_{\mathrm{cur}}^{\mathrm{conn}}}
+\newcommand{\HomRootConnectionForm}{\mathcal B_{\mathrm{hom}}^{\mathrm{conn}}}
+\newcommand{\TensorRootTransport}{\mathbb P_{\mathrm{car}}}
+\newcommand{\CurRootTransport}{\mathbb P_{\mathrm{cur}}}
+\newcommand{\HomRootTransport}{\mathbb P_{\mathrm{hom}}}
+\newcommand{\TensorRootShadowForm}{\boldsymbol{\varsigma}_{\mathrm{car}}^{\mathrm{root}}}
+\newcommand{\CurRootShadowForm}{\boldsymbol{\varsigma}_{\mathrm{cur}}^{\mathrm{root}}}
+\newcommand{\HomRootShadowForm}{\boldsymbol{\varsigma}_{\mathrm{hom}}^{\mathrm{root}}}
+\newcommand{\TensorRootRateForm}{\boldsymbol{\lambda}_{\mathrm{car}}^{\mathrm{root}}}
+\newcommand{\CurRootRateForm}{\boldsymbol{\lambda}_{\mathrm{cur}}^{\mathrm{root}}}
+\newcommand{\HomRootRateForm}{\boldsymbol{\lambda}_{\mathrm{hom}}^{\mathrm{root}}}
+\newcommand{\TensorRootDensitySource}{\boldsymbol{q}_{\mathrm{car}}^{\mathrm{root}}}
+\newcommand{\CurRootDensitySource}{\boldsymbol{q}_{\mathrm{cur}}^{\mathrm{root}}}
+\newcommand{\HomRootDensitySource}{\boldsymbol{q}_{\mathrm{hom}}^{\mathrm{root}}}
+\newcommand{\TensorRootFluxSource}{\boldsymbol{j}_{\mathrm{car}}^{\mathrm{root}}}
+\newcommand{\CurRootFluxSource}{\boldsymbol{j}_{\mathrm{cur}}^{\mathrm{root}}}
+\newcommand{\HomRootFluxSource}{\boldsymbol{j}_{\mathrm{hom}}^{\mathrm{root}}}
+\newcommand{\TensorRootBoundarySource}{\boldsymbol{\rho}_{\mathrm{car}}^{\partial,\mathrm{root}}}
+\newcommand{\CurRootBoundarySource}{\boldsymbol{\rho}_{\mathrm{cur}}^{\partial,\mathrm{root}}}
+\newcommand{\HomRootBoundarySource}{\boldsymbol{\rho}_{\mathrm{hom}}^{\partial,\mathrm{root}}}
+\newcommand{\TensorRootAction}{\mathscr A_{\mathrm{car}}^{\mathrm{root}}}
+\newcommand{\CurRootAction}{\mathscr A_{\mathrm{cur}}^{\mathrm{root}}}
+\newcommand{\HomRootAction}{\mathscr A_{\mathrm{hom}}^{\mathrm{root}}}
+\newcommand{\Crit}{\operatorname{Crit}}
+\newcommand{\LieU}{\mathfrak u}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Substrate-Response / Self-Response Charge-Polarization Candidate\\
+\large Exact-Preservation Pre-Ambient Shell / Connection-Cotangent / Parallel-Transport\\
+\large Origin Note}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The exact-preservation ambient-shell / cotangent-Liouville / connection-holonomy origin note already shows that the previously recorded ambient layer is not primitive at present scope. It is recovered there from deeper pre-ambient substrate bundles carrying ambient-generating shell sections, lifted shell maps and lifted exact-constraint maps into the same target metrics, pre-ambient cotangent-model Liouville one-forms and closed two-form geometry, connection one-forms and induced parallel transports, pre-ambient-basic shadow / rate / density / flux / boundary data, and fixed-endpoint pre-ambient rate-action geometry. What remained open is one layer deeper again: why that pre-ambient layer itself should exist rather than becoming the present deepest disciplined postulate.
+
+The present note addresses exactly that narrower burden. It keeps fixed the same exact-preservation target: the same \(\StemFunctional\), the same exact-preservation normal form \(\DeepFunctional\), the same carrier-origin / primitive-reservoir / microscopic-equilibrium functionals
+\[
+\CarrierFunctional[\CarrierSeed,\RelabelSeed,\FreeSeed],\qquad
+\PrimFunctional[\PrimStrain,\PrimNeutral,\PrimFree],\qquad
+\MicFunctional[H,\GaugeAux],
+\]
+the same \(\Sigma^{\mathrm{cmp}}\) solve, the same \(\Pi_{\mathrm{free}}H=0\) outcome, the same one operative metric, and the same recorded Phase D / E and Phase F gains. Its positive move is to place the recorded pre-ambient-shell / connection-cotangent / parallel-transport layer under a still deeper root-shell / lifted connection-cotangent construction:
+\begin{enumerate}
+    \item finite-dimensional exact-preserving root substrate bundles with visible readouts, unit sections, time reversals, preserved positive metrics, and compact visible fibers;
+    \item pre-ambient-generating shell sections whose zero loci are exactly the recorded pre-ambient substrate bundles;
+    \item lifted ambient-generating shell sections, lifted shell maps, and lifted exact-constraint maps into the same positive target metrics whose pre-ambient restrictions are exactly the recorded ambient-generating shell sections, lifted shell maps, and lifted exact-constraint maps;
+    \item cotangent-model Liouville one-forms and closed two-forms on the root bundles whose pre-ambient restrictions are exactly the recorded pre-ambient Liouville and closed two-form geometry;
+    \item exact-preserving unitary root connection one-forms whose parallel transports along root curves restrict exactly to the recorded pre-ambient connection one-forms and their induced parallel transports;
+    \item root-basic shadow / rate / density / flux / boundary data and fixed-endpoint root rate actions whose pre-ambient restrictions are exactly the recorded pre-ambient-basic data and the same fixed-endpoint pre-ambient rate-action geometry.
+\end{enumerate}
+
+At current exact-preservation scope, the pre-ambient substrate bundles, their ambient-generating shell sections, their lifted shell maps and lifted exact-constraint maps with the same target metrics, their pre-ambient cotangent-model Liouville one-forms and closed two-form geometry, their connection one-forms and induced parallel transports, their pre-ambient-basic shadow / rate / density / flux / boundary data, and their fixed-endpoint pre-ambient rate-action geometry are therefore no longer primitive either. Because the present note reproduces the full input layer of the immediately preceding ambient-shell / cotangent-Liouville / connection-holonomy origin note without change, that note applies verbatim. Consequently the same ambient-shell / cotangent-Liouville / connection-holonomy layer, the same process-state layer, the same reversible process-thread / process-window / history / groupoid / reconfiguration / derivation chain, the same \(\StemFunctional\), the same exact-preservation normal form, the same carrier-origin / primitive-reservoir / microscopic-equilibrium functionals, the same \(\Sigma^{\mathrm{cmp}}\) solve, the same \(\Pi_{\mathrm{free}}H=0\) outcome, the same observer-equation closure, the same one operative metric, and the same recorded Phase D / E and Phase F gains are preserved without change.
+
+The scope remains disciplined. This note does not claim a final microscopic completion, a uniqueness theorem for every conceivable deeper realization, or a completed first-principles derivation of GR. Its narrower exact positive claim is only that the recorded pre-ambient-shell / connection-cotangent / parallel-transport layer is itself no longer primitive at present scope, but is forced by a still deeper root-shell / lifted connection-cotangent layer while preserving the same downstream package.
+\end{abstract}
+
+\section{Introduction}
+
+The active one-metric charge-polarization line has now crossed the candidate, benchmark-gate, controlled-limit, residual-sector, redesign, substrate-anchoring, substrate-action, kernel-origin, deeper-selection, primitive-reservoir, carrier-origin, precursor-selection, exact-preservation normal-form, microphysical-Hessian, charge-generator, derivation-algebra, reconfiguration-group, reversible-groupoid, reversible-history, reversible process-window, reversible process-thread, process-state, proto-process, constraint-shell / Liouville-holonomy, and ambient-shell / cotangent-connection origin steps on the same GR-directed route. The burden therefore sharpens again. It is not another packaging pass. It is not stronger promotion language. It is not, by default, a move onto the anchored positive-pair side line. It is to go one layer below the currently recorded pre-ambient-shell / connection-cotangent / parallel-transport construction itself and explain why that construction is forced.
+
+That burden has seven parts. First, one must explain why the exact-preserving pre-ambient substrate bundles
+\[
+\TensorOriginSpace,\qquad
+\CurOriginSpace,\qquad
+\HomOriginSpace
+\]
+should exist rather than being declared. Second, one must explain why the visible pre-ambient readouts, pre-ambient unit sections, pre-ambient time reversals, preserved positive pre-ambient metrics, and compact visible pre-ambient fibers should be forced rather than inserted independently. Third, one must explain why the ambient-generating shell sections
+\[
+\TensorOriginSection,\qquad
+\CurOriginSection,\qquad
+\HomOriginSection
+\]
+should be forced rather than postulated. Fourth, one must explain why the lifted shell maps
+\[
+\TensorLiftedShellSection,\qquad
+\CurLiftedShellSection,\qquad
+\HomLiftedShellSection
+\]
+and lifted exact-constraint maps
+\[
+\TensorOriginConstraintMap,\qquad
+\CurOriginConstraintMap,\qquad
+\HomOriginConstraintMap
+\]
+into the same target metrics should themselves be induced rather than separately chosen. Fifth, one must explain why the pre-ambient cotangent-model Liouville one-forms
+\[
+\TensorOriginLiouville,\qquad
+\CurOriginLiouville,\qquad
+\HomOriginLiouville
+\]
+their closed two-forms
+\[
+\TensorOriginTwo,\qquad
+\CurOriginTwo,\qquad
+\HomOriginTwo
+\]
+and the pre-ambient connection one-forms
+\[
+\TensorConnectionForm,\qquad
+\CurConnectionForm,\qquad
+\HomConnectionForm
+\]
+together with their induced parallel transports
+\[
+\TensorOriginTransport,\qquad
+\CurOriginTransport,\qquad
+\HomOriginTransport
+\]
+should themselves be induced rather than separately prescribed. Sixth, one must explain why the pre-ambient-basic shadow / rate / density / flux / boundary data and the fixed-endpoint pre-ambient rate-action geometry should be forced rather than added as independent decorations. Seventh, one must re-show that solving these deeper burdens changes none of the already recorded downstream gains: the same ambient-shell / cotangent-Liouville / connection-holonomy layer, the same process-state layer, the same reversible process-thread / process-window / history / groupoid / reconfiguration / derivation chain, the same \(\StemFunctional\), the same exact-preservation normal form, the same carrier-origin / primitive-reservoir / microscopic-equilibrium functionals, the same \(\Sigma^{\mathrm{cmp}}\) solve, the same \(\Pi_{\mathrm{free}}H=0\) outcome, the same observer-equation closure, the same one operative metric, and the same recorded Phase D / E and Phase F gains must remain intact.
+
+The positive claim of the present note is that there is a disciplined way to do exactly that. One introduces a still deeper root exact-preserving layer whose visible fibers are compact, whose pre-ambient-generating shell sections cut out the current pre-ambient bundles as exact zero shells, whose lifted ambient-generating shell maps, lifted shell maps, and lifted exact-constraint maps restrict to the current pre-ambient maps, whose cotangent-model one-forms descend by shell restriction to the current pre-ambient Liouville geometry, whose skew-Hermitian root connection one-forms restrict to the current pre-ambient connection one-forms and generate the current pre-ambient transports by parallel transport, and whose root-basic one-forms / source fields / boundary potentials together with the same fixed-endpoint variational structure restrict to the current pre-ambient-basic data. The immediately preceding ambient-shell / cotangent-Liouville / connection-holonomy note can then be invoked without alteration, so the whole downstream chain is preserved verbatim.
+
+\section{Fixed Inputs from the Recorded Completion Line}
+
+\begin{definition}[Fixed branch and downstream completion target]
+\label{def:fixed_branch}
+The present note keeps fixed the same charge-polarization branch
+\begin{equation}
+\CandidateMetric
+=
+\ObserverMetric+\BaseShift+\ResponseShift,
+\qquad
+\CompletedMetric
+=
+\ObserverMetric+\BaseShift+\ResponseShift+\CompShift,
+\label{eq:fixed_metrics}
+\end{equation}
+with lifted variables satisfying
+\begin{equation}
+\ObserverMap^*\BaseLift=\BaseShift,
+\qquad
+\ObserverMap^*\ResponseLift=\ResponseShift,
+\qquad
+\ObserverMap^*\CompLift=\CompShift.
+\label{eq:fixed_lifts}
+\end{equation}
+The same completion class and the same free-sector condition are fixed:
+\begin{equation}
+\CompLift\in\CompClass,
+\qquad
+\FreeProj\CompLift=0.
+\label{eq:fixed_free}
+\end{equation}
+The same substrate and observer completion equations are fixed as well:
+\begin{equation}
+\SubReducedEin(\CompLift)=-\ResidualLift,
+\qquad
+\ReducedEin(\CompShift)=-\ResidualCore.
+\label{eq:fixed_solves}
+\end{equation}
+Every statement below must preserve these equations together with the same one operative metric \(\CompletedMetric\).
+\end{definition}
+
+\begin{definition}[Recorded pre-ambient-shell / connection-cotangent / parallel-transport input layer]
+\label{def:recorded_origin_layer}
+The immediately preceding ambient-shell / cotangent-Liouville / connection-holonomy origin note fixes the following exact-preserving input layer.
+\begin{enumerate}
+    \item Finite-dimensional exact-preserving pre-ambient substrate bundles
+    \[
+    \TensorOriginSpace,\qquad
+    \CurOriginSpace,\qquad
+    \HomOriginSpace
+    \]
+    with visible pre-ambient readout maps
+    \[
+    \TensorOriginRead,\qquad
+    \CurOriginRead,\qquad
+    \HomOriginRead,
+    \]
+    exact-preserving pre-ambient unit sections
+    \[
+    \TensorOriginUnit,\qquad
+    \CurOriginUnit,\qquad
+    \HomOriginUnit,
+    \]
+    involutive pre-ambient time reversals
+    \[
+    \TensorOriginTimeRev,\qquad
+    \CurOriginTimeRev,\qquad
+    \HomOriginTimeRev,
+    \]
+    and preserved positive pre-ambient metrics
+    \[
+    \TensorOriginSpaceMetric,\qquad
+    \CurOriginSpaceMetric,\qquad
+    \HomOriginSpaceMetric.
+    \]
+    Each visible pre-ambient fiber is compact.
+    \item Finite-dimensional real ambient-generating target spaces
+    \[
+    \TensorOriginTarget,\qquad
+    \CurOriginTarget,\qquad
+    \HomOriginTarget
+    \]
+    with positive metrics
+    \[
+    \TensorOriginTargetMetric,\qquad
+    \CurOriginTargetMetric,\qquad
+    \HomOriginTargetMetric,
+    \]
+    and exact-preserving ambient-generating shell sections
+    \[
+    \TensorOriginSection,\qquad
+    \CurOriginSection,\qquad
+    \HomOriginSection
+    \]
+    whose zero loci are exactly the current ambient substrate bundles. These sections carry the same recorded positive ambient-generating gap bounds \(\TensorOriginGap,\CurOriginGap,\HomOriginGap>0\) on the current ambient shells.
+    \item Exact-preserving lifted shell maps
+    \[
+    \TensorLiftedShellSection,\qquad
+    \CurLiftedShellSection,\qquad
+    \HomLiftedShellSection
+    \]
+    into the same positive shell target spaces \(\TensorShellTarget,\CurShellTarget,\HomShellTarget\) with the same positive shell target metrics \(\TensorShellMetric,\CurShellMetric,\HomShellMetric\). Their restrictions to the current pre-ambient shells are exactly the recorded ambient shell sections and carry the same recorded positive shell-gap bounds \(\TensorShellGap,\CurShellGap,\HomShellGap>0\) on the current seed shells.
+    \item Exact-preserving lifted exact-constraint maps
+    \[
+    \TensorOriginConstraintMap,\qquad
+    \CurOriginConstraintMap,\qquad
+    \HomOriginConstraintMap
+    \]
+    into the same positive target spaces \(\TensorConstraintTarget,\CurConstraintTarget,\HomConstraintTarget\) with the same positive target metrics \(\TensorConstraintMetric,\CurConstraintMetric,\HomConstraintMetric\). Their restrictions to the current ambient shells are exactly the recorded ambient exact-constraint maps and carry the same recorded positive exact-constraint gap bounds \(\TensorConstraintGap,\CurConstraintGap,\HomConstraintGap>0\).
+    \item Exact-preserving cotangent realizations
+    \[
+    \TensorOriginCotangentRealization,\qquad
+    \CurOriginCotangentRealization,\qquad
+    \HomOriginCotangentRealization
+    \]
+    into the cotangent bundles of the same configuration spaces \(\TensorConfigSpace,\CurConfigSpace,\HomConfigSpace\), producing the pre-ambient Liouville one-forms
+    \[
+    \TensorOriginLiouville,\qquad
+    \CurOriginLiouville,\qquad
+    \HomOriginLiouville
+    \]
+    and the closed pre-ambient two-forms
+    \[
+    \TensorOriginTwo,\qquad
+    \CurOriginTwo,\qquad
+    \HomOriginTwo.
+    \]
+    Their ambient restrictions are exactly the recorded ambient Liouville one-forms and ambient closed two-form geometry.
+    \item Exact-preserving skew-Hermitian connection one-forms
+    \[
+    \TensorConnectionForm\in\Omega^1(\TensorOriginSpace;\LieU(\RootTensorClass)),\qquad
+    \CurConnectionForm\in\Omega^1(\CurOriginSpace;\LieU(\RootRelabelClass)),\qquad
+    \HomConnectionForm\in\Omega^1(\HomOriginSpace;\LieU(\RootFreeClass))
+    \]
+    and the induced exact-preserving unitary parallel transports
+    \[
+    \TensorOriginTransport,\qquad
+    \CurOriginTransport,\qquad
+    \HomOriginTransport
+    \]
+    attached to piecewise \(C^1\) pre-ambient curves, identity on constant curves, multiplicative under concatenation, inverse under the corresponding pre-ambient time reversals, and exact-preserving on the fixed branch. Their ambient restrictions are exactly the recorded ambient holonomies.
+    \item Exact-preserving pre-ambient shadow one-forms
+    \[
+    \TensorOriginShadowForm,\qquad
+    \CurOriginShadowForm,\qquad
+    \HomOriginShadowForm,
+    \]
+    pre-ambient rate one-forms
+    \[
+    \TensorOriginRateForm,\qquad
+    \CurOriginRateForm,\qquad
+    \HomOriginRateForm,
+    \]
+    pre-ambient density and pre-ambient flux source fields
+    \[
+    \TensorOriginDensitySource,\qquad
+    \CurOriginDensitySource,\qquad
+    \HomOriginDensitySource,\qquad
+    \TensorOriginFluxSource,\qquad
+    \CurOriginFluxSource,\qquad
+    \HomOriginFluxSource,
+    \]
+    and pre-ambient boundary potentials
+    \[
+    \TensorOriginBoundarySource,\qquad
+    \CurOriginBoundarySource,\qquad
+    \HomOriginBoundarySource.
+    \]
+    Their ambient restrictions are exactly the recorded ambient-basic shadow / rate / density / flux / boundary data.
+    \item Fixed-endpoint pre-ambient actions
+    \[
+    \TensorOriginAction,\qquad
+    \CurOriginAction,\qquad
+    \HomOriginAction
+    \]
+    on curves constrained to the current ambient exact-constraint shells inside the pre-ambient bundles, whose stationary curves are exactly the curves singled out there by the restricted pre-ambient Liouville / exact-constraint geometry, whose first variations vanish automatically along the characteristic, symmetry, vertical ambient-fiber, and ambient-shell-normal directions, and whose second variations are positive on smooth endpoint-fixed complements to those directions and to the normal exact-constraint directions singled out by \(\TensorConstraintGap,\CurConstraintGap,\HomConstraintGap\). These actions restrict to exactly the same fixed-endpoint ambient rate-action geometry already recorded below them.
+\end{enumerate}
+These data are exact fixed inputs for the present note. The only admissible positive result is to derive or justify why this full layer is itself forced while keeping it unchanged.
+\end{definition}
+
+\begin{definition}[Recorded exact-preservation target]
+\label{def:recorded_target}
+The present note must preserve, without any modification,
+\begin{equation}
+\StemFunctional,
+\qquad
+\DeepFunctional,
+\qquad
+\CarrierFunctional[\CarrierSeed,\RelabelSeed,\FreeSeed],
+\qquad
+\PrimFunctional[\PrimStrain,\PrimNeutral,\PrimFree],
+\qquad
+\MicFunctional[H,\GaugeAux],
+\label{eq:target_functionals}
+\end{equation}
+together with the fixed free-sector verdict
+\begin{equation}
+\FreeProj\CompLift=0,
+\label{eq:target_free}
+\end{equation}
+and hence the same previously recorded \(\Pi_{\mathrm{free}}H=0\) outcome, the same completion solve
+\begin{equation}
+\CompShift=\Sigma^{\mathrm{cmp}},
+\label{eq:target_sigma}
+\end{equation}
+the same one operative metric \(\CompletedMetric\), and the same recorded Phase D / E infrared-spectrum and universal-coupling verdicts together with the same Phase F controlled GR limit.
+\end{definition}
+
+\section{Root-Shell and Lifted Connection-Cotangent Origin of the Pre-Ambient Geometry}
+
+\begin{definition}[Primitive root-shell / lifted connection-cotangent geometry]
+\label{def:root_geometry}
+For each sharper sector, let
+\[
+\TensorRootSpace,\qquad
+\CurRootSpace,\qquad
+\HomRootSpace
+\]
+be finite-dimensional \(C^2\) manifolds of more primitive exact-preserving substrate states. Assume:
+\begin{enumerate}
+    \item there are smooth visible root readout maps
+    \[
+    \TensorRootRead:\TensorRootSpace\to\TensorObjClass,\qquad
+    \CurRootRead:\CurRootSpace\to\CurObjClass,\qquad
+    \HomRootRead:\HomRootSpace\to\HomObjClass,
+    \]
+    together with exact-preserving root unit sections
+    \[
+    \TensorRootUnit:\TensorObjClass\to\TensorRootSpace,\qquad
+    \CurRootUnit:\CurObjClass\to\CurRootSpace,\qquad
+    \HomRootUnit:\HomObjClass\to\HomRootSpace
+    \]
+    satisfying
+    \[
+    \TensorRootRead\circ\TensorRootUnit=\mathrm{id}_{\TensorObjClass},\qquad
+    \CurRootRead\circ\CurRootUnit=\mathrm{id}_{\CurObjClass},\qquad
+    \HomRootRead\circ\HomRootUnit=\mathrm{id}_{\HomObjClass}.
+    \]
+    \item there are smooth involutive exact-preserving root time reversals
+    \[
+    \TensorRootTimeRev:\TensorRootSpace\to\TensorRootSpace,\qquad
+    \CurRootTimeRev:\CurRootSpace\to\CurRootSpace,\qquad
+    \HomRootTimeRev:\HomRootSpace\to\HomRootSpace
+    \]
+    such that
+    \[
+    \TensorRootRead\circ\TensorRootTimeRev=\TensorRootRead,\qquad
+    \CurRootRead\circ\CurRootTimeRev=\CurRootRead,\qquad
+    \HomRootRead\circ\HomRootTimeRev=\HomRootRead,
+    \]
+    and
+    \[
+    \TensorRootTimeRev\circ\TensorRootUnit=\TensorRootUnit,\qquad
+    \CurRootTimeRev\circ\CurRootUnit=\CurRootUnit,\qquad
+    \HomRootTimeRev\circ\HomRootUnit=\HomRootUnit.
+    \]
+    \item each root space carries a smooth exact-preserving positive-definite metric
+    \[
+    \TensorRootSpaceMetric,\qquad
+    \CurRootSpaceMetric,\qquad
+    \HomRootSpaceMetric
+    \]
+    preserved by the corresponding root time reversals, and each visible root fiber
+    \[
+    (\TensorRootRead)^{-1}(x),\qquad
+    (\CurRootRead)^{-1}(y),\qquad
+    (\HomRootRead)^{-1}(z)
+    \]
+    is compact.
+    \item there are finite-dimensional real pre-ambient-generating target spaces
+    \[
+    \TensorRootTarget,\qquad
+    \CurRootTarget,\qquad
+    \HomRootTarget
+    \]
+    with positive-definite metrics
+    \[
+    \TensorRootTargetMetric,\qquad
+    \CurRootTargetMetric,\qquad
+    \HomRootTargetMetric,
+    \]
+    and exact-preserving smooth pre-ambient-generating shell sections
+    \[
+    \TensorRootSection:\TensorRootSpace\to\TensorRootTarget,\qquad
+    \CurRootSection:\CurRootSpace\to\CurRootTarget,\qquad
+    \HomRootSection:\HomRootSpace\to\HomRootTarget
+    \]
+    preserved by the corresponding root time reversals and vanishing on the corresponding root unit sections.
+
+    Define the recorded pre-ambient substrate bundles as the exact zero shells
+    \begin{equation}
+    \TensorOriginSpace\equiv{\TensorRootSection}^{-1}(0),\qquad
+    \CurOriginSpace\equiv{\CurRootSection}^{-1}(0),\qquad
+    \HomOriginSpace\equiv{\HomRootSection}^{-1}(0).
+    \label{eq:origin_shells_from_root}
+    \end{equation}
+    Let
+    \begin{equation}
+    \TensorOriginInc:\TensorOriginSpace\hookrightarrow\TensorRootSpace,\qquad
+    \CurOriginInc:\CurOriginSpace\hookrightarrow\CurRootSpace,\qquad
+    \HomOriginInc:\HomOriginSpace\hookrightarrow\HomRootSpace
+    \label{eq:origin_inclusions}
+    \end{equation}
+    be the shell inclusions. Assume these shells are closed embedded \(C^2\) submanifolds, invariant under the corresponding root time reversals, and containing the images of the corresponding root unit sections. Assume further that for every \(a\in\TensorOriginSpace\), \(b\in\CurOriginSpace\), \(c\in\HomOriginSpace\),
+    \begin{equation}
+    \TensorRootTargetMetric\!\left(D\TensorRootSection(a)\xi,D\TensorRootSection(a)\xi\right)
+    \ge
+    \TensorRootGap\,\TensorRootSpaceMetric(\xi,\xi),
+    \qquad
+    \TensorRootGap>0,
+    \label{eq:root_gap_car}
+    \end{equation}
+    \begin{equation}
+    \CurRootTargetMetric\!\left(D\CurRootSection(b)\eta,D\CurRootSection(b)\eta\right)
+    \ge
+    \CurRootGap\,\CurRootSpaceMetric(\eta,\eta),
+    \qquad
+    \CurRootGap>0,
+    \label{eq:root_gap_cur}
+    \end{equation}
+    \begin{equation}
+    \HomRootTargetMetric\!\left(D\HomRootSection(c)\zeta,D\HomRootSection(c)\zeta\right)
+    \ge
+    \HomRootGap\,\HomRootSpaceMetric(\zeta,\zeta),
+    \qquad
+    \HomRootGap>0,
+    \label{eq:root_gap_hom}
+    \end{equation}
+    for all vectors \(\xi,\eta,\zeta\) orthogonal, with respect to the corresponding root metrics, to the tangent spaces of the corresponding zero shells.
+    \item there are exact-preserving lifted ambient-generating shell sections
+    \[
+    \TensorLiftedAmbientSection:\TensorRootSpace\to\TensorOriginTarget,\qquad
+    \CurLiftedAmbientSection:\CurRootSpace\to\CurOriginTarget,\qquad
+    \HomLiftedAmbientSection:\HomRootSpace\to\HomOriginTarget
+    \]
+    preserved by the corresponding root time reversals and vanishing on the corresponding root unit sections. Define the recorded ambient-generating shell sections by restriction:
+    \begin{equation}
+    \TensorOriginSection\equiv\TensorLiftedAmbientSection|_{\TensorOriginSpace},\qquad
+    \CurOriginSection\equiv\CurLiftedAmbientSection|_{\CurOriginSpace},\qquad
+    \HomOriginSection\equiv\HomLiftedAmbientSection|_{\HomOriginSpace}.
+    \label{eq:origin_section_from_root}
+    \end{equation}
+    Assume these restricted sections satisfy the same recorded positive ambient-generating gap bounds \(\TensorOriginGap,\CurOriginGap,\HomOriginGap>0\) on the current ambient shells cut out inside \(\TensorOriginSpace,\CurOriginSpace,\HomOriginSpace\).
+    \item there are exact-preserving lifted shell maps
+    \[
+    \TensorRootLiftedShellSection:\TensorRootSpace\to\TensorShellTarget,\qquad
+    \CurRootLiftedShellSection:\CurRootSpace\to\CurShellTarget,\qquad
+    \HomRootLiftedShellSection:\HomRootSpace\to\HomShellTarget
+    \]
+    preserved by the corresponding root time reversals and vanishing on the corresponding root unit sections. Define the recorded lifted shell maps by restriction:
+    \begin{equation}
+    \TensorLiftedShellSection\equiv\TensorRootLiftedShellSection|_{\TensorOriginSpace},\qquad
+    \CurLiftedShellSection\equiv\CurRootLiftedShellSection|_{\CurOriginSpace},\qquad
+    \HomLiftedShellSection\equiv\HomRootLiftedShellSection|_{\HomOriginSpace}.
+    \label{eq:lifted_shell_from_root}
+    \end{equation}
+    Assume these restricted maps satisfy the same recorded positive shell-gap bounds \(\TensorShellGap,\CurShellGap,\HomShellGap>0\) on the current seed shells cut out inside \(\TensorOriginSpace,\CurOriginSpace,\HomOriginSpace\).
+    \item there are exact-preserving lifted exact-constraint maps
+    \[
+    \TensorRootConstraintMap:\TensorRootSpace\to\TensorConstraintTarget,\qquad
+    \CurRootConstraintMap:\CurRootSpace\to\CurConstraintTarget,\qquad
+    \HomRootConstraintMap:\HomRootSpace\to\HomConstraintTarget
+    \]
+    preserved by the corresponding root time reversals and vanishing on the corresponding root unit sections. Define the recorded lifted exact-constraint maps by restriction:
+    \begin{equation}
+    \TensorOriginConstraintMap\equiv\TensorRootConstraintMap|_{\TensorOriginSpace},\qquad
+    \CurOriginConstraintMap\equiv\CurRootConstraintMap|_{\CurOriginSpace},\qquad
+    \HomOriginConstraintMap\equiv\HomRootConstraintMap|_{\HomOriginSpace}.
+    \label{eq:origin_constraint_from_root}
+    \end{equation}
+    \item there are exact-preserving cotangent realizations
+    \[
+    \TensorRootCotangentRealization:\TensorRootSpace\to T^*\TensorConfigSpace,\qquad
+    \CurRootCotangentRealization:\CurRootSpace\to T^*\CurConfigSpace,\qquad
+    \HomRootCotangentRealization:\HomRootSpace\to T^*\HomConfigSpace
+    \]
+    into the same recorded configuration spaces. Let \(\theta_{\mathrm{can}}\) denote the canonical Liouville one-form on the relevant cotangent bundle. Define root Liouville one-forms and closed two-forms by
+    \begin{equation}
+    \TensorRootLiouville\equiv(\TensorRootCotangentRealization)^*\theta_{\mathrm{can}},\qquad
+    \CurRootLiouville\equiv(\CurRootCotangentRealization)^*\theta_{\mathrm{can}},\qquad
+    \HomRootLiouville\equiv(\HomRootCotangentRealization)^*\theta_{\mathrm{can}},
+    \label{eq:root_liouville}
+    \end{equation}
+    \begin{equation}
+    \TensorRootTwo\equiv d\TensorRootLiouville,\qquad
+    \CurRootTwo\equiv d\CurRootLiouville,\qquad
+    \HomRootTwo\equiv d\HomRootLiouville.
+    \label{eq:root_two}
+    \end{equation}
+    Assume
+    \[
+    (\TensorRootTimeRev)^*\TensorRootLiouville=-\TensorRootLiouville,\qquad
+    (\CurRootTimeRev)^*\CurRootLiouville=-\CurRootLiouville,\qquad
+    (\HomRootTimeRev)^*\HomRootLiouville=-\HomRootLiouville.
+    \]
+    Define the recorded pre-ambient Liouville one-forms and closed two-forms by shell restriction:
+    \begin{equation}
+    \TensorOriginLiouville\equiv(\TensorOriginInc)^*\TensorRootLiouville,\qquad
+    \CurOriginLiouville\equiv(\CurOriginInc)^*\CurRootLiouville,\qquad
+    \HomOriginLiouville\equiv(\HomOriginInc)^*\HomRootLiouville,
+    \label{eq:origin_liouville_from_root}
+    \end{equation}
+    \begin{equation}
+    \TensorOriginTwo\equiv(\TensorOriginInc)^*\TensorRootTwo,\qquad
+    \CurOriginTwo\equiv(\CurOriginInc)^*\CurRootTwo,\qquad
+    \HomOriginTwo\equiv(\HomOriginInc)^*\HomRootTwo.
+    \label{eq:origin_two_from_root}
+    \end{equation}
+    \item there are smooth skew-Hermitian root connection one-forms
+    \[
+    \TensorRootConnectionForm\in\Omega^1(\TensorRootSpace;\LieU(\RootTensorClass)),\qquad
+    \CurRootConnectionForm\in\Omega^1(\CurRootSpace;\LieU(\RootRelabelClass)),\qquad
+    \HomRootConnectionForm\in\Omega^1(\HomRootSpace;\LieU(\RootFreeClass))
+    \]
+    that are exact-preserving on the fixed branch and satisfy the time-reversal equivariance rules
+    \[
+    (\TensorRootTimeRev)^*\TensorRootConnectionForm=-\TensorRootConnectionForm,\qquad
+    (\CurRootTimeRev)^*\CurRootConnectionForm=-\CurRootConnectionForm,\qquad
+    (\HomRootTimeRev)^*\HomRootConnectionForm=-\HomRootConnectionForm.
+    \]
+    Let
+    \[
+    \TensorRootTransport(\Gamma)\in\mathcal U(\RootTensorClass),\qquad
+    \CurRootTransport(\Gamma)\in\mathcal U(\RootRelabelClass),\qquad
+    \HomRootTransport(\Gamma)\in\mathcal U(\RootFreeClass)
+    \]
+    denote the parallel transports generated by those root connection one-forms along piecewise \(C^1\) root curves \(\Gamma\). Define the recorded pre-ambient connection one-forms and induced parallel transports by
+    \begin{equation}
+    \TensorConnectionForm\equiv(\TensorOriginInc)^*\TensorRootConnectionForm,\qquad
+    \CurConnectionForm\equiv(\CurOriginInc)^*\CurRootConnectionForm,\qquad
+    \HomConnectionForm\equiv(\HomOriginInc)^*\HomRootConnectionForm,
+    \label{eq:origin_connection_from_root}
+    \end{equation}
+    \begin{equation}
+    \TensorOriginTransport(\gamma)\equiv\TensorRootTransport(\TensorOriginInc\circ\gamma),\qquad
+    \CurOriginTransport(\gamma)\equiv\CurRootTransport(\CurOriginInc\circ\gamma),\qquad
+    \HomOriginTransport(\gamma)\equiv\HomRootTransport(\HomOriginInc\circ\gamma)
+    \label{eq:origin_transport_from_root}
+    \end{equation}
+    on piecewise \(C^1\) pre-ambient curves \(\gamma\).
+\end{enumerate}
+
+Define the recorded pre-ambient readout maps, pre-ambient unit sections, pre-ambient time reversals, and pre-ambient metrics by restriction:
+\begin{equation}
+\TensorOriginRead\equiv\TensorRootRead\circ\TensorOriginInc,\qquad
+\CurOriginRead\equiv\CurRootRead\circ\CurOriginInc,\qquad
+\HomOriginRead\equiv\HomRootRead\circ\HomOriginInc,
+\label{eq:origin_read_from_root}
+\end{equation}
+\begin{equation}
+\TensorOriginUnit\equiv\TensorRootUnit,\qquad
+\CurOriginUnit\equiv\CurRootUnit,\qquad
+\HomOriginUnit\equiv\HomRootUnit,
+\label{eq:origin_unit_from_root}
+\end{equation}
+\begin{equation}
+\TensorOriginTimeRev\equiv\TensorRootTimeRev|_{\TensorOriginSpace},\qquad
+\CurOriginTimeRev\equiv\CurRootTimeRev|_{\CurOriginSpace},\qquad
+\HomOriginTimeRev\equiv\HomRootTimeRev|_{\HomOriginSpace},
+\label{eq:origin_time_rev_from_root}
+\end{equation}
+\begin{equation}
+\TensorOriginSpaceMetric\equiv(\TensorOriginInc)^*\TensorRootSpaceMetric,\qquad
+\CurOriginSpaceMetric\equiv(\CurOriginInc)^*\CurRootSpaceMetric,\qquad
+\HomOriginSpaceMetric\equiv(\HomOriginInc)^*\HomRootSpaceMetric.
+\label{eq:origin_metric_from_root}
+\end{equation}
+For each visible point, define the visible pre-ambient fibers by
+\begin{equation}
+(\TensorOriginRead)^{-1}(x)
+=
+{\TensorRootSection}^{-1}(0)\cap(\TensorRootRead)^{-1}(x),
+\label{eq:origin_fiber_from_root_car}
+\end{equation}
+with the corresponding formulas in the \(\mathrm{cur}\) and \(\mathrm{hom}\) sectors.
+\end{definition}
+
+\begin{proposition}[Pre-ambient substrate bundles, ambient-generating shell sections, lifted shell and exact-constraint maps, cotangent geometry, and connection-transports are forced]
+\label{prop:origin_geometry_forced}
+The root-shell / lifted connection-cotangent data of Definition \ref{def:root_geometry} recover exactly the geometric part of the recorded pre-ambient-shell / connection-cotangent / parallel-transport layer.
+\begin{enumerate}
+    \item The exact zero shells \eqref{eq:origin_shells_from_root} are exactly the recorded pre-ambient substrate bundles \(\TensorOriginSpace,\CurOriginSpace,\HomOriginSpace\).
+    \item The restricted maps \eqref{eq:origin_read_from_root}--\eqref{eq:origin_metric_from_root} are exactly the recorded pre-ambient readout maps, pre-ambient unit sections, pre-ambient time reversals, and preserved positive pre-ambient metrics, and the visible pre-ambient fibers \eqref{eq:origin_fiber_from_root_car} and their sector analogues are compact.
+    \item The restricted maps \eqref{eq:origin_section_from_root} are exactly the recorded ambient-generating shell sections, and their ambient-generating gap bounds are the same recorded bounds \(\TensorOriginGap,\CurOriginGap,\HomOriginGap\) on the current ambient shells.
+    \item The restricted maps \eqref{eq:lifted_shell_from_root} are exactly the recorded lifted shell maps, and the recorded shell target metrics \(\TensorShellMetric,\CurShellMetric,\HomShellMetric\) are already the deeper target metrics on which those maps are defined.
+    \item The restricted maps \eqref{eq:origin_constraint_from_root} are exactly the recorded lifted exact-constraint maps, and the recorded target metrics \(\TensorConstraintMetric,\CurConstraintMetric,\HomConstraintMetric\) are already the deeper target metrics on which those maps are defined.
+    \item The restricted forms \eqref{eq:origin_liouville_from_root}--\eqref{eq:origin_two_from_root} are exactly the recorded pre-ambient cotangent-model Liouville one-forms and closed two-form geometry.
+    \item The restricted connection one-forms and parallel-transport formulas \eqref{eq:origin_connection_from_root}--\eqref{eq:origin_transport_from_root} are exactly the recorded pre-ambient connection one-forms and their induced parallel transports.
+    \item Consequently the pre-ambient substrate bundles, their ambient-generating shell sections, their lifted shell maps and lifted exact-constraint maps with the same target metrics, their pre-ambient cotangent-model Liouville one-forms and closed two-form geometry, and their connection one-forms with induced parallel transports are no longer primitive at present scope; they are forced by a deeper root-shell / lifted connection-cotangent layer.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Item (1) is the pre-ambient-generating shell construction itself. By assumption, the zero shells of the root shell sections are closed embedded \(C^2\) submanifolds, invariant under the root time reversals, and containing the root units. Those are exactly the recorded pre-ambient substrate bundles.
+
+Item (2) is immediate from restriction. The root readouts already split the visible object classes, the root units are already sections of those readouts, the root time reversals already preserve the readouts and units, and the root metrics are positive and time-reversal invariant. Restricting to the exact zero shells gives exactly the recorded pre-ambient objects. Each visible root fiber is compact by assumption, and each visible pre-ambient fiber is its closed intersection with the pre-ambient-generating shell, so the visible pre-ambient fibers are compact as well.
+
+Item (3) follows from the restriction formulas \eqref{eq:origin_section_from_root}. No additional pre-ambient-level ambient-generating shell data are chosen. The lifted ambient-generating shell sections already live on the deeper root spaces, and the recorded pre-ambient shell sections are simply their restrictions to the pre-ambient zero shells. The same ambient-generating gap bounds on the current ambient shells are kept fixed by assumption on those restricted maps.
+
+Items (4) and (5) are the same restriction argument applied first to the lifted shell maps and then to the lifted exact-constraint maps. The recorded pre-ambient maps are not inserted separately; they are already present as shell restrictions of deeper exact-preserving maps into the same target spaces equipped with the same target metrics.
+
+Item (6) is the cotangent reduction statement. The root Liouville one-forms are pulled back from the canonical Liouville forms on the same recorded cotangent bundles, so they are not arbitrary inserted one-forms. Restricting them to the pre-ambient zero shells gives exactly the recorded pre-ambient Liouville one-forms, and restricting their exterior derivatives gives exactly the recorded pre-ambient closed two-forms.
+
+Item (7) follows from ordinary restriction and parallel transport. The root skew-Hermitian connection one-forms determine unitary transports on root curves, identity on constant curves, multiplicativity under concatenation, and inversion under time reversal. Restricting the one-forms to the pre-ambient zero shells gives exactly the recorded pre-ambient connection one-forms, and restricting the root transports to curves lying in those zero shells gives exactly the recorded pre-ambient transports. Thus the current pre-ambient connection data are not independent curve assignments; they are forced as shell restrictions.
+
+Item (8) is therefore immediate: every geometric component of the recorded pre-ambient-shell / connection-cotangent / parallel-transport layer is recovered verbatim, but it is no longer primitive.
+\end{proof}
+
+\section{Root-Basic Source and Fixed-Endpoint Origin of the Remaining Pre-Ambient Data}
+
+\begin{definition}[Primitive root-basic source and fixed-endpoint action data]
+\label{def:root_basic}
+Assume the root geometry of Definition \ref{def:root_geometry} is fixed. Assume further:
+\begin{enumerate}
+    \item there are exact-preserving root shadow one-forms
+    \[
+    \TensorRootShadowForm\in\Omega^1(\TensorRootSpace;\TensorStatTagClass),\qquad
+    \CurRootShadowForm\in\Omega^1(\CurRootSpace;\CurStatTagClass),\qquad
+    \HomRootShadowForm\in\Omega^1(\HomRootSpace;\HomStatTagClass)
+    \]
+    that are invariant under the corresponding root time reversals, annihilate vectors normal to the pre-ambient-generating shell loci \(\TensorOriginSpace,\CurOriginSpace,\HomOriginSpace\), annihilate vertical vectors tangent to the visible root fibers, and are preserved along the current pre-ambient characteristic curves singled out on the pre-ambient exact-constraint shells by the restricted pre-ambient Liouville / exact-constraint geometry. Define the recorded pre-ambient shadow one-forms by restriction:
+    \begin{equation}
+    \TensorOriginShadowForm\equiv(\TensorOriginInc)^*\TensorRootShadowForm,\qquad
+    \CurOriginShadowForm\equiv(\CurOriginInc)^*\CurRootShadowForm,\qquad
+    \HomOriginShadowForm\equiv(\HomOriginInc)^*\HomRootShadowForm.
+    \label{eq:origin_shadow_from_root}
+    \end{equation}
+    \item there are exact-preserving root rate one-forms
+    \[
+    \TensorRootRateForm\in\Omega^1(\TensorRootSpace),\qquad
+    \CurRootRateForm\in\Omega^1(\CurRootSpace),\qquad
+    \HomRootRateForm\in\Omega^1(\HomRootSpace)
+    \]
+    with the same invariance and annihilation properties. Define the recorded pre-ambient rate one-forms by
+    \begin{equation}
+    \TensorOriginRateForm\equiv(\TensorOriginInc)^*\TensorRootRateForm,\qquad
+    \CurOriginRateForm\equiv(\CurOriginInc)^*\CurRootRateForm,\qquad
+    \HomOriginRateForm\equiv(\HomOriginInc)^*\HomRootRateForm.
+    \label{eq:origin_rate_from_root}
+    \end{equation}
+    \item there are exact-preserving root density and root flux source fields
+    \[
+    \TensorRootDensitySource:\TensorRootSpace\to\TensorDensityClass,\qquad
+    \CurRootDensitySource:\CurRootSpace\to\CurDensityClass,\qquad
+    \HomRootDensitySource:\HomRootSpace\to\HomDensityClass,
+    \]
+    \[
+    \TensorRootFluxSource:\TensorRootSpace\to\TensorFluxClass,\qquad
+    \CurRootFluxSource:\CurRootSpace\to\CurFluxClass,\qquad
+    \HomRootFluxSource:\HomRootSpace\to\HomFluxClass,
+    \]
+    invariant under the corresponding root time reversals, preserved along the current pre-ambient characteristic curves, and constant on pre-ambient-shell-normal directions and on vertical root-fiber directions. Define the recorded pre-ambient density and pre-ambient flux source fields by restriction:
+    \begin{equation}
+    \TensorOriginDensitySource\equiv\TensorRootDensitySource|_{\TensorOriginSpace},\qquad
+    \CurOriginDensitySource\equiv\CurRootDensitySource|_{\CurOriginSpace},\qquad
+    \HomOriginDensitySource\equiv\HomRootDensitySource|_{\HomOriginSpace},
+    \label{eq:origin_density_from_root}
+    \end{equation}
+    \begin{equation}
+    \TensorOriginFluxSource\equiv\TensorRootFluxSource|_{\TensorOriginSpace},\qquad
+    \CurOriginFluxSource\equiv\CurRootFluxSource|_{\CurOriginSpace},\qquad
+    \HomOriginFluxSource\equiv\HomRootFluxSource|_{\HomOriginSpace}.
+    \label{eq:origin_flux_from_root}
+    \end{equation}
+    \item there are exact-preserving root boundary potentials
+    \[
+    \TensorRootBoundarySource:\TensorRootSpace\to\TensorPhaseReadClass,\qquad
+    \CurRootBoundarySource:\CurRootSpace\to\CurPhaseReadClass,\qquad
+    \HomRootBoundarySource:\HomRootSpace\to\HomPhaseReadClass
+    \]
+    vanishing on the corresponding root unit sections, invariant under the corresponding root time reversals, annihilating vectors normal to the pre-ambient-generating shells, and constant on vertical root-fiber directions. Define the recorded pre-ambient boundary potentials by
+    \begin{equation}
+    \TensorOriginBoundarySource\equiv\TensorRootBoundarySource|_{\TensorOriginSpace},\qquad
+    \CurOriginBoundarySource\equiv\CurRootBoundarySource|_{\CurOriginSpace},\qquad
+    \HomOriginBoundarySource\equiv\HomRootBoundarySource|_{\HomOriginSpace}.
+    \label{eq:origin_boundary_from_root}
+    \end{equation}
+    \item define the root fixed-endpoint rate actions on \(C^2\) curves constrained to the current pre-ambient exact-constraint shells inside the pre-ambient-generating shells by
+    \begin{equation}
+    \TensorRootAction[\Gamma]\equiv\int_\Gamma \TensorRootRateForm,
+    \label{eq:root_action_car}
+    \end{equation}
+    \begin{equation}
+    \CurRootAction[\Gamma]\equiv\int_\Gamma \CurRootRateForm,
+    \label{eq:root_action_cur}
+    \end{equation}
+    \begin{equation}
+    \HomRootAction[\Gamma]\equiv\int_\Gamma \HomRootRateForm.
+    \label{eq:root_action_hom}
+    \end{equation}
+    Assume their stationary curves at fixed visible endpoint data are exactly the current pre-ambient characteristic curves determined on those pre-ambient exact-constraint shells by the restricted pre-ambient Liouville / exact-constraint geometry, that their first variations vanish automatically along the characteristic, symmetry, vertical pre-ambient-fiber, and pre-ambient-shell-normal directions, and that their second variations are positive on smooth endpoint-fixed complements to those directions and to the normal exact-constraint directions singled out by \(\TensorConstraintGap,\CurConstraintGap,\HomConstraintGap\). Define the recorded pre-ambient fixed-endpoint actions by
+    \begin{equation}
+    \TensorOriginAction[\gamma]\equiv\int_\gamma \TensorOriginRateForm,
+    \label{eq:origin_action_from_root_car}
+    \end{equation}
+    \begin{equation}
+    \CurOriginAction[\gamma]\equiv\int_\gamma \CurOriginRateForm,
+    \label{eq:origin_action_from_root_cur}
+    \end{equation}
+    \begin{equation}
+    \HomOriginAction[\gamma]\equiv\int_\gamma \HomOriginRateForm.
+    \label{eq:origin_action_from_root_hom}
+    \end{equation}
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}[Pre-ambient-basic data and pre-ambient action are forced]
+\label{prop:origin_basic_forced}
+The root basic data of Definition \ref{def:root_basic} recover exactly the remaining recorded pre-ambient-shell / connection-cotangent / parallel-transport input layer.
+\begin{enumerate}
+    \item The restricted one-forms \eqref{eq:origin_shadow_from_root} and \eqref{eq:origin_rate_from_root} are exactly the recorded pre-ambient shadow and pre-ambient rate one-forms.
+    \item The restricted source fields \eqref{eq:origin_density_from_root} and \eqref{eq:origin_flux_from_root} are exactly the recorded pre-ambient density and pre-ambient flux source fields.
+    \item The restricted boundary potentials \eqref{eq:origin_boundary_from_root} are exactly the recorded pre-ambient boundary potentials.
+    \item The fixed-endpoint actions \eqref{eq:origin_action_from_root_car}--\eqref{eq:origin_action_from_root_hom} are exactly the recorded pre-ambient actions, and their inherited second-variation positivity is exactly the recorded fixed-endpoint pre-ambient rate-action geometry.
+    \item Consequently the pre-ambient-basic shadow / rate / density / flux / boundary data and the fixed-endpoint pre-ambient rate-action geometry are no longer primitive at present scope; they are forced by deeper root-basic restriction and the same fixed-endpoint root variational geometry.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Item (1) follows from the restriction construction itself. Because the root shadow and root rate one-forms annihilate both the pre-ambient-shell-normal directions and the vertical directions tangent to the visible root fibers, their restrictions to the pre-ambient zero shells are well defined and already satisfy the invariance and horizontality required at pre-ambient level.
+
+Item (2) is immediate from the restriction formulas \eqref{eq:origin_density_from_root} and \eqref{eq:origin_flux_from_root}. Constancy on pre-ambient-shell-normal directions and on vertical root-fiber directions guarantees that the restricted source fields depend only on the pre-ambient states themselves, while the assumed characteristic-flow and time-reversal invariance give exactly the recorded exact-preserving behavior.
+
+Item (3) is the same argument applied to the boundary potentials. Since the root boundary potentials vanish on the root unit sections, their pre-ambient restrictions vanish on the recorded pre-ambient unit sections as required.
+
+Item (4) follows from fixed-endpoint stationary reduction. The root rate actions are assumed to have precisely the current pre-ambient characteristic curves as stationary curves, with first variations vanishing automatically along the characteristic, symmetry, vertical pre-ambient-fiber, and pre-ambient-shell-normal directions. Restricting those actions to curves in the pre-ambient zero shells yields exactly the recorded pre-ambient-action formulas \eqref{eq:origin_action_from_root_car}--\eqref{eq:origin_action_from_root_hom}. The positive second variation on endpoint-fixed complements descends directly to the recorded pre-ambient stationary geometry.
+
+Item (5) is therefore immediate: every remaining visible component of the recorded pre-ambient-shell / connection-cotangent / parallel-transport input layer is recovered verbatim, but it is no longer primitive.
+\end{proof}
+
+\section{Exact Recovery of the Recorded Pre-Ambient Layer and Downstream Package}
+
+\begin{theorem}[Same pre-ambient-shell / connection-cotangent / parallel-transport input layer]
+\label{thm:same_origin_input}
+The deeper root-shell / lifted connection-cotangent construction introduced above recovers exactly the full recorded input layer of Definition \ref{def:recorded_origin_layer}.
+\end{theorem}
+
+\begin{proof}
+The geometric part of Definition \ref{def:recorded_origin_layer} is exactly Proposition \ref{prop:origin_geometry_forced}. The pre-ambient-basic and fixed-endpoint part of Definition \ref{def:recorded_origin_layer} is exactly Proposition \ref{prop:origin_basic_forced}. No visible slot in that recorded layer is altered. Therefore the full recorded pre-ambient-shell / connection-cotangent / parallel-transport input layer is recovered verbatim.
+\end{proof}
+
+\begin{theorem}[Same ambient-shell layer and same downstream package]
+\label{thm:same_package}
+Under the fixed branch of Definition \ref{def:fixed_branch}, the deeper root-shell / lifted connection-cotangent construction preserves without change:
+\begin{enumerate}
+    \item the same ambient-shell / cotangent-Liouville / connection-holonomy input layer;
+    \item the same constrained substrate-bundle / exact-constraint / Liouville-holonomy input layer;
+    \item the same proto-process / stationary-selection / characteristic-bundle input layer;
+    \item the same process-state / reversible-line-field / compact-calibration-fiber / basic-form layer;
+    \item the same reversible-process-thread / calibration-generator / shadow-current / rate-density / boundary-recorder layer;
+    \item the same reversible-process-window / calibration-action / stationary-shadow / local-rate / endpoint-recorder layer;
+    \item the same reversible-history / stationary-equivalence / short-history-action / endpoint-readout / cotangent-lift layer;
+    \item the same reversible-groupoid / transport-action / constrained-stationary package;
+    \item the same reconfiguration-group / transport-law / equilibrium-reduction package;
+    \item the same derivation-algebra / balance-law / equilibrium-manifold layer;
+    \item hence the same reversible process-thread / process-window / history / groupoid / reconfiguration / derivation chain;
+    \item the same \(\StemFunctional\);
+    \item the same exact-preservation normal form \(\DeepFunctional\);
+    \item the same carrier-origin functional \(\CarrierFunctional[\CarrierSeed,\RelabelSeed,\FreeSeed]\);
+    \item the same primitive reservoir \(\PrimFunctional[\PrimStrain,\PrimNeutral,\PrimFree]\);
+    \item the same microscopic-equilibrium reservoir \(\MicFunctional[H,\GaugeAux]\);
+    \item the same free-sector verdict \(\FreeProj\CompLift=0\), and hence the same \(\Pi_{\mathrm{free}}H=0\) outcome;
+    \item the same substrate and observer completion solves \eqref{eq:fixed_solves};
+    \item the same \(\Sigma^{\mathrm{cmp}}\) solve, the same observer-equation closure, the same one operative metric \(\CompletedMetric\), and the same recorded Phase D / E and Phase F gains.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Theorem \ref{thm:same_origin_input} reproduces exactly the input layer required by the immediately preceding ambient-shell / cotangent-Liouville / connection-holonomy origin note. That note already proves that once this pre-ambient input layer is fixed, the same ambient-shell / cotangent-Liouville / connection-holonomy layer follows without change, and with it the same full downstream chain. Since none of the visible slots, elimination steps, or completion equations are altered here, every downstream object listed above is reproduced verbatim.
+\end{proof}
+
+\begin{corollary}[Recorded gain package is preserved]
+\label{cor:gains}
+Because the same downstream package is recovered, the recorded Phase D / E infrared-spectrum and universal-coupling verdicts, the recorded Phase F controlled GR limit, and the already recorded observer-equation closure package remain preserved without modification.
+\end{corollary}
+
+\begin{proof}
+This is the direct content of Theorem \ref{thm:same_package}.
+\end{proof}
+
+\section{Claim-Boundary Verdict}
+
+\begin{theorem}[Pre-ambient-shell / connection-cotangent / parallel-transport origin verdict]
+\label{thm:verdict}
+At the disciplined scope of the present note, the exact positive result is the following.
+\begin{enumerate}
+    \item The exact-preserving pre-ambient substrate bundles \(\TensorOriginSpace,\CurOriginSpace,\HomOriginSpace\) are no longer primitive at current scope.
+    \item They arise as the exact zero shells of deeper pre-ambient-generating sections \(\TensorRootSection,\CurRootSection,\HomRootSection\) on compact visible root substrate bundles.
+    \item The visible pre-ambient readout maps \(\TensorOriginRead,\CurOriginRead,\HomOriginRead\), the pre-ambient unit sections \(\TensorOriginUnit,\CurOriginUnit,\HomOriginUnit\), the pre-ambient time reversals \(\TensorOriginTimeRev,\CurOriginTimeRev,\HomOriginTimeRev\), and the preserved positive pre-ambient metrics \(\TensorOriginSpaceMetric,\CurOriginSpaceMetric,\HomOriginSpaceMetric\) are no longer primitive either.
+    \item They are the zero-shell restrictions of deeper root readouts, units, time reversals, and root metrics, and the recorded compact visible pre-ambient fibers are closed shell slices inside compact visible root fibers.
+    \item The ambient-generating shell sections \(\TensorOriginSection,\CurOriginSection,\HomOriginSection\) are no longer primitive either.
+    \item They arise as the pre-ambient restrictions of deeper lifted ambient-generating shell maps \(\TensorLiftedAmbientSection,\CurLiftedAmbientSection,\HomLiftedAmbientSection\) into the same positive target spaces with the same target metrics \(\TensorOriginTargetMetric,\CurOriginTargetMetric,\HomOriginTargetMetric\).
+    \item The lifted shell maps \(\TensorLiftedShellSection,\CurLiftedShellSection,\HomLiftedShellSection\) are no longer primitive either.
+    \item They arise as the pre-ambient restrictions of deeper lifted shell maps \(\TensorRootLiftedShellSection,\CurRootLiftedShellSection,\HomRootLiftedShellSection\) into the same positive target spaces with the same target metrics \(\TensorShellMetric,\CurShellMetric,\HomShellMetric\).
+    \item The lifted exact-constraint maps \(\TensorOriginConstraintMap,\CurOriginConstraintMap,\HomOriginConstraintMap\) and their target metrics \(\TensorConstraintMetric,\CurConstraintMetric,\HomConstraintMetric\) are no longer primitive either.
+    \item They arise as the pre-ambient restrictions of deeper lifted exact-constraint maps \(\TensorRootConstraintMap,\CurRootConstraintMap,\HomRootConstraintMap\) into the same positive target spaces with the same target metrics.
+    \item The pre-ambient cotangent-model Liouville one-forms \(\TensorOriginLiouville,\CurOriginLiouville,\HomOriginLiouville\) and the pre-ambient closed two-form geometry \(\TensorOriginTwo,\CurOriginTwo,\HomOriginTwo\) are no longer primitive either.
+    \item They arise as the pre-ambient restrictions of deeper cotangent-model Liouville one-forms \(\TensorRootLiouville,\CurRootLiouville,\HomRootLiouville\) and their exact two-forms on the root bundles.
+    \item The pre-ambient connection one-forms \(\TensorConnectionForm,\CurConnectionForm,\HomConnectionForm\) and their induced parallel transports \(\TensorOriginTransport,\CurOriginTransport,\HomOriginTransport\) are no longer primitive either.
+    \item They arise as pre-ambient restrictions of deeper skew-Hermitian root connection one-forms \(\TensorRootConnectionForm,\CurRootConnectionForm,\HomRootConnectionForm\) and of their induced root parallel transports.
+    \item The pre-ambient-basic shadow / rate / density / flux / boundary data and the fixed-endpoint pre-ambient rate-action geometry are no longer primitive either.
+    \item They arise as pre-ambient restrictions of deeper root-basic source data and the same fixed-endpoint root rate-action geometry.
+    \item Therefore the full pre-ambient-shell / connection-cotangent / parallel-transport input layer of the immediately preceding note is recovered without change.
+    \item Consequently the same ambient-shell / cotangent-Liouville / connection-holonomy layer, the same process-state layer, the same reversible process-thread / process-window / history / groupoid / reconfiguration / derivation chain, the same \(\StemFunctional\), the same exact-preservation normal form, the same carrier-origin / primitive-reservoir / microscopic-equilibrium functionals, the same \(\Sigma^{\mathrm{cmp}}\) solve, the same \(\Pi_{\mathrm{free}}H=0\) outcome, the same observer-equation closure, the same one operative metric, and the same recorded Phase D / E and Phase F gains remain unchanged.
+    \item Stronger promotion language is still not justified here, because the present note explains only why the previous pre-ambient-shell / connection-cotangent / parallel-transport layer arises from a deeper root-shell / lifted connection-cotangent layer; it does not yet derive why that new deeper layer is itself unique, final, or inevitable beyond current scope.
+    \item No broader packaging consequence or default side-line continuation follows from the mathematical content of this note alone. The remaining honest burden is one layer deeper again on this same exact-preservation line, or else another comparably concrete observer-equation gain on the same one-metric route.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Items (1)--(14) are Proposition \ref{prop:origin_geometry_forced}. Items (15) and (16) are Proposition \ref{prop:origin_basic_forced}. Items (17) and (18) are Theorems \ref{thm:same_origin_input} and \ref{thm:same_package} together with Corollary \ref{cor:gains}. Items (19) and (20) are the present claim-boundary discipline stated in the abstract and introduction.
+\end{proof}
+
+\begin{corollary}[What remains next]
+\label{cor:what_next}
+The primary active burden moves one layer deeper again. It is no longer to justify why the pre-ambient substrate bundles, their ambient-generating shell sections, their lifted shell maps and lifted exact-constraint maps with the same target metrics, their pre-ambient cotangent-model Liouville one-forms and closed two-form geometry, their connection one-forms and induced parallel transports, or their pre-ambient-basic shadow / rate / density / flux / boundary data are admissible at current scope; that step is now recorded. The next honest burden is either to derive or justify why the deeper root substrate bundles, their pre-ambient-generating shell sections, their lifted ambient-generating shell maps, their lifted shell and exact-constraint maps, their cotangent-model Liouville one-forms, their connection one-forms and parallel transports, and their root-basic source / action data are themselves forced by yet more primitive substrate structure, or else to produce another comparably concrete observer-equation gain on the same one-metric line. No stronger promotion language, no packaging pass, and no default move onto the anchored positive-pair side line are justified unless they directly discharge one of those burdens.
+\end{corollary}
+
+\section{Conclusion}
+
+The positive result of this note is that the pre-ambient-shell / connection-cotangent / parallel-transport layer is no longer left primitive at present scope. It is recovered from a still deeper root-shell / lifted connection-cotangent layer.
+
+At that deeper level, the recorded pre-ambient substrate bundles
+\[
+\TensorOriginSpace,\qquad
+\CurOriginSpace,\qquad
+\HomOriginSpace
+\]
+are exact zero shells inside compact visible root substrate bundles. Their readout maps, unit sections, time reversals, and preserved positive metrics are zero-shell restrictions of deeper root data. Their ambient-generating shell sections are pre-ambient restrictions of deeper lifted ambient-generating shell maps into the same positive target spaces with the same target metrics. Their lifted shell maps and lifted exact-constraint maps are pre-ambient restrictions of deeper lifted maps into the same target spaces with the same target metrics. Their pre-ambient cotangent-model Liouville one-forms and closed two-form geometry are pre-ambient restrictions of deeper cotangent-model Liouville data. Their pre-ambient connection one-forms and induced parallel transports are pre-ambient restrictions of deeper skew-Hermitian root connection one-forms and their root parallel transports. Their pre-ambient-basic shadow / rate / density / flux / boundary data and their fixed-endpoint pre-ambient rate-action geometry are pre-ambient restrictions of deeper root-basic data and the same root fixed-endpoint variational geometry.
+
+Because that deeper construction reproduces the full pre-ambient-shell / connection-cotangent / parallel-transport input layer without changing any of its visible slots, the immediately preceding ambient-shell / cotangent-Liouville / connection-holonomy note applies verbatim. Consequently the same ambient-shell / cotangent-Liouville / connection-holonomy layer, the same process-state layer, the same reversible process-thread / process-window / history / groupoid / reconfiguration / derivation chain, the same \(\StemFunctional\), the same exact-preservation normal form, the same carrier-origin / primitive-reservoir / microscopic-equilibrium functionals, the same \(\Sigma^{\mathrm{cmp}}\) solve, the same \(\Pi_{\mathrm{free}}H=0\) outcome, the same observer-equation closure, the same one operative metric, and the same recorded Phase D / E and Phase F gains remain unchanged.
+
+The scope is still disciplined rather than final. The present note does not prove that the deeper root-shell / lifted connection-cotangent layer is unique or ultimate. The next honest burden is to derive or justify why that new deeper layer itself is forced by still more primitive substrate structure, or else to record another comparably concrete observer-equation gain on the same one-metric line.
+
+\end{document}
