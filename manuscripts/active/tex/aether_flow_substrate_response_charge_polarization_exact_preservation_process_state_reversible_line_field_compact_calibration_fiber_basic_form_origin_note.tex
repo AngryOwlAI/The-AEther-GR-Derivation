@@ -1,0 +1,988 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal A}
+\newcommand{\ObserverMap}{\Xi}
+\newcommand{\BridgeMetric}{\mathfrak g}
+\newcommand{\ObserverMetric}{g^{\mathrm{br}}}
+\newcommand{\CandidateMetric}{g^{\mathrm{cand}}}
+\newcommand{\CompletedMetric}{g^{\sharp}}
+\newcommand{\BaseShift}{\Sigma^{\mathrm{IER}}}
+\newcommand{\ResponseShift}{\Sigma^{\mathrm{resp}}}
+\newcommand{\CompShift}{\Sigma^{\mathrm{cmp}}}
+\newcommand{\BaseLift}{\widehat\Sigma^{\mathrm{IER}}}
+\newcommand{\ResponseLift}{\widehat\Sigma^{\mathrm{resp}}}
+\newcommand{\CompLift}{\widehat\Sigma^{\mathrm{cmp}}}
+\newcommand{\ResidualCore}{\mathcal V_{\mu\nu}^{\mathrm{res}}}
+\newcommand{\ResidualLift}{\widehat{\mathcal V}^{\mathrm{res}}}
+\newcommand{\SubReducedEin}{\widehat{\mathcal L}}
+\newcommand{\FreeProj}{\Pi_{\mathrm{free}}}
+\newcommand{\GaugeAux}{Y}
+\newcommand{\ReducedEin}{\mathcal L_{\ObserverMetric}}
+\newcommand{\CompClass}{\mathscr C_{\mathrm{cmp}}}
+\newcommand{\MicFunctional}{\mathscr F_{\mathrm{mic}}}
+\newcommand{\PrimFunctional}{\mathscr F_{\mathrm{prim}}}
+\newcommand{\CarrierFunctional}{\mathscr F_{\mathrm{car}}}
+\newcommand{\DeepFunctional}{\mathscr F_{\mathrm{deep}}}
+\newcommand{\StemFunctional}{\mathscr F_{\mathrm{sel}}}
+\newcommand{\PrimStrain}{K}
+\newcommand{\PrimNeutral}{J}
+\newcommand{\PrimFree}{F}
+\newcommand{\CarrierSeed}{\mathfrak S}
+\newcommand{\RelabelSeed}{\mathfrak R}
+\newcommand{\FreeSeed}{\mathfrak F}
+\newcommand{\RootTensorClass}{\mathscr U_{\mathrm{car}}}
+\newcommand{\RootRelabelClass}{\mathscr U_{\mathrm{cur}}}
+\newcommand{\RootFreeClass}{\mathscr U_{\mathrm{hom}}}
+\newcommand{\TensorEqCmpProj}{\widetilde\Pi_{\mathrm{cmp,car}}}
+\newcommand{\CurEqCmpProj}{\widetilde\Pi_{\mathrm{cmp,cur}}}
+\newcommand{\HomEqCmpProj}{\widetilde\Pi_{\mathrm{cmp,hom}}}
+\newcommand{\TensorObjClass}{\mathcal O_{\mathrm{car}}}
+\newcommand{\CurObjClass}{\mathcal O_{\mathrm{cur}}}
+\newcommand{\HomObjClass}{\mathcal O_{\mathrm{hom}}}
+\newcommand{\TensorObjBase}{o_{\mathrm{car}}^0}
+\newcommand{\CurObjBase}{o_{\mathrm{cur}}^0}
+\newcommand{\HomObjBase}{o_{\mathrm{hom}}^0}
+\newcommand{\TensorWindowClass}{\mathfrak X_{\mathrm{car}}}
+\newcommand{\CurWindowClass}{\mathfrak X_{\mathrm{cur}}}
+\newcommand{\HomWindowClass}{\mathfrak X_{\mathrm{hom}}}
+\newcommand{\TensorCalGroup}{\mathcal C_{\mathrm{car}}^{\mathrm{cal}}}
+\newcommand{\CurCalGroup}{\mathcal C_{\mathrm{cur}}^{\mathrm{cal}}}
+\newcommand{\HomCalGroup}{\mathcal C_{\mathrm{hom}}^{\mathrm{cal}}}
+\newcommand{\TensorWindowRep}{\overline{\mathscr W}_{\mathrm{car}}}
+\newcommand{\CurWindowRep}{\overline{\mathscr W}_{\mathrm{cur}}}
+\newcommand{\HomWindowRep}{\overline{\mathscr W}_{\mathrm{hom}}}
+\newcommand{\TensorStatTagClass}{\mathcal Y_{\mathrm{car}}^{\mathrm{st}}}
+\newcommand{\CurStatTagClass}{\mathcal Y_{\mathrm{cur}}^{\mathrm{st}}}
+\newcommand{\HomStatTagClass}{\mathcal Y_{\mathrm{hom}}^{\mathrm{st}}}
+\newcommand{\TensorStatTag}{\varsigma_{\mathrm{car}}}
+\newcommand{\CurStatTag}{\varsigma_{\mathrm{cur}}}
+\newcommand{\HomStatTag}{\varsigma_{\mathrm{hom}}}
+\newcommand{\TensorLocalRate}{\mathfrak L_{\mathrm{car}}}
+\newcommand{\CurLocalRate}{\mathfrak L_{\mathrm{cur}}}
+\newcommand{\HomLocalRate}{\mathfrak L_{\mathrm{hom}}}
+\newcommand{\TensorDensityClass}{\mathscr N_{\mathrm{car}}}
+\newcommand{\CurDensityClass}{\mathscr N_{\mathrm{cur}}}
+\newcommand{\HomDensityClass}{\mathscr N_{\mathrm{hom}}}
+\newcommand{\TensorFluxClass}{\mathscr J_{\mathrm{car}}}
+\newcommand{\CurFluxClass}{\mathscr J_{\mathrm{cur}}}
+\newcommand{\HomFluxClass}{\mathscr J_{\mathrm{hom}}}
+\newcommand{\TensorWindowDensity}{\mathfrak q_{\mathrm{car}}}
+\newcommand{\CurWindowDensity}{\mathfrak q_{\mathrm{cur}}}
+\newcommand{\HomWindowDensity}{\mathfrak q_{\mathrm{hom}}}
+\newcommand{\TensorWindowFlux}{\mathfrak j_{\mathrm{car}}}
+\newcommand{\CurWindowFlux}{\mathfrak j_{\mathrm{cur}}}
+\newcommand{\HomWindowFlux}{\mathfrak j_{\mathrm{hom}}}
+\newcommand{\TensorPhaseReadClass}{\mathscr R_{\mathrm{car}}}
+\newcommand{\CurPhaseReadClass}{\mathscr R_{\mathrm{cur}}}
+\newcommand{\HomPhaseReadClass}{\mathscr R_{\mathrm{hom}}}
+\newcommand{\TensorEndpointReadSeed}{\mathscr R_{\mathrm{car}}^{\mathrm{end}}}
+\newcommand{\CurEndpointReadSeed}{\mathscr R_{\mathrm{cur}}^{\mathrm{end}}}
+\newcommand{\HomEndpointReadSeed}{\mathscr R_{\mathrm{hom}}^{\mathrm{end}}}
+\newcommand{\TensorStationaryWindow}{\mathfrak p_{\mathrm{car}}^{\mathrm{st}}}
+\newcommand{\CurStationaryWindow}{\mathfrak p_{\mathrm{cur}}^{\mathrm{st}}}
+\newcommand{\HomStationaryWindow}{\mathfrak p_{\mathrm{hom}}^{\mathrm{st}}}
+\newcommand{\TensorHistoryClass}{\mathfrak H_{\mathrm{car}}}
+\newcommand{\CurHistoryClass}{\mathfrak H_{\mathrm{cur}}}
+\newcommand{\HomHistoryClass}{\mathfrak H_{\mathrm{hom}}}
+\newcommand{\TensorThreadClass}{\mathfrak T_{\mathrm{car}}}
+\newcommand{\CurThreadClass}{\mathfrak T_{\mathrm{cur}}}
+\newcommand{\HomThreadClass}{\mathfrak T_{\mathrm{hom}}}
+\newcommand{\TensorThreadLength}{\ell_{\mathrm{car}}}
+\newcommand{\CurThreadLength}{\ell_{\mathrm{cur}}}
+\newcommand{\HomThreadLength}{\ell_{\mathrm{hom}}}
+\newcommand{\TensorThreadEval}{\gamma_{\mathrm{car}}}
+\newcommand{\CurThreadEval}{\gamma_{\mathrm{cur}}}
+\newcommand{\HomThreadEval}{\gamma_{\mathrm{hom}}}
+\newcommand{\TensorThreadUnit}{\mathbf 1_{\mathrm{car}}}
+\newcommand{\CurThreadUnit}{\mathbf 1_{\mathrm{cur}}}
+\newcommand{\HomThreadUnit}{\mathbf 1_{\mathrm{hom}}}
+\newcommand{\TensorThreadConcat}{\blacktriangleright_{\mathrm{car}}}
+\newcommand{\CurThreadConcat}{\blacktriangleright_{\mathrm{cur}}}
+\newcommand{\HomThreadConcat}{\blacktriangleright_{\mathrm{hom}}}
+\newcommand{\TensorThreadRev}{\mathfrak r_{\mathrm{car}}}
+\newcommand{\CurThreadRev}{\mathfrak r_{\mathrm{cur}}}
+\newcommand{\HomThreadRev}{\mathfrak r_{\mathrm{hom}}}
+\newcommand{\TensorThreadRep}{\mathbb U_{\mathrm{car}}}
+\newcommand{\CurThreadRep}{\mathbb U_{\mathrm{cur}}}
+\newcommand{\HomThreadRep}{\mathbb U_{\mathrm{hom}}}
+\newcommand{\TensorCalLie}{\mathfrak c_{\mathrm{car}}^{\mathrm{gen}}}
+\newcommand{\CurCalLie}{\mathfrak c_{\mathrm{cur}}^{\mathrm{gen}}}
+\newcommand{\HomCalLie}{\mathfrak c_{\mathrm{hom}}^{\mathrm{gen}}}
+\newcommand{\TensorCalMetric}{q_{\mathrm{car}}^{\mathrm{gen}}}
+\newcommand{\CurCalMetric}{q_{\mathrm{cur}}^{\mathrm{gen}}}
+\newcommand{\HomCalMetric}{q_{\mathrm{hom}}^{\mathrm{gen}}}
+\newcommand{\TensorCalLat}{\Lambda_{\mathrm{car}}^{\mathrm{gen}}}
+\newcommand{\CurCalLat}{\Lambda_{\mathrm{cur}}^{\mathrm{gen}}}
+\newcommand{\HomCalLat}{\Lambda_{\mathrm{hom}}^{\mathrm{gen}}}
+\newcommand{\TensorShadowDensity}{\upsilon_{\mathrm{car}}}
+\newcommand{\CurShadowDensity}{\upsilon_{\mathrm{cur}}}
+\newcommand{\HomShadowDensity}{\upsilon_{\mathrm{hom}}}
+\newcommand{\TensorRateDensity}{\lambda_{\mathrm{car}}}
+\newcommand{\CurRateDensity}{\lambda_{\mathrm{cur}}}
+\newcommand{\HomRateDensity}{\lambda_{\mathrm{hom}}}
+\newcommand{\TensorDensityField}{\widehat q_{\mathrm{car}}}
+\newcommand{\CurDensityField}{\widehat q_{\mathrm{cur}}}
+\newcommand{\HomDensityField}{\widehat q_{\mathrm{hom}}}
+\newcommand{\TensorFluxField}{\widehat j_{\mathrm{car}}}
+\newcommand{\CurFluxField}{\widehat j_{\mathrm{cur}}}
+\newcommand{\HomFluxField}{\widehat j_{\mathrm{hom}}}
+\newcommand{\TensorBoundaryRecorder}{\rho_{\mathrm{car}}^{\partial}}
+\newcommand{\CurBoundaryRecorder}{\rho_{\mathrm{cur}}^{\partial}}
+\newcommand{\HomBoundaryRecorder}{\rho_{\mathrm{hom}}^{\partial}}
+\newcommand{\TensorProcSpace}{\mathcal P_{\mathrm{car}}}
+\newcommand{\CurProcSpace}{\mathcal P_{\mathrm{cur}}}
+\newcommand{\HomProcSpace}{\mathcal P_{\mathrm{hom}}}
+\newcommand{\TensorProcRead}{\pi_{\mathrm{car}}}
+\newcommand{\CurProcRead}{\pi_{\mathrm{cur}}}
+\newcommand{\HomProcRead}{\pi_{\mathrm{hom}}}
+\newcommand{\TensorProcUnit}{u_{\mathrm{car}}^{\mathrm{proc}}}
+\newcommand{\CurProcUnit}{u_{\mathrm{cur}}^{\mathrm{proc}}}
+\newcommand{\HomProcUnit}{u_{\mathrm{hom}}^{\mathrm{proc}}}
+\newcommand{\TensorFlowField}{X_{\mathrm{car}}}
+\newcommand{\CurFlowField}{X_{\mathrm{cur}}}
+\newcommand{\HomFlowField}{X_{\mathrm{hom}}}
+\newcommand{\TensorOrbitFlow}{\Phi_{\mathrm{car}}}
+\newcommand{\CurOrbitFlow}{\Phi_{\mathrm{cur}}}
+\newcommand{\HomOrbitFlow}{\Phi_{\mathrm{hom}}}
+\newcommand{\TensorProcLength}{L_{\mathrm{car}}}
+\newcommand{\CurProcLength}{L_{\mathrm{cur}}}
+\newcommand{\HomProcLength}{L_{\mathrm{hom}}}
+\newcommand{\TensorProcTimeRev}{\chi_{\mathrm{car}}}
+\newcommand{\CurProcTimeRev}{\chi_{\mathrm{cur}}}
+\newcommand{\HomProcTimeRev}{\chi_{\mathrm{hom}}}
+\newcommand{\TensorProcMetric}{h_{\mathrm{car}}^{\perp}}
+\newcommand{\CurProcMetric}{h_{\mathrm{cur}}^{\perp}}
+\newcommand{\HomProcMetric}{h_{\mathrm{hom}}^{\perp}}
+\newcommand{\TensorProcLift}{\mathbb U_{\mathrm{car}}^{\mathrm{proc}}}
+\newcommand{\CurProcLift}{\mathbb U_{\mathrm{cur}}^{\mathrm{proc}}}
+\newcommand{\HomProcLift}{\mathbb U_{\mathrm{hom}}^{\mathrm{proc}}}
+\newcommand{\TensorShadowForm}{\boldsymbol{\varsigma}_{\mathrm{car}}}
+\newcommand{\CurShadowForm}{\boldsymbol{\varsigma}_{\mathrm{cur}}}
+\newcommand{\HomShadowForm}{\boldsymbol{\varsigma}_{\mathrm{hom}}}
+\newcommand{\TensorRateForm}{\boldsymbol{\lambda}_{\mathrm{car}}}
+\newcommand{\CurRateForm}{\boldsymbol{\lambda}_{\mathrm{cur}}}
+\newcommand{\HomRateForm}{\boldsymbol{\lambda}_{\mathrm{hom}}}
+\newcommand{\TensorDensitySource}{\boldsymbol{q}_{\mathrm{car}}}
+\newcommand{\CurDensitySource}{\boldsymbol{q}_{\mathrm{cur}}}
+\newcommand{\HomDensitySource}{\boldsymbol{q}_{\mathrm{hom}}}
+\newcommand{\TensorFluxSource}{\boldsymbol{j}_{\mathrm{car}}}
+\newcommand{\CurFluxSource}{\boldsymbol{j}_{\mathrm{cur}}}
+\newcommand{\HomFluxSource}{\boldsymbol{j}_{\mathrm{hom}}}
+\newcommand{\TensorBoundarySource}{\boldsymbol{\rho}_{\mathrm{car}}^{\partial}}
+\newcommand{\CurBoundarySource}{\boldsymbol{\rho}_{\mathrm{cur}}^{\partial}}
+\newcommand{\HomBoundarySource}{\boldsymbol{\rho}_{\mathrm{hom}}^{\partial}}
+\newcommand{\TensorThreadAction}{\mathscr A_{\mathrm{car}}^{\mathrm{thr}}}
+\newcommand{\CurThreadAction}{\mathscr A_{\mathrm{cur}}^{\mathrm{thr}}}
+\newcommand{\HomThreadAction}{\mathscr A_{\mathrm{hom}}^{\mathrm{thr}}}
+
+\newcommand{\TensorProtoSpace}{\mathcal Z_{\mathrm{car}}}
+\newcommand{\CurProtoSpace}{\mathcal Z_{\mathrm{cur}}}
+\newcommand{\HomProtoSpace}{\mathcal Z_{\mathrm{hom}}}
+\newcommand{\TensorProtoRead}{\varrho_{\mathrm{car}}}
+\newcommand{\CurProtoRead}{\varrho_{\mathrm{cur}}}
+\newcommand{\HomProtoRead}{\varrho_{\mathrm{hom}}}
+\newcommand{\TensorProtoUnit}{u_{\mathrm{car}}^{\mathrm{proto}}}
+\newcommand{\CurProtoUnit}{u_{\mathrm{cur}}^{\mathrm{proto}}}
+\newcommand{\HomProtoUnit}{u_{\mathrm{hom}}^{\mathrm{proto}}}
+\newcommand{\TensorProtoTimeRev}{\kappa_{\mathrm{car}}}
+\newcommand{\CurProtoTimeRev}{\kappa_{\mathrm{cur}}}
+\newcommand{\HomProtoTimeRev}{\kappa_{\mathrm{hom}}}
+\newcommand{\TensorProtoAmbientMetric}{\widetilde h_{\mathrm{car}}}
+\newcommand{\CurProtoAmbientMetric}{\widetilde h_{\mathrm{cur}}}
+\newcommand{\HomProtoAmbientMetric}{\widetilde h_{\mathrm{hom}}}
+\newcommand{\TensorSelection}{\mathscr E_{\mathrm{car}}}
+\newcommand{\CurSelection}{\mathscr E_{\mathrm{cur}}}
+\newcommand{\HomSelection}{\mathscr E_{\mathrm{hom}}}
+\newcommand{\TensorSelGap}{\nu_{\mathrm{car}}}
+\newcommand{\CurSelGap}{\nu_{\mathrm{cur}}}
+\newcommand{\HomSelGap}{\nu_{\mathrm{hom}}}
+\newcommand{\TensorCharForm}{\boldsymbol{\theta}_{\mathrm{car}}}
+\newcommand{\CurCharForm}{\boldsymbol{\theta}_{\mathrm{cur}}}
+\newcommand{\HomCharForm}{\boldsymbol{\theta}_{\mathrm{hom}}}
+\newcommand{\TensorCharTwo}{\boldsymbol{\omega}_{\mathrm{car}}}
+\newcommand{\CurCharTwo}{\boldsymbol{\omega}_{\mathrm{cur}}}
+\newcommand{\HomCharTwo}{\boldsymbol{\omega}_{\mathrm{hom}}}
+\newcommand{\TensorProtoTransport}{\mathbb P_{\mathrm{car}}}
+\newcommand{\CurProtoTransport}{\mathbb P_{\mathrm{cur}}}
+\newcommand{\HomProtoTransport}{\mathbb P_{\mathrm{hom}}}
+\newcommand{\TensorProcInc}{\iota_{\mathrm{car}}^{\mathrm{proc}}}
+\newcommand{\CurProcInc}{\iota_{\mathrm{cur}}^{\mathrm{proc}}}
+\newcommand{\HomProcInc}{\iota_{\mathrm{hom}}^{\mathrm{proc}}}
+\newcommand{\TensorProtoShadowForm}{\widetilde{\boldsymbol{\varsigma}}_{\mathrm{car}}}
+\newcommand{\CurProtoShadowForm}{\widetilde{\boldsymbol{\varsigma}}_{\mathrm{cur}}}
+\newcommand{\HomProtoShadowForm}{\widetilde{\boldsymbol{\varsigma}}_{\mathrm{hom}}}
+\newcommand{\TensorProtoRateForm}{\widetilde{\boldsymbol{\lambda}}_{\mathrm{car}}}
+\newcommand{\CurProtoRateForm}{\widetilde{\boldsymbol{\lambda}}_{\mathrm{cur}}}
+\newcommand{\HomProtoRateForm}{\widetilde{\boldsymbol{\lambda}}_{\mathrm{hom}}}
+\newcommand{\TensorProtoDensitySource}{\widetilde{\boldsymbol q}_{\mathrm{car}}}
+\newcommand{\CurProtoDensitySource}{\widetilde{\boldsymbol q}_{\mathrm{cur}}}
+\newcommand{\HomProtoDensitySource}{\widetilde{\boldsymbol q}_{\mathrm{hom}}}
+\newcommand{\TensorProtoFluxSource}{\widetilde{\boldsymbol j}_{\mathrm{car}}}
+\newcommand{\CurProtoFluxSource}{\widetilde{\boldsymbol j}_{\mathrm{cur}}}
+\newcommand{\HomProtoFluxSource}{\widetilde{\boldsymbol j}_{\mathrm{hom}}}
+\newcommand{\TensorProtoBoundarySource}{\widetilde{\boldsymbol{\rho}}_{\mathrm{car}}^{\partial}}
+\newcommand{\CurProtoBoundarySource}{\widetilde{\boldsymbol{\rho}}_{\mathrm{cur}}^{\partial}}
+\newcommand{\HomProtoBoundarySource}{\widetilde{\boldsymbol{\rho}}_{\mathrm{hom}}^{\partial}}
+\newcommand{\TensorProtoAction}{\widetilde{\mathscr A}_{\mathrm{car}}}
+\newcommand{\CurProtoAction}{\widetilde{\mathscr A}_{\mathrm{cur}}}
+\newcommand{\HomProtoAction}{\widetilde{\mathscr A}_{\mathrm{hom}}}
+\newcommand{\Crit}{\operatorname{Crit}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Substrate-Response / Self-Response Charge-Polarization Candidate\\
+\large Exact-Preservation Process-State / Reversible-Line-Field / Compact-Calibration-Fiber / Basic-Form\\
+\large Origin Note}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The exact-preservation reversible-process-thread / calibration-generator / shadow-current / rate-density / boundary-recorder origin note already shows that the previously recorded reversible process-thread layer is not primitive at present scope. It is recovered there from a still deeper process-state / reversible-line-field / compact-calibration-fiber / basic-form layer. What remained open is one layer deeper again: why those exact-preserving process-state manifolds, their reversible line fields and readout maps, their compact calibration fibers with preserved positive fiber metrics, their calibration-basic shadow / rate / density / flux / boundary forms, and their transverse-convex fixed-endpoint action should themselves exist rather than becoming the present deepest disciplined postulate.
+
+The present note addresses exactly that narrower burden. It keeps fixed the same exact-preservation target: the same \(\StemFunctional\), the same exact-preservation normal form \(\DeepFunctional\), the same carrier-origin functional \(\CarrierFunctional[\CarrierSeed,\RelabelSeed,\FreeSeed]\), the same primitive reservoir \(\PrimFunctional[\PrimStrain,\PrimNeutral,\PrimFree]\), the same microscopic-equilibrium reservoir \(\MicFunctional[H,\GaugeAux]\), the same \(\Sigma^{\mathrm{cmp}}\) solve, the same \(\Pi_{\mathrm{free}}H=0\) outcome, the same one operative metric, and the same recorded Phase D / E and Phase F gains. Its positive move is to place the recorded process-state / basic-form layer under a still deeper proto-process / stationary-selection / characteristic-bundle construction:
+\begin{enumerate}
+    \item finite-dimensional exact-preserving proto-process manifolds with visible readout maps, unit sections, time reversals, and stationary-selection functionals whose critical zero manifolds are exactly the recorded process-state manifolds;
+    \item characteristic one-forms on those proto-process spaces whose closed two-forms have one-dimensional kernels along the stationary loci, forcing the recorded reversible line fields and hence the recorded process flows;
+    \item compact exact-preserving visible proto-fibers with preserved positive ambient metrics, whose stationary critical slices are exactly the recorded compact calibration fibers and whose restricted metrics are exactly the recorded preserved positive fiber metrics;
+    \item exact-preserving unitary proto-transports whose characteristic restrictions are exactly the recorded process lifts;
+    \item proto-basic shadow / rate / density / flux / boundary data whose stationary restrictions are exactly the recorded calibration-basic forms and fields, and whose fixed-endpoint action geometry forces the same transverse-convex stationary reduction.
+\end{enumerate}
+
+At current exact-preservation scope, the process-state / reversible-line-field / compact-calibration-fiber / basic-form layer is therefore no longer primitive either. Because the present note reproduces the full input layer of the immediately preceding reversible-process-thread note without change, that note applies verbatim. Consequently the same reversible process-thread / calibration-generator / shadow-current / rate-density / boundary-recorder layer, the same reversible process-window / calibration-action / stationary-shadow / local-rate / endpoint-recorder layer, the same reversible-history / endpoint-readout / cotangent-lift layer, the same reversible-groupoid / transport-action / constrained-stationary package, the same reconfiguration-group / transport-law / equilibrium-reduction package, the same derivation-algebra / balance-law / equilibrium-manifold layer, the same \(\StemFunctional\), the same exact-preservation normal form, the same carrier-origin functional, the same primitive and microscopic-equilibrium reservoirs, the same \(\Sigma^{\mathrm{cmp}}\) solve, the same \(\Pi_{\mathrm{free}}H=0\) outcome, the same one operative metric, and the same recorded Phase D / E and Phase F gains are preserved without change.
+
+The scope remains disciplined. This note does not claim a final microscopic completion, a uniqueness theorem for every conceivable deeper substrate realization, or a completed first-principles derivation of GR. Its narrower exact positive claim is only that the process-state / reversible-line-field / compact-calibration-fiber / basic-form layer itself is no longer primitive at present scope, but is forced by a still deeper proto-process / stationary-selection / characteristic-bundle substrate layer while preserving the same downstream package.
+\end{abstract}
+
+\section{Introduction}
+
+The active one-metric charge-polarization line has now crossed the candidate, benchmark-gate, controlled-limit, residual-sector, redesign, substrate-anchoring, substrate-action, kernel-origin, deeper-selection, primitive-reservoir, carrier-origin, precursor-selection, exact-preservation normal-form, microphysical-Hessian, charge-generator, derivation-algebra, reconfiguration-group, reversible-groupoid, reversible-history, reversible process-window, and reversible process-thread origin steps on the same GR-directed route. The burden therefore sharpens again. It is not another packaging pass. It is not stronger promotion language. It is not, by default, a move onto the anchored positive-pair side line. It is to go one layer below the currently recorded process-state / reversible-line-field / compact-calibration-fiber / basic-form construction itself and explain why that construction is forced.
+
+That burden has six parts. First, one must explain why the exact-preserving process-state manifolds
+\[
+\TensorProcSpace,\qquad
+\CurProcSpace,\qquad
+\HomProcSpace
+\]
+should exist rather than being declared. Second, one must explain why the visible readout maps
+\[
+\TensorProcRead,\qquad
+\CurProcRead,\qquad
+\HomProcRead
+\]
+and the exact-preserving unit-state sections
+\[
+\TensorProcUnit,\qquad
+\CurProcUnit,\qquad
+\HomProcUnit
+\]
+should be forced rather than chosen. Third, one must explain why the reversible line fields
+\[
+\TensorFlowField,\qquad
+\CurFlowField,\qquad
+\HomFlowField
+\]
+and the corresponding time reversals and process lifts should arise canonically. Fourth, one must explain why the compact calibration fibers with preserved positive fiber metrics should arise rather than being imposed. Fifth, one must explain why the calibration-basic shadow / rate / density / flux / boundary forms and fields should descend from deeper substrate structure rather than being inserted by hand. Sixth, one must explain why the fixed-endpoint rate-form action should automatically have the same strict endpoint-transverse convexity rather than acquiring it as an independent extra assumption. As before, one must also re-show that solving those deeper burdens changes none of the already recorded downstream gains: the same reversible process-thread layer, the same reversible-process-window and later layers, the same \(\StemFunctional\), the same exact-preservation normal form, the same carrier-origin functional, the same primitive and microscopic-equilibrium reservoirs, the same \(\Sigma^{\mathrm{cmp}}\) solve, the same \(\Pi_{\mathrm{free}}H=0\) outcome, the same one operative metric, and the same recorded Phase D / E and Phase F gains must remain intact.
+
+The key move of the present note is to place one still deeper exact-preserving proto-process layer under all six current objects at once. Stationary-selection functionals on exact-preserving proto-process manifolds force the recorded process-state manifolds as their critical zero loci. The visible readout maps and unit sections are simply the stationary restrictions of deeper proto-readouts and proto-units. Characteristic one-forms on the proto spaces force the recorded reversible line fields because their closed two-forms have one-dimensional kernels along the stationary loci. Compact proto-fibers with preserved positive ambient metrics force the recorded compact calibration fibers and their preserved positive fiber metrics by stationary restriction. Exact-preserving unitary proto-transports force the recorded process lifts by characteristic restriction. Proto-basic shadow / rate / density / flux / boundary data force the recorded calibration-basic forms and fields by stationary restriction, and the positive normal Hessian of the same stationary-selection geometry together with the fixed-endpoint proto-rate action forces the same strict endpoint-transverse stationary reduction. The currently recorded process-state / basic-form layer is therefore no longer primitive either.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active manuscript sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not claim a final ultraviolet completion, a uniqueness theorem for every conceivable deeper substrate model, or a wider theorem boundary than the current exact-preservation chain. Its narrower positive move is exact and current-scope: the process-state / reversible-line-field / compact-calibration-fiber / basic-form package of the previous note is itself forced as the stationary characteristic image of a still more primitive proto-process / stationary-selection / characteristic-bundle layer, with no change to the downstream completion package.
+
+\section{Fixed Inputs from the Recorded Completion Line}
+
+\begin{definition}[Fixed branch and downstream completion target]
+\label{def:fixed_branch}
+The present note keeps fixed the same charge-polarization branch
+\begin{equation}
+\CandidateMetric
+=
+\ObserverMetric+\BaseShift+\ResponseShift,
+\qquad
+\CompletedMetric
+=
+\ObserverMetric+\BaseShift+\ResponseShift+\CompShift,
+\label{eq:fixed_metrics}
+\end{equation}
+with lifted variables satisfying
+\begin{equation}
+\ObserverMap^*\BaseLift=\BaseShift,
+\qquad
+\ObserverMap^*\ResponseLift=\ResponseShift,
+\qquad
+\ObserverMap^*\CompLift=\CompShift.
+\label{eq:fixed_lifts}
+\end{equation}
+The same completion class and the same free-sector condition are fixed:
+\begin{equation}
+\CompLift\in\CompClass,
+\qquad
+\FreeProj\CompLift=0.
+\label{eq:fixed_free}
+\end{equation}
+The same substrate and observer completion equations are fixed as well:
+\begin{equation}
+\SubReducedEin(\CompLift)=-\ResidualLift,
+\qquad
+\ReducedEin(\CompShift)=-\ResidualCore.
+\label{eq:fixed_solves}
+\end{equation}
+Every statement below must preserve these equations together with the same one operative metric \(\CompletedMetric\).
+\end{definition}
+
+\begin{definition}[Recorded process-state / basic-form input layer]
+\label{def:recorded_layer}
+The immediately preceding reversible-process-thread origin note fixes the following exact-preserving input layer.
+\begin{enumerate}
+    \item Finite-dimensional exact-preserving process-state manifolds
+    \[
+    \TensorProcSpace,\qquad
+    \CurProcSpace,\qquad
+    \HomProcSpace
+    \]
+    with visible readout maps
+    \[
+    \TensorProcRead,\qquad
+    \CurProcRead,\qquad
+    \HomProcRead,
+    \]
+    exact-preserving unit-state sections
+    \[
+    \TensorProcUnit,\qquad
+    \CurProcUnit,\qquad
+    \HomProcUnit,
+    \]
+    complete reversible line fields
+    \[
+    \TensorFlowField,\qquad
+    \CurFlowField,\qquad
+    \HomFlowField
+    \]
+    with flows \(\TensorOrbitFlow^\sigma,\CurOrbitFlow^\sigma,\HomOrbitFlow^\sigma\), smooth admissible-time ceilings \(\TensorProcLength,\CurProcLength,\HomProcLength\), time-reversal involutions \(\TensorProcTimeRev,\CurProcTimeRev,\HomProcTimeRev\), and exact-preserving unitary process lifts \(\TensorProcLift,\CurProcLift,\HomProcLift\).
+    \item Compact exact-preserving visible fibers of those readout maps carrying preserved positive fiber metrics
+    \[
+    \TensorProcMetric,\qquad
+    \CurProcMetric,\qquad
+    \HomProcMetric.
+    \]
+    These metrics are exactly the data from which the immediately preceding note constructs the calibration-generator Lie algebras \(\TensorCalLie,\CurCalLie,\HomCalLie\), their invariant positive metrics \(\TensorCalMetric,\CurCalMetric,\HomCalMetric\), their integral period lattices \(\TensorCalLat,\CurCalLat,\HomCalLat\), and hence the compact calibration actions.
+    \item Calibration-basic exact-preserving shadow one-forms
+    \[
+    \TensorShadowForm,\qquad
+    \CurShadowForm,\qquad
+    \HomShadowForm,
+    \]
+    calibration-basic exact-preserving rate one-forms
+    \[
+    \TensorRateForm,\qquad
+    \CurRateForm,\qquad
+    \HomRateForm,
+    \]
+    calibration-basic exact-preserving density and flux source fields
+    \[
+    \TensorDensitySource,\qquad
+    \CurDensitySource,\qquad
+    \HomDensitySource,\qquad
+    \TensorFluxSource,\qquad
+    \CurFluxSource,\qquad
+    \HomFluxSource,
+    \]
+    and calibration-basic exact-preserving boundary potentials
+    \[
+    \TensorBoundarySource,\qquad
+    \CurBoundarySource,\qquad
+    \HomBoundarySource.
+    \]
+    \item Fixed-endpoint rate-form actions
+    \[
+    \TensorThreadAction,\qquad
+    \CurThreadAction,\qquad
+    \HomThreadAction
+    \]
+    whose first variations vanish along the process-flow and calibration directions and whose second variations are positive on smooth exact-preserving endpoint-fixed complements to those directions. In particular, the same strict endpoint-transverse stationary reduction is fixed.
+\end{enumerate}
+These data are exact fixed inputs for the present note. The only admissible positive result is to derive or justify why this full layer is itself forced while keeping it unchanged.
+\end{definition}
+
+\begin{definition}[Recorded exact-preservation target]
+\label{def:recorded_target}
+The present note must preserve, without any modification,
+\begin{equation}
+\StemFunctional,
+\qquad
+\DeepFunctional,
+\qquad
+\CarrierFunctional[\CarrierSeed,\RelabelSeed,\FreeSeed],
+\qquad
+\PrimFunctional[\PrimStrain,\PrimNeutral,\PrimFree],
+\qquad
+\MicFunctional[H,\GaugeAux],
+\label{eq:target_functionals}
+\end{equation}
+together with the fixed free-sector verdict
+\begin{equation}
+\FreeProj\CompLift=0,
+\label{eq:target_free}
+\end{equation}
+and hence the same previously recorded \(\Pi_{\mathrm{free}}H=0\) outcome, the same completion solve
+\begin{equation}
+\CompShift=\Sigma^{\mathrm{cmp}},
+\label{eq:target_sigma}
+\end{equation}
+the same one operative metric \(\CompletedMetric\), and the same recorded Phase D / E infrared-spectrum and universal-coupling verdicts together with the same Phase F controlled GR limit.
+\end{definition}
+
+\section{Proto-Process Stationary-Selection Origin of the Process-State Geometry}
+
+\begin{definition}[Primitive exact-preserving proto-process and stationary-selection data]
+\label{def:proto_process}
+For each sharper sector, let
+\[
+\TensorProtoSpace,\qquad
+\CurProtoSpace,\qquad
+\HomProtoSpace
+\]
+be finite-dimensional \(C^2\) manifolds of exact-preserving proto-process states. Assume:
+\begin{enumerate}
+    \item there are smooth visible proto-readout maps
+    \[
+    \TensorProtoRead:\TensorProtoSpace\to\TensorObjClass,\qquad
+    \CurProtoRead:\CurProtoSpace\to\CurObjClass,\qquad
+    \HomProtoRead:\HomProtoSpace\to\HomObjClass,
+    \]
+    together with exact-preserving proto-unit sections
+    \[
+    \TensorProtoUnit:\TensorObjClass\to\TensorProtoSpace,\qquad
+    \CurProtoUnit:\CurObjClass\to\CurProtoSpace,\qquad
+    \HomProtoUnit:\HomObjClass\to\HomProtoSpace
+    \]
+    satisfying
+    \[
+    \TensorProtoRead\circ\TensorProtoUnit=\mathrm{id}_{\TensorObjClass},\qquad
+    \CurProtoRead\circ\CurProtoUnit=\mathrm{id}_{\CurObjClass},\qquad
+    \HomProtoRead\circ\HomProtoUnit=\mathrm{id}_{\HomObjClass}.
+    \]
+    \item there are smooth involutive exact-preserving proto-time reversals
+    \[
+    \TensorProtoTimeRev:\TensorProtoSpace\to\TensorProtoSpace,\qquad
+    \CurProtoTimeRev:\CurProtoSpace\to\CurProtoSpace,\qquad
+    \HomProtoTimeRev:\HomProtoSpace\to\HomProtoSpace
+    \]
+    such that
+    \[
+    \TensorProtoRead\circ\TensorProtoTimeRev=\TensorProtoRead,\qquad
+    \CurProtoRead\circ\CurProtoTimeRev=\CurProtoRead,\qquad
+    \HomProtoRead\circ\HomProtoTimeRev=\HomProtoRead,
+    \]
+    and
+    \[
+    \TensorProtoTimeRev\circ\TensorProtoUnit=\TensorProtoUnit,\qquad
+    \CurProtoTimeRev\circ\CurProtoUnit=\CurProtoUnit,\qquad
+    \HomProtoTimeRev\circ\HomProtoUnit=\HomProtoUnit.
+    \]
+    \item each proto-process manifold carries a smooth exact-preserving positive-definite ambient metric
+    \[
+    \TensorProtoAmbientMetric,\qquad
+    \CurProtoAmbientMetric,\qquad
+    \HomProtoAmbientMetric
+    \]
+    preserved by the corresponding proto-time reversals, and each visible proto-fiber
+    \[
+    \TensorProtoRead^{-1}(x),\qquad
+    \CurProtoRead^{-1}(y),\qquad
+    \HomProtoRead^{-1}(z)
+    \]
+    is compact.
+    \item there are smooth exact-preserving stationary-selection functionals
+    \[
+    \TensorSelection:\TensorProtoSpace\to\mathbb R,\qquad
+    \CurSelection:\CurProtoSpace\to\mathbb R,\qquad
+    \HomSelection:\HomProtoSpace\to\mathbb R
+    \]
+    whose critical zero loci
+    \begin{equation}
+    \TensorProcSpace
+    \equiv
+    \left\{
+    z\in\TensorProtoSpace\,\middle|\,
+    \TensorSelection(z)=0,\ d\TensorSelection(z)=0
+    \right\},
+    \label{eq:proc_from_selection_car}
+    \end{equation}
+    \begin{equation}
+    \CurProcSpace
+    \equiv
+    \left\{
+    w\in\CurProtoSpace\,\middle|\,
+    \CurSelection(w)=0,\ d\CurSelection(w)=0
+    \right\},
+    \label{eq:proc_from_selection_cur}
+    \end{equation}
+    \begin{equation}
+    \HomProcSpace
+    \equiv
+    \left\{
+    u\in\HomProtoSpace\,\middle|\,
+    \HomSelection(u)=0,\ d\HomSelection(u)=0
+    \right\},
+    \label{eq:proc_from_selection_hom}
+    \end{equation}
+    are closed embedded \(C^2\) submanifolds, invariant under the corresponding proto-time reversals, and containing the images of the corresponding proto-unit sections. Assume strict normal stationary-selection positivity: for every \(p\in\TensorProcSpace\), \(q\in\CurProcSpace\), \(r\in\HomProcSpace\),
+    \begin{equation}
+    D^2\TensorSelection(p)[\xi,\xi]
+    \ge
+    \TensorSelGap\,\left.\TensorProtoAmbientMetric\right|_p(\xi,\xi),
+    \qquad
+    \TensorSelGap>0,
+    \label{eq:selection_gap_car}
+    \end{equation}
+    \begin{equation}
+    D^2\CurSelection(q)[\eta,\eta]
+    \ge
+    \CurSelGap\,\left.\CurProtoAmbientMetric\right|_q(\eta,\eta),
+    \qquad
+    \CurSelGap>0,
+    \label{eq:selection_gap_cur}
+    \end{equation}
+    \begin{equation}
+    D^2\HomSelection(r)[\zeta,\zeta]
+    \ge
+    \HomSelGap\,\left.\HomProtoAmbientMetric\right|_r(\zeta,\zeta),
+    \qquad
+    \HomSelGap>0,
+    \label{eq:selection_gap_hom}
+    \end{equation}
+    for all \(\xi,\eta,\zeta\) orthogonal, with respect to the corresponding ambient metrics, to the tangent spaces of the corresponding stationary loci.
+    \item there are exact-preserving characteristic one-forms
+    \[
+    \TensorCharForm\in\Omega^1(\TensorProtoSpace),\qquad
+    \CurCharForm\in\Omega^1(\CurProtoSpace),\qquad
+    \HomCharForm\in\Omega^1(\HomProtoSpace),
+    \]
+    with closed two-forms
+    \[
+    \TensorCharTwo\equiv d\TensorCharForm,\qquad
+    \CurCharTwo\equiv d\CurCharForm,\qquad
+    \HomCharTwo\equiv d\HomCharForm,
+    \]
+    satisfying
+    \[
+    \TensorProtoTimeRev^*\TensorCharForm=-\TensorCharForm,\qquad
+    \CurProtoTimeRev^*\CurCharForm=-\CurCharForm,\qquad
+    \HomProtoTimeRev^*\HomCharForm=-\HomCharForm.
+    \]
+    Assume the restrictions of the characteristic two-forms to the stationary loci have one-dimensional kernels. Let the unique smooth vector fields spanning those kernels and normalized by the characteristic one-forms be denoted
+    \[
+    \TensorFlowField,\qquad
+    \CurFlowField,\qquad
+    \HomFlowField,
+    \]
+    so that
+    \begin{equation}
+    \iota_{\TensorFlowField}\left(\TensorCharTwo|_{T\TensorProcSpace}\right)=0,
+    \qquad
+    \TensorCharForm(\TensorFlowField)=1,
+    \label{eq:char_kernel_car}
+    \end{equation}
+    \begin{equation}
+    \iota_{\CurFlowField}\left(\CurCharTwo|_{T\CurProcSpace}\right)=0,
+    \qquad
+    \CurCharForm(\CurFlowField)=1,
+    \label{eq:char_kernel_cur}
+    \end{equation}
+    \begin{equation}
+    \iota_{\HomFlowField}\left(\HomCharTwo|_{T\HomProcSpace}\right)=0,
+    \qquad
+    \HomCharForm(\HomFlowField)=1.
+    \label{eq:char_kernel_hom}
+    \end{equation}
+    Assume these vector fields are complete on the stationary loci, with flows denoted \(\TensorOrbitFlow^\sigma,\CurOrbitFlow^\sigma,\HomOrbitFlow^\sigma\).
+    \item there are exact-preserving unitary proto-transports
+    \[
+    \TensorProtoTransport(p;a,b)\in\mathcal U(\RootTensorClass),\qquad
+    \CurProtoTransport(q;a,b)\in\mathcal U(\RootRelabelClass),\qquad
+    \HomProtoTransport(r;a,b)\in\mathcal U(\RootFreeClass)
+    \]
+    for all \(p\in\TensorProcSpace\), \(q\in\CurProcSpace\), \(r\in\HomProcSpace\), and all admissible \(a\le b\), that are identity on degenerate intervals, multiplicative under interval concatenation, inverse under the corresponding proto-time reversals, and exact-preserving on the fixed branch.
+\end{enumerate}
+
+Define
+\begin{equation}
+\TensorProcInc:\TensorProcSpace\hookrightarrow\TensorProtoSpace,\qquad
+\CurProcInc:\CurProcSpace\hookrightarrow\CurProtoSpace,\qquad
+\HomProcInc:\HomProcSpace\hookrightarrow\HomProtoSpace
+\label{eq:proc_inclusions}
+\end{equation}
+to be the stationary-locus inclusions, and define the recorded process-state readout maps, unit-state sections, time reversals, and process lifts by restriction:
+\begin{equation}
+\TensorProcRead\equiv \TensorProtoRead\circ\TensorProcInc,\qquad
+\CurProcRead\equiv \CurProtoRead\circ\CurProcInc,\qquad
+\HomProcRead\equiv \HomProtoRead\circ\HomProcInc,
+\label{eq:proc_read_from_proto}
+\end{equation}
+\begin{equation}
+\TensorProcUnit\equiv \TensorProtoUnit,\qquad
+\CurProcUnit\equiv \CurProtoUnit,\qquad
+\HomProcUnit\equiv \HomProtoUnit,
+\label{eq:proc_units_from_proto}
+\end{equation}
+\begin{equation}
+\TensorProcTimeRev\equiv \TensorProtoTimeRev|_{\TensorProcSpace},\qquad
+\CurProcTimeRev\equiv \CurProtoTimeRev|_{\CurProcSpace},\qquad
+\HomProcTimeRev\equiv \HomProtoTimeRev|_{\HomProcSpace},
+\label{eq:proc_time_rev_from_proto}
+\end{equation}
+\begin{equation}
+\TensorProcLift(p;a,b)\equiv\TensorProtoTransport(p;a,b),\qquad
+\CurProcLift(q;a,b)\equiv\CurProtoTransport(q;a,b),\qquad
+\HomProcLift(r;a,b)\equiv\HomProtoTransport(r;a,b).
+\label{eq:proc_lift_from_proto}
+\end{equation}
+Finally, for each visible point, define the stationary visible fibers by
+\begin{equation}
+\TensorProcRead^{-1}(x)
+=
+\Crit\!\left(\TensorSelection|_{\TensorProtoRead^{-1}(x)}\right)\cap \TensorSelection^{-1}(0),
+\label{eq:proc_fiber_from_proto_car}
+\end{equation}
+with the corresponding formulas in the \(\mathrm{cur}\) and \(\mathrm{hom}\) sectors, and let \(\TensorProcMetric,\CurProcMetric,\HomProcMetric\) be the restrictions of the corresponding ambient metrics to those stationary visible fibers.
+\end{definition}
+
+\begin{proposition}[Process-state manifolds, reversible line fields, readout maps, compact fibers, and process lifts are forced]
+\label{prop:process_state_forced}
+The proto-process stationary-selection data of Definition \ref{def:proto_process} recover exactly the geometric part of the recorded process-state layer.
+\begin{enumerate}
+    \item The stationary critical zero loci \eqref{eq:proc_from_selection_car}--\eqref{eq:proc_from_selection_hom} are exactly the recorded exact-preserving process-state manifolds \(\TensorProcSpace,\CurProcSpace,\HomProcSpace\).
+    \item The restricted maps \eqref{eq:proc_read_from_proto}--\eqref{eq:proc_time_rev_from_proto} are exactly the recorded visible readout maps, unit-state sections, and time-reversal involutions.
+    \item The normalized characteristic-kernel fields determined by \eqref{eq:char_kernel_car}--\eqref{eq:char_kernel_hom} are exactly the recorded complete reversible line fields, with
+    \[
+    (\TensorProcTimeRev)_*\TensorFlowField=-\TensorFlowField,\qquad
+    (\CurProcTimeRev)_*\CurFlowField=-\CurFlowField,\qquad
+    (\HomProcTimeRev)_*\HomFlowField=-\HomFlowField.
+    \]
+    \item The stationary visible fibers \eqref{eq:proc_fiber_from_proto_car} and their sector analogues are compact exact-preserving calibration fibers, and the restricted metrics \(\TensorProcMetric,\CurProcMetric,\HomProcMetric\) are exactly the recorded preserved positive fiber metrics.
+    \item The restricted transports \eqref{eq:proc_lift_from_proto} are exactly the recorded exact-preserving unitary process lifts.
+    \item Consequently the exact-preserving process-state manifolds, their reversible line fields, their readout maps and unit sections, their compact calibration fibers with preserved positive fiber metrics, and their process lifts are no longer primitive at present scope; they are forced by a deeper proto-process / stationary-selection / characteristic-bundle layer.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Item (1) is the stationary-selection construction itself. By assumption, the critical zero loci of the exact-preserving stationary-selection functionals are closed embedded \(C^2\) submanifolds and are invariant under the proto-time reversals. Because the proto-unit sections lie in those loci, the resulting manifolds are exactly the recorded process-state manifolds through the exact-preserving branch.
+
+Item (2) is immediate from restriction. The proto-readouts already split the visible object classes, the proto-units are already sections of those readouts, and the proto-time reversals already preserve the readouts and units. Restricting to the stationary loci therefore gives exactly the recorded process-state readouts, unit sections, and time-reversal maps.
+
+Item (3) follows from the one-dimensional characteristic-kernel hypothesis. On each stationary locus the restricted two-form has one-dimensional kernel, so the normalization by the characteristic one-form produces a unique smooth line field. Completeness of that line field is assumed. Since the proto-time reversals flip the sign of the characteristic one-forms, they preserve the kernels and reverse the normalized generators. Hence the recorded reversible process line fields and their flows are recovered exactly.
+
+Item (4) combines compactness with Morse-Bott stationary reduction. Each visible proto-fiber is compact by assumption, and the stationary visible fiber is its critical zero slice for the restricted stationary-selection functional. The strict normal positivity \eqref{eq:selection_gap_car}--\eqref{eq:selection_gap_hom} excludes escaping stationary directions transverse to the stationary slice, so the stationary visible fibers are compact embedded submanifolds. Restricting the positive ambient metrics to those stationary fibers yields the recorded preserved positive fiber metrics.
+
+Item (5) is immediate from the transport restriction formulas \eqref{eq:proc_lift_from_proto}. Identity on degenerate intervals, multiplicativity, inversion under time reversal, and exact preservation on the fixed branch descend unchanged from the proto-transports to the recorded process lifts.
+
+Item (6) is therefore immediate: every geometric component of the recorded process-state layer is recovered verbatim, but it is no longer primitive.
+\end{proof}
+
+\section{Proto-Basic-Form and Fixed-Endpoint-Action Origin of the Remaining Process-State Data}
+
+\begin{definition}[Primitive proto-basic-form, boundary, and action data]
+\label{def:proto_basic}
+Assume the proto-process layer of Definition \ref{def:proto_process} is fixed. Assume further:
+\begin{enumerate}
+    \item there are exact-preserving proto-shadow one-forms
+    \[
+    \TensorProtoShadowForm\in\Omega^1(\TensorProtoSpace;\TensorStatTagClass),\qquad
+    \CurProtoShadowForm\in\Omega^1(\CurProtoSpace;\CurStatTagClass),\qquad
+    \HomProtoShadowForm\in\Omega^1(\HomProtoSpace;\HomStatTagClass)
+    \]
+    that are invariant under the corresponding proto-time reversals, preserved along the corresponding characteristic flows on the stationary loci, annihilate vectors normal to the stationary loci, and annihilate vertical vectors tangent to the stationary visible fibers. Define the recorded shadow one-forms by stationary restriction:
+    \begin{equation}
+    \TensorShadowForm\equiv (\TensorProcInc)^*\TensorProtoShadowForm,\qquad
+    \CurShadowForm\equiv (\CurProcInc)^*\CurProtoShadowForm,\qquad
+    \HomShadowForm\equiv (\HomProcInc)^*\HomProtoShadowForm.
+    \label{eq:shadow_restriction}
+    \end{equation}
+    \item there are exact-preserving proto-rate one-forms
+    \[
+    \TensorProtoRateForm\in\Omega^1(\TensorProtoSpace),\qquad
+    \CurProtoRateForm\in\Omega^1(\CurProtoSpace),\qquad
+    \HomProtoRateForm\in\Omega^1(\HomProtoSpace)
+    \]
+    with the same invariance and annihilation properties. Define the recorded rate one-forms by
+    \begin{equation}
+    \TensorRateForm\equiv (\TensorProcInc)^*\TensorProtoRateForm,\qquad
+    \CurRateForm\equiv (\CurProcInc)^*\CurProtoRateForm,\qquad
+    \HomRateForm\equiv (\HomProcInc)^*\HomProtoRateForm.
+    \label{eq:rate_restriction}
+    \end{equation}
+    \item there are exact-preserving proto-density and proto-flux source fields
+    \[
+    \TensorProtoDensitySource:\TensorProtoSpace\to\TensorDensityClass,\qquad
+    \CurProtoDensitySource:\CurProtoSpace\to\CurDensityClass,\qquad
+    \HomProtoDensitySource:\HomProtoSpace\to\HomDensityClass,
+    \]
+    \[
+    \TensorProtoFluxSource:\TensorProtoSpace\to\TensorFluxClass,\qquad
+    \CurProtoFluxSource:\CurProtoSpace\to\CurFluxClass,\qquad
+    \HomProtoFluxSource:\HomProtoSpace\to\HomFluxClass,
+    \]
+    invariant under the corresponding proto-time reversals, preserved along the corresponding characteristic flows on the stationary loci, and constant on normal stationary leaves and vertical stationary-fiber directions. Define the recorded source fields by restriction:
+    \begin{equation}
+    \TensorDensitySource\equiv \TensorProtoDensitySource|_{\TensorProcSpace},\qquad
+    \CurDensitySource\equiv \CurProtoDensitySource|_{\CurProcSpace},\qquad
+    \HomDensitySource\equiv \HomProtoDensitySource|_{\HomProcSpace},
+    \label{eq:density_restriction}
+    \end{equation}
+    \begin{equation}
+    \TensorFluxSource\equiv \TensorProtoFluxSource|_{\TensorProcSpace},\qquad
+    \CurFluxSource\equiv \CurProtoFluxSource|_{\CurProcSpace},\qquad
+    \HomFluxSource\equiv \HomProtoFluxSource|_{\HomProcSpace}.
+    \label{eq:flux_restriction}
+    \end{equation}
+    \item there are exact-preserving proto-boundary potentials
+    \[
+    \TensorProtoBoundarySource:\TensorProtoSpace\to\TensorPhaseReadClass,\qquad
+    \CurProtoBoundarySource:\CurProtoSpace\to\CurPhaseReadClass,\qquad
+    \HomProtoBoundarySource:\HomProtoSpace\to\HomPhaseReadClass
+    \]
+    vanishing on the corresponding proto-unit sections, invariant under the corresponding proto-time reversals, annihilating vectors normal to the stationary loci, and constant on vertical stationary-fiber directions. Define the recorded boundary potentials by
+    \begin{equation}
+    \TensorBoundarySource\equiv \TensorProtoBoundarySource|_{\TensorProcSpace},\qquad
+    \CurBoundarySource\equiv \CurProtoBoundarySource|_{\CurProcSpace},\qquad
+    \HomBoundarySource\equiv \HomProtoBoundarySource|_{\HomProcSpace}.
+    \label{eq:boundary_restriction}
+    \end{equation}
+    Assume that for each stationary point \(p,q,r\) near the exact-preserving branch there is a unique first positive characteristic return to the zero boundary slice, transverse to the characteristic flow, and define the recorded admissible-time ceilings by
+    \begin{equation}
+    \TensorProcLength(p)
+    \equiv
+    \inf\left\{
+    \ell>0\,\middle|\,
+    \TensorBoundarySource(\TensorOrbitFlow^\ell(p))=0
+    \right\},
+    \label{eq:length_from_boundary_car}
+    \end{equation}
+    \begin{equation}
+    \CurProcLength(q)
+    \equiv
+    \inf\left\{
+    \ell>0\,\middle|\,
+    \CurBoundarySource(\CurOrbitFlow^\ell(q))=0
+    \right\},
+    \label{eq:length_from_boundary_cur}
+    \end{equation}
+    \begin{equation}
+    \HomProcLength(r)
+    \equiv
+    \inf\left\{
+    \ell>0\,\middle|\,
+    \HomBoundarySource(\HomOrbitFlow^\ell(r))=0
+    \right\}.
+    \label{eq:length_from_boundary_hom}
+    \end{equation}
+    \item define the proto fixed-endpoint rate actions on \(C^2\) curves constrained to the corresponding stationary loci by
+    \begin{equation}
+    \TensorProtoAction[\gamma]
+    \equiv
+    \int_\gamma \TensorProtoRateForm,
+    \label{eq:proto_action_car}
+    \end{equation}
+    \begin{equation}
+    \CurProtoAction[\gamma]
+    \equiv
+    \int_\gamma \CurProtoRateForm,
+    \label{eq:proto_action_cur}
+    \end{equation}
+    \begin{equation}
+    \HomProtoAction[\gamma]
+    \equiv
+    \int_\gamma \HomProtoRateForm.
+    \label{eq:proto_action_hom}
+    \end{equation}
+    Assume their stationary curves at fixed visible endpoint data are exactly the characteristic curves of \(\TensorFlowField,\CurFlowField,\HomFlowField\), that their first variations vanish automatically along the corresponding characteristic, vertical stationary-fiber, and exact-preserving symmetry directions, and that their second variations are positive on smooth endpoint-fixed complements to those directions and to the normal stationary directions singled out by \eqref{eq:selection_gap_car}--\eqref{eq:selection_gap_hom}. Define the recorded fixed-endpoint thread actions by
+    \begin{equation}
+    \TensorThreadAction(p,\ell)
+    \equiv
+    \int_0^\ell \left(\TensorRateForm(\TensorFlowField)\right)(\TensorOrbitFlow^\sigma(p))\,d\sigma,
+    \label{eq:thread_action_from_proto_car}
+    \end{equation}
+    \begin{equation}
+    \CurThreadAction(q,\ell)
+    \equiv
+    \int_0^\ell \left(\CurRateForm(\CurFlowField)\right)(\CurOrbitFlow^\sigma(q))\,d\sigma,
+    \label{eq:thread_action_from_proto_cur}
+    \end{equation}
+    \begin{equation}
+    \HomThreadAction(r,\ell)
+    \equiv
+    \int_0^\ell \left(\HomRateForm(\HomFlowField)\right)(\HomOrbitFlow^\sigma(r))\,d\sigma.
+    \label{eq:thread_action_from_proto_hom}
+    \end{equation}
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}[Basic forms, admissible-time ceilings, and the transverse-convex action are forced]
+\label{prop:basic_forced}
+The proto-basic and action data of Definition \ref{def:proto_basic} recover exactly the remaining recorded process-state / basic-form input layer.
+\begin{enumerate}
+    \item The restricted one-forms \eqref{eq:shadow_restriction} and \eqref{eq:rate_restriction} are exactly the recorded calibration-basic exact-preserving shadow and rate one-forms.
+    \item The restricted source fields \eqref{eq:density_restriction} and \eqref{eq:flux_restriction} are exactly the recorded calibration-basic exact-preserving density and flux source fields.
+    \item The restricted boundary potentials \eqref{eq:boundary_restriction} are exactly the recorded calibration-basic exact-preserving boundary potentials.
+    \item The first-return formulas \eqref{eq:length_from_boundary_car}--\eqref{eq:length_from_boundary_hom} are exactly the recorded admissible-time ceilings \(\TensorProcLength,\CurProcLength,\HomProcLength\).
+    \item The fixed-endpoint actions \eqref{eq:thread_action_from_proto_car}--\eqref{eq:thread_action_from_proto_hom} are exactly the recorded thread actions, and their inherited second-variation positivity is exactly the recorded strict endpoint-transverse convexity.
+    \item Consequently the calibration-basic shadow / rate / density / flux / boundary data and the transverse-convex fixed-endpoint action are no longer primitive at present scope; they are forced by deeper proto-basic restriction and stationary-action geometry.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Item (1) follows from the restriction construction itself. Because the proto-shadow and proto-rate one-forms annihilate both the normal stationary directions and the vertical directions tangent to the stationary visible fibers, their stationary restrictions are well defined on the process-state manifolds and already satisfy the annihilation and invariance properties needed for calibration-basicness once the immediately preceding note reconstructs the compact calibration symmetries from the same stationary fiber metrics.
+
+Item (2) is immediate from the stationary restrictions \eqref{eq:density_restriction} and \eqref{eq:flux_restriction}. Constancy on normal stationary leaves and on vertical stationary-fiber directions guarantees that the restricted source fields depend only on the stationary process states themselves, while the assumed flow and time-reversal invariance give exactly the recorded exact-preserving behavior.
+
+Item (3) is the same argument applied to the boundary potentials. Since the proto-boundary potentials vanish on the proto-unit sections, their stationary restrictions vanish on the recorded unit-state sections as required.
+
+Item (4) is the first-return construction. By assumption, the zero boundary slices are reached transversely and uniquely at the first positive return near the exact-preserving branch. The implicit-function theorem therefore gives smooth return-time functions, and those are exactly the recorded admissible-time ceilings.
+
+Item (5) follows from constrained stationary reduction. The proto fixed-endpoint rate actions are assumed to have precisely the characteristic curves as stationary curves, with first variations vanishing automatically along the characteristic, symmetry, and stationary-fiber directions. Restricting those stationary curves to the admissible orbit segments singled out by the first-return times yields exactly the recorded thread-action formulas \eqref{eq:thread_action_from_proto_car}--\eqref{eq:thread_action_from_proto_hom}. The positive second variation on endpoint-fixed complements descends directly to the recorded strict endpoint-transverse convexity.
+
+Item (6) is therefore immediate: every remaining visible component of the recorded process-state / basic-form input layer is recovered verbatim, but it is no longer primitive.
+\end{proof}
+
+\section{Exact Recovery of the Recorded Layer and Downstream Package}
+
+\begin{theorem}[Same process-state / basic-form input layer]
+\label{thm:same_input}
+The deeper proto-process / stationary-selection / characteristic-bundle construction introduced above recovers exactly the full recorded input layer of Definition \ref{def:recorded_layer}.
+\begin{enumerate}
+    \item Proposition \ref{prop:process_state_forced} recovers the same process-state manifolds \(\TensorProcSpace,\CurProcSpace,\HomProcSpace\), the same visible readout maps, the same unit-state sections, the same reversible line fields and process flows, the same time-reversal involutions, the same compact calibration fibers with the same preserved positive fiber metrics, and the same process lifts.
+    \item Proposition \ref{prop:basic_forced} recovers the same calibration-basic exact-preserving shadow / rate / density / flux / boundary data, the same admissible-time ceilings, and the same strict endpoint-transverse fixed-endpoint action geometry.
+    \item Therefore the full process-state / reversible-line-field / compact-calibration-fiber / basic-form input layer of the immediately preceding reversible-process-thread note is reproduced without change.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Items (1) and (2) are exactly Propositions \ref{prop:process_state_forced} and \ref{prop:basic_forced}. Item (3) is their direct combination.
+\end{proof}
+
+\begin{theorem}[Same reversible process-thread layer and same downstream package]
+\label{thm:same_package}
+Because the same full input layer of the immediately preceding reversible-process-thread note is recovered, that note applies verbatim. Consequently the same downstream package is reproduced without change:
+\begin{enumerate}
+    \item the same reversible process-thread / calibration-generator / shadow-current / rate-density / boundary-recorder layer;
+    \item the same reversible process-window / calibration-action / stationary-shadow / local-rate / endpoint-recorder layer;
+    \item the same reversible-history / stationary-equivalence / short-history-action / endpoint-readout / cotangent-lift layer;
+    \item the same reversible-groupoid / transport-action / constrained-stationary package;
+    \item the same reconfiguration-group / transport-law / equilibrium-reduction package;
+    \item the same derivation-algebra / balance-law / equilibrium-manifold layer;
+    \item the same \(\StemFunctional\);
+    \item the same exact-preservation normal form \(\DeepFunctional\);
+    \item the same carrier-origin functional \(\CarrierFunctional[\CarrierSeed,\RelabelSeed,\FreeSeed]\);
+    \item the same primitive reservoir \(\PrimFunctional[\PrimStrain,\PrimNeutral,\PrimFree]\);
+    \item the same microscopic-equilibrium reservoir \(\MicFunctional[H,\GaugeAux]\);
+    \item the same free-sector verdict \(\FreeProj\CompLift=0\), and hence the same \(\Pi_{\mathrm{free}}H=0\) outcome;
+    \item the same substrate and observer completion solves \eqref{eq:fixed_solves};
+    \item the same \(\Sigma^{\mathrm{cmp}}\) solve, the same one operative metric \(\CompletedMetric\), and the same recorded Phase D / E and Phase F gains.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Theorem \ref{thm:same_input} reproduces exactly the input layer required by the immediately preceding reversible-process-thread / calibration-generator / shadow-current / rate-density / boundary-recorder origin note. That note already proves that once this input layer is fixed, the same reversible process-thread layer and hence the same full downstream chain follow. Since none of the visible slots, elimination steps, or completion equations are altered here, every downstream object listed above is reproduced verbatim.
+\end{proof}
+
+\begin{corollary}[Recorded gain package is preserved]
+\label{cor:gains}
+Because the same downstream package is recovered, the recorded Phase D / E infrared-spectrum and universal-coupling verdicts, the recorded Phase F controlled GR limit, and the already recorded observer-equation removal of the former genuine quartic residual sector remain preserved without modification.
+\end{corollary}
+
+\begin{proof}
+This is the direct content of Theorem \ref{thm:same_package}.
+\end{proof}
+
+\section{Claim-Boundary Verdict}
+
+\begin{theorem}[Process-state / reversible-line-field / compact-calibration-fiber / basic-form origin verdict]
+\label{thm:verdict}
+At the disciplined scope of the present note, the exact positive result is the following.
+\begin{enumerate}
+    \item The exact-preserving process-state manifolds \(\TensorProcSpace,\CurProcSpace,\HomProcSpace\) are no longer primitive at current scope.
+    \item They arise as the stationary critical zero manifolds of exact-preserving proto-process stationary-selection functionals \(\TensorSelection,\CurSelection,\HomSelection\).
+    \item The visible readout maps \(\TensorProcRead,\CurProcRead,\HomProcRead\) and the exact-preserving unit-state sections \(\TensorProcUnit,\CurProcUnit,\HomProcUnit\) are no longer primitive either.
+    \item They are the stationary restrictions of deeper proto-readout maps and proto-unit sections.
+    \item The reversible line fields \(\TensorFlowField,\CurFlowField,\HomFlowField\) are no longer primitive either.
+    \item They arise as the normalized one-dimensional kernels of deeper characteristic two-forms \(d\TensorCharForm,d\CurCharForm,d\HomCharForm\) on those proto-process spaces, and the recorded time-reversal involutions arise by restriction of the deeper proto-time reversals.
+    \item The compact calibration fibers with preserved positive fiber metrics are no longer primitive either.
+    \item They arise as the stationary critical slices of compact exact-preserving proto-fibers, and their recorded positive fiber metrics are simply the restricted ambient proto metrics.
+    \item The exact-preserving unitary process lifts are no longer primitive either.
+    \item They arise as the characteristic restrictions of deeper exact-preserving unitary proto-transports.
+    \item The calibration-basic shadow / rate / density / flux / boundary data are no longer primitive either.
+    \item They arise as stationary restrictions of deeper proto-basic forms and source fields that annihilate the normal stationary directions and the vertical stationary-fiber directions.
+    \item The recorded admissible-time ceilings and the transverse-convex fixed-endpoint action are no longer primitive either.
+    \item They arise from first positive returns to the deeper boundary slices together with the same fixed-endpoint proto-rate action and the same positive stationary-selection Hessian transverse to the characteristic, symmetry, and stationary-fiber directions.
+    \item Therefore the full process-state / reversible-line-field / compact-calibration-fiber / basic-form input layer of the immediately preceding note is recovered without change.
+    \item Consequently the same reversible process-thread / calibration-generator / shadow-current / rate-density / boundary-recorder layer, the same reversible process-window / calibration-action / stationary-shadow / local-rate / endpoint-recorder layer, the same reversible-history / endpoint-readout / cotangent-lift layer, the same reversible-groupoid / transport-action / constrained-stationary package, the same reconfiguration-group / transport-law / equilibrium-reduction package, the same derivation-algebra / balance-law / equilibrium-manifold layer, the same \(\StemFunctional\), the same exact-preservation normal form, the same carrier-origin functional, the same primitive reservoir, the same microscopic-equilibrium reservoir, the same \(\Sigma^{\mathrm{cmp}}\) solve, the same \(\Pi_{\mathrm{free}}H=0\) outcome, the same one operative metric, and the same recorded Phase D / E and Phase F gains remain unchanged.
+    \item Stronger promotion language is still not justified here, because the present note explains only why the previous process-state / reversible-line-field / compact-calibration-fiber / basic-form layer arises from a deeper proto-process / stationary-selection / characteristic-bundle substrate layer; it does not yet derive why that new deeper layer is itself unique, final, or inevitable beyond current scope.
+    \item No broader packaging consequence or default side-line continuation follows from the mathematical content of this note alone. The remaining honest burden is one layer deeper again on this same exact-preservation line, or else another comparably concrete observer-equation gain on the same one-metric route.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Items (1)--(10) are Proposition \ref{prop:process_state_forced}. Items (11)--(14) are Proposition \ref{prop:basic_forced}. Items (15) and (16) are Theorems \ref{thm:same_input} and \ref{thm:same_package} together with Corollary \ref{cor:gains}. Items (17) and (18) are the present claim-boundary discipline stated in the abstract and introduction.
+\end{proof}
+
+\begin{corollary}[What remains next]
+\label{cor:what_next}
+The primary active burden moves one layer deeper again. It is no longer to justify why the exact-preserving process-state manifolds, their reversible line fields and readout maps, their compact calibration fibers with preserved positive fiber metrics, their calibration-basic shadow / rate / density / flux / boundary forms, and their transverse-convex fixed-endpoint action are admissible at current scope; that step is now recorded. The next honest burden is either to derive or justify why the deeper proto-process manifolds, their stationary-selection functionals, their characteristic one-form / two-form geometry, their compact proto-fiber metrics, their unitary proto-transports, and their proto-basic shadow / rate / density / flux / boundary data are themselves forced by yet more primitive substrate structure, or else to produce another comparably concrete observer-equation gain on the same one-metric line. No stronger promotion language, no packaging pass, and no default move onto the anchored positive-pair side line are justified unless they directly discharge one of those burdens.
+\end{corollary}
+
+\section{Conclusion}
+
+The positive result of this note is that the process-state / reversible-line-field / compact-calibration-fiber / basic-form layer is no longer left primitive at present scope. It is recovered from a still deeper proto-process / stationary-selection / characteristic-bundle substrate layer.
+
+At that deeper level, the recorded process-state manifolds
+\[
+\TensorProcSpace,\qquad
+\CurProcSpace,\qquad
+\HomProcSpace
+\]
+are stationary critical zero loci of exact-preserving proto-process selection functionals. Their readout maps and unit-state sections are stationary restrictions of deeper proto-readouts and proto-units. Their reversible line fields are the normalized characteristic kernels of deeper closed two-form geometry, so the corresponding process flows and time reversals are forced rather than postulated. Their compact calibration fibers are stationary critical slices of compact proto-fibers, and their preserved positive fiber metrics are simply the restricted proto metrics. Their process lifts are characteristic restrictions of deeper exact-preserving unitary proto-transports. Their calibration-basic shadow / rate / density / flux / boundary data are stationary restrictions of deeper proto-basic forms and source fields. Their admissible-time ceilings are first positive returns to the deeper boundary slices, and the same fixed-endpoint rate-form action acquires the same strict endpoint-transverse convexity from the positive stationary-selection Hessian on endpoint-fixed complements.
+
+Because that deeper construction reproduces the full process-state / reversible-line-field / compact-calibration-fiber / basic-form input layer without changing any of its visible slots, the immediately preceding reversible-process-thread note applies verbatim. Consequently the same reversible process-thread / calibration-generator / shadow-current / rate-density / boundary-recorder layer, the same reversible process-window / calibration-action / stationary-shadow / local-rate / endpoint-recorder layer, the same reversible-history / endpoint-readout / cotangent-lift layer, the same reversible-groupoid / transport-action / constrained-stationary package, the same reconfiguration-group / transport-law / equilibrium-reduction package, the same derivation-algebra / balance-law / equilibrium-manifold layer, the same \(\StemFunctional\), the same exact-preservation normal form, the same carrier-origin functional, the same primitive reservoir, the same microscopic-equilibrium reservoir, the same \(\Sigma^{\mathrm{cmp}}\) solve, the same \(\Pi_{\mathrm{free}}H=0\) outcome, the same one operative metric, and the same recorded Phase D / E and Phase F gains remain unchanged.
+
+The scope is still disciplined rather than final. The present note does not prove that the deeper proto-process / stationary-selection / characteristic-bundle layer is unique or ultimate. The next honest burden is to derive or justify why that new deeper layer itself is forced by still more primitive substrate structure, or else to record another comparably concrete observer-equation gain on the same one-metric line.
+
+\end{document}
