@@ -1,0 +1,960 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal A}
+\newcommand{\ObserverMap}{\Xi}
+\newcommand{\ObserverMetric}{g^{\mathrm{br}}}
+\newcommand{\CandidateMetric}{g^{\mathrm{cand}}}
+\newcommand{\CompletedMetric}{g^{\sharp}}
+\newcommand{\BaseShift}{\Sigma^{\mathrm{IER}}}
+\newcommand{\ResponseShift}{\Sigma^{\mathrm{resp}}}
+\newcommand{\CompShift}{\Sigma^{\mathrm{cmp}}}
+\newcommand{\BaseLift}{\widehat\Sigma^{\mathrm{IER}}}
+\newcommand{\ResponseLift}{\widehat\Sigma^{\mathrm{resp}}}
+\newcommand{\CompLift}{\widehat\Sigma^{\mathrm{cmp}}}
+\newcommand{\ResidualCore}{\mathcal V_{\mu\nu}^{\mathrm{res}}}
+\newcommand{\ResidualLift}{\widehat{\mathcal V}^{\mathrm{res}}}
+\newcommand{\SubReducedEin}{\widehat{\mathcal L}}
+\newcommand{\FreeProj}{\Pi_{\mathrm{free}}}
+\newcommand{\GaugeAux}{Y}
+\newcommand{\ReducedEin}{\mathcal L_{\ObserverMetric}}
+\newcommand{\CompClass}{\mathscr C_{\mathrm{cmp}}}
+\newcommand{\MicFunctional}{\mathscr F_{\mathrm{mic}}}
+\newcommand{\PrimFunctional}{\mathscr F_{\mathrm{prim}}}
+\newcommand{\CarrierFunctional}{\mathscr F_{\mathrm{car}}}
+\newcommand{\DeepFunctional}{\mathscr F_{\mathrm{deep}}}
+\newcommand{\StemFunctional}{\mathscr F_{\mathrm{sel}}}
+\newcommand{\PrimStrain}{K}
+\newcommand{\PrimNeutral}{J}
+\newcommand{\PrimFree}{F}
+\newcommand{\CarrierSeed}{\mathfrak S}
+\newcommand{\RelabelSeed}{\mathfrak R}
+\newcommand{\FreeSeed}{\mathfrak F}
+\newcommand{\RootTensorClass}{\mathscr U_{\mathrm{car}}}
+\newcommand{\RootRelabelClass}{\mathscr U_{\mathrm{cur}}}
+\newcommand{\RootFreeClass}{\mathscr U_{\mathrm{hom}}}
+\newcommand{\TensorObjClass}{\mathcal O_{\mathrm{car}}}
+\newcommand{\CurObjClass}{\mathcal O_{\mathrm{cur}}}
+\newcommand{\HomObjClass}{\mathcal O_{\mathrm{hom}}}
+\newcommand{\TensorStatTagClass}{\mathcal Y_{\mathrm{car}}^{\mathrm{st}}}
+\newcommand{\CurStatTagClass}{\mathcal Y_{\mathrm{cur}}^{\mathrm{st}}}
+\newcommand{\HomStatTagClass}{\mathcal Y_{\mathrm{hom}}^{\mathrm{st}}}
+\newcommand{\TensorDensityClass}{\mathscr N_{\mathrm{car}}}
+\newcommand{\CurDensityClass}{\mathscr N_{\mathrm{cur}}}
+\newcommand{\HomDensityClass}{\mathscr N_{\mathrm{hom}}}
+\newcommand{\TensorFluxClass}{\mathscr J_{\mathrm{car}}}
+\newcommand{\CurFluxClass}{\mathscr J_{\mathrm{cur}}}
+\newcommand{\HomFluxClass}{\mathscr J_{\mathrm{hom}}}
+\newcommand{\TensorPhaseReadClass}{\mathscr R_{\mathrm{car}}}
+\newcommand{\CurPhaseReadClass}{\mathscr R_{\mathrm{cur}}}
+\newcommand{\HomPhaseReadClass}{\mathscr R_{\mathrm{hom}}}
+
+\newcommand{\TensorSeedSpace}{\mathcal B_{\mathrm{car}}}
+\newcommand{\CurSeedSpace}{\mathcal B_{\mathrm{cur}}}
+\newcommand{\HomSeedSpace}{\mathcal B_{\mathrm{hom}}}
+\newcommand{\TensorSeedRead}{\Pi_{\mathrm{car}}^{\mathrm{seed}}}
+\newcommand{\CurSeedRead}{\Pi_{\mathrm{cur}}^{\mathrm{seed}}}
+\newcommand{\HomSeedRead}{\Pi_{\mathrm{hom}}^{\mathrm{seed}}}
+\newcommand{\TensorSeedUnit}{u_{\mathrm{car}}^{\mathrm{seed}}}
+\newcommand{\CurSeedUnit}{u_{\mathrm{cur}}^{\mathrm{seed}}}
+\newcommand{\HomSeedUnit}{u_{\mathrm{hom}}^{\mathrm{seed}}}
+\newcommand{\TensorSeedTimeRev}{\tau_{\mathrm{car}}}
+\newcommand{\CurSeedTimeRev}{\tau_{\mathrm{cur}}}
+\newcommand{\HomSeedTimeRev}{\tau_{\mathrm{hom}}}
+\newcommand{\TensorSeedMetric}{G_{\mathrm{car}}}
+\newcommand{\CurSeedMetric}{G_{\mathrm{cur}}}
+\newcommand{\HomSeedMetric}{G_{\mathrm{hom}}}
+\newcommand{\TensorConstraintTarget}{\mathcal K_{\mathrm{car}}}
+\newcommand{\CurConstraintTarget}{\mathcal K_{\mathrm{cur}}}
+\newcommand{\HomConstraintTarget}{\mathcal K_{\mathrm{hom}}}
+\newcommand{\TensorConstraintMetric}{m_{\mathrm{car}}^{\mathrm{con}}}
+\newcommand{\CurConstraintMetric}{m_{\mathrm{cur}}^{\mathrm{con}}}
+\newcommand{\HomConstraintMetric}{m_{\mathrm{hom}}^{\mathrm{con}}}
+\newcommand{\TensorConstraintMap}{\mathfrak C_{\mathrm{car}}}
+\newcommand{\CurConstraintMap}{\mathfrak C_{\mathrm{cur}}}
+\newcommand{\HomConstraintMap}{\mathfrak C_{\mathrm{hom}}}
+\newcommand{\TensorConstraintGap}{\delta_{\mathrm{car}}}
+\newcommand{\CurConstraintGap}{\delta_{\mathrm{cur}}}
+\newcommand{\HomConstraintGap}{\delta_{\mathrm{hom}}}
+\newcommand{\TensorSeedLiouville}{\boldsymbol{\alpha}_{\mathrm{car}}}
+\newcommand{\CurSeedLiouville}{\boldsymbol{\alpha}_{\mathrm{cur}}}
+\newcommand{\HomSeedLiouville}{\boldsymbol{\alpha}_{\mathrm{hom}}}
+\newcommand{\TensorSeedSymplectic}{\boldsymbol{\Omega}_{\mathrm{car}}}
+\newcommand{\CurSeedSymplectic}{\boldsymbol{\Omega}_{\mathrm{cur}}}
+\newcommand{\HomSeedSymplectic}{\boldsymbol{\Omega}_{\mathrm{hom}}}
+\newcommand{\TensorSeedTransport}{\mathbb H_{\mathrm{car}}}
+\newcommand{\CurSeedTransport}{\mathbb H_{\mathrm{cur}}}
+\newcommand{\HomSeedTransport}{\mathbb H_{\mathrm{hom}}}
+\newcommand{\TensorSeedShadowForm}{\boldsymbol{\varsigma}_{\mathrm{car}}^{\mathrm{sub}}}
+\newcommand{\CurSeedShadowForm}{\boldsymbol{\varsigma}_{\mathrm{cur}}^{\mathrm{sub}}}
+\newcommand{\HomSeedShadowForm}{\boldsymbol{\varsigma}_{\mathrm{hom}}^{\mathrm{sub}}}
+\newcommand{\TensorSeedRateForm}{\boldsymbol{\lambda}_{\mathrm{car}}^{\mathrm{sub}}}
+\newcommand{\CurSeedRateForm}{\boldsymbol{\lambda}_{\mathrm{cur}}^{\mathrm{sub}}}
+\newcommand{\HomSeedRateForm}{\boldsymbol{\lambda}_{\mathrm{hom}}^{\mathrm{sub}}}
+\newcommand{\TensorSeedDensitySource}{\boldsymbol{q}_{\mathrm{car}}^{\mathrm{sub}}}
+\newcommand{\CurSeedDensitySource}{\boldsymbol{q}_{\mathrm{cur}}^{\mathrm{sub}}}
+\newcommand{\HomSeedDensitySource}{\boldsymbol{q}_{\mathrm{hom}}^{\mathrm{sub}}}
+\newcommand{\TensorSeedFluxSource}{\boldsymbol{j}_{\mathrm{car}}^{\mathrm{sub}}}
+\newcommand{\CurSeedFluxSource}{\boldsymbol{j}_{\mathrm{cur}}^{\mathrm{sub}}}
+\newcommand{\HomSeedFluxSource}{\boldsymbol{j}_{\mathrm{hom}}^{\mathrm{sub}}}
+\newcommand{\TensorSeedBoundarySource}{\boldsymbol{\rho}_{\mathrm{car}}^{\partial,\mathrm{sub}}}
+\newcommand{\CurSeedBoundarySource}{\boldsymbol{\rho}_{\mathrm{cur}}^{\partial,\mathrm{sub}}}
+\newcommand{\HomSeedBoundarySource}{\boldsymbol{\rho}_{\mathrm{hom}}^{\partial,\mathrm{sub}}}
+\newcommand{\TensorSeedAction}{\mathscr A_{\mathrm{car}}^{\mathrm{sub}}}
+\newcommand{\CurSeedAction}{\mathscr A_{\mathrm{cur}}^{\mathrm{sub}}}
+\newcommand{\HomSeedAction}{\mathscr A_{\mathrm{hom}}^{\mathrm{sub}}}
+
+\newcommand{\TensorAmbientSpace}{\mathcal X_{\mathrm{car}}}
+\newcommand{\CurAmbientSpace}{\mathcal X_{\mathrm{cur}}}
+\newcommand{\HomAmbientSpace}{\mathcal X_{\mathrm{hom}}}
+\newcommand{\TensorAmbientRead}{\Pi_{\mathrm{car}}^{\mathrm{amb}}}
+\newcommand{\CurAmbientRead}{\Pi_{\mathrm{cur}}^{\mathrm{amb}}}
+\newcommand{\HomAmbientRead}{\Pi_{\mathrm{hom}}^{\mathrm{amb}}}
+\newcommand{\TensorAmbientUnit}{u_{\mathrm{car}}^{\mathrm{amb}}}
+\newcommand{\CurAmbientUnit}{u_{\mathrm{cur}}^{\mathrm{amb}}}
+\newcommand{\HomAmbientUnit}{u_{\mathrm{hom}}^{\mathrm{amb}}}
+\newcommand{\TensorAmbientTimeRev}{\rho_{\mathrm{car}}^{\mathrm{amb}}}
+\newcommand{\CurAmbientTimeRev}{\rho_{\mathrm{cur}}^{\mathrm{amb}}}
+\newcommand{\HomAmbientTimeRev}{\rho_{\mathrm{hom}}^{\mathrm{amb}}}
+\newcommand{\TensorAmbientMetric}{M_{\mathrm{car}}}
+\newcommand{\CurAmbientMetric}{M_{\mathrm{cur}}}
+\newcommand{\HomAmbientMetric}{M_{\mathrm{hom}}}
+\newcommand{\TensorShellTarget}{\mathcal E_{\mathrm{car}}}
+\newcommand{\CurShellTarget}{\mathcal E_{\mathrm{cur}}}
+\newcommand{\HomShellTarget}{\mathcal E_{\mathrm{hom}}}
+\newcommand{\TensorShellMetric}{m_{\mathrm{car}}^{\mathrm{sh}}}
+\newcommand{\CurShellMetric}{m_{\mathrm{cur}}^{\mathrm{sh}}}
+\newcommand{\HomShellMetric}{m_{\mathrm{hom}}^{\mathrm{sh}}}
+\newcommand{\TensorShellSection}{\mathfrak D_{\mathrm{car}}}
+\newcommand{\CurShellSection}{\mathfrak D_{\mathrm{cur}}}
+\newcommand{\HomShellSection}{\mathfrak D_{\mathrm{hom}}}
+\newcommand{\TensorShellGap}{\eta_{\mathrm{car}}}
+\newcommand{\CurShellGap}{\eta_{\mathrm{cur}}}
+\newcommand{\HomShellGap}{\eta_{\mathrm{hom}}}
+\newcommand{\TensorSeedInc}{\iota_{\mathrm{car}}^{\mathrm{seed}}}
+\newcommand{\CurSeedInc}{\iota_{\mathrm{cur}}^{\mathrm{seed}}}
+\newcommand{\HomSeedInc}{\iota_{\mathrm{hom}}^{\mathrm{seed}}}
+\newcommand{\TensorAmbientConstraintMap}{\widetilde{\mathfrak C}_{\mathrm{car}}}
+\newcommand{\CurAmbientConstraintMap}{\widetilde{\mathfrak C}_{\mathrm{cur}}}
+\newcommand{\HomAmbientConstraintMap}{\widetilde{\mathfrak C}_{\mathrm{hom}}}
+\newcommand{\TensorConfigSpace}{\mathcal Q_{\mathrm{car}}}
+\newcommand{\CurConfigSpace}{\mathcal Q_{\mathrm{cur}}}
+\newcommand{\HomConfigSpace}{\mathcal Q_{\mathrm{hom}}}
+\newcommand{\TensorCotangentRealization}{\Psi_{\mathrm{car}}}
+\newcommand{\CurCotangentRealization}{\Psi_{\mathrm{cur}}}
+\newcommand{\HomCotangentRealization}{\Psi_{\mathrm{hom}}}
+\newcommand{\TensorAmbientLiouville}{\boldsymbol{\Lambda}_{\mathrm{car}}}
+\newcommand{\CurAmbientLiouville}{\boldsymbol{\Lambda}_{\mathrm{cur}}}
+\newcommand{\HomAmbientLiouville}{\boldsymbol{\Lambda}_{\mathrm{hom}}}
+\newcommand{\TensorAmbientTwo}{\boldsymbol{\Xi}_{\mathrm{car}}}
+\newcommand{\CurAmbientTwo}{\boldsymbol{\Xi}_{\mathrm{cur}}}
+\newcommand{\HomAmbientTwo}{\boldsymbol{\Xi}_{\mathrm{hom}}}
+\newcommand{\TensorAmbientTransport}{\mathbb T_{\mathrm{car}}}
+\newcommand{\CurAmbientTransport}{\mathbb T_{\mathrm{cur}}}
+\newcommand{\HomAmbientTransport}{\mathbb T_{\mathrm{hom}}}
+\newcommand{\TensorAmbientShadowForm}{\boldsymbol{\varsigma}_{\mathrm{car}}^{\mathrm{amb}}}
+\newcommand{\CurAmbientShadowForm}{\boldsymbol{\varsigma}_{\mathrm{cur}}^{\mathrm{amb}}}
+\newcommand{\HomAmbientShadowForm}{\boldsymbol{\varsigma}_{\mathrm{hom}}^{\mathrm{amb}}}
+\newcommand{\TensorAmbientRateForm}{\boldsymbol{\lambda}_{\mathrm{car}}^{\mathrm{amb}}}
+\newcommand{\CurAmbientRateForm}{\boldsymbol{\lambda}_{\mathrm{cur}}^{\mathrm{amb}}}
+\newcommand{\HomAmbientRateForm}{\boldsymbol{\lambda}_{\mathrm{hom}}^{\mathrm{amb}}}
+\newcommand{\TensorAmbientDensitySource}{\boldsymbol{q}_{\mathrm{car}}^{\mathrm{amb}}}
+\newcommand{\CurAmbientDensitySource}{\boldsymbol{q}_{\mathrm{cur}}^{\mathrm{amb}}}
+\newcommand{\HomAmbientDensitySource}{\boldsymbol{q}_{\mathrm{hom}}^{\mathrm{amb}}}
+\newcommand{\TensorAmbientFluxSource}{\boldsymbol{j}_{\mathrm{car}}^{\mathrm{amb}}}
+\newcommand{\CurAmbientFluxSource}{\boldsymbol{j}_{\mathrm{cur}}^{\mathrm{amb}}}
+\newcommand{\HomAmbientFluxSource}{\boldsymbol{j}_{\mathrm{hom}}^{\mathrm{amb}}}
+\newcommand{\TensorAmbientBoundarySource}{\boldsymbol{\rho}_{\mathrm{car}}^{\partial,\mathrm{amb}}}
+\newcommand{\CurAmbientBoundarySource}{\boldsymbol{\rho}_{\mathrm{cur}}^{\partial,\mathrm{amb}}}
+\newcommand{\HomAmbientBoundarySource}{\boldsymbol{\rho}_{\mathrm{hom}}^{\partial,\mathrm{amb}}}
+\newcommand{\TensorAmbientAction}{\mathscr A_{\mathrm{car}}^{\mathrm{amb}}}
+\newcommand{\CurAmbientAction}{\mathscr A_{\mathrm{cur}}^{\mathrm{amb}}}
+\newcommand{\HomAmbientAction}{\mathscr A_{\mathrm{hom}}^{\mathrm{amb}}}
+\newcommand{\Crit}{\operatorname{Crit}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Substrate-Response / Self-Response Charge-Polarization Candidate\\
+\large Exact-Preservation Constraint-Shell / Liouville-Holonomy\\
+\large Origin Note}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The exact-preservation proto-process / stationary-selection / characteristic-bundle origin note already shows that the previously recorded constrained substrate-bundle / exact-constraint / Liouville-holonomy layer is not primitive at present scope. It is recovered there from deeper seed spaces carrying visible readouts, exact constraint maps into positive target metrics, exact Liouville one-forms and closed two-form geometry, seed holonomies, bundle-basic shadow / rate / density / flux / boundary data, and fixed-endpoint seed action geometry. What remained open is one layer deeper again: why that seed layer itself should exist rather than becoming the present deepest disciplined postulate.
+
+The present note addresses exactly that narrower burden. It keeps fixed the same exact-preservation target: the same \(\StemFunctional\), the same exact-preservation normal form \(\DeepFunctional\), the same carrier-origin / primitive-reservoir / microscopic-equilibrium functionals
+\[
+\CarrierFunctional[\CarrierSeed,\RelabelSeed,\FreeSeed],\qquad
+\PrimFunctional[\PrimStrain,\PrimNeutral,\PrimFree],\qquad
+\MicFunctional[H,\GaugeAux],
+\]
+the same \(\Sigma^{\mathrm{cmp}}\) solve, the same \(\Pi_{\mathrm{free}}H=0\) outcome, the same one operative metric, and the same recorded Phase D / E and Phase F gains. Its positive move is to place the recorded constrained substrate-bundle / exact-constraint / Liouville-holonomy layer under a still deeper ambient-shell / cotangent-Liouville / connection-holonomy construction:
+\begin{enumerate}
+    \item finite-dimensional exact-preserving ambient substrate bundles with visible readout maps, unit sections, time reversals, preserved positive ambient metrics, and compact visible fibers;
+    \item exact shell sections into positive target spaces whose zero loci are exactly the recorded seed spaces;
+    \item ambient exact-constraint maps into the same positive target metrics whose shell restrictions are exactly the recorded seed exact-constraint maps;
+    \item cotangent-model Liouville one-forms and closed two-forms on the ambient bundles whose shell restrictions are exactly the recorded seed Liouville and closed two-form geometry;
+    \item exact-preserving ambient unitary holonomies whose shell restrictions are exactly the recorded seed holonomies;
+    \item ambient-basic shadow / rate / density / flux / boundary data and fixed-endpoint ambient rate actions whose shell restrictions are exactly the recorded seed basic data and the same fixed-endpoint seed action geometry.
+\end{enumerate}
+
+At current exact-preservation scope, the constrained substrate-bundle / exact-constraint / Liouville-holonomy layer is therefore no longer primitive either. Because the present note reproduces the full input layer of the immediately preceding proto-process / stationary-selection / characteristic-bundle note without change, that note applies verbatim. Consequently the same process-state layer, the same reversible process-thread / process-window / history / groupoid / reconfiguration / derivation chain, the same \(\StemFunctional\), the same exact-preservation normal form, the same carrier-origin / primitive-reservoir / microscopic-equilibrium functionals, the same \(\Sigma^{\mathrm{cmp}}\) solve, the same \(\Pi_{\mathrm{free}}H=0\) outcome, the same one operative metric, and the same recorded Phase D / E and Phase F gains are preserved without change.
+
+The scope remains disciplined. This note does not claim a final microscopic completion, a uniqueness theorem for every conceivable deeper substrate realization, or a completed first-principles derivation of GR. Its narrower exact positive claim is only that the recorded constrained substrate-bundle / exact-constraint / Liouville-holonomy layer is itself no longer primitive at present scope, but is forced by a still deeper ambient-shell / cotangent-Liouville / connection-holonomy layer while preserving the same downstream package.
+\end{abstract}
+
+\section{Introduction}
+
+The active one-metric charge-polarization line has now crossed the candidate, benchmark-gate, controlled-limit, residual-sector, redesign, substrate-anchoring, substrate-action, kernel-origin, deeper-selection, primitive-reservoir, carrier-origin, precursor-selection, exact-preservation normal-form, microphysical-Hessian, charge-generator, derivation-algebra, reconfiguration-group, reversible-groupoid, reversible-history, reversible process-window, reversible process-thread, process-state, and proto-process origin steps on the same GR-directed route. The burden therefore sharpens again. It is not another packaging pass. It is not stronger promotion language. It is not, by default, a move onto the anchored positive-pair side line. It is to go one layer below the currently recorded constrained substrate-bundle / exact-constraint / Liouville-holonomy construction itself and explain why that construction is forced.
+
+That burden has six core parts. First, one must explain why the exact-preserving seed spaces
+\[
+\TensorSeedSpace,\qquad
+\CurSeedSpace,\qquad
+\HomSeedSpace
+\]
+should exist rather than being declared. Second, one must explain why the exact constraint maps
+\[
+\TensorConstraintMap,\qquad
+\CurConstraintMap,\qquad
+\HomConstraintMap
+\]
+and their target metrics
+\[
+\TensorConstraintMetric,\qquad
+\CurConstraintMetric,\qquad
+\HomConstraintMetric
+\]
+should be forced rather than chosen. Third, one must explain why the seed Liouville one-forms and their closed two-form geometry
+\[
+\TensorSeedLiouville,\ \TensorSeedSymplectic,\qquad
+\CurSeedLiouville,\ \CurSeedSymplectic,\qquad
+\HomSeedLiouville,\ \HomSeedSymplectic
+\]
+should arise canonically. Fourth, one must explain why the seed holonomies
+\[
+\TensorSeedTransport,\qquad
+\CurSeedTransport,\qquad
+\HomSeedTransport
+\]
+should be forced rather than inserted by hand. Fifth, one must explain why the bundle-basic seed shadow / rate / density / flux / boundary data should descend from still more primitive substrate structure. Sixth, one must explain why the same fixed-endpoint seed action geometry should be forced rather than simply declared.
+
+As before, one must also re-show that solving those deeper burdens changes none of the already recorded downstream gains: the same process-state layer, the same reversible process-thread / process-window / history / groupoid / reconfiguration / derivation chain, the same \(\StemFunctional\), the same exact-preservation normal form, the same carrier-origin / primitive-reservoir / microscopic-equilibrium functionals, the same \(\Sigma^{\mathrm{cmp}}\) solve, the same \(\Pi_{\mathrm{free}}H=0\) outcome, the same one operative metric, and the same recorded Phase D / E and Phase F gains must remain intact.
+
+The key move of the present note is to place all six current seed-level objects at once under a still deeper ambient-shell layer. Exact shell sections on compact visible ambient substrate bundles force the recorded seed spaces as zero shells. Ambient exact-constraint maps into positive target spaces force the recorded seed exact-constraint maps and their target metrics by shell restriction. Cotangent-model Liouville one-forms on the ambient bundles force the recorded seed Liouville one-forms and closed two-forms by shell restriction. Ambient unitary holonomies force the recorded seed holonomies by shell restriction. Ambient-basic shadow / rate / density / flux / boundary data force the recorded seed basic data by shell restriction, and the same fixed-endpoint ambient rate action forces the recorded seed action geometry. The currently recorded constrained substrate-bundle / exact-constraint / Liouville-holonomy layer is therefore no longer primitive either.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active manuscript sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not claim a final ultraviolet completion, a uniqueness theorem for every conceivable deeper substrate model, or a wider theorem boundary than the current exact-preservation chain. Its narrower positive move is exact and current-scope: the constrained substrate-bundle / exact-constraint / Liouville-holonomy package of the previous note is itself forced as the shell-restricted image of a still more primitive ambient-shell / cotangent-Liouville / connection-holonomy layer, with no change to the downstream completion package.
+
+\section{Fixed Inputs from the Recorded Completion Line}
+
+\begin{definition}[Fixed branch and downstream completion target]
+\label{def:fixed_branch}
+The present note keeps fixed the same charge-polarization branch
+\begin{equation}
+\CandidateMetric
+=
+\ObserverMetric+\BaseShift+\ResponseShift,
+\qquad
+\CompletedMetric
+=
+\ObserverMetric+\BaseShift+\ResponseShift+\CompShift,
+\label{eq:fixed_metrics}
+\end{equation}
+with lifted variables satisfying
+\begin{equation}
+\ObserverMap^*\BaseLift=\BaseShift,
+\qquad
+\ObserverMap^*\ResponseLift=\ResponseShift,
+\qquad
+\ObserverMap^*\CompLift=\CompShift.
+\label{eq:fixed_lifts}
+\end{equation}
+The same completion class and the same free-sector condition are fixed:
+\begin{equation}
+\CompLift\in\CompClass,
+\qquad
+\FreeProj\CompLift=0.
+\label{eq:fixed_free}
+\end{equation}
+The same substrate and observer completion equations are fixed as well:
+\begin{equation}
+\SubReducedEin(\CompLift)=-\ResidualLift,
+\qquad
+\ReducedEin(\CompShift)=-\ResidualCore.
+\label{eq:fixed_solves}
+\end{equation}
+Every statement below must preserve these equations together with the same one operative metric \(\CompletedMetric\).
+\end{definition}
+
+\begin{definition}[Recorded constrained substrate-bundle / exact-constraint / Liouville-holonomy input layer]
+\label{def:recorded_seed_layer}
+The immediately preceding proto-process / stationary-selection / characteristic-bundle origin note fixes the following exact-preserving input layer.
+\begin{enumerate}
+    \item Finite-dimensional exact-preserving seed spaces
+    \[
+    \TensorSeedSpace,\qquad
+    \CurSeedSpace,\qquad
+    \HomSeedSpace
+    \]
+    with visible seed readout maps
+    \[
+    \TensorSeedRead,\qquad
+    \CurSeedRead,\qquad
+    \HomSeedRead,
+    \]
+    exact-preserving seed unit sections
+    \[
+    \TensorSeedUnit,\qquad
+    \CurSeedUnit,\qquad
+    \HomSeedUnit,
+    \]
+    involutive seed time reversals
+    \[
+    \TensorSeedTimeRev,\qquad
+    \CurSeedTimeRev,\qquad
+    \HomSeedTimeRev,
+    \]
+    and preserved positive seed metrics
+    \[
+    \TensorSeedMetric,\qquad
+    \CurSeedMetric,\qquad
+    \HomSeedMetric.
+    \]
+    Each visible seed fiber is compact.
+    \item Finite-dimensional exact-constraint target spaces
+    \[
+    \TensorConstraintTarget,\qquad
+    \CurConstraintTarget,\qquad
+    \HomConstraintTarget
+    \]
+    with positive metrics
+    \[
+    \TensorConstraintMetric,\qquad
+    \CurConstraintMetric,\qquad
+    \HomConstraintMetric,
+    \]
+    exact-preserving seed exact-constraint maps
+    \[
+    \TensorConstraintMap,\qquad
+    \CurConstraintMap,\qquad
+    \HomConstraintMap
+    \]
+    preserved by the corresponding seed time reversals and vanishing on the corresponding seed unit sections. These maps carry the same recorded positive exact-constraint gap bounds \(\TensorConstraintGap,\CurConstraintGap,\HomConstraintGap>0\) on the current proto shells.
+    \item Exact seed Liouville one-forms
+    \[
+    \TensorSeedLiouville,\qquad
+    \CurSeedLiouville,\qquad
+    \HomSeedLiouville
+    \]
+    with closed two-forms
+    \[
+    \TensorSeedSymplectic=d\TensorSeedLiouville,\qquad
+    \CurSeedSymplectic=d\CurSeedLiouville,\qquad
+    \HomSeedSymplectic=d\HomSeedLiouville.
+    \]
+    \item Exact-preserving unitary seed holonomies
+    \[
+    \TensorSeedTransport,\qquad
+    \CurSeedTransport,\qquad
+    \HomSeedTransport
+    \]
+    attached to piecewise \(C^1\) seed curves, identity on constant curves, multiplicative under concatenation, inverse under the corresponding seed time reversals, and exact-preserving on the fixed branch.
+    \item Exact-preserving seed shadow one-forms
+    \[
+    \TensorSeedShadowForm,\qquad
+    \CurSeedShadowForm,\qquad
+    \HomSeedShadowForm,
+    \]
+    seed rate one-forms
+    \[
+    \TensorSeedRateForm,\qquad
+    \CurSeedRateForm,\qquad
+    \HomSeedRateForm,
+    \]
+    seed density and seed flux source fields
+    \[
+    \TensorSeedDensitySource,\qquad
+    \CurSeedDensitySource,\qquad
+    \HomSeedDensitySource,\qquad
+    \TensorSeedFluxSource,\qquad
+    \CurSeedFluxSource,\qquad
+    \HomSeedFluxSource,
+    \]
+    and seed boundary potentials
+    \[
+    \TensorSeedBoundarySource,\qquad
+    \CurSeedBoundarySource,\qquad
+    \HomSeedBoundarySource.
+    \]
+    \item Fixed-endpoint seed actions
+    \[
+    \TensorSeedAction,\qquad
+    \CurSeedAction,\qquad
+    \HomSeedAction
+    \]
+    whose stationary curves on the current exact-constraint shells are exactly the characteristic curves determined there by the seed Liouville / exact-constraint geometry, whose first variations vanish automatically along the characteristic, symmetry, and vertical seed-fiber directions, and whose second variations are positive on smooth endpoint-fixed complements to those directions and to the normal exact-constraint directions singled out by \(\TensorConstraintGap,\CurConstraintGap,\HomConstraintGap\).
+\end{enumerate}
+These data are exact fixed inputs for the present note. The only admissible positive result is to derive or justify why this full layer is itself forced while keeping it unchanged.
+\end{definition}
+
+\begin{definition}[Recorded exact-preservation target]
+\label{def:recorded_target}
+The present note must preserve, without any modification,
+\begin{equation}
+\StemFunctional,
+\qquad
+\DeepFunctional,
+\qquad
+\CarrierFunctional[\CarrierSeed,\RelabelSeed,\FreeSeed],
+\qquad
+\PrimFunctional[\PrimStrain,\PrimNeutral,\PrimFree],
+\qquad
+\MicFunctional[H,\GaugeAux],
+\label{eq:target_functionals}
+\end{equation}
+together with the fixed free-sector verdict
+\begin{equation}
+\FreeProj\CompLift=0,
+\label{eq:target_free}
+\end{equation}
+and hence the same previously recorded \(\Pi_{\mathrm{free}}H=0\) outcome, the same completion solve
+\begin{equation}
+\CompShift=\Sigma^{\mathrm{cmp}},
+\label{eq:target_sigma}
+\end{equation}
+the same one operative metric \(\CompletedMetric\), and the same recorded Phase D / E infrared-spectrum and universal-coupling verdicts together with the same Phase F controlled GR limit.
+\end{definition}
+
+\section{Ambient-Shell and Cotangent-Liouville Origin of the Seed Geometry}
+
+\begin{definition}[Primitive ambient-shell / cotangent-Liouville / connection-holonomy data]
+\label{def:ambient_geometry}
+For each sharper sector, let
+\[
+\TensorAmbientSpace,\qquad
+\CurAmbientSpace,\qquad
+\HomAmbientSpace
+\]
+be finite-dimensional \(C^2\) manifolds of more primitive exact-preserving substrate states. Assume:
+\begin{enumerate}
+    \item there are smooth visible ambient readout maps
+    \[
+    \TensorAmbientRead:\TensorAmbientSpace\to\TensorObjClass,\qquad
+    \CurAmbientRead:\CurAmbientSpace\to\CurObjClass,\qquad
+    \HomAmbientRead:\HomAmbientSpace\to\HomObjClass,
+    \]
+    together with exact-preserving ambient unit sections
+    \[
+    \TensorAmbientUnit:\TensorObjClass\to\TensorAmbientSpace,\qquad
+    \CurAmbientUnit:\CurObjClass\to\CurAmbientSpace,\qquad
+    \HomAmbientUnit:\HomObjClass\to\HomAmbientSpace
+    \]
+    satisfying
+    \[
+    \TensorAmbientRead\circ\TensorAmbientUnit=\mathrm{id}_{\TensorObjClass},\qquad
+    \CurAmbientRead\circ\CurAmbientUnit=\mathrm{id}_{\CurObjClass},\qquad
+    \HomAmbientRead\circ\HomAmbientUnit=\mathrm{id}_{\HomObjClass}.
+    \]
+    \item there are smooth involutive exact-preserving ambient time reversals
+    \[
+    \TensorAmbientTimeRev:\TensorAmbientSpace\to\TensorAmbientSpace,\qquad
+    \CurAmbientTimeRev:\CurAmbientSpace\to\CurAmbientSpace,\qquad
+    \HomAmbientTimeRev:\HomAmbientSpace\to\HomAmbientSpace
+    \]
+    such that
+    \[
+    \TensorAmbientRead\circ\TensorAmbientTimeRev=\TensorAmbientRead,\qquad
+    \CurAmbientRead\circ\CurAmbientTimeRev=\CurAmbientRead,\qquad
+    \HomAmbientRead\circ\HomAmbientTimeRev=\HomAmbientRead,
+    \]
+    and
+    \[
+    \TensorAmbientTimeRev\circ\TensorAmbientUnit=\TensorAmbientUnit,\qquad
+    \CurAmbientTimeRev\circ\CurAmbientUnit=\CurAmbientUnit,\qquad
+    \HomAmbientTimeRev\circ\HomAmbientUnit=\HomAmbientUnit.
+    \]
+    \item each ambient space carries a smooth exact-preserving positive-definite ambient metric
+    \[
+    \TensorAmbientMetric,\qquad
+    \CurAmbientMetric,\qquad
+    \HomAmbientMetric
+    \]
+    preserved by the corresponding ambient time reversals, and each visible ambient fiber
+    \[
+    (\TensorAmbientRead)^{-1}(x),\qquad
+    (\CurAmbientRead)^{-1}(y),\qquad
+    (\HomAmbientRead)^{-1}(z)
+    \]
+    is compact.
+    \item there are finite-dimensional real shell target spaces
+    \[
+    \TensorShellTarget,\qquad
+    \CurShellTarget,\qquad
+    \HomShellTarget
+    \]
+    with positive-definite metrics
+    \[
+    \TensorShellMetric,\qquad
+    \CurShellMetric,\qquad
+    \HomShellMetric,
+    \]
+    and exact-preserving smooth shell sections
+    \[
+    \TensorShellSection:\TensorAmbientSpace\to\TensorShellTarget,\qquad
+    \CurShellSection:\CurAmbientSpace\to\CurShellTarget,\qquad
+    \HomShellSection:\HomAmbientSpace\to\HomShellTarget
+    \]
+    preserved by the corresponding ambient time reversals and vanishing on the corresponding ambient unit sections.
+
+    Define the recorded seed spaces as the exact shell loci
+    \begin{equation}
+    \TensorSeedSpace\equiv\TensorShellSection^{-1}(0),\qquad
+    \CurSeedSpace\equiv\CurShellSection^{-1}(0),\qquad
+    \HomSeedSpace\equiv\HomShellSection^{-1}(0).
+    \label{eq:seed_shells}
+    \end{equation}
+    Let
+    \begin{equation}
+    \TensorSeedInc:\TensorSeedSpace\hookrightarrow\TensorAmbientSpace,\qquad
+    \CurSeedInc:\CurSeedSpace\hookrightarrow\CurAmbientSpace,\qquad
+    \HomSeedInc:\HomSeedSpace\hookrightarrow\HomAmbientSpace
+    \label{eq:seed_inclusions}
+    \end{equation}
+    be the shell inclusions. Assume these shells are closed embedded \(C^2\) submanifolds, invariant under the corresponding ambient time reversals, and containing the images of the corresponding ambient unit sections. Assume further that for every \(a\in\TensorSeedSpace\), \(b\in\CurSeedSpace\), \(c\in\HomSeedSpace\),
+    \begin{equation}
+    \TensorShellMetric\!\left(D\TensorShellSection(a)\xi,D\TensorShellSection(a)\xi\right)
+    \ge
+    \TensorShellGap\,\TensorAmbientMetric(\xi,\xi),
+    \qquad
+    \TensorShellGap>0,
+    \label{eq:shell_gap_car}
+    \end{equation}
+    \begin{equation}
+    \CurShellMetric\!\left(D\CurShellSection(b)\eta,D\CurShellSection(b)\eta\right)
+    \ge
+    \CurShellGap\,\CurAmbientMetric(\eta,\eta),
+    \qquad
+    \CurShellGap>0,
+    \label{eq:shell_gap_cur}
+    \end{equation}
+    \begin{equation}
+    \HomShellMetric\!\left(D\HomShellSection(c)\zeta,D\HomShellSection(c)\zeta\right)
+    \ge
+    \HomShellGap\,\HomAmbientMetric(\zeta,\zeta),
+    \qquad
+    \HomShellGap>0,
+    \label{eq:shell_gap_hom}
+    \end{equation}
+    for all vectors \(\xi,\eta,\zeta\) orthogonal, with respect to the corresponding ambient metrics, to the tangent spaces of the corresponding shell loci.
+    \item there are finite-dimensional exact-constraint target spaces
+    \[
+    \TensorConstraintTarget,\qquad
+    \CurConstraintTarget,\qquad
+    \HomConstraintTarget
+    \]
+    with positive metrics
+    \[
+    \TensorConstraintMetric,\qquad
+    \CurConstraintMetric,\qquad
+    \HomConstraintMetric,
+    \]
+    and exact-preserving smooth ambient exact-constraint maps
+    \[
+    \TensorAmbientConstraintMap:\TensorAmbientSpace\to\TensorConstraintTarget,\qquad
+    \CurAmbientConstraintMap:\CurAmbientSpace\to\CurConstraintTarget,\qquad
+    \HomAmbientConstraintMap:\HomAmbientSpace\to\HomConstraintTarget
+    \]
+    preserved by the corresponding ambient time reversals and vanishing on the corresponding ambient unit sections. Define the recorded seed exact-constraint maps by shell restriction:
+    \begin{equation}
+    \TensorConstraintMap\equiv\TensorAmbientConstraintMap|_{\TensorSeedSpace},\qquad
+    \CurConstraintMap\equiv\CurAmbientConstraintMap|_{\CurSeedSpace},\qquad
+    \HomConstraintMap\equiv\HomAmbientConstraintMap|_{\HomSeedSpace}.
+    \label{eq:constraint_from_ambient}
+    \end{equation}
+    Assume these restricted maps satisfy the same recorded positive exact-constraint gap bounds \(\TensorConstraintGap,\CurConstraintGap,\HomConstraintGap>0\) on the current exact-constraint shells used in the immediately preceding note.
+    \item there are finite-dimensional exact-preserving configuration spaces
+    \[
+    \TensorConfigSpace,\qquad
+    \CurConfigSpace,\qquad
+    \HomConfigSpace
+    \]
+    and smooth exact-preserving cotangent realizations
+    \[
+    \TensorCotangentRealization:\TensorAmbientSpace\to T^*\TensorConfigSpace,\qquad
+    \CurCotangentRealization:\CurAmbientSpace\to T^*\CurConfigSpace,\qquad
+    \HomCotangentRealization:\HomAmbientSpace\to T^*\HomConfigSpace.
+    \]
+    Let \(\theta_{\mathrm{can}}\) denote the canonical Liouville one-form on the relevant cotangent bundle. Define exact ambient Liouville one-forms and closed ambient two-forms by
+    \begin{equation}
+    \TensorAmbientLiouville\equiv\TensorCotangentRealization^*\theta_{\mathrm{can}},\qquad
+    \CurAmbientLiouville\equiv\CurCotangentRealization^*\theta_{\mathrm{can}},\qquad
+    \HomAmbientLiouville\equiv\HomCotangentRealization^*\theta_{\mathrm{can}},
+    \label{eq:ambient_liouville}
+    \end{equation}
+    \begin{equation}
+    \TensorAmbientTwo\equiv d\TensorAmbientLiouville,\qquad
+    \CurAmbientTwo\equiv d\CurAmbientLiouville,\qquad
+    \HomAmbientTwo\equiv d\HomAmbientLiouville.
+    \label{eq:ambient_two}
+    \end{equation}
+    Assume
+    \[
+    (\TensorAmbientTimeRev)^*\TensorAmbientLiouville=-\TensorAmbientLiouville,\qquad
+    (\CurAmbientTimeRev)^*\CurAmbientLiouville=-\CurAmbientLiouville,\qquad
+    (\HomAmbientTimeRev)^*\HomAmbientLiouville=-\HomAmbientLiouville.
+    \]
+    Define the recorded seed Liouville one-forms and seed closed two-forms by shell restriction:
+    \begin{equation}
+    \TensorSeedLiouville\equiv(\TensorSeedInc)^*\TensorAmbientLiouville,\qquad
+    \CurSeedLiouville\equiv(\CurSeedInc)^*\CurAmbientLiouville,\qquad
+    \HomSeedLiouville\equiv(\HomSeedInc)^*\HomAmbientLiouville,
+    \label{eq:seed_liouville_from_ambient}
+    \end{equation}
+    \begin{equation}
+    \TensorSeedSymplectic\equiv(\TensorSeedInc)^*\TensorAmbientTwo,\qquad
+    \CurSeedSymplectic\equiv(\CurSeedInc)^*\CurAmbientTwo,\qquad
+    \HomSeedSymplectic\equiv(\HomSeedInc)^*\HomAmbientTwo.
+    \label{eq:seed_two_from_ambient}
+    \end{equation}
+    \item there are exact-preserving unitary ambient holonomies
+    \[
+    \TensorAmbientTransport(\Gamma)\in\mathcal U(\RootTensorClass),\qquad
+    \CurAmbientTransport(\Gamma)\in\mathcal U(\RootRelabelClass),\qquad
+    \HomAmbientTransport(\Gamma)\in\mathcal U(\RootFreeClass)
+    \]
+    attached to piecewise \(C^1\) ambient curves \(\Gamma\), identity on constant curves, multiplicative under concatenation, inverse under the corresponding ambient time reversals, and exact-preserving on the fixed branch. Define the recorded seed holonomies on piecewise \(C^1\) seed curves \(\gamma\) by
+    \begin{equation}
+    \TensorSeedTransport(\gamma)\equiv\TensorAmbientTransport(\TensorSeedInc\circ\gamma),\qquad
+    \CurSeedTransport(\gamma)\equiv\CurAmbientTransport(\CurSeedInc\circ\gamma),\qquad
+    \HomSeedTransport(\gamma)\equiv\HomAmbientTransport(\HomSeedInc\circ\gamma).
+    \label{eq:seed_transport_from_ambient}
+    \end{equation}
+\end{enumerate}
+
+Define the recorded seed readout maps, seed unit sections, seed time reversals, and seed metrics by restriction:
+\begin{equation}
+\TensorSeedRead\equiv\TensorAmbientRead\circ\TensorSeedInc,\qquad
+\CurSeedRead\equiv\CurAmbientRead\circ\CurSeedInc,\qquad
+\HomSeedRead\equiv\HomAmbientRead\circ\HomSeedInc,
+\label{eq:seed_read_from_ambient}
+\end{equation}
+\begin{equation}
+\TensorSeedUnit\equiv\TensorAmbientUnit,\qquad
+\CurSeedUnit\equiv\CurAmbientUnit,\qquad
+\HomSeedUnit\equiv\HomAmbientUnit,
+\label{eq:seed_unit_from_ambient}
+\end{equation}
+\begin{equation}
+\TensorSeedTimeRev\equiv\TensorAmbientTimeRev|_{\TensorSeedSpace},\qquad
+\CurSeedTimeRev\equiv\CurAmbientTimeRev|_{\CurSeedSpace},\qquad
+\HomSeedTimeRev\equiv\HomAmbientTimeRev|_{\HomSeedSpace},
+\label{eq:seed_time_rev_from_ambient}
+\end{equation}
+\begin{equation}
+\TensorSeedMetric\equiv(\TensorSeedInc)^*\TensorAmbientMetric,\qquad
+\CurSeedMetric\equiv(\CurSeedInc)^*\CurAmbientMetric,\qquad
+\HomSeedMetric\equiv(\HomSeedInc)^*\HomAmbientMetric.
+\label{eq:seed_metric_from_ambient}
+\end{equation}
+For each visible point, define the visible seed fibers by
+\begin{equation}
+(\TensorSeedRead)^{-1}(x)
+=
+\TensorShellSection^{-1}(0)\cap(\TensorAmbientRead)^{-1}(x),
+\label{eq:seed_fiber_from_ambient_car}
+\end{equation}
+with the corresponding formulas in the \(\mathrm{cur}\) and \(\mathrm{hom}\) sectors.
+\end{definition}
+
+\begin{proposition}[Seed spaces, exact-constraint maps, Liouville geometry, and seed holonomies are forced]
+\label{prop:seed_geometry_forced}
+The ambient-shell / cotangent-Liouville data of Definition \ref{def:ambient_geometry} recover exactly the geometric part of the recorded constrained substrate-bundle / exact-constraint / Liouville-holonomy layer.
+\begin{enumerate}
+    \item The exact shell loci \eqref{eq:seed_shells} are exactly the recorded seed spaces \(\TensorSeedSpace,\CurSeedSpace,\HomSeedSpace\).
+    \item The restricted maps \eqref{eq:seed_read_from_ambient}--\eqref{eq:seed_metric_from_ambient} are exactly the recorded seed readout maps, seed unit sections, seed time reversals, and preserved positive seed metrics, and the visible seed fibers \eqref{eq:seed_fiber_from_ambient_car} and their sector analogues are compact.
+    \item The restricted maps \eqref{eq:constraint_from_ambient} are exactly the recorded seed exact-constraint maps, and the recorded target metrics \(\TensorConstraintMetric,\CurConstraintMetric,\HomConstraintMetric\) are exactly the ambient positive target metrics on which those maps are defined.
+    \item The restricted forms \eqref{eq:seed_liouville_from_ambient}--\eqref{eq:seed_two_from_ambient} are exactly the recorded seed Liouville one-forms and closed two-form geometry.
+    \item The transport formulas \eqref{eq:seed_transport_from_ambient} are exactly the recorded exact-preserving unitary seed holonomies.
+    \item Consequently the constrained substrate bundles / seed spaces, their exact-constraint maps and target metrics, their Liouville one-forms and closed two-form geometry, and their seed holonomies are no longer primitive at present scope; they are forced by a deeper ambient-shell / cotangent-Liouville / connection-holonomy layer.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Item (1) is the shell construction itself. By assumption, the zero shells of the ambient shell sections are closed embedded \(C^2\) submanifolds, invariant under the ambient time reversals, and containing the ambient units. Those are exactly the recorded seed spaces.
+
+Item (2) is immediate from restriction. The ambient readouts already split the visible object classes, the ambient units are already sections of those readouts, the ambient time reversals already preserve the readouts and units, and the ambient metrics are positive and time-reversal invariant. Restricting to the exact shell loci gives exactly the recorded seed objects. Each visible ambient fiber is compact by assumption, and each visible seed fiber is its closed intersection with the corresponding shell locus, so the visible seed fibers are compact as well.
+
+Item (3) follows from the restriction formulas \eqref{eq:constraint_from_ambient}. No additional seed-level choice is made: the target spaces and their positive metrics are already fixed ambiently, and the seed exact-constraint maps are simply their shell restrictions. The recorded exact-constraint gap constants are kept fixed by assumption on those restricted maps.
+
+Item (4) is the cotangent-Liouville reduction statement. The ambient Liouville one-forms are pulled back from the canonical Liouville forms on the ambient cotangent-model realizations, so they are not arbitrary inserted one-forms. Restricting them to the shell loci gives exactly the recorded seed Liouville one-forms, and restricting their exterior derivatives gives exactly the recorded closed seed two-forms.
+
+Item (5) is immediate from the holonomy restriction formula \eqref{eq:seed_transport_from_ambient}. Identity on constant curves, multiplicativity, inversion under time reversal, and exact preservation on the fixed branch descend unchanged from the ambient holonomies to the seed holonomies.
+
+Item (6) is therefore immediate: every geometric component of the recorded constrained substrate-bundle / exact-constraint / Liouville-holonomy layer is recovered verbatim, but it is no longer primitive.
+\end{proof}
+
+\section{Ambient-Basic Source and Fixed-Endpoint Origin of the Remaining Seed Data}
+
+\begin{definition}[Primitive ambient-basic source and fixed-endpoint action data]
+\label{def:ambient_basic}
+Assume the ambient geometry of Definition \ref{def:ambient_geometry} is fixed. Assume further:
+\begin{enumerate}
+    \item there are exact-preserving ambient shadow one-forms
+    \[
+    \TensorAmbientShadowForm\in\Omega^1(\TensorAmbientSpace;\TensorStatTagClass),\qquad
+    \CurAmbientShadowForm\in\Omega^1(\CurAmbientSpace;\CurStatTagClass),\qquad
+    \HomAmbientShadowForm\in\Omega^1(\HomAmbientSpace;\HomStatTagClass)
+    \]
+    that are invariant under the corresponding ambient time reversals, annihilate vectors normal to the shell loci \(\TensorSeedSpace,\CurSeedSpace,\HomSeedSpace\), annihilate vertical vectors tangent to the visible ambient fibers, and are preserved along the characteristic curves on the current exact-constraint shells singled out by the restricted seed Liouville / exact-constraint geometry. Define the recorded seed shadow one-forms by restriction:
+    \begin{equation}
+    \TensorSeedShadowForm\equiv(\TensorSeedInc)^*\TensorAmbientShadowForm,\qquad
+    \CurSeedShadowForm\equiv(\CurSeedInc)^*\CurAmbientShadowForm,\qquad
+    \HomSeedShadowForm\equiv(\HomSeedInc)^*\HomAmbientShadowForm.
+    \label{eq:seed_shadow_from_ambient}
+    \end{equation}
+    \item there are exact-preserving ambient rate one-forms
+    \[
+    \TensorAmbientRateForm\in\Omega^1(\TensorAmbientSpace),\qquad
+    \CurAmbientRateForm\in\Omega^1(\CurAmbientSpace),\qquad
+    \HomAmbientRateForm\in\Omega^1(\HomAmbientSpace)
+    \]
+    with the same invariance and annihilation properties. Define the recorded seed rate one-forms by
+    \begin{equation}
+    \TensorSeedRateForm\equiv(\TensorSeedInc)^*\TensorAmbientRateForm,\qquad
+    \CurSeedRateForm\equiv(\CurSeedInc)^*\CurAmbientRateForm,\qquad
+    \HomSeedRateForm\equiv(\HomSeedInc)^*\HomAmbientRateForm.
+    \label{eq:seed_rate_from_ambient}
+    \end{equation}
+    \item there are exact-preserving ambient density and ambient flux source fields
+    \[
+    \TensorAmbientDensitySource:\TensorAmbientSpace\to\TensorDensityClass,\qquad
+    \CurAmbientDensitySource:\CurAmbientSpace\to\CurDensityClass,\qquad
+    \HomAmbientDensitySource:\HomAmbientSpace\to\HomDensityClass,
+    \]
+    \[
+    \TensorAmbientFluxSource:\TensorAmbientSpace\to\TensorFluxClass,\qquad
+    \CurAmbientFluxSource:\CurAmbientSpace\to\CurFluxClass,\qquad
+    \HomAmbientFluxSource:\HomAmbientSpace\to\HomFluxClass,
+    \]
+    invariant under the corresponding ambient time reversals, preserved along the characteristic curves on the current exact-constraint shells, and constant on shell-normal directions and on vertical ambient-fiber directions. Define the recorded seed density and seed flux source fields by restriction:
+    \begin{equation}
+    \TensorSeedDensitySource\equiv\TensorAmbientDensitySource|_{\TensorSeedSpace},\qquad
+    \CurSeedDensitySource\equiv\CurAmbientDensitySource|_{\CurSeedSpace},\qquad
+    \HomSeedDensitySource\equiv\HomAmbientDensitySource|_{\HomSeedSpace},
+    \label{eq:seed_density_from_ambient}
+    \end{equation}
+    \begin{equation}
+    \TensorSeedFluxSource\equiv\TensorAmbientFluxSource|_{\TensorSeedSpace},\qquad
+    \CurSeedFluxSource\equiv\CurAmbientFluxSource|_{\CurSeedSpace},\qquad
+    \HomSeedFluxSource\equiv\HomAmbientFluxSource|_{\HomSeedSpace}.
+    \label{eq:seed_flux_from_ambient}
+    \end{equation}
+    \item there are exact-preserving ambient boundary potentials
+    \[
+    \TensorAmbientBoundarySource:\TensorAmbientSpace\to\TensorPhaseReadClass,\qquad
+    \CurAmbientBoundarySource:\CurAmbientSpace\to\CurPhaseReadClass,\qquad
+    \HomAmbientBoundarySource:\HomAmbientSpace\to\HomPhaseReadClass
+    \]
+    vanishing on the corresponding ambient unit sections, invariant under the corresponding ambient time reversals, annihilating vectors normal to the shell loci, and constant on vertical ambient-fiber directions. Define the recorded seed boundary potentials by
+    \begin{equation}
+    \TensorSeedBoundarySource\equiv\TensorAmbientBoundarySource|_{\TensorSeedSpace},\qquad
+    \CurSeedBoundarySource\equiv\CurAmbientBoundarySource|_{\CurSeedSpace},\qquad
+    \HomSeedBoundarySource\equiv\HomAmbientBoundarySource|_{\HomSeedSpace}.
+    \label{eq:seed_boundary_from_ambient}
+    \end{equation}
+    \item define the ambient fixed-endpoint rate actions on \(C^2\) curves constrained to the current exact-constraint shells inside the seed shells by
+    \begin{equation}
+    \TensorAmbientAction[\Gamma]\equiv\int_\Gamma \TensorAmbientRateForm,
+    \label{eq:ambient_action_car}
+    \end{equation}
+    \begin{equation}
+    \CurAmbientAction[\Gamma]\equiv\int_\Gamma \CurAmbientRateForm,
+    \label{eq:ambient_action_cur}
+    \end{equation}
+    \begin{equation}
+    \HomAmbientAction[\Gamma]\equiv\int_\Gamma \HomAmbientRateForm.
+    \label{eq:ambient_action_hom}
+    \end{equation}
+    Assume their stationary curves at fixed visible endpoint data are exactly the characteristic curves determined on those exact-constraint shells by the restricted seed Liouville / exact-constraint geometry, that their first variations vanish automatically along the characteristic, symmetry, vertical seed-fiber, and shell-normal directions, and that their second variations are positive on smooth endpoint-fixed complements to those directions and to the normal exact-constraint directions singled out by \(\TensorConstraintGap,\CurConstraintGap,\HomConstraintGap\). Define the recorded seed fixed-endpoint actions by
+    \begin{equation}
+    \TensorSeedAction[\gamma]\equiv\int_\gamma \TensorSeedRateForm,
+    \label{eq:seed_action_from_ambient_car}
+    \end{equation}
+    \begin{equation}
+    \CurSeedAction[\gamma]\equiv\int_\gamma \CurSeedRateForm,
+    \label{eq:seed_action_from_ambient_cur}
+    \end{equation}
+    \begin{equation}
+    \HomSeedAction[\gamma]\equiv\int_\gamma \HomSeedRateForm.
+    \label{eq:seed_action_from_ambient_hom}
+    \end{equation}
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}[Seed bundle-basic data and seed action are forced]
+\label{prop:seed_basic_forced}
+The ambient-basic data of Definition \ref{def:ambient_basic} recover exactly the remaining recorded constrained substrate-bundle / exact-constraint / Liouville-holonomy input layer.
+\begin{enumerate}
+    \item The restricted one-forms \eqref{eq:seed_shadow_from_ambient} and \eqref{eq:seed_rate_from_ambient} are exactly the recorded seed shadow and seed rate one-forms.
+    \item The restricted source fields \eqref{eq:seed_density_from_ambient} and \eqref{eq:seed_flux_from_ambient} are exactly the recorded seed density and seed flux source fields.
+    \item The restricted boundary potentials \eqref{eq:seed_boundary_from_ambient} are exactly the recorded seed boundary potentials.
+    \item The fixed-endpoint actions \eqref{eq:seed_action_from_ambient_car}--\eqref{eq:seed_action_from_ambient_hom} are exactly the recorded seed actions, and their inherited second-variation positivity is exactly the recorded fixed-endpoint seed action geometry.
+    \item Consequently the seed shadow / rate / density / flux / boundary data and the fixed-endpoint seed action geometry are no longer primitive at present scope; they are forced by deeper ambient-basic restriction and the same fixed-endpoint ambient variational geometry.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Item (1) follows from the restriction construction itself. Because the ambient shadow and ambient rate one-forms annihilate both the shell-normal directions and the vertical directions tangent to the visible ambient fibers, their shell restrictions are well defined on the recorded seed spaces and already satisfy the invariance and horizontality required at seed level.
+
+Item (2) is immediate from the restriction formulas \eqref{eq:seed_density_from_ambient} and \eqref{eq:seed_flux_from_ambient}. Constancy on shell-normal directions and on vertical ambient-fiber directions guarantees that the restricted source fields depend only on the seed states themselves, while the assumed characteristic-flow and time-reversal invariance give exactly the recorded exact-preserving behavior.
+
+Item (3) is the same argument applied to the boundary potentials. Since the ambient boundary potentials vanish on the ambient unit sections, their shell restrictions vanish on the recorded seed unit sections as required.
+
+Item (4) follows from constrained stationary reduction. The ambient fixed-endpoint rate actions are assumed to have precisely the characteristic curves on the current exact-constraint shells as stationary curves, with first variations vanishing automatically along the characteristic, symmetry, vertical seed-fiber, and shell-normal directions. Restricting those actions to curves in the seed shells yields exactly the recorded seed-action formulas \eqref{eq:seed_action_from_ambient_car}--\eqref{eq:seed_action_from_ambient_hom}. The positive second variation on endpoint-fixed complements descends directly to the recorded seed stationary geometry.
+
+Item (5) is therefore immediate: every remaining visible component of the recorded constrained substrate-bundle / exact-constraint / Liouville-holonomy input layer is recovered verbatim, but it is no longer primitive.
+\end{proof}
+
+\section{Exact Recovery of the Recorded Seed Layer and Downstream Package}
+
+\begin{theorem}[Same constrained substrate-bundle / exact-constraint / Liouville-holonomy input layer]
+\label{thm:same_seed_input}
+The deeper ambient-shell / cotangent-Liouville / connection-holonomy construction introduced above recovers exactly the full recorded input layer of Definition \ref{def:recorded_seed_layer}.
+\begin{enumerate}
+    \item Proposition \ref{prop:seed_geometry_forced} recovers the same seed spaces \(\TensorSeedSpace,\CurSeedSpace,\HomSeedSpace\), the same visible seed readout maps, the same seed unit sections, the same seed time reversals, the same preserved positive seed metrics, the same compact visible seed fibers, the same exact-constraint maps and target metrics, the same seed Liouville one-forms and closed two-form geometry, and the same seed holonomies.
+    \item Proposition \ref{prop:seed_basic_forced} recovers the same seed shadow / rate / density / flux / boundary data and the same fixed-endpoint seed action geometry.
+    \item Therefore the full constrained substrate-bundle / exact-constraint / Liouville-holonomy input layer of the immediately preceding proto-process / stationary-selection / characteristic-bundle note is reproduced without change.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Items (1) and (2) are exactly Propositions \ref{prop:seed_geometry_forced} and \ref{prop:seed_basic_forced}. Item (3) is their direct combination.
+\end{proof}
+
+\begin{theorem}[Same process-state layer and same downstream package]
+\label{thm:same_package}
+Because the same full constrained substrate-bundle / exact-constraint / Liouville-holonomy input layer of the immediately preceding note is recovered, that note applies verbatim. Consequently the same downstream package is reproduced without change:
+\begin{enumerate}
+    \item the same process-state / reversible-line-field / compact-calibration-fiber / basic-form layer;
+    \item the same reversible process-thread / calibration-generator / shadow-current / rate-density / boundary-recorder layer;
+    \item the same reversible process-window / calibration-action / stationary-shadow / local-rate / endpoint-recorder layer;
+    \item the same reversible-history / stationary-equivalence / short-history-action / endpoint-readout / cotangent-lift layer;
+    \item the same reversible-groupoid / transport-action / constrained-stationary package;
+    \item the same reconfiguration-group / transport-law / equilibrium-reduction package;
+    \item the same derivation-algebra / balance-law / equilibrium-manifold layer;
+    \item hence the same reversible process-thread / process-window / history / groupoid / reconfiguration / derivation chain;
+    \item the same \(\StemFunctional\);
+    \item the same exact-preservation normal form \(\DeepFunctional\);
+    \item the same carrier-origin functional \(\CarrierFunctional[\CarrierSeed,\RelabelSeed,\FreeSeed]\);
+    \item the same primitive reservoir \(\PrimFunctional[\PrimStrain,\PrimNeutral,\PrimFree]\);
+    \item the same microscopic-equilibrium reservoir \(\MicFunctional[H,\GaugeAux]\);
+    \item the same free-sector verdict \(\FreeProj\CompLift=0\), and hence the same \(\Pi_{\mathrm{free}}H=0\) outcome;
+    \item the same substrate and observer completion solves \eqref{eq:fixed_solves};
+    \item the same \(\Sigma^{\mathrm{cmp}}\) solve, the same one operative metric \(\CompletedMetric\), and the same recorded Phase D / E and Phase F gains.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Theorem \ref{thm:same_seed_input} reproduces exactly the input layer required by the immediately preceding proto-process / stationary-selection / characteristic-bundle origin note. That note already proves that once this input layer is fixed, the same process-state layer and hence the same full downstream chain follow. Since none of the visible slots, elimination steps, or completion equations are altered here, every downstream object listed above is reproduced verbatim.
+\end{proof}
+
+\begin{corollary}[Recorded gain package is preserved]
+\label{cor:gains}
+Because the same downstream package is recovered, the recorded Phase D / E infrared-spectrum and universal-coupling verdicts, the recorded Phase F controlled GR limit, and the already recorded observer-equation removal of the former genuine quartic residual sector remain preserved without modification.
+\end{corollary}
+
+\begin{proof}
+This is the direct content of Theorem \ref{thm:same_package}.
+\end{proof}
+
+\section{Claim-Boundary Verdict}
+
+\begin{theorem}[Constraint-shell / Liouville-holonomy origin verdict]
+\label{thm:verdict}
+At the disciplined scope of the present note, the exact positive result is the following.
+\begin{enumerate}
+    \item The exact-preserving seed spaces \(\TensorSeedSpace,\CurSeedSpace,\HomSeedSpace\) are no longer primitive at current scope.
+    \item They arise as the exact zero shells of deeper ambient shell sections \(\TensorShellSection,\CurShellSection,\HomShellSection\) on compact visible ambient substrate bundles.
+    \item The visible seed readout maps \(\TensorSeedRead,\CurSeedRead,\HomSeedRead\), the seed unit sections \(\TensorSeedUnit,\CurSeedUnit,\HomSeedUnit\), the seed time reversals \(\TensorSeedTimeRev,\CurSeedTimeRev,\HomSeedTimeRev\), and the preserved positive seed metrics \(\TensorSeedMetric,\CurSeedMetric,\HomSeedMetric\) are no longer primitive either.
+    \item They are the shell restrictions of deeper ambient readouts, units, time reversals, and ambient metrics, and the recorded compact seed fibers are closed shell slices inside compact visible ambient fibers.
+    \item The exact-constraint maps \(\TensorConstraintMap,\CurConstraintMap,\HomConstraintMap\) and their target metrics \(\TensorConstraintMetric,\CurConstraintMetric,\HomConstraintMetric\) are no longer primitive either.
+    \item They arise as the shell restrictions of deeper ambient exact-constraint maps into ambient positive target spaces equipped with the same target metrics.
+    \item The seed Liouville one-forms \(\TensorSeedLiouville,\CurSeedLiouville,\HomSeedLiouville\) and the seed closed two-forms \(\TensorSeedSymplectic,\CurSeedSymplectic,\HomSeedSymplectic\) are no longer primitive either.
+    \item They arise as the shell restrictions of cotangent-model ambient Liouville one-forms and their exact two-forms.
+    \item The exact-preserving unitary seed holonomies \(\TensorSeedTransport,\CurSeedTransport,\HomSeedTransport\) are no longer primitive either.
+    \item They arise as shell restrictions of deeper exact-preserving ambient unitary holonomies.
+    \item The seed shadow / rate / density / flux / boundary data and the fixed-endpoint seed action geometry are no longer primitive either.
+    \item They arise as shell restrictions of deeper ambient-basic source data and the same fixed-endpoint ambient rate action geometry.
+    \item Therefore the full constrained substrate-bundle / exact-constraint / Liouville-holonomy input layer of the immediately preceding note is recovered without change.
+    \item Consequently the same process-state layer, the same reversible process-thread / process-window / history / groupoid / reconfiguration / derivation chain, the same \(\StemFunctional\), the same exact-preservation normal form, the same carrier-origin / primitive-reservoir / microscopic-equilibrium functionals, the same \(\Sigma^{\mathrm{cmp}}\) solve, the same \(\Pi_{\mathrm{free}}H=0\) outcome, the same one operative metric, and the same recorded Phase D / E and Phase F gains remain unchanged.
+    \item Stronger promotion language is still not justified here, because the present note explains only why the previous constrained substrate-bundle / exact-constraint / Liouville-holonomy layer arises from a deeper ambient-shell / cotangent-Liouville / connection-holonomy layer; it does not yet derive why that new deeper layer is itself unique, final, or inevitable beyond current scope.
+    \item No broader packaging consequence or default side-line continuation follows from the mathematical content of this note alone. The remaining honest burden is one layer deeper again on this same exact-preservation line, or else another comparably concrete observer-equation gain on the same one-metric route.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Items (1)--(10) are Proposition \ref{prop:seed_geometry_forced}. Items (11) and (12) are Proposition \ref{prop:seed_basic_forced}. Items (13) and (14) are Theorems \ref{thm:same_seed_input} and \ref{thm:same_package} together with Corollary \ref{cor:gains}. Items (15) and (16) are the present claim-boundary discipline stated in the abstract and introduction.
+\end{proof}
+
+\begin{corollary}[What remains next]
+\label{cor:what_next}
+The primary active burden moves one layer deeper again. It is no longer to justify why the constrained substrate bundles / seed spaces, their exact-constraint maps and target metrics, their Liouville one-forms and closed two-form geometry, their seed holonomies, their bundle-basic shadow / rate / density / flux / boundary data, or their fixed-endpoint seed action geometry are admissible at current scope; that step is now recorded. The next honest burden is either to derive or justify why the deeper ambient substrate bundles, their shell sections, their ambient exact-constraint maps, their cotangent-model Liouville one-forms, their ambient holonomies, and their ambient-basic source / action data are themselves forced by yet more primitive substrate structure, or else to produce another comparably concrete observer-equation gain on the same one-metric line. No stronger promotion language, no packaging pass, and no default move onto the anchored positive-pair side line are justified unless they directly discharge one of those burdens.
+\end{corollary}
+
+\section{Conclusion}
+
+The positive result of this note is that the constrained substrate-bundle / exact-constraint / Liouville-holonomy layer is no longer left primitive at present scope. It is recovered from a still deeper ambient-shell / cotangent-Liouville / connection-holonomy layer.
+
+At that deeper level, the recorded seed spaces
+\[
+\TensorSeedSpace,\qquad
+\CurSeedSpace,\qquad
+\HomSeedSpace
+\]
+are exact shell loci inside compact visible ambient substrate bundles. Their readout maps, unit sections, time reversals, and preserved positive metrics are shell restrictions of deeper ambient data. Their exact-constraint maps and target metrics are shell restrictions of deeper ambient exact-constraint maps into the same positive target spaces. Their Liouville one-forms and closed two-form geometry are shell restrictions of cotangent-model ambient Liouville data. Their seed holonomies are shell restrictions of deeper ambient unitary holonomies. Their bundle-basic shadow / rate / density / flux / boundary data and their fixed-endpoint seed action geometry are shell restrictions of deeper ambient-basic source data and the same ambient rate-action geometry.
+
+Because that deeper construction reproduces the full constrained substrate-bundle / exact-constraint / Liouville-holonomy input layer without changing any of its visible slots, the immediately preceding proto-process / stationary-selection / characteristic-bundle note applies verbatim. Consequently the same process-state layer, the same reversible process-thread / process-window / history / groupoid / reconfiguration / derivation chain, the same \(\StemFunctional\), the same exact-preservation normal form, the same carrier-origin / primitive-reservoir / microscopic-equilibrium functionals, the same \(\Sigma^{\mathrm{cmp}}\) solve, the same \(\Pi_{\mathrm{free}}H=0\) outcome, the same one operative metric, and the same recorded Phase D / E and Phase F gains remain unchanged.
+
+The scope is still disciplined rather than final. The present note does not prove that the deeper ambient-shell / cotangent-Liouville / connection-holonomy layer is unique or ultimate. The next honest burden is to derive or justify why that new deeper layer itself is forced by still more primitive substrate structure, or else to record another comparably concrete observer-equation gain on the same one-metric line.
+
+\end{document}

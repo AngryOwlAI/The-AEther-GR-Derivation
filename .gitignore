@@ -1,0 +1,41 @@
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+Prompts for AEther.txt
+
+# Icon must end with two \r
+Icon
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Repo-local ignores
+FILE_RELOCATION_PLAN.md
+FILE_RELOCATION_MANIFEST.csv
+AGENTS.md
+DEPLOYMENT_PLAN.md
+docs/FLAGSHIP_EXACT_CLOSURE_PACKAGING_BRIEF.md
+File Format Convertor to docx.bat
+scripts/clean_aether_pdflatex_artifacts.sh
+
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
