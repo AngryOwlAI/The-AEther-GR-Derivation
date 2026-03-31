@@ -1,0 +1,982 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal A}
+\newcommand{\ObserverMap}{\Xi}
+\newcommand{\ObserverMetric}{g^{\mathrm{br}}}
+\newcommand{\CandidateMetric}{g^{\mathrm{cand}}}
+\newcommand{\CompletedMetric}{g^{\sharp}}
+\newcommand{\BaseShift}{\Sigma^{\mathrm{IER}}}
+\newcommand{\ResponseShift}{\Sigma^{\mathrm{resp}}}
+\newcommand{\CompShift}{\Sigma^{\mathrm{cmp}}}
+\newcommand{\BaseLift}{\widehat\Sigma^{\mathrm{IER}}}
+\newcommand{\ResponseLift}{\widehat\Sigma^{\mathrm{resp}}}
+\newcommand{\CompLift}{\widehat\Sigma^{\mathrm{cmp}}}
+\newcommand{\ResidualCore}{\mathcal V_{\mu\nu}^{\mathrm{res}}}
+\newcommand{\ResidualLift}{\widehat{\mathcal V}^{\mathrm{res}}}
+\newcommand{\SubReducedEin}{\widehat{\mathcal L}}
+\newcommand{\FreeProj}{\Pi_{\mathrm{free}}}
+\newcommand{\GaugeAux}{Y}
+\newcommand{\ReducedEin}{\mathcal L_{\ObserverMetric}}
+\newcommand{\CompClass}{\mathscr C_{\mathrm{cmp}}}
+\newcommand{\MicFunctional}{\mathscr F_{\mathrm{mic}}}
+\newcommand{\PrimFunctional}{\mathscr F_{\mathrm{prim}}}
+\newcommand{\CarrierFunctional}{\mathscr F_{\mathrm{car}}}
+\newcommand{\DeepFunctional}{\mathscr F_{\mathrm{deep}}}
+\newcommand{\StemFunctional}{\mathscr F_{\mathrm{sel}}}
+\newcommand{\PrimStrain}{K}
+\newcommand{\PrimNeutral}{J}
+\newcommand{\PrimFree}{F}
+\newcommand{\CarrierSeed}{\mathfrak S}
+\newcommand{\RelabelSeed}{\mathfrak R}
+\newcommand{\FreeSeed}{\mathfrak F}
+\newcommand{\LieU}{\mathfrak u}
+
+\newcommand{\SectorSet}{\mathsf S}
+\newcommand{\Car}{\mathrm{car}}
+\newcommand{\Cur}{\mathrm{cur}}
+\newcommand{\Hom}{\mathrm{hom}}
+
+\newcommand{\ObjClass}[1]{\mathcal O_{#1}}
+\newcommand{\StatTagClass}[1]{\mathcal Y_{#1}^{\mathrm{st}}}
+\newcommand{\DensityClass}[1]{\mathscr N_{#1}}
+\newcommand{\FluxClass}[1]{\mathscr J_{#1}}
+\newcommand{\PhaseReadClass}[1]{\mathscr R_{#1}}
+\newcommand{\RootClass}[1]{\mathscr U_{#1}}
+
+\newcommand{\ConfigSpace}[1]{\mathcal Q_{#1}}
+\newcommand{\ShellTarget}[1]{\mathcal E_{#1}}
+\newcommand{\ShellMetric}[1]{m_{#1}^{\mathrm{sh}}}
+\newcommand{\ShellGap}[1]{\eta_{#1}}
+\newcommand{\ConstraintTarget}[1]{\mathcal K_{#1}}
+\newcommand{\ConstraintMetric}[1]{m_{#1}^{\mathrm{con}}}
+\newcommand{\ConstraintGap}[1]{\delta_{#1}}
+\newcommand{\OriginTarget}[1]{\mathcal H_{#1}^{\mathrm{orig}}}
+\newcommand{\OriginTargetMetric}[1]{n_{#1}^{\mathrm{orig}}}
+\newcommand{\OriginGap}[1]{\epsilon_{#1}^{\mathrm{orig}}}
+\newcommand{\RootTarget}[1]{\mathcal Z_{#1}^{\mathrm{root}}}
+\newcommand{\RootTargetMetric}[1]{p_{#1}^{\mathrm{root}}}
+\newcommand{\RootGap}[1]{\kappa_{#1}^{\mathrm{root}}}
+\newcommand{\PrimTarget}[1]{\mathcal W_{#1}^{\mathrm{prim}}}
+\newcommand{\PrimTargetMetric}[1]{q_{#1}^{\mathrm{prim}}}
+\newcommand{\PrimGap}[1]{\lambda_{#1}^{\mathrm{prim}}}
+\newcommand{\SubprimTarget}[1]{\mathcal V_{#1}^{\mathrm{subprim}}}
+\newcommand{\SubprimTargetMetric}[1]{v_{#1}^{\mathrm{subprim}}}
+\newcommand{\SubprimGap}[1]{\mu_{#1}^{\mathrm{subprim}}}
+\newcommand{\ProtoSubprimTarget}[1]{\mathcal T_{#1}^{\mathrm{psp}}}
+\newcommand{\ProtoSubprimTargetMetric}[1]{t_{#1}^{\mathrm{psp}}}
+\newcommand{\ProtoSubprimGap}[1]{\nu_{#1}^{\mathrm{psp}}}
+\newcommand{\PreProtoSubprimTarget}[1]{\mathcal X_{#1}^{\mathrm{ppsp}}}
+\newcommand{\PreProtoSubprimTargetMetric}[1]{x_{#1}^{\mathrm{ppsp}}}
+\newcommand{\PreProtoSubprimGap}[1]{\omega_{#1}^{\mathrm{ppsp}}}
+
+\newcommand{\PrimSpace}[1]{\mathcal P_{#1}}
+\newcommand{\PrimRead}[1]{\Pi_{#1}^{\mathrm{prim}}}
+\newcommand{\PrimUnit}[1]{u_{#1}^{\mathrm{prim}}}
+\newcommand{\PrimTimeRev}[1]{\sigma_{#1}^{\mathrm{prim}}}
+\newcommand{\PrimMetric}[1]{\breve M_{#1}}
+\newcommand{\PrimSection}[1]{\mathfrak P_{#1}^{\mathrm{prim}}}
+\newcommand{\PrimInc}[1]{\iota_{#1}^{\mathrm{prim}}}
+\newcommand{\PrimLiftedPreAmbient}[1]{\widehat{\mathfrak Z}_{#1}^{\mathrm{root}}}
+\newcommand{\PrimLiftedAmbient}[1]{\widehat{\mathfrak S}_{#1}^{\mathrm{orig}}}
+\newcommand{\PrimLiftedShell}[1]{\widehat{\mathfrak D}_{#1}^{\mathrm{root}}}
+\newcommand{\PrimConstraintMap}[1]{\widehat{\mathfrak C}_{#1}^{\mathrm{root}}}
+\newcommand{\PrimCotangentRealization}[1]{\breve\Psi_{#1}}
+\newcommand{\PrimLiouville}[1]{\boldsymbol{\Lambda}_{#1}^{\mathrm{prim}}}
+\newcommand{\PrimTwo}[1]{\boldsymbol{\Xi}_{#1}^{\mathrm{prim}}}
+\newcommand{\PrimConnectionForm}[1]{\mathcal C_{#1}^{\mathrm{conn}}}
+\newcommand{\PrimTransport}[1]{\mathbb U_{#1}}
+\newcommand{\PrimShadowForm}[1]{\boldsymbol{\varsigma}_{#1}^{\mathrm{prim}}}
+\newcommand{\PrimRateForm}[1]{\boldsymbol{\lambda}_{#1}^{\mathrm{prim}}}
+\newcommand{\PrimDensitySource}[1]{\boldsymbol{q}_{#1}^{\mathrm{prim}}}
+\newcommand{\PrimFluxSource}[1]{\boldsymbol{j}_{#1}^{\mathrm{prim}}}
+\newcommand{\PrimBoundarySource}[1]{\boldsymbol{\rho}_{#1}^{\partial,\mathrm{prim}}}
+\newcommand{\PrimAction}[1]{\mathscr A_{#1}^{\mathrm{prim}}}
+
+\newcommand{\SubprimSpace}[1]{\mathcal G_{#1}}
+\newcommand{\SubprimRead}[1]{\Pi_{#1}^{\mathrm{subprim}}}
+\newcommand{\SubprimUnit}[1]{u_{#1}^{\mathrm{subprim}}}
+\newcommand{\SubprimTimeRev}[1]{\upsilon_{#1}^{\mathrm{subprim}}}
+\newcommand{\SubprimMetric}[1]{M_{#1}^{\mathrm{subprim}}}
+\newcommand{\SubprimSection}[1]{\mathfrak G_{#1}^{\mathrm{subprim}}}
+\newcommand{\SubprimInc}[1]{\iota_{#1}^{\mathrm{subprim}}}
+\newcommand{\SubprimLiftedPrimitive}[1]{\overline{\mathfrak G}_{#1}^{\mathrm{subprim}}}
+\newcommand{\SubprimLiftedRoot}[1]{\overline{\mathfrak P}_{#1}^{\mathrm{prim}}}
+\newcommand{\SubprimLiftedPreAmbient}[1]{\overline{\mathfrak Z}_{#1}^{\mathrm{root}}}
+\newcommand{\SubprimLiftedAmbient}[1]{\overline{\mathfrak S}_{#1}^{\mathrm{orig}}}
+\newcommand{\SubprimLiftedShell}[1]{\overline{\mathfrak D}_{#1}^{\mathrm{root}}}
+\newcommand{\SubprimConstraintMap}[1]{\overline{\mathfrak C}_{#1}^{\mathrm{root}}}
+\newcommand{\SubprimCotangentRealization}[1]{\overline{\Psi}_{#1}}
+\newcommand{\SubprimLiouville}[1]{\boldsymbol{\Lambda}_{#1}^{\mathrm{subprim}}}
+\newcommand{\SubprimTwo}[1]{\boldsymbol{\Xi}_{#1}^{\mathrm{subprim}}}
+\newcommand{\SubprimConnectionForm}[1]{\mathcal D_{#1}^{\mathrm{conn}}}
+\newcommand{\SubprimTransport}[1]{\mathbb V_{#1}}
+\newcommand{\SubprimShadowForm}[1]{\boldsymbol{\varsigma}_{#1}^{\mathrm{subprim}}}
+\newcommand{\SubprimRateForm}[1]{\boldsymbol{\lambda}_{#1}^{\mathrm{subprim}}}
+\newcommand{\SubprimDensitySource}[1]{\boldsymbol{q}_{#1}^{\mathrm{subprim}}}
+\newcommand{\SubprimFluxSource}[1]{\boldsymbol{j}_{#1}^{\mathrm{subprim}}}
+\newcommand{\SubprimBoundarySource}[1]{\boldsymbol{\rho}_{#1}^{\partial,\mathrm{subprim}}}
+\newcommand{\SubprimAction}[1]{\mathscr A_{#1}^{\mathrm{subprim}}}
+
+\newcommand{\ProtoSubprimSpace}[1]{\mathcal N_{#1}^{\mathrm{psp}}}
+\newcommand{\ProtoSubprimRead}[1]{\Pi_{#1}^{\mathrm{psp}}}
+\newcommand{\ProtoSubprimUnit}[1]{u_{#1}^{\mathrm{psp}}}
+\newcommand{\ProtoSubprimTimeRev}[1]{\vartheta_{#1}^{\mathrm{psp}}}
+\newcommand{\ProtoSubprimMetric}[1]{N_{#1}^{\mathrm{psp}}}
+\newcommand{\ProtoSubprimSection}[1]{\mathfrak T_{#1}^{\mathrm{psp}}}
+\newcommand{\ProtoSubprimInc}[1]{\jmath_{#1}^{\mathrm{psp}}}
+\newcommand{\ProtoSubprimLiftedPrimitive}[1]{\check{\mathfrak G}_{#1}^{\mathrm{subprim}}}
+\newcommand{\ProtoSubprimLiftedRoot}[1]{\check{\mathfrak P}_{#1}^{\mathrm{prim}}}
+\newcommand{\ProtoSubprimLiftedPreAmbient}[1]{\check{\mathfrak Z}_{#1}^{\mathrm{root}}}
+\newcommand{\ProtoSubprimLiftedAmbient}[1]{\check{\mathfrak S}_{#1}^{\mathrm{orig}}}
+\newcommand{\ProtoSubprimLiftedShell}[1]{\check{\mathfrak D}_{#1}^{\mathrm{root}}}
+\newcommand{\ProtoSubprimConstraintMap}[1]{\check{\mathfrak C}_{#1}^{\mathrm{root}}}
+\newcommand{\ProtoSubprimCotangentRealization}[1]{\check{\Psi}_{#1}}
+\newcommand{\ProtoSubprimLiouville}[1]{\boldsymbol{\Lambda}_{#1}^{\mathrm{psp}}}
+\newcommand{\ProtoSubprimTwo}[1]{\boldsymbol{\Xi}_{#1}^{\mathrm{psp}}}
+\newcommand{\ProtoSubprimConnectionForm}[1]{\mathcal E_{#1}^{\mathrm{conn}}}
+\newcommand{\ProtoSubprimTransport}[1]{\mathbb W_{#1}}
+\newcommand{\ProtoSubprimShadowForm}[1]{\boldsymbol{\varsigma}_{#1}^{\mathrm{psp}}}
+\newcommand{\ProtoSubprimRateForm}[1]{\boldsymbol{\lambda}_{#1}^{\mathrm{psp}}}
+\newcommand{\ProtoSubprimDensitySource}[1]{\boldsymbol{q}_{#1}^{\mathrm{psp}}}
+\newcommand{\ProtoSubprimFluxSource}[1]{\boldsymbol{j}_{#1}^{\mathrm{psp}}}
+\newcommand{\ProtoSubprimBoundarySource}[1]{\boldsymbol{\rho}_{#1}^{\partial,\mathrm{psp}}}
+\newcommand{\ProtoSubprimAction}[1]{\mathscr A_{#1}^{\mathrm{psp}}}
+
+\newcommand{\PreProtoSubprimSpace}[1]{\mathcal B_{#1}^{\mathrm{ppsp}}}
+\newcommand{\PreProtoSubprimRead}[1]{\Pi_{#1}^{\mathrm{ppsp}}}
+\newcommand{\PreProtoSubprimUnit}[1]{u_{#1}^{\mathrm{ppsp}}}
+\newcommand{\PreProtoSubprimTimeRev}[1]{\chi_{#1}^{\mathrm{ppsp}}}
+\newcommand{\PreProtoSubprimMetric}[1]{B_{#1}^{\mathrm{ppsp}}}
+\newcommand{\PreProtoSubprimSection}[1]{\mathfrak U_{#1}^{\mathrm{ppsp}}}
+\newcommand{\PreProtoSubprimInc}[1]{\iota_{#1}^{\mathrm{ppsp}}}
+\newcommand{\PreProtoSubprimLiftedSubprimitive}[1]{\widetilde{\mathfrak T}_{#1}^{\mathrm{psp}}}
+\newcommand{\PreProtoSubprimLiftedPrimitive}[1]{\widetilde{\mathfrak G}_{#1}^{\mathrm{subprim}}}
+\newcommand{\PreProtoSubprimLiftedRoot}[1]{\widetilde{\mathfrak P}_{#1}^{\mathrm{prim}}}
+\newcommand{\PreProtoSubprimLiftedPreAmbient}[1]{\widetilde{\mathfrak Z}_{#1}^{\mathrm{root}}}
+\newcommand{\PreProtoSubprimLiftedAmbient}[1]{\widetilde{\mathfrak S}_{#1}^{\mathrm{orig}}}
+\newcommand{\PreProtoSubprimLiftedShell}[1]{\widetilde{\mathfrak D}_{#1}^{\mathrm{root}}}
+\newcommand{\PreProtoSubprimConstraintMap}[1]{\widetilde{\mathfrak C}_{#1}^{\mathrm{root}}}
+\newcommand{\PreProtoSubprimCotangentRealization}[1]{\widetilde{\Psi}_{#1}^{\mathrm{ppsp}}}
+\newcommand{\PreProtoSubprimLiouville}[1]{\boldsymbol{\Lambda}_{#1}^{\mathrm{ppsp}}}
+\newcommand{\PreProtoSubprimTwo}[1]{\boldsymbol{\Xi}_{#1}^{\mathrm{ppsp}}}
+\newcommand{\PreProtoSubprimConnectionForm}[1]{\mathcal F_{#1}^{\mathrm{conn}}}
+\newcommand{\PreProtoSubprimTransport}[1]{\mathbb X_{#1}}
+\newcommand{\PreProtoSubprimShadowForm}[1]{\boldsymbol{\varsigma}_{#1}^{\mathrm{ppsp}}}
+\newcommand{\PreProtoSubprimRateForm}[1]{\boldsymbol{\lambda}_{#1}^{\mathrm{ppsp}}}
+\newcommand{\PreProtoSubprimDensitySource}[1]{\boldsymbol{q}_{#1}^{\mathrm{ppsp}}}
+\newcommand{\PreProtoSubprimFluxSource}[1]{\boldsymbol{j}_{#1}^{\mathrm{ppsp}}}
+\newcommand{\PreProtoSubprimBoundarySource}[1]{\boldsymbol{\rho}_{#1}^{\partial,\mathrm{ppsp}}}
+\newcommand{\PreProtoSubprimAction}[1]{\mathscr A_{#1}^{\mathrm{ppsp}}}
+
+\newcommand{\SelSpace}[1]{\mathcal M_{#1}^{\mathrm{sel}}}
+\newcommand{\SelRead}[1]{\Pi_{#1}^{\mathrm{sel}}}
+\newcommand{\SelUnit}[1]{u_{#1}^{\mathrm{sel}}}
+\newcommand{\SelTimeRev}[1]{\tau_{#1}^{\mathrm{sel}}}
+\newcommand{\SelMetric}[1]{S_{#1}^{\mathrm{sel}}}
+\newcommand{\SelTarget}[1]{\mathcal R_{#1}^{\mathrm{sel}}}
+\newcommand{\SelTargetMetric}[1]{r_{#1}^{\mathrm{sel}}}
+\newcommand{\SelGap}[1]{\zeta_{#1}^{\mathrm{sel}}}
+\newcommand{\SelSection}[1]{\mathfrak M_{#1}^{\mathrm{sel}}}
+\newcommand{\SelFunctional}[1]{\mathscr S_{#1}^{\mathrm{sel}}}
+\newcommand{\SelInc}[1]{\iota_{#1}^{\mathrm{sel}}}
+\newcommand{\SelLiftedPreProto}[1]{\overline{\mathfrak U}_{#1}^{\mathrm{sel}}}
+\newcommand{\SelLiftedSubprimitive}[1]{\overline{\mathfrak T}_{#1}^{\mathrm{sel}}}
+\newcommand{\SelLiftedPrimitive}[1]{\overline{\mathfrak G}_{#1}^{\mathrm{sel}}}
+\newcommand{\SelLiftedRoot}[1]{\overline{\mathfrak P}_{#1}^{\mathrm{sel}}}
+\newcommand{\SelLiftedPreAmbient}[1]{\overline{\mathfrak Z}_{#1}^{\mathrm{sel}}}
+\newcommand{\SelLiftedAmbient}[1]{\overline{\mathfrak S}_{#1}^{\mathrm{sel}}}
+\newcommand{\SelLiftedShell}[1]{\overline{\mathfrak D}_{#1}^{\mathrm{sel}}}
+\newcommand{\SelConstraintMap}[1]{\overline{\mathfrak C}_{#1}^{\mathrm{sel}}}
+\newcommand{\SelCotangentRealization}[1]{\Upsilon_{#1}^{\mathrm{sel}}}
+\newcommand{\SelLiouville}[1]{\boldsymbol{\Lambda}_{#1}^{\mathrm{sel}}}
+\newcommand{\SelTwo}[1]{\boldsymbol{\Xi}_{#1}^{\mathrm{sel}}}
+\newcommand{\SelConnectionForm}[1]{\mathcal G_{#1}^{\mathrm{conn}}}
+\newcommand{\SelTransport}[1]{\mathbb Y_{#1}}
+\newcommand{\SelShadowForm}[1]{\boldsymbol{\varsigma}_{#1}^{\mathrm{sel}}}
+\newcommand{\SelRateForm}[1]{\boldsymbol{\lambda}_{#1}^{\mathrm{sel}}}
+\newcommand{\SelDensitySource}[1]{\boldsymbol{q}_{#1}^{\mathrm{sel}}}
+\newcommand{\SelFluxSource}[1]{\boldsymbol{j}_{#1}^{\mathrm{sel}}}
+\newcommand{\SelBoundarySource}[1]{\boldsymbol{\rho}_{#1}^{\partial,\mathrm{sel}}}
+\newcommand{\SelAction}[1]{\mathscr A_{#1}^{\mathrm{sel}}}
+
+\newcommand{\ForSpace}[1]{\mathcal I_{#1}^{\mathrm{for}}}
+\newcommand{\ForRead}[1]{\Pi_{#1}^{\mathrm{for}}}
+\newcommand{\ForUnit}[1]{u_{#1}^{\mathrm{for}}}
+\newcommand{\ForTimeRev}[1]{\rho_{#1}^{\mathrm{for}}}
+\newcommand{\ForMetric}[1]{I_{#1}^{\mathrm{for}}}
+\newcommand{\ForTarget}[1]{\mathcal J_{#1}^{\mathrm{for}}}
+\newcommand{\ForTargetMetric}[1]{j_{#1}^{\mathrm{for}}}
+\newcommand{\ForGap}[1]{\alpha_{#1}^{\mathrm{for}}}
+\newcommand{\ForSection}[1]{\mathfrak I_{#1}^{\mathrm{for}}}
+\newcommand{\ForFunctional}[1]{\mathscr I_{#1}^{\mathrm{for}}}
+\newcommand{\ForLiftedSelection}[1]{\underline{\mathfrak M}_{#1}^{\mathrm{for}}}
+\newcommand{\ForLiftedPreProto}[1]{\underline{\mathfrak U}_{#1}^{\mathrm{for}}}
+\newcommand{\ForLiftedSubprimitive}[1]{\underline{\mathfrak T}_{#1}^{\mathrm{for}}}
+\newcommand{\ForLiftedPrimitive}[1]{\underline{\mathfrak G}_{#1}^{\mathrm{for}}}
+\newcommand{\ForLiftedRoot}[1]{\underline{\mathfrak P}_{#1}^{\mathrm{for}}}
+\newcommand{\ForLiftedPreAmbient}[1]{\underline{\mathfrak Z}_{#1}^{\mathrm{for}}}
+\newcommand{\ForLiftedAmbient}[1]{\underline{\mathfrak S}_{#1}^{\mathrm{for}}}
+\newcommand{\ForLiftedShell}[1]{\underline{\mathfrak D}_{#1}^{\mathrm{for}}}
+\newcommand{\ForConstraintMap}[1]{\underline{\mathfrak C}_{#1}^{\mathrm{for}}}
+\newcommand{\ForCotangentRealization}[1]{\Omega_{#1}^{\mathrm{for}}}
+\newcommand{\ForLiouville}[1]{\boldsymbol{\Lambda}_{#1}^{\mathrm{for}}}
+\newcommand{\ForTwo}[1]{\boldsymbol{\Xi}_{#1}^{\mathrm{for}}}
+\newcommand{\ForConnectionForm}[1]{\mathcal H_{#1}^{\mathrm{conn}}}
+\newcommand{\ForTransport}[1]{\mathbb Z_{#1}}
+\newcommand{\ForShadowForm}[1]{\boldsymbol{\varsigma}_{#1}^{\mathrm{for}}}
+\newcommand{\ForRateForm}[1]{\boldsymbol{\lambda}_{#1}^{\mathrm{for}}}
+\newcommand{\ForDensitySource}[1]{\boldsymbol{q}_{#1}^{\mathrm{for}}}
+\newcommand{\ForFluxSource}[1]{\boldsymbol{j}_{#1}^{\mathrm{for}}}
+\newcommand{\ForBoundarySource}[1]{\boldsymbol{\rho}_{#1}^{\partial,\mathrm{for}}}
+\newcommand{\ForAction}[1]{\mathscr A_{#1}^{\mathrm{for}}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Substrate-Response / Self-Response Charge-Polarization Candidate\\
+\large Exact-Preservation Stationary-Selection Forcing-Principle / Cotangent-Connection / Source-Action\\
+\large Origin Note}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The exact-preservation pre-proto-subprimitive stationary-selection / cotangent-connection / source-action origin note already pushed the main one-metric charge-polarization line one layer below the recorded pre-proto-subprimitive package. It showed that the recorded pre-proto-subprimitive layer is itself the exact stationary zero-shell image of a deeper selection layer carrying stationary-selection bundles, exact stationary-selection sections and functionals, lifted proto-subprimitive-generating / subprimitive-generating / primitive-generating / root-generating / pre-ambient-generating / ambient-generating / shell / exact-constraint maps, selection cotangent-model Liouville one-forms and closed two-form geometry, selection connection one-forms and induced parallel transports, and selection-basic shadow / rate / density / flux / boundary data together with fixed-endpoint selection rate-action geometry. What remained open was the next honest burden below that note: why that deeper stationary-selection layer itself should exist at all rather than becoming the new deepest disciplined postulate.
+
+The present note addresses exactly that narrower burden. It keeps fixed the same exact-preservation target: the same \(\StemFunctional\), the same exact-preservation normal form \(\DeepFunctional\), the same carrier-origin / primitive-reservoir / microscopic-equilibrium functionals
+\[
+\CarrierFunctional[\CarrierSeed,\RelabelSeed,\FreeSeed],\qquad
+\PrimFunctional[\PrimStrain,\PrimNeutral,\PrimFree],\qquad
+\MicFunctional[H,\GaugeAux],
+\]
+the same \(\Sigma^{\mathrm{cmp}}\) solve, the same \(\Pi_{\mathrm{free}}H=0\) outcome, the same observer-equation closure, the same one operative metric, and the same recorded Phase D / E and Phase F gains. Its positive move is a sharper selection-principle step rather than another packaging pass. It introduces a yet more primitive exact-preserving forcing-principle layer:
+\begin{enumerate}
+    \item compact-visible forcing bundles whose exact stable zero shells are precisely the recorded stationary-selection bundles;
+    \item exact forcing sections and norm-square forcing functionals whose global stationary zero-energy loci are exactly those recorded stationary-selection bundles, with positive normal gap;
+    \item lifted selection maps whose stationary-shell restrictions are exactly the recorded stationary-selection sections and whose shell-restricted norm-square energies are exactly the recorded stationary-selection functionals;
+    \item deeper lifted proto-subprimitive-generating / subprimitive-generating / primitive-generating / root-generating / pre-ambient-generating / ambient-generating / shell / exact-constraint maps whose stationary-shell restrictions are exactly the recorded selection lifted maps;
+    \item forcing cotangent-model Liouville one-forms, forcing connection one-forms, and forcing-basic source / action data whose stationary-shell restrictions are exactly the recorded selection cotangent, connection, and source-action geometry.
+\end{enumerate}
+
+At current exact-preservation scope, the stationary-selection bundles, their exact stationary-selection sections and functionals, their lifted maps, their selection cotangent-model Liouville one-forms and closed two-form geometry, their selection connection one-forms and induced parallel transports, and their selection-basic shadow / rate / density / flux / boundary data together with their fixed-endpoint selection rate-action geometry are therefore no longer primitive either. Because the present note reproduces the full stationary-selection input layer of the immediately preceding pre-proto-subprimitive stationary-selection note without change, that note applies verbatim. Consequently the same pre-proto-subprimitive layer, the same proto-subprimitive layer, the same subprimitive layer, the same primitive layer, the same root layer, the same pre-ambient layer, the same ambient-shell / cotangent-Liouville / connection-holonomy layer, the same process-state and reversible-chain package, the same \(\StemFunctional\), the same exact-preservation normal form, the same carrier-origin / primitive-reservoir / microscopic-equilibrium functionals, the same \(\Sigma^{\mathrm{cmp}}\) solve, the same \(\Pi_{\mathrm{free}}H=0\) outcome, the same observer-equation closure, the same one operative metric, and the same recorded Phase D / E and Phase F gains are preserved without change.
+
+The scope remains disciplined. This note does not claim a final microscopic completion, a uniqueness theorem for every deeper realization, or a completed first-principles derivation of GR. Its narrower exact positive claim is only that the recorded stationary-selection layer is itself no longer primitive at present scope, but is forced by a still deeper forcing-principle / cotangent-connection / source-action layer while preserving the same benchmark-facing one-metric package.
+\end{abstract}
+
+\section{Introduction}
+
+The active one-metric charge-polarization line has now crossed the candidate, benchmark-gate, controlled-limit, residual-sector, redesign, substrate-anchoring, substrate-action, kernel-origin, deeper-selection, primitive-reservoir, carrier-origin, precursor-selection, exact-preservation normal-form, microphysical-Hessian, charge-generator, derivation-algebra, reconfiguration-group, reversible-groupoid, reversible-history, reversible process-window, reversible process-thread, process-state, proto-process, constraint-shell / Liouville-holonomy, ambient-shell / cotangent-connection, pre-ambient-shell / connection-cotangent / parallel-transport, root-shell / lifted connection-cotangent / parallel-transport, primitive-substrate / root-generating shell / lifted connection-cotangent / parallel-transport, subprimitive-substrate / primitive-generating shell / lifted connection-cotangent / parallel-transport, proto-subprimitive-substrate / subprimitive-generating shell / lifted connection-cotangent / parallel-transport, and pre-proto-subprimitive stationary-selection / cotangent-connection / source-action origin steps on the same GR-directed route. The burden therefore sharpens again. It is still not another packaging pass. It is still not stronger promotion language. It is still not, by default, a move back onto the anchored positive-pair side line. It is to go one layer deeper again below the recorded stationary-selection construction itself and explain why that construction is forced.
+
+That burden has ten parts. First, one must explain why the exact-preserving stationary-selection bundles
+\[
+\SelSpace{\Car},\qquad
+\SelSpace{\Cur},\qquad
+\SelSpace{\Hom}
+\]
+should exist rather than being simply declared. Second, one must explain why the visible selection readout maps, selection unit sections, selection time reversals, preserved positive selection metrics, and compact visible selection fibers should be forced rather than inserted independently. Third, one must explain why the exact stationary-selection sections
+\[
+\SelSection{\Car},\qquad
+\SelSection{\Cur},\qquad
+\SelSection{\Hom}
+\]
+and the associated stationary-selection functionals
+\[
+\SelFunctional{\Car},\qquad
+\SelFunctional{\Cur},\qquad
+\SelFunctional{\Hom}
+\]
+should themselves be induced rather than separately chosen. Fourth, one must explain why the lifted proto-subprimitive-generating shell maps
+\[
+\SelLiftedPreProto{\Car},\qquad
+\SelLiftedPreProto{\Cur},\qquad
+\SelLiftedPreProto{\Hom}
+\]
+and the lifted subprimitive-generating shell maps
+\[
+\SelLiftedSubprimitive{\Car},\qquad
+\SelLiftedSubprimitive{\Cur},\qquad
+\SelLiftedSubprimitive{\Hom}
+\]
+should themselves be induced rather than separately chosen. Fifth, one must explain why the lifted primitive-generating shell maps, lifted root-generating shell maps, lifted pre-ambient-generating shell maps, lifted ambient-generating shell maps, lifted shell maps, and lifted exact-constraint maps into the same target metrics should themselves be induced rather than separately chosen. Sixth, one must explain why the selection cotangent-model Liouville one-forms, closed two-form geometry, selection connection one-forms, and induced parallel transports should themselves be induced rather than separately prescribed. Seventh, one must explain why the selection-basic shadow / rate / density / flux / boundary data and the fixed-endpoint selection rate-action geometry should be forced rather than added as independent decorations. Eighth, one must re-show that the same pre-proto-subprimitive layer, the same proto-subprimitive layer, the same subprimitive layer, the same primitive layer, the same root layer, the same pre-ambient layer, the same ambient-shell / cotangent-Liouville / connection-holonomy layer, the same process-state and reversible-chain package, the same \(\StemFunctional\), the same exact-preservation normal form, the same carrier-origin / primitive-reservoir / microscopic-equilibrium functionals, the same \(\Sigma^{\mathrm{cmp}}\) solve, the same \(\Pi_{\mathrm{free}}H=0\) outcome, the same observer-equation closure, the same one operative metric, and the same recorded Phase D / E and Phase F gains remain intact. Ninth, one must explain why the sharper move is a forcing-principle derivation of the selection layer rather than another blind relabeling of a deeper shell. Tenth, one must keep the claim boundary honest while doing so.
+
+The positive claim of the present note is that there is a disciplined way to do exactly that. One introduces a deeper exact-preserving forcing-principle bundle whose visible fibers are compact, whose exact stable zero shells are precisely the recorded stationary-selection bundles, whose lifted selection maps restrict exactly to the recorded stationary-selection sections and whose shell-restricted norm-square energies are exactly the recorded stationary-selection functionals, whose further lifted proto-subprimitive-generating / subprimitive-generating / primitive-generating / root-generating / pre-ambient-generating / ambient-generating / shell / exact-constraint maps restrict exactly to the recorded selection lifted maps, whose cotangent-model one-forms descend by shell restriction to the recorded selection Liouville geometry, whose skew-Hermitian forcing connection one-forms restrict to the recorded selection connection one-forms and generate the recorded selection transports by parallel transport, and whose forcing-basic one-forms / source fields / boundary potentials together with the same fixed-endpoint variational structure restrict to the recorded selection-basic data. The immediately preceding pre-proto-subprimitive stationary-selection note can then be invoked without alteration, so the whole downstream chain is preserved verbatim.
+
+\section{Fixed Inputs from the Recorded Completion Line}
+
+\begin{definition}[Fixed branch and downstream completion target]
+\label{def:fixed_branch}
+The present note keeps fixed the same charge-polarization branch
+\begin{equation}
+\CandidateMetric
+=
+\ObserverMetric+\BaseShift+\ResponseShift,
+\qquad
+\CompletedMetric
+=
+\ObserverMetric+\BaseShift+\ResponseShift+\CompShift,
+\label{eq:fixed_metrics}
+\end{equation}
+with lifted variables satisfying
+\begin{equation}
+\ObserverMap^*\BaseLift=\BaseShift,
+\qquad
+\ObserverMap^*\ResponseLift=\ResponseShift,
+\qquad
+\ObserverMap^*\CompLift=\CompShift.
+\label{eq:fixed_lifts}
+\end{equation}
+The same completion class and the same free-sector condition are fixed:
+\begin{equation}
+\CompLift\in\CompClass,
+\qquad
+\FreeProj\CompLift=0.
+\label{eq:fixed_free}
+\end{equation}
+The same substrate and observer completion equations are fixed as well:
+\begin{equation}
+\SubReducedEin(\CompLift)=-\ResidualLift,
+\qquad
+\ReducedEin(\CompShift)=-\ResidualCore.
+\label{eq:fixed_solves}
+\end{equation}
+Every statement below must preserve these equations together with the same one operative metric \(\CompletedMetric\).
+\end{definition}
+
+\begin{definition}[Recorded stationary-selection geometry]
+\label{def:recorded_selection_geometry}
+The immediately preceding pre-proto-subprimitive stationary-selection / cotangent-connection / source-action origin note fixes the following exact-preserving input layer for every sector label \(\sigma\in\SectorSet=\{\Car,\Cur,\Hom\}\).
+\begin{enumerate}
+    \item Finite-dimensional exact-preserving stationary-selection bundles
+    \[
+    \SelSpace{\sigma}
+    \]
+    with visible selection readout maps
+    \[
+    \SelRead{\sigma}:\SelSpace{\sigma}\to\ObjClass{\sigma},
+    \]
+    exact-preserving selection unit sections
+    \[
+    \SelUnit{\sigma}:\ObjClass{\sigma}\to\SelSpace{\sigma},
+    \]
+    involutive exact-preserving selection time reversals
+    \[
+    \SelTimeRev{\sigma}:\SelSpace{\sigma}\to\SelSpace{\sigma},
+    \]
+    preserved positive selection metrics
+    \[
+    \SelMetric{\sigma},
+    \]
+    and compact visible fibers \((\SelRead{\sigma})^{-1}(x)\).
+    \item Finite-dimensional real stationary-selection target spaces
+    \[
+    \SelTarget{\sigma}
+    \]
+    with positive metrics \(\SelTargetMetric{\sigma}\), exact stationary-selection sections
+    \[
+    \SelSection{\sigma}:\SelSpace{\sigma}\to\SelTarget{\sigma},
+    \]
+    stationary-selection functionals
+    \begin{equation}
+    \SelFunctional{\sigma}(y)\equiv \frac12\,
+    \SelTargetMetric{\sigma}\bigl(\SelSection{\sigma}(y),\SelSection{\sigma}(y)\bigr),
+    \label{eq:recorded_selection_functional}
+    \end{equation}
+    and exact stationary zero shells
+    \begin{equation}
+    \PreProtoSubprimSpace{\sigma}\equiv \left(\SelSection{\sigma}\right)^{-1}(0),
+    \qquad
+    \SelInc{\sigma}:\PreProtoSubprimSpace{\sigma}\hookrightarrow \SelSpace{\sigma}.
+    \label{eq:recorded_selection_shell}
+    \end{equation}
+    These zero shells are closed embedded \(C^2\) submanifolds, invariant under the corresponding selection time reversals, containing the images of the corresponding selection unit sections, equal to the exact set of global minima of \(\SelFunctional{\sigma}\), and satisfying the recorded positive normal selection gap bound
+    \begin{equation}
+    \SelTargetMetric{\sigma}\!\left(
+    D\SelSection{\sigma}(x)\xi,
+    D\SelSection{\sigma}(x)\xi
+    \right)
+    \ge
+    \SelGap{\sigma}\,
+    \SelMetric{\sigma}(\xi,\xi),
+    \qquad
+    \SelGap{\sigma}>0,
+    \label{eq:recorded_selection_gap}
+    \end{equation}
+    for all \(x\in\PreProtoSubprimSpace{\sigma}\) and all \(\xi\) orthogonal, with respect to \(\SelMetric{\sigma}\), to \(T_x\PreProtoSubprimSpace{\sigma}\).
+    \item Exact-preserving lifted proto-subprimitive-generating shell maps
+    \[
+    \SelLiftedPreProto{\sigma}:\SelSpace{\sigma}\to\PreProtoSubprimTarget{\sigma}
+    \]
+    whose restrictions to the stationary zero shells are exactly the recorded pre-proto-subprimitive shell sections
+    \[
+    \PreProtoSubprimSection{\sigma}\equiv \SelLiftedPreProto{\sigma}|_{\PreProtoSubprimSpace{\sigma}}
+    \]
+    with the same recorded positive pre-proto-subprimitive gap bounds \(\PreProtoSubprimGap{\sigma}>0\) on the current proto-subprimitive shells.
+    \item Exact-preserving lifted subprimitive-generating / primitive-generating / root-generating / pre-ambient-generating maps
+    \[
+    \SelLiftedSubprimitive{\sigma}:\SelSpace{\sigma}\to\ProtoSubprimTarget{\sigma},\qquad
+    \SelLiftedPrimitive{\sigma}:\SelSpace{\sigma}\to\SubprimTarget{\sigma},
+    \]
+    \[
+    \SelLiftedRoot{\sigma}:\SelSpace{\sigma}\to\PrimTarget{\sigma},\qquad
+    \SelLiftedPreAmbient{\sigma}:\SelSpace{\sigma}\to\RootTarget{\sigma},
+    \]
+    whose stationary-shell restrictions are exactly the recorded pre-proto-subprimitive lifted maps
+    \[
+    \PreProtoSubprimLiftedSubprimitive{\sigma},\qquad
+    \PreProtoSubprimLiftedPrimitive{\sigma},\qquad
+    \PreProtoSubprimLiftedRoot{\sigma},\qquad
+    \PreProtoSubprimLiftedPreAmbient{\sigma},
+    \]
+    with the same recorded positive descendant gap bounds \(\ProtoSubprimGap{\sigma},\SubprimGap{\sigma},\PrimGap{\sigma},\RootGap{\sigma}\).
+    \item Exact-preserving lifted ambient-generating / shell / exact-constraint maps
+    \[
+    \SelLiftedAmbient{\sigma}:\SelSpace{\sigma}\to\OriginTarget{\sigma},\qquad
+    \SelLiftedShell{\sigma}:\SelSpace{\sigma}\to\ShellTarget{\sigma},
+    \]
+    \[
+    \SelConstraintMap{\sigma}:\SelSpace{\sigma}\to\ConstraintTarget{\sigma},
+    \]
+    whose stationary-shell restrictions are exactly the recorded pre-proto-subprimitive lifted ambient-generating shell maps, lifted shell maps, and lifted exact-constraint maps with the same target metrics and the same recorded ambient, shell, and exact-constraint gap data.
+    \item Exact-preserving cotangent realizations
+    \[
+    \SelCotangentRealization{\sigma}:\SelSpace{\sigma}\to T^*\ConfigSpace{\sigma}
+    \]
+    producing the recorded selection Liouville one-forms and closed two-forms
+    \begin{equation}
+    \SelLiouville{\sigma}\equiv (\SelCotangentRealization{\sigma})^*\theta_{\mathrm{can}},
+    \qquad
+    \SelTwo{\sigma}\equiv d\SelLiouville{\sigma},
+    \label{eq:recorded_selection_liouville}
+    \end{equation}
+    and the recorded pre-proto-subprimitive Liouville and closed-two-form geometry by shell restriction:
+    \[
+    \PreProtoSubprimLiouville{\sigma}\equiv (\SelInc{\sigma})^*\SelLiouville{\sigma},
+    \qquad
+    \PreProtoSubprimTwo{\sigma}\equiv (\SelInc{\sigma})^*\SelTwo{\sigma}.
+    \]
+    \item Smooth skew-Hermitian selection connection one-forms
+    \[
+    \SelConnectionForm{\sigma}\in\Omega^1(\SelSpace{\sigma};\LieU(\RootClass{\sigma}))
+    \]
+    with induced parallel transports \(\SelTransport{\sigma}\), whose stationary-shell restrictions are exactly the recorded pre-proto-subprimitive connection one-forms
+    \[
+    \PreProtoSubprimConnectionForm{\sigma}\equiv (\SelInc{\sigma})^*\SelConnectionForm{\sigma}
+    \]
+    and the recorded induced parallel transports
+    \[
+    \PreProtoSubprimTransport{\sigma}(\gamma)\equiv \SelTransport{\sigma}(\SelInc{\sigma}\circ\gamma).
+    \]
+\end{enumerate}
+The only admissible positive result of the present note is to derive or justify why this recorded stationary-selection layer is itself forced while keeping it unchanged.
+\end{definition}
+
+\begin{definition}[Recorded stationary-selection basic data]
+\label{def:recorded_selection_basic}
+The same preceding note also fixes, for each \(\sigma\in\SectorSet\):
+\begin{enumerate}
+    \item exact-preserving selection shadow and rate one-forms
+    \[
+    \SelShadowForm{\sigma}\in\Omega^1(\SelSpace{\sigma};\StatTagClass{\sigma}),
+    \qquad
+    \SelRateForm{\sigma}\in\Omega^1(\SelSpace{\sigma}),
+    \]
+    invariant under the corresponding selection time reversals, annihilating vectors normal to the stationary shell locus and vertical vectors tangent to the visible selection fibers, and preserved along the current pre-proto-subprimitive characteristic curves singled out on the root exact-constraint shells by the restricted pre-proto-subprimitive Liouville / exact-constraint geometry.
+    \item exact-preserving selection density and selection flux source fields
+    \[
+    \SelDensitySource{\sigma}:\SelSpace{\sigma}\to\DensityClass{\sigma},
+    \qquad
+    \SelFluxSource{\sigma}:\SelSpace{\sigma}\to\FluxClass{\sigma},
+    \]
+    invariant under the corresponding selection time reversals, preserved along the same characteristic curves, and constant on stationary-shell-normal directions and on vertical selection-fiber directions.
+    \item exact-preserving selection boundary potentials
+    \[
+    \SelBoundarySource{\sigma}:\SelSpace{\sigma}\to\PhaseReadClass{\sigma}
+    \]
+    vanishing on the corresponding selection unit sections, invariant under the corresponding selection time reversals, annihilating vectors normal to the stationary shell locus, and constant on vertical selection-fiber directions.
+    \item fixed-endpoint selection rate actions
+    \begin{equation}
+    \SelAction{\sigma}[\Gamma]\equiv \int_\Gamma \SelRateForm{\sigma}
+    \label{eq:recorded_selection_action}
+    \end{equation}
+    on \(C^2\) curves constrained to the current root exact-constraint shells inside the current primitive-generating shells, current subprimitive-generating shells, and current proto-subprimitive-generating shells, whose stationary curves at fixed visible endpoint data are exactly the current pre-proto-subprimitive characteristic curves determined there by the restricted pre-proto-subprimitive Liouville / exact-constraint geometry, whose first variations vanish automatically along the characteristic, symmetry, vertical selection-fiber, and stationary-shell-normal directions, and whose second variations are positive on smooth endpoint-fixed complements to those directions and to the normal exact-constraint directions singled out by \(\ConstraintGap{\sigma}\).
+\end{enumerate}
+Their stationary-shell restrictions are exactly the recorded pre-proto-subprimitive shadow / rate / density / flux / boundary data and the recorded fixed-endpoint pre-proto-subprimitive rate-action geometry.
+\end{definition}
+
+\section{Forcing-Principle Origin of the Recorded Stationary-Selection Geometry}
+
+\begin{definition}[Deeper forcing-principle bundles and lifted geometry]
+\label{def:forcing_geometry}
+For each sector label \(\sigma\in\SectorSet\), let
+\[
+\ForSpace{\sigma}
+\]
+be a finite-dimensional \(C^2\) manifold of yet more primitive exact-preserving substrate states. Assume:
+\begin{enumerate}
+    \item there are smooth visible forcing readout maps
+    \[
+    \ForRead{\sigma}:\ForSpace{\sigma}\to\ObjClass{\sigma},
+    \]
+    together with exact-preserving forcing unit sections
+    \[
+    \ForUnit{\sigma}:\ObjClass{\sigma}\to\ForSpace{\sigma}
+    \]
+    satisfying
+    \[
+    \ForRead{\sigma}\circ\ForUnit{\sigma}=\mathrm{id}_{\ObjClass{\sigma}}.
+    \]
+    \item there are smooth involutive exact-preserving forcing time reversals
+    \[
+    \ForTimeRev{\sigma}:\ForSpace{\sigma}\to\ForSpace{\sigma}
+    \]
+    such that
+    \[
+    \ForRead{\sigma}\circ\ForTimeRev{\sigma}=\ForRead{\sigma},
+    \qquad
+    \ForTimeRev{\sigma}\circ\ForUnit{\sigma}=\ForUnit{\sigma}.
+    \]
+    \item each forcing space carries a smooth exact-preserving positive-definite metric
+    \[
+    \ForMetric{\sigma}
+    \]
+    preserved by the corresponding forcing time reversal, and each visible forcing fiber \((\ForRead{\sigma})^{-1}(x)\) is compact.
+    \item there are finite-dimensional real forcing target spaces
+    \[
+    \ForTarget{\sigma}
+    \]
+    with positive-definite metrics
+    \[
+    \ForTargetMetric{\sigma},
+    \]
+    and exact-preserving smooth forcing sections
+    \[
+    \ForSection{\sigma}:\ForSpace{\sigma}\to\ForTarget{\sigma}
+    \]
+    preserved by the corresponding forcing time reversals and vanishing on the corresponding forcing unit sections. Define the forcing functionals
+    \begin{equation}
+    \ForFunctional{\sigma}(z)\equiv \frac12\,
+    \ForTargetMetric{\sigma}\bigl(\ForSection{\sigma}(z),\ForSection{\sigma}(z)\bigr).
+    \label{eq:forcing_functional}
+    \end{equation}
+    Define the recorded stationary-selection bundles as the exact zero shells
+    \begin{equation}
+    \SelSpace{\sigma}\equiv \left(\ForSection{\sigma}\right)^{-1}(0),
+    \qquad
+    \SelInc{\sigma}:\SelSpace{\sigma}\hookrightarrow \ForSpace{\sigma}.
+    \label{eq:selection_shell_from_forcing}
+    \end{equation}
+    Assume these shells are closed embedded \(C^2\) submanifolds, invariant under the corresponding forcing time reversals, containing the images of the corresponding forcing unit sections, equal to the exact set of global minima of \(\ForFunctional{\sigma}\), and satisfying the positive normal forcing gap bound
+    \begin{equation}
+    \ForTargetMetric{\sigma}\!\left(
+    D\ForSection{\sigma}(z)\xi,
+    D\ForSection{\sigma}(z)\xi
+    \right)
+    \ge
+    \ForGap{\sigma}\,
+    \ForMetric{\sigma}(\xi,\xi),
+    \qquad
+    \ForGap{\sigma}>0,
+    \label{eq:forcing_gap}
+    \end{equation}
+    for all \(z\in\SelSpace{\sigma}\) and all \(\xi\) orthogonal, with respect to \(\ForMetric{\sigma}\), to \(T_z\SelSpace{\sigma}\).
+    \item there are exact-preserving lifted selection maps
+    \[
+    \ForLiftedSelection{\sigma}:\ForSpace{\sigma}\to\SelTarget{\sigma}
+    \]
+    preserved by the corresponding forcing time reversals and vanishing on the corresponding forcing unit sections. Define the recorded stationary-selection sections by shell restriction:
+    \begin{equation}
+    \SelSection{\sigma}\equiv \ForLiftedSelection{\sigma}|_{\SelSpace{\sigma}}.
+    \label{eq:selection_section_from_forcing}
+    \end{equation}
+    Define the recorded stationary-selection functionals by shell-restricted norm square:
+    \begin{equation}
+    \SelFunctional{\sigma}(y)
+    \equiv
+    \frac12\,\SelTargetMetric{\sigma}\bigl(\SelSection{\sigma}(y),\SelSection{\sigma}(y)\bigr)
+    =
+    \frac12\,\SelTargetMetric{\sigma}\bigl(\ForLiftedSelection{\sigma}(\SelInc{\sigma}(y)),\ForLiftedSelection{\sigma}(\SelInc{\sigma}(y))\bigr).
+    \label{eq:selection_functional_from_forcing}
+    \end{equation}
+    Assume these shell-restricted sections satisfy the same recorded positive selection gap bounds \(\SelGap{\sigma}>0\) on the current pre-proto-subprimitive shells.
+    \item there are exact-preserving lifted proto-subprimitive-generating maps
+    \[
+    \ForLiftedPreProto{\sigma}:\ForSpace{\sigma}\to\PreProtoSubprimTarget{\sigma}
+    \]
+    preserved by the corresponding forcing time reversals and vanishing on the corresponding forcing unit sections. Define the recorded lifted proto-subprimitive-generating maps by shell restriction:
+    \begin{equation}
+    \SelLiftedPreProto{\sigma}\equiv \ForLiftedPreProto{\sigma}|_{\SelSpace{\sigma}}.
+    \label{eq:selection_preproto_from_forcing}
+    \end{equation}
+    Assume these restricted maps satisfy the same recorded positive pre-proto-subprimitive gap bounds \(\PreProtoSubprimGap{\sigma}>0\) on the current proto-subprimitive shells cut out inside \(\SelSpace{\sigma}\).
+    \item there are exact-preserving lifted subprimitive-generating / primitive-generating / root-generating / pre-ambient-generating maps
+    \[
+    \ForLiftedSubprimitive{\sigma}:\ForSpace{\sigma}\to\ProtoSubprimTarget{\sigma},\qquad
+    \ForLiftedPrimitive{\sigma}:\ForSpace{\sigma}\to\SubprimTarget{\sigma},
+    \]
+    \[
+    \ForLiftedRoot{\sigma}:\ForSpace{\sigma}\to\PrimTarget{\sigma},\qquad
+    \ForLiftedPreAmbient{\sigma}:\ForSpace{\sigma}\to\RootTarget{\sigma},
+    \]
+    preserved by the corresponding forcing time reversals and vanishing on the corresponding forcing unit sections. Define the recorded lifted maps by shell restriction:
+    \begin{equation}
+    \SelLiftedSubprimitive{\sigma}\equiv \ForLiftedSubprimitive{\sigma}|_{\SelSpace{\sigma}},\qquad
+    \SelLiftedPrimitive{\sigma}\equiv \ForLiftedPrimitive{\sigma}|_{\SelSpace{\sigma}},
+    \label{eq:selection_subprimitive_primitive_from_forcing}
+    \end{equation}
+    \begin{equation}
+    \SelLiftedRoot{\sigma}\equiv \ForLiftedRoot{\sigma}|_{\SelSpace{\sigma}},\qquad
+    \SelLiftedPreAmbient{\sigma}\equiv \ForLiftedPreAmbient{\sigma}|_{\SelSpace{\sigma}}.
+    \label{eq:selection_root_preambient_from_forcing}
+    \end{equation}
+    Assume these restricted maps satisfy the same recorded positive descendant gap bounds \(\ProtoSubprimGap{\sigma},\SubprimGap{\sigma},\PrimGap{\sigma},\RootGap{\sigma}\) on the current descendant shells.
+    \item there are exact-preserving lifted ambient-generating / shell / exact-constraint maps
+    \[
+    \ForLiftedAmbient{\sigma}:\ForSpace{\sigma}\to\OriginTarget{\sigma},\qquad
+    \ForLiftedShell{\sigma}:\ForSpace{\sigma}\to\ShellTarget{\sigma},
+    \]
+    \[
+    \ForConstraintMap{\sigma}:\ForSpace{\sigma}\to\ConstraintTarget{\sigma},
+    \]
+    preserved by the corresponding forcing time reversals and vanishing on the corresponding forcing unit sections. Define the recorded lifted maps by shell restriction:
+    \begin{equation}
+    \SelLiftedAmbient{\sigma}\equiv \ForLiftedAmbient{\sigma}|_{\SelSpace{\sigma}},\qquad
+    \SelLiftedShell{\sigma}\equiv \ForLiftedShell{\sigma}|_{\SelSpace{\sigma}},\qquad
+    \SelConstraintMap{\sigma}\equiv \ForConstraintMap{\sigma}|_{\SelSpace{\sigma}}.
+    \label{eq:selection_remaining_lifts_from_forcing}
+    \end{equation}
+    Assume these restricted maps satisfy the same recorded ambient, shell, and exact-constraint gap data \(\OriginGap{\sigma},\ShellGap{\sigma},\ConstraintGap{\sigma}\).
+    \item there are exact-preserving cotangent realizations
+    \[
+    \ForCotangentRealization{\sigma}:\ForSpace{\sigma}\to T^*\ConfigSpace{\sigma}
+    \]
+    into the same recorded configuration spaces. Let \(\theta_{\mathrm{can}}\) denote the canonical Liouville one-form on the relevant cotangent bundle. Define forcing Liouville one-forms and closed two-forms by
+    \begin{equation}
+    \ForLiouville{\sigma}\equiv (\ForCotangentRealization{\sigma})^*\theta_{\mathrm{can}},
+    \qquad
+    \ForTwo{\sigma}\equiv d\ForLiouville{\sigma}.
+    \label{eq:forcing_liouville}
+    \end{equation}
+    Assume
+    \[
+    (\ForTimeRev{\sigma})^*\ForLiouville{\sigma}=-\ForLiouville{\sigma}.
+    \]
+    Define the recorded selection Liouville one-forms and closed two-forms by shell restriction:
+    \begin{equation}
+    \SelLiouville{\sigma}\equiv (\SelInc{\sigma})^*\ForLiouville{\sigma},
+    \qquad
+    \SelTwo{\sigma}\equiv (\SelInc{\sigma})^*\ForTwo{\sigma}.
+    \label{eq:selection_liouville_from_forcing}
+    \end{equation}
+    \item there are smooth skew-Hermitian forcing connection one-forms
+    \[
+    \ForConnectionForm{\sigma}\in \Omega^1(\ForSpace{\sigma};\LieU(\RootClass{\sigma}))
+    \]
+    that are exact-preserving on the fixed branch and satisfy the time-reversal equivariance rule
+    \[
+    (\ForTimeRev{\sigma})^*\ForConnectionForm{\sigma}=-\ForConnectionForm{\sigma}.
+    \]
+    Let
+    \[
+    \ForTransport{\sigma}(\Gamma)\in \mathcal U(\RootClass{\sigma})
+    \]
+    denote the parallel transport generated by that forcing connection one-form along any piecewise \(C^1\) forcing curve \(\Gamma\). Define the recorded selection connection one-forms and induced parallel transports by
+    \begin{equation}
+    \SelConnectionForm{\sigma}\equiv (\SelInc{\sigma})^*\ForConnectionForm{\sigma},
+    \qquad
+    \SelTransport{\sigma}(\gamma)\equiv \ForTransport{\sigma}(\SelInc{\sigma}\circ\gamma)
+    \label{eq:selection_connection_from_forcing}
+    \end{equation}
+    on piecewise \(C^1\) selection curves \(\gamma\).
+\end{enumerate}
+
+Define the recorded selection readout maps, selection unit sections, selection time reversals, and selection metrics by shell restriction:
+\begin{equation}
+\SelRead{\sigma}\equiv \ForRead{\sigma}\circ\SelInc{\sigma},
+\qquad
+\SelUnit{\sigma}\equiv \ForUnit{\sigma},
+\qquad
+\SelTimeRev{\sigma}\equiv \ForTimeRev{\sigma}|_{\SelSpace{\sigma}},
+\label{eq:selection_basic_structure_from_forcing}
+\end{equation}
+\begin{equation}
+\SelMetric{\sigma}\equiv (\SelInc{\sigma})^*\ForMetric{\sigma}.
+\label{eq:selection_metric_from_forcing}
+\end{equation}
+For each visible point, define the visible selection fibers by
+\begin{equation}
+(\SelRead{\sigma})^{-1}(x)
+=
+\left(\ForSection{\sigma}\right)^{-1}(0)\cap(\ForRead{\sigma})^{-1}(x).
+\label{eq:selection_fiber_from_forcing}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[Stationary-selection bundles, sections, functionals, lifted maps, cotangent geometry, and connection-transports are forced]
+\label{prop:selection_geometry_forced}
+The forcing-principle data of Definition \ref{def:forcing_geometry} recover exactly the geometric part of the recorded stationary-selection layer.
+\begin{enumerate}
+    \item The exact zero shells \eqref{eq:selection_shell_from_forcing} are exactly the recorded stationary-selection bundles \(\SelSpace{\sigma}\), and they are exactly the global-minimum stationary loci of the forcing functionals \(\ForFunctional{\sigma}\).
+    \item The restricted maps \eqref{eq:selection_basic_structure_from_forcing}--\eqref{eq:selection_metric_from_forcing} are exactly the recorded selection readout maps, selection unit sections, selection time reversals, and preserved positive selection metrics, and the visible selection fibers \eqref{eq:selection_fiber_from_forcing} are compact.
+    \item The restricted maps \eqref{eq:selection_section_from_forcing} recover exactly the recorded stationary-selection sections, and the shell-restricted norm-square energies \eqref{eq:selection_functional_from_forcing} are exactly the recorded stationary-selection functionals, with the same recorded positive selection gap bounds \(\SelGap{\sigma}\) on the current pre-proto-subprimitive shells.
+    \item The restricted maps \eqref{eq:selection_preproto_from_forcing}, \eqref{eq:selection_subprimitive_primitive_from_forcing}, and \eqref{eq:selection_root_preambient_from_forcing} are exactly the recorded lifted proto-subprimitive-generating, subprimitive-generating, primitive-generating, root-generating, and pre-ambient-generating shell maps, with the same recorded descendant gap bounds.
+    \item The restricted maps \eqref{eq:selection_remaining_lifts_from_forcing} are exactly the recorded lifted ambient-generating shell maps, lifted shell maps, and lifted exact-constraint maps with the same target metrics and the same recorded ambient, shell, and exact-constraint gap data.
+    \item The restricted forms \eqref{eq:selection_liouville_from_forcing} are exactly the recorded selection Liouville one-forms and closed two-form geometry.
+    \item The restricted connection one-forms and parallel-transport formulas \eqref{eq:selection_connection_from_forcing} are exactly the recorded selection connection one-forms and their induced selection parallel transports.
+    \item Consequently the stationary-selection bundles, their exact stationary-selection sections and functionals, their lifted proto-subprimitive-generating / subprimitive-generating / primitive-generating / root-generating / pre-ambient-generating / ambient-generating / shell / exact-constraint maps, their selection Liouville / closed-two-form geometry, and their selection connection one-forms with induced parallel transports are no longer primitive at present scope; they are forced by a deeper forcing-principle / lifted-geometry / cotangent-connection layer.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Item (1) is the forcing-principle construction itself. By assumption, the zero shell of \(\ForSection{\sigma}\) is a closed embedded \(C^2\) submanifold, invariant under the corresponding forcing time reversal and containing the image of the corresponding forcing unit section. The norm-square functional \eqref{eq:forcing_functional} has this shell as its exact zero-energy locus, and the positive normal bound \eqref{eq:forcing_gap} is precisely the current-scope statement that the recorded stationary-selection bundle is not arbitrary but is the stable stationary zero set of the deeper forcing principle.
+
+Item (2) follows by direct restriction along the shell inclusion \(\SelInc{\sigma}\). The restriction of a positive-definite metric to an embedded submanifold is positive definite, and compactness of the visible selection fibers follows because they are closed subsets of compact visible forcing fibers.
+
+Item (3) follows from the restriction formula \eqref{eq:selection_section_from_forcing} together with the shell-restricted norm-square formula \eqref{eq:selection_functional_from_forcing}. Thus neither the recorded stationary-selection sections nor the recorded stationary-selection functionals need to be separately postulated once the forcing layer is fixed.
+
+Items (4) and (5) are immediate from the defining restriction formulas. The target spaces and target metrics are already fixed to be the same recorded ones, and the recorded descendant gap bounds are assumed to survive unchanged on the appropriate descendant shells. Thus no visible slot of the recorded stationary-selection lifted-map package is altered.
+
+Item (6) follows from functoriality of pullback and exterior differentiation:
+\[
+\SelTwo{\sigma}
+=
+(\SelInc{\sigma})^*d\ForLiouville{\sigma}
+=
+d(\SelInc{\sigma})^*\ForLiouville{\sigma}.
+\]
+Hence the recorded selection Liouville one-forms and closed two-forms are exactly the shell restrictions of the deeper forcing cotangent-model Liouville data.
+
+Item (7) follows because pullback of the skew-Hermitian connection one-form along the shell inclusion gives the recorded selection connection one-form, while parallel transport along a curve in the shell is exactly parallel transport of its included image in the forcing bundle. Identity on constant curves, multiplicativity under concatenation, and inversion under time reversal are inherited without change.
+
+Item (8) is then immediate. Every visible geometric ingredient of the recorded stationary-selection layer is recovered verbatim, but it is no longer primitive.
+\end{proof}
+
+\section{Forcing-Principle Basic Source and Fixed-Endpoint Origin of the Remaining Stationary-Selection Data}
+
+\begin{definition}[Forcing-basic source and fixed-endpoint action data]
+\label{def:forcing_basic}
+Assume the forcing-principle geometry of Definition \ref{def:forcing_geometry} is fixed. Assume further, for each \(\sigma\in\SectorSet\):
+\begin{enumerate}
+    \item there are exact-preserving forcing shadow one-forms
+    \[
+    \ForShadowForm{\sigma}\in\Omega^1(\ForSpace{\sigma};\StatTagClass{\sigma})
+    \]
+    that are invariant under the corresponding forcing time reversals, annihilate vectors normal to the forcing zero-shell locus \(\SelSpace{\sigma}\), annihilate vertical vectors tangent to the visible forcing fibers, and are preserved along the current selection characteristic curves singled out on the root exact-constraint shells by the restricted selection Liouville / exact-constraint geometry. Define the recorded selection shadow one-forms by shell restriction:
+    \begin{equation}
+    \SelShadowForm{\sigma}\equiv (\SelInc{\sigma})^*\ForShadowForm{\sigma}.
+    \label{eq:selection_shadow_from_forcing}
+    \end{equation}
+    \item there are exact-preserving forcing rate one-forms
+    \[
+    \ForRateForm{\sigma}\in\Omega^1(\ForSpace{\sigma})
+    \]
+    with the same invariance and annihilation properties. Define the recorded selection rate one-forms by
+    \begin{equation}
+    \SelRateForm{\sigma}\equiv (\SelInc{\sigma})^*\ForRateForm{\sigma}.
+    \label{eq:selection_rate_from_forcing}
+    \end{equation}
+    \item there are exact-preserving forcing density and forcing flux source fields
+    \[
+    \ForDensitySource{\sigma}:\ForSpace{\sigma}\to\DensityClass{\sigma},
+    \qquad
+    \ForFluxSource{\sigma}:\ForSpace{\sigma}\to\FluxClass{\sigma},
+    \]
+    invariant under the corresponding forcing time reversals, preserved along the current selection characteristic curves, and constant on selection-shell-normal directions and on vertical forcing-fiber directions. Define the recorded selection density and selection flux source fields by shell restriction:
+    \begin{equation}
+    \SelDensitySource{\sigma}\equiv \ForDensitySource{\sigma}|_{\SelSpace{\sigma}},
+    \qquad
+    \SelFluxSource{\sigma}\equiv \ForFluxSource{\sigma}|_{\SelSpace{\sigma}}.
+    \label{eq:selection_sources_from_forcing}
+    \end{equation}
+    \item there are exact-preserving forcing boundary potentials
+    \[
+    \ForBoundarySource{\sigma}:\ForSpace{\sigma}\to\PhaseReadClass{\sigma}
+    \]
+    vanishing on the corresponding forcing unit sections, invariant under the corresponding forcing time reversals, annihilating vectors normal to the forcing zero-shell locus, and constant on vertical forcing-fiber directions. Define the recorded selection boundary potentials by
+    \begin{equation}
+    \SelBoundarySource{\sigma}\equiv \ForBoundarySource{\sigma}|_{\SelSpace{\sigma}}.
+    \label{eq:selection_boundary_from_forcing}
+    \end{equation}
+    \item define the forcing fixed-endpoint rate actions on \(C^2\) curves constrained to the current root exact-constraint shells inside the current primitive-, subprimitive-, proto-subprimitive-, and pre-proto-subprimitive-generating shells by
+    \begin{equation}
+    \ForAction{\sigma}[\Gamma]\equiv \int_\Gamma \ForRateForm{\sigma}.
+    \label{eq:forcing_action}
+    \end{equation}
+    Assume their stationary curves at fixed visible endpoint data are exactly the current selection characteristic curves determined on those shells by the restricted selection Liouville / exact-constraint geometry, that their first variations vanish automatically along the characteristic, symmetry, vertical forcing-fiber, and forcing-shell-normal directions, and that their second variations are positive on smooth endpoint-fixed complements to those directions and to the normal exact-constraint directions singled out by \(\ConstraintGap{\sigma}\). Define the recorded selection fixed-endpoint actions by
+    \begin{equation}
+    \SelAction{\sigma}[\gamma]\equiv \int_\gamma \SelRateForm{\sigma}.
+    \label{eq:selection_action_from_forcing}
+    \end{equation}
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}[Selection-basic data and selection action are forced]
+\label{prop:selection_basic_forced}
+The forcing-basic data of Definition \ref{def:forcing_basic} recover exactly the remaining recorded stationary-selection layer.
+\begin{enumerate}
+    \item The restricted one-forms \eqref{eq:selection_shadow_from_forcing} and \eqref{eq:selection_rate_from_forcing} are exactly the recorded selection shadow and selection rate one-forms.
+    \item The restricted source fields \eqref{eq:selection_sources_from_forcing} are exactly the recorded selection density and selection flux source fields.
+    \item The restricted boundary potentials \eqref{eq:selection_boundary_from_forcing} are exactly the recorded selection boundary potentials.
+    \item The fixed-endpoint actions \eqref{eq:selection_action_from_forcing} are exactly the recorded selection actions, and their inherited second-variation positivity is exactly the recorded fixed-endpoint selection rate-action geometry.
+    \item Consequently the selection-basic shadow / rate / density / flux / boundary data and the fixed-endpoint selection rate-action geometry are no longer primitive at present scope; they are forced by deeper forcing-basic restriction and the same fixed-endpoint forcing variational geometry.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Item (1) follows from the restriction construction itself. Because the forcing shadow and forcing rate one-forms annihilate both the forcing-shell-normal directions and the vertical directions tangent to the visible forcing fibers, their restrictions to the stationary zero shells are well defined and already satisfy the invariance and horizontality required at selection level.
+
+Item (2) is immediate from the restriction formula \eqref{eq:selection_sources_from_forcing}. Constancy on selection-shell-normal directions and on vertical forcing-fiber directions guarantees that the restricted source fields depend only on the selection states themselves, while the assumed characteristic-flow and time-reversal invariance give exactly the recorded exact-preserving behavior.
+
+Item (3) is the same argument applied to the boundary potentials. Since the forcing boundary potentials vanish on the forcing unit sections, their selection restrictions vanish on the recorded selection unit sections as required.
+
+Item (4) follows from fixed-endpoint stationary reduction. The forcing rate actions are assumed to have precisely the current selection characteristic curves as stationary curves, with first variations vanishing automatically along the characteristic, symmetry, vertical forcing-fiber, and forcing-shell-normal directions. Restricting those actions to curves in the forcing zero shells yields exactly the recorded selection-action formula \eqref{eq:selection_action_from_forcing}. The positive second variation on endpoint-fixed complements descends directly to the recorded selection stationary geometry.
+
+Item (5) is therefore immediate. None of the current selection-basic data or selection fixed-endpoint stationary geometry needs to be inserted separately once the forcing-basic layer is fixed.
+\end{proof}
+
+\section{Exact Recovery of the Recorded Stationary-Selection Layer and Downstream Package}
+
+\begin{theorem}[Same stationary-selection input layer]
+\label{thm:same_selection_input}
+Under the fixed branch of Definition \ref{def:fixed_branch}, the deeper forcing-principle / cotangent-connection / source-action construction recovers exactly the stationary-selection input layer of Definitions \ref{def:recorded_selection_geometry} and \ref{def:recorded_selection_basic}.
+\end{theorem}
+
+\begin{proof}
+The geometric part is Proposition \ref{prop:selection_geometry_forced}. The remaining basic-data and fixed-endpoint-action part is Proposition \ref{prop:selection_basic_forced}. Together they recover every recorded item without alteration.
+\end{proof}
+
+\begin{theorem}[Same pre-proto-subprimitive layer and same downstream package]
+\label{thm:same_package}
+Under the fixed branch of Definition \ref{def:fixed_branch}, the deeper forcing-principle / cotangent-connection / source-action construction preserves without change:
+\begin{enumerate}
+    \item the same stationary-selection / cotangent-connection / source-action input layer;
+    \item the same pre-proto-subprimitive stationary-selection / lifted connection-cotangent / source-action input layer;
+    \item the same proto-subprimitive substrate / subprimitive-generating shell / lifted connection-cotangent / parallel-transport input layer;
+    \item the same subprimitive substrate / primitive-generating shell / lifted connection-cotangent / parallel-transport input layer;
+    \item the same primitive substrate / root-generating shell / lifted connection-cotangent input layer;
+    \item the same root-shell / lifted connection-cotangent / parallel-transport input layer;
+    \item the same pre-ambient-shell / connection-cotangent / parallel-transport input layer;
+    \item the same ambient-shell / cotangent-Liouville / connection-holonomy input layer;
+    \item the same constrained substrate-bundle / exact-constraint / Liouville-holonomy input layer;
+    \item the same proto-process / stationary-selection / characteristic-bundle input layer;
+    \item the same process-state / reversible-line-field / compact-calibration-fiber / basic-form layer;
+    \item the same reversible-process-thread / calibration-generator / shadow-current / rate-density / boundary-recorder layer;
+    \item the same reversible-process-window / calibration-action / stationary-shadow / local-rate / endpoint-recorder layer;
+    \item the same reversible-history / stationary-equivalence / short-history-action / endpoint-readout / cotangent-lift layer;
+    \item the same reversible-groupoid / transport-action / constrained-stationary package;
+    \item the same reconfiguration-group / transport-law / equilibrium-reduction package;
+    \item the same derivation-algebra / balance-law / equilibrium-manifold layer;
+    \item hence the same process-state and reversible process-thread / process-window / history / groupoid / reconfiguration / derivation chain;
+    \item the same \(\StemFunctional\);
+    \item the same exact-preservation normal form \(\DeepFunctional\);
+    \item the same carrier-origin functional \(\CarrierFunctional[\CarrierSeed,\RelabelSeed,\FreeSeed]\);
+    \item the same primitive reservoir \(\PrimFunctional[\PrimStrain,\PrimNeutral,\PrimFree]\);
+    \item the same microscopic-equilibrium reservoir \(\MicFunctional[H,\GaugeAux]\);
+    \item the same free-sector verdict \(\FreeProj\CompLift=0\), and hence the same \(\Pi_{\mathrm{free}}H=0\) outcome;
+    \item the same substrate and observer completion solves \eqref{eq:fixed_solves};
+    \item the same \(\Sigma^{\mathrm{cmp}}\) solve, the same observer-equation closure, the same one operative metric \(\CompletedMetric\), and the same recorded Phase D / E and Phase F gains.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Theorem \ref{thm:same_selection_input} reproduces exactly the input layer required by the immediately preceding pre-proto-subprimitive stationary-selection / cotangent-connection / source-action origin note. That note already proves that once this stationary-selection input layer is fixed, the same pre-proto-subprimitive layer follows without change, and with it the same full downstream chain. Since none of the visible slots, elimination steps, or completion equations are altered here, every downstream object listed above is reproduced verbatim.
+\end{proof}
+
+\begin{corollary}[Recorded gain package is preserved]
+\label{cor:gains}
+Because the same downstream package is recovered, the recorded Phase D / E infrared-spectrum and universal-coupling verdicts, the recorded Phase F controlled GR limit, and the already recorded observer-equation closure package remain preserved without modification.
+\end{corollary}
+
+\begin{proof}
+This is the direct content of Theorem \ref{thm:same_package}.
+\end{proof}
+
+\section{Claim-Boundary Verdict}
+
+\begin{theorem}[Stationary-selection forcing-principle verdict]
+\label{thm:verdict}
+At the disciplined scope of the present note, the exact positive result is the following.
+\begin{enumerate}
+    \item The exact-preserving stationary-selection bundles \(\SelSpace{\Car},\SelSpace{\Cur},\SelSpace{\Hom}\) are no longer primitive at current scope.
+    \item They arise as the exact stationary zero shells of deeper forcing sections \(\ForSection{\Car},\ForSection{\Cur},\ForSection{\Hom}\) on compact visible forcing bundles, equivalently as the zero-energy stationary loci of the deeper forcing functionals \(\ForFunctional{\Car},\ForFunctional{\Cur},\ForFunctional{\Hom}\).
+    \item The visible selection readout maps, selection unit sections, selection time reversals, and preserved positive selection metrics are no longer primitive either.
+    \item They are the exact-shell restrictions of deeper forcing readouts, units, time reversals, and forcing metrics, and the recorded compact visible selection fibers are closed forcing-shell slices inside compact visible forcing fibers.
+    \item The exact stationary-selection sections \(\SelSection{\Car},\SelSection{\Cur},\SelSection{\Hom}\) and the exact stationary-selection functionals \(\SelFunctional{\Car},\SelFunctional{\Cur},\SelFunctional{\Hom}\) are no longer primitive either.
+    \item They arise as the forcing-shell restrictions of deeper lifted selection maps \(\ForLiftedSelection{\Car},\ForLiftedSelection{\Cur},\ForLiftedSelection{\Hom}\) and of their shell-restricted norm-square energies into the same positive target spaces with the same target metrics \(\SelTargetMetric{\Car},\SelTargetMetric{\Cur},\SelTargetMetric{\Hom}\).
+    \item The lifted proto-subprimitive-generating / subprimitive-generating / primitive-generating / root-generating / pre-ambient-generating maps are no longer primitive either.
+    \item They arise as the forcing-shell restrictions of deeper lifted maps into the same recorded target spaces with the same target metrics and the same recorded descendant gap bounds.
+    \item The lifted ambient-generating shell maps, lifted shell maps, and lifted exact-constraint maps are no longer primitive either.
+    \item They arise as the forcing-shell restrictions of deeper lifted ambient-generating shell maps, lifted shell maps, and lifted exact-constraint maps into the same target spaces with the same target metrics.
+    \item The selection cotangent-model Liouville one-forms \(\SelLiouville{\Car},\SelLiouville{\Cur},\SelLiouville{\Hom}\) and the selection closed two-form geometry \(\SelTwo{\Car},\SelTwo{\Cur},\SelTwo{\Hom}\) are no longer primitive either.
+    \item They arise as the forcing-shell restrictions of deeper forcing cotangent-model Liouville one-forms \(\ForLiouville{\Car},\ForLiouville{\Cur},\ForLiouville{\Hom}\) and their exact two-forms on the forcing bundles.
+    \item The selection connection one-forms \(\SelConnectionForm{\Car},\SelConnectionForm{\Cur},\SelConnectionForm{\Hom}\) and their induced parallel transports \(\SelTransport{\Car},\SelTransport{\Cur},\SelTransport{\Hom}\) are no longer primitive either.
+    \item They arise as forcing-shell restrictions of deeper skew-Hermitian forcing connection one-forms \(\ForConnectionForm{\Car},\ForConnectionForm{\Cur},\ForConnectionForm{\Hom}\) and of their induced forcing parallel transports.
+    \item The selection-basic shadow / rate / density / flux / boundary data and the fixed-endpoint selection rate-action geometry are no longer primitive either.
+    \item They arise as forcing-shell restrictions of deeper forcing-basic source data and the same fixed-endpoint forcing variational geometry.
+    \item Therefore the full stationary-selection layer of the immediately preceding pre-proto-subprimitive stationary-selection note is recovered without change.
+    \item Consequently the same pre-proto-subprimitive layer, the same proto-subprimitive layer, the same subprimitive layer, the same primitive layer, the same root layer, the same pre-ambient layer, the same ambient-shell / cotangent-Liouville / connection-holonomy layer, the same process-state and reversible-chain package, the same \(\StemFunctional\), the same exact-preservation normal form, the same carrier-origin / primitive-reservoir / microscopic-equilibrium functionals, the same \(\Sigma^{\mathrm{cmp}}\) solve, the same \(\Pi_{\mathrm{free}}H=0\) outcome, the same observer-equation closure, the same one operative metric, and the same recorded Phase D / E and Phase F gains remain unchanged.
+    \item Stronger promotion language is still not justified here, because the present note explains only why the previous stationary-selection / cotangent-connection / source-action layer arises from a deeper forcing-principle / cotangent-connection / source-action layer; it does not yet derive why that new deeper forcing layer is itself unique, final, or inevitable beyond current scope.
+    \item No broader packaging consequence or default side-line continuation follows from the mathematical content of this note alone. The remaining honest burden is one layer deeper again on this same exact-preservation line, or else another comparably concrete observer-equation gain on the same one-metric route.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Items (1)--(14) are Proposition \ref{prop:selection_geometry_forced}. Items (15) and (16) are Proposition \ref{prop:selection_basic_forced}. Items (17) and (18) are Theorems \ref{thm:same_selection_input} and \ref{thm:same_package} together with Corollary \ref{cor:gains}. Items (19) and (20) are the present claim-boundary discipline stated in the abstract and introduction.
+\end{proof}
+
+\begin{corollary}[What remains next]
+\label{cor:what_next}
+The primary active burden moves one layer deeper again. It is no longer to justify why the stationary-selection bundles, their exact stationary-selection sections and functionals, their lifted proto-subprimitive-generating / subprimitive-generating / primitive-generating / root-generating / pre-ambient-generating / ambient-generating / shell / exact-constraint maps, their selection Liouville / closed-two-form geometry, their connection one-forms and induced parallel transports, or their selection-basic shadow / rate / density / flux / boundary data and fixed-endpoint selection rate-action geometry are admissible at current scope; that step is now recorded. The next honest burden is either to derive or justify why the deeper forcing-principle bundles, their exact forcing sections and functionals, their lifted selection / proto-subprimitive-generating / subprimitive-generating / primitive-generating / root-generating / pre-ambient-generating / ambient-generating / shell / exact-constraint maps, their forcing cotangent-model Liouville one-forms, their forcing connection one-forms and parallel transports, and their forcing-basic source / action data are themselves forced by yet more primitive substrate structure, or else to produce another comparably concrete observer-equation gain on the same one-metric line. No stronger promotion language, no packaging pass, and no default move onto the anchored positive-pair side line are justified unless they directly discharge one of those burdens.
+\end{corollary}
+
+\section{Conclusion}
+
+The positive result of this note is that the stationary-selection layer is no longer left primitive at present scope. It is recovered from a still deeper forcing-principle / cotangent-connection / source-action layer.
+
+At that deeper level, the recorded stationary-selection bundles
+\[
+\SelSpace{\Car},\qquad
+\SelSpace{\Cur},\qquad
+\SelSpace{\Hom}
+\]
+are exact stationary zero shells inside compact visible forcing bundles. Their readout maps, unit sections, time reversals, and preserved positive metrics are exact-shell restrictions of deeper forcing data. Their exact stationary-selection sections and exact stationary-selection functionals are forcing-shell restrictions of deeper lifted selection maps and their shell-restricted norm-square energies into the same positive target spaces with the same target metrics. Their lifted proto-subprimitive-generating / subprimitive-generating / primitive-generating / root-generating / pre-ambient-generating / ambient-generating / shell / exact-constraint maps are forcing-shell restrictions of deeper lifted maps into the same target spaces with the same target metrics. Their selection Liouville one-forms and closed two-form geometry are forcing-shell restrictions of deeper forcing cotangent-model Liouville data. Their selection connection one-forms and induced parallel transports are forcing-shell restrictions of deeper skew-Hermitian forcing connection one-forms and their forcing parallel transports. Their selection-basic shadow / rate / density / flux / boundary data and their fixed-endpoint selection rate-action geometry are forcing-shell restrictions of deeper forcing-basic data and the same fixed-endpoint forcing variational geometry.
+
+Because that deeper construction reproduces the full stationary-selection layer without changing any of its visible slots, the immediately preceding pre-proto-subprimitive stationary-selection / cotangent-connection / source-action origin note applies verbatim. Consequently the same pre-proto-subprimitive layer, the same proto-subprimitive layer, the same subprimitive layer, the same primitive layer, the same root layer, the same pre-ambient layer, the same ambient-shell / cotangent-Liouville / connection-holonomy layer, the same process-state and reversible-chain package, the same \(\StemFunctional\), the same exact-preservation normal form, the same carrier-origin / primitive-reservoir / microscopic-equilibrium functionals, the same \(\Sigma^{\mathrm{cmp}}\) solve, the same \(\Pi_{\mathrm{free}}H=0\) outcome, the same observer-equation closure, the same one operative metric, and the same recorded Phase D / E and Phase F gains remain unchanged.
+
+The scope is still disciplined rather than final. The present note does not prove that the deeper forcing-principle / cotangent-connection / source-action layer is unique or ultimate. The next honest burden is to derive or justify why that new deeper layer itself is forced by still more primitive substrate structure, or else to record another comparably concrete observer-equation gain on the same one-metric line.
+
+\end{document}
