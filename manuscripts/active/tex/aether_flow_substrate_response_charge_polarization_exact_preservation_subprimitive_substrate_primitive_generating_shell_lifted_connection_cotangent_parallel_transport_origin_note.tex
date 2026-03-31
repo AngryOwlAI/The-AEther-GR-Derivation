@@ -1,0 +1,926 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal A}
+\newcommand{\ObserverMap}{\Xi}
+\newcommand{\ObserverMetric}{g^{\mathrm{br}}}
+\newcommand{\CandidateMetric}{g^{\mathrm{cand}}}
+\newcommand{\CompletedMetric}{g^{\sharp}}
+\newcommand{\BaseShift}{\Sigma^{\mathrm{IER}}}
+\newcommand{\ResponseShift}{\Sigma^{\mathrm{resp}}}
+\newcommand{\CompShift}{\Sigma^{\mathrm{cmp}}}
+\newcommand{\BaseLift}{\widehat\Sigma^{\mathrm{IER}}}
+\newcommand{\ResponseLift}{\widehat\Sigma^{\mathrm{resp}}}
+\newcommand{\CompLift}{\widehat\Sigma^{\mathrm{cmp}}}
+\newcommand{\ResidualCore}{\mathcal V_{\mu\nu}^{\mathrm{res}}}
+\newcommand{\ResidualLift}{\widehat{\mathcal V}^{\mathrm{res}}}
+\newcommand{\SubReducedEin}{\widehat{\mathcal L}}
+\newcommand{\FreeProj}{\Pi_{\mathrm{free}}}
+\newcommand{\GaugeAux}{Y}
+\newcommand{\ReducedEin}{\mathcal L_{\ObserverMetric}}
+\newcommand{\CompClass}{\mathscr C_{\mathrm{cmp}}}
+\newcommand{\MicFunctional}{\mathscr F_{\mathrm{mic}}}
+\newcommand{\PrimFunctional}{\mathscr F_{\mathrm{prim}}}
+\newcommand{\CarrierFunctional}{\mathscr F_{\mathrm{car}}}
+\newcommand{\DeepFunctional}{\mathscr F_{\mathrm{deep}}}
+\newcommand{\StemFunctional}{\mathscr F_{\mathrm{sel}}}
+\newcommand{\PrimStrain}{K}
+\newcommand{\PrimNeutral}{J}
+\newcommand{\PrimFree}{F}
+\newcommand{\CarrierSeed}{\mathfrak S}
+\newcommand{\RelabelSeed}{\mathfrak R}
+\newcommand{\FreeSeed}{\mathfrak F}
+\newcommand{\LieU}{\mathfrak u}
+
+\newcommand{\SectorSet}{\mathsf S}
+\newcommand{\Car}{\mathrm{car}}
+\newcommand{\Cur}{\mathrm{cur}}
+\newcommand{\Hom}{\mathrm{hom}}
+
+\newcommand{\ObjClass}[1]{\mathcal O_{#1}}
+\newcommand{\StatTagClass}[1]{\mathcal Y_{#1}^{\mathrm{st}}}
+\newcommand{\DensityClass}[1]{\mathscr N_{#1}}
+\newcommand{\FluxClass}[1]{\mathscr J_{#1}}
+\newcommand{\PhaseReadClass}[1]{\mathscr R_{#1}}
+\newcommand{\RootClass}[1]{\mathscr U_{#1}}
+
+\newcommand{\ConfigSpace}[1]{\mathcal Q_{#1}}
+\newcommand{\ShellTarget}[1]{\mathcal E_{#1}}
+\newcommand{\ShellMetric}[1]{m_{#1}^{\mathrm{sh}}}
+\newcommand{\ShellGap}[1]{\eta_{#1}}
+\newcommand{\ConstraintTarget}[1]{\mathcal K_{#1}}
+\newcommand{\ConstraintMetric}[1]{m_{#1}^{\mathrm{con}}}
+\newcommand{\ConstraintGap}[1]{\delta_{#1}}
+\newcommand{\OriginTarget}[1]{\mathcal H_{#1}^{\mathrm{orig}}}
+\newcommand{\OriginTargetMetric}[1]{n_{#1}^{\mathrm{orig}}}
+\newcommand{\OriginGap}[1]{\epsilon_{#1}^{\mathrm{orig}}}
+\newcommand{\RootTarget}[1]{\mathcal Z_{#1}^{\mathrm{root}}}
+\newcommand{\RootTargetMetric}[1]{p_{#1}^{\mathrm{root}}}
+\newcommand{\RootGap}[1]{\kappa_{#1}^{\mathrm{root}}}
+\newcommand{\PrimTarget}[1]{\mathcal W_{#1}^{\mathrm{prim}}}
+\newcommand{\PrimTargetMetric}[1]{q_{#1}^{\mathrm{prim}}}
+\newcommand{\PrimGap}[1]{\lambda_{#1}^{\mathrm{prim}}}
+\newcommand{\SubprimTarget}[1]{\mathcal V_{#1}^{\mathrm{subprim}}}
+\newcommand{\SubprimTargetMetric}[1]{v_{#1}^{\mathrm{subprim}}}
+\newcommand{\SubprimGap}[1]{\mu_{#1}^{\mathrm{subprim}}}
+\newcommand{\ProtoSubprimTarget}[1]{\mathcal T_{#1}^{\mathrm{psp}}}
+\newcommand{\ProtoSubprimTargetMetric}[1]{t_{#1}^{\mathrm{psp}}}
+\newcommand{\ProtoSubprimGap}[1]{\nu_{#1}^{\mathrm{psp}}}
+
+\newcommand{\PrimSpace}[1]{\mathcal P_{#1}}
+\newcommand{\PrimRead}[1]{\Pi_{#1}^{\mathrm{prim}}}
+\newcommand{\PrimUnit}[1]{u_{#1}^{\mathrm{prim}}}
+\newcommand{\PrimTimeRev}[1]{\sigma_{#1}^{\mathrm{prim}}}
+\newcommand{\PrimMetric}[1]{\breve M_{#1}}
+\newcommand{\PrimSection}[1]{\mathfrak P_{#1}^{\mathrm{prim}}}
+\newcommand{\PrimInc}[1]{\iota_{#1}^{\mathrm{prim}}}
+\newcommand{\PrimLiftedPreAmbient}[1]{\widehat{\mathfrak Z}_{#1}^{\mathrm{root}}}
+\newcommand{\PrimLiftedAmbient}[1]{\widehat{\mathfrak S}_{#1}^{\mathrm{orig}}}
+\newcommand{\PrimLiftedShell}[1]{\widehat{\mathfrak D}_{#1}^{\mathrm{root}}}
+\newcommand{\PrimConstraintMap}[1]{\widehat{\mathfrak C}_{#1}^{\mathrm{root}}}
+\newcommand{\PrimCotangentRealization}[1]{\breve\Psi_{#1}}
+\newcommand{\PrimLiouville}[1]{\boldsymbol{\Lambda}_{#1}^{\mathrm{prim}}}
+\newcommand{\PrimTwo}[1]{\boldsymbol{\Xi}_{#1}^{\mathrm{prim}}}
+\newcommand{\PrimConnectionForm}[1]{\mathcal C_{#1}^{\mathrm{conn}}}
+\newcommand{\PrimTransport}[1]{\mathbb U_{#1}}
+\newcommand{\PrimShadowForm}[1]{\boldsymbol{\varsigma}_{#1}^{\mathrm{prim}}}
+\newcommand{\PrimRateForm}[1]{\boldsymbol{\lambda}_{#1}^{\mathrm{prim}}}
+\newcommand{\PrimDensitySource}[1]{\boldsymbol{q}_{#1}^{\mathrm{prim}}}
+\newcommand{\PrimFluxSource}[1]{\boldsymbol{j}_{#1}^{\mathrm{prim}}}
+\newcommand{\PrimBoundarySource}[1]{\boldsymbol{\rho}_{#1}^{\partial,\mathrm{prim}}}
+\newcommand{\PrimAction}[1]{\mathscr A_{#1}^{\mathrm{prim}}}
+
+\newcommand{\SubprimSpace}[1]{\mathcal G_{#1}}
+\newcommand{\SubprimRead}[1]{\Pi_{#1}^{\mathrm{subprim}}}
+\newcommand{\SubprimUnit}[1]{u_{#1}^{\mathrm{subprim}}}
+\newcommand{\SubprimTimeRev}[1]{\upsilon_{#1}^{\mathrm{subprim}}}
+\newcommand{\SubprimMetric}[1]{M_{#1}^{\mathrm{subprim}}}
+\newcommand{\SubprimSection}[1]{\mathfrak G_{#1}^{\mathrm{subprim}}}
+\newcommand{\SubprimInc}[1]{\iota_{#1}^{\mathrm{subprim}}}
+\newcommand{\SubprimLiftedPrimitive}[1]{\overline{\mathfrak G}_{#1}^{\mathrm{subprim}}}
+\newcommand{\SubprimLiftedRoot}[1]{\overline{\mathfrak P}_{#1}^{\mathrm{prim}}}
+\newcommand{\SubprimLiftedPreAmbient}[1]{\overline{\mathfrak Z}_{#1}^{\mathrm{root}}}
+\newcommand{\SubprimLiftedAmbient}[1]{\overline{\mathfrak S}_{#1}^{\mathrm{orig}}}
+\newcommand{\SubprimLiftedShell}[1]{\overline{\mathfrak D}_{#1}^{\mathrm{root}}}
+\newcommand{\SubprimConstraintMap}[1]{\overline{\mathfrak C}_{#1}^{\mathrm{root}}}
+\newcommand{\SubprimCotangentRealization}[1]{\overline{\Psi}_{#1}}
+\newcommand{\SubprimLiouville}[1]{\boldsymbol{\Lambda}_{#1}^{\mathrm{subprim}}}
+\newcommand{\SubprimTwo}[1]{\boldsymbol{\Xi}_{#1}^{\mathrm{subprim}}}
+\newcommand{\SubprimConnectionForm}[1]{\mathcal D_{#1}^{\mathrm{conn}}}
+\newcommand{\SubprimTransport}[1]{\mathbb V_{#1}}
+\newcommand{\SubprimShadowForm}[1]{\boldsymbol{\varsigma}_{#1}^{\mathrm{subprim}}}
+\newcommand{\SubprimRateForm}[1]{\boldsymbol{\lambda}_{#1}^{\mathrm{subprim}}}
+\newcommand{\SubprimDensitySource}[1]{\boldsymbol{q}_{#1}^{\mathrm{subprim}}}
+\newcommand{\SubprimFluxSource}[1]{\boldsymbol{j}_{#1}^{\mathrm{subprim}}}
+\newcommand{\SubprimBoundarySource}[1]{\boldsymbol{\rho}_{#1}^{\partial,\mathrm{subprim}}}
+\newcommand{\SubprimAction}[1]{\mathscr A_{#1}^{\mathrm{subprim}}}
+
+\newcommand{\ProtoSubprimSpace}[1]{\mathcal N_{#1}^{\mathrm{psp}}}
+\newcommand{\ProtoSubprimRead}[1]{\Pi_{#1}^{\mathrm{psp}}}
+\newcommand{\ProtoSubprimUnit}[1]{u_{#1}^{\mathrm{psp}}}
+\newcommand{\ProtoSubprimTimeRev}[1]{\vartheta_{#1}^{\mathrm{psp}}}
+\newcommand{\ProtoSubprimMetric}[1]{N_{#1}^{\mathrm{psp}}}
+\newcommand{\ProtoSubprimSection}[1]{\mathfrak T_{#1}^{\mathrm{psp}}}
+\newcommand{\ProtoSubprimLiftedPrimitive}[1]{\check{\mathfrak G}_{#1}^{\mathrm{subprim}}}
+\newcommand{\ProtoSubprimLiftedRoot}[1]{\check{\mathfrak P}_{#1}^{\mathrm{prim}}}
+\newcommand{\ProtoSubprimLiftedPreAmbient}[1]{\check{\mathfrak Z}_{#1}^{\mathrm{root}}}
+\newcommand{\ProtoSubprimLiftedAmbient}[1]{\check{\mathfrak S}_{#1}^{\mathrm{orig}}}
+\newcommand{\ProtoSubprimLiftedShell}[1]{\check{\mathfrak D}_{#1}^{\mathrm{root}}}
+\newcommand{\ProtoSubprimConstraintMap}[1]{\check{\mathfrak C}_{#1}^{\mathrm{root}}}
+\newcommand{\ProtoSubprimCotangentRealization}[1]{\check{\Psi}_{#1}}
+\newcommand{\ProtoSubprimLiouville}[1]{\boldsymbol{\Lambda}_{#1}^{\mathrm{psp}}}
+\newcommand{\ProtoSubprimTwo}[1]{\boldsymbol{\Xi}_{#1}^{\mathrm{psp}}}
+\newcommand{\ProtoSubprimConnectionForm}[1]{\mathcal E_{#1}^{\mathrm{conn}}}
+\newcommand{\ProtoSubprimTransport}[1]{\mathbb W_{#1}}
+\newcommand{\ProtoSubprimShadowForm}[1]{\boldsymbol{\varsigma}_{#1}^{\mathrm{psp}}}
+\newcommand{\ProtoSubprimRateForm}[1]{\boldsymbol{\lambda}_{#1}^{\mathrm{psp}}}
+\newcommand{\ProtoSubprimDensitySource}[1]{\boldsymbol{q}_{#1}^{\mathrm{psp}}}
+\newcommand{\ProtoSubprimFluxSource}[1]{\boldsymbol{j}_{#1}^{\mathrm{psp}}}
+\newcommand{\ProtoSubprimBoundarySource}[1]{\boldsymbol{\rho}_{#1}^{\partial,\mathrm{psp}}}
+\newcommand{\ProtoSubprimAction}[1]{\mathscr A_{#1}^{\mathrm{psp}}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Substrate-Response / Self-Response Charge-Polarization Candidate\\
+\large Exact-Preservation Subprimitive Substrate / Primitive-Generating Shell / Lifted Connection-Cotangent / Parallel-Transport\\
+\large Origin Note}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The exact-preservation primitive-substrate / root-generating shell / lifted connection-cotangent / parallel-transport origin note already shows that the previously recorded primitive layer is not primitive at present scope. It is recovered there from deeper subprimitive substrate bundles carrying primitive-generating shell sections, lifted root-generating shell maps, lifted pre-ambient-generating shell maps, lifted ambient-generating shell maps, lifted shell maps and lifted exact-constraint maps into the same target metrics, subprimitive cotangent-model Liouville one-forms and closed two-form geometry, subprimitive connection one-forms and induced parallel transports, subprimitive-basic shadow / rate / density / flux / boundary data, and fixed-endpoint subprimitive rate-action geometry. What remained open is one layer deeper again: why that subprimitive layer itself should exist rather than becoming the current deepest disciplined postulate.
+
+The present note addresses exactly that narrower burden. It keeps fixed the same exact-preservation target: the same \(\StemFunctional\), the same exact-preservation normal form \(\DeepFunctional\), the same carrier-origin / primitive-reservoir / microscopic-equilibrium functionals
+\[
+\CarrierFunctional[\CarrierSeed,\RelabelSeed,\FreeSeed],\qquad
+\PrimFunctional[\PrimStrain,\PrimNeutral,\PrimFree],\qquad
+\MicFunctional[H,\GaugeAux],
+\]
+the same \(\Sigma^{\mathrm{cmp}}\) solve, the same \(\Pi_{\mathrm{free}}H=0\) outcome, the same one operative metric, and the same recorded Phase D / E and Phase F gains. Its positive move is to place the recorded subprimitive substrate / primitive-generating shell / lifted connection-cotangent layer under a still deeper proto-subprimitive construction:
+\begin{enumerate}
+    \item finite-dimensional exact-preserving proto-subprimitive substrate bundles with visible readouts, unit sections, time reversals, preserved positive metrics, and compact visible fibers;
+    \item subprimitive-generating shell sections whose exact zero loci are the recorded subprimitive substrate bundles;
+    \item lifted primitive-generating shell maps, lifted root-generating shell maps, lifted pre-ambient-generating shell maps, lifted ambient-generating shell maps, lifted shell maps, and lifted exact-constraint maps into the same positive target metrics whose subprimitive-shell restrictions are exactly the recorded subprimitive maps;
+    \item proto-subprimitive cotangent-model Liouville one-forms and closed two-forms whose shell restrictions are exactly the recorded subprimitive Liouville and closed two-form geometry;
+    \item exact-preserving unitary proto-subprimitive connection one-forms whose parallel transports along proto-subprimitive curves restrict exactly to the recorded subprimitive connection one-forms and their induced parallel transports;
+    \item proto-subprimitive-basic shadow / rate / density / flux / boundary data and fixed-endpoint proto-subprimitive rate actions whose subprimitive-shell restrictions are exactly the recorded subprimitive-basic data and the same fixed-endpoint subprimitive rate-action geometry.
+\end{enumerate}
+
+At current exact-preservation scope, the subprimitive substrate bundles, their primitive-generating shell sections, their lifted root-generating shell maps, their lifted pre-ambient-generating shell maps, their lifted ambient-generating shell maps, their lifted shell maps and lifted exact-constraint maps with the same target metrics, their subprimitive cotangent-model Liouville one-forms and closed two-form geometry, their subprimitive connection one-forms and induced parallel transports, their subprimitive-basic shadow / rate / density / flux / boundary data, and their fixed-endpoint subprimitive rate-action geometry are therefore no longer primitive either. Because the present note reproduces the full input layer of the immediately preceding primitive-substrate / root-generating shell / lifted connection-cotangent note without change, that note applies verbatim. Consequently the same primitive layer, the same root layer, the same pre-ambient layer, the same ambient-shell / cotangent-Liouville / connection-holonomy layer, the same process-state and reversible-chain package, the same \(\StemFunctional\), the same exact-preservation normal form, the same carrier-origin / primitive-reservoir / microscopic-equilibrium functionals, the same \(\Sigma^{\mathrm{cmp}}\) solve, the same \(\Pi_{\mathrm{free}}H=0\) outcome, the same observer-equation closure, the same one operative metric, and the same recorded Phase D / E and Phase F gains are preserved without change.
+
+The scope remains disciplined. This note does not claim a final microscopic completion, a uniqueness theorem for every conceivable deeper realization, or a completed first-principles derivation of GR. Its narrower exact positive claim is only that the recorded subprimitive substrate / primitive-generating shell / lifted connection-cotangent layer is itself no longer primitive at present scope, but is forced by a still deeper proto-subprimitive shell / lifted connection-cotangent layer while preserving the same downstream package.
+\end{abstract}
+
+\section{Introduction}
+
+The active one-metric charge-polarization line has now crossed the candidate, benchmark-gate, controlled-limit, residual-sector, redesign, substrate-anchoring, substrate-action, kernel-origin, deeper-selection, primitive-reservoir, carrier-origin, precursor-selection, exact-preservation normal-form, microphysical-Hessian, charge-generator, derivation-algebra, reconfiguration-group, reversible-groupoid, reversible-history, reversible process-window, reversible process-thread, process-state, proto-process, constraint-shell / Liouville-holonomy, ambient-shell / cotangent-connection, pre-ambient-shell / connection-cotangent / parallel-transport, root-shell / lifted connection-cotangent / parallel-transport, and primitive-substrate / root-generating shell / lifted connection-cotangent / parallel-transport origin steps on the same GR-directed route. The burden therefore sharpens again. It is not another packaging pass. It is not stronger promotion language. It is not, by default, a move onto the anchored positive-pair side line. It is to go one layer below the currently recorded subprimitive construction itself and explain why that construction is forced.
+
+That burden has ten parts. First, one must explain why the exact-preserving subprimitive substrate bundles
+\[
+\SubprimSpace{\Car},\qquad
+\SubprimSpace{\Cur},\qquad
+\SubprimSpace{\Hom}
+\]
+should exist rather than being declared. Second, one must explain why the visible subprimitive readout maps, subprimitive unit sections, subprimitive time reversals, preserved positive subprimitive metrics, and compact visible subprimitive fibers should be forced rather than inserted independently. Third, one must explain why the primitive-generating shell sections
+\[
+\SubprimSection{\Car},\qquad
+\SubprimSection{\Cur},\qquad
+\SubprimSection{\Hom}
+\]
+should be forced rather than postulated. Fourth, one must explain why the lifted root-generating shell maps
+\[
+\SubprimLiftedRoot{\Car},\qquad
+\SubprimLiftedRoot{\Cur},\qquad
+\SubprimLiftedRoot{\Hom}
+\]
+should themselves be induced rather than separately chosen. Fifth, one must explain why the lifted pre-ambient-generating shell maps
+\[
+\SubprimLiftedPreAmbient{\Car},\qquad
+\SubprimLiftedPreAmbient{\Cur},\qquad
+\SubprimLiftedPreAmbient{\Hom}
+\]
+and the lifted ambient-generating shell maps
+\[
+\SubprimLiftedAmbient{\Car},\qquad
+\SubprimLiftedAmbient{\Cur},\qquad
+\SubprimLiftedAmbient{\Hom}
+\]
+should themselves be induced rather than separately chosen. Sixth, one must explain why the lifted shell maps
+\[
+\SubprimLiftedShell{\Car},\qquad
+\SubprimLiftedShell{\Cur},\qquad
+\SubprimLiftedShell{\Hom}
+\]
+and lifted exact-constraint maps
+\[
+\SubprimConstraintMap{\Car},\qquad
+\SubprimConstraintMap{\Cur},\qquad
+\SubprimConstraintMap{\Hom}
+\]
+into the same target metrics should themselves be induced rather than separately chosen. Seventh, one must explain why the subprimitive cotangent-model Liouville one-forms
+\[
+\SubprimLiouville{\Car},\qquad
+\SubprimLiouville{\Cur},\qquad
+\SubprimLiouville{\Hom}
+\]
+their closed two-forms
+\[
+\SubprimTwo{\Car},\qquad
+\SubprimTwo{\Cur},\qquad
+\SubprimTwo{\Hom}
+\]
+and the subprimitive connection one-forms
+\[
+\SubprimConnectionForm{\Car},\qquad
+\SubprimConnectionForm{\Cur},\qquad
+\SubprimConnectionForm{\Hom}
+\]
+together with their induced parallel transports
+\[
+\SubprimTransport{\Car},\qquad
+\SubprimTransport{\Cur},\qquad
+\SubprimTransport{\Hom}
+\]
+should themselves be induced rather than separately prescribed. Eighth, one must explain why the subprimitive-basic shadow / rate / density / flux / boundary data and the fixed-endpoint subprimitive rate-action geometry should be forced rather than added as independent decorations. Ninth, one must re-show that the same primitive layer, the same root layer, the same pre-ambient layer, the same ambient-shell / cotangent-Liouville / connection-holonomy layer, the same process-state and reversible-chain package, the same \(\StemFunctional\), the same exact-preservation normal form, the same carrier-origin / primitive-reservoir / microscopic-equilibrium functionals, the same \(\Sigma^{\mathrm{cmp}}\) solve, the same \(\Pi_{\mathrm{free}}H=0\) outcome, the same observer-equation closure, the same one operative metric, and the same recorded Phase D / E and Phase F gains remain intact. Tenth, one must keep the claim boundary honest while doing so.
+
+The positive claim of the present note is that there is a disciplined way to do exactly that. One introduces a still deeper proto-subprimitive exact-preserving layer whose visible fibers are compact, whose subprimitive-generating shell sections cut out the current subprimitive bundles as exact zero shells, whose lifted primitive-generating shell maps, lifted root-generating shell maps, lifted pre-ambient-generating shell maps, lifted ambient-generating shell maps, lifted shell maps, and lifted exact-constraint maps restrict to the current subprimitive maps, whose cotangent-model one-forms descend by shell restriction to the current subprimitive Liouville geometry, whose skew-Hermitian proto-subprimitive connection one-forms restrict to the current subprimitive connection one-forms and generate the current subprimitive transports by parallel transport, and whose proto-subprimitive-basic one-forms / source fields / boundary potentials together with the same fixed-endpoint variational structure restrict to the current subprimitive-basic data. The immediately preceding primitive-substrate / root-generating shell / lifted connection-cotangent note can then be invoked without alteration, so the whole downstream chain is preserved verbatim.
+
+\section{Fixed Inputs from the Recorded Completion Line}
+
+\begin{definition}[Fixed branch and downstream completion target]
+\label{def:fixed_branch}
+The present note keeps fixed the same charge-polarization branch
+\begin{equation}
+\CandidateMetric
+=
+\ObserverMetric+\BaseShift+\ResponseShift,
+\qquad
+\CompletedMetric
+=
+\ObserverMetric+\BaseShift+\ResponseShift+\CompShift,
+\label{eq:fixed_metrics}
+\end{equation}
+with lifted variables satisfying
+\begin{equation}
+\ObserverMap^*\BaseLift=\BaseShift,
+\qquad
+\ObserverMap^*\ResponseLift=\ResponseShift,
+\qquad
+\ObserverMap^*\CompLift=\CompShift.
+\label{eq:fixed_lifts}
+\end{equation}
+The same completion class and the same free-sector condition are fixed:
+\begin{equation}
+\CompLift\in\CompClass,
+\qquad
+\FreeProj\CompLift=0.
+\label{eq:fixed_free}
+\end{equation}
+The same substrate and observer completion equations are fixed as well:
+\begin{equation}
+\SubReducedEin(\CompLift)=-\ResidualLift,
+\qquad
+\ReducedEin(\CompShift)=-\ResidualCore.
+\label{eq:fixed_solves}
+\end{equation}
+Every statement below must preserve these equations together with the same one operative metric \(\CompletedMetric\).
+\end{definition}
+
+\begin{definition}[Recorded subprimitive substrate / primitive-generating shell / lifted connection-cotangent input layer]
+\label{def:recorded_subprimitive_layer}
+The immediately preceding primitive-substrate / root-generating shell / lifted connection-cotangent / parallel-transport origin note fixes the following exact-preserving input layer for every sector label \(\sigma\in\SectorSet=\{\Car,\Cur,\Hom\}\).
+\begin{enumerate}
+    \item Finite-dimensional exact-preserving subprimitive substrate bundles
+    \[
+    \SubprimSpace{\sigma}
+    \]
+    with visible subprimitive readout maps
+    \[
+    \SubprimRead{\sigma}:\SubprimSpace{\sigma}\to\ObjClass{\sigma},
+    \]
+    exact-preserving subprimitive unit sections
+    \[
+    \SubprimUnit{\sigma}:\ObjClass{\sigma}\to\SubprimSpace{\sigma},
+    \]
+    involutive exact-preserving subprimitive time reversals
+    \[
+    \SubprimTimeRev{\sigma}:\SubprimSpace{\sigma}\to\SubprimSpace{\sigma},
+    \]
+    and preserved positive subprimitive metrics
+    \[
+    \SubprimMetric{\sigma}.
+    \]
+    Each visible subprimitive fiber \((\SubprimRead{\sigma})^{-1}(x)\) is compact.
+    \item Finite-dimensional real subprimitive target spaces
+    \[
+    \SubprimTarget{\sigma}
+    \]
+    with positive metrics
+    \[
+    \SubprimTargetMetric{\sigma},
+    \]
+    and exact-preserving primitive-generating shell sections
+    \[
+    \SubprimSection{\sigma}:\SubprimSpace{\sigma}\to\SubprimTarget{\sigma}
+    \]
+    whose zero loci are exactly the current primitive substrate bundles \(\PrimSpace{\sigma}\). These sections carry the same recorded positive subprimitive gap bounds \(\SubprimGap{\sigma}>0\) on the current primitive shells.
+    \item Exact-preserving lifted root-generating shell maps
+    \[
+    \SubprimLiftedRoot{\sigma}:\SubprimSpace{\sigma}\to\PrimTarget{\sigma}
+    \]
+    into the same positive target spaces with the same positive target metrics \(\PrimTargetMetric{\sigma}\). Their restrictions to the current primitive shells are exactly the recorded primitive-generating shell sections \(\PrimSection{\sigma}\) and carry the same recorded positive primitive gap bounds \(\PrimGap{\sigma}>0\) on the current root shells.
+    \item Exact-preserving lifted pre-ambient-generating shell maps
+    \[
+    \SubprimLiftedPreAmbient{\sigma}:\SubprimSpace{\sigma}\to\RootTarget{\sigma}
+    \]
+    into the same positive target spaces with the same positive target metrics \(\RootTargetMetric{\sigma}\). Their restrictions to the current primitive shells are exactly the recorded lifted pre-ambient-generating shell maps \(\PrimLiftedPreAmbient{\sigma}\) and carry the same recorded positive root gap bounds \(\RootGap{\sigma}>0\) on the current pre-ambient shells.
+    \item Exact-preserving lifted ambient-generating shell maps
+    \[
+    \SubprimLiftedAmbient{\sigma}:\SubprimSpace{\sigma}\to\OriginTarget{\sigma}
+    \]
+    into the same positive target spaces with the same positive target metrics \(\OriginTargetMetric{\sigma}\). Their restrictions to the current primitive shells are exactly the recorded lifted ambient-generating shell maps \(\PrimLiftedAmbient{\sigma}\) and carry the same recorded positive ambient-generating gap bounds \(\OriginGap{\sigma}>0\) on the current ambient shells.
+    \item Exact-preserving lifted shell maps
+    \[
+    \SubprimLiftedShell{\sigma}:\SubprimSpace{\sigma}\to\ShellTarget{\sigma}
+    \]
+    into the same positive shell target spaces with the same positive shell target metrics \(\ShellMetric{\sigma}\). Their restrictions to the current primitive exact-constraint shells are exactly the recorded lifted shell maps \(\PrimLiftedShell{\sigma}\) and carry the same recorded positive shell-gap bounds \(\ShellGap{\sigma}>0\) on the current seed shells.
+    \item Exact-preserving lifted exact-constraint maps
+    \[
+    \SubprimConstraintMap{\sigma}:\SubprimSpace{\sigma}\to\ConstraintTarget{\sigma}
+    \]
+    into the same positive target spaces with the same positive target metrics \(\ConstraintMetric{\sigma}\). Their restrictions to the current primitive shells are exactly the recorded lifted exact-constraint maps \(\PrimConstraintMap{\sigma}\) and carry the same recorded positive exact-constraint gap bounds \(\ConstraintGap{\sigma}>0\).
+    \item Exact-preserving cotangent realizations
+    \[
+    \SubprimCotangentRealization{\sigma}:\SubprimSpace{\sigma}\to T^*\ConfigSpace{\sigma}
+    \]
+    producing the subprimitive Liouville one-forms
+    \[
+    \SubprimLiouville{\sigma}
+    \]
+    and the closed subprimitive two-forms
+    \[
+    \SubprimTwo{\sigma}.
+    \]
+    Their primitive-shell restrictions are exactly the recorded primitive Liouville one-forms \(\PrimLiouville{\sigma}\) and primitive closed two-form geometry \(\PrimTwo{\sigma}\).
+    \item Exact-preserving skew-Hermitian subprimitive connection one-forms
+    \[
+    \SubprimConnectionForm{\sigma}\in \Omega^1(\SubprimSpace{\sigma};\LieU(\RootClass{\sigma}))
+    \]
+    and the induced exact-preserving unitary parallel transports
+    \[
+    \SubprimTransport{\sigma}
+    \]
+    attached to piecewise \(C^1\) subprimitive curves, identity on constant curves, multiplicative under concatenation, inverse under the corresponding subprimitive time reversals, and exact-preserving on the fixed branch. Their primitive-shell restrictions are exactly the recorded primitive connection one-forms \(\PrimConnectionForm{\sigma}\) and induced primitive parallel transports \(\PrimTransport{\sigma}\).
+    \item Exact-preserving subprimitive shadow one-forms
+    \[
+    \SubprimShadowForm{\sigma}\in\Omega^1(\SubprimSpace{\sigma};\StatTagClass{\sigma}),
+    \]
+    subprimitive rate one-forms
+    \[
+    \SubprimRateForm{\sigma}\in\Omega^1(\SubprimSpace{\sigma}),
+    \]
+    subprimitive density and subprimitive flux source fields
+    \[
+    \SubprimDensitySource{\sigma}:\SubprimSpace{\sigma}\to\DensityClass{\sigma},
+    \qquad
+    \SubprimFluxSource{\sigma}:\SubprimSpace{\sigma}\to\FluxClass{\sigma},
+    \]
+    and subprimitive boundary potentials
+    \[
+    \SubprimBoundarySource{\sigma}:\SubprimSpace{\sigma}\to\PhaseReadClass{\sigma}.
+    \]
+    Their primitive-shell restrictions are exactly the recorded primitive-basic shadow / rate / density / flux / boundary data.
+    \item Fixed-endpoint subprimitive actions
+    \[
+    \SubprimAction{\sigma}
+    \]
+    on curves constrained to the current root exact-constraint shells inside the primitive-generating shells, whose stationary curves are exactly the curves singled out there by the restricted subprimitive Liouville / exact-constraint geometry, whose first variations vanish automatically along the characteristic, symmetry, vertical subprimitive-fiber, and subprimitive-shell-normal directions, and whose second variations are positive on smooth endpoint-fixed complements to those directions and to the normal exact-constraint directions singled out by \(\ConstraintGap{\sigma}\). These actions restrict to exactly the same fixed-endpoint primitive rate-action geometry already recorded below them.
+\end{enumerate}
+These data are exact fixed inputs for the present note. The only admissible positive result is to derive or justify why this full layer is itself forced while keeping it unchanged.
+\end{definition}
+
+\begin{definition}[Recorded exact-preservation target]
+\label{def:recorded_target}
+The present note must preserve, without any modification,
+\begin{equation}
+\StemFunctional,
+\qquad
+\DeepFunctional,
+\qquad
+\CarrierFunctional[\CarrierSeed,\RelabelSeed,\FreeSeed],
+\qquad
+\PrimFunctional[\PrimStrain,\PrimNeutral,\PrimFree],
+\qquad
+\MicFunctional[H,\GaugeAux],
+\label{eq:target_functionals}
+\end{equation}
+together with the fixed free-sector verdict
+\begin{equation}
+\FreeProj\CompLift=0,
+\label{eq:target_free}
+\end{equation}
+and hence the same previously recorded \(\Pi_{\mathrm{free}}H=0\) outcome, the same completion solve
+\begin{equation}
+\CompShift=\Sigma^{\mathrm{cmp}},
+\label{eq:target_sigma}
+\end{equation}
+the same one operative metric \(\CompletedMetric\), and the same recorded Phase D / E infrared-spectrum and universal-coupling verdicts together with the same Phase F controlled GR limit.
+\end{definition}
+
+\section{Proto-Subprimitive Subprimitive-Generating Shell and Lifted Connection-Cotangent Origin of the Subprimitive Geometry}
+
+\begin{definition}[Proto-subprimitive subprimitive-generating shell / lifted connection-cotangent geometry]
+\label{def:protosubprimitive_geometry}
+For each sector label \(\sigma\in\SectorSet\), let
+\[
+\ProtoSubprimSpace{\sigma}
+\]
+be a finite-dimensional \(C^2\) manifold of yet more primitive exact-preserving substrate states. Assume:
+\begin{enumerate}
+    \item there are smooth visible proto-subprimitive readout maps
+    \[
+    \ProtoSubprimRead{\sigma}:\ProtoSubprimSpace{\sigma}\to\ObjClass{\sigma},
+    \]
+    together with exact-preserving proto-subprimitive unit sections
+    \[
+    \ProtoSubprimUnit{\sigma}:\ObjClass{\sigma}\to\ProtoSubprimSpace{\sigma}
+    \]
+    satisfying
+    \[
+    \ProtoSubprimRead{\sigma}\circ\ProtoSubprimUnit{\sigma}=\mathrm{id}_{\ObjClass{\sigma}}.
+    \]
+    \item there are smooth involutive exact-preserving proto-subprimitive time reversals
+    \[
+    \ProtoSubprimTimeRev{\sigma}:\ProtoSubprimSpace{\sigma}\to\ProtoSubprimSpace{\sigma}
+    \]
+    such that
+    \[
+    \ProtoSubprimRead{\sigma}\circ\ProtoSubprimTimeRev{\sigma}=\ProtoSubprimRead{\sigma},
+    \qquad
+    \ProtoSubprimTimeRev{\sigma}\circ\ProtoSubprimUnit{\sigma}=\ProtoSubprimUnit{\sigma}.
+    \]
+    \item each proto-subprimitive space carries a smooth exact-preserving positive-definite metric
+    \[
+    \ProtoSubprimMetric{\sigma}
+    \]
+    preserved by the corresponding proto-subprimitive time reversal, and each visible proto-subprimitive fiber \((\ProtoSubprimRead{\sigma})^{-1}(x)\) is compact.
+    \item there are finite-dimensional real proto-subprimitive target spaces
+    \[
+    \ProtoSubprimTarget{\sigma}
+    \]
+    with positive-definite metrics
+    \[
+    \ProtoSubprimTargetMetric{\sigma},
+    \]
+    and exact-preserving smooth subprimitive-generating shell sections
+    \[
+    \ProtoSubprimSection{\sigma}:\ProtoSubprimSpace{\sigma}\to\ProtoSubprimTarget{\sigma}
+    \]
+    preserved by the corresponding proto-subprimitive time reversals and vanishing on the corresponding proto-subprimitive unit sections. Define the recorded subprimitive substrate bundles as the exact zero shells
+    \begin{equation}
+    \SubprimSpace{\sigma}\equiv \left(\ProtoSubprimSection{\sigma}\right)^{-1}(0).
+    \label{eq:subprimitive_shell_from_protosubprimitive}
+    \end{equation}
+    Let
+    \begin{equation}
+    \SubprimInc{\sigma}:\SubprimSpace{\sigma}\hookrightarrow \ProtoSubprimSpace{\sigma}
+    \label{eq:subprimitive_inclusion}
+    \end{equation}
+    be the shell inclusion. Assume this shell is a closed embedded \(C^2\) submanifold, invariant under the corresponding proto-subprimitive time reversal, and containing the image of the corresponding proto-subprimitive unit section. Assume further that, for every \(x\in\SubprimSpace{\sigma}\),
+    \begin{equation}
+    \ProtoSubprimTargetMetric{\sigma}\!\left(
+    D\ProtoSubprimSection{\sigma}(x)\xi,
+    D\ProtoSubprimSection{\sigma}(x)\xi
+    \right)
+    \ge
+    \ProtoSubprimGap{\sigma}\,
+    \ProtoSubprimMetric{\sigma}(\xi,\xi),
+    \qquad
+    \ProtoSubprimGap{\sigma}>0,
+    \label{eq:protosubprimitive_gap}
+    \end{equation}
+    for all \(\xi\) orthogonal, with respect to \(\ProtoSubprimMetric{\sigma}\), to \(T_x\SubprimSpace{\sigma}\).
+    \item there are exact-preserving lifted primitive-generating shell maps
+    \[
+    \ProtoSubprimLiftedPrimitive{\sigma}:\ProtoSubprimSpace{\sigma}\to\SubprimTarget{\sigma}
+    \]
+    preserved by the corresponding proto-subprimitive time reversals and vanishing on the corresponding proto-subprimitive unit sections. Define the recorded subprimitive primitive-generating shell sections by restriction:
+    \begin{equation}
+    \SubprimSection{\sigma}\equiv \ProtoSubprimLiftedPrimitive{\sigma}|_{\SubprimSpace{\sigma}}.
+    \label{eq:subprimitive_section_from_protosubprimitive}
+    \end{equation}
+    Assume these restricted sections satisfy the same recorded positive subprimitive gap bounds \(\SubprimGap{\sigma}>0\) on the current primitive shells cut out inside \(\SubprimSpace{\sigma}\).
+    \item there are exact-preserving lifted root-generating shell maps
+    \[
+    \ProtoSubprimLiftedRoot{\sigma}:\ProtoSubprimSpace{\sigma}\to\PrimTarget{\sigma}
+    \]
+    preserved by the corresponding proto-subprimitive time reversals and vanishing on the corresponding proto-subprimitive unit sections. Define the recorded subprimitive lifted root-generating shell maps by restriction:
+    \begin{equation}
+    \SubprimLiftedRoot{\sigma}\equiv \ProtoSubprimLiftedRoot{\sigma}|_{\SubprimSpace{\sigma}}.
+    \label{eq:subprimitive_root_from_protosubprimitive}
+    \end{equation}
+    Assume these restricted maps satisfy the same recorded positive primitive gap bounds \(\PrimGap{\sigma}>0\) on the current root shells cut out inside \(\SubprimSpace{\sigma}\).
+    \item there are exact-preserving lifted pre-ambient-generating shell maps
+    \[
+    \ProtoSubprimLiftedPreAmbient{\sigma}:\ProtoSubprimSpace{\sigma}\to\RootTarget{\sigma}
+    \]
+    preserved by the corresponding proto-subprimitive time reversals and vanishing on the corresponding proto-subprimitive unit sections. Define the recorded subprimitive lifted pre-ambient-generating shell maps by restriction:
+    \begin{equation}
+    \SubprimLiftedPreAmbient{\sigma}\equiv \ProtoSubprimLiftedPreAmbient{\sigma}|_{\SubprimSpace{\sigma}}.
+    \label{eq:subprimitive_preambient_from_protosubprimitive}
+    \end{equation}
+    Assume these restricted maps satisfy the same recorded positive root gap bounds \(\RootGap{\sigma}>0\) on the current pre-ambient shells cut out inside \(\SubprimSpace{\sigma}\).
+    \item there are exact-preserving lifted ambient-generating shell maps
+    \[
+    \ProtoSubprimLiftedAmbient{\sigma}:\ProtoSubprimSpace{\sigma}\to\OriginTarget{\sigma}
+    \]
+    preserved by the corresponding proto-subprimitive time reversals and vanishing on the corresponding proto-subprimitive unit sections. Define the recorded subprimitive lifted ambient-generating shell maps by restriction:
+    \begin{equation}
+    \SubprimLiftedAmbient{\sigma}\equiv \ProtoSubprimLiftedAmbient{\sigma}|_{\SubprimSpace{\sigma}}.
+    \label{eq:subprimitive_ambient_from_protosubprimitive}
+    \end{equation}
+    Assume these restricted maps satisfy the same recorded positive ambient-generating gap bounds \(\OriginGap{\sigma}>0\) on the current ambient shells cut out inside \(\SubprimSpace{\sigma}\).
+    \item there are exact-preserving lifted shell maps
+    \[
+    \ProtoSubprimLiftedShell{\sigma}:\ProtoSubprimSpace{\sigma}\to\ShellTarget{\sigma}
+    \]
+    preserved by the corresponding proto-subprimitive time reversals and vanishing on the corresponding proto-subprimitive unit sections. Define the recorded subprimitive lifted shell maps by restriction:
+    \begin{equation}
+    \SubprimLiftedShell{\sigma}\equiv \ProtoSubprimLiftedShell{\sigma}|_{\SubprimSpace{\sigma}}.
+    \label{eq:subprimitive_shell_map_from_protosubprimitive}
+    \end{equation}
+    Assume these restricted maps satisfy the same recorded positive shell-gap bounds \(\ShellGap{\sigma}>0\) on the current seed shells cut out inside \(\SubprimSpace{\sigma}\).
+    \item there are exact-preserving lifted exact-constraint maps
+    \[
+    \ProtoSubprimConstraintMap{\sigma}:\ProtoSubprimSpace{\sigma}\to\ConstraintTarget{\sigma}
+    \]
+    preserved by the corresponding proto-subprimitive time reversals and vanishing on the corresponding proto-subprimitive unit sections. Define the recorded subprimitive lifted exact-constraint maps by restriction:
+    \begin{equation}
+    \SubprimConstraintMap{\sigma}\equiv \ProtoSubprimConstraintMap{\sigma}|_{\SubprimSpace{\sigma}}.
+    \label{eq:subprimitive_constraint_from_protosubprimitive}
+    \end{equation}
+    \item there are exact-preserving cotangent realizations
+    \[
+    \ProtoSubprimCotangentRealization{\sigma}:\ProtoSubprimSpace{\sigma}\to T^*\ConfigSpace{\sigma}
+    \]
+    into the same recorded configuration spaces. Let \(\theta_{\mathrm{can}}\) denote the canonical Liouville one-form on the relevant cotangent bundle. Define proto-subprimitive Liouville one-forms and closed two-forms by
+    \begin{equation}
+    \ProtoSubprimLiouville{\sigma}\equiv (\ProtoSubprimCotangentRealization{\sigma})^*\theta_{\mathrm{can}},
+    \qquad
+    \ProtoSubprimTwo{\sigma}\equiv d\ProtoSubprimLiouville{\sigma}.
+    \label{eq:protosubprimitive_liouville}
+    \end{equation}
+    Assume
+    \[
+    (\ProtoSubprimTimeRev{\sigma})^*\ProtoSubprimLiouville{\sigma}
+    =
+    -\ProtoSubprimLiouville{\sigma}.
+    \]
+    Define the recorded subprimitive Liouville one-forms and closed two-forms by shell restriction:
+    \begin{equation}
+    \SubprimLiouville{\sigma}\equiv (\SubprimInc{\sigma})^*\ProtoSubprimLiouville{\sigma},
+    \qquad
+    \SubprimTwo{\sigma}\equiv (\SubprimInc{\sigma})^*\ProtoSubprimTwo{\sigma}.
+    \label{eq:subprimitive_liouville_from_protosubprimitive}
+    \end{equation}
+    \item there are smooth skew-Hermitian proto-subprimitive connection one-forms
+    \[
+    \ProtoSubprimConnectionForm{\sigma}\in \Omega^1(\ProtoSubprimSpace{\sigma};\LieU(\RootClass{\sigma}))
+    \]
+    that are exact-preserving on the fixed branch and satisfy the time-reversal equivariance rule
+    \[
+    (\ProtoSubprimTimeRev{\sigma})^*\ProtoSubprimConnectionForm{\sigma}
+    =
+    -\ProtoSubprimConnectionForm{\sigma}.
+    \]
+    Let
+    \[
+    \ProtoSubprimTransport{\sigma}(\Gamma)\in \mathcal U(\RootClass{\sigma})
+    \]
+    denote the parallel transport generated by that proto-subprimitive connection one-form along any piecewise \(C^1\) proto-subprimitive curve \(\Gamma\). Define the recorded subprimitive connection one-forms and induced parallel transports by
+    \begin{equation}
+    \SubprimConnectionForm{\sigma}\equiv (\SubprimInc{\sigma})^*\ProtoSubprimConnectionForm{\sigma},
+    \label{eq:subprimitive_connection_from_protosubprimitive}
+    \end{equation}
+    \begin{equation}
+    \SubprimTransport{\sigma}(\gamma)\equiv \ProtoSubprimTransport{\sigma}(\SubprimInc{\sigma}\circ\gamma)
+    \label{eq:subprimitive_transport_from_protosubprimitive}
+    \end{equation}
+    on piecewise \(C^1\) subprimitive curves \(\gamma\).
+\end{enumerate}
+
+Define the recorded subprimitive readout maps, subprimitive unit sections, subprimitive time reversals, and subprimitive metrics by restriction:
+\begin{equation}
+\SubprimRead{\sigma}\equiv \ProtoSubprimRead{\sigma}\circ\SubprimInc{\sigma},
+\qquad
+\SubprimUnit{\sigma}\equiv \ProtoSubprimUnit{\sigma},
+\qquad
+\SubprimTimeRev{\sigma}\equiv \ProtoSubprimTimeRev{\sigma}|_{\SubprimSpace{\sigma}},
+\label{eq:subprimitive_basic_structure_from_protosubprimitive}
+\end{equation}
+\begin{equation}
+\SubprimMetric{\sigma}\equiv (\SubprimInc{\sigma})^*\ProtoSubprimMetric{\sigma}.
+\label{eq:subprimitive_metric_from_protosubprimitive}
+\end{equation}
+For each visible point, define the visible subprimitive fibers by
+\begin{equation}
+(\SubprimRead{\sigma})^{-1}(x)
+=
+\left(\ProtoSubprimSection{\sigma}\right)^{-1}(0)\cap(\ProtoSubprimRead{\sigma})^{-1}(x).
+\label{eq:subprimitive_fiber_from_protosubprimitive}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[Subprimitive substrate bundles, primitive-generating shell sections, lifted root / pre-ambient / ambient / shell / exact-constraint maps, cotangent geometry, and connection-transports are forced]
+\label{prop:subprimitive_geometry_forced}
+The proto-subprimitive shell / lifted connection-cotangent data of Definition \ref{def:protosubprimitive_geometry} recover exactly the geometric part of the recorded subprimitive substrate / primitive-generating shell / lifted connection-cotangent input layer.
+\begin{enumerate}
+    \item The exact zero shells \eqref{eq:subprimitive_shell_from_protosubprimitive} are exactly the recorded subprimitive substrate bundles \(\SubprimSpace{\sigma}\).
+    \item The restricted maps \eqref{eq:subprimitive_basic_structure_from_protosubprimitive}--\eqref{eq:subprimitive_metric_from_protosubprimitive} are exactly the recorded subprimitive readout maps, subprimitive unit sections, subprimitive time reversals, and preserved positive subprimitive metrics, and the visible subprimitive fibers \eqref{eq:subprimitive_fiber_from_protosubprimitive} are compact.
+    \item The restricted maps \eqref{eq:subprimitive_section_from_protosubprimitive} are exactly the recorded primitive-generating shell sections, and their subprimitive gap bounds are the same recorded bounds \(\SubprimGap{\sigma}\) on the current primitive shells.
+    \item The restricted maps \eqref{eq:subprimitive_root_from_protosubprimitive} are exactly the recorded lifted root-generating shell maps, and their primitive gap bounds are the same recorded bounds \(\PrimGap{\sigma}\) on the current root shells.
+    \item The restricted maps \eqref{eq:subprimitive_preambient_from_protosubprimitive} are exactly the recorded lifted pre-ambient-generating shell maps, and their root gap bounds are the same recorded bounds \(\RootGap{\sigma}\) on the current pre-ambient shells.
+    \item The restricted maps \eqref{eq:subprimitive_ambient_from_protosubprimitive} are exactly the recorded lifted ambient-generating shell maps, and their ambient-generating gap bounds are the same recorded bounds \(\OriginGap{\sigma}\) on the current ambient shells.
+    \item The restricted maps \eqref{eq:subprimitive_shell_map_from_protosubprimitive} are exactly the recorded lifted shell maps, and the recorded shell target metrics \(\ShellMetric{\sigma}\) are already the deeper target metrics on which those maps are defined.
+    \item The restricted maps \eqref{eq:subprimitive_constraint_from_protosubprimitive} are exactly the recorded lifted exact-constraint maps, and the recorded target metrics \(\ConstraintMetric{\sigma}\) are already the deeper target metrics on which those maps are defined.
+    \item The restricted forms \eqref{eq:subprimitive_liouville_from_protosubprimitive} are exactly the recorded subprimitive cotangent-model Liouville one-forms and closed two-form geometry.
+    \item The restricted connection one-forms and parallel-transport formulas \eqref{eq:subprimitive_connection_from_protosubprimitive}--\eqref{eq:subprimitive_transport_from_protosubprimitive} are exactly the recorded subprimitive connection one-forms and their induced subprimitive parallel transports.
+    \item Consequently the subprimitive substrate bundles, their primitive-generating shell sections, their lifted root-generating shell maps, their lifted pre-ambient-generating shell maps, their lifted ambient-generating shell maps, their lifted shell maps and lifted exact-constraint maps with the same target metrics, their subprimitive cotangent-model Liouville one-forms and closed two-form geometry, and their subprimitive connection one-forms with induced parallel transports are no longer primitive at present scope; they are forced by a deeper proto-subprimitive shell / lifted connection-cotangent layer.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Item (1) is the subprimitive-generating shell construction itself. By assumption, the zero shell of \(\ProtoSubprimSection{\sigma}\) is a closed embedded \(C^2\) submanifold, invariant under the proto-subprimitive time reversal, and containing the proto-subprimitive unit image. That shell is exactly the recorded subprimitive bundle \(\SubprimSpace{\sigma}\).
+
+Item (2) is immediate from restriction. The proto-subprimitive readout already splits the visible object class, the proto-subprimitive unit is already a section of that readout, the proto-subprimitive time reversal already preserves both, and the proto-subprimitive metric is positive and time-reversal invariant. Restricting to the exact zero shell gives exactly the recorded subprimitive objects. Each visible proto-subprimitive fiber is compact by assumption, and each visible subprimitive fiber is its closed intersection with the subprimitive-generating shell, so the visible subprimitive fibers are compact as well.
+
+Item (3) follows from the restriction formula \eqref{eq:subprimitive_section_from_protosubprimitive}. No additional subprimitive-level primitive-generating data are chosen. The lifted primitive-generating shell map already lives on the deeper proto-subprimitive space, and the recorded primitive-generating shell section is simply its restriction to the subprimitive zero shell. The same subprimitive gap bounds on the current primitive shells are kept fixed by assumption on that restricted map.
+
+Items (4)--(8) are the same restriction argument applied in turn to the lifted root-generating shell maps, the lifted pre-ambient-generating shell maps, the lifted ambient-generating shell maps, the lifted shell maps, and the lifted exact-constraint maps. Every one of those subprimitive maps is recovered as a restriction of a deeper proto-subprimitive map landing in the same target space with the same target metric.
+
+Item (9) is the cotangent reduction statement. The proto-subprimitive Liouville one-forms are pulled back from canonical Liouville forms on the same recorded cotangent bundles, so they are not arbitrary inserted one-forms. Restricting them to the subprimitive zero shells gives exactly the recorded subprimitive Liouville one-forms, and restricting their exterior derivatives gives exactly the recorded subprimitive closed two-forms.
+
+Item (10) follows from ordinary restriction and parallel transport. The proto-subprimitive skew-Hermitian connection one-forms determine unitary transports on proto-subprimitive curves, identity on constant curves, multiplicativity under concatenation, and inversion under time reversal. Restricting the one-forms to the subprimitive zero shells gives exactly the recorded subprimitive connection one-forms, and restricting the proto-subprimitive transports to curves lying in those zero shells gives exactly the recorded subprimitive transports. Thus the current subprimitive connection data are not independent curve assignments; they are forced as shell restrictions.
+
+Item (11) is therefore immediate: every geometric component of the recorded subprimitive substrate / primitive-generating shell / lifted connection-cotangent input layer is recovered verbatim, but it is no longer primitive.
+\end{proof}
+
+\section{Proto-Subprimitive-Basic Source and Fixed-Endpoint Origin of the Remaining Subprimitive Data}
+
+\begin{definition}[Proto-subprimitive-basic source and fixed-endpoint action data]
+\label{def:protosubprimitive_basic}
+Assume the proto-subprimitive geometry of Definition \ref{def:protosubprimitive_geometry} is fixed. Assume further, for each \(\sigma\in\SectorSet\):
+\begin{enumerate}
+    \item there are exact-preserving proto-subprimitive shadow one-forms
+    \[
+    \ProtoSubprimShadowForm{\sigma}\in\Omega^1(\ProtoSubprimSpace{\sigma};\StatTagClass{\sigma})
+    \]
+    that are invariant under the corresponding proto-subprimitive time reversals, annihilate vectors normal to the subprimitive-generating shell locus \(\SubprimSpace{\sigma}\), annihilate vertical vectors tangent to the visible proto-subprimitive fibers, and are preserved along the current subprimitive characteristic curves singled out on the primitive exact-constraint shells by the restricted subprimitive Liouville / exact-constraint geometry. Define the recorded subprimitive shadow one-forms by restriction:
+    \begin{equation}
+    \SubprimShadowForm{\sigma}\equiv (\SubprimInc{\sigma})^*\ProtoSubprimShadowForm{\sigma}.
+    \label{eq:subprimitive_shadow_from_protosubprimitive}
+    \end{equation}
+    \item there are exact-preserving proto-subprimitive rate one-forms
+    \[
+    \ProtoSubprimRateForm{\sigma}\in\Omega^1(\ProtoSubprimSpace{\sigma})
+    \]
+    with the same invariance and annihilation properties. Define the recorded subprimitive rate one-forms by
+    \begin{equation}
+    \SubprimRateForm{\sigma}\equiv (\SubprimInc{\sigma})^*\ProtoSubprimRateForm{\sigma}.
+    \label{eq:subprimitive_rate_from_protosubprimitive}
+    \end{equation}
+    \item there are exact-preserving proto-subprimitive density and proto-subprimitive flux source fields
+    \[
+    \ProtoSubprimDensitySource{\sigma}:\ProtoSubprimSpace{\sigma}\to\DensityClass{\sigma},
+    \qquad
+    \ProtoSubprimFluxSource{\sigma}:\ProtoSubprimSpace{\sigma}\to\FluxClass{\sigma},
+    \]
+    invariant under the corresponding proto-subprimitive time reversals, preserved along the current subprimitive characteristic curves, and constant on subprimitive-shell-normal directions and on vertical proto-subprimitive-fiber directions. Define the recorded subprimitive density and subprimitive flux source fields by restriction:
+    \begin{equation}
+    \SubprimDensitySource{\sigma}\equiv \ProtoSubprimDensitySource{\sigma}|_{\SubprimSpace{\sigma}},
+    \qquad
+    \SubprimFluxSource{\sigma}\equiv \ProtoSubprimFluxSource{\sigma}|_{\SubprimSpace{\sigma}}.
+    \label{eq:subprimitive_sources_from_protosubprimitive}
+    \end{equation}
+    \item there are exact-preserving proto-subprimitive boundary potentials
+    \[
+    \ProtoSubprimBoundarySource{\sigma}:\ProtoSubprimSpace{\sigma}\to\PhaseReadClass{\sigma}
+    \]
+    vanishing on the corresponding proto-subprimitive unit sections, invariant under the corresponding proto-subprimitive time reversals, annihilating vectors normal to the subprimitive-generating shells, and constant on vertical proto-subprimitive-fiber directions. Define the recorded subprimitive boundary potentials by
+    \begin{equation}
+    \SubprimBoundarySource{\sigma}\equiv \ProtoSubprimBoundarySource{\sigma}|_{\SubprimSpace{\sigma}}.
+    \label{eq:subprimitive_boundary_from_protosubprimitive}
+    \end{equation}
+    \item define the proto-subprimitive fixed-endpoint rate actions on \(C^2\) curves constrained to the current root exact-constraint shells inside the current primitive-generating shells by
+    \begin{equation}
+    \ProtoSubprimAction{\sigma}[\Gamma]\equiv \int_\Gamma \ProtoSubprimRateForm{\sigma}.
+    \label{eq:protosubprimitive_action}
+    \end{equation}
+    Assume their stationary curves at fixed visible endpoint data are exactly the current subprimitive characteristic curves determined on those root exact-constraint shells by the restricted subprimitive Liouville / exact-constraint geometry, that their first variations vanish automatically along the characteristic, symmetry, vertical subprimitive-fiber, and subprimitive-shell-normal directions, and that their second variations are positive on smooth endpoint-fixed complements to those directions and to the normal exact-constraint directions singled out by \(\ConstraintGap{\sigma}\). Define the recorded subprimitive fixed-endpoint actions by
+    \begin{equation}
+    \SubprimAction{\sigma}[\gamma]\equiv \int_\gamma \SubprimRateForm{\sigma}.
+    \label{eq:subprimitive_action_from_protosubprimitive}
+    \end{equation}
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}[Subprimitive-basic data and subprimitive action are forced]
+\label{prop:subprimitive_basic_forced}
+The proto-subprimitive basic data of Definition \ref{def:protosubprimitive_basic} recover exactly the remaining recorded subprimitive substrate / primitive-generating shell / lifted connection-cotangent input layer.
+\begin{enumerate}
+    \item The restricted one-forms \eqref{eq:subprimitive_shadow_from_protosubprimitive} and \eqref{eq:subprimitive_rate_from_protosubprimitive} are exactly the recorded subprimitive shadow and subprimitive rate one-forms.
+    \item The restricted source fields \eqref{eq:subprimitive_sources_from_protosubprimitive} are exactly the recorded subprimitive density and subprimitive flux source fields.
+    \item The restricted boundary potentials \eqref{eq:subprimitive_boundary_from_protosubprimitive} are exactly the recorded subprimitive boundary potentials.
+    \item The fixed-endpoint actions \eqref{eq:subprimitive_action_from_protosubprimitive} are exactly the recorded subprimitive actions, and their inherited second-variation positivity is exactly the recorded fixed-endpoint subprimitive rate-action geometry.
+    \item Consequently the subprimitive-basic shadow / rate / density / flux / boundary data and the fixed-endpoint subprimitive rate-action geometry are no longer primitive at present scope; they are forced by deeper proto-subprimitive-basic restriction and the same fixed-endpoint proto-subprimitive variational geometry.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Item (1) follows from the restriction construction itself. Because the proto-subprimitive shadow and proto-subprimitive rate one-forms annihilate both the subprimitive-shell-normal directions and the vertical directions tangent to the visible proto-subprimitive fibers, their restrictions to the subprimitive zero shells are well defined and already satisfy the invariance and horizontality required at subprimitive level.
+
+Item (2) is immediate from the restriction formula \eqref{eq:subprimitive_sources_from_protosubprimitive}. Constancy on subprimitive-shell-normal directions and on vertical proto-subprimitive-fiber directions guarantees that the restricted source fields depend only on the subprimitive states themselves, while the assumed characteristic-flow and time-reversal invariance give exactly the recorded exact-preserving behavior.
+
+Item (3) is the same argument applied to the boundary potentials. Since the proto-subprimitive boundary potentials vanish on the proto-subprimitive unit sections, their subprimitive restrictions vanish on the recorded subprimitive unit sections as required.
+
+Item (4) follows from fixed-endpoint stationary reduction. The proto-subprimitive rate actions are assumed to have precisely the current subprimitive characteristic curves as stationary curves, with first variations vanishing automatically along the characteristic, symmetry, vertical subprimitive-fiber, and subprimitive-shell-normal directions. Restricting those actions to curves in the subprimitive zero shells yields exactly the recorded subprimitive-action formula \eqref{eq:subprimitive_action_from_protosubprimitive}. The positive second variation on endpoint-fixed complements descends directly to the recorded subprimitive stationary geometry.
+
+Item (5) is therefore immediate. None of the current subprimitive-basic data or subprimitive fixed-endpoint stationary geometry needs to be inserted separately once the proto-subprimitive-basic layer is fixed.
+\end{proof}
+
+\section{Exact Recovery of the Recorded Subprimitive Layer and Downstream Package}
+
+\begin{theorem}[Same subprimitive substrate / primitive-generating shell / lifted connection-cotangent input layer]
+\label{thm:same_subprimitive_input}
+Under the fixed branch of Definition \ref{def:fixed_branch}, the proto-subprimitive subprimitive-generating shell / lifted connection-cotangent construction recovers exactly the subprimitive substrate / primitive-generating shell / lifted connection-cotangent input layer of Definition \ref{def:recorded_subprimitive_layer}.
+\end{theorem}
+
+\begin{proof}
+The geometric part is Proposition \ref{prop:subprimitive_geometry_forced}. The remaining basic-data and fixed-endpoint-action part is Proposition \ref{prop:subprimitive_basic_forced}. Together they recover every item of Definition \ref{def:recorded_subprimitive_layer} without alteration.
+\end{proof}
+
+\begin{theorem}[Same primitive layer and same downstream package]
+\label{thm:same_package}
+Under the fixed branch of Definition \ref{def:fixed_branch}, the deeper proto-subprimitive subprimitive-generating shell / lifted connection-cotangent construction preserves without change:
+\begin{enumerate}
+    \item the same subprimitive substrate / primitive-generating shell / lifted connection-cotangent / parallel-transport input layer;
+    \item the same primitive substrate / root-generating shell / lifted connection-cotangent input layer;
+    \item the same root-shell / lifted connection-cotangent / parallel-transport input layer;
+    \item the same pre-ambient-shell / connection-cotangent / parallel-transport input layer;
+    \item the same ambient-shell / cotangent-Liouville / connection-holonomy input layer;
+    \item the same constrained substrate-bundle / exact-constraint / Liouville-holonomy input layer;
+    \item the same proto-process / stationary-selection / characteristic-bundle input layer;
+    \item the same process-state / reversible-line-field / compact-calibration-fiber / basic-form layer;
+    \item the same reversible-process-thread / calibration-generator / shadow-current / rate-density / boundary-recorder layer;
+    \item the same reversible-process-window / calibration-action / stationary-shadow / local-rate / endpoint-recorder layer;
+    \item the same reversible-history / stationary-equivalence / short-history-action / endpoint-readout / cotangent-lift layer;
+    \item the same reversible-groupoid / transport-action / constrained-stationary package;
+    \item the same reconfiguration-group / transport-law / equilibrium-reduction package;
+    \item the same derivation-algebra / balance-law / equilibrium-manifold layer;
+    \item hence the same process-state and reversible process-thread / process-window / history / groupoid / reconfiguration / derivation chain;
+    \item the same \(\StemFunctional\);
+    \item the same exact-preservation normal form \(\DeepFunctional\);
+    \item the same carrier-origin functional \(\CarrierFunctional[\CarrierSeed,\RelabelSeed,\FreeSeed]\);
+    \item the same primitive reservoir \(\PrimFunctional[\PrimStrain,\PrimNeutral,\PrimFree]\);
+    \item the same microscopic-equilibrium reservoir \(\MicFunctional[H,\GaugeAux]\);
+    \item the same free-sector verdict \(\FreeProj\CompLift=0\), and hence the same \(\Pi_{\mathrm{free}}H=0\) outcome;
+    \item the same substrate and observer completion solves \eqref{eq:fixed_solves};
+    \item the same \(\Sigma^{\mathrm{cmp}}\) solve, the same observer-equation closure, the same one operative metric \(\CompletedMetric\), and the same recorded Phase D / E and Phase F gains.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Theorem \ref{thm:same_subprimitive_input} reproduces exactly the input layer required by the immediately preceding primitive-substrate / root-generating shell / lifted connection-cotangent / parallel-transport origin note. That note already proves that once this subprimitive input layer is fixed, the same primitive layer follows without change, and with it the same full downstream chain. Since none of the visible slots, elimination steps, or completion equations are altered here, every downstream object listed above is reproduced verbatim.
+\end{proof}
+
+\begin{corollary}[Recorded gain package is preserved]
+\label{cor:gains}
+Because the same downstream package is recovered, the recorded Phase D / E infrared-spectrum and universal-coupling verdicts, the recorded Phase F controlled GR limit, and the already recorded observer-equation closure package remain preserved without modification.
+\end{corollary}
+
+\begin{proof}
+This is the direct content of Theorem \ref{thm:same_package}.
+\end{proof}
+
+\section{Claim-Boundary Verdict}
+
+\begin{theorem}[Subprimitive substrate / primitive-generating shell / lifted connection-cotangent origin verdict]
+\label{thm:verdict}
+At the disciplined scope of the present note, the exact positive result is the following.
+\begin{enumerate}
+    \item The exact-preserving subprimitive substrate bundles \(\SubprimSpace{\Car},\SubprimSpace{\Cur},\SubprimSpace{\Hom}\) are no longer primitive at current scope.
+    \item They arise as the exact zero shells of deeper subprimitive-generating sections \(\ProtoSubprimSection{\Car},\ProtoSubprimSection{\Cur},\ProtoSubprimSection{\Hom}\) on compact visible proto-subprimitive substrate bundles.
+    \item The visible subprimitive readout maps \(\SubprimRead{\Car},\SubprimRead{\Cur},\SubprimRead{\Hom}\), the subprimitive unit sections \(\SubprimUnit{\Car},\SubprimUnit{\Cur},\SubprimUnit{\Hom}\), the subprimitive time reversals \(\SubprimTimeRev{\Car},\SubprimTimeRev{\Cur},\SubprimTimeRev{\Hom}\), and the preserved positive subprimitive metrics \(\SubprimMetric{\Car},\SubprimMetric{\Cur},\SubprimMetric{\Hom}\) are no longer primitive either.
+    \item They are the exact-shell restrictions of deeper proto-subprimitive readouts, units, time reversals, and proto-subprimitive metrics, and the recorded compact visible subprimitive fibers are closed shell slices inside compact visible proto-subprimitive fibers.
+    \item The primitive-generating shell sections \(\SubprimSection{\Car},\SubprimSection{\Cur},\SubprimSection{\Hom}\) are no longer primitive either.
+    \item They arise as the subprimitive-shell restrictions of deeper lifted primitive-generating shell maps \(\ProtoSubprimLiftedPrimitive{\Car},\ProtoSubprimLiftedPrimitive{\Cur},\ProtoSubprimLiftedPrimitive{\Hom}\) into the same positive target spaces with the same target metrics \(\SubprimTargetMetric{\Car},\SubprimTargetMetric{\Cur},\SubprimTargetMetric{\Hom}\).
+    \item The lifted root-generating shell maps \(\SubprimLiftedRoot{\Car},\SubprimLiftedRoot{\Cur},\SubprimLiftedRoot{\Hom}\) are no longer primitive either.
+    \item They arise as the subprimitive-shell restrictions of deeper lifted root-generating shell maps
+    \[
+    \ProtoSubprimLiftedRoot{\Car},\qquad
+    \ProtoSubprimLiftedRoot{\Cur},\qquad
+    \ProtoSubprimLiftedRoot{\Hom},
+    \]
+    into the same positive target spaces with the same target metrics
+    \[
+    \PrimTargetMetric{\Car},\qquad
+    \PrimTargetMetric{\Cur},\qquad
+    \PrimTargetMetric{\Hom}.
+    \]
+    \item The lifted pre-ambient-generating shell maps \(\SubprimLiftedPreAmbient{\Car},\SubprimLiftedPreAmbient{\Cur},\SubprimLiftedPreAmbient{\Hom}\) are no longer primitive either.
+    \item They arise as the subprimitive-shell restrictions of deeper lifted pre-ambient-generating shell maps \(\ProtoSubprimLiftedPreAmbient{\Car},\ProtoSubprimLiftedPreAmbient{\Cur},\ProtoSubprimLiftedPreAmbient{\Hom}\) into the same positive target spaces with the same target metrics \(\RootTargetMetric{\Car},\RootTargetMetric{\Cur},\RootTargetMetric{\Hom}\).
+    \item The lifted ambient-generating shell maps
+    \[
+    \SubprimLiftedAmbient{\Car},\qquad
+    \SubprimLiftedAmbient{\Cur},\qquad
+    \SubprimLiftedAmbient{\Hom},
+    \]
+    the lifted shell maps
+    \[
+    \SubprimLiftedShell{\Car},\qquad
+    \SubprimLiftedShell{\Cur},\qquad
+    \SubprimLiftedShell{\Hom},
+    \]
+    and the lifted exact-constraint maps
+    \[
+    \SubprimConstraintMap{\Car},\qquad
+    \SubprimConstraintMap{\Cur},\qquad
+    \SubprimConstraintMap{\Hom}
+    \]
+    are no longer primitive either.
+    \item They arise as the subprimitive-shell restrictions of deeper lifted ambient-generating shell maps, lifted shell maps, and lifted exact-constraint maps into the same target spaces with the same target metrics.
+    \item The subprimitive cotangent-model Liouville one-forms \(\SubprimLiouville{\Car},\SubprimLiouville{\Cur},\SubprimLiouville{\Hom}\) and the subprimitive closed two-form geometry \(\SubprimTwo{\Car},\SubprimTwo{\Cur},\SubprimTwo{\Hom}\) are no longer primitive either.
+    \item They arise as the subprimitive-shell restrictions of deeper proto-subprimitive cotangent-model Liouville one-forms \(\ProtoSubprimLiouville{\Car},\ProtoSubprimLiouville{\Cur},\ProtoSubprimLiouville{\Hom}\) and their exact two-forms on the proto-subprimitive bundles.
+    \item The subprimitive connection one-forms \(\SubprimConnectionForm{\Car},\SubprimConnectionForm{\Cur},\SubprimConnectionForm{\Hom}\) and their induced parallel transports \(\SubprimTransport{\Car},\SubprimTransport{\Cur},\SubprimTransport{\Hom}\) are no longer primitive either.
+    \item They arise as subprimitive-shell restrictions of deeper skew-Hermitian proto-subprimitive connection one-forms \(\ProtoSubprimConnectionForm{\Car},\ProtoSubprimConnectionForm{\Cur},\ProtoSubprimConnectionForm{\Hom}\) and of their induced proto-subprimitive parallel transports.
+    \item The subprimitive-basic shadow / rate / density / flux / boundary data and the fixed-endpoint subprimitive rate-action geometry are no longer primitive either.
+    \item They arise as subprimitive-shell restrictions of deeper proto-subprimitive-basic source data and the same fixed-endpoint proto-subprimitive rate-action geometry.
+    \item Therefore the full subprimitive substrate / primitive-generating shell / lifted connection-cotangent input layer of the immediately preceding note is recovered without change.
+    \item Consequently the same primitive layer, the same root layer, the same pre-ambient layer, the same ambient-shell / cotangent-Liouville / connection-holonomy layer, the same process-state and reversible-chain package, the same \(\StemFunctional\), the same exact-preservation normal form, the same carrier-origin / primitive-reservoir / microscopic-equilibrium functionals, the same \(\Sigma^{\mathrm{cmp}}\) solve, the same \(\Pi_{\mathrm{free}}H=0\) outcome, the same observer-equation closure, the same one operative metric, and the same recorded Phase D / E and Phase F gains remain unchanged.
+    \item Stronger promotion language is still not justified here, because the present note explains only why the previous subprimitive substrate / primitive-generating shell / lifted connection-cotangent layer arises from a deeper proto-subprimitive shell / lifted connection-cotangent layer; it does not yet derive why that new deeper proto-subprimitive layer is itself unique, final, or inevitable beyond current scope.
+    \item No broader packaging consequence or default side-line continuation follows from the mathematical content of this note alone. The remaining honest burden is one layer deeper again on this same exact-preservation line, or else another comparably concrete observer-equation gain on the same one-metric route.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Items (1)--(16) are Proposition \ref{prop:subprimitive_geometry_forced}. Items (17) and (18) are Proposition \ref{prop:subprimitive_basic_forced}. Items (19) and (20) are Theorems \ref{thm:same_subprimitive_input} and \ref{thm:same_package} together with Corollary \ref{cor:gains}. Items (21) and (22) are the present claim-boundary discipline stated in the abstract and introduction.
+\end{proof}
+
+\begin{corollary}[What remains next]
+\label{cor:what_next}
+The primary active burden moves one layer deeper again. It is no longer to justify why the subprimitive substrate bundles, their primitive-generating shell sections, their lifted root-generating shell maps, their lifted pre-ambient-generating shell maps, their lifted ambient-generating shell maps, their lifted shell maps and lifted exact-constraint maps with the same target metrics, their subprimitive cotangent-model Liouville one-forms and closed two-form geometry, their connection one-forms and induced parallel transports, or their subprimitive-basic shadow / rate / density / flux / boundary data and fixed-endpoint subprimitive rate-action geometry are admissible at current scope; that step is now recorded. The next honest burden is either to derive or justify why the deeper proto-subprimitive substrate bundles, their subprimitive-generating shell sections, their lifted primitive-generating shell maps, their lifted root-generating shell maps, their lifted pre-ambient-generating shell maps, their lifted ambient-generating shell maps, their lifted shell and exact-constraint maps, their cotangent-model Liouville one-forms, their connection one-forms and parallel transports, and their proto-subprimitive-basic source / action data are themselves forced by yet more primitive substrate structure, perhaps through an even sharper stationary-selection principle, or else to produce another comparably concrete observer-equation gain on the same one-metric line. No stronger promotion language, no packaging pass, and no default move onto the anchored positive-pair side line are justified unless they directly discharge one of those burdens.
+\end{corollary}
+
+\section{Conclusion}
+
+The positive result of this note is that the subprimitive substrate / primitive-generating shell / lifted connection-cotangent layer is no longer left primitive at present scope. It is recovered from a still deeper proto-subprimitive shell / lifted connection-cotangent layer.
+
+At that deeper level, the recorded subprimitive substrate bundles
+\[
+\SubprimSpace{\Car},\qquad
+\SubprimSpace{\Cur},\qquad
+\SubprimSpace{\Hom}
+\]
+are exact zero shells inside compact visible proto-subprimitive substrate bundles. Their readout maps, unit sections, time reversals, and preserved positive metrics are exact-shell restrictions of deeper proto-subprimitive data. Their primitive-generating shell sections are subprimitive-shell restrictions of deeper lifted primitive-generating shell maps into the same positive target spaces with the same target metrics. Their lifted root-generating shell maps are subprimitive-shell restrictions of deeper lifted root-generating shell maps into the same positive target spaces with the same target metrics. Their lifted pre-ambient-generating shell maps are subprimitive-shell restrictions of deeper lifted pre-ambient-generating shell maps into the same positive target spaces with the same target metrics. Their lifted ambient-generating shell maps, lifted shell maps, and lifted exact-constraint maps are subprimitive-shell restrictions of deeper lifted maps into the same target spaces with the same target metrics. Their subprimitive cotangent-model Liouville one-forms and closed two-form geometry are subprimitive-shell restrictions of deeper cotangent-model Liouville data. Their subprimitive connection one-forms and induced parallel transports are subprimitive-shell restrictions of deeper skew-Hermitian proto-subprimitive connection one-forms and their proto-subprimitive parallel transports. Their subprimitive-basic shadow / rate / density / flux / boundary data and their fixed-endpoint subprimitive rate-action geometry are subprimitive-shell restrictions of deeper proto-subprimitive-basic data and the same proto-subprimitive fixed-endpoint variational geometry.
+
+Because that deeper construction reproduces the full subprimitive substrate / primitive-generating shell / lifted connection-cotangent input layer without changing any of its visible slots, the immediately preceding primitive-substrate / root-generating shell / lifted connection-cotangent / parallel-transport origin note applies verbatim. Consequently the same primitive layer, the same root layer, the same pre-ambient layer, the same ambient-shell / cotangent-Liouville / connection-holonomy layer, the same process-state and reversible-chain package, the same \(\StemFunctional\), the same exact-preservation normal form, the same carrier-origin / primitive-reservoir / microscopic-equilibrium functionals, the same \(\Sigma^{\mathrm{cmp}}\) solve, the same \(\Pi_{\mathrm{free}}H=0\) outcome, the same observer-equation closure, the same one operative metric, and the same recorded Phase D / E and Phase F gains remain unchanged.
+
+The scope is still disciplined rather than final. The present note does not prove that the deeper proto-subprimitive shell / lifted connection-cotangent layer is unique or ultimate. The next honest burden is to derive or justify why that new deeper proto-subprimitive layer itself is forced by still more primitive substrate structure, perhaps by a sharper exact-preserving stationary-selection mechanism, or else to record another comparably concrete observer-equation gain on the same one-metric line.
+
+\end{document}
