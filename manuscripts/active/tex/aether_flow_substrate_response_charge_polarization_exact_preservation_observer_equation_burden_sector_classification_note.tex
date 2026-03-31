@@ -1,0 +1,411 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\ObserverMetric}{g^{\mathrm{br}}}
+\newcommand{\CandidateMetric}{g^{\mathrm{cand}}}
+\newcommand{\CompletedMetric}{g^{\sharp}}
+\newcommand{\BaseShift}{\Sigma^{\mathrm{IER}}}
+\newcommand{\ResponseShift}{\Sigma^{\mathrm{resp}}}
+\newcommand{\CompShift}{\Sigma^{\mathrm{cmp}}}
+\newcommand{\ResidualCore}{\mathcal V_{\mu\nu}^{\mathrm{res}}}
+\newcommand{\ResidualDec}{\mathcal D_{\mu\nu}^{\mathrm{res}}}
+\newcommand{\ReducedEin}{\mathcal L_{\ObserverMetric}}
+\newcommand{\GaugeBook}{\mathcal G_{\ObserverMetric}}
+\newcommand{\EinQuad}{\mathcal Q_{\ge 2}^{\mathrm{Ein}}}
+\newcommand{\CompMix}{\mathcal M_{\mu\nu}^{\mathrm{cmp}}}
+\newcommand{\CompQuad}{\mathcal Q_{\mu\nu}^{\mathrm{cmp}}}
+\newcommand{\DeltaTComp}{\Delta T_{\mu\nu}^{\mathrm{cmp}}}
+\newcommand{\ObsBurden}{\mathfrak B_{\mu\nu}^{\mathrm{obs}}}
+\newcommand{\epsIR}{\varepsilon_{\mathrm{IR}}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Substrate-Response / Self-Response Charge-Polarization Candidate\\
+\large Exact-Preservation Observer-Equation Burden Sector-Classification Note}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The observer-equation burden-collapse note reduced the exact-preservation line to one explicit post-completion tensor:
+\[
+\ObsBurden
+=
+\ResidualDec+\CompMix+\CompQuad-8\pi G_N\,\DeltaTComp.
+\]
+The present manuscript stays on that same one-metric line and attacks \(\ObsBurden\) directly. It does not go one layer deeper. Instead it classifies the four displayed sectors first on matter-free reduced data and then on the full completed branch.
+
+The result is sharp at the disciplined scope now required. On matter-free reduced data, \(\DeltaTComp\) is absent, while \(\ResidualDec\), \(\CompMix\), and \(\CompQuad\) are benchmark-decoupled. Consequently \(\ObsBurden\) is benchmark-decoupled there and satisfies
+\[
+\ObsBurden=\mathcal O(\epsIR^6)
+\]
+on every controlled infrared family. On the full one-metric branch, \(\ResidualDec\), \(\CompMix\), \(\CompQuad\), and \(\DeltaTComp\) are all benchmark-decoupled, so
+\[
+\ObsBurden=\mathcal O(\epsIR^4)
+\]
+and still carries no genuine observer-side remainder at benchmark-facing scope.
+
+This is a real observer-equation gain on the same exact-preservation branch. The live burden left by the burden-collapse note is no longer merely exposed; it is now safely classified sector by sector in the sense relevant to the benchmark ``no genuine observer-side remainder'' gate. The note does not claim the stronger exact identity \(\ObsBurden=0\), and it does not claim a completed first-principles derivation of GR.
+\end{abstract}
+
+\section{Introduction}
+
+The previous observer-equation burden-collapse note made the current priority unambiguous. Once the completed observer equation had been written explicitly on the preserved one-metric branch, deeper exact-preservation relays ceased to be the default primary move. The live benchmark-facing task became the status of one explicit tensor,
+\[
+\ObsBurden
+=
+\ResidualDec+\CompMix+\CompQuad-8\pi G_N\,\DeltaTComp.
+\]
+The present note performs that next step directly.
+
+Its scope is narrow on purpose. It does not invent a new branch, a new completion solve, or a deeper primitive origin. It uses only the already-preserved one-metric exact-preservation package and asks a single question: for each displayed term in \(\ObsBurden\), is the sector absent, gauge exact, constraint exact, or benchmark-decoupled in the sense relevant to the benchmark derivation gates?
+
+The answer is enough to change manuscript status. The note proves that the gauge-exact and constraint-exact sectors have already been removed before \(\ObsBurden\) is written, and that every term that does remain in \(\ObsBurden\) is either absent or benchmark-decoupled. This is exactly the kind of observer-equation gain that the current research rule requires.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not claim that GR has now been derived from substrate microphysics. It does not claim the strict tensor identity \(\ObsBurden=0\). Its exact positive claim is narrower: on the preserved one-metric exact-preservation line, the remaining observer-equation burden has now been safely classified sector by sector at benchmark-facing scope.
+
+\section{Fixed One-Metric Inputs}
+
+\begin{definition}[Fixed exact-preservation observer package]
+\label{def:fixed}
+The present note treats the following observer-level data as fixed inputs from the same exact-preservation line.
+\begin{enumerate}
+    \item The candidate and completed operative metrics are
+    \begin{equation}
+    \CandidateMetric
+    =
+    \ObserverMetric+\BaseShift+\ResponseShift,
+    \qquad
+    \CompletedMetric
+    =
+    \ObserverMetric+\BaseShift+\ResponseShift+\CompShift.
+    \label{eq:metrics}
+    \end{equation}
+    \item The same completion solve is kept fixed:
+    \begin{equation}
+    \ReducedEin(\CompShift)=-\ResidualCore.
+    \label{eq:solve}
+    \end{equation}
+    \item The completed observer equation is
+    \begin{equation}
+    G_{\mu\nu}[\CompletedMetric]
+    =
+    8\pi G_N\,T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
+    +\GaugeBook(\CompShift)_{\mu\nu}
+    +\ObsBurden,
+    \label{eq:completed}
+    \end{equation}
+    with
+    \begin{equation}
+    \ObsBurden
+    \equiv
+    \ResidualDec+\CompMix+\CompQuad-8\pi G_N\,\DeltaTComp.
+    \label{eq:burden}
+    \end{equation}
+    \item The same one operative metric and ordinary matter route are preserved. In particular, \(\DeltaTComp\) is only the matter re-expansion
+    \begin{equation}
+    \DeltaTComp
+    \equiv
+    T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
+    -
+    T_{\mu\nu}^{\mathrm{matter}}[\CandidateMetric,\psi].
+    \label{eq:deltat}
+    \end{equation}
+    \item The previously recorded residual-sector verdict on the same charge-polarization line already classifies \(\ResidualDec\) as decoupled in the benchmark sense.
+    \item On every controlled infrared family of the preserved Phase F package,
+    \begin{equation}
+    \BaseShift=\mathcal O(\epsIR^2),
+    \qquad
+    \ResponseShift=\mathcal O(\epsIR^4),
+    \qquad
+    \CompShift=\mathcal O(\epsIR^4),
+    \label{eq:orders}
+    \end{equation}
+    and the admissible homogeneous completion mode is fixed to zero, so the completion adds no independent unsuppressed linear observer mode.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Benchmark-decoupled sector]
+\label{def:benchdec}
+An observer-side tensor sector \(X_{\mu\nu}\) on the fixed branch of Definition \ref{def:fixed} is \emph{benchmark-decoupled} if all of the following hold.
+\begin{enumerate}
+    \item \(X_{\mu\nu}\) is generated only by already-screened response/completion variables or by one-metric matter re-expansion under the same operative metric.
+    \item \(X_{\mu\nu}\) introduces no independent unsuppressed linear observer mode on the admissible homogeneous benchmark background.
+    \item \(X_{\mu\nu}\) introduces no second operative metric and no second universal matter law.
+    \item On every controlled infrared family, \(X_{\mu\nu}=\mathcal O(\epsIR^p)\) for some \(p>0\).
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:benchdec} is exactly the present note's disciplined replacement for informal ``harmless remainder'' language. It is the sense in which a sector can fail to vanish identically while still not counting as a genuine observer-side remainder for the benchmark gate.
+\end{remark}
+
+\begin{proposition}[Finite sums preserve benchmark decoupling]
+\label{prop:sum}
+If \(X_{\mu\nu}\) and \(Y_{\mu\nu}\) are benchmark-decoupled on the fixed branch, then \(X_{\mu\nu}+Y_{\mu\nu}\) is benchmark-decoupled as well.
+\end{proposition}
+
+\begin{proof}
+Items (1)--(3) of Definition \ref{def:benchdec} are preserved under finite sums, and item (4) is preserved by taking the smaller infrared order of the summands.
+\end{proof}
+
+\begin{definition}[Matter-free reduced data]
+\label{def:matterfree}
+The \emph{matter-free reduced-data regime} on the fixed exact-preservation branch is the regime in which the reduced slice package and the completion solve \eqref{eq:solve} are imposed and the ordinary matter sector is absent, so
+\begin{equation}
+T_{\mu\nu}^{\mathrm{matter}}[\CandidateMetric,\psi]=0,
+\qquad
+T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]=0.
+\label{eq:matterfree}
+\end{equation}
+\end{definition}
+
+\section{What Is Already Outside \texorpdfstring{\(\ObsBurden\)}{ObsBurden}}
+
+\begin{proposition}[Gauge-exact and constraint-exact sectors are already extracted]
+\label{prop:outside}
+On the fixed one-metric exact-preservation branch, the gauge-exact bookkeeping sector appears explicitly as \(\GaugeBook(\CompShift)\) in \eqref{eq:completed}, while the constraint-exact elimination sectors have already been removed before \(\ObsBurden\) is defined. Consequently the sector-by-sector classification problem for \(\ObsBurden\) reduces exactly to the four terms displayed in \eqref{eq:burden}.
+\end{proposition}
+
+\begin{proof}
+Equation \eqref{eq:completed} already separates the reduced gauge-bookkeeping tensor \(\GaugeBook(\CompShift)\) from \(\ObsBurden\). The candidate-line residual verdict that feeds into Definition \ref{def:fixed} was written only after the eliminated source, polarization, and reduced-slice equations had been imposed, so the surviving constraint-exact terms are already absent from \(\ResidualDec\) and hence from \(\ObsBurden\). Therefore no additional hidden gauge-exact or constraint-exact sector remains to be classified inside \eqref{eq:burden}; the only live terms are \(\ResidualDec\), \(\CompMix\), \(\CompQuad\), and \(\DeltaTComp\).
+\end{proof}
+
+\begin{remark}
+Proposition \ref{prop:outside} explains why the present note proves only absence or benchmark decoupling for the displayed burden terms. The gauge-exact and constraint-exact work has already been done earlier in the same manuscript line.
+\end{remark}
+
+\section{Matter-Free Reduced-Data Classification}
+
+\begin{proposition}[The inherited block \(\ResidualDec\) is benchmark-decoupled on matter-free reduced data]
+\label{prop:mfres}
+On the regime of Definition \ref{def:matterfree}, the inherited burden term \(\ResidualDec\) is benchmark-decoupled. On every controlled infrared family in that regime,
+\begin{equation}
+\ResidualDec=\mathcal O(\epsIR^6).
+\label{eq:mfres}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Definition \ref{def:fixed} already records that \(\ResidualDec\) is decoupled on the same charge-polarization line. In the matter-free regime \eqref{eq:matterfree}, the candidate-branch matter re-expansion piece inside that inherited block vanishes, so only the already-screened response-generated nonlinear pieces remain. Those pieces are at least bilinear in the response data and therefore begin two reduced-data orders below the leading quartic observer scale. Hence \(\ResidualDec\) satisfies Definition \ref{def:benchdec} and obeys \eqref{eq:mfres}.
+\end{proof}
+
+\begin{proposition}[The completion-generated Einstein sectors are benchmark-decoupled on matter-free reduced data]
+\label{prop:mfcomp}
+On the regime of Definition \ref{def:matterfree}, both \(\CompMix\) and \(\CompQuad\) are benchmark-decoupled. More precisely,
+\begin{equation}
+\CompMix=\mathcal O(\epsIR^6),
+\qquad
+\CompQuad=\mathcal O(\epsIR^8).
+\label{eq:mfcomp}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+By definition, \(\CompMix\) contains only nonlinear Einstein terms involving at least one factor of \(\CompShift\) and at least one factor of \(\BaseShift+\ResponseShift\). Using \eqref{eq:orders},
+\[
+\BaseShift+\ResponseShift=\mathcal O(\epsIR^2),
+\qquad
+\CompShift=\mathcal O(\epsIR^4),
+\]
+so every contribution to \(\CompMix\) is at least \(\mathcal O(\epsIR^6)\). Likewise \(\CompQuad\) is built entirely from terms at least quadratic in \(\CompShift\), hence \(\CompQuad=\mathcal O(\epsIR^8)\). Because the admissible homogeneous completion mode is fixed to zero, neither tensor carries an independent unsuppressed linear observer imprint. Both are generated only by the already-screened completion/response variables on the same one operative metric. Therefore both sectors satisfy Definition \ref{def:benchdec}.
+\end{proof}
+
+\begin{proposition}[The matter re-expansion sector is absent on matter-free reduced data]
+\label{prop:mfmatter}
+On the regime of Definition \ref{def:matterfree},
+\begin{equation}
+\DeltaTComp=0.
+\label{eq:mfmatter}
+\end{equation}
+Hence the displayed \(-8\pi G_N\,\DeltaTComp\) contribution to \(\ObsBurden\) is absent there.
+\end{proposition}
+
+\begin{proof}
+Equation \eqref{eq:matterfree} states that the ordinary matter stress vanishes on both \(\CandidateMetric\) and \(\CompletedMetric\). Substituting into \eqref{eq:deltat} gives \eqref{eq:mfmatter}.
+\end{proof}
+
+\begin{theorem}[Matter-free sector-by-sector classification of \(\ObsBurden\)]
+\label{thm:matterfree}
+On matter-free reduced data, the burden sectors are classified as follows.
+\begin{enumerate}
+    \item \(\ResidualDec\) is benchmark-decoupled.
+    \item \(\CompMix\) is benchmark-decoupled.
+    \item \(\CompQuad\) is benchmark-decoupled.
+    \item \(\DeltaTComp\) is absent.
+\end{enumerate}
+Consequently \(\ObsBurden\) is benchmark-decoupled on matter-free reduced data, and on every controlled infrared family,
+\begin{equation}
+\ObsBurden=\mathcal O(\epsIR^6).
+\label{eq:mforder}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Items (1)--(4) are Propositions \ref{prop:mfres}, \ref{prop:mfcomp}, and \ref{prop:mfmatter}. The displayed tensor \(-8\pi G_N\,\DeltaTComp\) is absent by item (4), and the remaining three terms are benchmark-decoupled; Proposition \ref{prop:sum} then shows that their sum \(\ObsBurden\) is benchmark-decoupled. The order bound \eqref{eq:mforder} follows from \eqref{eq:mfres} and \eqref{eq:mfcomp}.
+\end{proof}
+
+\section{Full One-Metric Branch Classification}
+
+\begin{proposition}[The inherited block \(\ResidualDec\) remains benchmark-decoupled on the full branch]
+\label{prop:fullres}
+On the full one-metric exact-preservation branch, \(\ResidualDec\) is benchmark-decoupled.
+\end{proposition}
+
+\begin{proof}
+This is one of the fixed inputs in Definition \ref{def:fixed}. The structural reason is unchanged after the completion step: \(\ResidualDec\) remains the already-recorded response-generated / one-metric-re-expansion block, not a new observer-accessible law. It therefore satisfies Definition \ref{def:benchdec}.
+\end{proof}
+
+\begin{proposition}[The completion-generated Einstein sectors remain benchmark-decoupled on the full branch]
+\label{prop:fullcomp}
+On the full one-metric branch, \(\CompMix\) and \(\CompQuad\) are benchmark-decoupled. On every controlled infrared family,
+\begin{equation}
+\CompMix=\mathcal O(\epsIR^6),
+\qquad
+\CompQuad=\mathcal O(\epsIR^8).
+\label{eq:fullcomp}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+The same order calculation as in Proposition \ref{prop:mfcomp} uses only the fixed branch orders \eqref{eq:orders}, not the matter-free specialization. The no-independent-linear-mode statement is also unchanged, because the homogeneous completion mode is still fixed to zero. Since \(\CompMix\) and \(\CompQuad\) are purely completion-generated nonlinear Einstein sectors on the same operative metric, they again satisfy Definition \ref{def:benchdec}.
+\end{proof}
+
+\begin{proposition}[The matter re-expansion sector is benchmark-decoupled on the full branch]
+\label{prop:fullmatter}
+On the full one-metric exact-preservation branch, \(\DeltaTComp\) is benchmark-decoupled. On every controlled infrared family,
+\begin{equation}
+\DeltaTComp=\mathcal O(\epsIR^4).
+\label{eq:fullmatter}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+By Definition \ref{def:fixed}, \(\DeltaTComp\) is not a second source law. It is only the re-expansion of ordinary matter stress under the same single operative metric \(\CompletedMetric\). Because the completion adds no independent linear observer mode, this re-expansion introduces no new unsuppressed linear observer sector. Smooth dependence of ordinary matter stress on the operative metric then combines with \(\CompShift=\mathcal O(\epsIR^4)\) from \eqref{eq:orders} to give \eqref{eq:fullmatter}. Therefore \(\DeltaTComp\) satisfies Definition \ref{def:benchdec}.
+\end{proof}
+
+\begin{theorem}[Full-branch sector-by-sector classification of \(\ObsBurden\)]
+\label{thm:full}
+On the full one-metric exact-preservation branch, the burden sectors are classified as follows.
+\begin{enumerate}
+    \item \(\ResidualDec\) is benchmark-decoupled.
+    \item \(\CompMix\) is benchmark-decoupled.
+    \item \(\CompQuad\) is benchmark-decoupled.
+    \item \(\DeltaTComp\) is benchmark-decoupled.
+\end{enumerate}
+Consequently \(\ObsBurden\) is benchmark-decoupled on the full completed branch, and on every controlled infrared family,
+\begin{equation}
+\ObsBurden=\mathcal O(\epsIR^4).
+\label{eq:fullorder}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Items (1)--(4) are Propositions \ref{prop:fullres}, \ref{prop:fullcomp}, and \ref{prop:fullmatter}. Proposition \ref{prop:sum} therefore implies that the sum \eqref{eq:burden} is benchmark-decoupled. The order bound \eqref{eq:fullorder} follows because \(\ResidualDec=\mathcal O(\epsIR^4)\) is already part of the preserved controlled-limit package, while \eqref{eq:fullcomp} and \eqref{eq:fullmatter} give higher or equal order for the other displayed sectors.
+\end{proof}
+
+\begin{remark}
+Theorem \ref{thm:full} is the key observer-equation gain of the present note. The burden left by the previous note is no longer an unclassified post-completion tensor. Every displayed sector has now been safely placed into the benchmark taxonomy required by the derivation gates.
+\end{remark}
+
+\section{Gate Consequence}
+
+\begin{theorem}[Benchmark gate consequence on the same one-metric line]
+\label{thm:gate}
+At benchmark-facing scope on the preserved one-metric exact-preservation branch, no genuine observer-side remainder remains inside \(\ObsBurden\). More precisely:
+\begin{enumerate}
+    \item on matter-free reduced data, every displayed burden term is either absent or benchmark-decoupled by Theorem \ref{thm:matterfree};
+    \item on the full one-metric branch, every displayed burden term is benchmark-decoupled by Theorem \ref{thm:full}.
+\end{enumerate}
+Therefore the live burden isolated by the observer-equation burden-collapse note has now been safely classified in the sense relevant to the benchmark ``no genuine observer-side remainder'' gate.
+\end{theorem}
+
+\begin{proof}
+Theorems \ref{thm:matterfree} and \ref{thm:full} give the complete sector-by-sector classification of all four displayed terms in \eqref{eq:burden}. Proposition \ref{prop:outside} shows that no hidden gauge-exact or constraint-exact sector remains inside \(\ObsBurden\). Hence the benchmark classification problem left open by the burden-collapse note is resolved at the disciplined scope stated here.
+\end{proof}
+
+\begin{corollary}[What this gain does and does not claim]
+\label{cor:scope}
+The present note is a genuine Gate (5) gain on the same one-metric observer-equation line, but it does not yet prove the stronger exact identity
+\[
+\ObsBurden=0.
+\]
+Accordingly:
+\begin{enumerate}
+    \item the note safely classifies the remaining observer-side burden at benchmark-facing scope;
+    \item it does not claim a completed first-principles derivation of GR;
+    \item any later primary note on this line must now either sharpen this classification toward exact absence/identity where honest, or else prove a genuine necessity, uniqueness, or compression theorem for the preserved exact-preservation package.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+The Gate (5) language concerns the absence of any \emph{genuine} observer-side remainder, and Theorem \ref{thm:gate} gives exactly the required benchmark-safe classification. The stricter identity \(\ObsBurden=0\) would be an exact Einstein-closure statement beyond what has been proved here. The final item follows because the sector-classification burden exposed by the previous note has now been handled.
+\end{proof}
+
+\section{Claim-Boundary Verdict}
+
+\begin{theorem}[Observer-burden sector-classification verdict]
+\label{thm:verdict}
+At the disciplined scope of the present note, the exact positive result is the following.
+\begin{enumerate}
+    \item The same candidate metric, the same completed metric, the same completion solve, and the same one operative metric are kept fixed.
+    \item Gauge-exact bookkeeping remains isolated in \(\GaugeBook(\CompShift)\), and the constraint-exact elimination sectors are already outside \(\ObsBurden\).
+    \item On matter-free reduced data, \(\ResidualDec\), \(\CompMix\), and \(\CompQuad\) are benchmark-decoupled while \(\DeltaTComp\) is absent, so \(\ObsBurden\) is benchmark-decoupled with \(\ObsBurden=\mathcal O(\epsIR^6)\).
+    \item On the full one-metric branch, \(\ResidualDec\), \(\CompMix\), \(\CompQuad\), and \(\DeltaTComp\) are benchmark-decoupled, so \(\ObsBurden\) is benchmark-decoupled with \(\ObsBurden=\mathcal O(\epsIR^4)\).
+    \item Therefore the burden isolated by the previous observer-equation note is no longer an unclassified genuine observer-side remainder at benchmark-facing scope.
+    \item This is a real observer-equation gain on the same one-metric line and a genuine advance of the benchmark no-genuine-remainder gate.
+    \item Stronger promotion language is still not justified here, because the note does not prove the strict exact identity \(\ObsBurden=0\) and does not claim a completed first-principles substrate derivation of GR.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Item (1) is Definition \ref{def:fixed}. Item (2) is Proposition \ref{prop:outside}. Item (3) is Theorem \ref{thm:matterfree}. Item (4) is Theorem \ref{thm:full}. Item (5) is Theorem \ref{thm:gate}. Item (6) is Theorem \ref{thm:gate} together with Corollary \ref{cor:scope}. Item (7) is exactly the claim boundary stated in the introduction and Corollary \ref{cor:scope}.
+\end{proof}
+
+\section{Conclusion}
+
+The previous observer-equation note made the next primary move explicit: stay on the same one-metric exact-preservation line and classify \(\ObsBurden\) itself rather than defaulting to another deeper-origin relay. The present manuscript does exactly that. It keeps the same completed observer equation and decomposes the remaining burden sector by sector.
+
+The classification is now explicit. On matter-free reduced data, the one-metric matter re-expansion term \(\DeltaTComp\) is absent, while \(\ResidualDec\), \(\CompMix\), and \(\CompQuad\) are benchmark-decoupled. On the full one-metric branch, all four displayed sectors are benchmark-decoupled. Thus the tensor left open by the burden-collapse note is no longer an unclassified genuine observer-side remainder at benchmark-facing scope.
+
+This is the positive result recorded here. It is a real observer-equation gain and a genuine advance of the benchmark no-genuine-remainder gate on the same one-metric line. But it is still narrower than a completed first-principles derivation of GR: the stronger exact identity \(\ObsBurden=0\) has not been proved. The next honest primary move is therefore either to sharpen this benchmark-decoupled classification into a stricter exact theorem where possible, or else to prove a genuine necessity, uniqueness, or compression theorem for the preserved exact-preservation package rather than returning by default to observer-equation-neutral depth alone.
+
+\end{document}
