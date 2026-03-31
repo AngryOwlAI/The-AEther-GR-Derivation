@@ -1,0 +1,364 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\Sub}{\mathcal A}
+\newcommand{\ObserverMap}{\Xi}
+\newcommand{\ObserverMetric}{g^{\mathrm{br}}}
+\newcommand{\CandidateMetric}{g^{\mathrm{cand}}}
+\newcommand{\CompletedMetric}{g^{\sharp}}
+\newcommand{\BaseShift}{\Sigma^{\mathrm{IER}}}
+\newcommand{\ResponseShift}{\Sigma^{\mathrm{resp}}}
+\newcommand{\CompShift}{\Sigma^{\mathrm{cmp}}}
+\newcommand{\BaseLift}{\widehat\Sigma^{\mathrm{IER}}}
+\newcommand{\ResponseLift}{\widehat\Sigma^{\mathrm{resp}}}
+\newcommand{\CompLift}{\widehat\Sigma^{\mathrm{cmp}}}
+\newcommand{\ResidualCore}{\mathcal V_{\mu\nu}^{\mathrm{res}}}
+\newcommand{\ResidualDec}{\mathcal D_{\mu\nu}^{\mathrm{res}}}
+\newcommand{\ResidualLift}{\widehat{\mathcal V}^{\mathrm{res}}}
+\newcommand{\SubReducedEin}{\widehat{\mathcal L}}
+\newcommand{\FreeProj}{\Pi_{\mathrm{free}}}
+\newcommand{\ReducedEin}{\mathcal L_{\ObserverMetric}}
+\newcommand{\GaugeBook}{\mathcal G_{\ObserverMetric}}
+\newcommand{\EinLin}{\mathcal E_{\ObserverMetric}}
+\newcommand{\EinQuad}{\mathcal Q_{\ge 2}^{\mathrm{Ein}}}
+\newcommand{\CompMix}{\mathcal M_{\mu\nu}^{\mathrm{cmp}}}
+\newcommand{\CompQuad}{\mathcal Q_{\mu\nu}^{\mathrm{cmp}}}
+\newcommand{\DeltaTComp}{\Delta T_{\mu\nu}^{\mathrm{cmp}}}
+\newcommand{\ObsBurden}{\mathfrak B_{\mu\nu}^{\mathrm{obs}}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Substrate-Response / Self-Response Charge-Polarization Candidate\\
+\large Exact-Preservation Observer-Equation Burden-Collapse Note}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The current deepest benchmark-facing note on the exact-preservation line is the forcing-principle primitive-reservoir / stationary-reduction origin note. That manuscript is mathematically disciplined, but its gain is deeper-origin recovery rather than a new benchmark-facing observer-equation statement. The current research rule is therefore sharper: the next primary manuscript should either produce a genuine necessity or compression theorem for the new deepest layer, or else make another concrete observer-equation gain on the same one-metric charge-polarization line.
+
+The present note takes the observer-equation route. It does not go one layer deeper. Instead it exposes explicitly what the already-recorded exact-preservation package says at the observer-equation level. Fix the same charge-polarization branch, the same completion solve \(\Sigma^{\mathrm{cmp}}\), the same free-sector verdict \(\Pi_{\mathrm{free}}H=0\), and the same one operative metric \(\CompletedMetric\). Starting from the already-recorded candidate observer equation and the same completion solve
+\[
+\ReducedEin(\CompShift)=-\ResidualCore,
+\]
+the note derives the completed observer equation
+\[
+G_{\mu\nu}[\CompletedMetric]
+=
+8\pi G_N\,T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
++\GaugeBook(\CompShift)_{\mu\nu}
++\ObsBurden,
+\]
+where
+\[
+\ObsBurden
+=
+\ResidualDec+\CompMix+\CompQuad-8\pi G_N\,\DeltaTComp.
+\]
+Consequently the former core source \(\ResidualCore\) is absent from the completed observer equation itself. The remaining benchmark-facing burden on this exact-preservation line is therefore collapsed to one explicit observer-side tensor class \(\ObsBurden\) on the same one-metric branch.
+
+This is a narrower result than a completed first-principles derivation of GR. The note does not claim that \(\ObsBurden\) has already been proved absent in full benchmark scope, and it does not reopen stronger promotion language. Its exact positive claim is more disciplined and exactly the one now needed: any deeper-origin continuation that preserves the same candidate equation, the same completion solve, and the same one operative metric is observer-equation neutral. Primary progress below the current deepest note must therefore either change or safely classify \(\ObsBurden\), or else prove a genuine necessity/compression theorem for the present deepest layer.
+\end{abstract}
+
+\section{Introduction}
+
+The active manuscript sequence of \TheoryName{} now has two simultaneous obligations. First, it must keep the benchmark exact-closure package stable and honestly described as the positive scientific deliverable already in hand. Second, it must keep the downstream derivational line answerable to that benchmark rather than letting additional manuscript depth masquerade as progress toward GR derivation.
+
+That distinction matters acutely at the present stage of the charge-polarization continuation. The forcing-principle primitive-reservoir / stationary-reduction origin note already records a mathematically disciplined deeper-origin step below the current forcing layer. But it also states its own limit: it preserves the same downstream package, including the same \(\Sigma^{\mathrm{cmp}}\) solve, the same free-sector verdict, the same observer-equation closure, the same one operative metric, and the same recorded Phase D / E and Phase F gains. Once that is true, another default deeper-origin note is no longer automatically the next primary move. The next primary move must either sharpen necessity or uniqueness, collapse multiple layers, or make a benchmark-facing observer-equation gain.
+
+That is the purpose of the present note. It does not invent a new response sector, and it does not claim a new microscopic derivation. Instead it turns the already-preserved exact-preservation package into a single explicit observer-equation theorem target. The positive result is a burden collapse: on the same one-metric line, the completed observer equation depends on one remaining explicit observer-side tensor class \(\ObsBurden\), while the former core source \(\ResidualCore\) has already canceled out of the completed equation itself. This is the concrete benchmark-facing gain recorded here.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not claim that GR has now been derived from substrate microphysics. It does not reopen the benchmark package. It does not demote the existing exact-preservation origin line. Its narrower task is to make the current benchmark-facing observer-equation burden explicit enough that primary manuscript priority is no longer ambiguous.
+
+\section{Fixed Benchmark-Facing Inputs}
+
+\begin{definition}[Fixed exact-preservation branch]
+\label{def:fixedbranch}
+The present note takes as fixed the same charge-polarization branch already preserved through the exact-preservation line:
+\begin{equation}
+\CandidateMetric
+=
+\ObserverMetric+\BaseShift+\ResponseShift,
+\qquad
+\CompletedMetric
+=
+\ObserverMetric+\BaseShift+\ResponseShift+\CompShift.
+\label{eq:metrics}
+\end{equation}
+Its lifted completion variables satisfy
+\begin{equation}
+\ObserverMap^*\BaseLift=\BaseShift,
+\qquad
+\ObserverMap^*\ResponseLift=\ResponseShift,
+\qquad
+\ObserverMap^*\CompLift=\CompShift.
+\label{eq:lifts}
+\end{equation}
+The same reduced completion equations are fixed as well:
+\begin{equation}
+\SubReducedEin(\CompLift)=-\ResidualLift,
+\qquad
+\ReducedEin(\CompShift)=-\ResidualCore,
+\qquad
+\FreeProj\CompLift=0.
+\label{eq:solves}
+\end{equation}
+Every statement below preserves the same one operative metric \(\CompletedMetric\).
+\end{definition}
+
+\begin{definition}[Fixed candidate observer equation]
+\label{def:candidateeq}
+The benchmark-facing charge-polarization line already records the observer equation on the candidate branch in the form
+\begin{equation}
+G_{\mu\nu}[\CandidateMetric]
+=
+8\pi G_N\,T_{\mu\nu}^{\mathrm{matter}}[\CandidateMetric,\psi]
++\ResidualCore
++\ResidualDec.
+\label{eq:candidate}
+\end{equation}
+Here \(\ResidualCore\) denotes the source neutralized by the fixed completion solve in \eqref{eq:solves}, while \(\ResidualDec\) denotes the remaining recorded observer-side class that is not neutralized by that solve itself.
+\end{definition}
+
+\begin{remark}
+The distinction in Definition \ref{def:candidateeq} is the whole point of the present note. The fixed completion solve acts directly on \(\ResidualCore\). If one wants a benchmark-facing theorem target after that solve has been imposed, one must write the completed observer equation explicitly and ask what remains there.
+\end{remark}
+
+\begin{definition}[Observer-side linear and nonlinear bookkeeping]
+\label{def:book}
+For observer-compatible symmetric tensors \(H_{\mu\nu}\), write
+\begin{equation}
+\ReducedEin(H)_{\mu\nu}
+\equiv
+\EinLin(H)_{\mu\nu}-\GaugeBook(H)_{\mu\nu}.
+\label{eq:redop}
+\end{equation}
+Define the nonlinear completion-mixing, pure completion-quadratic, and matter re-expansion tensors by
+\begin{align}
+\CompMix
+&\equiv
+\EinQuad[\BaseShift+\ResponseShift+\CompShift]
+-\EinQuad[\BaseShift+\ResponseShift]
+-\EinQuad[\CompShift],
+\label{eq:compmix}
+\\
+\CompQuad
+&\equiv
+\EinQuad[\CompShift],
+\label{eq:compquad}
+\\
+\DeltaTComp
+&\equiv
+T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
+-T_{\mu\nu}^{\mathrm{matter}}[\CandidateMetric,\psi].
+\label{eq:deltat}
+\end{align}
+The remaining completed-branch observer-side burden is then defined by
+\begin{equation}
+\ObsBurden
+\equiv
+\ResidualDec+\CompMix+\CompQuad-8\pi G_N\,\DeltaTComp.
+\label{eq:burden}
+\end{equation}
+\end{definition}
+
+\section{Completed Observer Equation}
+
+\begin{proposition}[The fixed completion solve removes the core source at linear observer level]
+\label{prop:lin}
+Equation \eqref{eq:solves} is equivalent to
+\begin{equation}
+\EinLin(\CompShift)_{\mu\nu}
+=
+-\ResidualCore
++\GaugeBook(\CompShift)_{\mu\nu}.
+\label{eq:linsolve}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Substitute the identity \eqref{eq:redop} into the observer completion equation in \eqref{eq:solves}. Rearranging gives \eqref{eq:linsolve}.
+\end{proof}
+
+\begin{theorem}[Completed observer equation on the same one-metric line]
+\label{thm:completed}
+Under the fixed exact-preservation inputs of Definitions \ref{def:fixedbranch}, \ref{def:candidateeq}, and \ref{def:book}, the completed observer equation is
+\begin{equation}
+G_{\mu\nu}[\CompletedMetric]
+=
+8\pi G_N\,T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
++\GaugeBook(\CompShift)_{\mu\nu}
++\ObsBurden.
+\label{eq:completed}
+\end{equation}
+In particular, the former core source \(\ResidualCore\) is absent from the completed observer equation itself.
+\end{theorem}
+
+\begin{proof}
+Expand the Einstein tensor about \(\CandidateMetric\):
+\begin{equation}
+G_{\mu\nu}[\CompletedMetric]
+=
+G_{\mu\nu}[\CandidateMetric]
++\EinLin(\CompShift)_{\mu\nu}
++\CompMix
++\CompQuad.
+\label{eq:expand}
+\end{equation}
+Insert the candidate equation \eqref{eq:candidate} and the linear completion identity \eqref{eq:linsolve}. The \(\ResidualCore\) terms cancel exactly, leaving
+\[
+G_{\mu\nu}[\CompletedMetric]
+=
+8\pi G_N\,T_{\mu\nu}^{\mathrm{matter}}[\CandidateMetric,\psi]
++\GaugeBook(\CompShift)_{\mu\nu}
++\ResidualDec
++\CompMix
++\CompQuad.
+\]
+Now rewrite the candidate-branch matter tensor as
+\[
+T_{\mu\nu}^{\mathrm{matter}}[\CandidateMetric,\psi]
+=
+T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
+-\DeltaTComp.
+\]
+Substituting this identity gives \eqref{eq:completed} with \(\ObsBurden\) as defined in \eqref{eq:burden}. The cancellation of \(\ResidualCore\) is explicit in the same calculation.
+\end{proof}
+
+\begin{corollary}[Exact Einstein closure reduces to one explicit burden class]
+\label{cor:collapse}
+On the same one-metric exact-preservation line, exact Einstein closure at observer-equation level reduces to the single explicit condition
+\begin{equation}
+\ObsBurden=0.
+\label{eq:exacttarget}
+\end{equation}
+More generally, the benchmark ``no genuine observer-side remainder'' gate reduces to proving that \(\ObsBurden\) is absent, gauge exact, constraint exact, or decoupled in the benchmark sense.
+\end{corollary}
+
+\begin{proof}
+Equation \eqref{eq:completed} already places every post-completion non-Einsteinian contribution into the single tensor class \(\GaugeBook(\CompShift)+\ObsBurden\). By construction, \(\GaugeBook(\CompShift)\) is bookkeeping attached to the reduced operator \(\ReducedEin=\EinLin-\GaugeBook\). Therefore the remaining benchmark-facing burden is exactly the status of \(\ObsBurden\).
+\end{proof}
+
+\begin{proposition}[The recorded one-metric and Phase D / E / F package stays fixed]
+\label{prop:phases}
+The present note changes no completion equation, no matter-coupling rule, and no operative metric. Consequently the same one operative metric and the same recorded Phase D / E infrared-spectrum, universal-coupling, and Phase F controlled-GR-limit package remain the fixed benchmark-facing background of the line.
+\end{proposition}
+
+\begin{proof}
+Every derivation in the present note uses only the fixed branch data of Definition \ref{def:fixedbranch} and the already-recorded candidate equation of Definition \ref{def:candidateeq}. No new metric, matter route, or response sector is introduced.
+\end{proof}
+
+\section{Depth-Closure Consequence}
+
+\begin{theorem}[Observer-equation neutrality of deeper exact-preservation relays]
+\label{thm:neutrality}
+Let a future deeper-origin note preserve all of the following without change:
+\begin{enumerate}
+    \item the fixed branch metrics \eqref{eq:metrics} and lift relations \eqref{eq:lifts},
+    \item the same candidate observer equation \eqref{eq:candidate},
+    \item the same completion solve and free-sector verdict \eqref{eq:solves},
+    \item the same one operative metric and ordinary matter route.
+\end{enumerate}
+Then that deeper note preserves the same completed observer equation \eqref{eq:completed} and the same burden class \(\ObsBurden\). In particular, it is observer-equation neutral at benchmark-facing scope.
+\end{theorem}
+
+\begin{proof}
+The proof of Theorem \ref{thm:completed} uses only the data listed in items (1)--(4). It does not depend on how the fixed branch or the completion solve were themselves derived from deeper substrate structure. Therefore any deeper-origin manuscript that preserves those inputs reproduces the same calculation verbatim and hence the same completed observer equation and the same burden class.
+\end{proof}
+
+\begin{corollary}[Primary progress criterion below the current deepest note]
+\label{cor:primary}
+Below the forcing-principle primitive-reservoir / stationary-reduction origin note, a new manuscript is primary at current scope only if it does at least one of the following:
+\begin{enumerate}
+    \item changes the observer-equation burden by removing, reclassifying, or explicitly controlling \(\ObsBurden\) on the same one-metric line;
+    \item proves a genuine necessity, uniqueness, or inevitability theorem for the present deepest completion package;
+    \item collapses several deeper-origin layers into a sharper theorem that changes the benchmark-facing burden relative to Theorem \ref{thm:neutrality}.
+\end{enumerate}
+A deeper-origin relay that merely reproduces the same candidate equation and the same completed observer equation is not the default primary move.
+\end{corollary}
+
+\begin{proof}
+Theorem \ref{thm:neutrality} shows that depth alone, when it preserves the same branch inputs, is observer-equation neutral. Corollary \ref{cor:collapse} shows that the live benchmark-facing burden is now the single tensor class \(\ObsBurden\). Therefore a deeper note becomes primary only if it does more than preserve the same observer equation unchanged.
+\end{proof}
+
+\section{Claim-Boundary Verdict}
+
+\begin{theorem}[Observer-equation burden-collapse verdict]
+\label{thm:verdict}
+At the disciplined scope of the present note, the exact positive result is the following.
+\begin{enumerate}
+    \item The same exact-preservation branch, the same completion solve \(\Sigma^{\mathrm{cmp}}\), the same free-sector verdict \(\Pi_{\mathrm{free}}H=0\), and the same one operative metric are kept fixed.
+    \item The completed observer equation on that same line is written explicitly as \eqref{eq:completed}.
+    \item The former core source \(\ResidualCore\) is absent from the completed observer equation itself.
+    \item The remaining benchmark-facing burden on the exact-preservation line is collapsed to the single explicit tensor class \(\ObsBurden\) defined in \eqref{eq:burden}.
+    \item Any deeper-origin continuation that preserves the same fixed branch inputs is observer-equation neutral at benchmark-facing scope.
+    \item Therefore a default next primary note must either change or safely classify \(\ObsBurden\), or else supply a genuine necessity/uniqueness or compression theorem for the current deepest layer.
+    \item Stronger promotion language is still not justified here, because the present note does not yet prove that \(\ObsBurden\) vanishes identically or that GR has been derived from first principles.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Items (1) and (2) are Definitions \ref{def:fixedbranch}, \ref{def:candidateeq}, and \ref{def:book} together with Theorem \ref{thm:completed}. Item (3) is the cancellation proved in Theorem \ref{thm:completed}. Item (4) is Corollary \ref{cor:collapse}. Item (5) is Theorem \ref{thm:neutrality}. Item (6) is Corollary \ref{cor:primary}. Item (7) is the claim-boundary discipline stated in the introduction and abstract.
+\end{proof}
+
+\section{Conclusion}
+
+The forcing-principle primitive-reservoir / stationary-reduction origin note remains mathematically valuable, but it also makes the current methodological limit visible: deeper exact-preservation recovery by itself does not automatically create a new benchmark-facing gain. The present manuscript therefore does not go one layer deeper. It writes down the observer-equation content already carried by the preserved exact-preservation package.
+
+That content is now explicit. On the same one-metric charge-polarization line, the completed observer equation is
+\[
+G_{\mu\nu}[\CompletedMetric]
+=
+8\pi G_N\,T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
++\GaugeBook(\CompShift)_{\mu\nu}
++\ObsBurden,
+\]
+with
+\[
+\ObsBurden
+=
+\ResidualDec+\CompMix+\CompQuad-8\pi G_N\,\DeltaTComp.
+\]
+The former core source \(\ResidualCore\) is therefore no longer the live observer-equation burden on the completed branch. The live benchmark-facing burden is the single explicit class \(\ObsBurden\).
+
+This is the concrete observer-equation gain recorded here. It does not yet complete the first-principles derivation of GR, and it does not justify stronger promotion language. Its positive result is narrower and more useful at current scope: it collapses the open primary burden from an indefinite deeper-origin stack to one explicit observer-equation target on the same one-metric line. The next honest primary manuscript should therefore either remove or safely classify \(\ObsBurden\), or else prove a genuine necessity/uniqueness or compression theorem for the present deepest layer.
+
+\end{document}

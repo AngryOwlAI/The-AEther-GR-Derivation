@@ -17,7 +17,8 @@ This file is intentionally short. It tracks the live plan and the current gateke
 - Keep the claim boundary fixed: GR is adopted exactly in that benchmark package, while first-principles substrate derivation remains open.
 - Treat the benchmark package as a positive exact-relativistic deliverable already in hand, not as a placeholder pending derivation.
 - Treat the current deepest benchmark-facing note as [the forcing-principle primitive-reservoir / stationary-reduction origin note](manuscripts/active/tex/aether_flow_substrate_response_charge_polarization_exact_preservation_forcing_principle_primitive_reservoir_stationary_reduction_origin_note.tex).
-- The next primary manuscript must either explain why the deeper primitive-reservoir layer exists or deliver another comparably concrete observer-equation gain on the same one-metric charge-polarization line.
+- Treat [the observer-equation burden-collapse note](manuscripts/active/tex/aether_flow_substrate_response_charge_polarization_exact_preservation_observer_equation_burden_collapse_note.tex) as the current benchmark-facing narrowing step: on the same one-metric exact-preservation line, the completed observer equation now depends on one explicit remaining burden class `\ObsBurden`, while deeper-origin relays that preserve the same branch data are observer-equation neutral.
+- The next primary manuscript should therefore target `\ObsBurden` directly on the same one-metric charge-polarization line, unless a genuine necessity/uniqueness theorem or a sharper compression theorem for the current deepest layer is available instead.
 
 ## Project Goal
 
@@ -43,12 +44,13 @@ If a proposed note does none of these, treat it as side continuation or archive 
 - [aether_flow_substrate_higher_derivative_substrate_response_self_response_bridge_redesign_gate_screen_note.tex](manuscripts/active/tex/aether_flow_substrate_higher_derivative_substrate_response_self_response_bridge_redesign_gate_screen_note.tex) fixes the surviving benchmark-facing redesign family.
 - The one-metric charge-polarization line is recorded through the candidate, gate, controlled-GR-limit, residual-verdict, quartic-completion, and exact-preservation sequence.
 - The exact-preservation chain now reaches [the pre-proto-subprimitive stationary-selection origin note](manuscripts/active/tex/aether_flow_substrate_response_charge_polarization_exact_preservation_pre_proto_subprimitive_stationary_selection_origin_note.tex), [the stationary-selection forcing-principle origin note](manuscripts/active/tex/aether_flow_substrate_response_charge_polarization_exact_preservation_stationary_selection_forcing_principle_origin_note.tex), and [the forcing-principle primitive-reservoir / stationary-reduction origin note](manuscripts/active/tex/aether_flow_substrate_response_charge_polarization_exact_preservation_forcing_principle_primitive_reservoir_stationary_reduction_origin_note.tex).
+- [aether_flow_substrate_response_charge_polarization_exact_preservation_observer_equation_burden_collapse_note.tex](manuscripts/active/tex/aether_flow_substrate_response_charge_polarization_exact_preservation_observer_equation_burden_collapse_note.tex) records the completed observer equation on that same exact-preservation line and collapses the live benchmark-facing burden to the single explicit class `\ObsBurden`.
 
 ## Near-Term Queue
 
-- [ ] Decide whether the next primary note should be a deeper primitive-reservoir origin/selection result or a different observer-equation gain.
-- [ ] If taking the deeper-origin route, derive or justify why the deeper primitive-reservoir bundles, sections/functionals, lifted maps, Liouville data, connection data, and source/action data arise at all.
-- [ ] Re-show the unchanged downstream package: stationary-selection through process-state/reversible-chain, the same `\StemFunctional`, the same exact-preservation normal form, the same carrier-origin / primitive-reservoir / microscopic-equilibrium functionals, the same `\Sigma^{\mathrm{cmp}}` solve, the same `\Pi_{\mathrm{free}}H=0` outcome, the same one operative metric, and the recorded Phase D / E and Phase F gains.
+- [ ] Write the next primary note as an `\ObsBurden` manuscript on the same one-metric line: remove, reclassify, or explicitly control that remaining observer-side tensor class at benchmark-facing scope.
+- [ ] Prove sector-by-sector that each contribution to `\ObsBurden` is absent, gauge exact, constraint exact, or decoupled, first on matter-free reduced data and then on the full one-metric branch.
+- [ ] If a deeper-origin manuscript is proposed instead, promote it only if it proves a genuine necessity/uniqueness result or compresses multiple layers into a sharper theorem; merely re-showing the same completed observer equation and unchanged downstream package is no longer sufficient for primary status.
 - [ ] Keep stronger promotion language paused until that burden has been discharged cleanly.
 - [ ] Keep Markdown/tooling work secondary to manuscript work unless it directly improves the active theory line.
 
