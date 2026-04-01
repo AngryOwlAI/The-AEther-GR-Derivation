@@ -1,0 +1,953 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+
+\newcommand{\CompletedMetric}{g^{\sharp}}
+
+\newcommand{\Car}{\mathrm{car}}
+\newcommand{\Cur}{\mathrm{cur}}
+\newcommand{\Hom}{\mathrm{hom}}
+
+\newcommand{\ForSpace}[1]{\mathcal I_{#1}^{\mathrm{for}}}
+\newcommand{\PrimShell}{\mathcal S_{\mathrm{prim}}}
+
+\newcommand{\Reduction}[1]{\mathcal R_{#1}}
+\newcommand{\CurrentCarrier}[1]{\mathfrak C_{#1}^{\mathrm{cur}}}
+\newcommand{\EqCarrier}[1]{\mathfrak C_{#1}^{\mathrm{eq}}}
+\newcommand{\CurrentExtract}[1]{\mathscr E_{#1}^{\mathrm{cur}}}
+\newcommand{\EqExtract}[1]{\mathscr E_{#1}^{\mathrm{eq}}}
+\newcommand{\PrimCurrent}[1]{\mathcal J_{#1}^{\mathrm{prim}}}
+\newcommand{\PrimTheta}[1]{\Theta_{#1}^{\mathrm{prim}}}
+
+\newcommand{\MetricOut}{\mathscr G_{\mathrm{out}}}
+\newcommand{\MatterOut}{\mathscr T_{\mathrm{out}}}
+\newcommand{\DeepMetricOut}{\mathscr G_{\mathrm{deep}}}
+\newcommand{\DeepMatterOut}{\mathscr T_{\mathrm{deep}}}
+
+\newcommand{\VisibleAffine}[1]{\widehat X_{#1}}
+\newcommand{\DataSpace}[1]{\mathcal Y_{#1}^{\mathrm{obs}}}
+\newcommand{\AmbientTarget}[1]{E_{#1}^{\mathrm{amb}}}
+
+\newcommand{\ProtoSpace}[1]{\mathcal M_{#1}}
+\newcommand{\ProtoBody}[1]{\mathcal P_{#1}}
+\newcommand{\ResponseSpace}[1]{\mathcal R_{#1}}
+\newcommand{\ResponseMap}[1]{\Xi_{#1}}
+\newcommand{\ResponseData}[1]{\Xi_{#1}^{\mathrm{dat}}}
+\newcommand{\ResponseShell}[1]{\Xi_{#1}^{\mathrm{sh}}}
+\newcommand{\ResponseHidden}[1]{\Xi_{#1}^{\mathrm{hid}}}
+\newcommand{\ResponseImage}[1]{\mathcal B_{#1}^{\mathrm{resp}}}
+\newcommand{\GapSpace}[1]{H_{#1}}
+\newcommand{\GapBody}[1]{D_{#1}}
+\newcommand{\HiddenOperator}[1]{K_{#1}^{\mathrm{hid}}}
+\newcommand{\ResponseSym}[1]{\mathbb H_{#1}}
+\newcommand{\ResponseTime}[1]{\rho_{#1}}
+\newcommand{\ProtoEmbed}[1]{\zeta_{#1}}
+
+\newcommand{\GraphState}[1]{\mathcal W_{#1}}
+\newcommand{\GraphSpace}[1]{\mathcal G_{#1}}
+\newcommand{\GraphAffine}[1]{\mathcal F_{#1}}
+\newcommand{\GraphBody}[1]{Q_{#1}}
+\newcommand{\GraphZeroBody}[1]{Q_{#1}^{0}}
+\newcommand{\StateProj}[1]{\Pi_{#1}^{\mathrm{st}}}
+\newcommand{\RespProj}[1]{\Pi_{#1}^{\mathrm{resp}}}
+\newcommand{\GraphDataProj}[1]{\Pi_{#1}^{\mathrm{dat}}}
+\newcommand{\GraphShellProj}[1]{\Pi_{#1}^{\mathrm{sh}}}
+\newcommand{\GraphHiddenProj}[1]{\Pi_{#1}^{\mathrm{hid}}}
+\newcommand{\GraphSym}[1]{\mathbb K_{#1}}
+\newcommand{\GraphTime}[1]{\tau_{#1}^{\mathrm{gr}}}
+\newcommand{\GraphEmbed}[1]{\upsilon_{#1}}
+
+\newcommand{\DeepSpace}[1]{\mathcal U_{#1}}
+\newcommand{\ChainSelect}[1]{\mathcal S_{#1}}
+\newcommand{\DeepShell}{\mathcal U_{\mathrm{tot}}}
+\newcommand{\ChainSelectTriple}{\mathcal S_{\mathrm{tot}}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Primitive-Reservoir Observer-Reduction\\
+\large Combined Response Substrate Law\\
+\large Necessity / Uniqueness from Affine Response-Graph Dynamics}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The current deepest benchmark-facing note on the active primitive-reservoir observer-reduction line already sharpened the remaining burden once: the ambient shell-law substrate package is no longer merely available, because it is derived canonically from a combined response substrate law and is necessary there up to the obvious factor-preserving affine identification after barycentric normalization. The present note goes one honest layer deeper again. The remaining task is no longer to justify the ambient shell-law class, but to justify why the combined response substrate law itself is forced on the active line rather than becoming the new stopping point.
+
+The new theorem does that by collapsing the combined response substrate law into a still more primitive affine response-graph dynamics package. For each sector it starts from one affine graph plane inside a product of primitive state coordinates and response coordinates, one compact convex graph body in that plane, an exact graph-level hidden splitting with positively gapped hidden factor, symmetry and time-reversal actions preserving the graph data, an exact zero-response shell realization, fixed-data solvability on the zero-response graph slice, and a graph-kernel coercivity inequality on data-invisible variations. From that graph package one derives canonically the compact-convex primitive substrate body, the single affine combined response map to observer data, shell response, and hidden response, the response-image factorization into shell and hidden sectors, the hidden-sector gap operator, the induced symmetry and time-reversal structure, the exact zero-response shell realization, the fixed-data solvability property, and the response-kernel coercivity mechanism.
+
+The theorem is stronger than another deeper existence relay. On this affine response-graph line, the combined response substrate law is necessary: the primitive substrate body is the state projection of the graph body, the combined response map is the unique affine graph function determined by the graph plane, the response image is the response projection of the graph body, and the hidden-sector factor is the graph-level hidden slice equipped with its given gap operator. Any other presentation differs only by the obvious source-coordinate and factor-preserving response-coordinate identifications forced by the same graph data. The downstream benchmark package remains fixed throughout: the unique selector determined by the zero-response shell locus still pulls back exactly the same one operative metric \(\CompletedMetric\) and exactly the same ordinary-matter route through that metric, with no second operative metric and no enlarged low-energy matter law. This remains a disciplined derivational gain rather than a completed final microphysical derivation of GR.
+\end{abstract}
+
+\section{Introduction}
+
+The active derivational program of \TheoryName{} has again narrowed the remaining honest burden. The observer-reduction datum line, the defect-fiber factorization theorem, the one-metric output theorem, the chain-forcing theorem, the selector-existence theorem, the stationary-construction theorem, the explicit-package necessity / uniqueness theorem, the ambient-shell-law theorem, and the later combined-response theorem have each discharged what was honestly open at their respective layers. The most recent of those results matters because it changes what now counts as primary progress. Once the ambient shell-law package is itself forced by a deeper combined response substrate law, another note that merely reproduces that law would no longer count as the next front-line move.
+
+The present note therefore addresses the remaining burden left open by the combined-response theorem itself. The task is now to explain why the combined response substrate law should hold on the active line. The positive move made here is to collapse that law into a still more primitive affine response-graph dynamics package in which primitive state coordinates and all response channels are recorded together inside one compact convex graph body.
+
+This note does not alter the benchmark package. It does not change the one operative completed metric, it does not change the ordinary matter route, it does not introduce a second operative metric, and it does not enlarge the low-energy matter law. Its gain is upstream and structural: the combined response substrate law is shown to be a canonical and necessary output of deeper affine response-graph dynamics with hidden-sector gap.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not claim a completed ultimate microphysical theory. Its narrower theorem is only that, on the active primitive-observer-reduction line, the combined response substrate law is itself a forced and unique output of still more primitive affine response-graph dynamics.
+
+\section{Fixed Primitive Continuation Data}
+
+\begin{definition}[Recorded primitive continuation data]
+\label{def:fixed}
+Fix the following continuation data from the active primitive-reservoir observer-reduction line.
+\begin{enumerate}
+    \item For each sector label \(\sigma\in\{\Car,\Cur,\Hom\}\), a primitive forcing shell
+    \[
+    \ForSpace{\sigma},
+    \]
+    a visible reduction map
+    \[
+    \Reduction{\sigma}:\ForSpace{\sigma}\to X_{\sigma},
+    \]
+    and shell-level current and equilibrium carriers
+    \[
+    \CurrentCarrier{\sigma}:\ForSpace{\sigma}\to Z_{\sigma}^{\mathrm{cur}},
+    \qquad
+    \EqCarrier{\sigma}:\ForSpace{\sigma}\to Z_{\sigma}^{\mathrm{eq}}.
+    \]
+    \item The product shell
+    \[
+    \PrimShell
+    \equiv
+    \ForSpace{\Car}\times \ForSpace{\Cur}\times \ForSpace{\Hom}.
+    \]
+    \item Fixed shell extractors
+    \[
+    \CurrentExtract{\sigma}:Z_{\sigma}^{\mathrm{cur}}\to Y_{\sigma}^{\mathrm{cur}},
+    \qquad
+    \EqExtract{\sigma}:Z_{\sigma}^{\mathrm{eq}}\to Y_{\sigma}^{\mathrm{eq}},
+    \]
+    together with the recorded shell composites
+    \begin{equation}
+    \PrimCurrent{\sigma}
+    =
+    \CurrentExtract{\sigma}\circ \CurrentCarrier{\sigma},
+    \qquad
+    \PrimTheta{\sigma}
+    =
+    \EqExtract{\sigma}\circ \EqCarrier{\sigma}.
+    \label{eq:primcomposites}
+    \end{equation}
+    \item The recorded metric and ordinary-matter outputs
+    \[
+    \MetricOut:\PrimShell\to\{\text{observer metrics}\},
+    \qquad
+    \MatterOut:\PrimShell\times\Psi\to\{\text{observer stress tensors}\},
+    \]
+    satisfying
+    \begin{equation}
+    \MetricOut(\mathbf w)=\CompletedMetric,
+    \qquad
+    \MatterOut(\mathbf w,\psi)
+    =
+    T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
+    \label{eq:fixedoutputs}
+    \end{equation}
+    for every \(\mathbf w\in\PrimShell\) and every matter configuration \(\psi\in\Psi\).
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:fixed} is not reopened here. The primitive shell data and the benchmark one-metric / ordinary-matter outputs remain fixed continuation data. The new burden begins one layer deeper again: why the combined response substrate law that previously forced the ambient shell law should itself be forced.
+\end{remark}
+
+\section{Target Combined Response Law}
+
+\begin{definition}[Combined response substrate law with hidden-sector gap]
+\label{def:combined}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). A \emph{combined response substrate law with hidden-sector gap} for sector \(\sigma\) consists of the following data.
+\begin{enumerate}
+    \item A finite-dimensional Euclidean primitive substrate space
+    \[
+    \ProtoSpace{\sigma}
+    \]
+    with a compact convex body
+    \[
+    \ProtoBody{\sigma}\subset \ProtoSpace{\sigma}.
+    \]
+    \item An observer-data target space
+    \[
+    \DataSpace{\sigma}
+    \equiv
+    \VisibleAffine{\sigma}\times Z_{\sigma}^{\mathrm{cur}}\times Z_{\sigma}^{\mathrm{eq}},
+    \]
+    an ambient shell target
+    \[
+    \AmbientTarget{\sigma},
+    \]
+    a hidden response space
+    \[
+    \GapSpace{\sigma},
+    \]
+    and the product response space
+    \[
+    \ResponseSpace{\sigma}
+    \equiv
+    \DataSpace{\sigma}\oplus \AmbientTarget{\sigma}\oplus \GapSpace{\sigma}.
+    \]
+    \item An affine combined response map
+    \[
+    \ResponseMap{\sigma}
+    =
+    \bigl(
+    \ResponseData{\sigma},
+    \ResponseShell{\sigma},
+    \ResponseHidden{\sigma}
+    \bigr):
+    \ProtoSpace{\sigma}\to \ResponseSpace{\sigma}.
+    \]
+    \item The response image body
+    \begin{equation}
+    \ResponseImage{\sigma}
+    \equiv
+    \ResponseMap{\sigma}(\ProtoBody{\sigma})
+    \label{eq:imagebody}
+    \end{equation}
+    is compact and convex, and its shell slice
+    \[
+    \ResponseImage{\sigma}\cap
+    \bigl(
+    \DataSpace{\sigma}\oplus \AmbientTarget{\sigma}\oplus\{0\}
+    \bigr)
+    \]
+    has nonempty relative interior in
+    \[
+    \DataSpace{\sigma}\oplus \AmbientTarget{\sigma}\oplus\{0\}.
+    \]
+    \item A compact convex hidden body
+    \[
+    \GapBody{\sigma}\subset \GapSpace{\sigma}
+    \]
+    with
+    \[
+    0\in\operatorname{int}\GapBody{\sigma},
+    \]
+    such that the response image factorizes exactly as
+    \begin{equation}
+    \ResponseImage{\sigma}
+    =
+    \left\{
+    (u,e,n):
+    (u,e,0)\in\ResponseImage{\sigma},
+    \quad
+    n\in\GapBody{\sigma}
+    \right\}.
+    \label{eq:responsefactor}
+    \end{equation}
+    \item A positive self-adjoint hidden-sector operator
+    \[
+    \HiddenOperator{\sigma}:\GapSpace{\sigma}\to\GapSpace{\sigma}
+    \]
+    with lower bound
+    \begin{equation}
+    \ev{\eta,\HiddenOperator{\sigma}\eta}
+    \ge
+    \kappa_{\sigma}^{\mathrm{hid}}\,
+    \|\eta\|^{2}
+    \qquad
+    \text{for all }\eta\in\GapSpace{\sigma}
+    \label{eq:combinedgap}
+    \end{equation}
+    for some \(\kappa_{\sigma}^{\mathrm{hid}}>0\).
+    \item A compact symmetry group
+    \[
+    \ResponseSym{\sigma}\subset
+    O(\DataSpace{\sigma})\times O(\AmbientTarget{\sigma})\times O(\GapSpace{\sigma})
+    \]
+    and an orthogonal involution
+    \[
+    \ResponseTime{\sigma}\in
+    O(\DataSpace{\sigma})\times O(\AmbientTarget{\sigma})\times O(\GapSpace{\sigma})
+    \]
+    preserving \(\ResponseImage{\sigma}\), the hidden-zero slice
+    \[
+    \DataSpace{\sigma}\oplus \AmbientTarget{\sigma}\oplus\{0\},
+    \]
+    the zero shell value \(0\in \AmbientTarget{\sigma}\), and \(\HiddenOperator{\sigma}\).
+    \item A smooth embedding
+    \[
+    \jmath_{\sigma}:X_{\sigma}\hookrightarrow \VisibleAffine{\sigma}
+    \]
+    and a smooth shell realization map
+    \[
+    \ProtoEmbed{\sigma}:\ForSpace{\sigma}\hookrightarrow \ProtoSpace{\sigma}
+    \]
+    such that
+    \[
+    \ProtoEmbed{\sigma}(\ForSpace{\sigma})
+    \subset
+    \ProtoBody{\sigma}\cap
+    \bigl(\ResponseShell{\sigma}\bigr)^{-1}(0)\cap
+    \bigl(\ResponseHidden{\sigma}\bigr)^{-1}(0),
+    \]
+    the map \(\ResponseMap{\sigma}\circ\ProtoEmbed{\sigma}\) is a diffeomorphism onto
+    \[
+    \ResponseImage{\sigma}\cap
+    \bigl(
+    \DataSpace{\sigma}\oplus\{0\}\oplus\{0\}
+    \bigr),
+    \]
+    and
+    \begin{equation}
+    \ResponseData{\sigma}\bigl(\ProtoEmbed{\sigma}(w)\bigr)
+    =
+    \bigl(
+    \jmath_{\sigma}(\Reduction{\sigma}(w)),
+    \CurrentCarrier{\sigma}(w),
+    \EqCarrier{\sigma}(w)
+    \bigr)
+    \label{eq:combinedcompat}
+    \end{equation}
+    for every \(w\in\ForSpace{\sigma}\).
+    \item Zero-response shell solvability on fixed data fibers:
+    \begin{equation}
+    \operatorname{pr}_{\DataSpace{\sigma}}\bigl(\ResponseImage{\sigma}\bigr)
+    =
+    \operatorname{pr}_{\DataSpace{\sigma}}
+    \Bigl(
+    \ResponseImage{\sigma}\cap
+    \bigl(
+    \DataSpace{\sigma}\oplus\{0\}\oplus\{0\}
+    \bigr)
+    \Bigr).
+    \label{eq:combinedsolvability}
+    \end{equation}
+    \item Response-kernel coercivity on the primitive shell: there exists \(\kappa_{\sigma}^{\mathrm{resp}}>0\) such that for every
+    \[
+    w\in\ForSpace{\sigma},
+    \qquad
+    \delta m\in T_{\ProtoEmbed{\sigma}(w)}\ProtoSpace{\sigma}
+    \]
+    satisfying
+    \[
+    D\ResponseData{\sigma}\bigl(\ProtoEmbed{\sigma}(w)\bigr)\,\delta m=0,
+    \]
+    one has
+    \begin{equation}
+    \bigl\|
+    D\ResponseShell{\sigma}\bigl(\ProtoEmbed{\sigma}(w)\bigr)\,\delta m
+    \bigr\|^{2}
+    +
+    \ev{
+    D\ResponseHidden{\sigma}\bigl(\ProtoEmbed{\sigma}(w)\bigr)\,\delta m,
+    \HiddenOperator{\sigma}
+    D\ResponseHidden{\sigma}\bigl(\ProtoEmbed{\sigma}(w)\bigr)\,\delta m
+    }
+    \ge
+    \kappa_{\sigma}^{\mathrm{resp}}\,
+    \|\delta m\|^{2}.
+    \label{eq:combinedcoercive}
+    \end{equation}
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:combined} is the target package whose origin remained open after the previous note. The purpose here is not to reproduce it as another deeper assumption, but to show that it is a canonical output of still more primitive affine response-graph dynamics.
+\end{remark}
+
+\section{Affine Response-Graph Dynamics}
+
+\begin{definition}[Affine response-graph dynamics with hidden-sector gap]
+\label{def:graph}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). An \emph{affine response-graph dynamics package with hidden-sector gap} for sector \(\sigma\) consists of the following data.
+\begin{enumerate}
+    \item A finite-dimensional Euclidean graph-state space
+    \[
+    \GraphState{\sigma},
+    \]
+    together with the response-factor spaces
+    \[
+    \DataSpace{\sigma}
+    \equiv
+    \VisibleAffine{\sigma}\times Z_{\sigma}^{\mathrm{cur}}\times Z_{\sigma}^{\mathrm{eq}},
+    \qquad
+    \AmbientTarget{\sigma},
+    \qquad
+    \GapSpace{\sigma},
+    \]
+    and the total graph space
+    \[
+    \GraphSpace{\sigma}
+    \equiv
+    \GraphState{\sigma}\oplus
+    \DataSpace{\sigma}\oplus
+    \AmbientTarget{\sigma}\oplus
+    \GapSpace{\sigma}.
+    \]
+    Let
+    \[
+    \StateProj{\sigma}:\GraphSpace{\sigma}\to \GraphState{\sigma},
+    \qquad
+    \GraphDataProj{\sigma}:\GraphSpace{\sigma}\to \DataSpace{\sigma},
+    \]
+    \[
+    \GraphShellProj{\sigma}:\GraphSpace{\sigma}\to \AmbientTarget{\sigma},
+    \qquad
+    \GraphHiddenProj{\sigma}:\GraphSpace{\sigma}\to \GapSpace{\sigma},
+    \]
+    and
+    \[
+    \RespProj{\sigma}
+    \equiv
+    \bigl(
+    \GraphDataProj{\sigma},
+    \GraphShellProj{\sigma},
+    \GraphHiddenProj{\sigma}
+    \bigr):
+    \GraphSpace{\sigma}\to
+    \DataSpace{\sigma}\oplus \AmbientTarget{\sigma}\oplus \GapSpace{\sigma}
+    \]
+    denote the coordinate projections.
+    \item An affine graph plane
+    \[
+    \GraphAffine{\sigma}\subset \GraphSpace{\sigma}
+    \]
+    such that the restriction
+    \[
+    \StateProj{\sigma}\big|_{\GraphAffine{\sigma}}:
+    \GraphAffine{\sigma}\to \GraphState{\sigma}
+    \]
+    is an affine isomorphism.
+    \item A compact convex graph body
+    \[
+    \GraphBody{\sigma}\subset \GraphAffine{\sigma}
+    \]
+    with nonempty relative interior in \(\GraphAffine{\sigma}\).
+    \item A compact convex hidden body
+    \[
+    \GapBody{\sigma}\subset \GapSpace{\sigma}
+    \]
+    with
+    \[
+    0\in\operatorname{int}\GapBody{\sigma},
+    \]
+    and a compact convex zero-hidden graph core
+    \[
+    \GraphZeroBody{\sigma}\subset
+    \GraphAffine{\sigma}\cap \bigl(\GraphHiddenProj{\sigma}\bigr)^{-1}(0)
+    \]
+    such that the map
+    \begin{equation}
+    (g_{0},n)\longmapsto g_{0}+(0,0,0,n)
+    \label{eq:graphsplit}
+    \end{equation}
+    is a bijection from \(\GraphZeroBody{\sigma}\times \GapBody{\sigma}\) onto \(\GraphBody{\sigma}\).
+    \item A positive self-adjoint hidden-sector operator
+    \[
+    \HiddenOperator{\sigma}:\GapSpace{\sigma}\to\GapSpace{\sigma}
+    \]
+    with lower bound
+    \begin{equation}
+    \ev{\eta,\HiddenOperator{\sigma}\eta}
+    \ge
+    \kappa_{\sigma}^{\mathrm{hid}}\,
+    \|\eta\|^{2}
+    \qquad
+    \text{for all }\eta\in\GapSpace{\sigma}
+    \label{eq:graphgap}
+    \end{equation}
+    for some \(\kappa_{\sigma}^{\mathrm{hid}}>0\).
+    \item A compact symmetry group
+    \[
+    \GraphSym{\sigma}\subset
+    O(\GraphState{\sigma})\times
+    O(\DataSpace{\sigma})\times
+    O(\AmbientTarget{\sigma})\times
+    O(\GapSpace{\sigma})
+    \]
+    and an orthogonal involution
+    \[
+    \GraphTime{\sigma}\in
+    O(\GraphState{\sigma})\times
+    O(\DataSpace{\sigma})\times
+    O(\AmbientTarget{\sigma})\times
+    O(\GapSpace{\sigma})
+    \]
+    preserving \(\GraphAffine{\sigma}\), \(\GraphBody{\sigma}\), the hidden-zero slice
+    \[
+    \GraphState{\sigma}\oplus \DataSpace{\sigma}\oplus \AmbientTarget{\sigma}\oplus\{0\},
+    \]
+    the zero-response slice
+    \[
+    \GraphState{\sigma}\oplus \DataSpace{\sigma}\oplus\{0\}\oplus\{0\},
+    \]
+    and \(\HiddenOperator{\sigma}\).
+    \item A smooth embedding
+    \[
+    \jmath_{\sigma}:X_{\sigma}\hookrightarrow \VisibleAffine{\sigma}
+    \]
+    and a smooth zero-response shell realization
+    \[
+    \GraphEmbed{\sigma}:\ForSpace{\sigma}\hookrightarrow \GraphSpace{\sigma}
+    \]
+    whose image is exactly
+    \[
+    \GraphBody{\sigma}\cap
+    \bigl(\GraphShellProj{\sigma}\bigr)^{-1}(0)\cap
+    \bigl(\GraphHiddenProj{\sigma}\bigr)^{-1}(0),
+    \]
+    and such that
+    \begin{equation}
+    \GraphDataProj{\sigma}\bigl(\GraphEmbed{\sigma}(w)\bigr)
+    =
+    \bigl(
+    \jmath_{\sigma}(\Reduction{\sigma}(w)),
+    \CurrentCarrier{\sigma}(w),
+    \EqCarrier{\sigma}(w)
+    \bigr)
+    \label{eq:graphcompat}
+    \end{equation}
+    for every \(w\in\ForSpace{\sigma}\).
+    \item Fixed-data solvability on the zero-response graph slice:
+    \begin{equation}
+    \GraphDataProj{\sigma}\bigl(\GraphBody{\sigma}\bigr)
+    =
+    \GraphDataProj{\sigma}
+    \Bigl(
+    \GraphBody{\sigma}\cap
+    \bigl(\GraphShellProj{\sigma}\bigr)^{-1}(0)\cap
+    \bigl(\GraphHiddenProj{\sigma}\bigr)^{-1}(0)
+    \Bigr).
+    \label{eq:graphsolvability}
+    \end{equation}
+    \item Graph-kernel coercivity on the zero-response shell: there exists \(\kappa_{\sigma}^{\mathrm{gr}}>0\) such that for every
+    \[
+    w\in\ForSpace{\sigma},
+    \qquad
+    \delta g\in T_{\GraphEmbed{\sigma}(w)}\GraphAffine{\sigma}
+    \]
+    satisfying
+    \[
+    \GraphDataProj{\sigma}(\delta g)=0,
+    \]
+    one has
+    \begin{equation}
+    \|\GraphShellProj{\sigma}(\delta g)\|^{2}
+    +
+    \ev{
+    \GraphHiddenProj{\sigma}(\delta g),
+    \HiddenOperator{\sigma}\GraphHiddenProj{\sigma}(\delta g)
+    }
+    \ge
+    \kappa_{\sigma}^{\mathrm{gr}}\,
+    \|\StateProj{\sigma}(\delta g)\|^{2}.
+    \label{eq:graphcoercive}
+    \end{equation}
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:graph} is deeper than Definition \ref{def:combined} in a specific and useful sense. It does not separately stipulate a primitive substrate body and an affine combined response map. Instead it records one affine graph plane together with one compact convex graph body in the product of state and response coordinates. The substrate body and combined response map are to be recovered from that graph data.
+\end{remark}
+
+\section{Canonical Combined Response Law}
+
+\begin{definition}[Canonical combined response law induced by the graph dynamics]
+\label{def:canonical}
+Assume Definition \ref{def:graph}. Define the canonical combined response substrate law in sector \(\sigma\) as follows.
+\begin{enumerate}
+    \item The primitive substrate space is
+    \[
+    \ProtoSpace{\sigma}\equiv \GraphState{\sigma},
+    \]
+    and the primitive substrate body is
+    \begin{equation}
+    \ProtoBody{\sigma}
+    \equiv
+    \StateProj{\sigma}\bigl(\GraphBody{\sigma}\bigr).
+    \label{eq:bodydef}
+    \end{equation}
+    \item The response space is
+    \[
+    \ResponseSpace{\sigma}
+    \equiv
+    \DataSpace{\sigma}\oplus \AmbientTarget{\sigma}\oplus \GapSpace{\sigma}.
+    \]
+    \item The affine combined response map is
+    \begin{equation}
+    \ResponseMap{\sigma}
+    \equiv
+    \RespProj{\sigma}\circ
+    \bigl(\StateProj{\sigma}\big|_{\GraphAffine{\sigma}}\bigr)^{-1}:
+    \ProtoSpace{\sigma}\to \ResponseSpace{\sigma}.
+    \label{eq:mapdef}
+    \end{equation}
+    Its three components are the coordinate projections
+    \[
+    \ResponseData{\sigma},
+    \qquad
+    \ResponseShell{\sigma},
+    \qquad
+    \ResponseHidden{\sigma}.
+    \]
+    \item The response image body is
+    \begin{equation}
+    \ResponseImage{\sigma}
+    \equiv
+    \RespProj{\sigma}\bigl(\GraphBody{\sigma}\bigr).
+    \label{eq:imagedef}
+    \end{equation}
+    \item The symmetry group and time reversal are the induced response-factor actions
+    \[
+    \ResponseSym{\sigma}
+    \equiv
+    \left\{
+    (g_{\mathrm{dat}},g_{\mathrm{sh}},g_{\mathrm{hid}}):
+    (g_{\mathrm{st}},g_{\mathrm{dat}},g_{\mathrm{sh}},g_{\mathrm{hid}})
+    \in \GraphSym{\sigma}
+    \right\},
+    \]
+    \[
+    \ResponseTime{\sigma}
+    \equiv
+    \bigl(
+    \GraphTime{\sigma}\big|_{\DataSpace{\sigma}},
+    \GraphTime{\sigma}\big|_{\AmbientTarget{\sigma}},
+    \GraphTime{\sigma}\big|_{\GapSpace{\sigma}}
+    \bigr).
+    \]
+    \item The shell realization map is
+    \begin{equation}
+    \ProtoEmbed{\sigma}
+    \equiv
+    \StateProj{\sigma}\circ \GraphEmbed{\sigma}.
+    \label{eq:protoembeddef}
+    \end{equation}
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}[The graph dynamics induce a combined response substrate law]
+\label{prop:derive}
+Assume Definitions \ref{def:graph} and \ref{def:canonical}. Then the canonical data of Definition \ref{def:canonical} satisfy every requirement of Definition \ref{def:combined}.
+\end{proposition}
+
+\begin{proof}
+Because \(\StateProj{\sigma}\big|_{\GraphAffine{\sigma}}\) is an affine isomorphism and \(\GraphBody{\sigma}\subset\GraphAffine{\sigma}\) is compact and convex, \(\ProtoBody{\sigma}\) is compact and convex with nonempty interior in \(\ProtoSpace{\sigma}\). Equation \eqref{eq:mapdef} defines an affine map from \(\ProtoSpace{\sigma}\) to \(\ResponseSpace{\sigma}\), and \eqref{eq:imagedef} implies
+\[
+\ResponseImage{\sigma}
+=
+\ResponseMap{\sigma}(\ProtoBody{\sigma}).
+\]
+Thus \eqref{eq:imagebody} holds.
+
+The hidden factorization \eqref{eq:responsefactor} follows by projecting \eqref{eq:graphsplit} to the response factors. If
+\[
+(u,e,n)\in\ResponseImage{\sigma},
+\]
+then there exists \(g=(m,u,e,n)\in\GraphBody{\sigma}\). By \eqref{eq:graphsplit}, one can write
+\[
+g=g_{0}+(0,0,0,n)
+\]
+with \(g_{0}\in\GraphZeroBody{\sigma}\) and \(n\in\GapBody{\sigma}\). Projecting to the response factors gives
+\[
+(u,e,n)=\RespProj{\sigma}(g_{0})+(0,0,n),
+\]
+with \(\RespProj{\sigma}(g_{0})=(u,e,0)\in\ResponseImage{\sigma}\). The converse implication is equally immediate, so \eqref{eq:responsefactor} holds.
+
+Equation \eqref{eq:combinedgap} is exactly \eqref{eq:graphgap}. The symmetry and time-reversal requirements follow because every element of \(\GraphSym{\sigma}\) and \(\GraphTime{\sigma}\) preserves the graph body and the response-factor decomposition, hence preserves \(\ResponseImage{\sigma}\), the hidden-zero slice
+\[
+\DataSpace{\sigma}\oplus \AmbientTarget{\sigma}\oplus\{0\},
+\]
+the zero shell value \(0\in\AmbientTarget{\sigma}\), and \(\HiddenOperator{\sigma}\).
+
+For the shell realization, \eqref{eq:protoembeddef} maps \(\ForSpace{\sigma}\) into \(\ProtoBody{\sigma}\). Because \(\GraphEmbed{\sigma}(w)\) lies in the zero-response slice of the graph body, \(\ProtoEmbed{\sigma}(w)\) lies in
+\[
+\ProtoBody{\sigma}\cap
+\bigl(\ResponseShell{\sigma}\bigr)^{-1}(0)\cap
+\bigl(\ResponseHidden{\sigma}\bigr)^{-1}(0).
+\]
+The map \(\ResponseMap{\sigma}\circ\ProtoEmbed{\sigma}\) equals \(\RespProj{\sigma}\circ \GraphEmbed{\sigma}\), so its image is exactly
+\[
+\RespProj{\sigma}
+\Bigl(
+\GraphBody{\sigma}\cap
+\bigl(\GraphShellProj{\sigma}\bigr)^{-1}(0)\cap
+\bigl(\GraphHiddenProj{\sigma}\bigr)^{-1}(0)
+\Bigr)
+=
+\ResponseImage{\sigma}\cap
+\bigl(
+\DataSpace{\sigma}\oplus\{0\}\oplus\{0\}
+\bigr).
+\]
+It is a diffeomorphism onto that locus because \(\GraphEmbed{\sigma}\) is a diffeomorphism onto the graph zero-response locus and \(\StateProj{\sigma}\big|_{\GraphAffine{\sigma}}\) is an affine isomorphism. Using \eqref{eq:graphcompat},
+\[
+\ResponseData{\sigma}\bigl(\ProtoEmbed{\sigma}(w)\bigr)
+=
+\GraphDataProj{\sigma}\bigl(\GraphEmbed{\sigma}(w)\bigr)
+=
+\bigl(
+\jmath_{\sigma}(\Reduction{\sigma}(w)),
+\CurrentCarrier{\sigma}(w),
+\EqCarrier{\sigma}(w)
+\bigr),
+\]
+which is \eqref{eq:combinedcompat}.
+
+The solvability condition \eqref{eq:combinedsolvability} follows from \eqref{eq:graphsolvability} by projecting away the graph-state coordinate. Finally, let
+\[
+w\in\ForSpace{\sigma},
+\qquad
+\delta m\in T_{\ProtoEmbed{\sigma}(w)}\ProtoSpace{\sigma}
+\]
+with
+\[
+D\ResponseData{\sigma}\bigl(\ProtoEmbed{\sigma}(w)\bigr)\,\delta m=0.
+\]
+Since \(\StateProj{\sigma}\big|_{\GraphAffine{\sigma}}\) is an affine isomorphism, there is a unique
+\[
+\delta g\in T_{\GraphEmbed{\sigma}(w)}\GraphAffine{\sigma}
+\]
+with \(\StateProj{\sigma}(\delta g)=\delta m\). By \eqref{eq:mapdef},
+\[
+\GraphDataProj{\sigma}(\delta g)
+=
+D\ResponseData{\sigma}\bigl(\ProtoEmbed{\sigma}(w)\bigr)\,\delta m
+=0.
+\]
+Applying \eqref{eq:graphcoercive} gives
+\[
+\|\GraphShellProj{\sigma}(\delta g)\|^{2}
++
+\ev{
+\GraphHiddenProj{\sigma}(\delta g),
+\HiddenOperator{\sigma}\GraphHiddenProj{\sigma}(\delta g)
+}
+\ge
+\kappa_{\sigma}^{\mathrm{gr}}\,
+\|\delta m\|^{2}.
+\]
+But \(\GraphShellProj{\sigma}(\delta g)\) and \(\GraphHiddenProj{\sigma}(\delta g)\) are exactly
+\[
+D\ResponseShell{\sigma}\bigl(\ProtoEmbed{\sigma}(w)\bigr)\,\delta m,
+\qquad
+D\ResponseHidden{\sigma}\bigl(\ProtoEmbed{\sigma}(w)\bigr)\,\delta m,
+\]
+so \eqref{eq:combinedcoercive} holds with \(\kappa_{\sigma}^{\mathrm{resp}}=\kappa_{\sigma}^{\mathrm{gr}}\).
+\end{proof}
+
+\section{Forced Constituents of the Combined Response Law}
+
+\begin{proposition}[The primitive body and combined response map are forced]
+\label{prop:forced}
+Assume Definition \ref{def:graph}. Then:
+\begin{enumerate}
+    \item the primitive substrate body is necessarily the graph-state projection \eqref{eq:bodydef} of the graph body;
+    \item the affine combined response map is necessarily the unique affine graph function \eqref{eq:mapdef} determined by the affine graph plane;
+    \item the response image body is necessarily the response projection \eqref{eq:imagedef} of the graph body;
+    \item the response-image hidden factor is necessarily the graph-level hidden body \(\GapBody{\sigma}\) equipped with the given operator \(\HiddenOperator{\sigma}\).
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Because \(\StateProj{\sigma}\big|_{\GraphAffine{\sigma}}\) is an affine isomorphism, every point of the graph plane is uniquely determined by its graph-state coordinate. Therefore the graph plane is the graph of a unique affine map from \(\GraphState{\sigma}\) to the response-factor space, and that map is exactly \eqref{eq:mapdef}. The primitive substrate body is then forced to be the set of graph-state coordinates actually realized by the graph body, namely \eqref{eq:bodydef}, and the response image is forced to be the set of response coordinates actually realized by the same graph body, namely \eqref{eq:imagedef}. The hidden response factor is the graph-level hidden slice already singled out in \eqref{eq:graphsplit}, so its body and positive operator are likewise fixed.
+\end{proof}
+
+\begin{theorem}[Combined response substrate law is necessary and unique from affine response-graph dynamics]
+\label{thm:necessity}
+Fix the affine response-graph dynamics package of Definition \ref{def:graph}. Then the combined response substrate law induced in Definition \ref{def:canonical} is necessary and unique on that deeper line in the following sense.
+\begin{enumerate}
+    \item every constituent of the combined response substrate law is fixed by the graph dynamics: the primitive substrate body, the affine combined response map, the response-image factorization into shell and hidden sectors, the hidden-sector gap operator, the induced symmetry and time-reversal structure, the exact zero-response shell realization, the fixed-data solvability property, and the response-kernel coercivity mechanism;
+    \item any presentation of the same graph-induced law differs from the canonical one only by the obvious graph-state coordinate identification and the obvious factor-preserving response-coordinate identification forced by the same graph plane and graph body;
+    \item consequently the combined response substrate law is not merely available on this deeper line but necessary there up to those forced coordinate identifications.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Item (1) is the combined content of Proposition \ref{prop:derive} and Proposition \ref{prop:forced}. Once the affine graph plane, graph body, hidden split, symmetry / time-reversal actions, zero-response shell locus, solvability statement, and graph-kernel coercivity inequality are fixed, every constituent of the induced combined response law is fixed by Definition \ref{def:canonical}.
+
+For item (2), any other presentation of the same graph-induced law must parametrize the same graph plane and the same graph body. Its primitive state coordinates are therefore related to the canonical ones by the affine coordinate identification determined by the graph-state projection of that same graph plane, while its response coordinates are related to the canonical ones by the factor-preserving affine identification determined by the data, shell, and hidden coordinate factors. No additional freedom remains.
+
+Item (3) is exactly the content of items (1) and (2) restated in the present routing language.
+\end{proof}
+
+\section{Unique Selector and Same One-Metric Output}
+
+\begin{definition}[Deeper data space and sector selector]
+\label{def:selector}
+For \(\sigma\in\{\Car,\Cur,\Hom\}\), define the deeper data space by
+\[
+\DeepSpace{\sigma}
+\equiv
+\operatorname{pr}_{\DataSpace{\sigma}}\bigl(\ResponseImage{\sigma}\bigr).
+\]
+For \(u\in \DeepSpace{\sigma}\), let \(\ChainSelect{\sigma}(u)\) denote the unique point of \(\ForSpace{\sigma}\) satisfying
+\begin{equation}
+\ResponseMap{\sigma}\bigl(\ProtoEmbed{\sigma}(\ChainSelect{\sigma}(u))\bigr)
+=(u,0,0).
+\label{eq:selectordef}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[The sector selector exists and is unique]
+\label{prop:selector}
+Assume Definition \ref{def:graph}. Then for every \(u\in \DeepSpace{\sigma}\), the point \(\ChainSelect{\sigma}(u)\) of Definition \ref{def:selector} exists and is unique.
+\end{proposition}
+
+\begin{proof}
+Existence follows from the fixed-data solvability property \eqref{eq:graphsolvability}: if \(u\in\DeepSpace{\sigma}\), then there exists a point of the graph body with data coordinate \(u\), and \eqref{eq:graphsolvability} supplies a point of the zero-response graph slice with that same data coordinate. By Definition \ref{def:graph}, \(\GraphEmbed{\sigma}\) is a diffeomorphism onto that zero-response slice, so there is a unique \(w\in\ForSpace{\sigma}\) with
+\[
+\GraphEmbed{\sigma}(w)\in
+\GraphBody{\sigma}\cap
+\bigl(\GraphDataProj{\sigma}\bigr)^{-1}(u)\cap
+\bigl(\GraphShellProj{\sigma}\bigr)^{-1}(0)\cap
+\bigl(\GraphHiddenProj{\sigma}\bigr)^{-1}(0).
+\]
+Projecting to the response factors yields \eqref{eq:selectordef}, and uniqueness follows from the injectivity of \(\GraphEmbed{\sigma}\).
+\end{proof}
+
+\begin{definition}[Total selector and deeper outputs]
+\label{def:deepoutputs}
+Define
+\[
+\DeepShell
+\equiv
+\DeepSpace{\Car}\times\DeepSpace{\Cur}\times\DeepSpace{\Hom},
+\]
+\[
+\ChainSelectTriple(u_{\Car},u_{\Cur},u_{\Hom})
+\equiv
+\bigl(
+\ChainSelect{\Car}(u_{\Car}),
+\ChainSelect{\Cur}(u_{\Cur}),
+\ChainSelect{\Hom}(u_{\Hom})
+\bigr).
+\]
+Define
+\[
+\DeepMetricOut:\DeepShell\to\{\text{observer metrics}\}
+\]
+and
+\[
+\DeepMatterOut:\DeepShell\times\Psi\to\{\text{observer stress tensors}\}
+\]
+by
+\begin{equation}
+\DeepMetricOut
+\equiv
+\MetricOut\circ\ChainSelectTriple,
+\qquad
+\DeepMatterOut(\mathbf u,\psi)
+\equiv
+\MatterOut(\ChainSelectTriple(\mathbf u),\psi).
+\label{eq:deepoutputs}
+\end{equation}
+\end{definition}
+
+\begin{theorem}[The graph dynamics preserve the same one-metric benchmark package]
+\label{thm:outputs}
+For every \(\mathbf u\in\DeepShell\) and every matter configuration \(\psi\in\Psi\),
+\begin{equation}
+\DeepMetricOut(\mathbf u)=\CompletedMetric
+\label{eq:deepmetric}
+\end{equation}
+and
+\begin{equation}
+\DeepMatterOut(\mathbf u,\psi)
+=
+T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi].
+\label{eq:deepmatter}
+\end{equation}
+Consequently the deeper affine response-graph dynamics introduce neither a second operative metric nor an enlarged low-energy matter law.
+\end{theorem}
+
+\begin{proof}
+Equation \eqref{eq:deepmetric} follows immediately from \eqref{eq:deepoutputs} and \eqref{eq:fixedoutputs}:
+\[
+\DeepMetricOut(\mathbf u)
+=
+\MetricOut(\ChainSelectTriple(\mathbf u))
+=
+\CompletedMetric.
+\]
+Likewise,
+\[
+\DeepMatterOut(\mathbf u,\psi)
+=
+\MatterOut(\ChainSelectTriple(\mathbf u),\psi)
+=
+T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi],
+\]
+which is \eqref{eq:deepmatter}.
+\end{proof}
+
+\section{Main Theorem}
+
+\begin{theorem}[Affine response-graph dynamics force the combined response substrate law]
+\label{thm:main}
+Assume the fixed primitive continuation data of Definition \ref{def:fixed} and, for each sector \(\sigma\in\{\Car,\Cur,\Hom\}\), an affine response-graph dynamics package with hidden-sector gap in the sense of Definition \ref{def:graph}. Then:
+\begin{enumerate}
+    \item the combined response substrate law of Definition \ref{def:combined} is canonically induced by the deeper affine response-graph dynamics;
+    \item the compact-convex primitive substrate body, the single affine combined response map to observer data, shell response, and hidden response, the response-image factorization into shell and hidden sectors, the hidden-sector gap operator, the induced symmetry / time-reversal structure, the exact zero-response shell realization, the fixed-data solvability property, and the response-kernel coercivity mechanism are all forced by that deeper graph law;
+    \item the induced combined response law is unique on that deeper line up to the forced graph-state and factor-preserving response-coordinate identifications;
+    \item the sectorwise selectors \(\ChainSelect{\sigma}\) and the total selector \(\ChainSelectTriple\) therefore exist uniquely;
+    \item pulling the fixed primitive outputs back along that unique total selector yields exactly the same one operative metric \(\CompletedMetric\) and exactly the same ordinary-matter route through that metric;
+    \item consequently the remaining burden after the previous combined-response theorem is now discharged in the stronger form required on the active line: the combined response substrate law is no longer a deepest stopping point there, but a canonical and necessary output of deeper affine response-graph dynamics.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Item (1) is Proposition \ref{prop:derive}. Items (2) and (3) are Theorem \ref{thm:necessity}. Item (4) is Proposition \ref{prop:selector} together with Definition \ref{def:deepoutputs}. Item (5) is Theorem \ref{thm:outputs}. Item (6) is the combined routing consequence of the previous items.
+\end{proof}
+
+\begin{corollary}[What remains open after this theorem]
+\label{cor:next}
+After Theorem \ref{thm:main}, the remaining honest burden is no longer to justify the combined response substrate law on the active primitive-observer-reduction line. That law is now forced, within the present affine response-graph line, by one compact convex graph body carried by one affine graph plane together with a hidden-sector gap. The next honest burden is deeper again: derive or justify that affine response-graph dynamics package itself from still more primitive substrate dynamics, or else prove a sharper inevitability theorem that removes even that remaining graph-level freedom.
+\end{corollary}
+
+\begin{proof}
+Theorem \ref{thm:main} converts the combined response substrate law from a remaining benchmark-facing burden into a canonical output of deeper affine response-graph dynamics. What remains open is why that graph dynamics package itself should hold, rather than becoming the current deepest disciplined assumption.
+\end{proof}
+
+\section{Conclusion}
+
+The positive result of this note is again narrower than a completed final microphysical derivation and stronger than another deeper same-output relay. Starting from one affine graph plane in the product of primitive state and response coordinates, one compact convex graph body in that plane, an exact hidden split with positive gap, and an exact zero-response shell realization, the note derives canonically the combined response substrate law that had remained open after the previous theorem. The compact-convex primitive substrate body, the single affine combined response map, the response-image factorization, the hidden-sector operator, the symmetry / time-reversal structure, the fixed-data solvability statement, and the response-kernel coercivity mechanism are no longer treated as separately inserted primitive ingredients. They are forced outputs of the deeper graph dynamics.
+
+The stronger theorem is the necessity / uniqueness statement. On this deeper line, the entire combined response substrate law collapses to the graph body, the graph plane, and the hidden gap data. Any other presentation differs only by the obvious graph-state and factor-preserving response-coordinate identifications. The benchmark boundary remains fixed throughout: the unique selector determined by the zero-response shell locus still pulls back exactly the same one operative metric \(\CompletedMetric\) and exactly the same ordinary-matter route through that metric, with no second operative metric and no enlarged low-energy matter law.
+
+This remains a disciplined derivational gain rather than a final completion claim. The note does not yet derive the affine response-graph dynamics package itself from ultimate substrate microphysics. Its honest remaining burden is exactly that deeper next step. But the current primary burden named by the project goal is now handled in the stronger form required there: the combined response substrate law is no longer merely reproduced, but forced.
+
+\end{document}
