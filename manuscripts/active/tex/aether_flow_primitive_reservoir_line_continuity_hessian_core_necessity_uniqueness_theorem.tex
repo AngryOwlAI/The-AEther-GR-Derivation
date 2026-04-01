@@ -1,0 +1,287 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\CompletedMetric}{g^{\sharp}}
+\newcommand{\ObserverQuotient}{Q_{\mathrm{obs}}}
+\newcommand{\ObsBurden}{\mathfrak B_{\mu\nu}^{\mathrm{obs}}}
+\newcommand{\ObserverClass}[1]{\left[#1\right]_{\mathrm{obs}}}
+\newcommand{\DefectTuple}{\mathbf d}
+\newcommand{\ResidualRead}{\mathscr R_{\mathrm{res}}}
+\newcommand{\CompletionRead}{\mathscr R_{\mathrm{cmp}}}
+\newcommand{\MatterRead}{\mathscr R_{\mathrm{mat}}}
+\newcommand{\BranchLock}{\mathfrak L}
+\newcommand{\CoreData}{\mathfrak C_{\mathrm{CH}}}
+\newcommand{\PrimitiveLine}{\mathfrak P_{\mathrm{prim}}}
+\newcommand{\Reduction}{\mathfrak R}
+\newcommand{\CoreDatum}{\mathfrak D}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Primitive-Reservoir Line Continuity-Hessian Core\\
+\large Necessity / Uniqueness Theorem}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The current deepest benchmark-facing origin note on the active one-metric exact-preservation line is the primitive-reservoir / stationary-reduction / cotangent-connection / source-action note. Its positive result is still deeper origin without broader observer-side change: the forcing-principle layer is no longer primitive, yet the same downstream one-metric package, the same observer-equation closure, the same one operative metric, and the same recorded Phase D / E and Phase F gains remain unchanged. The later upstream compression theorem then sharpens the routing consequence: benchmark-facing derivation statements on the active line factor through the continuity-Hessian observer-relevant core.
+
+The present manuscript proves the next line-specific theorem suggested by that routing status. It does not go one layer deeper again. Instead, it proves that on the current primitive-reservoir line the continuity-Hessian observer-relevant core is necessary and unique at benchmark scope. More precisely, any line-faithful benchmark reduction of the present primitive-reservoir line must determine, up to line-faithful equivalence, the same one operative completed metric, the same ordinary matter route through that metric, the same fixed observer quotient, and the same exact burden-factorization / branch-locking package through which the active line settles the no-genuine-observer-side-remainder gate. Conversely, nothing beyond that core is needed for benchmark-facing derivation statements on the current line.
+
+This is not yet a completed first-principles derivation of GR from substrate microphysics. Its positive result is narrower and more honest. It shows that the next primary manuscript must derive, uniquely select, or otherwise force some element or relation of the continuity-Hessian core itself. Another same-output deeper-origin relay above the primitive-reservoir line is no longer the right front-line move.
+\end{abstract}
+
+\section{Introduction}
+
+The active one-metric charge-polarization line has now crossed the forcing-principle primitive-reservoir / stationary-reduction origin step and the later continuity-Hessian observer-side closure step. Those two results change the routing logic of the derivational program in combination. The primitive-reservoir note pushed the exact-preservation line one layer deeper while preserving the same downstream one-metric package. The continuity-Hessian bridge theorem then removed the previously live same-package observer-side remainder bottleneck on the active completed branch. The upstream compression theorem made the resulting project consequence explicit: benchmark-facing derivation statements now factor through a smaller observer-relevant core.
+
+That leaves a cleaner next burden than before. It is not enough to say once more that a deeper layer reproduces the same forcing-principle package, the same exact-preservation normal form, the same completion solve, the same one operative metric, and the same observer-side closure verdict. After compression, those same-output relays are benchmark-neutral unless they derive, uniquely select, or otherwise change the observer-relevant core itself.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not claim a completed first-principles derivation of the Einstein sector from substrate microphysics. Its narrower task is to prove that, on the current primitive-reservoir line, the continuity-Hessian observer-relevant core is already the unique minimal benchmark-facing datum up to line-faithful equivalence.
+
+\section{Fixed Inputs from the Current Primitive-Reservoir Line}
+
+\begin{definition}[Fixed inputs]
+\label{def:fixed}
+The present note uses four fixed inputs from the active manuscript sequence:
+\begin{enumerate}
+    \item the primitive-reservoir / stationary-reduction origin note, currently the deepest benchmark-facing origin note on the active line;
+    \item the continuity-Hessian bridge theorem-building note, which proves the direct observer-side factorization theorem and branch locking on the active completed branch;
+    \item the post-bridge derivation-gate status note, which records that the live remaining burden is upstream rather than another same-package observer-side relay;
+    \item the upstream compression theorem, which identifies the continuity-Hessian observer-relevant core as the benchmark-facing compression target of the active line.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Continuity-Hessian observer-relevant core]
+\label{def:core}
+The \emph{continuity-Hessian observer-relevant core} on the active line is the tuple
+\[
+\CoreData
+=
+\bigl(
+\CompletedMetric,\;
+T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi],\;
+\ObserverQuotient,\;
+\DefectTuple,\;
+\ResidualRead,\;
+\CompletionRead,\;
+\MatterRead,\;
+\BranchLock
+\bigr),
+\]
+where the ordered defect tuple is
+\[
+\DefectTuple
+=
+\bigl(
+\mathfrak d_{\mathrm{car}}^{\mathrm{cur}},
+\mathfrak d_{\mathrm{cur}}^{\mathrm{cur}},
+\mathfrak d_{\mathrm{hom}}^{\mathrm{cur}},
+\mathfrak d_{\mathrm{car}}^{\mathrm{eq}},
+\mathfrak d_{\mathrm{cur}}^{\mathrm{eq}},
+\mathfrak d_{\mathrm{hom}}^{\mathrm{eq}}
+\bigr),
+\]
+and the readout maps satisfy
+\begin{equation}
+\ObserverClass{\ObsBurden}
+=
+\ObserverClass{
+\ResidualRead(\DefectTuple)
++\CompletionRead(\DefectTuple)
++\MatterRead(\DefectTuple)},
+\label{eq:factorization}
+\end{equation}
+while branch locking states that on the active completed branch
+\begin{equation}
+\DefectTuple=0.
+\label{eq:locking}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[What the current primitive-reservoir line already fixes]
+\label{prop:fixedpackage}
+At current scope, the primitive-reservoir line already fixes all of the following without change:
+\begin{enumerate}
+    \item the same forcing-principle input layer;
+    \item the same downstream exact-preservation chain;
+    \item the same one operative completed metric \(\CompletedMetric\);
+    \item the same ordinary matter route through that metric;
+    \item the same observer-equation closure package on the active one-metric line.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+This is exactly the content of the same-package theorem in the primitive-reservoir note. That theorem states that once the primitive-reservoir / stationary-reduction / cotangent-connection / source-action layer is fixed, the same forcing-principle input layer is recovered without change and the entire downstream exact-preservation package follows verbatim. In particular, the same completion solve, the same observer-equation closure package, and the same one operative metric remain in force on the active line.
+\end{proof}
+
+\section{Line-Faithful Benchmark Reductions}
+
+\begin{definition}[Line-faithful benchmark reduction]
+\label{def:reduction}
+A \emph{line-faithful benchmark reduction} of the current primitive-reservoir line is a reduction \(\Reduction\) from explicit substrate variables to the observer-facing sector such that:
+\begin{enumerate}
+    \item it starts from the fixed primitive-reservoir line \(\PrimitiveLine\) of Definition \ref{def:fixed};
+    \item it preserves the fixed downstream one-metric package of Proposition \ref{prop:fixedpackage};
+    \item it introduces no second operative metric, no second universal matter law, and no enlargement of the observer null classes;
+    \item it preserves the settled direct observer-side route of the active line, namely exact burden factorization through an ordered defect tuple together with branch locking on the active completed branch.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:reduction} is intentionally narrower than ``every imaginable microphysical derivation.'' The theorem of this note concerns the active primitive-reservoir line as it is currently recorded, not an arbitrary future redesign that changes the observer-side route altogether.
+\end{remark}
+
+\begin{definition}[Line-faithful equivalence of core data]
+\label{def:equiv}
+Two candidate observer-relevant core data \(\CoreDatum_1\) and \(\CoreDatum_2\) are \emph{line-faithfully equivalent} if they determine the same:
+\begin{enumerate}
+    \item operative completed metric \(\CompletedMetric\);
+    \item ordinary matter route \(T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]\);
+    \item observer quotient \(\ObserverQuotient\);
+    \item observer-burden factorization class \eqref{eq:factorization};
+    \item branch-locking vanishing statement \eqref{eq:locking}.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Minimal observer-relevant core datum]
+\label{def:minimal}
+For a line-faithful benchmark reduction \(\Reduction\), a datum \(\CoreDatum(\Reduction)\) is a \emph{minimal observer-relevant core datum} if:
+\begin{enumerate}
+    \item it suffices to determine every benchmark-facing derivation statement on the active line;
+    \item no proper subdatum of it still suffices at that same benchmark-facing scope.
+\end{enumerate}
+\end{definition}
+
+\section{Necessity of the Continuity-Hessian Core}
+
+\begin{proposition}[The operative metric and matter route are necessary]
+\label{prop:metric}
+Every minimal observer-relevant core datum for a line-faithful benchmark reduction must determine the one operative completed metric \(\CompletedMetric\) and the ordinary matter route through that same metric.
+\end{proposition}
+
+\begin{proof}
+By Proposition \ref{prop:fixedpackage}, the current primitive-reservoir line already fixes the downstream one-metric package rather than leaving the operative metric open. A line-faithful benchmark reduction must therefore preserve that same one operative metric and the same ordinary matter route. Without \(\CompletedMetric\), Gates (1), (2), and (4) are not even formulated on the active line in their recorded one-metric form. Without \(T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]\), the same universal matter-coupling statement is not fixed either. Hence any minimal benchmark-facing core datum must determine both.
+\end{proof}
+
+\begin{proposition}[The observer quotient and direct closure package are necessary]
+\label{prop:quotient}
+Every minimal observer-relevant core datum for a line-faithful benchmark reduction must determine:
+\begin{enumerate}
+    \item the fixed observer quotient \(\ObserverQuotient\);
+    \item an ordered defect tuple \(\DefectTuple\) together with readout maps \(\ResidualRead,\CompletionRead,\MatterRead\) giving the factorization identity \eqref{eq:factorization};
+    \item the branch-locking statement \eqref{eq:locking}.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+The post-bridge active line does not settle Gate (5) by mere adoption or by an unspecified low-energy matching statement. It settles Gate (5) through the direct continuity-Hessian theorem route preserved in Definition \ref{def:reduction}: the observer burden class is factorized through the ordered six-defect package and then annihilated on the active completed branch by branch locking. If the observer quotient were not fixed, the exact meaning of observer-side triviality would change. If the ordered defect/readout package were absent, the settled direct factorization theorem would not be stated. If branch locking were absent, the factorized burden would not be forced to vanish on the active completed branch. Therefore every minimal benchmark-facing core datum on this line must determine those three ingredients.
+\end{proof}
+
+\section{Main Theorem}
+
+\begin{theorem}[Continuity-Hessian core necessity / uniqueness on the primitive-reservoir line]
+\label{thm:main}
+For every line-faithful benchmark reduction \(\Reduction\) of the current primitive-reservoir line, the continuity-Hessian observer-relevant core \(\CoreData\) of Definition \ref{def:core} is necessary and unique at benchmark scope up to line-faithful equivalence. More precisely:
+\begin{enumerate}
+    \item every minimal observer-relevant core datum \(\CoreDatum(\Reduction)\) must determine all constituents of \(\CoreData\);
+    \item \(\CoreData\) itself is sufficient to determine every benchmark-facing derivation statement on the active line;
+    \item any two minimal observer-relevant core data are line-faithfully equivalent to \(\CoreData\), and hence to each other.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Item (1) is the combined content of Propositions \ref{prop:metric} and \ref{prop:quotient}. Those propositions show that no minimal observer-relevant core datum may omit the one operative completed metric, the ordinary matter route through that metric, the fixed observer quotient, or the direct continuity-Hessian burden-factorization / branch-locking package.
+
+For item (2), the upstream compression theorem already proves that, on the active one-metric exact-preservation line, every benchmark-facing derivation statement factors through the continuity-Hessian observer-relevant core. Therefore \(\CoreData\) is sufficient at benchmark scope.
+
+For item (3), let \(\CoreDatum_1\) and \(\CoreDatum_2\) be two minimal observer-relevant core data for line-faithful benchmark reductions. By item (1), each must determine every constituent listed in Definition \ref{def:core}. By item (2), neither needs anything beyond that benchmark-facing scope. Therefore both are line-faithfully equivalent to \(\CoreData\) in the sense of Definition \ref{def:equiv}. Hence they are line-faithfully equivalent to each other as well.
+\end{proof}
+
+\begin{corollary}[No smaller benchmark-facing datum exists on the current line]
+\label{cor:minimal}
+On the current primitive-reservoir line, there is no benchmark-facing observer-relevant core datum strictly smaller than \(\CoreData\) up to line-faithful equivalence.
+\end{corollary}
+
+\begin{proof}
+If a strictly smaller datum existed, it would either omit some constituent proved necessary by Propositions \ref{prop:metric} and \ref{prop:quotient}, or else merely rename the same constituents and therefore remain line-faithfully equivalent to \(\CoreData\). The first option contradicts necessity; the second is not genuinely smaller at benchmark scope.
+\end{proof}
+
+\begin{remark}
+Corollary \ref{cor:minimal} is the precise benchmark-facing sense in which the continuity-Hessian core is now the right upstream target. The active primitive-reservoir line no longer needs another note whose only positive content is that a deeper substrate layer reproduces the same forcing-principle package and hence the same downstream one-metric closure package.
+\end{remark}
+
+\section{What Must Be Derived Next}
+
+\begin{corollary}[Primary post-uniqueness burden]
+\label{cor:next}
+After Theorem \ref{thm:main}, the next primary manuscript on the active one-metric line must do at least one of the following:
+\begin{enumerate}
+    \item derive the one operative completed metric and ordinary matter route from explicit substrate structure rather than preserving them as already fixed line data;
+    \item derive the ordered defect/readout/branch-locking package from explicit primitive-reservoir-line variables rather than inheriting it as the settled observer-side theorem route;
+    \item prove a stronger uniqueness, inevitability, or necessity statement for some nontrivial substructure of \(\CoreData\).
+\end{enumerate}
+Another same-output deeper-origin relay above the primitive-reservoir line is not primary by default.
+\end{corollary}
+
+\begin{proof}
+By Theorem \ref{thm:main} and Corollary \ref{cor:minimal}, \(\CoreData\) is already the unique minimal benchmark-facing datum on the current line up to line-faithful equivalence. Therefore a new primary manuscript must derive or sharpen some element or relation inside that datum. If it does not, then it preserves the same benchmark-facing core and is neutral at project-status level.
+\end{proof}
+
+\begin{corollary}[Status of the rewritten-metric route]
+The optional same-package \(\widehat g\) rewritten-metric note remains secondary on the current line. It would provide at most a second exact expression of a closure result already settled, not the missing upstream derivation of the observer-relevant core itself.
+\end{corollary}
+
+\begin{proof}
+The direct continuity-Hessian closure theorem already settles the no-genuine-observer-side-remainder gate on the active completed branch. The present note then shows that the real remaining upstream burden is to derive or uniquely force the observer-relevant core itself. Therefore the rewritten-metric route is not the default next front-line necessity.
+\end{proof}
+
+\section{Conclusion}
+
+The positive result of this note is narrower than a completed substrate derivation of GR but stronger than another routing reminder. On the current primitive-reservoir line, the continuity-Hessian observer-relevant core is now proved to be necessary and unique at benchmark scope up to line-faithful equivalence.
+
+That core consists of the one operative completed metric, the ordinary matter route through that same metric, the fixed observer quotient, the ordered continuity-Hessian defect tuple, the three sector readouts that factor the observer burden through that tuple, and the branch-locking statement that forces the defect tuple to vanish on the active completed branch. By the theorem of this note, no smaller genuinely benchmark-facing datum exists on the current line, and no alternative minimal datum differs from it except by line-faithful relabeling.
+
+This sharpens the honest next burden. A new primary manuscript must no longer merely show that an even deeper substrate layer reproduces the same forcing-principle layer and hence the same downstream one-metric package. It must derive, uniquely select, or otherwise force some part of the continuity-Hessian observer-relevant core itself from explicit substrate structure.
+
+The claim boundary remains disciplined. The present theorem does not yet derive GR from substrate microphysics. It does, however, locate the real remaining derivational target of the active \Aether{} / \Aflow{} program much more precisely: the observer-relevant continuity-Hessian core, not another same-output deeper-origin relay above the current primitive-reservoir line.
+
+\end{document}
