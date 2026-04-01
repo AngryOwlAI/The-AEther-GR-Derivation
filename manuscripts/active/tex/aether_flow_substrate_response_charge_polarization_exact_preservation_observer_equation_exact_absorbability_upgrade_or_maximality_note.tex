@@ -48,7 +48,7 @@
 \newcommand{\ObserverClass}[1]{\left[#1\right]_{\mathrm{obs}}}
 \newcommand{\GaugeExact}{\mathfrak G_{\mu\nu}^{\mathrm{ex}}}
 \newcommand{\ConstraintExact}{\mathfrak C_{\mu\nu}^{\mathrm{ex}}}
-\newcommand{\RedefTensor}{\mathfrak R_{\mu\nu}^{\mathrm{red}}}
+\newcommand{\RedefMetric}{\widehat g}
 
 \newtheorem{definition}{Definition}
 \newtheorem{proposition}{Proposition}
@@ -67,34 +67,34 @@
 \maketitle
 
 \begin{abstract}
-The immediately preceding one-metric note proved the sharp exact theorem currently available from the fixed exact-preservation package: the displayed observer burden
+The immediately preceding one-metric note proved the sharp exact observer-side theorem currently in hand on the fixed exact-preservation branch: the displayed burden
 \[
 \ObsBurden
 =
 \ResidualDec+\CompMix+\CompQuad-8\pi G_N\,\DeltaTComp
 \]
-is exactly non-independent, so the completed observer theory is exactly observer-side effectively equivalent to Einstein--Hilbert plus ordinary matter through the same operative metric. That theorem still stopped short of the stricter target \(\ObsBurden=0\).
+does not survive as additional independent observer-side physics, so the completed branch is exactly observer-side effectively equivalent to Einstein--Hilbert plus ordinary matter through the same operative metric. That theorem still leaves one exact upgrade question open: can those same displayed sectors be absorbed exactly into the same Einstein--matter package, or does the branch presently stop at effective equivalence?
 
-The present note addresses only the remaining upgrade question. It asks whether exact non-independence by itself forces exact absorbability into the same Einstein--matter theory, either through gauge / constraint exact structure or through exact field-redefinition equivalence inside the same one-metric package. The answer is disciplined and two-part. First, the note proves the exact criterion for a successful upgrade: on the fixed package, strict observer-side closure follows if and only if the burden vanishes in the exact observer quotient, equivalently if and only if one has an exact identity placing \(\ObsBurden\) entirely inside already-extracted gauge / constraint exact structure or an exact same-package field-redefinition class that is trivial in that quotient. Second, the note proves that exact non-independence alone does not yield that identity. Therefore the currently recorded package does not yet justify strict observer-side closure, and the preceding effective-equivalence theorem is the strongest honest exact result available on this branch unless genuinely new identities or genuinely new structure are added.
+The present note attacks only that remaining question. It isolates two exact upgrade routes on the same one-metric branch. The first is direct absorbability: the already displayed burden must vanish in the exact observer quotient by the already-extracted gauge-exact and constraint-exact sectors. The second is an explicit same-package field-redefinition theorem: one must exhibit an exact invertible rewriting of the completed one-metric equation that removes the burden without introducing a second operative metric or a second matter law. The note proves that either route would upgrade the branch to strict same-package observer-side closure.
 
-This is a positive maximality theorem for the fixed package, not a universal no-go against every future extension. The note does not claim a completed first-principles substrate derivation of GR.
+It then records the current outcome of that attack. The displayed sectors are indeed exact re-expansion terms of the same Einstein--matter package and remain exactly non-independent, but the presently recorded fixed package still does not contain either a direct absorbability identity or an explicit same-package field-redefinition theorem. Therefore strict observer-side closure is not yet proved on the current branch. The exact observer-side effective-equivalence theorem remains the strongest observer-side result currently proved on this line. If a later note still cannot supply either upgrade route, then the next honest move will be a genuine necessity or maximality theorem; the present note does not yet claim that stronger no-go.
 \end{abstract}
 
 \section{Introduction}
 
-The present manuscript is the narrow follow-up forced by the previous exact non-independence / effective-equivalence note. That note already settled the exact observer-theory status of the displayed burden sectors at the level of independent physics: they do not survive as a second operative metric, a second matter law, a second observer equation, or an unsuppressed linear observer mode. The only remaining observer-side derivational bottleneck on the same one-metric line is therefore sharper and more specific:
+The previous note settled the sharpest exact theorem then available on the same one-metric charge-polarization branch. The displayed sectors inside \(\ObsBurden\) were shown not to survive as additional independent observer-side physics. That was a real gain. It removed the remaining burden sectors from the category of extra observer-side laws and left a much narrower open question:
 \begin{quote}
-does exact non-independence upgrade to exact absorbability into the same Einstein--matter theory, or is exact observer-side effective equivalence already the maximal theorem of the fixed package?
+can those same sectors now be absorbed exactly into the same Einstein--matter package, or is the branch presently limited to exact observer-side effective equivalence?
 \end{quote}
 
-This note answers exactly that question and nothing broader. It does not introduce a deeper origin layer, a modified completion solve, or a second operative metric. It keeps fixed the same candidate metric, the same completed metric, the same completion solve, and the same one-metric matter route, and asks what can honestly be concluded from those inputs alone.
+This note addresses only that question. It does not introduce a deeper origin layer, a new completion solve, or a second operative metric. It keeps fixed the same candidate metric, the same completed metric, the same completion solve, and the same ordinary matter route, and asks what exact upgrade statements those already recorded data do and do not yet support.
 
 \paragraph{Framework and claim boundary.}
 \TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
 
-The present note stays strictly inside that boundary. It does not claim that GR has now been derived from substrate microphysics. It does not claim the strict tensor identity \(\ObsBurden=0\). Its positive theorem is narrower: it isolates the exact identity that would be required for that upgrade and proves that, absent such an identity or genuinely new structure, the previous exact observer-side effective-equivalence theorem is already the maximal honest result of the fixed one-metric package.
+The present note stays strictly inside that boundary. It does not claim that GR has now been derived from substrate microphysics. It does not claim the strict tensor identity \(\ObsBurden=0\). Its positive role is narrower: it isolates the explicit exact upgrade routes that would close the remaining observer-side gap and states honestly that those routes are not yet supplied by the currently recorded fixed package.
 
-\section{Fixed Package and Exact Observer Quotient}
+\section{Fixed One-Metric Package}
 
 \begin{definition}[Fixed one-metric exact-preservation package]
 \label{def:fixed}
@@ -150,191 +150,181 @@ The present note keeps the following observer-level data fixed.
     \end{equation}
     is kept fixed.
     \item Gauge bookkeeping is already extracted explicitly in \eqref{eq:completed}, and the constraint-exact elimination sectors have already been removed before \(\ObsBurden\) is defined.
-    \item The previously established exact theorem on the same branch is that \(\ObsBurden\) is exactly non-independent and the completed branch is exactly observer-side effectively equivalent to Einstein--Hilbert plus ordinary matter.
+    \item The previously established observer-side theorem on the same branch is that \(\ResidualDec\), \(\CompMix\), \(\CompQuad\), and \(\DeltaTComp\) are exactly non-independent observer sectors and that the completed branch is exactly observer-side effectively equivalent to Einstein--Hilbert plus ordinary matter.
 \end{enumerate}
 \end{definition}
 
+\begin{remark}
+Definition \ref{def:fixed} is not a new package. It is only the exact observer-level package already recorded by the preceding note, restated here so the remaining upgrade question can be attacked directly on the same one-metric branch.
+\end{remark}
+
 \begin{definition}[Exact observer quotient]
 \label{def:quot}
-For the fixed package of Definition \ref{def:fixed}, the \emph{exact observer quotient} is the quotient of observer-side tensors by the already-recognized null classes:
+For the fixed package of Definition \ref{def:fixed}, the \emph{exact observer quotient} is the quotient of observer-side tensors by the already-extracted null classes:
 \begin{enumerate}
     \item gauge-exact bookkeeping tensors;
-    \item constraint-exact elimination tensors;
-    \item exact same-package field-redefinition tensors whose effect is only to rewrite the same one-metric Einstein--matter equation without changing the operative metric or matter law.
+    \item constraint-exact elimination tensors.
 \end{enumerate}
 The observer-quotient class of a tensor \(X_{\mu\nu}\) is denoted \(\ObserverClass{X_{\mu\nu}}\).
 \end{definition}
 
 \begin{remark}
-Definition \ref{def:quot} records the only exact null classes relevant to the present upgrade question. The current note does not enlarge them. In particular, exact non-independence by itself is \emph{not} added as a quotient relation; otherwise the previous theorem would trivialize the present problem by definition rather than by proof.
+Definition \ref{def:quot} uses only the null sectors already recognized on this branch before the present note begins. It does \emph{not} add exact non-independence or an unspecified field-redefinition class as new quotient relations.
 \end{remark}
 
-\begin{definition}[Exact absorbability on the fixed package]
-\label{def:absorb}
-The burden \(\ObsBurden\) is \emph{exactly absorbable} on the fixed package if its observer-quotient class vanishes:
+\section{Two Exact Upgrade Routes}
+
+\begin{definition}[Direct exact absorbability]
+\label{def:direct}
+The burden \(\ObsBurden\) is \emph{directly exactly absorbable} on the fixed package if
 \begin{equation}
 \ObserverClass{\ObsBurden}=0.
-\label{eq:quotvanish}
+\label{eq:obsvanish}
 \end{equation}
-Equivalently, \(\ObsBurden\) is exactly absorbable if there exist tensors \(\GaugeExact\), \(\ConstraintExact\), and \(\RedefTensor\) belonging respectively to the three null classes of Definition \ref{def:quot} such that
-\begin{equation}
-\ObsBurden=\GaugeExact+\ConstraintExact+\RedefTensor.
-\label{eq:absorbdecomp}
-\end{equation}
-\end{definition}
-
-\begin{remark}
-Definition \ref{def:absorb} is the precise upgrade target. It is weaker than demanding the literal tensor identity \(\ObsBurden=0\), but it is stronger than exact non-independence. It asks whether the burden is trivial in the only exact observer quotient already licensed by the fixed one-metric package.
-\end{remark}
-
-\section{What an Exact Upgrade Would Require}
-
-\begin{proposition}[Exact absorbability is equivalent to exact observer-quotient vanishing]
-\label{prop:equiv}
-On the fixed package, Definition \ref{def:absorb} is equivalent to either of the following statements:
-\begin{enumerate}
-    \item \(\ObserverClass{\ObsBurden}=0\);
-    \item there exists an exact identity of the form \eqref{eq:absorbdecomp}.
-\end{enumerate}
-\end{proposition}
-
-\begin{proof}
-This is immediate from the definition of a quotient: the class \(\ObserverClass{\ObsBurden}\) vanishes if and only if \(\ObsBurden\) differs from zero by an element of the subspace generated by the declared null classes. Definition \ref{def:quot} names those null classes explicitly, and Definition \ref{def:absorb} records their summed representative as \eqref{eq:absorbdecomp}.
-\end{proof}
-
-\begin{proposition}[Exact absorbability upgrades the completed observer equation]
-\label{prop:upgrade}
-If \(\ObsBurden\) is exactly absorbable on the fixed package, then the completed observer equation is exactly equivalent in the observer quotient to the same Einstein--matter equation carried by \(\CompletedMetric\):
-\begin{equation}
-\ObserverClass{G_{\mu\nu}[\CompletedMetric]-8\pi G_N\,T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]}=0.
-\label{eq:quotein}
-\end{equation}
-If, in addition, the field-redefinition class in Definition \ref{def:quot} is trivial on the fixed package, then exact absorbability reduces to the stronger criterion
+Equivalently, there exist already-extracted gauge-exact and constraint-exact tensors \(\GaugeExact\) and \(\ConstraintExact\) such that
 \begin{equation}
 \ObsBurden=\GaugeExact+\ConstraintExact.
-\label{eq:noredef}
+\label{eq:direct}
 \end{equation}
-\end{proposition}
-
-\begin{proof}
-Substitute \eqref{eq:absorbdecomp} into \eqref{eq:completed}. The right-hand side beyond the Einstein--matter term is then a sum of tensors whose observer-quotient class is zero by Definition \ref{def:quot}. Hence \eqref{eq:quotein} follows. If the same-package field-redefinition null class is trivial, then \(\RedefTensor=0\) in \eqref{eq:absorbdecomp}, leaving exactly \eqref{eq:noredef}.
-\end{proof}
-
-\begin{theorem}[Exact same-package closure criterion]
-\label{thm:criterion}
-On the fixed one-metric exact-preservation package, strict observer-side closure on the same Einstein--matter branch can be upgraded only by an exact identity proving that \(\ObsBurden\) is trivial in the exact observer quotient. Equivalently, one needs one of the following:
-\begin{enumerate}
-    \item an exact gauge / constraint absorption identity for \(\ObsBurden\);
-    \item an exact same-package field-redefinition theorem whose remainder class is trivial in the observer quotient;
-    \item the special stronger identity \(\ObsBurden=0\).
-\end{enumerate}
-Without one of these exact identities, the completed observer equation does not upgrade to strict same-package closure.
-\end{theorem}
-
-\begin{proof}
-Propositions \ref{prop:equiv} and \ref{prop:upgrade} show that exact absorbability is exactly equivalent to the vanishing of \(\ObserverClass{\ObsBurden}\), and that this vanishing is what upgrades the completed equation to exact Einstein--matter form in the observer quotient. The special case \(\ObsBurden=0\) obviously implies quotient vanishing. Conversely, if none of the three listed exact identities is available, then \(\ObserverClass{\ObsBurden}\) has not been shown to vanish, so the upgrade has not been proved.
-\end{proof}
-
-\section{Why Exact Non-Independence Alone Does Not Force the Upgrade}
-
-\begin{definition}[Exact non-independence, recalled]
-\label{def:nonind}
-On the fixed package, a tensor sector is \emph{exactly non-independent} if it is an exact functional only of already fixed branch data, introduces no second operative metric, no second matter law, no extra observer equation, and no independent unsuppressed linear observer mode.
 \end{definition}
 
-\begin{remark}
-Definition \ref{def:nonind} is recalled only to separate the previous theorem from the present stronger upgrade target. Exact non-independence is a statement about independent observer-side content. Exact absorbability is a statement about triviality in the exact observer quotient.
-\end{remark}
-
-\begin{proposition}[Exact non-independence does not imply observer-quotient triviality]
-\label{prop:notenough}
-On the fixed package, the statement that \(\ObsBurden\) is exactly non-independent does not by itself imply \(\ObserverClass{\ObsBurden}=0\).
-\end{proposition}
-
-\begin{proof}
-The hypotheses are logically different. Exact non-independence constrains how \(\ObsBurden\) depends on branch data and what new observer-side content it fails to introduce. It does not state that \(\ObsBurden\) is gauge exact, constraint exact, or an exact same-package field-redefinition tensor. Therefore exact non-independence alone does not place \(\ObsBurden\) in any of the null classes of Definition \ref{def:quot}. Since quotient triviality requires exactly that membership, the implication does not follow.
-\end{proof}
-
-\begin{proposition}[Re-expansion origin is not yet an exact cancellation identity]
-\label{prop:reexp}
-Treating \(\ResidualDec\), \(\CompMix\), \(\CompQuad\), and \(\DeltaTComp\) as exact re-expansion sectors of the same Einstein--matter package does not by itself prove
+\begin{proposition}[Direct absorbability upgrades the completed observer equation]
+\label{prop:direct}
+If \(\ObsBurden\) is directly exactly absorbable in the sense of Definition \ref{def:direct}, then the completed observer equation closes in the exact observer quotient onto the same Einstein--matter package carried by \(\CompletedMetric\):
 \begin{equation}
-\ResidualDec+\CompMix+\CompQuad-8\pi G_N\,\DeltaTComp=0
-\label{eq:reexpzero}
+\ObserverClass{G_{\mu\nu}[\CompletedMetric]-8\pi G_N\,T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]}=0.
+\label{eq:quotclose}
 \end{equation}
-or any weaker identity implying \(\ObserverClass{\ObsBurden}=0\).
 \end{proposition}
 
 \begin{proof}
-The fixed package records only that the displayed sectors are exact functionals of the same branch data and the same one-metric matter route. That information explains why the sectors are not new independent observer-side laws, but it does not yet supply a tensor identity relating their sum to an already-extracted gauge / constraint exact tensor or to a trivial same-package field-redefinition class. In particular, the decomposition \eqref{eq:burden} is an exact bookkeeping identity for the completed equation, not already an exact cancellation identity. Therefore the mere fact that the sectors arise from one common Einstein--matter package does not prove \eqref{eq:reexpzero} or quotient triviality.
+Insert \eqref{eq:direct} into \eqref{eq:completed}. The terms beyond the Einstein--matter sector are then precisely gauge-exact and constraint-exact tensors, so they vanish in the quotient of Definition \ref{def:quot}. This gives \eqref{eq:quotclose}.
 \end{proof}
 
-\begin{theorem}[Fixed-package maximality theorem]
-\label{thm:max}
-Within the fixed one-metric exact-preservation package of Definition \ref{def:fixed}, exact observer-side effective equivalence is the strongest honest exact theorem currently justified. A stronger strict same-package closure theorem would require genuinely new input, namely at least one of:
+\begin{definition}[Explicit same-package field-redefinition upgrade]
+\label{def:redef}
+An \emph{explicit same-package field-redefinition upgrade} on the fixed package means an explicit theorem exhibiting an exact invertible rewriting of the completed one-metric equation in terms of a rewritten metric variable \(\RedefMetric_{\mu\nu}\) such that:
 \begin{enumerate}
-    \item a new exact cancellation identity among \(\ResidualDec\), \(\CompMix\), \(\CompQuad\), and \(\DeltaTComp\);
-    \item a new proof that their sum is already gauge exact or constraint exact in the completed observer quotient;
-    \item a new exact same-package field-redefinition theorem making the burden quotient-trivial.
+    \item \(\RedefMetric_{\mu\nu}\) is determined only by the already fixed branch data and introduces no second operative metric and no second matter law;
+    \item the rewritten observer equation is exactly Einstein--Hilbert plus ordinary matter through that same rewritten one-metric route, up to the already-extracted gauge-exact and constraint-exact sectors.
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}[An explicit same-package field-redefinition theorem upgrades closure]
+\label{prop:redef}
+If an explicit same-package field-redefinition upgrade in the sense of Definition \ref{def:redef} is established on the fixed package, then the completed branch is exactly equivalent to Einstein--Hilbert plus ordinary matter through that rewritten one-metric description.
+\end{proposition}
+
+\begin{proof}
+This is immediate from the definition of the upgrade route: the field redefinition is assumed to be exact, invertible, and to preserve the one-metric Einstein--matter package up to the already-extracted null sectors. Therefore the rewritten observer equation is exactly Einsteinian in that precise same-package sense.
+\end{proof}
+
+\begin{theorem}[Exact upgrade criterion on the fixed branch]
+\label{thm:criterion}
+On the fixed one-metric exact-preservation branch, strict observer-side closure beyond the already-proved effective-equivalence theorem will be established if either of the following exact upgrade routes is proved:
+\begin{enumerate}
+    \item direct exact absorbability of \(\ObsBurden\) in the sense of Definition \ref{def:direct};
+    \item an explicit same-package field-redefinition upgrade in the sense of Definition \ref{def:redef}.
 \end{enumerate}
 \end{theorem}
 
 \begin{proof}
-The previous note establishes exact non-independence and observer-side effective equivalence on the fixed package. Proposition \ref{prop:notenough} shows that exact non-independence alone does not imply quotient triviality. Proposition \ref{prop:reexp} shows that common re-expansion origin alone does not supply the missing cancellation identity. Theorem \ref{thm:criterion} identifies quotient triviality as the necessary and sufficient upgrade target. Therefore, absent one of the new inputs listed above, the fixed package does not justify a theorem stronger than the existing effective-equivalence result.
+Item (1) is Proposition \ref{prop:direct}. Item (2) is Proposition \ref{prop:redef}.
 \end{proof}
 
-\begin{corollary}[No strict observer-side closure theorem from the recorded package alone]
-\label{cor:noclosure}
-At current manuscript scope, the recorded fixed package does not yet prove the strict observer-side closure theorem
-\[
-G_{\mu\nu}[\CompletedMetric]
-=
-8\pi G_N\,T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
-\]
-even modulo the exact observer quotient.
+\begin{remark}
+Theorem \ref{thm:criterion} is deliberately conditional. It isolates the two exact upgrade routes that the branch now needs; it does not claim that one of them has already been proved.
+\end{remark}
+
+\section{What the Fixed Package Already Gives}
+
+\begin{proposition}[The displayed sectors are exact re-expansions of the same Einstein--matter package]
+\label{prop:reexp}
+On the fixed branch of Definition \ref{def:fixed}:
+\begin{enumerate}
+    \item \(\ResidualDec\) is the inherited candidate-branch re-expansion sector recorded in \eqref{eq:resdec};
+    \item \(\CompMix\) and \(\CompQuad\) are completion-generated Einstein re-expansion sectors built from the same one-metric completion package;
+    \item \(\DeltaTComp\) is the same-metric matter re-expansion recorded in \eqref{eq:deltatcomp}.
+\end{enumerate}
+Consequently every displayed term in \(\ObsBurden\) belongs to the same one-metric Einstein--matter package already fixed on the branch.
+\end{proposition}
+
+\begin{proof}
+Item (1) is exactly the inherited decomposition \eqref{eq:resdec}. Items (2) and (3) are already part of the fixed-package description recorded in Definition \ref{def:fixed} and in the preceding exact non-independence / effective-equivalence note. Therefore all displayed sectors are exact re-expansion sectors of one common Einstein--matter package rather than extra independent observer-side laws.
+\end{proof}
+
+\begin{corollary}[Remaining exact observer-side question]
+\label{cor:question}
+Because the gauge-exact and constraint-exact sectors are already extracted and because the displayed burden sectors are already known to be exactly non-independent re-expansion sectors of the same Einstein--matter package, the remaining exact observer-side question on this branch is now narrow:
+\begin{quote}
+does one have a new exact identity of the direct absorbability type \eqref{eq:direct}, or a new explicit same-package field-redefinition theorem of the type isolated in Definition \ref{def:redef}?
+\end{quote}
 \end{corollary}
 
 \begin{proof}
-By Theorem \ref{thm:criterion}, such a theorem would require the vanishing of \(\ObserverClass{\ObsBurden}\). By Theorem \ref{thm:max}, that vanishing has not been justified from the recorded package alone.
+Definition \ref{def:fixed} records the already-extracted null sectors. Proposition \ref{prop:reexp} records the common same-package origin of the displayed sectors. The preceding note records their exact non-independence. Once those facts are fixed, the only remaining exact upgrade burden is whether one of the two routes of Theorem \ref{thm:criterion} can now be proved.
 \end{proof}
+
+\section{Current Recorded Status}
+
+\begin{proposition}[Current upgrade status on the recorded branch]
+\label{prop:status}
+At current manuscript scope, the recorded fixed package does \emph{not yet} contain:
+\begin{enumerate}
+    \item a proved direct absorbability identity \(\ObserverClass{\ObsBurden}=0\);
+    \item a proved explicit same-package field-redefinition upgrade theorem.
+\end{enumerate}
+Therefore strict observer-side closure is not yet proved on the current branch.
+\end{proposition}
+
+\begin{proof}
+Definition \ref{def:fixed} records the presently invoked exact identities and observer-side theorems from the same one-metric branch. Those recorded results establish exact non-independence and observer-side effective equivalence, but they do not supply \eqref{eq:obsvanish}. Nor do they display an explicit invertible rewritten metric variable \(\RedefMetric_{\mu\nu}\) together with a proved Einstein--matter reduction theorem of the type isolated in Definition \ref{def:redef}. Therefore neither exact upgrade route of Theorem \ref{thm:criterion} is yet established, and strict observer-side closure remains unproved at current scope.
+\end{proof}
+
+\begin{corollary}[Current strongest proved observer-side result]
+\label{cor:strongest}
+On the present one-metric branch, the exact observer-side effective-equivalence theorem of the preceding note remains the strongest observer-side result currently proved.
+\end{corollary}
+
+\begin{proof}
+The preceding note proves exact observer-side effective equivalence. Proposition \ref{prop:status} shows that the stronger upgrade routes isolated in Theorem \ref{thm:criterion} are not yet established on the recorded branch. Therefore the effective-equivalence theorem remains the strongest observer-side theorem currently proved.
+\end{proof}
+
+\begin{remark}
+Corollary \ref{cor:strongest} is a current-status statement, not a universal no-go. The present note does not claim that no future argument from deeper or sharper structure could supply one of the missing upgrade routes.
+\end{remark}
 
 \section{Project-Level Verdict on the Next Move}
 
-\begin{theorem}[Exact upgrade-or-maximality verdict]
+\begin{theorem}[Exact next-step verdict]
 \label{thm:verdict}
-For the one-metric charge-polarization branch at current scope, the next honest primary move is exactly the following alternative:
+For the one-metric charge-polarization branch at current scope, the next honest primary move is to prove one of the two exact upgrade routes isolated in Theorem \ref{thm:criterion}. More precisely:
 \begin{enumerate}
-    \item either prove an exact identity that makes \(\ObsBurden\) trivial in the exact observer quotient, thereby upgrading observer-side effective equivalence to strict same-package closure;
-    \item or record the maximality verdict of Theorem \ref{thm:max}, namely that the fixed package already yields the strongest honest exact observer-side theorem available without new identities or new structure.
+    \item either prove a direct absorbability identity making \(\ObserverClass{\ObsBurden}=0\);
+    \item or prove an explicit same-package field-redefinition theorem eliminating the remaining burden.
 \end{enumerate}
-Another deeper-origin manuscript that leaves the exact observer equation unchanged does not answer this remaining upgrade question.
+A deeper-origin manuscript can count as primary on this question only if it contributes one of those exact upgrade ingredients. Merely preserving the same completed observer equation is not by itself sufficient.
 \end{theorem}
 
 \begin{proof}
-The first item is exactly Theorem \ref{thm:criterion}. The second item is exactly Theorem \ref{thm:max}. Since the present obstruction is now the observer-quotient status of \(\ObsBurden\), a further deeper-origin note that preserves the same completed observer equation and the same fixed package would be observer-equation neutral with respect to this bottleneck.
+Theorem \ref{thm:criterion} identifies the exact upgrade routes. Proposition \ref{prop:status} shows that neither route is yet established. Therefore the next honest primary burden is to supply one of them. A deeper-origin note that leaves the same completed observer equation unchanged may still be useful, but it resolves the present bottleneck only if it delivers one of those missing exact identities or theorems.
 \end{proof}
 
-\begin{corollary}[Claim boundary]
-\label{cor:boundary}
-The present note does not prove:
-\begin{enumerate}
-    \item the strict tensor identity \(\ObsBurden=0\);
-    \item a completed exact field-redefinition equivalence theorem eliminating \(\ObsBurden\);
-    \item a completed first-principles substrate derivation of GR.
-\end{enumerate}
-Its positive claim is narrower and exact: the previous effective-equivalence theorem is maximal for the recorded fixed package unless new identities or new structure are added.
+\begin{corollary}[Where a genuine maximality or no-go theorem would belong]
+\label{cor:max}
+If later work still cannot establish either exact upgrade route on the fixed one-metric branch, then the next honest step will be a separate genuine necessity, maximality, or no-go theorem. The present note does not yet claim that stronger verdict.
 \end{corollary}
 
 \begin{proof}
-Items (1) and (2) are excluded by Theorems \ref{thm:criterion} and \ref{thm:max}. Item (3) is excluded by the project-wide adoption / derivation boundary stated in the introduction.
+This follows from Theorem \ref{thm:verdict} together with the current-status nature of Proposition \ref{prop:status} and Corollary \ref{cor:strongest}. The present note isolates the missing upgrade routes and records that they remain open; a later impossibility theorem would require additional argument beyond that current-status result.
 \end{proof}
 
 \section{Conclusion}
 
-The remaining derivational bottleneck on the same one-metric branch is now extremely narrow. The previous note already proved that the displayed burden sectors do not survive as additional independent observer-side physics. The question left open was whether that exact non-independence automatically upgrades to exact absorbability inside the same Einstein--matter package.
+The exact observer-side gap left by the preceding effective-equivalence note is now sharply isolated. The displayed burden sectors are already known not to survive as additional independent observer-side physics, and they are already known to be exact re-expansion sectors of the same one-metric Einstein--matter package. The only exact question that remains on this branch is whether those sectors can now be removed by a new direct absorbability identity or by an explicit same-package field-redefinition theorem.
 
-The present note shows that the answer is not automatic. The successful upgrade criterion is exact observer-quotient triviality of \(\ObsBurden\): one must prove an exact gauge / constraint absorption identity, an exact same-package field-redefinition theorem with trivial quotient class, or the special stronger identity \(\ObsBurden=0\). Exact non-independence alone does not provide that result, and the fact that the displayed sectors arise as re-expansion terms of the same Einstein--matter package does not by itself yield the missing cancellation identity.
+The present note proves that either of those routes would upgrade the branch to strict observer-side closure, but it also records honestly that neither route is yet established by the currently recorded fixed package. Therefore strict observer-side closure is still open. The strongest observer-side theorem currently proved on this line remains the exact effective-equivalence theorem of the preceding note.
 
-Therefore the current one-metric exact-preservation package has reached a clean maximality point. Its strongest honest exact observer-side result is the already-recorded exact effective-equivalence theorem, not strict same-package closure. The next honest burden is correspondingly sharp: either find the exact identity that kills \(\ObserverClass{\ObsBurden}\), or stop pressing this branch for more than it currently contains and treat the effective-equivalence theorem as maximal unless genuinely new identities or genuinely new structure are added.
+This is enough to make the next project-aligned move explicit. The next primary manuscript should not drift into deeper origin work merely because deeper origin material exists. It should prove a direct absorbability identity, prove an explicit same-package field-redefinition theorem, or else, if that cannot be done in later work, motivate a separate genuine maximality or no-go theorem. That is the narrow exact burden still standing between observer-side effective equivalence and literal Einstein closure on the present one-metric branch.
 
 \end{document}
