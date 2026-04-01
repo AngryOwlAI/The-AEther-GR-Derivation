@@ -638,6 +638,30 @@ Theorem \ref{thm:direct} requires two inputs: branch locking and a direct absorb
 Theorem \ref{thm:locking}, Theorem \ref{thm:direct}, and Proposition \ref{prop:direct_burden} identify the precise remaining theorem burden on the direct route. It is not enough to deepen the origin of the current maps or the ambient Hessians while reproducing the same quadratic package. The branch-locking part is now in hand. What remains is the actual factorization \eqref{eq:direct_bridge} of the observer burden through the exact nonlinear continuity and equilibrium defects.
 \end{remark}
 
+\begin{theorem}[Current verdict on the branch-locked direct route]
+\label{thm:direct_open}
+On the current recorded branch-locked continuity-Hessian package, Theorem \ref{thm:locking} does not by itself establish the direct-route factorization identity \eqref{eq:direct_bridge}. Equivalently, the present sharpened package does not yet prove
+\[
+\ObserverClass{\ObsBurden}=0
+\]
+without an additional observer-side theorem linking the displayed burden sectors to the exact current and equilibrium defects modulo the already-extracted null classes.
+\end{theorem}
+
+\begin{proof}
+Definition \ref{def:sharp} and Proposition \ref{prop:quadratic} show that the sharpened continuity-Hessian package preserves the same fixed observer equation \eqref{eq:completed} and the same burden definition \eqref{eq:burden} while only adding the exact nonlinear defect data of Definition \ref{def:defects}. Theorem \ref{thm:locking} adds that those exact defects vanish on the active completed branch. But Theorem \ref{thm:direct} still requires the separate bridge identity \eqref{eq:direct_bridge}; branch locking only kills the defect terms once such an observer-side identity has already been obtained.
+
+The fixed-package direct absorbability test recorded earlier already showed that the preserved observer equation \eqref{eq:completed} does not by itself imply \(\ObserverClass{\ObsBurden}=0\). Therefore the sharpened package has removed the branch-matching burden but has not yet removed the observer-side factorization burden. What is still missing on the direct route is exactly an observer-side theorem expressing \(\ObsBurden\) through the six exact defects of Definition \ref{def:defects} modulo the already-extracted gauge-exact and constraint-exact sectors.
+\end{proof}
+
+\begin{corollary}[Concrete direct-route theorem burden]
+\label{cor:direct_concrete}
+After Theorems \ref{thm:locking} and \ref{thm:direct_open}, the remaining direct-route task is not another deeper-origin recovery of the same quadratic package. It is the construction of observer-side readouts from the six exact defects of Definition \ref{def:defects} that reproduce the four displayed sectors \(\ResidualDec\), \(\CompMix\), \(\CompQuad\), and \(\DeltaTComp\) in the combination \eqref{eq:burden}, modulo the already-extracted gauge-exact and constraint-exact classes.
+\end{corollary}
+
+\begin{proof}
+Equation \eqref{eq:burden} identifies the only live displayed observer-side sectors. Theorem \ref{thm:direct_open} shows that their exact defect factorization is the one missing direct-route ingredient after branch locking. Any deeper-origin note that leaves \eqref{eq:completed} and \eqref{eq:burden} unchanged without supplying those observer-side readouts therefore leaves the direct route unclosed.
+\end{proof}
+
 \section{Same-Package Field-Redefinition Bridge Theorem}
 
 \begin{definition}[Same-package field-redefinition bridge datum]
@@ -781,7 +805,7 @@ A manuscript that stops short of those results remains theorem-building support 
 \end{corollary}
 
 \begin{proof}
-Proposition \ref{prop:direct_burden} identifies the remaining direct-route burden on the active completed branch after Theorem \ref{thm:locking}, and Theorem \ref{thm:redef} identifies the full rewritten-metric route. Corollary \ref{cor:promotion} already states that merely reproducing the quadratic truncation or preserving the same downstream package is not enough for primary status. Therefore the next primary manuscript is honestly in hand only once one of the two theorem routes listed above has actually been completed.
+Proposition \ref{prop:direct_burden}, Theorem \ref{thm:direct_open}, and Corollary \ref{cor:direct_concrete} identify the remaining direct-route burden on the active completed branch after Theorem \ref{thm:locking}, and Theorem \ref{thm:redef} identifies the full rewritten-metric route. Corollary \ref{cor:promotion} already states that merely reproducing the quadratic truncation or preserving the same downstream package is not enough for primary status. Therefore the next primary manuscript is honestly in hand only once one of the two theorem routes listed above has actually been completed.
 \end{proof}
 
 \begin{corollary}[Most concrete immediate subtask after branch locking]
@@ -790,7 +814,7 @@ After Theorem \ref{thm:locking}, the most concrete immediate front-line task on 
 \end{corollary}
 
 \begin{proof}
-Theorem \ref{thm:locking} removes the first direct-route burden. Proposition \ref{prop:direct_burden} therefore shows that the next remaining direct-route task is exactly the factorization theorem \eqref{eq:direct_bridge}. The only other admissible front-line route identified in the present note is the rewritten-metric route of Definition \ref{def:redef_bridge}.
+Theorem \ref{thm:locking} removes the branch-matching burden, while Theorem \ref{thm:direct_open} and Corollary \ref{cor:direct_concrete} identify the remaining direct-route task as exactly the factorization theorem \eqref{eq:direct_bridge}. The only other admissible front-line route identified in the present note is the rewritten-metric route of Definition \ref{def:redef_bridge}.
 \end{proof}
 
 \section{Conclusion}
@@ -823,7 +847,7 @@ The resulting sharpened functional \(\SharpFunctional\) has the recorded functio
 
 The first direct-route theorem is now in hand. The preserved exact-preserving branch is already an exact sharpened branch, so the minimal nonlinear sharpening is branch-locked onto the active completed observer branch. That is a real theorem gain: the sharpened defect package is now known to live on the actual observer-side branch rather than on an unrelated auxiliary branch.
 
-The remaining theorem burden is therefore sharper than before. On the direct route, one must now factor the observer burden \(\ObsBurden\) through those exact defects modulo the already-extracted gauge-exact and constraint-exact sectors. On the rewritten-metric route, one must construct an explicit invertible same-package metric variable \(\RedefMetric\) from the same defects and prove the exact rewriting identity \eqref{eq:redef_bridge}. Until one of those two bridge theorems is actually completed, a deeper-origin continuation that merely preserves the same quadratic package remains side work rather than the next primary paper.
+The remaining theorem burden is therefore sharper than before. Theorem \ref{thm:direct_open} shows that branch locking alone still does not close the direct route, and Corollary \ref{cor:direct_concrete} identifies the exact missing ingredient: one must now factor the observer burden \(\ObsBurden\) through those exact defects modulo the already-extracted gauge-exact and constraint-exact sectors by constructing the needed observer-side readouts of the four displayed sectors in \eqref{eq:burden}. On the rewritten-metric route, one must instead construct an explicit invertible same-package metric variable \(\RedefMetric\) from the same defects and prove the exact rewriting identity \eqref{eq:redef_bridge}. Until one of those two bridge theorems is actually completed, a deeper-origin continuation that merely preserves the same quadratic package remains side work rather than the next primary paper.
 
 That is the honest current conclusion. The next primary move is theorem-building on the same sharpened package, and the most concrete immediate subtask is now explicit: derive the direct-route factorization theorem \eqref{eq:direct_bridge}. Only if that route does not close should the rewritten-metric bridge theorem be the next front-line attempt. In either case, the next primary manuscript should be written only once one of those full bridge theorems is actually in hand.
 
