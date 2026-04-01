@@ -1,0 +1,881 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+
+\newcommand{\CompletedMetric}{g^{\sharp}}
+
+\newcommand{\Car}{\mathrm{car}}
+\newcommand{\Cur}{\mathrm{cur}}
+\newcommand{\Hom}{\mathrm{hom}}
+
+\newcommand{\ForSpace}[1]{\mathcal I_{#1}^{\mathrm{for}}}
+\newcommand{\PrimShell}{\mathcal S_{\mathrm{prim}}}
+
+\newcommand{\Reduction}[1]{\mathcal R_{#1}}
+\newcommand{\CurrentCarrier}[1]{\mathfrak C_{#1}^{\mathrm{cur}}}
+\newcommand{\EqCarrier}[1]{\mathfrak C_{#1}^{\mathrm{eq}}}
+\newcommand{\CurrentExtract}[1]{\mathscr E_{#1}^{\mathrm{cur}}}
+\newcommand{\EqExtract}[1]{\mathscr E_{#1}^{\mathrm{eq}}}
+\newcommand{\PrimCurrent}[1]{\mathcal J_{#1}^{\mathrm{prim}}}
+\newcommand{\PrimTheta}[1]{\Theta_{#1}^{\mathrm{prim}}}
+
+\newcommand{\MetricOut}{\mathscr G_{\mathrm{out}}}
+\newcommand{\MatterOut}{\mathscr T_{\mathrm{out}}}
+\newcommand{\DeepMetricOut}{\mathscr G_{\mathrm{deep}}}
+\newcommand{\DeepMatterOut}{\mathscr T_{\mathrm{deep}}}
+
+\newcommand{\CoordSpace}[1]{Q_{#1}}
+\newcommand{\CoordBody}[1]{K_{#1}}
+\newcommand{\NormalSpace}[1]{N_{#1}}
+\newcommand{\NormalBody}[1]{B_{#1}}
+\newcommand{\VisibleAffine}[1]{\widehat X_{#1}}
+\newcommand{\AffineData}[1]{\widehat{\mathcal D}_{#1}}
+\newcommand{\ConstraintMap}[1]{C_{#1}}
+\newcommand{\ConstraintValue}[1]{c_{#1}}
+\newcommand{\NormalOperator}[1]{H_{#1}}
+\newcommand{\SymGroup}[1]{G_{#1}}
+\newcommand{\TimeRev}[1]{\tau_{#1}}
+\newcommand{\ShellChart}[1]{\chi_{#1}}
+\newcommand{\StationaryFunctional}[1]{\mathscr A_{#1}}
+
+\newcommand{\DeepSpace}[1]{\mathcal U_{#1}}
+\newcommand{\VisibleMap}[1]{\mathcal V_{#1}}
+\newcommand{\DeepCurrentCarrier}[1]{\mathfrak C_{#1}^{\mathrm{deep,cur}}}
+\newcommand{\DeepEqCarrier}[1]{\mathfrak C_{#1}^{\mathrm{deep,eq}}}
+\newcommand{\ChainSelect}[1]{\mathcal S_{#1}}
+\newcommand{\DeepShell}{\mathcal U_{\mathrm{tot}}}
+\newcommand{\ChainSelectTriple}{\mathcal S_{\mathrm{tot}}}
+
+\newcommand{\AmbientSpace}[1]{\mathcal A_{#1}}
+\newcommand{\AmbientBody}[1]{P_{#1}}
+\newcommand{\AmbientRead}[1]{\Omega_{#1}}
+\newcommand{\AmbientShellLaw}[1]{\Gamma_{#1}}
+\newcommand{\AmbientValue}[1]{\gamma_{#1}}
+\newcommand{\AmbientSym}[1]{\mathbb G_{#1}}
+\newcommand{\AmbientTime}[1]{\vartheta_{#1}}
+\newcommand{\ShellAffine}[1]{\mathcal A_{#1}^{\mathrm{sh}}}
+\newcommand{\ShellVector}[1]{V_{#1}^{\mathrm{sh}}}
+\newcommand{\HiddenSpace}[1]{N_{#1}^{\mathrm{hid}}}
+\newcommand{\HiddenBody}[1]{B_{#1}^{\mathrm{hid}}}
+\newcommand{\HiddenOperator}[1]{K_{#1}^{\mathrm{hid}}}
+\newcommand{\ShellProj}[1]{\Pi_{#1}^{\mathrm{sh}}}
+\newcommand{\HiddenProj}[1]{\Pi_{#1}^{\mathrm{hid}}}
+\newcommand{\AmbientEmbed}[1]{\eta_{#1}}
+\newcommand{\AmbientRef}[1]{a_{#1}^{0}}
+\newcommand{\AmbientTarget}[1]{E_{#1}^{\mathrm{amb}}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Primitive-Reservoir Observer-Reduction\\
+\large Primitive Reversible Constrained Dynamics\\
+\large Necessity / Uniqueness from Ambient Shell Law}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The current deepest benchmark-facing note on the active primitive-reservoir observer-reduction line already sharpened the remaining burden once: the explicit substrate equation / symmetry / constraint package is no longer primitive there, because it is derived canonically from a primitive reversible constrained dynamics normal form and is unique within that class up to package-faithful equivalence. The present note goes one honest layer deeper again. The remaining task is no longer to justify the explicit package, but to justify why that primitive dynamics normal form itself is the forced one.
+
+The new theorem does exactly that inside a still more primitive ambient substrate-law class. For each sector it introduces a compact convex ambient state body, an affine observer-data readout, an affine shell law, an invariant shell affine plane, a positively gapped hidden sector orthogonal to that shell plane, symmetry and time-reversal actions preserving the full ambient package, an exact primitive-shell realization inside the shell-law slice, a body-splitting property over shell and hidden directions, shell solvability on fixed data fibers, and coercive shell-law control on data-invisible shell directions. From that ambient package one derives canonically the shell-coordinate body, the off-shell body, the affine shell-data readout, the constraint map/value, the positive off-shell operator, the induced symmetry and time-reversal structure, the shell solvability condition, and the data-kernel coercivity inequality.
+
+The theorem is stronger than another deeper existence relay. On this ambient shell-law line, each constituent of the primitive reversible constrained dynamics normal form is necessary: the shell-coordinate space is the translation space of the ambient shell plane, the shell-coordinate body is the translated shell-plane slice of the ambient body, the off-shell space is the hidden orthogonal complement, the off-shell body is its ambient projection, the shell-data readout and constraint map/value are the ambient restrictions written in shell coordinates, and the positive operator is the hidden-sector gap operator itself. Thus the current primitive dynamics normal form is unique there up to the forced coordinate identifications. The downstream consequence stays benchmark-faithful: the unique selector defined by that normal form still pulls back exactly the same one operative metric \(\CompletedMetric\) and exactly the same ordinary-matter route through that metric, with no second operative metric and no enlarged low-energy matter law. This remains a disciplined derivational gain rather than a completed final microphysical derivation of GR.
+\end{abstract}
+
+\section{Introduction}
+
+The active derivational program of \TheoryName{} has now reached a narrower and more exact upstream burden than before. The primitive observer-reduction datum line, the defect-fiber factorization theorem, the one-metric output theorem, the chain-forcing theorem, the selector-existence theorem, the stationary-construction theorem, and the later explicit-package necessity / uniqueness note have already done the work that was honestly available at those respective layers. The latest of those results is especially important because it changes what counts as primary progress. Once the explicit substrate equation / symmetry / constraint package is itself derived canonically from a primitive reversible constrained dynamics normal form and proved unique within that class, another note that merely reproduces that same normal form would no longer count as the front-line move.
+
+The remaining honest burden is deeper and more specific. The open task is now to show why the primitive reversible constrained dynamics normal form itself should be forced on the active line rather than becoming the new disciplined stopping point. That is the burden addressed here.
+
+The present note does not reopen the fixed benchmark package. It does not alter the one operative completed metric, it does not introduce a second matter route, and it does not enlarge the low-energy matter law. Its positive move is narrower and upstream. It introduces a still more primitive ambient shell-law substrate package with a positively gapped hidden sector and proves that the current primitive reversible constrained dynamics normal form is the canonical and necessary reduction of that package on the active primitive-observer-reduction line.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not claim that final substrate microphysics has already been found. Its narrower theorem is only that, on the active primitive-observer-reduction line, the primitive reversible constrained dynamics normal form is itself a forced reduction of a deeper ambient shell-law package with hidden-sector gap, and is unique there up to the coordinate identifications forced by that ambient law.
+
+\section{Fixed Primitive Continuation Data}
+
+\begin{definition}[Recorded primitive continuation data]
+\label{def:fixed}
+Fix the following continuation data from the active primitive-reservoir observer-reduction line.
+\begin{enumerate}
+    \item For each sector label \(\sigma\in\{\Car,\Cur,\Hom\}\), a primitive forcing shell
+    \[
+    \ForSpace{\sigma},
+    \]
+    a visible reduction map
+    \[
+    \Reduction{\sigma}:\ForSpace{\sigma}\to X_{\sigma},
+    \]
+    and shell-level current and equilibrium carriers
+    \[
+    \CurrentCarrier{\sigma}:\ForSpace{\sigma}\to Z_{\sigma}^{\mathrm{cur}},
+    \qquad
+    \EqCarrier{\sigma}:\ForSpace{\sigma}\to Z_{\sigma}^{\mathrm{eq}}.
+    \]
+    \item The product shell
+    \[
+    \PrimShell
+    \equiv
+    \ForSpace{\Car}\times \ForSpace{\Cur}\times \ForSpace{\Hom}.
+    \]
+    \item Fixed shell extractors
+    \[
+    \CurrentExtract{\sigma}:Z_{\sigma}^{\mathrm{cur}}\to Y_{\sigma}^{\mathrm{cur}},
+    \qquad
+    \EqExtract{\sigma}:Z_{\sigma}^{\mathrm{eq}}\to Y_{\sigma}^{\mathrm{eq}},
+    \]
+    together with the recorded shell composites
+    \begin{equation}
+    \PrimCurrent{\sigma}
+    =
+    \CurrentExtract{\sigma}\circ \CurrentCarrier{\sigma},
+    \qquad
+    \PrimTheta{\sigma}
+    =
+    \EqExtract{\sigma}\circ \EqCarrier{\sigma}.
+    \label{eq:primcomposites}
+    \end{equation}
+    \item The recorded metric and ordinary-matter outputs
+    \[
+    \MetricOut:\PrimShell\to\{\text{observer metrics}\},
+    \qquad
+    \MatterOut:\PrimShell\times\Psi\to\{\text{observer stress tensors}\},
+    \]
+    satisfying
+    \begin{equation}
+    \MetricOut(\mathbf w)=\CompletedMetric,
+    \qquad
+    \MatterOut(\mathbf w,\psi)
+    =
+    T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
+    \label{eq:fixedoutputs}
+    \end{equation}
+    for every \(\mathbf w\in\PrimShell\) and every matter configuration \(\psi\in\Psi\).
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:fixed} is not reopened here. The primitive shell data and the benchmark one-metric / ordinary-matter outputs remain fixed continuation data. The new burden begins one layer deeper again: why the primitive reversible constrained dynamics normal form that previously discharged the explicit-package burden should itself be forced.
+\end{remark}
+
+\section{Target Normal Form}
+
+\begin{definition}[Primitive reversible constrained dynamics normal form]
+\label{def:normalform}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). A \emph{primitive reversible constrained dynamics normal form} for sector \(\sigma\) consists of the following data.
+\begin{enumerate}
+    \item Finite-dimensional Euclidean spaces
+    \[
+    \CoordSpace{\sigma},
+    \qquad
+    \NormalSpace{\sigma},
+    \qquad
+    \VisibleAffine{\sigma},
+    \qquad
+    \AmbientTarget{\sigma},
+    \]
+    together with compact convex bodies
+    \[
+    \CoordBody{\sigma}\subset\CoordSpace{\sigma},
+    \qquad
+    \NormalBody{\sigma}\subset\NormalSpace{\sigma},
+    \]
+    each with nonempty interior, and with \(0\in\operatorname{int}\NormalBody{\sigma}\).
+    \item A smooth embedding
+    \[
+    \jmath_{\sigma}:X_{\sigma}\hookrightarrow \VisibleAffine{\sigma}.
+    \]
+    \item An affine shell-data readout
+    \[
+    \AffineData{\sigma}:\CoordSpace{\sigma}\to
+    \VisibleAffine{\sigma}\times Z_{\sigma}^{\mathrm{cur}}\times Z_{\sigma}^{\mathrm{eq}}
+    \]
+    whose image on \(\CoordBody{\sigma}\) lies in
+    \[
+    \jmath_{\sigma}(X_{\sigma})\times Z_{\sigma}^{\mathrm{cur}}\times Z_{\sigma}^{\mathrm{eq}}.
+    \]
+    \item A linear constraint map
+    \[
+    \ConstraintMap{\sigma}:\CoordSpace{\sigma}\to \AmbientTarget{\sigma}
+    \]
+    and a fixed constraint value
+    \[
+    \ConstraintValue{\sigma}\in\AmbientTarget{\sigma}.
+    \]
+    \item A positive self-adjoint operator
+    \[
+    \NormalOperator{\sigma}:\NormalSpace{\sigma}\to\NormalSpace{\sigma}
+    \]
+    with lower bound
+    \begin{equation}
+    \ev{\eta,\NormalOperator{\sigma}\eta}\ge \mu_{\sigma}\,\|\eta\|^{2}
+    \qquad
+    \text{for all }\eta\in\NormalSpace{\sigma}
+    \label{eq:normgap}
+    \end{equation}
+    for some \(\mu_{\sigma}>0\).
+    \item A compact symmetry group
+    \[
+    \SymGroup{\sigma}\subset O(\CoordSpace{\sigma})\times O(\NormalSpace{\sigma})
+    \]
+    and an orthogonal involution
+    \[
+    \TimeRev{\sigma}\in O(\CoordSpace{\sigma})\times O(\NormalSpace{\sigma})
+    \]
+    preserving \(\CoordBody{\sigma}\), \(\NormalBody{\sigma}\), \(\AffineData{\sigma}\), \(\ConstraintMap{\sigma}\), \(\ConstraintValue{\sigma}\), and \(\NormalOperator{\sigma}\).
+    \item A shell chart
+    \[
+    \ShellChart{\sigma}:\ForSpace{\sigma}\to
+    \CoordBody{\sigma}\cap \ConstraintMap{\sigma}^{-1}(\ConstraintValue{\sigma})
+    \]
+    that is a diffeomorphism onto the full constrained shell-coordinate locus and satisfies
+    \begin{equation}
+    \AffineData{\sigma}\bigl(\ShellChart{\sigma}(w)\bigr)
+    =
+    \bigl(
+    \jmath_{\sigma}(\Reduction{\sigma}(w)),
+    \CurrentCarrier{\sigma}(w),
+    \EqCarrier{\sigma}(w)
+    \bigr)
+    \label{eq:shellchartcompat}
+    \end{equation}
+    for every \(w\in\ForSpace{\sigma}\).
+    \item Data-preserving shell solvability:
+    \begin{equation}
+    \AffineData{\sigma}(\CoordBody{\sigma})
+    =
+    \AffineData{\sigma}
+    \bigl(
+    \CoordBody{\sigma}\cap\ConstraintMap{\sigma}^{-1}(\ConstraintValue{\sigma})
+    \bigr).
+    \label{eq:nfsolvability}
+    \end{equation}
+    \item Data-kernel coercivity: there exists \(\kappa_{\sigma}>0\) such that for every
+    \[
+    \delta q\in \ker D\AffineData{\sigma},
+    \qquad
+    \delta n\in \NormalSpace{\sigma},
+    \]
+    one has
+    \begin{equation}
+    \|\ConstraintMap{\sigma}\delta q\|^{2}
+    +
+    \ev{\delta n,\NormalOperator{\sigma}\delta n}
+    \ge
+    \kappa_{\sigma}\,
+    \bigl(
+    \|\delta q\|^{2}+\|\delta n\|^{2}
+    \bigr).
+    \label{eq:nfcoercive}
+    \end{equation}
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:normalform} is the current normal form whose derivational status is at issue in the present note. The previous necessity / uniqueness note treated this normal form as the upstream package from which the explicit substrate equation / symmetry / constraint package is forced. The purpose here is to go one layer deeper again and show why this normal form itself is forced.
+\end{remark}
+
+\section{Ambient Shell-Law Package}
+
+\begin{definition}[Ambient shell law with hidden-sector gap]
+\label{def:ambient}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). An \emph{ambient shell-law package with hidden-sector gap} for sector \(\sigma\) consists of the following data.
+\begin{enumerate}
+    \item A finite-dimensional Euclidean ambient state space
+    \[
+    \AmbientSpace{\sigma}
+    \]
+    with a compact convex body
+    \[
+    \AmbientBody{\sigma}\subset \AmbientSpace{\sigma}.
+    \]
+    \item A smooth embedding
+    \[
+    \jmath_{\sigma}:X_{\sigma}\hookrightarrow \VisibleAffine{\sigma}.
+    \]
+    \item An affine observer-data readout
+    \[
+    \AmbientRead{\sigma}:\AmbientSpace{\sigma}\to
+    \VisibleAffine{\sigma}\times Z_{\sigma}^{\mathrm{cur}}\times Z_{\sigma}^{\mathrm{eq}}.
+    \]
+    \item An affine shell plane
+    \[
+    \ShellAffine{\sigma}\subset \AmbientSpace{\sigma}
+    \]
+    together with a distinguished reference point
+    \[
+    \AmbientRef{\sigma}\in \ShellAffine{\sigma}\cap \AmbientBody{\sigma}.
+    \]
+    Assume moreover that
+    \[
+    \AmbientRef{\sigma}\in
+    \operatorname{int}_{\ShellAffine{\sigma}}
+    \bigl(\AmbientBody{\sigma}\cap \ShellAffine{\sigma}\bigr).
+    \]
+    Write
+    \[
+    \ShellVector{\sigma}\equiv T\ShellAffine{\sigma},
+    \qquad
+    \HiddenSpace{\sigma}\equiv \bigl(\ShellVector{\sigma}\bigr)^{\perp},
+    \]
+    and let
+    \[
+    \ShellProj{\sigma}:\AmbientSpace{\sigma}\to \ShellVector{\sigma},
+    \qquad
+    \HiddenProj{\sigma}:\AmbientSpace{\sigma}\to \HiddenSpace{\sigma}
+    \]
+    denote the orthogonal projections.
+    \item An affine shell law
+    \[
+    \AmbientShellLaw{\sigma}:\AmbientSpace{\sigma}\to \AmbientTarget{\sigma}
+    \]
+    and a distinguished shell value
+    \[
+    \AmbientValue{\sigma}\in \AmbientTarget{\sigma}.
+    \]
+    \item A compact symmetry group
+    \[
+    \AmbientSym{\sigma}\subset O(\AmbientSpace{\sigma})
+    \]
+    and an orthogonal involution
+    \[
+    \AmbientTime{\sigma}\in O(\AmbientSpace{\sigma})
+    \]
+    preserving \(\AmbientBody{\sigma}\), \(\ShellAffine{\sigma}\), \(\AmbientRef{\sigma}\), \(\AmbientRead{\sigma}\), \(\AmbientShellLaw{\sigma}\), and \(\AmbientValue{\sigma}\).
+    \item Body splitting over shell and hidden directions: the map
+    \begin{equation}
+    a\longmapsto
+    \bigl(
+    \AmbientRef{\sigma}+\ShellProj{\sigma}(a-\AmbientRef{\sigma}),
+    \,
+    \HiddenProj{\sigma}(a-\AmbientRef{\sigma})
+    \bigr)
+    \label{eq:splitmap}
+    \end{equation}
+    is a bijection from \(\AmbientBody{\sigma}\) onto
+    \[
+    \bigl(\AmbientBody{\sigma}\cap \ShellAffine{\sigma}\bigr)
+    \times
+    \HiddenProj{\sigma}\bigl(\AmbientBody{\sigma}-\AmbientRef{\sigma}\bigr).
+    \]
+    Assume also that
+    \[
+    0\in
+    \operatorname{int}
+    \HiddenProj{\sigma}\bigl(\AmbientBody{\sigma}-\AmbientRef{\sigma}\bigr).
+    \]
+    \item Hidden invisibility of the observable shell law and data readout: for every
+    \[
+    s\in \AmbientBody{\sigma}\cap \ShellAffine{\sigma},
+    \qquad
+    n\in \HiddenProj{\sigma}\bigl(\AmbientBody{\sigma}-\AmbientRef{\sigma}\bigr),
+    \]
+    whenever \(s+n\in\AmbientBody{\sigma}\),
+    \begin{equation}
+    \AmbientRead{\sigma}(s+n)=\AmbientRead{\sigma}(s),
+    \qquad
+    \AmbientShellLaw{\sigma}(s+n)=\AmbientShellLaw{\sigma}(s).
+    \label{eq:hiddeninvisible}
+    \end{equation}
+    \item Exact primitive-shell realization: the shell locus
+    \[
+    \AmbientBody{\sigma}\cap
+    \ShellAffine{\sigma}\cap
+    \AmbientShellLaw{\sigma}^{-1}(\AmbientValue{\sigma})
+    \]
+    is the image of a smooth embedding
+    \[
+    \AmbientEmbed{\sigma}:\ForSpace{\sigma}\hookrightarrow \AmbientSpace{\sigma}
+    \]
+    satisfying
+    \begin{equation}
+    \AmbientRead{\sigma}\bigl(\AmbientEmbed{\sigma}(w)\bigr)
+    =
+    \bigl(
+    \jmath_{\sigma}(\Reduction{\sigma}(w)),
+    \CurrentCarrier{\sigma}(w),
+    \EqCarrier{\sigma}(w)
+    \bigr)
+    \label{eq:ambientcompat}
+    \end{equation}
+    for every \(w\in\ForSpace{\sigma}\).
+    \item Shell solvability on fixed data fibers:
+    \begin{equation}
+    \AmbientRead{\sigma}(\AmbientBody{\sigma})
+    =
+    \AmbientRead{\sigma}
+    \bigl(
+    \AmbientBody{\sigma}\cap
+    \ShellAffine{\sigma}\cap
+    \AmbientShellLaw{\sigma}^{-1}(\AmbientValue{\sigma})
+    \bigr).
+    \label{eq:ambientsolvability}
+    \end{equation}
+    \item Shell-direction coercivity: there exists \(\kappa_{\sigma}^{\mathrm{sh}}>0\) such that for every
+    \[
+    \delta q\in \ShellVector{\sigma}
+    \quad\text{with}\quad
+    D\AmbientRead{\sigma}(\AmbientRef{\sigma})\,\delta q=0,
+    \]
+    one has
+    \begin{equation}
+    \bigl\|
+    D\AmbientShellLaw{\sigma}(\AmbientRef{\sigma})\,\delta q
+    \bigr\|^{2}
+    \ge
+    \kappa_{\sigma}^{\mathrm{sh}}\,
+    \|\delta q\|^{2}.
+    \label{eq:shellcoercive}
+    \end{equation}
+    \item A positive self-adjoint hidden-sector operator
+    \[
+    \HiddenOperator{\sigma}:\HiddenSpace{\sigma}\to\HiddenSpace{\sigma}
+    \]
+    with lower bound
+    \begin{equation}
+    \ev{\eta,\HiddenOperator{\sigma}\eta}
+    \ge
+    \kappa_{\sigma}^{\mathrm{hid}}\,
+    \|\eta\|^{2}
+    \qquad
+    \text{for all }\eta\in\HiddenSpace{\sigma}
+    \label{eq:hiddengap}
+    \end{equation}
+    for some \(\kappa_{\sigma}^{\mathrm{hid}}>0\), and such that \(\AmbientSym{\sigma}\) and \(\AmbientTime{\sigma}\) preserve \(\HiddenOperator{\sigma}\).
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:ambient} is deeper than the normal form of Definition \ref{def:normalform} in a specific sense. It starts from one ambient state body, one ambient readout, one ambient shell law, one shell affine plane, and one positively gapped hidden sector. The shell-coordinate body, the off-shell body, the reduced shell readout, the reduced constraint map, and the reduced positive operator are not inserted separately there. They are to be derived from these ambient data.
+\end{remark}
+
+\section{Canonical Derivation of the Normal Form}
+
+\begin{definition}[Canonical normal form induced by the ambient shell law]
+\label{def:canonical}
+Assume Definition \ref{def:ambient}. Define the canonical normal form in sector \(\sigma\) as follows.
+\begin{enumerate}
+    \item The shell-coordinate space is
+    \[
+    \CoordSpace{\sigma}\equiv \ShellVector{\sigma},
+    \]
+    and the shell-coordinate body is
+    \begin{equation}
+    \CoordBody{\sigma}
+    \equiv
+    \left\{
+    q\in \ShellVector{\sigma}:
+    \AmbientRef{\sigma}+q\in
+    \AmbientBody{\sigma}\cap \ShellAffine{\sigma}
+    \right\}.
+    \label{eq:Kdef}
+    \end{equation}
+    \item The off-shell space is
+    \[
+    \NormalSpace{\sigma}\equiv \HiddenSpace{\sigma},
+    \]
+    and the off-shell body is
+    \begin{equation}
+    \NormalBody{\sigma}
+    \equiv
+    \HiddenProj{\sigma}\bigl(\AmbientBody{\sigma}-\AmbientRef{\sigma}\bigr).
+    \label{eq:Bdef}
+    \end{equation}
+    \item The affine shell-data readout is
+    \begin{equation}
+    \AffineData{\sigma}(q)
+    \equiv
+    \AmbientRead{\sigma}(\AmbientRef{\sigma}+q).
+    \label{eq:Dhatdef}
+    \end{equation}
+    \item The linear constraint map and constraint value are
+    \begin{equation}
+    \ConstraintMap{\sigma}
+    \equiv
+    D\AmbientShellLaw{\sigma}(\AmbientRef{\sigma})\big|_{\ShellVector{\sigma}},
+    \qquad
+    \ConstraintValue{\sigma}
+    \equiv
+    \AmbientValue{\sigma}-\AmbientShellLaw{\sigma}(\AmbientRef{\sigma}).
+    \label{eq:Cdef}
+    \end{equation}
+    \item The positive off-shell operator is
+    \[
+    \NormalOperator{\sigma}\equiv \HiddenOperator{\sigma}.
+    \]
+    \item The induced symmetry group and time reversal are the restrictions
+    \[
+    \SymGroup{\sigma}
+    \equiv
+    \left\{
+    \bigl(g|_{\ShellVector{\sigma}},g|_{\HiddenSpace{\sigma}}\bigr):
+    g\in \AmbientSym{\sigma}
+    \right\},
+    \]
+    \[
+    \TimeRev{\sigma}
+    \equiv
+    \bigl(
+    \AmbientTime{\sigma}|_{\ShellVector{\sigma}},
+    \AmbientTime{\sigma}|_{\HiddenSpace{\sigma}}
+    \bigr).
+    \]
+    \item The shell chart is
+    \begin{equation}
+    \ShellChart{\sigma}(w)
+    \equiv
+    \AmbientEmbed{\sigma}(w)-\AmbientRef{\sigma}.
+    \label{eq:chidef}
+    \end{equation}
+\end{enumerate}
+Define the stationary functional
+\begin{equation}
+\StationaryFunctional{\sigma}(q,n)
+\equiv
+\frac12\,
+\|\ConstraintMap{\sigma}q-\ConstraintValue{\sigma}\|^{2}
++
+\frac12\,
+\ev{n,\NormalOperator{\sigma}n}.
+\label{eq:Adef}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[The ambient shell law induces a primitive reversible constrained dynamics normal form]
+\label{prop:derive}
+Assume Definitions \ref{def:ambient} and \ref{def:canonical}. Then the canonical data of Definition \ref{def:canonical} satisfy every requirement of Definition \ref{def:normalform}.
+\end{proposition}
+
+\begin{proof}
+The spaces \(\CoordSpace{\sigma}\) and \(\NormalSpace{\sigma}\) are finite-dimensional Euclidean spaces by construction. Because \(\AmbientBody{\sigma}\cap \ShellAffine{\sigma}\) is a compact convex slice of the compact convex ambient body and \(\AmbientRef{\sigma}\in\operatorname{int}_{\ShellAffine{\sigma}}(\AmbientBody{\sigma}\cap\ShellAffine{\sigma})\) is part of the shell-plane data, \(\CoordBody{\sigma}\) is compact and convex with nonempty interior in \(\CoordSpace{\sigma}\). Likewise \(\NormalBody{\sigma}\) is compact and convex as the projection of a compact convex set, and \(0\in\operatorname{int}\NormalBody{\sigma}\) by the hidden-sector body hypothesis encoded in \eqref{eq:splitmap}.
+
+Equation \eqref{eq:Dhatdef} defines an affine map, and its image on \(\CoordBody{\sigma}\) lies in
+\[
+\jmath_{\sigma}(X_{\sigma})\times Z_{\sigma}^{\mathrm{cur}}\times Z_{\sigma}^{\mathrm{eq}}
+\]
+because \(\AmbientRead{\sigma}\) has that property on the shell-plane slice. Equation \eqref{eq:Cdef} gives a linear constraint map and a fixed value. Since \(\HiddenOperator{\sigma}\) is positive self-adjoint with \eqref{eq:hiddengap}, the same is true of \(\NormalOperator{\sigma}\), so \eqref{eq:normgap} holds with \(\mu_{\sigma}=\kappa_{\sigma}^{\mathrm{hid}}\).
+
+The symmetry and time-reversal requirements follow because every element of \(\AmbientSym{\sigma}\) and \(\AmbientTime{\sigma}\) preserves the shell plane, the hidden complement, the reference point, the ambient body, the ambient readout, the ambient shell law, the shell value, and the hidden operator.
+
+For the shell chart, \eqref{eq:chidef} maps \(\ForSpace{\sigma}\) into \(\CoordBody{\sigma}\). Because \(\AmbientEmbed{\sigma}(w)\) lies in \(\AmbientShellLaw{\sigma}^{-1}(\AmbientValue{\sigma})\cap \ShellAffine{\sigma}\), one has
+\[
+\AmbientShellLaw{\sigma}\bigl(\AmbientRef{\sigma}+\ShellChart{\sigma}(w)\bigr)
+=
+\AmbientValue{\sigma},
+\]
+which is equivalent, by \eqref{eq:Cdef}, to
+\[
+\ConstraintMap{\sigma}\bigl(\ShellChart{\sigma}(w)\bigr)
+=
+\ConstraintValue{\sigma}.
+\]
+Thus \(\ShellChart{\sigma}\) lands in the constrained shell-coordinate locus. It is a diffeomorphism onto that locus because \(\AmbientEmbed{\sigma}\) is a diffeomorphism onto the ambient shell locus and translation by \(\AmbientRef{\sigma}\) is a diffeomorphism. Using \eqref{eq:ambientcompat},
+\[
+\AffineData{\sigma}\bigl(\ShellChart{\sigma}(w)\bigr)
+=
+\AmbientRead{\sigma}\bigl(\AmbientEmbed{\sigma}(w)\bigr)
+=
+\bigl(
+\jmath_{\sigma}(\Reduction{\sigma}(w)),
+\CurrentCarrier{\sigma}(w),
+\EqCarrier{\sigma}(w)
+\bigr),
+\]
+which is \eqref{eq:shellchartcompat}.
+
+For shell solvability, let \(u\in \AffineData{\sigma}(\CoordBody{\sigma})\). Then \(u=\AmbientRead{\sigma}(a)\) for some \(a\in\AmbientBody{\sigma}\cap\ShellAffine{\sigma}\), hence \(u\in\AmbientRead{\sigma}(\AmbientBody{\sigma})\). By \eqref{eq:ambientsolvability}, \(u\) is attained on the ambient shell locus, so by translating back through \eqref{eq:chidef} it is attained on
+\[
+\CoordBody{\sigma}\cap\ConstraintMap{\sigma}^{-1}(\ConstraintValue{\sigma}),
+\]
+which proves \eqref{eq:nfsolvability}.
+
+Finally, let \(\delta q\in\ker D\AffineData{\sigma}\) and \(\delta n\in\NormalSpace{\sigma}\). By \eqref{eq:Dhatdef},
+\[
+D\AffineData{\sigma}(\delta q)
+=
+D\AmbientRead{\sigma}(\AmbientRef{\sigma})\,\delta q.
+\]
+Therefore \(\delta q\) satisfies the hypothesis of \eqref{eq:shellcoercive}, while \(\delta n\) is governed by \eqref{eq:hiddengap}. Setting
+\[
+\kappa_{\sigma}\equiv
+\min\{
+\kappa_{\sigma}^{\mathrm{sh}},
+\kappa_{\sigma}^{\mathrm{hid}}
+\},
+\]
+one obtains
+\[
+\|\ConstraintMap{\sigma}\delta q\|^{2}
++
+\ev{\delta n,\NormalOperator{\sigma}\delta n}
+\ge
+\kappa_{\sigma}
+\bigl(
+\|\delta q\|^{2}+\|\delta n\|^{2}
+\bigr),
+\]
+which is \eqref{eq:nfcoercive}.
+\end{proof}
+
+\section{Forced Constituents of the Normal Form}
+
+\begin{proposition}[The shell-coordinate and off-shell spaces are forced]
+\label{prop:spaces}
+Assume Definition \ref{def:ambient}. Then:
+\begin{enumerate}
+    \item the shell-coordinate space is necessarily the translation space \(\ShellVector{\sigma}\) of the ambient shell plane;
+    \item the shell-coordinate body is necessarily the translated shell-plane slice \eqref{eq:Kdef} of the ambient body;
+    \item the off-shell space is necessarily the hidden orthogonal complement \(\HiddenSpace{\sigma}\);
+    \item the off-shell body is necessarily the ambient hidden projection \eqref{eq:Bdef}.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+The normal form is required to parametrize exactly the ambient shell locus while retaining the shell-plane / hidden-sector splitting of Definition \ref{def:ambient}. Hence its shell-coordinate space must be the translation space of the shell plane. Once \(\AmbientRef{\sigma}\) is fixed, the shell-coordinate body is exactly the set of translated shell-plane points lying in \(\AmbientBody{\sigma}\), which is \eqref{eq:Kdef}. Likewise the hidden sector of the ambient package is, by definition, the orthogonal complement of the shell plane, so no other off-shell space is compatible with the stated ambient splitting. The unique off-shell body compatible with the body-splitting bijection \eqref{eq:splitmap} is the hidden projection \eqref{eq:Bdef}.
+\end{proof}
+
+\begin{proposition}[The readout, constraint map/value, and positive operator are forced]
+\label{prop:maps}
+Assume Definition \ref{def:ambient}. Then:
+\begin{enumerate}
+    \item the shell-data readout is necessarily the ambient readout restricted to the shell plane and written in translated shell coordinates, namely \eqref{eq:Dhatdef};
+    \item the constraint map and constraint value are necessarily the affine shell law on the shell plane written in translated shell coordinates, namely \eqref{eq:Cdef};
+    \item the positive off-shell operator is necessarily the hidden-sector gap operator \(\HiddenOperator{\sigma}\).
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Because \eqref{eq:hiddeninvisible} states that the ambient readout ignores hidden directions, the normal form can only recover the ambient data by restricting that readout to the shell plane. Writing that restriction in the translated shell coordinates of \eqref{eq:Kdef} gives \eqref{eq:Dhatdef}; no other shell-data map is compatible with the ambient package.
+
+Likewise \eqref{eq:hiddeninvisible} states that the shell law itself ignores hidden directions. The shell constraint of the normal form must therefore be the shell-plane restriction of \(\AmbientShellLaw{\sigma}\). Since that restriction is affine on the finite-dimensional affine plane \(\ShellAffine{\sigma}\), writing it in translated shell coordinates produces the linear map and fixed value of \eqref{eq:Cdef}. Finally, the positive off-shell operator is the hidden-sector gap operator of Definition \ref{def:ambient}; replacing it would change the hidden quadratic law and hence change the ambient package itself.
+\end{proof}
+
+\begin{theorem}[Primitive reversible constrained dynamics are necessary and unique from ambient shell law]
+\label{thm:necessity}
+Fix the ambient shell-law package of Definition \ref{def:ambient}. Then the primitive reversible constrained dynamics normal form induced in Definition \ref{def:canonical} is necessary and unique on that ambient line in the following sense.
+\begin{enumerate}
+    \item every constituent of the normal form is fixed by the ambient shell-law package, namely the shell-coordinate space and body, the off-shell space and body, the shell-data readout, the constraint map/value, the induced symmetry and time-reversal actions, the shell solvability condition, and the data-kernel coercivity inequality;
+    \item any coordinate presentation of the same ambient-law-induced normal form differs from the canonical one only by the obvious translated-shell and orthogonal-hidden coordinate identifications forced by the ambient shell plane and hidden sector;
+    \item therefore the primitive reversible constrained dynamics normal form is not merely available on this ambient line but necessary there up to those forced coordinate identifications.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Item (1) is the combined content of Proposition \ref{prop:derive}, Proposition \ref{prop:spaces}, and Proposition \ref{prop:maps}. Once the ambient shell plane, hidden complement, ambient body, ambient readout, ambient shell law, symmetry/time-reversal actions, shell solvability, shell-direction coercivity, and hidden-sector gap are fixed, every constituent of the reduced normal form is fixed by Definition \ref{def:canonical}.
+
+For item (2), any other coordinate presentation of the same induced normal form must describe the same shell-plane slice of the same ambient body and the same hidden-sector projection, and must represent the same ambient readout, ambient shell law, and hidden quadratic law. Therefore its shell coordinates are related to the canonical shell coordinates by the unique translated-shell coordinate identification determined by \(\AmbientRef{\sigma}\) and \(\ShellAffine{\sigma}\), and its hidden coordinates are related to the canonical hidden coordinates by the orthogonal identification determined by \(\HiddenSpace{\sigma}\). No further freedom remains.
+
+Item (3) is exactly the content of items (1) and (2) restated in the present routing language.
+\end{proof}
+
+\section{Unique Stationary Representative and Same One-Metric Output}
+
+\begin{definition}[Deeper data space and selector]
+\label{def:selector}
+For \(\sigma\in\{\Car,\Cur,\Hom\}\), define the deeper data space by
+\[
+\DeepSpace{\sigma}
+\equiv
+\left\{
+\bigl(
+\jmath_{\sigma}^{-1}(x),z^{\mathrm{cur}},z^{\mathrm{eq}}
+\bigr):
+(x,z^{\mathrm{cur}},z^{\mathrm{eq}})
+\in
+\AffineData{\sigma}(\CoordBody{\sigma})
+\right\}
+\subset
+X_{\sigma}\times Z_{\sigma}^{\mathrm{cur}}\times Z_{\sigma}^{\mathrm{eq}},
+\]
+and for \(u\in\DeepSpace{\sigma}\), let \(q_{\sigma}(u)\) denote the unique point in
+\[
+\CoordBody{\sigma}\cap \ConstraintMap{\sigma}^{-1}(\ConstraintValue{\sigma})
+\]
+with
+\[
+\AffineData{\sigma}\bigl(q_{\sigma}(u)\bigr)=u,
+\]
+and define
+\begin{equation}
+\ChainSelect{\sigma}(u)
+\equiv
+\ShellChart{\sigma}^{-1}\bigl(q_{\sigma}(u)\bigr).
+\label{eq:selectordef}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[Unique shell representative on fixed data]
+\label{prop:selector}
+Assume Definitions \ref{def:ambient} and \ref{def:canonical}. Then for every \(u\in\DeepSpace{\sigma}\), the point \(q_{\sigma}(u)\) of Definition \ref{def:selector} exists and is unique.
+\end{proposition}
+
+\begin{proof}
+Existence is exactly the shell solvability statement already proved in Proposition \ref{prop:derive}. For uniqueness, suppose \(q,q'\in \CoordBody{\sigma}\cap \ConstraintMap{\sigma}^{-1}(\ConstraintValue{\sigma})\) satisfy
+\[
+\AffineData{\sigma}(q)=\AffineData{\sigma}(q').
+\]
+Then \(\delta q\equiv q-q'\) lies in \(\ker D\AffineData{\sigma}\), and
+\[
+\ConstraintMap{\sigma}\delta q=0
+\]
+because both \(q\) and \(q'\) satisfy the same constraint value. Applying \eqref{eq:nfcoercive} with \(\delta n=0\) gives
+\[
+0
+=
+\|\ConstraintMap{\sigma}\delta q\|^{2}
+\ge
+\kappa_{\sigma}\|\delta q\|^{2},
+\]
+so \(\delta q=0\). Hence \(q=q'\).
+\end{proof}
+
+\begin{definition}[Total selector and deeper outputs]
+\label{def:deepoutputs}
+Define
+\[
+\DeepShell
+\equiv
+\DeepSpace{\Car}\times\DeepSpace{\Cur}\times\DeepSpace{\Hom},
+\]
+\[
+\ChainSelectTriple(u_{\Car},u_{\Cur},u_{\Hom})
+\equiv
+\bigl(
+\ChainSelect{\Car}(u_{\Car}),
+\ChainSelect{\Cur}(u_{\Cur}),
+\ChainSelect{\Hom}(u_{\Hom})
+\bigr).
+\]
+Define
+\[
+\DeepMetricOut:\DeepShell\to\{\text{observer metrics}\}
+\]
+and
+\[
+\DeepMatterOut:\DeepShell\times\Psi\to\{\text{observer stress tensors}\}
+\]
+by
+\begin{equation}
+\DeepMetricOut
+\equiv
+\MetricOut\circ\ChainSelectTriple,
+\qquad
+\DeepMatterOut(\mathbf u,\psi)
+\equiv
+\MatterOut(\ChainSelectTriple(\mathbf u),\psi).
+\label{eq:deepoutputs}
+\end{equation}
+\end{definition}
+
+\begin{theorem}[The ambient shell law preserves the same one-metric benchmark package]
+\label{thm:outputs}
+For every \(\mathbf u\in\DeepShell\) and every matter configuration \(\psi\in\Psi\),
+\begin{equation}
+\DeepMetricOut(\mathbf u)=\CompletedMetric
+\label{eq:deepmetric}
+\end{equation}
+and
+\begin{equation}
+\DeepMatterOut(\mathbf u,\psi)
+=
+T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi].
+\label{eq:deepmatter}
+\end{equation}
+Consequently the deeper ambient shell-law package introduces neither a second operative metric nor an enlarged low-energy matter law.
+\end{theorem}
+
+\begin{proof}
+Equation \eqref{eq:deepmetric} follows immediately from \eqref{eq:deepoutputs} and \eqref{eq:fixedoutputs}:
+\[
+\DeepMetricOut(\mathbf u)
+=
+\MetricOut(\ChainSelectTriple(\mathbf u))
+=
+\CompletedMetric.
+\]
+Likewise,
+\[
+\DeepMatterOut(\mathbf u,\psi)
+=
+\MatterOut(\ChainSelectTriple(\mathbf u),\psi)
+=
+T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi],
+\]
+which is \eqref{eq:deepmatter}.
+\end{proof}
+
+\section{Main Theorem}
+
+\begin{theorem}[Ambient shell law forces the primitive dynamics normal form]
+\label{thm:main}
+Assume the fixed primitive continuation data of Definition \ref{def:fixed} and, for each sector \(\sigma\in\{\Car,\Cur,\Hom\}\), an ambient shell-law package with hidden-sector gap in the sense of Definition \ref{def:ambient}. Then:
+\begin{enumerate}
+    \item the primitive reversible constrained dynamics normal form of Definition \ref{def:normalform} is canonically induced by the ambient shell law;
+    \item the shell-coordinate body, the off-shell body, the affine shell-data readout, the constraint map/value, the positive off-shell operator, the induced symmetry/time-reversal structure, the shell solvability condition, and the data-kernel coercivity inequality are all forced by that ambient package;
+    \item the induced normal form is unique on that ambient line up to the forced translated-shell and orthogonal-hidden coordinate identifications;
+    \item the sectorwise selectors \(\ChainSelect{\sigma}\) and the total selector \(\ChainSelectTriple\) therefore exist uniquely;
+    \item pulling the fixed primitive outputs back along that unique total selector yields exactly the same one operative metric \(\CompletedMetric\) and exactly the same ordinary-matter route through that metric;
+    \item consequently the remaining burden after the previous explicit-package necessity / uniqueness note is now discharged in the stronger required form: the primitive reversible constrained dynamics normal form is no longer merely available one layer deeper but forced there.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Item (1) is Proposition \ref{prop:derive}. Item (2) is Propositions \ref{prop:spaces} and \ref{prop:maps}. Item (3) is Theorem \ref{thm:necessity}. Item (4) is Proposition \ref{prop:selector} together with Definition \ref{def:deepoutputs}. Item (5) is Theorem \ref{thm:outputs}. Item (6) is the combined routing consequence of the previous items.
+\end{proof}
+
+\begin{corollary}[What remains open after this theorem]
+\label{cor:next}
+After Theorem \ref{thm:main}, the remaining honest burden is no longer to justify the primitive reversible constrained dynamics normal form on the active primitive-observer-reduction line. That normal form is now forced, within the present ambient shell-law class, by a deeper ambient substrate package with hidden-sector gap. The next honest burden is deeper again: derive or justify that ambient shell-law class itself from still more primitive substrate law, or else prove a sharper inevitability theorem that removes even that remaining ambient-law freedom.
+\end{corollary}
+
+\begin{proof}
+Theorem \ref{thm:main} converts the primitive normal form from a remaining benchmark-facing burden into a canonical and necessary output of the deeper ambient shell law. What remains open is why that ambient shell-law class itself should hold, rather than being the current deepest disciplined assumption.
+\end{proof}
+
+\section{Conclusion}
+
+The positive result of this note is narrower than a completed final microphysical derivation and stronger than another deeper same-output relay. Starting from an ambient shell-law substrate package with a positively gapped hidden sector, the note derives canonically the primitive reversible constrained dynamics normal form that had remained open after the previous explicit-package necessity / uniqueness note. The shell-coordinate body, the off-shell body, the affine shell-data readout, the constraint map/value, the positive operator, the induced symmetry and time-reversal structure, the shell solvability condition, and the data-kernel coercivity inequality are no longer treated as independent upstream stipulations. They are forced outputs of the deeper ambient shell law.
+
+The stronger theorem is the necessity / uniqueness statement. On this ambient line, each constituent of the primitive normal form is fixed by the ambient shell plane, the ambient body, the ambient readout, the ambient shell law, and the hidden-sector gap. Any other coordinate presentation differs only by the forced translated-shell and orthogonal-hidden coordinate identifications. The current normal form is therefore necessary at present scope rather than merely available. The benchmark boundary remains fixed throughout: the unique selector induced by that forced normal form still pulls back exactly the same one operative metric \(\CompletedMetric\) and exactly the same ordinary-matter route through that metric, with no second operative metric and no enlarged low-energy matter law.
+
+This remains a disciplined derivational gain rather than a final completion claim. The note does not yet derive the ambient shell-law class itself from ultimate substrate microphysics. Its honest remaining burden is exactly that deeper next step. But the current primary burden named by the project goal is now handled in the stronger form required there: the primitive reversible constrained dynamics normal form is no longer merely reproduced, but forced.
+
+\end{document}
