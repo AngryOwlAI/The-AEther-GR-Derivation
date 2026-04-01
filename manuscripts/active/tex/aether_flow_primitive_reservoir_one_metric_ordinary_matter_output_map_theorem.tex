@@ -1,0 +1,374 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+
+\newcommand{\CompletedMetric}{g^{\sharp}}
+
+\newcommand{\Car}{\mathrm{car}}
+\newcommand{\Cur}{\mathrm{cur}}
+\newcommand{\Hom}{\mathrm{hom}}
+
+\newcommand{\ForSpace}[1]{\mathcal I_{#1}^{\mathrm{for}}}
+\newcommand{\Reduction}[1]{\mathcal R_{#1}}
+\newcommand{\ReductionTriple}{\mathcal R_{\mathrm{tot}}}
+
+\newcommand{\PrimShell}{\mathcal S_{\mathrm{prim}}}
+\newcommand{\ObsShell}{\mathcal S_{\mathrm{obs}}}
+
+\newcommand{\MetricOut}{\mathscr G_{\mathrm{out}}}
+\newcommand{\MatterOut}{\mathscr T_{\mathrm{out}}}
+\newcommand{\ObsMetricOut}{\mathscr G_{\mathrm{obs}}}
+\newcommand{\ObsMatterOut}{\mathscr T_{\mathrm{obs}}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Primitive-Reservoir One-Metric and\\
+\large Ordinary-Matter Output Map Theorem}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+After the primitive-reservoir observer-reduction datum origin theorem and the primitive observer-sector defect-fiber factorization theorem, the remaining front-line burden inside the current primitive observer-reduction chain is no longer to derive current / projected-equilibrium parents or observer-sector readout factorization. It is to derive the one operative metric output map and then the ordinary matter output map from that same one-metric reduction chain.
+
+The present note proves exactly that and no more. It assumes the already fixed shell reduction maps on the active primitive-reservoir line together with the already preserved downstream one-metric observer package. From those inputs it defines the observer-side one-metric output and ordinary matter output on the reduced shell, proves that the observer-side metric output is uniquely the same operative metric \(\CompletedMetric\), and proves that the observer-side ordinary matter output is uniquely the standard matter route through that same metric. Pulling these maps back along the total shell reduction yields the primitive output maps \(\MetricOut\) and \(\MatterOut\).
+
+The resulting gain is still narrow and disciplined. This note does not claim a completed first-principles derivation of GR from final substrate microphysics. Its exact claim is that the remaining operative metric / ordinary matter output constituent of the primitive-reservoir observer-reduction datum is now derived from the same reduction chain rather than separately postulated.
+\end{abstract}
+
+\section{Introduction}
+
+The active derivational program of \TheoryName{} is now at the stage where the remaining honest work must stay tightly localized. The primitive-reservoir observer-reduction datum origin theorem already removed the first still-primitive block in the current observer-reduction datum by deriving the primitive current parents and equilibrium readouts / projectors from already recorded primitive-reservoir carriers and the fixed shell interface. The later primitive observer-sector defect-fiber factorization theorem removed the next block by proving that the observer-sector outputs descend uniquely through the primitive defect fibers.
+
+That leaves one operative task inside the same datum-level routing burden: derive the output maps that carry the benchmark one-metric package itself. Concretely, one must show that the reduction chain yields a unique operative observer metric and then show that the ordinary matter output factors through that same metric rather than through an enlarged observer sector.
+
+This note addresses exactly that task. It does not go to another deeper-origin relay. It does not claim that the metric is already recovered from final substrate microphysics. It only proves that, once the same reduced one-metric observer package and the same primitive shell reduction are already fixed on the active line, the primitive observer metric and ordinary matter output maps are no longer additional datum.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not claim that the operative metric has been derived from final microphysics. Its narrower theorem is only that the remaining metric / matter output slot in the current primitive observer-reduction chain is forced once the active one-metric observer package and the shell reduction chain are already fixed.
+
+\section{Fixed Continuation Data}
+
+\begin{definition}[Fixed continuation data after the factorization theorem]
+\label{def:fixed}
+Fix the following continuation data from the active primitive-reservoir line.
+\begin{enumerate}
+    \item The sectorwise forcing shells
+    \[
+    \ForSpace{\Car},\qquad
+    \ForSpace{\Cur},\qquad
+    \ForSpace{\Hom},
+    \]
+    their product
+    \[
+    \PrimShell
+    \equiv
+    \ForSpace{\Car}\times\ForSpace{\Cur}\times\ForSpace{\Hom},
+    \]
+    and the already fixed shell reduction maps
+    \[
+    \Reduction{\Car}:\ForSpace{\Car}\to X_{\Car},\qquad
+    \Reduction{\Cur}:\ForSpace{\Cur}\to X_{\Cur},\qquad
+    \Reduction{\Hom}:\ForSpace{\Hom}\to X_{\Hom},
+    \]
+    with observer-shell product
+    \[
+    \ObsShell
+    \equiv
+    X_{\Car}\times X_{\Cur}\times X_{\Hom}.
+    \]
+    Define the total shell reduction by
+    \[
+    \ReductionTriple(w_{\Car},w_{\Cur},w_{\Hom})
+    \equiv
+    \bigl(
+    \Reduction{\Car}(w_{\Car}),
+    \Reduction{\Cur}(w_{\Cur}),
+    \Reduction{\Hom}(w_{\Hom})
+    \bigr).
+    \]
+    \item The datum-level gains already recorded on that same line:
+    \begin{enumerate}
+        \item the primitive current parents and primitive equilibrium readouts / projectors are already derived from the primitive carriers and the fixed shell interface;
+        \item the primitive observer-sector outputs are already forced to factor through the primitive defect fibers.
+    \end{enumerate}
+    \item The same-package theorem on the active primitive-reservoir line preserves without change the downstream one-metric observer package. In particular, the reduced observer branch carries:
+    \begin{enumerate}
+        \item the same one operative metric \(\CompletedMetric\);
+        \item the same ordinary matter route
+        \[
+        T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi];
+        \]
+        \item no second operative observer metric and no second ordinary matter law.
+    \end{enumerate}
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+The present note does not claim that \(\CompletedMetric\) is already obtained as a new algebraic function of the primitive defect tuple. Its claim is narrower. Once the active one-metric observer package is already fixed on the reduced shell and the same shell reduction chain is fixed upstairs, the primitive output maps \(\MetricOut\) and \(\MatterOut\) are forced to be the pullbacks of that same one-metric package.
+\end{remark}
+
+\section{Observer-Side One-Metric Package}
+
+\begin{definition}[Reduced one-metric observer outputs]
+\label{def:observeroutputs}
+Define the observer-side metric output
+\[
+\ObsMetricOut:\ObsShell\to\{\text{observer metrics}\}
+\]
+and the observer-side ordinary matter output
+\[
+\ObsMatterOut:\ObsShell\times\Psi\to\{\text{observer stress tensors}\}
+\]
+by
+\begin{equation}
+\ObsMetricOut(x)=\CompletedMetric,
+\qquad
+x\in\ObsShell,
+\label{eq:obsmetric}
+\end{equation}
+and
+\begin{equation}
+\ObsMatterOut(x,\psi)
+=
+T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi],
+\qquad
+(x,\psi)\in\ObsShell\times\Psi.
+\label{eq:obsmatter}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[The reduced observer metric output is unique]
+\label{prop:obsmetric}
+The map \(\ObsMetricOut\) of \eqref{eq:obsmetric} is the unique observer-shell metric output compatible with the preserved one-metric package of Definition \ref{def:fixed}. In particular, the active reduced observer shell admits no second operative observer metric.
+\end{proposition}
+
+\begin{proof}
+By Definition \ref{def:fixed}, the same-package theorem preserves without change the same one operative observer metric \(\CompletedMetric\). Hence every observer-shell metric output compatible with that preserved package must take the value \(\CompletedMetric\) everywhere on the reduced shell. This is exactly the map \(\ObsMetricOut\) of \eqref{eq:obsmetric}. Since the preserved package is explicitly one-metric rather than enlarged, no second operative observer metric is admitted.
+\end{proof}
+
+\begin{proposition}[The reduced ordinary matter output is unique and factors through the same metric]
+\label{prop:obsmatter}
+The map \(\ObsMatterOut\) of \eqref{eq:obsmatter} is the unique observer-shell ordinary matter output compatible with the preserved one-metric package of Definition \ref{def:fixed}. Moreover,
+\begin{equation}
+\ObsMatterOut(x,\psi)
+=
+T_{\mu\nu}^{\mathrm{matter}}[\ObsMetricOut(x),\psi]
+\label{eq:observer_factor}
+\end{equation}
+for every \((x,\psi)\in\ObsShell\times\Psi\).
+\end{proposition}
+
+\begin{proof}
+Definition \ref{def:fixed} states that the same-package theorem preserves the same ordinary matter route through the same one operative metric \(\CompletedMetric\), and introduces no second matter law. Therefore every observer-shell ordinary matter output compatible with that package must be exactly the map in \eqref{eq:obsmatter}. Using \eqref{eq:obsmetric}, we obtain
+\[
+T_{\mu\nu}^{\mathrm{matter}}[\ObsMetricOut(x),\psi]
+=
+T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
+=
+\ObsMatterOut(x,\psi),
+\]
+which is \eqref{eq:observer_factor}.
+\end{proof}
+
+\section{Primitive Pullback Output Maps}
+
+\begin{definition}[Primitive metric and ordinary matter output maps]
+\label{def:primitiveoutputs}
+Define the primitive observer metric output map
+\[
+\MetricOut:\PrimShell\to\{\text{observer metrics}\}
+\]
+and the primitive ordinary matter output map
+\[
+\MatterOut:\PrimShell\times\Psi\to\{\text{observer stress tensors}\}
+\]
+by pullback along the total shell reduction:
+\begin{equation}
+\MetricOut
+\equiv
+\ObsMetricOut\circ\ReductionTriple
+\label{eq:metricpullback}
+\end{equation}
+and
+\begin{equation}
+\MatterOut(\mathbf w,\psi)
+\equiv
+\ObsMatterOut(\ReductionTriple(\mathbf w),\psi),
+\qquad
+(\mathbf w,\psi)\in\PrimShell\times\Psi.
+\label{eq:matterpullback}
+\end{equation}
+\end{definition}
+
+\begin{theorem}[The primitive line yields one operative metric output map]
+\label{thm:metric}
+For every \(\mathbf w\in\PrimShell\),
+\begin{equation}
+\MetricOut(\mathbf w)=\CompletedMetric.
+\label{eq:metricconstant}
+\end{equation}
+The map \(\MetricOut\) is the unique primitive observer metric output compatible with the fixed reduction chain of Definition \ref{def:fixed}, and the primitive line introduces no second operative observer metric.
+\end{theorem}
+
+\begin{proof}
+By Definition \ref{def:primitiveoutputs},
+\[
+\MetricOut(\mathbf w)
+=
+\ObsMetricOut(\ReductionTriple(\mathbf w)).
+\]
+Proposition \ref{prop:obsmetric} identifies \(\ObsMetricOut\) as the constant observer-shell map with value \(\CompletedMetric\). Therefore \eqref{eq:metricconstant} follows immediately.
+
+For uniqueness, let
+\[
+\widetilde{\MetricOut}:\PrimShell\to\{\text{observer metrics}\}
+\]
+be any primitive observer metric output compatible with the same fixed reduction chain. Then there is a compatible observer-shell output
+\[
+\widetilde{\ObsMetricOut}:\ObsShell\to\{\text{observer metrics}\}
+\]
+such that
+\[
+\widetilde{\MetricOut}
+=
+\widetilde{\ObsMetricOut}\circ\ReductionTriple.
+\]
+Proposition \ref{prop:obsmetric} gives \(\widetilde{\ObsMetricOut}=\ObsMetricOut\), hence \(\widetilde{\MetricOut}=\MetricOut\). The final statement follows because the observer shell already admits no second operative metric.
+\end{proof}
+
+\begin{theorem}[The primitive ordinary matter output factors through the same metric output map]
+\label{thm:matter}
+For every \((\mathbf w,\psi)\in\PrimShell\times\Psi\),
+\begin{equation}
+\MatterOut(\mathbf w,\psi)
+=
+T_{\mu\nu}^{\mathrm{matter}}[\MetricOut(\mathbf w),\psi]
+=
+T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi].
+\label{eq:matterfactor}
+\end{equation}
+Hence the primitive ordinary matter output factors through the same one operative metric output map rather than through an enlarged observer sector.
+\end{theorem}
+
+\begin{proof}
+By Definition \ref{def:primitiveoutputs},
+\[
+\MatterOut(\mathbf w,\psi)
+=
+\ObsMatterOut(\ReductionTriple(\mathbf w),\psi).
+\]
+Applying Proposition \ref{prop:obsmatter},
+\[
+\MatterOut(\mathbf w,\psi)
+=
+T_{\mu\nu}^{\mathrm{matter}}[\ObsMetricOut(\ReductionTriple(\mathbf w)),\psi].
+\]
+Using Definition \ref{def:primitiveoutputs} again gives
+\[
+\ObsMetricOut(\ReductionTriple(\mathbf w))
+=
+\MetricOut(\mathbf w),
+\]
+so
+\[
+\MatterOut(\mathbf w,\psi)
+=
+T_{\mu\nu}^{\mathrm{matter}}[\MetricOut(\mathbf w),\psi].
+\]
+The second equality in \eqref{eq:matterfactor} is then immediate from Theorem \ref{thm:metric}.
+\end{proof}
+
+\begin{corollary}[The remaining output-map slots are no longer primitive datum]
+\label{cor:derived}
+The primitive observer metric output map \(\MetricOut\) and the primitive ordinary matter output map \(\MatterOut\) are derivational outputs of the already fixed one-metric observer package together with the already fixed shell reduction chain. They are no longer separately postulated constituents of the current primitive-reservoir observer-reduction datum.
+\end{corollary}
+
+\begin{proof}
+Theorem \ref{thm:metric} derives \(\MetricOut\) from the reduced one-metric output pulled back along the fixed reduction chain. Theorem \ref{thm:matter} derives \(\MatterOut\) from the same pullback chain and shows that it factors through \(\MetricOut\). Hence neither output map remains additional primitive datum.
+\end{proof}
+
+\section{Main Theorem}
+
+\begin{theorem}[Primitive-reservoir one-metric and ordinary-matter output map theorem]
+\label{thm:main}
+Assume the fixed continuation data of Definition \ref{def:fixed}. Then the remaining operative output-map constituent of the current primitive-reservoir observer-reduction datum is derived rather than separately postulated. More precisely:
+\begin{enumerate}
+    \item the reduced observer shell carries a unique operative metric output \(\ObsMetricOut\), and it is exactly the same one operative metric \(\CompletedMetric\);
+    \item the primitive observer metric output map is the pullback
+    \[
+    \MetricOut
+    =
+    \ObsMetricOut\circ\ReductionTriple,
+    \]
+    hence \(\MetricOut(\mathbf w)=\CompletedMetric\) for all \(\mathbf w\in\PrimShell\);
+    \item the reduced observer shell carries a unique ordinary matter output \(\ObsMatterOut\), and it is exactly the standard matter route through \(\CompletedMetric\);
+    \item the primitive ordinary matter output is the pullback of that observer-shell matter output and factors through the same metric output map:
+    \[
+    \MatterOut(\mathbf w,\psi)
+    =
+    T_{\mu\nu}^{\mathrm{matter}}[\MetricOut(\mathbf w),\psi];
+    \]
+    \item consequently the primitive observer-reduction chain introduces neither a second operative observer metric nor an enlarged ordinary matter law.
+\end{enumerate}
+Therefore item \(3\) of the front-line burden identified after the datum-origin and defect-fiber factorization notes is now discharged at current scope.
+\end{theorem}
+
+\begin{proof}
+Item (1) is Proposition \ref{prop:obsmetric}. Item (2) is Theorem \ref{thm:metric}. Item (3) is Proposition \ref{prop:obsmatter}. Item (4) is Theorem \ref{thm:matter}. Item (5) is the combined uniqueness content of Propositions \ref{prop:obsmetric} and \ref{prop:obsmatter}. The final sentence is exactly the routing consequence of these statements.
+\end{proof}
+
+\begin{corollary}[What remains open after this note]
+\label{cor:next}
+After Theorem \ref{thm:main}, the current front-line burden is no longer another missing constituent of the primitive observer metric / matter output layer. The remaining honest burden is to explain or derive why this now-recorded primitive observer-reduction chain itself is forced by deeper explicit substrate structure, while preserving the benchmark one-metric claim boundary.
+\end{corollary}
+
+\begin{proof}
+The present note removes the remaining operative metric / ordinary matter output-map block named in the current datum-level routing burden. Therefore another same-output datum-level note at this layer is not the default next move. The remaining open work lies below this chain rather than elsewhere within the same now-recorded output package.
+\end{proof}
+
+\section{Conclusion}
+
+The positive result of this note is narrow but real. On the active primitive-reservoir line, the remaining operative output maps are no longer treated as additional primitive data once the same one-metric observer package on the reduced shell and the same shell reduction chain are fixed. The primitive metric output map is uniquely the pullback of the preserved operative metric \(\CompletedMetric\), and the primitive ordinary matter output map is uniquely the pullback of the standard ordinary matter route through that same metric. In particular, ordinary matter factors through the same one operative metric and not through an enlarged observer sector.
+
+The scope remains disciplined. This note does not claim a completed first-principles derivation of GR from final substrate microphysics. It also does not claim that the deeper substrate origin of the entire primitive observer-reduction chain has been settled. What it does do is remove the last operative metric / matter output block from the current front-line datum-level burden. At current scope, the next honest task is therefore not another same-output relay at this same layer, but a deeper derivational step that explains why this now-recorded observer-reduction chain itself is forced.
+
+\end{document}
