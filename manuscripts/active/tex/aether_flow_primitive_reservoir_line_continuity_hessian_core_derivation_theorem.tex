@@ -1,0 +1,490 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\CompletedMetric}{g^{\sharp}}
+\newcommand{\ObserverQuotient}{Q_{\mathrm{obs}}}
+\newcommand{\ObsBurden}{\mathfrak B_{\mu\nu}^{\mathrm{obs}}}
+\newcommand{\ObserverClass}[1]{\left[#1\right]_{\mathrm{obs}}}
+\newcommand{\DefectTuple}{\mathbf d}
+\newcommand{\PrimDefectTuple}{\mathbf d^{\mathrm{prim}}}
+\newcommand{\ResidualRead}{\mathscr R_{\mathrm{res}}}
+\newcommand{\CompletionRead}{\mathscr R_{\mathrm{cmp}}}
+\newcommand{\MatterRead}{\mathscr R_{\mathrm{mat}}}
+\newcommand{\BranchLock}{\mathfrak L}
+\newcommand{\CoreData}{\mathfrak C_{\mathrm{CH}}}
+\newcommand{\PrimLine}{\mathfrak P_{\mathrm{prim}}}
+\newcommand{\PrimShell}{\mathcal S_{\mathrm{prim}}}
+\newcommand{\PrimBranch}{\mathfrak b_{\mathrm{prim}}}
+\newcommand{\MetricOut}{\mathscr G_{\mathrm{out}}}
+\newcommand{\MatterOut}{\mathscr T_{\mathrm{out}}}
+
+\newcommand{\Car}{\mathrm{car}}
+\newcommand{\Cur}{\mathrm{cur}}
+\newcommand{\Hom}{\mathrm{hom}}
+
+\newcommand{\ForPrimSpace}[1]{\mathcal I_{#1}^{\mathrm{fpr}}}
+\newcommand{\ForSpace}[1]{\mathcal I_{#1}^{\mathrm{for}}}
+\newcommand{\ForPrimInc}[1]{\iota_{#1}^{\mathrm{fpr}}}
+\newcommand{\ForPrimUnit}[1]{u_{#1}^{\mathrm{fpr}}}
+
+\newcommand{\Reduction}[1]{\mathcal R_{#1}}
+\newcommand{\ObsCurrent}[1]{\mathcal J_{#1}}
+\newcommand{\ObsTheta}[1]{\Theta_{#1}}
+\newcommand{\PrimCurrent}[1]{\mathcal J_{#1}^{\mathrm{prim}}}
+\newcommand{\PrimTheta}[1]{\Theta_{#1}^{\mathrm{prim}}}
+\newcommand{\EqProj}[1]{P_{#1}^{\mathrm{eq}}}
+
+\newcommand{\PrimResidualSector}{\mathfrak R_{\mathrm{res}}^{\mathrm{prim}}}
+\newcommand{\PrimCompletionSector}{\mathfrak R_{\mathrm{cmp}}^{\mathrm{prim}}}
+\newcommand{\PrimMatterSector}{\mathfrak R_{\mathrm{mat}}^{\mathrm{prim}}}
+
+\newcommand{\CurDef}[1]{\mathfrak d_{#1}^{\mathrm{cur}}}
+\newcommand{\EqDef}[1]{\mathfrak d_{#1}^{\mathrm{eq}}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Primitive-Reservoir Line Continuity-Hessian Core\\
+\large Derivation Theorem}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+After the primitive-reservoir / stationary-reduction origin note, the upstream compression theorem, and the later necessity / uniqueness theorem, the next honest benchmark-facing move on the active one-metric line is no longer to argue that the continuity-Hessian core is the right upstream target. It is to derive that core from explicit primitive-reservoir-line structure.
+
+The present note records a disciplined line-faithful derivation theorem of exactly that kind. Starting from explicit primitive-reservoir shell variables, primitive current parents, primitive equilibrium readouts, and observer-output maps on the current primitive-reservoir line, it derives the ordered continuity-Hessian defect tuple, the observer-side sector readouts, branch locking on the active completed branch, and the one operative completed metric with the ordinary matter route through that same metric. In this sense, the continuity-Hessian observer-relevant core becomes a derivational output of the primitive-reservoir line rather than merely preserved package data.
+
+The claim boundary remains narrow. This is not yet a completed first-principles derivation of GR from final substrate microphysics. The theorem is conditional on a line-faithful primitive-reservoir observer-reduction datum and is therefore best read as the first manuscript in which the benchmark-facing continuity-Hessian core is treated as something to be derived from explicit substrate variables rather than merely inherited.
+\end{abstract}
+
+\section{Introduction}
+
+The active derivational program of \TheoryName{} has now reached a cleaner routing stage than before. The primitive-reservoir / stationary-reduction note already shows that the current forcing-principle layer is itself not primitive at present scope: it is recovered from deeper primitive-reservoir bundles, primitive-reservoir sections and zero shells, primitive-reservoir cotangent and connection data, and primitive-reservoir fixed-endpoint source-action geometry, while preserving the same downstream one-metric package without change. The later benchmark one-metric observer-package compression theorem then shows that benchmark-facing status on this line factors through a smaller observer-relevant continuity-Hessian core. The later necessity / uniqueness theorem sharpens that further by showing that, on the current primitive-reservoir line, no smaller genuinely benchmark-facing datum exists up to line-faithful equivalence.
+
+Those theorems settle the routing question, but they do not yet make the desired derivational move. They say which observer-relevant core is the real target; they do not yet derive that core from explicit primitive-reservoir-line variables. That is the point of the present note.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays inside that boundary. It does not claim that the full Einstein sector has already been derived from final microphysics. Its narrower theorem is that, on the current primitive-reservoir line, the benchmark-facing continuity-Hessian core can be presented as a line-faithful output of explicit primitive-reservoir observer reduction rather than as previously settled observer-side package data.
+
+\section{Fixed Inputs from the Active Line}
+
+\begin{definition}[Fixed line inputs]
+\label{def:fixed}
+The present note uses the following active inputs as fixed background.
+\begin{enumerate}
+    \item The primitive-reservoir / stationary-reduction / cotangent-connection / source-action origin note, which proves that the current forcing-principle layer arises from explicit primitive-reservoir structure.
+    \item The same-package theorem of that note, which preserves the downstream one-metric package without change.
+    \item The continuity-Hessian bridge theorem-building note, which records the ordered six-defect route, the sectorwise readouts, and branch locking on the active completed branch.
+    \item The upstream compression theorem and the later primitive-reservoir-line necessity / uniqueness theorem, which show that this continuity-Hessian package is the minimal benchmark-facing core on the current line.
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}[What is already fixed before the present note]
+\label{prop:already_fixed}
+Before any new derivation theorem is added, the current primitive-reservoir line already preserves without change the same observer-equation closure package, the same one operative completed metric \(\CompletedMetric\), the same ordinary matter route through that metric, and the same observer quotient \(\ObserverQuotient\).
+\end{proposition}
+
+\begin{proof}
+This is exactly the content of the same-package theorem from the primitive-reservoir note. That theorem states that once the primitive-reservoir / stationary-reduction input layer is fixed, the forcing-principle layer and hence the full downstream exact-preservation chain are recovered verbatim. In particular, the observer-equation closure package, the one operative completed metric, the ordinary matter route, and the same observer-side null-class extraction are preserved without change.
+\end{proof}
+
+\section{Primitive-Reservoir Observer Reduction Data}
+
+\begin{definition}[Recorded continuity-Hessian parent maps]
+\label{def:recorded_maps}
+Write
+\[
+\ObsCurrent{\Car},\qquad
+\ObsCurrent{\Cur},\qquad
+\ObsCurrent{\Hom}
+\]
+for the three recorded continuity-current parent maps of the continuity-Hessian interface, and write
+\[
+\ObsTheta{\Car},\qquad
+\ObsTheta{\Cur},\qquad
+\ObsTheta{\Hom}
+\]
+for the three recorded compatibility-projected equilibrium readouts. Let
+\[
+\EqProj{\Car},\qquad
+\EqProj{\Cur},\qquad
+\EqProj{\Hom}
+\]
+denote the corresponding equilibrium-kernel projectors. The recorded ordered defect tuple is therefore
+\begin{equation}
+\DefectTuple
+=
+\Bigl(
+\ObsCurrent{\Car},
+\ObsCurrent{\Cur},
+\ObsCurrent{\Hom},
+(\mathbf 1-\EqProj{\Car})\ObsTheta{\Car},
+(\mathbf 1-\EqProj{\Cur})\ObsTheta{\Cur},
+(\mathbf 1-\EqProj{\Hom})\ObsTheta{\Hom}
+\Bigr).
+\label{eq:recorded_tuple}
+\end{equation}
+\end{definition}
+
+\begin{definition}[Primitive shell and line-faithful observer reduction datum]
+\label{def:datum}
+Define the current primitive shell product by
+\[
+\PrimShell
+\equiv
+\ForSpace{\Car}\times\ForSpace{\Cur}\times\ForSpace{\Hom}.
+\]
+A \emph{line-faithful primitive-reservoir observer reduction datum} on the current line consists of:
+\begin{enumerate}
+    \item shell reduction maps
+    \[
+    \Reduction{\Car}:\ForSpace{\Car}\to X_{\Car},\qquad
+    \Reduction{\Cur}:\ForSpace{\Cur}\to X_{\Cur},\qquad
+    \Reduction{\Hom}:\ForSpace{\Hom}\to X_{\Hom},
+    \]
+    where \(X_{\Car},X_{\Cur},X_{\Hom}\) are the visible sector spaces on which Definition \ref{def:recorded_maps} is evaluated;
+    \item exact-preserving primitive current parents
+    \[
+    \PrimCurrent{\Car}:\ForPrimSpace{\Car}\to Y_{\Car}^{\mathrm{cur}},\qquad
+    \PrimCurrent{\Cur}:\ForPrimSpace{\Cur}\to Y_{\Cur}^{\mathrm{cur}},\qquad
+    \PrimCurrent{\Hom}:\ForPrimSpace{\Hom}\to Y_{\Hom}^{\mathrm{cur}},
+    \]
+    and exact-preserving primitive equilibrium readouts
+    \[
+    \PrimTheta{\Car}:\ForPrimSpace{\Car}\to Y_{\Car}^{\mathrm{eq}},\qquad
+    \PrimTheta{\Cur}:\ForPrimSpace{\Cur}\to Y_{\Cur}^{\mathrm{eq}},\qquad
+    \PrimTheta{\Hom}:\ForPrimSpace{\Hom}\to Y_{\Hom}^{\mathrm{eq}},
+    \]
+    satisfying the shell restriction identities
+    \begin{equation}
+    \PrimCurrent{\sigma}\circ\ForPrimInc{\sigma}
+    =
+    \ObsCurrent{\sigma}\circ\Reduction{\sigma},
+    \qquad
+    \PrimTheta{\sigma}\circ\ForPrimInc{\sigma}
+    =
+    \ObsTheta{\sigma}\circ\Reduction{\sigma},
+    \label{eq:shell_restriction}
+    \end{equation}
+    for \(\sigma\in\{\Car,\Cur,\Hom\}\), and vanishing on the primitive unit branch:
+    \[
+    \PrimCurrent{\sigma}\circ\ForPrimUnit{\sigma}=0,
+    \qquad
+    \PrimTheta{\sigma}\circ\ForPrimUnit{\sigma}=0;
+    \]
+    \item a distinguished active completed primitive branch
+    \[
+    \PrimBranch\subset \PrimShell
+    \]
+    whose sectorwise components lie on the primitive unit branch and whose image under
+    \[
+    (\Reduction{\Car},\Reduction{\Cur},\Reduction{\Hom})
+    \]
+    is exactly the active completed observer branch of the recorded one-metric line;
+    \item observer-side sector outputs
+    \[
+    \PrimResidualSector,\qquad
+    \PrimCompletionSector,\qquad
+    \PrimMatterSector
+    \]
+    defined on \(\PrimShell\), together with observer-output maps
+    \[
+    \MetricOut:\PrimShell\to\{\text{observer metrics}\},
+    \qquad
+    \MatterOut:\PrimShell\times\Psi\to\{\text{observer stress tensors}\},
+    \]
+    such that the three sector outputs are constant on fibers of the primitive defect map of Definition \ref{def:primtuple} and the metric / matter outputs agree on \(\PrimBranch\) with the same-package branch preserved by Proposition \ref{prop:already_fixed}.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Primitive-reservoir defect tuple]
+\label{def:primtuple}
+For
+\[
+\mathbf w=(w_{\Car},w_{\Cur},w_{\Hom})\in\PrimShell
+\]
+define the \emph{primitive-reservoir defect tuple} by
+\begin{equation}
+\begin{aligned}
+\PrimDefectTuple(\mathbf w)
+\equiv\;
+\Bigl(
+&\PrimCurrent{\Car}(\ForPrimInc{\Car}(w_{\Car})),
+\PrimCurrent{\Cur}(\ForPrimInc{\Cur}(w_{\Cur})),
+\PrimCurrent{\Hom}(\ForPrimInc{\Hom}(w_{\Hom})),
+\\
+&(\mathbf 1-\EqProj{\Car})\PrimTheta{\Car}(\ForPrimInc{\Car}(w_{\Car})),
+(\mathbf 1-\EqProj{\Cur})\PrimTheta{\Cur}(\ForPrimInc{\Cur}(w_{\Cur})),
+\\
+&
+(\mathbf 1-\EqProj{\Hom})\PrimTheta{\Hom}(\ForPrimInc{\Hom}(w_{\Hom}))
+\Bigr).
+\end{aligned}
+\label{eq:primtuple}
+\end{equation}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:primtuple} is the first derivational step of the present note. The ordered current / equilibrium six-tuple is written directly in primitive-reservoir variables before any appeal is made to the already-recorded observer-side theorem package.
+\end{remark}
+
+\section{Derivation of the Ordered Defect Tuple and Branch Locking}
+
+\begin{proposition}[The recorded ordered defect tuple descends from primitive variables]
+\label{prop:descent}
+For every \(\mathbf w=(w_{\Car},w_{\Cur},w_{\Hom})\in\PrimShell\),
+\begin{equation}
+\PrimDefectTuple(\mathbf w)
+=
+\DefectTuple\bigl(\Reduction{\Car}(w_{\Car}),\Reduction{\Cur}(w_{\Cur}),\Reduction{\Hom}(w_{\Hom})\bigr),
+\label{eq:tuple_descent}
+\end{equation}
+where \(\DefectTuple\) is the recorded ordered tuple of Definition \ref{def:recorded_maps}.
+\end{proposition}
+
+\begin{proof}
+Apply the shell restriction identities \eqref{eq:shell_restriction} sector by sector. The first three coordinates of \(\PrimDefectTuple\) become
+\[
+\ObsCurrent{\Car}(\Reduction{\Car}(w_{\Car})),\qquad
+\ObsCurrent{\Cur}(\Reduction{\Cur}(w_{\Cur})),\qquad
+\ObsCurrent{\Hom}(\Reduction{\Hom}(w_{\Hom})).
+\]
+Applying the same identities to the equilibrium readouts and then composing with \((\mathbf 1-\EqProj{\sigma})\) gives the remaining three coordinates
+\[
+(\mathbf 1-\EqProj{\Car})\ObsTheta{\Car}(\Reduction{\Car}(w_{\Car})),
+\]
+\[
+(\mathbf 1-\EqProj{\Cur})\ObsTheta{\Cur}(\Reduction{\Cur}(w_{\Cur})),
+\qquad
+(\mathbf 1-\EqProj{\Hom})\ObsTheta{\Hom}(\Reduction{\Hom}(w_{\Hom})).
+\]
+This is exactly the ordered tuple of Definition \ref{def:recorded_maps} evaluated on the reduced shell state.
+\end{proof}
+
+\begin{theorem}[Branch locking is induced by the primitive unit branch]
+\label{thm:locking}
+For every \(\mathbf w\in\PrimBranch\),
+\[
+\PrimDefectTuple(\mathbf w)=0.
+\]
+Consequently the active completed observer branch satisfies the recorded branch-locking statement
+\[
+\DefectTuple=0.
+\]
+\end{theorem}
+
+\begin{proof}
+By Definition \ref{def:datum}, each sectorwise component of \(\mathbf w\in\PrimBranch\) lies on the primitive unit branch. Therefore the primitive current parents and primitive equilibrium readouts vanish there:
+\[
+\PrimCurrent{\sigma}(\ForPrimInc{\sigma}(w_{\sigma}))=0,
+\qquad
+\PrimTheta{\sigma}(\ForPrimInc{\sigma}(w_{\sigma}))=0
+\]
+for \(\sigma\in\{\Car,\Cur,\Hom\}\). Definition \ref{def:primtuple} then gives \(\PrimDefectTuple(\mathbf w)=0\). Proposition \ref{prop:descent} transports this vanishing statement to the reduced observer branch, which is exactly the recorded branch-locking conclusion.
+\end{proof}
+
+\section{Derivation of the Sector Readouts}
+
+\begin{proposition}[Primitive sector outputs factor through the primitive defect tuple]
+\label{prop:factor}
+There exist unique maps
+\[
+\ResidualRead,\qquad
+\CompletionRead,\qquad
+\MatterRead
+\]
+defined on \(\operatorname{im}\PrimDefectTuple\) such that
+\begin{equation}
+\PrimResidualSector=\ResidualRead\circ\PrimDefectTuple,\qquad
+\PrimCompletionSector=\CompletionRead\circ\PrimDefectTuple,\qquad
+\PrimMatterSector=\MatterRead\circ\PrimDefectTuple.
+\label{eq:factor_prim}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+By Definition \ref{def:datum}, each primitive sector output is constant on fibers of \(\PrimDefectTuple\). Therefore each one descends uniquely to the image of that map. Those descended maps are exactly the displayed \(\ResidualRead,\CompletionRead,\MatterRead\).
+\end{proof}
+
+\begin{lemma}[Ordered telescoping readouts are derived rather than imported]
+\label{lem:tel}
+Fix \(\mathbf w\in\PrimShell\) and write
+\[
+\PrimDefectTuple(\mathbf w)=(d_1,d_2,d_3,d_4,d_5,d_6).
+\]
+Then each of the three factor maps in Proposition \ref{prop:factor} admits the ordered one-slot telescoping decomposition used in the continuity-Hessian bridge theorem. For example,
+\begin{equation}
+\begin{aligned}
+\ResidualRead(d_1,d_2,d_3,d_4,d_5,d_6)
+=\;&
+\ResidualRead(d_1,0,0,0,0,0)
+[\ResidualRead(d_1,d_2,0,0,0,0)-\ResidualRead(d_1,0,0,0,0,0)]
+\\
+&+[\ResidualRead(d_1,d_2,d_3,0,0,0)-\ResidualRead(d_1,d_2,0,0,0,0)]
+\\
+&+[\ResidualRead(d_1,d_2,d_3,d_4,0,0)-\ResidualRead(d_1,d_2,d_3,0,0,0)]
+\\
+&+[\ResidualRead(d_1,d_2,d_3,d_4,d_5,0)-\ResidualRead(d_1,d_2,d_3,d_4,0,0)]
+\\
+&+[\ResidualRead(d_1,d_2,d_3,d_4,d_5,d_6)-\ResidualRead(d_1,d_2,d_3,d_4,d_5,0)].
+\end{aligned}
+\label{eq:tel}
+\end{equation}
+The same ordered telescoping identity holds for \(\CompletionRead\) and \(\MatterRead\).
+\end{lemma}
+
+\begin{proof}
+This is the standard telescoping identity in six ordered variables. The point relevant here is interpretive rather than algebraically difficult: once Proposition \ref{prop:factor} is available on the primitive-reservoir line, the ordered one-slot readout package is produced directly from those primitive factor maps. It need not be imported as previously settled observer-side package data.
+\end{proof}
+
+\begin{theorem}[The ordered defect / readout package is derived from primitive-reservoir variables]
+\label{thm:readouts}
+On the current primitive-reservoir line, the observer-side ordered six-defect package together with the sector readouts is derivable from the primitive-reservoir observer reduction datum of Definition \ref{def:datum}. In particular,
+\begin{equation}
+\ObserverClass{\ObsBurden}
+=
+\ObserverClass{
+\ResidualRead(\DefectTuple)
++\CompletionRead(\DefectTuple)
++\MatterRead(\DefectTuple)}
+\label{eq:burdenfactor}
+\end{equation}
+is the reduced observer-side image of the primitive factorization \eqref{eq:factor_prim}, and Theorem \ref{thm:locking} then forces this class to vanish on the active completed branch.
+\end{theorem}
+
+\begin{proof}
+Proposition \ref{prop:factor} derives the three factor maps on the image of the primitive defect tuple. Lemma \ref{lem:tel} then derives the ordered one-slot readout package from those factor maps themselves. Proposition \ref{prop:descent} identifies the primitive defect tuple with the recorded ordered tuple after reduction to the observer-side variables. Therefore the observer burden class factors through the same ordered six defects on the reduced branch exactly as in \eqref{eq:burdenfactor}. Theorem \ref{thm:locking} then forces every defect coordinate to vanish on the active completed branch, so the factorized observer burden class vanishes there as well.
+\end{proof}
+
+\section{Derivation of the One Operative Metric and Matter Route}
+
+\begin{proposition}[The one operative metric is an observer output of the primitive-reservoir line]
+\label{prop:metric}
+On the active completed primitive branch \(\PrimBranch\),
+\[
+\MetricOut=\CompletedMetric.
+\]
+Moreover the current primitive-reservoir line supplies no second operative observer metric.
+\end{proposition}
+
+\begin{proof}
+By Definition \ref{def:datum}, the map \(\MetricOut\) is the observer output of the same primitive-reservoir reduction chain that is preserved by the same-package theorem. Proposition \ref{prop:already_fixed} then states that this chain yields the same one operative completed metric without change. Therefore \(\MetricOut\) evaluates to \(\CompletedMetric\) on \(\PrimBranch\). Because the same-package theorem preserves the one-metric observer package rather than enlarging it, no second operative observer metric is introduced on the current line.
+\end{proof}
+
+\begin{proposition}[The ordinary matter route is an observer output of that same line]
+\label{prop:matter}
+For every matter configuration \(\psi\), on the active completed primitive branch,
+\[
+\MatterOut(\PrimBranch,\psi)=T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi].
+\]
+Thus the ordinary matter route is an output of the same primitive-reservoir observer reduction that produces \(\CompletedMetric\).
+\end{proposition}
+
+\begin{proof}
+Proposition \ref{prop:already_fixed} records that the same-package theorem preserves the ordinary matter route through the same one operative metric. Proposition \ref{prop:metric} identifies that metric as \(\CompletedMetric\). Since \(\MatterOut\) is, by Definition \ref{def:datum}, the matter output map of that same reduction chain, its branch value is exactly \(T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]\).
+\end{proof}
+
+\section{Main Theorem}
+
+\begin{theorem}[Primitive-reservoir line continuity-Hessian core derivation theorem]
+\label{thm:main}
+Assume a line-faithful primitive-reservoir observer reduction datum in the sense of Definition \ref{def:datum}. Then the continuity-Hessian observer-relevant core
+\[
+\CoreData
+=
+\bigl(
+\CompletedMetric,\;
+T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi],\;
+\ObserverQuotient,\;
+\DefectTuple,\;
+\ResidualRead,\;
+\CompletionRead,\;
+\MatterRead,\;
+\BranchLock
+\bigr)
+\]
+is a derivational output of the current primitive-reservoir line. More precisely:
+\begin{enumerate}
+    \item the ordered defect tuple \(\DefectTuple\) is the observer-side descent of the primitive-reservoir tuple \(\PrimDefectTuple\);
+    \item branch locking is induced by vanishing of \(\PrimDefectTuple\) on the primitive unit branch \(\PrimBranch\);
+    \item the sector readouts \(\ResidualRead,\CompletionRead,\MatterRead\) are the unique primitive defect-fiber factorizations of the observer sector outputs, with their ordered one-slot readout package obtained by telescoping;
+    \item the one operative completed metric and the ordinary matter route are outputs of that same primitive-reservoir observer reduction chain;
+    \item the observer quotient \(\ObserverQuotient\) is inherited unchanged from the same-package reduction, since no new observer-side null class and no second operative metric are introduced.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Item (1) is Proposition \ref{prop:descent}. Item (2) is Theorem \ref{thm:locking}. Item (3) is Proposition \ref{prop:factor} together with Lemma \ref{lem:tel} and Theorem \ref{thm:readouts}. Item (4) is Propositions \ref{prop:metric} and \ref{prop:matter}. Item (5) follows from Proposition \ref{prop:already_fixed}: the same-package theorem preserves the same observer null-class extraction and introduces neither a new gauge-exact / constraint-exact observer sector nor a second operative metric. Collecting these statements yields the displayed core as a line-faithful observer output of the primitive-reservoir line.
+\end{proof}
+
+\begin{corollary}[The continuity-Hessian core is no longer merely inherited package data]
+\label{cor:notinherited}
+On the current primitive-reservoir line, once a line-faithful primitive-reservoir observer reduction datum is supplied, the benchmark-facing continuity-Hessian core need not be imported as previously settled observer-side package data. It is produced by explicit primitive-reservoir structure and its observer reduction.
+\end{corollary}
+
+\begin{proof}
+This is exactly the content of Theorem \ref{thm:main}.
+\end{proof}
+
+\begin{corollary}[What the next primary manuscript must now derive]
+\label{cor:next}
+After Theorem \ref{thm:main}, the remaining honest upstream burden is no longer another same-output deeper-origin relay and it is not, by default, the optional same-package \(\widehat g\) rewritten-metric route. The next primary manuscript must instead derive, uniquely force, or otherwise sharpen some constituent of the primitive-reservoir observer reduction datum itself. In particular, it should target at least one of:
+\begin{enumerate}
+    \item the primitive current parents \(\PrimCurrent{\Car},\PrimCurrent{\Cur},\PrimCurrent{\Hom}\);
+    \item the primitive equilibrium readouts \(\PrimTheta{\Car},\PrimTheta{\Cur},\PrimTheta{\Hom}\) and their equilibrium projectors;
+    \item the defect-fiber factorization of the observer sector outputs;
+    \item the one-metric observer output map \(\MetricOut\) and the ordinary matter output map \(\MatterOut\).
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+Theorem \ref{thm:main} moves the benchmark-facing derivational burden from the already-identified continuity-Hessian core down to the primitive-reservoir observer reduction datum that produces it. Therefore a new front-line manuscript must no longer merely preserve the same core while moving one layer deeper. It must instead derive or sharpen some still-primitive constituent of the datum that now carries the derivation.
+\end{proof}
+
+\section{Conclusion}
+
+The positive result of this note is a genuine change of derivational posture on the active primitive-reservoir line. The continuity-Hessian core is no longer treated here only as the correct target identified by compression and uniqueness theorems. It is written as an output of explicit primitive-reservoir shell variables, primitive current parents, primitive equilibrium readouts, primitive branch data, and primitive observer-output maps.
+
+In particular, the ordered six-defect tuple is obtained directly from primitive-reservoir variables and then descended to the observer line. The observer-side sector readouts are derived by factorization through that primitive defect tuple and organized by the same ordered telescoping package used in the continuity-Hessian bridge theorem. Branch locking is induced by the primitive unit branch. The one operative completed metric and the ordinary matter route are observer outputs of that same primitive-reservoir reduction chain. Hence the benchmark-facing continuity-Hessian core is derivational output at current scope rather than merely preserved package data.
+
+The claim boundary remains disciplined. The present theorem does not yet derive GR from final substrate microphysics. What it does do is place the next burden in the right location: below the continuity-Hessian core itself, at the level of the primitive-reservoir observer reduction datum that now produces that core on the active one-metric line.
+
+\end{document}
