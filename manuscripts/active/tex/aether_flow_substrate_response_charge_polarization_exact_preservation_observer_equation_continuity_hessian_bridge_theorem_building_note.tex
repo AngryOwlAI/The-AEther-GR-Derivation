@@ -1,0 +1,697 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\ObserverMetric}{g^{\mathrm{br}}}
+\newcommand{\CandidateMetric}{g^{\mathrm{cand}}}
+\newcommand{\CompletedMetric}{g^{\sharp}}
+\newcommand{\RedefMetric}{\widehat g}
+\newcommand{\BaseShift}{\Sigma^{\mathrm{IER}}}
+\newcommand{\ResponseShift}{\Sigma^{\mathrm{resp}}}
+\newcommand{\CompShift}{\Sigma^{\mathrm{cmp}}}
+\newcommand{\BridgeShift}{\Sigma^{\mathrm{brg}}}
+\newcommand{\ResidualCore}{\mathcal V_{\mu\nu}^{\mathrm{res}}}
+\newcommand{\ResidualDec}{\mathcal D_{\mu\nu}^{\mathrm{res}}}
+\newcommand{\MixQuad}{\mathcal M_{\mu\nu}^{\mathrm{mix}}}
+\newcommand{\RespQuad}{\mathcal Q_{\mu\nu}^{\mathrm{resp}}}
+\newcommand{\DeltaTCand}{\Delta T_{\mu\nu}^{\mathrm{cand}}}
+\newcommand{\ReducedEin}{\mathcal L_{\ObserverMetric}}
+\newcommand{\GaugeBook}{\mathcal G_{\ObserverMetric}}
+\newcommand{\CompMix}{\mathcal M_{\mu\nu}^{\mathrm{cmp}}}
+\newcommand{\CompQuad}{\mathcal Q_{\mu\nu}^{\mathrm{cmp}}}
+\newcommand{\DeltaTComp}{\Delta T_{\mu\nu}^{\mathrm{cmp}}}
+\newcommand{\ObsBurden}{\mathfrak B_{\mu\nu}^{\mathrm{obs}}}
+\newcommand{\ObserverClass}[1]{\left[#1\right]_{\mathrm{obs}}}
+\newcommand{\GaugeExact}{\mathfrak G_{\mu\nu}^{\mathrm{ex}}}
+\newcommand{\ConstraintExact}{\mathfrak C_{\mu\nu}^{\mathrm{ex}}}
+\newcommand{\ProtoFunctional}{\mathscr F_{\mathrm{proto}}}
+\newcommand{\StemFunctional}{\mathscr F_{\mathrm{sel}}}
+\newcommand{\SharpFunctional}{\mathscr F_{\mathrm{sharp}}}
+\newcommand{\RootTensorClass}{\mathscr U_{\mathrm{car}}}
+\newcommand{\RootRelabelClass}{\mathscr U_{\mathrm{cur}}}
+\newcommand{\RootFreeClass}{\mathscr U_{\mathrm{hom}}}
+\newcommand{\RootTensor}{\mathfrak U}
+\newcommand{\RootRelabel}{\mathfrak V}
+\newcommand{\RootFree}{\mathfrak Q}
+\newcommand{\TensorSymProj}{\Pi_{\mathrm{sym,car}}}
+\newcommand{\CurSymProj}{\Pi_{\mathrm{sym,cur}}}
+\newcommand{\HomSymProj}{\Pi_{\mathrm{sym,hom}}}
+\newcommand{\TensorSymGroup}{G_{\mathrm{car}}}
+\newcommand{\CurSymGroup}{G_{\mathrm{cur}}}
+\newcommand{\HomSymGroup}{G_{\mathrm{hom}}}
+\newcommand{\TensorSymAct}{\mathscr U_{\mathrm{car}}}
+\newcommand{\CurSymAct}{\mathscr U_{\mathrm{cur}}}
+\newcommand{\HomSymAct}{\mathscr U_{\mathrm{hom}}}
+\newcommand{\TensorCompat}{\mathcal C_{\mathrm{car}}}
+\newcommand{\CurCompat}{\mathcal C_{\mathrm{cur}}}
+\newcommand{\HomCompat}{\mathcal C_{\mathrm{hom}}}
+\newcommand{\TensorCmpProj}{\Pi_{\mathrm{cmp,car}}}
+\newcommand{\CurCmpProj}{\Pi_{\mathrm{cmp,cur}}}
+\newcommand{\HomCmpProj}{\Pi_{\mathrm{cmp,hom}}}
+\newcommand{\TensorCurrent}{\mathfrak c_{\mathrm{car}}}
+\newcommand{\CurCurrent}{\mathfrak c_{\mathrm{cur}}}
+\newcommand{\HomCurrent}{\mathfrak c_{\mathrm{hom}}}
+\newcommand{\TensorResp}{\mathcal R_{\mathrm{sel,car}}}
+\newcommand{\CurResp}{\mathcal R_{\mathrm{sel,cur}}}
+\newcommand{\HomResp}{\mathcal R_{\mathrm{sel,hom}}}
+\newcommand{\TensorEqClass}{\mathscr E_{\mathrm{car}}}
+\newcommand{\CurEqClass}{\mathscr E_{\mathrm{cur}}}
+\newcommand{\HomEqClass}{\mathscr E_{\mathrm{hom}}}
+\newcommand{\TensorEqRead}{\mathcal A_{\mathrm{car}}}
+\newcommand{\CurEqRead}{\mathcal A_{\mathrm{cur}}}
+\newcommand{\HomEqRead}{\mathcal A_{\mathrm{hom}}}
+\newcommand{\TensorAmbientHess}{\mathbb H_{\mathrm{car}}}
+\newcommand{\CurAmbientHess}{\mathbb H_{\mathrm{cur}}}
+\newcommand{\HomAmbientHess}{\mathbb H_{\mathrm{hom}}}
+\newcommand{\TensorEqKerProj}{\widetilde\Pi_{\mathrm{mic,car}}}
+\newcommand{\CurEqKerProj}{\widetilde\Pi_{\mathrm{mic,cur}}}
+\newcommand{\HomEqKerProj}{\widetilde\Pi_{\mathrm{mic,hom}}}
+\newcommand{\TensorAmbientEnergy}{\mathcal U_{\mathrm{car}}}
+\newcommand{\CurAmbientEnergy}{\mathcal U_{\mathrm{cur}}}
+\newcommand{\HomAmbientEnergy}{\mathcal U_{\mathrm{hom}}}
+\newcommand{\TensorEqManifold}{\mathcal N_{\mathrm{car}}}
+\newcommand{\CurEqManifold}{\mathcal N_{\mathrm{cur}}}
+\newcommand{\HomEqManifold}{\mathcal N_{\mathrm{hom}}}
+\newcommand{\TensorTheta}{\Theta_{\mathrm{car}}}
+\newcommand{\CurTheta}{\Theta_{\mathrm{cur}}}
+\newcommand{\HomTheta}{\Theta_{\mathrm{hom}}}
+\newcommand{\TensorCurrentBridge}{\mathcal B_{\mathrm{car}}^{\mathrm{cur}}}
+\newcommand{\CurCurrentBridge}{\mathcal B_{\mathrm{cur}}^{\mathrm{cur}}}
+\newcommand{\HomCurrentBridge}{\mathcal B_{\mathrm{hom}}^{\mathrm{cur}}}
+\newcommand{\TensorEqBridge}{\mathcal B_{\mathrm{car}}^{\mathrm{eq}}}
+\newcommand{\CurEqBridge}{\mathcal B_{\mathrm{cur}}^{\mathrm{eq}}}
+\newcommand{\HomEqBridge}{\mathcal B_{\mathrm{hom}}^{\mathrm{eq}}}
+\newcommand{\TensorShiftLift}{\mathcal S_{\mathrm{car}}^{\mathrm{cur}}}
+\newcommand{\CurShiftLift}{\mathcal S_{\mathrm{cur}}^{\mathrm{cur}}}
+\newcommand{\HomShiftLift}{\mathcal S_{\mathrm{hom}}^{\mathrm{cur}}}
+\newcommand{\TensorEqLift}{\mathcal S_{\mathrm{car}}^{\mathrm{eq}}}
+\newcommand{\CurEqLift}{\mathcal S_{\mathrm{cur}}^{\mathrm{eq}}}
+\newcommand{\HomEqLift}{\mathcal S_{\mathrm{hom}}^{\mathrm{eq}}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Substrate-Response / Self-Response Charge-Polarization Candidate\\
+\large Exact-Preservation Observer-Equation Continuity-Hessian\\
+\large Bridge Theorem-Building Note}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The fixed-package strict-closure maximality theorem now determines the next honest move on the active one-metric charge-polarization line. The current observer package is exhausted: any strict observer-side closure upgrade on that fixed package must furnish either the stronger direct absorbability identity
+\[
+\ObserverClass{\ObsBurden}=0
+\]
+or an explicit same-package field-redefinition theorem. Therefore the next primary step is not another manuscript that merely reproduces the same downstream package.
+
+The present note starts from the only recorded layer that is visibly connected to that missing theorem burden: the continuity-defect / ambient-Hessian interface, where the compatibility-current maps arise as exact continuity defects and the primitive response operators arise as pulled-back ambient Hessians. It then builds the smallest sharpened package at that interface. The symmetry actions, the visible \(\ProtoFunctional\) slot, and the one-metric branch data are kept fixed, but the linearized compatibility penalties are replaced by exact current-defect data and the quadratic response penalties are replaced by exact ambient-equilibrium data. The first theorem of the note proves that the recorded symmetry-charge / compatibility-response functional is exactly the quadratic truncation of this sharpened package.
+
+That nonlinear sharpening alone is still not enough. The note therefore writes down the actual bridge theorems that must now be derived. If the remaining observer burden \(\ObsBurden\) factors through the exact current defects and exact equilibrium defects modulo the already-extracted gauge-exact and constraint-exact sectors, then direct absorbability follows. If the same defect data instead determine an explicit invertible rewritten one-metric variable satisfying an exact Einstein--matter rewriting identity, then an explicit same-package field-redefinition theorem follows.
+
+The present note does not claim that either bridge datum has already been established. Its exact positive claim is narrower and exactly the one now needed: the open primary burden is reduced to deriving one of two precise bridge identities on the smallest recorded deeper-origin package that can actually change the observer-side theorem.
+\end{abstract}
+
+\section{Introduction}
+
+The active manuscript sequence of \TheoryName{} has now crossed a clean internal threshold. On the fixed one-metric exact-preservation package, the completed observer equation has already been reduced to
+\[
+G_{\mu\nu}[\CompletedMetric]
+=
+8\pi G_N\,T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
++\GaugeBook(\CompShift)_{\mu\nu}
++\ObsBurden,
+\]
+with
+\[
+\ObsBurden
+=
+\ResidualDec+\CompMix+\CompQuad-8\pi G_N\,\DeltaTComp.
+\]
+The subsequent observer-equation notes then showed, in increasing strength, that the displayed sectors are benchmark-decoupled, exactly non-independent, not directly absorbable on the fixed package, and not yet removable by any presently recorded same-package field redefinition. The fixed-package maximality theorem made the project consequence explicit: at current scope there is no third same-package route.
+
+That changes what counts as honest progress. A deeper-origin manuscript is no longer primary merely because it goes one layer lower while reproducing the same completed observer equation, the same completion solve, and the same one operative metric. To matter at the front line now, a sharpened package must change the observer-side data enough to prove one of the two missing theorems.
+
+The only recorded interface that looks mathematically close to that burden is the continuity-defect / ambient-Hessian interface. At that interface, the compatibility-current maps are not primitive: they arise as continuity defects of deeper density readouts. Likewise the primitive response operators are not primitive: they are pullbacks of ambient equilibrium Hessians. Those are exactly the two places where the fixed package still remembers nonlinear data that the recorded observer line has not yet used.
+
+The purpose of this note is therefore narrow and theorem-building in character. It does not draft another primary manuscript on the same fixed package. Instead it does three smaller things.
+\begin{enumerate}
+    \item It defines the smallest nonlinear sharpening of the continuity-Hessian interface that changes the observer-side data while keeping the same visible branch inputs.
+    \item It proves that the already-recorded symmetry-charge / compatibility-response functional is exactly the quadratic truncation of that sharpening.
+    \item It states the two exact bridge theorems that would finally convert that sharpening into either direct absorbability of \(\ObsBurden\) or an explicit same-package rewritten one-metric variable.
+\end{enumerate}
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not claim a completed first-principles derivation of GR from substrate microphysics. It does not claim that the missing bridge theorem has already been won. Its narrower positive role is to write down the actual theorem burden on the smallest sharpened package that can still honestly change the observer-side conclusion.
+
+\section{Fixed Observer Bottleneck and the Recorded Interface}
+
+\begin{definition}[Fixed one-metric observer package]
+\label{def:fixed}
+The present note keeps the following observer-side data fixed.
+\begin{enumerate}
+    \item The candidate and completed operative metrics are
+    \begin{equation}
+    \CandidateMetric
+    =
+    \ObserverMetric+\BaseShift+\ResponseShift,
+    \qquad
+    \CompletedMetric
+    =
+    \ObserverMetric+\BaseShift+\ResponseShift+\CompShift.
+    \label{eq:metrics}
+    \end{equation}
+    \item The fixed completion solve is
+    \begin{equation}
+    \ReducedEin(\CompShift)=-\ResidualCore.
+    \label{eq:solve}
+    \end{equation}
+    \item The completed observer equation is
+    \begin{equation}
+    G_{\mu\nu}[\CompletedMetric]
+    =
+    8\pi G_N\,T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
+    +\GaugeBook(\CompShift)_{\mu\nu}
+    +\ObsBurden,
+    \label{eq:completed}
+    \end{equation}
+    with
+    \begin{equation}
+    \ObsBurden
+    \equiv
+    \ResidualDec+\CompMix+\CompQuad-8\pi G_N\,\DeltaTComp.
+    \label{eq:burden}
+    \end{equation}
+    \item The already-recorded observer quotient mods out only the already-extracted null classes:
+    \begin{enumerate}
+        \item gauge-bookkeeping / gauge-exact tensors;
+        \item constraint-exact elimination tensors.
+    \end{enumerate}
+    The observer-quotient class of a tensor \(X_{\mu\nu}\) is denoted \(\ObserverClass{X_{\mu\nu}}\).
+    \item The fixed-package maximality theorem already recorded in the active sequence states that any admissible strict observer-side closure upgrade on this fixed package must furnish at least one of exactly two ingredients:
+    \begin{enumerate}
+        \item the direct absorbability identity \(\ObserverClass{\ObsBurden}=0\);
+        \item an explicit same-package field-redefinition theorem.
+    \end{enumerate}
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Recorded continuity-Hessian interface]
+\label{def:interface}
+On the sharper symmetry-fixed sectors
+\[
+\operatorname{ran}\TensorSymProj\subset\RootTensorClass,\qquad
+\operatorname{ran}\CurSymProj\subset\RootRelabelClass,\qquad
+\operatorname{ran}\HomSymProj\subset\RootFreeClass,
+\]
+the recorded continuity-Hessian interface provides:
+\begin{enumerate}
+    \item Fr\'echet-smooth exact-preserving current maps
+    \[
+    \TensorCurrent,\qquad
+    \CurCurrent,\qquad
+    \HomCurrent
+    \]
+    with
+    \begin{equation}
+    \TensorCurrent(0)=0,\qquad
+    \CurCurrent(0)=0,\qquad
+    \HomCurrent(0)=0,
+    \label{eq:current_zero}
+    \end{equation}
+    and linearizations
+    \begin{equation}
+    D\TensorCurrent(0)=\TensorCompat,\qquad
+    D\CurCurrent(0)=\CurCompat,\qquad
+    D\HomCurrent(0)=\HomCompat;
+    \label{eq:current_linearization}
+    \end{equation}
+    \item exact-preserving ambient readouts
+    \[
+    \TensorEqRead:\operatorname{ran}\TensorSymProj\to\TensorEqClass,\qquad
+    \CurEqRead:\operatorname{ran}\CurSymProj\to\CurEqClass,\qquad
+    \HomEqRead:\operatorname{ran}\HomSymProj\to\HomEqClass;
+    \]
+    \item \(C^2\) ambient equilibrium energies
+    \[
+    \TensorAmbientEnergy,\qquad
+    \CurAmbientEnergy,\qquad
+    \HomAmbientEnergy
+    \]
+    with equilibrium manifolds
+    \[
+    \TensorEqManifold,\qquad
+    \CurEqManifold,\qquad
+    \HomEqManifold
+    \]
+    passing through the origin and satisfying
+    \begin{equation}
+    D\TensorAmbientEnergy(0)=0,\qquad
+    D\CurAmbientEnergy(0)=0,\qquad
+    D\HomAmbientEnergy(0)=0,
+    \label{eq:energy_zero}
+    \end{equation}
+    together with second-variation operators
+    \begin{equation}
+    D^2\TensorAmbientEnergy(0)=\TensorAmbientHess,\qquad
+    D^2\CurAmbientEnergy(0)=\CurAmbientHess,\qquad
+    D^2\HomAmbientEnergy(0)=\HomAmbientHess;
+    \label{eq:energy_hess}
+    \end{equation}
+    \item ambient equilibrium kernel projectors
+    \[
+    \TensorEqKerProj,\qquad
+    \CurEqKerProj,\qquad
+    \HomEqKerProj
+    \]
+    onto the tangent equilibrium directions at the origin, so the recorded primitive response operators satisfy
+    \begin{equation}
+    \TensorResp=\TensorEqRead^*\TensorAmbientHess\TensorEqRead,\qquad
+    \CurResp=\CurEqRead^*\CurAmbientHess\CurEqRead,\qquad
+    \HomResp=\HomEqRead^*\HomAmbientHess\HomEqRead.
+    \label{eq:response}
+    \end{equation}
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Recorded quadratic functional at the interface]
+\label{def:recorded_functional}
+The recorded symmetry-charge / compatibility-response functional on the same visible slots is
+\begin{equation}
+\begin{aligned}
+\StemFunctional[\RootTensor,\RootRelabel,\RootFree]
+\equiv\;
+&\ProtoFunctional[\cdots]
++\frac12\int_{\TensorSymGroup}
+\norm{\RootTensor-\TensorSymAct(g)\RootTensor}_{\mathrm{root,car}}^2\,
+d\mu_{\mathrm{car}}(g)
+\\
+&+\frac12\int_{\CurSymGroup}
+\norm{\RootRelabel-\CurSymAct(g)\RootRelabel}_{\mathrm{root,cur}}^2\,
+d\mu_{\mathrm{cur}}(g)
+\\
+&+\frac12\int_{\HomSymGroup}
+\norm{\RootFree-\HomSymAct(g)\RootFree}_{\mathrm{root,hom}}^2\,
+d\mu_{\mathrm{hom}}(g)
+\\
+&+\frac12\norm{\TensorCompat\TensorSymProj\RootTensor}_{\mathrm{cmp,car}}^2
++\frac12\norm{\CurCompat\CurSymProj\RootRelabel}_{\mathrm{cmp,cur}}^2
++\frac12\norm{\HomCompat\HomSymProj\RootFree}_{\mathrm{cmp,hom}}^2
+\\
+&+\frac12\langle \TensorResp\TensorCmpProj\TensorSymProj\RootTensor,\,
+\TensorCmpProj\TensorSymProj\RootTensor\rangle_{\mathrm{root,car}}
+\\
+&+\frac12\langle \CurResp\CurCmpProj\CurSymProj\RootRelabel,\,
+\CurCmpProj\CurSymProj\RootRelabel\rangle_{\mathrm{root,cur}}
+\\
+&+\frac12\langle \HomResp\HomCmpProj\HomSymProj\RootFree,\,
+\HomCmpProj\HomSymProj\RootFree\rangle_{\mathrm{root,hom}}.
+\end{aligned}
+\label{eq:Fstem}
+\end{equation}
+The active deeper-origin notes already prove that preserving exactly \eqref{eq:Fstem} preserves the same downstream package and therefore leaves the same fixed observer equation \eqref{eq:completed} in place.
+\end{definition}
+
+\section{Smallest Continuity-Hessian Sharpening}
+
+\begin{definition}[Minimal nonlinear sharpening at the continuity-Hessian interface]
+\label{def:sharp}
+Define the compatibility-projected ambient readout variables
+\begin{equation}
+\begin{aligned}
+\TensorTheta(\RootTensor)
+&\equiv
+\TensorEqRead\,\TensorCmpProj\TensorSymProj\RootTensor,
+\\
+\CurTheta(\RootRelabel)
+&\equiv
+\CurEqRead\,\CurCmpProj\CurSymProj\RootRelabel,
+\\
+\HomTheta(\RootFree)
+&\equiv
+\HomEqRead\,\HomCmpProj\HomSymProj\RootFree.
+\end{aligned}
+\label{eq:theta}
+\end{equation}
+
+The \emph{minimal nonlinear continuity-Hessian sharpening} keeps the same visible \(\ProtoFunctional\) slot, the same compact symmetry penalties, and the same fixed one-metric observer package, but replaces only the quadratic compatibility and response terms by their exact parents:
+\begin{equation}
+\begin{aligned}
+\SharpFunctional[\RootTensor,\RootRelabel,\RootFree]
+\equiv\;
+&\ProtoFunctional[\cdots]
++\frac12\int_{\TensorSymGroup}
+\norm{\RootTensor-\TensorSymAct(g)\RootTensor}_{\mathrm{root,car}}^2\,
+d\mu_{\mathrm{car}}(g)
+\\
+&+\frac12\int_{\CurSymGroup}
+\norm{\RootRelabel-\CurSymAct(g)\RootRelabel}_{\mathrm{root,cur}}^2\,
+d\mu_{\mathrm{cur}}(g)
+\\
+&+\frac12\int_{\HomSymGroup}
+\norm{\RootFree-\HomSymAct(g)\RootFree}_{\mathrm{root,hom}}^2\,
+d\mu_{\mathrm{hom}}(g)
+\\
+&+\frac12\norm{\TensorCurrent(\TensorSymProj\RootTensor)}_{\mathrm{cmp,car}}^2
++\frac12\norm{\CurCurrent(\CurSymProj\RootRelabel)}_{\mathrm{cmp,cur}}^2
+\\
+&+\frac12\norm{\HomCurrent(\HomSymProj\RootFree)}_{\mathrm{cmp,hom}}^2
+\TensorAmbientEnergy(\TensorTheta(\RootTensor))
+\\
+&+\CurAmbientEnergy(\CurTheta(\RootRelabel))
++\HomAmbientEnergy(\HomTheta(\RootFree)).
+\end{aligned}
+\label{eq:Fsharp}
+\end{equation}
+\end{definition}
+
+\begin{definition}[Exact defect data of the sharpened package]
+\label{def:defects}
+The exact defect data carried by Definition \ref{def:sharp} are
+\begin{equation}
+\mathfrak d_{\mathrm{car}}^{\mathrm{cur}}(\RootTensor)
+\equiv
+\TensorCurrent(\TensorSymProj\RootTensor),
+\qquad
+\mathfrak d_{\mathrm{cur}}^{\mathrm{cur}}(\RootRelabel)
+\equiv
+\CurCurrent(\CurSymProj\RootRelabel),
+\qquad
+\mathfrak d_{\mathrm{hom}}^{\mathrm{cur}}(\RootFree)
+\equiv
+\HomCurrent(\HomSymProj\RootFree),
+\label{eq:current_defects}
+\end{equation}
+and
+\begin{equation}
+\mathfrak d_{\mathrm{car}}^{\mathrm{eq}}(\RootTensor)
+\equiv
+(\mathbf 1-\TensorEqKerProj)\TensorTheta(\RootTensor),
+\label{eq:car_eq_defect}
+\end{equation}
+\begin{equation}
+\mathfrak d_{\mathrm{cur}}^{\mathrm{eq}}(\RootRelabel)
+\equiv
+(\mathbf 1-\CurEqKerProj)\CurTheta(\RootRelabel),
+\label{eq:cur_eq_defect}
+\end{equation}
+\begin{equation}
+\mathfrak d_{\mathrm{hom}}^{\mathrm{eq}}(\RootFree)
+\equiv
+(\mathbf 1-\HomEqKerProj)\HomTheta(\RootFree).
+\label{eq:hom_eq_defect}
+\end{equation}
+An \emph{exact sharpened branch} is a branch on which all six exact defects vanish.
+\end{definition}
+
+\begin{proposition}[The fixed package is the quadratic truncation of the minimal sharpening]
+\label{prop:quadratic}
+The quadratic truncation of the sharpened functional \eqref{eq:Fsharp} about the exact-preserving branch is exactly the recorded functional \eqref{eq:Fstem}. Equivalently,
+\[
+\SharpFunctional=\StemFunctional+O(3)
+\]
+with respect to the sharper variables \((\RootTensor,\RootRelabel,\RootFree)\).
+\end{proposition}
+
+\begin{proof}
+The visible \(\ProtoFunctional\) slot and the compact symmetry penalties are unchanged by Definition \ref{def:sharp}, so only the current and ambient-energy terms need to be compared.
+
+By \eqref{eq:current_zero} and \eqref{eq:current_linearization},
+\[
+\TensorCurrent(\TensorSymProj\RootTensor)
+=
+\TensorCompat\TensorSymProj\RootTensor
++O(\norm{\RootTensor}_{\mathrm{root,car}}^2),
+\]
+and likewise in the relabeling and homogeneous sectors. Therefore
+\[
+\frac12\norm{\TensorCurrent(\TensorSymProj\RootTensor)}_{\mathrm{cmp,car}}^2
+=
+\frac12\norm{\TensorCompat\TensorSymProj\RootTensor}_{\mathrm{cmp,car}}^2
++O(\norm{\RootTensor}_{\mathrm{root,car}}^3),
+\]
+with analogous expansions for the other two current penalties.
+
+For the ambient terms, \eqref{eq:energy_zero} and \eqref{eq:energy_hess} give the Taylor expansions
+\[
+\TensorAmbientEnergy(\TensorTheta(\RootTensor))
+=
+\frac12\langle \TensorAmbientHess\TensorTheta(\RootTensor),\,
+\TensorTheta(\RootTensor)\rangle_{\mathrm{eq,car}}
++o(\norm{\RootTensor}_{\mathrm{root,car}}^2),
+\]
+and similarly in the other sectors. Since \(\TensorTheta(\RootTensor)=\TensorEqRead\,\TensorCmpProj\TensorSymProj\RootTensor\), the tensor-sector quadratic term becomes
+\[
+\frac12\langle \TensorEqRead^*\TensorAmbientHess\TensorEqRead\,
+\TensorCmpProj\TensorSymProj\RootTensor,\,
+\TensorCmpProj\TensorSymProj\RootTensor\rangle_{\mathrm{root,car}}.
+\]
+Using \eqref{eq:response}, this is exactly
+\[
+\frac12\langle \TensorResp\TensorCmpProj\TensorSymProj\RootTensor,\,
+\TensorCmpProj\TensorSymProj\RootTensor\rangle_{\mathrm{root,car}},
+\]
+and the relabeling and homogeneous sectors are identical. Therefore the ambient-energy terms reproduce exactly the recorded quadratic response penalties.
+
+Combining the unchanged visible and symmetry terms with the two preceding comparisons proves that the full quadratic truncation of \(\SharpFunctional\) is precisely \(\StemFunctional\).
+\end{proof}
+
+\begin{corollary}[Why this sharpening is the smallest recorded observer-relevant upgrade]
+\label{cor:smallest}
+Relative to the recorded continuity-Hessian interface, Definition \ref{def:sharp} changes no visible slot and no already-fixed one-metric branch datum below quadratic order. Its first new information is exactly the nonlinear current-defect data and nonlinear ambient-equilibrium data collected in Definition \ref{def:defects}.
+\end{corollary}
+
+\begin{proof}
+This is just the content of Proposition \ref{prop:quadratic}. The recorded package is recovered exactly at quadratic order, so the only new data carried by Definition \ref{def:sharp} are the higher-order parts of the exact current and exact equilibrium structures.
+\end{proof}
+
+\section{Direct Absorbability Bridge Theorem}
+
+\begin{definition}[Direct absorbability bridge datum]
+\label{def:direct_bridge}
+A \emph{direct absorbability bridge datum} on the sharpened package consists of exact-preserving observer-tensor readouts
+\[
+\TensorCurrentBridge,\qquad
+\CurCurrentBridge,\qquad
+\HomCurrentBridge
+\]
+from the three current-defect target spaces and exact-preserving observer-tensor readouts
+\[
+\TensorEqBridge,\qquad
+\CurEqBridge,\qquad
+\HomEqBridge
+\]
+from the three equilibrium-defect sectors, together with already-extracted null tensors \(\GaugeExact\) and \(\ConstraintExact\), such that on the completed branch
+\begin{equation}
+\begin{aligned}
+\ObsBurden
+=\;&
+\TensorCurrentBridge\!\left(\mathfrak d_{\mathrm{car}}^{\mathrm{cur}}\right)
++\CurCurrentBridge\!\left(\mathfrak d_{\mathrm{cur}}^{\mathrm{cur}}\right)
++\HomCurrentBridge\!\left(\mathfrak d_{\mathrm{hom}}^{\mathrm{cur}}\right)
+\\
+&+\TensorEqBridge\!\left(\mathfrak d_{\mathrm{car}}^{\mathrm{eq}}\right)
++\CurEqBridge\!\left(\mathfrak d_{\mathrm{cur}}^{\mathrm{eq}}\right)
++\HomEqBridge\!\left(\mathfrak d_{\mathrm{hom}}^{\mathrm{eq}}\right)
++\GaugeExact+\ConstraintExact.
+\end{aligned}
+\label{eq:direct_bridge}
+\end{equation}
+\end{definition}
+
+\begin{theorem}[Continuity-Hessian bridge to direct absorbability]
+\label{thm:direct}
+Assume the minimal nonlinear sharpening of Definition \ref{def:sharp} is carried by an exact sharpened branch in the sense of Definition \ref{def:defects}. If, in addition, a direct absorbability bridge datum exists in the sense of Definition \ref{def:direct_bridge}, then
+\begin{equation}
+\ObserverClass{\ObsBurden}=0.
+\label{eq:direct_result}
+\end{equation}
+Hence the sharpened package proves the missing direct absorbability ingredient required by the fixed-package maximality theorem.
+\end{theorem}
+
+\begin{proof}
+On an exact sharpened branch, all six exact defects in Definition \ref{def:defects} vanish. Therefore the bridge identity \eqref{eq:direct_bridge} reduces to
+\[
+\ObsBurden=\GaugeExact+\ConstraintExact.
+\]
+But Definition \ref{def:fixed} records that the observer quotient mods out exactly those already-extracted gauge-bookkeeping / gauge-exact and constraint-exact classes. Hence \(\ObserverClass{\ObsBurden}=0\), which is exactly the direct absorbability statement.
+\end{proof}
+
+\begin{remark}
+Theorem \ref{thm:direct} identifies the precise missing theorem burden on the direct route. It is not enough to deepen the origin of the current maps or the ambient Hessians while reproducing the same quadratic package. One must derive the actual factorization \eqref{eq:direct_bridge} of the observer burden through the exact nonlinear continuity and equilibrium defects.
+\end{remark}
+
+\section{Same-Package Field-Redefinition Bridge Theorem}
+
+\begin{definition}[Same-package field-redefinition bridge datum]
+\label{def:redef_bridge}
+A \emph{same-package field-redefinition bridge datum} on the sharpened package consists of exact-preserving lift maps
+\[
+\TensorShiftLift,\qquad
+\CurShiftLift,\qquad
+\HomShiftLift
+\]
+from the current-defect target spaces and exact-preserving lift maps
+\[
+\TensorEqLift,\qquad
+\CurEqLift,\qquad
+\HomEqLift
+\]
+from the equilibrium-defect sectors into observer-compatible symmetric tensors, such that
+\begin{equation}
+\begin{aligned}
+\BridgeShift
+\equiv\;&
+\TensorShiftLift\!\left(\mathfrak d_{\mathrm{car}}^{\mathrm{cur}}\right)
++\CurShiftLift\!\left(\mathfrak d_{\mathrm{cur}}^{\mathrm{cur}}\right)
++\HomShiftLift\!\left(\mathfrak d_{\mathrm{hom}}^{\mathrm{cur}}\right)
+\\
+&+\TensorEqLift\!\left(\mathfrak d_{\mathrm{car}}^{\mathrm{eq}}\right)
++\CurEqLift\!\left(\mathfrak d_{\mathrm{cur}}^{\mathrm{eq}}\right)
++\HomEqLift\!\left(\mathfrak d_{\mathrm{hom}}^{\mathrm{eq}}\right)
+\end{aligned}
+\label{eq:bridgeshift}
+\end{equation}
+determines a rewritten metric variable
+\begin{equation}
+\RedefMetric_{\mu\nu}\equiv\CompletedMetric_{\mu\nu}+\BridgeShift_{\mu\nu},
+\label{eq:redefmetric}
+\end{equation}
+with the following properties:
+\begin{enumerate}
+    \item \(\RedefMetric_{\mu\nu}\) is determined by the same fixed package together with the exact defect data of Definition \ref{def:defects};
+    \item the map from the observer-side package data to \(\RedefMetric_{\mu\nu}\) is invertible, so the rewritten metric remains a theorem about the same package rather than a replacement package;
+    \item no second operative metric and no second matter law are introduced;
+    \item there are already-extracted null tensors \(\GaugeExact\) and \(\ConstraintExact\) such that
+    \begin{equation}
+    \begin{aligned}
+    G_{\mu\nu}[\RedefMetric]
+    -8\pi G_N\,T_{\mu\nu}^{\mathrm{matter}}[\RedefMetric,\psi]
+    =\;&
+    G_{\mu\nu}[\CompletedMetric]
+    -8\pi G_N\,T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
+    \\
+    &-\ObsBurden+\GaugeExact+\ConstraintExact.
+    \end{aligned}
+    \label{eq:redef_bridge}
+    \end{equation}
+\end{enumerate}
+\end{definition}
+
+\begin{theorem}[Continuity-Hessian bridge to a same-package rewritten metric]
+\label{thm:redef}
+If the sharpened package supplies a same-package field-redefinition bridge datum in the sense of Definition \ref{def:redef_bridge}, then it supplies an explicit same-package field-redefinition theorem on the observer side. More precisely,
+\begin{equation}
+\ObserverClass{
+G_{\mu\nu}[\RedefMetric]
+-8\pi G_N\,T_{\mu\nu}^{\mathrm{matter}}[\RedefMetric,\psi]
+}=0.
+\label{eq:redef_result}
+\end{equation}
+Hence the sharpened package proves the second missing upgrade ingredient required by the fixed-package maximality theorem.
+\end{theorem}
+
+\begin{proof}
+By the completed observer equation \eqref{eq:completed},
+\[
+G_{\mu\nu}[\CompletedMetric]
+-8\pi G_N\,T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
+=
+\GaugeBook(\CompShift)_{\mu\nu}+\ObsBurden.
+\]
+Substitute this identity into \eqref{eq:redef_bridge}. The \(\ObsBurden\) terms cancel, leaving
+\[
+G_{\mu\nu}[\RedefMetric]
+-8\pi G_N\,T_{\mu\nu}^{\mathrm{matter}}[\RedefMetric,\psi]
+=
+\GaugeBook(\CompShift)_{\mu\nu}
++\GaugeExact+\ConstraintExact.
+\]
+Definition \ref{def:fixed} records that the observer quotient mods out exactly the already-extracted gauge-bookkeeping / gauge-exact and constraint-exact sectors, and \(\GaugeBook(\CompShift)\) is the already-separated gauge bookkeeping tensor. Therefore \eqref{eq:redef_result} follows.
+
+The remaining parts of Definition \ref{def:redef_bridge} are exactly the package-level requirements for an explicit same-package field-redefinition theorem: the rewritten metric is explicit, uses only the same package data, introduces no second operative metric and no second matter law, and is observer-side invertible. Hence the sharpened package supplies the required missing field-redefinition ingredient.
+\end{proof}
+
+\begin{remark}
+Theorem \ref{thm:redef} is different in logical character from Theorem \ref{thm:direct}. The field-redefinition route need not prove \(\ObserverClass{\ObsBurden}=0\) in the original completed variable \(g^\sharp\). Instead it must produce the exact rewriting identity \eqref{eq:redef_bridge} together with an explicit invertible same-package rewritten one-metric variable.
+\end{remark}
+
+\section{Primary Promotion Rule at Current Scope}
+
+\begin{corollary}[What counts as front-line progress after fixed-package maximality]
+\label{cor:promotion}
+At current scope, a deeper-origin manuscript based on the continuity-Hessian interface is primary on the active one-metric line only if it furnishes at least one of the two bridge data of Definitions \ref{def:direct_bridge} and \ref{def:redef_bridge}. A manuscript that merely re-derives the quadratic truncation \eqref{eq:Fstem} and therefore preserves the same downstream package remains supporting context rather than the next primary paper.
+\end{corollary}
+
+\begin{proof}
+Proposition \ref{prop:quadratic} shows that the recorded quadratic package is exactly the truncation of the minimal nonlinear sharpening. Therefore a manuscript that stops at that truncation reproduces the same fixed observer package of Definition \ref{def:fixed}. But the fixed-package maximality theorem already recorded that strict observer-side closure on that package requires either direct absorbability of \(\ObsBurden\) or an explicit same-package field-redefinition theorem. Theorems \ref{thm:direct} and \ref{thm:redef} identify exactly how the sharpened continuity-Hessian package could supply those missing ingredients. Without at least one of those bridge data, no new strict observer-side closure theorem has been provided.
+\end{proof}
+
+\section{Conclusion}
+
+The positive result of this note is not another same-package deeper-origin relay. It is a theorem-building reduction of the current burden.
+
+The fixed-package maximality theorem already showed that the current one-metric observer package is exhausted unless one adds one of exactly two missing ingredients: a stronger direct absorbability identity for \(\ObsBurden\) or an explicit same-package field-redefinition theorem. The present note therefore moved to the only recorded interface that still looks mathematically relevant to that upgrade burden: the continuity-defect / ambient-Hessian layer.
+
+At that interface, the smallest honest sharpening is now explicit. Keep the same visible \(\ProtoFunctional\) slot, the same compact symmetry actions, and the same fixed one-metric observer package, but replace the linearized compatibility penalties by the exact current maps
+\[
+\TensorCurrent,\qquad
+\CurCurrent,\qquad
+\HomCurrent,
+\]
+and replace the quadratic response penalties by the exact ambient equilibrium energies
+\[
+\TensorAmbientEnergy,\qquad
+\CurAmbientEnergy,\qquad
+\HomAmbientEnergy.
+\]
+The resulting sharpened functional \(\SharpFunctional\) has the recorded functional \(\StemFunctional\) as its exact quadratic truncation, so no new visible package is being inserted by hand at leading order. The genuinely new information is exactly the nonlinear defect data:
+\[
+\mathfrak d_{\mathrm{car}}^{\mathrm{cur}},\quad
+\mathfrak d_{\mathrm{cur}}^{\mathrm{cur}},\quad
+\mathfrak d_{\mathrm{hom}}^{\mathrm{cur}},\quad
+\mathfrak d_{\mathrm{car}}^{\mathrm{eq}},\quad
+\mathfrak d_{\mathrm{cur}}^{\mathrm{eq}},\quad
+\mathfrak d_{\mathrm{hom}}^{\mathrm{eq}}.
+\]
+
+The main theorem burden is now reduced to deriving one of two precise bridge identities from that sharpened package. On the direct route, one must factor the observer burden \(\ObsBurden\) through those exact defects modulo the already-extracted gauge-exact and constraint-exact sectors. On the rewritten-metric route, one must construct an explicit invertible same-package metric variable \(\RedefMetric\) from the same defects and prove the exact rewriting identity \eqref{eq:redef_bridge}. Until one of those bridge data is actually derived, a deeper-origin continuation that merely preserves the same quadratic package remains side work rather than the next primary paper.
+
+That is the honest current conclusion. The next primary move is theorem-building: derive one of those bridge data cleanly, and only then write the next front-line manuscript around the resulting closure upgrade.
+
+\end{document}
