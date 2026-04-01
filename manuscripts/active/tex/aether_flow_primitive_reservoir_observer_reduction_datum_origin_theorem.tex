@@ -1,0 +1,455 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+
+\newcommand{\Car}{\mathrm{car}}
+\newcommand{\Cur}{\mathrm{cur}}
+\newcommand{\Hom}{\mathrm{hom}}
+
+\newcommand{\ForPrimSpace}[1]{\mathcal I_{#1}^{\mathrm{fpr}}}
+\newcommand{\ForSpace}[1]{\mathcal I_{#1}^{\mathrm{for}}}
+\newcommand{\ForPrimInc}[1]{\iota_{#1}^{\mathrm{fpr}}}
+\newcommand{\ForPrimUnit}[1]{u_{#1}^{\mathrm{fpr}}}
+\newcommand{\ForPrimDensitySource}[1]{\boldsymbol{q}_{#1}^{\mathrm{prim}}}
+\newcommand{\ForPrimFluxSource}[1]{\boldsymbol{j}_{#1}^{\mathrm{prim}}}
+\newcommand{\ForPrimBoundarySource}[1]{\boldsymbol{\rho}_{#1}^{\partial,\mathrm{prim}}}
+\newcommand{\ForPrimLiftedAmbient}[1]{\widehat{\mathfrak S}_{#1}^{\mathrm{orig}}}
+
+\newcommand{\Reduction}[1]{\mathcal R_{#1}}
+\newcommand{\ObsCurrent}[1]{\mathcal J_{#1}}
+\newcommand{\ObsTheta}[1]{\Theta_{#1}}
+\newcommand{\PrimCurrent}[1]{\mathcal J_{#1}^{\mathrm{prim}}}
+\newcommand{\PrimTheta}[1]{\Theta_{#1}^{\mathrm{prim}}}
+\newcommand{\EqProj}[1]{P_{#1}^{\mathrm{eq}}}
+\newcommand{\AmbientEqProj}[1]{P_{#1}^{\mathrm{amb}}}
+
+\newcommand{\CurrentCarrier}[1]{\mathfrak C_{#1}^{\mathrm{cur}}}
+\newcommand{\EqCarrier}[1]{\mathfrak C_{#1}^{\mathrm{eq}}}
+\newcommand{\CurrentExtract}[1]{\mathscr E_{#1}^{\mathrm{cur}}}
+\newcommand{\EqExtract}[1]{\mathscr E_{#1}^{\mathrm{eq}}}
+\newcommand{\AmbientHess}[1]{\mathbb H_{#1}^{\mathrm{amb}}}
+\newcommand{\EqKernel}[1]{K_{#1}^{\mathrm{eq}}}
+\newcommand{\ProjectedTheta}[1]{\widehat{\Theta}_{#1}^{\mathrm{prim}}}
+\newcommand{\CurrentPackage}{\mathfrak D_{\mathrm{cur}}}
+\newcommand{\EqPackage}{\mathfrak D_{\mathrm{eq}}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Primitive-Reservoir Observer-Reduction Datum\\
+\large Origin Theorem}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+After the primitive-reservoir line continuity-Hessian core derivation theorem, the next honest burden on the active one-metric line is no longer another same-output deeper-origin relay. It is to derive some constituent of the primitive-reservoir observer-reduction datum itself. The cleanest first target is the current / equilibrium part of that datum.
+
+The present note addresses exactly that target and no more. It assumes the already recorded primitive-reservoir shell geometry, primitive-reservoir basic source fields, primitive ambient equilibrium geometry, and the already fixed shell-to-observer extraction interface. From those inputs it derives the primitive current parents as explicit composites of primitive-reservoir current carriers with fixed current extractors. It also derives the primitive equilibrium readouts as explicit composites of primitive ambient equilibrium carriers with fixed equilibrium extractors, while the equilibrium projectors are forced by the kernel projectors of the recorded ambient equilibrium Hessians.
+
+The positive claim remains narrow and disciplined. This note does not yet prove that observer-sector outputs factor through the primitive defect fibers, and it does not yet derive the one operative metric output map or the ordinary matter output map. Its exact gain is earlier in the chain: the first current / equilibrium constituent of the primitive-reservoir observer-reduction datum is no longer treated as a separately stipulated package once the already recorded primitive-reservoir carriers and shell interface are fixed.
+\end{abstract}
+
+\section{Introduction}
+
+The active derivational program of \TheoryName{} has reached a sharper stage than before. The primitive-reservoir line continuity-Hessian core derivation theorem already records that the benchmark-facing ordered defect package can be produced from a line-faithful primitive-reservoir observer-reduction datum. That theorem therefore changes the front-line burden. The question is no longer whether another deeper note can preserve the same observer output. The question is whether some presently conditional constituent of the primitive observer-reduction datum can itself be derived from structure already on the active line.
+
+The present note attacks the first and cleanest remaining constituent. It does not yet try to force the defect-fiber factorization of the observer sector outputs. It does not yet try to derive the one operative metric output map or the ordinary matter output map. Instead it isolates the current / equilibrium package that feeds the ordered six-defect tuple:
+\begin{enumerate}
+    \item the primitive current parents;
+    \item the primitive equilibrium readouts;
+    \item the equilibrium projectors needed to pass from full equilibrium readout to the compatibility-projected equilibrium defect.
+\end{enumerate}
+The point is modest but structurally important. If these maps are already composites of primitive-reservoir carriers with fixed shell-to-observer extraction operators, then they are not additional primitive free data. They are outputs of structure already recorded on the active primitive-reservoir line.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not claim a completed derivation of GR from final substrate microphysics. Its narrower theorem is only that, once the already recorded primitive-reservoir carriers and the already fixed shell interface are granted, the current / equilibrium constituent of the primitive-reservoir observer-reduction datum is derivable rather than separately stipulated.
+
+\section{Fixed Inputs from the Active Primitive-Reservoir Line}
+
+\begin{definition}[Fixed shell interface, primitive carriers, and ambient equilibrium geometry]
+\label{def:fixed}
+For each sector label \(\sigma\in\{\Car,\Cur,\Hom\}\), fix the following data from the active primitive-reservoir line.
+\begin{enumerate}
+    \item A primitive-reservoir state manifold \(\ForPrimSpace{\sigma}\), a forcing shell \(\ForSpace{\sigma}\subset\ForPrimSpace{\sigma}\), its inclusion
+    \[
+    \ForPrimInc{\sigma}:\ForSpace{\sigma}\hookrightarrow \ForPrimSpace{\sigma},
+    \]
+    and a primitive unit section
+    \[
+    \ForPrimUnit{\sigma}
+    \]
+    whose image lies in \(\ForSpace{\sigma}\).
+    \item A shell reduction map
+    \[
+    \Reduction{\sigma}:\ForSpace{\sigma}\to X_{\sigma}
+    \]
+    into the visible sector space on which the recorded observer maps are evaluated.
+    \item A primitive current carrier
+    \[
+    \CurrentCarrier{\sigma}:\ForPrimSpace{\sigma}\to Z_{\sigma}^{\mathrm{cur}},
+    \qquad
+    \CurrentCarrier{\sigma}(w)
+    \equiv
+    \bigl(
+    \ForPrimDensitySource{\sigma}(w),
+    \ForPrimFluxSource{\sigma}(w),
+    \ForPrimBoundarySource{\sigma}(w)
+    \bigr),
+    \]
+    where \(Z_{\sigma}^{\mathrm{cur}}\) is the current-carrier target space. By the primitive-reservoir stationary-reduction note, the shell restriction of \(\CurrentCarrier{\sigma}\) is exactly the recorded forcing density / flux / boundary package on \(\ForSpace{\sigma}\).
+    \item A primitive ambient equilibrium carrier
+    \[
+    \EqCarrier{\sigma}:\ForPrimSpace{\sigma}\to Z_{\sigma}^{\mathrm{eq}},
+    \qquad
+    \EqCarrier{\sigma}\equiv \ForPrimLiftedAmbient{\sigma},
+    \]
+    where \(Z_{\sigma}^{\mathrm{eq}}\) is the ambient equilibrium target carrying the recorded primitive ambient equilibrium geometry.
+    \item Fixed shell-to-observer extraction maps
+    \[
+    \CurrentExtract{\sigma}:Z_{\sigma}^{\mathrm{cur}}\to Y_{\sigma}^{\mathrm{cur}},
+    \qquad
+    \EqExtract{\sigma}:Z_{\sigma}^{\mathrm{eq}}\to Y_{\sigma}^{\mathrm{eq}},
+    \]
+    such that the shell restriction identities
+    \begin{equation}
+    \CurrentExtract{\sigma}\circ \CurrentCarrier{\sigma}\circ \ForPrimInc{\sigma}
+    =
+    \ObsCurrent{\sigma}\circ \Reduction{\sigma},
+    \label{eq:current_shell_identity}
+    \end{equation}
+    \begin{equation}
+    \EqExtract{\sigma}\circ \EqCarrier{\sigma}\circ \ForPrimInc{\sigma}
+    =
+    \ObsTheta{\sigma}\circ \Reduction{\sigma}
+    \label{eq:eq_shell_identity}
+    \end{equation}
+    hold on \(\ForSpace{\sigma}\).
+    \item Unit normalization on the active line:
+    \begin{equation}
+    \CurrentExtract{\sigma}\circ \CurrentCarrier{\sigma}\circ \ForPrimUnit{\sigma}=0,
+    \qquad
+    \EqExtract{\sigma}\circ \EqCarrier{\sigma}\circ \ForPrimUnit{\sigma}=0.
+    \label{eq:unit_normalization}
+    \end{equation}
+    \item A bounded nonnegative self-adjoint ambient equilibrium Hessian
+    \[
+    \AmbientHess{\sigma}:Z_{\sigma}^{\mathrm{eq}}\to Z_{\sigma}^{\mathrm{eq}}
+    \]
+    whose kernel
+    \[
+    \EqKernel{\sigma}\equiv \ker \AmbientHess{\sigma}
+    \]
+    is exactly the tangent equilibrium sector forced by the recorded primitive ambient equilibrium manifold. Let
+    \[
+    \AmbientEqProj{\sigma}:Z_{\sigma}^{\mathrm{eq}}\to Z_{\sigma}^{\mathrm{eq}}
+    \]
+    denote the orthogonal projector onto \(\EqKernel{\sigma}\), and assume the image
+    \[
+    \EqExtract{\sigma}(\EqKernel{\sigma})\subset Y_{\sigma}^{\mathrm{eq}}
+    \]
+    is a closed subspace.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+The present note does not attempt to derive the shell reduction maps \(\Reduction{\sigma}\) or the observer extractors \(\CurrentExtract{\sigma},\EqExtract{\sigma}\) themselves. Those belong to the already fixed shell interface. The gain here is narrower: once those fixed interface maps are granted, the primitive current parents and primitive equilibrium readouts cease to be extra primitive-reservoir choices. They become explicit composites of already recorded carriers with that same interface.
+\end{remark}
+
+\begin{definition}[Current and equilibrium datum packages still in play]
+\label{def:packages}
+The current and equilibrium constituents of the primitive-reservoir observer-reduction datum are the sectorwise collections
+\[
+\CurrentPackage
+\equiv
+\bigl(
+\PrimCurrent{\Car},
+\PrimCurrent{\Cur},
+\PrimCurrent{\Hom}
+\bigr),
+\]
+\[
+\EqPackage
+\equiv
+\bigl(
+\PrimTheta{\Car},
+\PrimTheta{\Cur},
+\PrimTheta{\Hom},
+\EqProj{\Car},
+\EqProj{\Cur},
+\EqProj{\Hom}
+\bigr).
+\]
+The purpose of the present note is to show that \(\CurrentPackage\) and the defect-relevant part of \(\EqPackage\) are outputs of Definition \ref{def:fixed}.
+\end{definition}
+
+\section{Primitive Current Parents}
+
+\begin{proposition}[Primitive current parents are defined by primitive current carriers]
+\label{prop:currentdef}
+For each \(\sigma\in\{\Car,\Cur,\Hom\}\), define
+\begin{equation}
+\PrimCurrent{\sigma}
+\equiv
+\CurrentExtract{\sigma}\circ \CurrentCarrier{\sigma}.
+\label{eq:current_composite}
+\end{equation}
+Then \(\PrimCurrent{\sigma}:\ForPrimSpace{\sigma}\to Y_{\sigma}^{\mathrm{cur}}\) is a well-defined primitive current parent map.
+\end{proposition}
+
+\begin{proof}
+The current carrier \(\CurrentCarrier{\sigma}\) is already defined on the full primitive-reservoir space \(\ForPrimSpace{\sigma}\), while the current extractor \(\CurrentExtract{\sigma}\) is fixed on its target \(Z_{\sigma}^{\mathrm{cur}}\). Their composition \eqref{eq:current_composite} is therefore a well-defined map on \(\ForPrimSpace{\sigma}\).
+\end{proof}
+
+\begin{theorem}[Primitive current parents satisfy the shell identities]
+\label{thm:current}
+For each \(\sigma\in\{\Car,\Cur,\Hom\}\), the composite \eqref{eq:current_composite} satisfies
+\begin{equation}
+\PrimCurrent{\sigma}\circ \ForPrimInc{\sigma}
+=
+\ObsCurrent{\sigma}\circ \Reduction{\sigma},
+\label{eq:current_shell}
+\end{equation}
+and
+\begin{equation}
+\PrimCurrent{\sigma}\circ \ForPrimUnit{\sigma}=0.
+\label{eq:current_unit}
+\end{equation}
+Consequently the primitive current parents are not additional primitive datum once the fixed current carriers and current extractors of Definition \ref{def:fixed} are granted.
+\end{theorem}
+
+\begin{proof}
+Equation \eqref{eq:current_shell} is immediate from the definition \eqref{eq:current_composite} and the shell restriction identity \eqref{eq:current_shell_identity}:
+\[
+\PrimCurrent{\sigma}\circ \ForPrimInc{\sigma}
+=
+\CurrentExtract{\sigma}\circ \CurrentCarrier{\sigma}\circ \ForPrimInc{\sigma}
+=
+\ObsCurrent{\sigma}\circ \Reduction{\sigma}.
+\]
+Equation \eqref{eq:current_unit} is exactly the unit normalization \eqref{eq:unit_normalization} for the current carrier.
+\end{proof}
+
+\begin{corollary}[The current part of the datum is already derived]
+\label{cor:current}
+The ordered triple
+\[
+\bigl(
+\PrimCurrent{\Car},
+\PrimCurrent{\Cur},
+\PrimCurrent{\Hom}
+\bigr)
+\]
+is a derivational output of the already recorded primitive-reservoir current carriers together with the fixed shell current extractors. It is no longer a separately stipulated constituent of the primitive-reservoir observer-reduction datum.
+\end{corollary}
+
+\begin{proof}
+This is exactly the content of Theorem \ref{thm:current}.
+\end{proof}
+
+\section{Primitive Equilibrium Readouts and Projectors}
+
+\begin{proposition}[The equilibrium projectors are forced by ambient equilibrium geometry]
+\label{prop:eqproj}
+For each \(\sigma\in\{\Car,\Cur,\Hom\}\), let
+\begin{equation}
+\EqProj{\sigma}:Y_{\sigma}^{\mathrm{eq}}\to Y_{\sigma}^{\mathrm{eq}}
+\label{eq:eqproj_def}
+\end{equation}
+be the orthogonal projector onto the closed subspace
+\[
+\EqExtract{\sigma}(\EqKernel{\sigma})
+\subset Y_{\sigma}^{\mathrm{eq}}.
+\]
+Then \(\EqProj{\sigma}\) is uniquely determined by the ambient Hessian kernel \(\EqKernel{\sigma}=\ker\AmbientHess{\sigma}\) together with the fixed equilibrium extractor \(\EqExtract{\sigma}\).
+\end{proposition}
+
+\begin{proof}
+Definition \ref{def:fixed} records that \(\AmbientHess{\sigma}\) is a bounded nonnegative self-adjoint operator and that \(\EqKernel{\sigma}\) is exactly the tangent equilibrium sector forced by the recorded primitive ambient equilibrium geometry. Since \(\EqExtract{\sigma}(\EqKernel{\sigma})\) is assumed closed, there is a unique orthogonal projector onto that subspace. This projector is exactly \(\EqProj{\sigma}\).
+\end{proof}
+
+\begin{remark}
+Theorem \ref{thm:current} gives exact uniqueness for the primitive current parents. On the equilibrium side, the genuinely defect-relevant object is not the full readout \(\PrimTheta{\sigma}\) by itself but the compatibility-projected readout \((\mathbf 1-\EqProj{\sigma})\PrimTheta{\sigma}\). Proposition \ref{prop:eqproj} therefore identifies the only projector needed to isolate the defect-relevant equilibrium component from the ambient equilibrium geometry already on the active line.
+\end{remark}
+
+\begin{proposition}[Primitive equilibrium readouts are defined by primitive equilibrium carriers]
+\label{prop:eqdef}
+For each \(\sigma\in\{\Car,\Cur,\Hom\}\), define
+\begin{equation}
+\PrimTheta{\sigma}
+\equiv
+\EqExtract{\sigma}\circ \EqCarrier{\sigma}.
+\label{eq:eq_composite}
+\end{equation}
+Then \(\PrimTheta{\sigma}:\ForPrimSpace{\sigma}\to Y_{\sigma}^{\mathrm{eq}}\) is a well-defined primitive equilibrium readout.
+\end{proposition}
+
+\begin{proof}
+The primitive equilibrium carrier \(\EqCarrier{\sigma}\) is already a map on the full primitive-reservoir space \(\ForPrimSpace{\sigma}\), and the equilibrium extractor \(\EqExtract{\sigma}\) is fixed on its target \(Z_{\sigma}^{\mathrm{eq}}\). Their composition \eqref{eq:eq_composite} is therefore well defined.
+\end{proof}
+
+\begin{theorem}[Primitive equilibrium readouts satisfy the shell identities]
+\label{thm:eq}
+For each \(\sigma\in\{\Car,\Cur,\Hom\}\), the composite \eqref{eq:eq_composite} satisfies
+\begin{equation}
+\PrimTheta{\sigma}\circ \ForPrimInc{\sigma}
+=
+\ObsTheta{\sigma}\circ \Reduction{\sigma},
+\label{eq:eq_shell}
+\end{equation}
+and
+\begin{equation}
+\PrimTheta{\sigma}\circ \ForPrimUnit{\sigma}=0.
+\label{eq:eq_unit}
+\end{equation}
+Therefore the full primitive equilibrium readout is already an output of the primitive equilibrium carrier together with the fixed equilibrium extractor.
+\end{theorem}
+
+\begin{proof}
+Equation \eqref{eq:eq_shell} follows by combining \eqref{eq:eq_composite} with the shell restriction identity \eqref{eq:eq_shell_identity}:
+\[
+\PrimTheta{\sigma}\circ \ForPrimInc{\sigma}
+=
+\EqExtract{\sigma}\circ \EqCarrier{\sigma}\circ \ForPrimInc{\sigma}
+=
+\ObsTheta{\sigma}\circ \Reduction{\sigma}.
+\]
+Equation \eqref{eq:eq_unit} is exactly the equilibrium part of the unit normalization \eqref{eq:unit_normalization}.
+\end{proof}
+
+\begin{corollary}[The defect-relevant projected equilibrium readouts are forced]
+\label{cor:projected}
+For each \(\sigma\in\{\Car,\Cur,\Hom\}\), define
+\begin{equation}
+\ProjectedTheta{\sigma}
+\equiv
+(\mathbf 1-\EqProj{\sigma})\PrimTheta{\sigma}.
+\label{eq:projectedtheta}
+\end{equation}
+Then
+\begin{equation}
+\ProjectedTheta{\sigma}\circ \ForPrimInc{\sigma}
+=
+(\mathbf 1-\EqProj{\sigma})\ObsTheta{\sigma}\circ \Reduction{\sigma},
+\label{eq:projected_shell}
+\end{equation}
+and
+\begin{equation}
+\ProjectedTheta{\sigma}\circ \ForPrimUnit{\sigma}=0.
+\label{eq:projected_unit}
+\end{equation}
+Hence the equilibrium contribution that enters the ordered continuity-Hessian defect tuple is determined by the already recorded primitive equilibrium carrier and ambient equilibrium geometry.
+\end{corollary}
+
+\begin{proof}
+Equation \eqref{eq:projected_shell} follows by applying \((\mathbf 1-\EqProj{\sigma})\) to \eqref{eq:eq_shell}. Equation \eqref{eq:projected_unit} follows by applying the same projector to \eqref{eq:eq_unit}.
+\end{proof}
+
+\begin{corollary}[The first six defect entries are now derived at datum level]
+\label{cor:six}
+The six maps
+\[
+\PrimCurrent{\Car},\qquad
+\PrimCurrent{\Cur},\qquad
+\PrimCurrent{\Hom},\qquad
+\ProjectedTheta{\Car},\qquad
+\ProjectedTheta{\Cur},\qquad
+\ProjectedTheta{\Hom}
+\]
+are all derivational outputs of the fixed primitive carriers and fixed shell interface of Definition \ref{def:fixed}.
+\end{corollary}
+
+\begin{proof}
+Combine Corollary \ref{cor:current} with Corollary \ref{cor:projected}.
+\end{proof}
+
+\section{Main Theorem}
+
+\begin{theorem}[Primitive-reservoir observer-reduction datum origin theorem]
+\label{thm:main}
+Assume the fixed data of Definition \ref{def:fixed}. Then the current / equilibrium constituent of the primitive-reservoir observer-reduction datum is derived rather than separately postulated. More precisely:
+\begin{enumerate}
+    \item the primitive current parents are the composites
+    \[
+    \PrimCurrent{\sigma}
+    =
+    \CurrentExtract{\sigma}\circ \CurrentCarrier{\sigma},
+    \qquad
+    \sigma\in\{\Car,\Cur,\Hom\};
+    \]
+    \item the primitive equilibrium readouts are the composites
+    \[
+    \PrimTheta{\sigma}
+    =
+    \EqExtract{\sigma}\circ \EqCarrier{\sigma},
+    \qquad
+    \sigma\in\{\Car,\Cur,\Hom\};
+    \]
+    \item the equilibrium projectors \(\EqProj{\Car},\EqProj{\Cur},\EqProj{\Hom}\) are forced by the kernels of the ambient equilibrium Hessians \(\AmbientHess{\Car},\AmbientHess{\Cur},\AmbientHess{\Hom}\) transported through the fixed equilibrium extractors;
+    \item consequently the defect-relevant six-entry current / projected-equilibrium package of Corollary \ref{cor:six} is already an output of the recorded primitive-reservoir line.
+\end{enumerate}
+Therefore item \(1\) of the remaining front-line burden after the continuity-Hessian core derivation theorem is now discharged at current scope. What remains open is item \(2\), namely factorization of observer-sector outputs through the primitive defect fibers, and then item \(3\), namely derivation of the one operative metric output map and the ordinary matter output map from that same reduction chain.
+\end{theorem}
+
+\begin{proof}
+Item (1) is Proposition \ref{prop:currentdef} together with Theorem \ref{thm:current}. Item (2) is Proposition \ref{prop:eqdef} together with Theorem \ref{thm:eq}. Item (3) is Proposition \ref{prop:eqproj}. Item (4) is Corollary \ref{cor:six}. The final sentence is the routing consequence of these statements: once the current / projected-equilibrium part of the primitive-reservoir observer-reduction datum is derived, the next honest burden moves downstream inside the same datum rather than back to another same-output deeper-origin relay.
+\end{proof}
+
+\begin{corollary}[What the next primary manuscript should now target]
+\label{cor:next}
+After Theorem \ref{thm:main}, the next primary manuscript on the active line should not default to another same-output deeper-origin note, and the optional same-package \(\widehat g\) rewritten-metric route remains secondary. The next front-line note should instead derive one of the remaining unrecovered constituents of the primitive-reservoir observer-reduction datum, beginning with:
+\begin{enumerate}
+    \item factorization of observer-sector outputs through the primitive defect fibers;
+    \item derivation of the one operative metric output map;
+    \item derivation of the ordinary matter output map from the same reduction chain.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+Theorem \ref{thm:main} settles the current / equilibrium constituent of the datum at current scope. The only remaining benchmark-facing constituents named in the current routing burden are therefore the defect-fiber factorization step and the metric / matter output step.
+\end{proof}
+
+\section{Conclusion}
+
+The positive result of this note is narrow but real. The primitive current parents and the primitive equilibrium readout / projector package are no longer treated here as an extra primitive-reservoir stipulation. Once the already recorded primitive-reservoir current carriers, primitive ambient equilibrium carriers, shell reduction maps, and fixed shell-to-observer extractors are granted, those datum components are explicit composites. In particular, the six current / projected-equilibrium entries that feed the continuity-Hessian defect package are already derived at datum level.
+
+The scope remains disciplined. This note does not yet prove that the observer-sector outputs factor through the primitive defect fibers, and it does not yet derive the one operative metric output map or the ordinary matter output map. It therefore does not complete the full primitive-reservoir observer-reduction datum. What it does do is remove the first remaining conditional block from that datum and place the next burden exactly where it now belongs: on primitive defect-fiber factorization and then on the metric / matter output maps, not on another same-output deeper-origin relay.
+
+\end{document}
