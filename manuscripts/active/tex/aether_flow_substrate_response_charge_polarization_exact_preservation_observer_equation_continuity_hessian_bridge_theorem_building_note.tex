@@ -138,11 +138,11 @@ The fixed-package strict-closure maximality theorem now determines the next hone
 \]
 or an explicit same-package field-redefinition theorem. Therefore the next primary step is not another manuscript that merely reproduces the same downstream package.
 
-The present note starts from the only recorded layer that is visibly connected to that missing theorem burden: the continuity-defect / ambient-Hessian interface, where the compatibility-current maps arise as exact continuity defects and the primitive response operators arise as pulled-back ambient Hessians. It then builds the smallest sharpened package at that interface. The symmetry actions, the visible \(\ProtoFunctional\) slot, and the one-metric branch data are kept fixed, but the linearized compatibility penalties are replaced by exact current-defect data and the quadratic response penalties are replaced by exact ambient-equilibrium data. The first theorem of the note proves that the recorded symmetry-charge / compatibility-response functional is exactly the quadratic truncation of this sharpened package.
+The present note starts from the only recorded layer that is visibly connected to that missing theorem burden: the continuity-defect / ambient-Hessian interface, where the compatibility-current maps arise as exact continuity defects and the primitive response operators arise as pulled-back ambient Hessians. It then builds the smallest sharpened package at that interface. The symmetry actions, the visible \(\ProtoFunctional\) slot, and the one-metric branch data are kept fixed, but the linearized compatibility penalties are replaced by exact current-defect data and the quadratic response penalties are replaced by exact ambient-equilibrium data. The first theorem of the note proves that the recorded symmetry-charge / compatibility-response functional is exactly the quadratic truncation of this sharpened package. The second positive theorem proves that the preserved exact-preserving branch is already an exact sharpened branch, so branch locking on the active completed observer branch is now in hand.
 
-That nonlinear sharpening alone is still not enough. The note therefore writes down the actual bridge theorems that must now be derived. If the remaining observer burden \(\ObsBurden\) factors through the exact current defects and exact equilibrium defects modulo the already-extracted gauge-exact and constraint-exact sectors, then direct absorbability follows. If the same defect data instead determine an explicit invertible rewritten one-metric variable satisfying an exact Einstein--matter rewriting identity, then an explicit same-package field-redefinition theorem follows.
+That nonlinear sharpening alone is still not enough. The note therefore writes down the actual bridge theorems that must now be derived after branch locking. On the direct route, the remaining burden is to factor the observer burden \(\ObsBurden\) through the exact current defects and exact equilibrium defects modulo the already-extracted gauge-exact and constraint-exact sectors. If the same defect data instead determine an explicit invertible rewritten one-metric variable satisfying an exact Einstein--matter rewriting identity, then an explicit same-package field-redefinition theorem follows.
 
-The present note does not claim that either bridge datum has already been established. Its exact positive claim is narrower and exactly the one now needed: the open primary burden is reduced to deriving one of two precise bridge identities on the smallest recorded deeper-origin package that can actually change the observer-side theorem.
+The present note does not claim that either full bridge datum has already been established. Its exact positive claim is narrower and exactly the one now needed: the open primary burden is reduced to deriving one of two precise bridge theorems on the smallest recorded deeper-origin package that can actually change the observer-side theorem. On the direct route, branch locking is now proved, so the remaining burden is the actual factorization of \(\ObsBurden\) through the exact continuity/equilibrium defects modulo the already-extracted null classes.
 \end{abstract}
 
 \section{Introduction}
@@ -167,10 +167,11 @@ That changes what counts as honest progress. A deeper-origin manuscript is no lo
 
 The only recorded interface that looks mathematically close to that burden is the continuity-defect / ambient-Hessian interface. At that interface, the compatibility-current maps are not primitive: they arise as continuity defects of deeper density readouts. Likewise the primitive response operators are not primitive: they are pullbacks of ambient equilibrium Hessians. Those are exactly the two places where the fixed package still remembers nonlinear data that the recorded observer line has not yet used.
 
-The purpose of this note is therefore narrow and theorem-building in character. It does not draft another primary manuscript on the same fixed package. Instead it does three smaller things.
+The purpose of this note is therefore narrow and theorem-building in character. It does not draft another primary manuscript on the same fixed package. Instead it does four smaller things.
 \begin{enumerate}
     \item It defines the smallest nonlinear sharpening of the continuity-Hessian interface that changes the observer-side data while keeping the same visible branch inputs.
     \item It proves that the already-recorded symmetry-charge / compatibility-response functional is exactly the quadratic truncation of that sharpening.
+    \item It proves that the preserved exact-preserving branch is already an exact sharpened branch, so branch locking on the active completed observer branch holds on the sharpened package.
     \item It states the two exact bridge theorems that would finally convert that sharpening into either direct absorbability of \(\ObsBurden\) or an explicit same-package rewritten one-metric variable.
 \end{enumerate}
 
@@ -391,7 +392,7 @@ d\mu_{\mathrm{hom}}(g)
 +\frac12\norm{\CurCurrent(\CurSymProj\RootRelabel)}_{\mathrm{cmp,cur}}^2
 \\
 &+\frac12\norm{\HomCurrent(\HomSymProj\RootFree)}_{\mathrm{cmp,hom}}^2
-\TensorAmbientEnergy(\TensorTheta(\RootTensor))
++\TensorAmbientEnergy(\TensorTheta(\RootTensor))
 \\
 &+\CurAmbientEnergy(\CurTheta(\RootRelabel))
 +\HomAmbientEnergy(\HomTheta(\RootFree)).
@@ -500,6 +501,63 @@ Relative to the recorded continuity-Hessian interface, Definition \ref{def:sharp
 This is just the content of Proposition \ref{prop:quadratic}. The recorded package is recovered exactly at quadratic order, so the only new data carried by Definition \ref{def:sharp} are the higher-order parts of the exact current and exact equilibrium structures.
 \end{proof}
 
+\begin{proposition}[The preserved exact-preserving branch is an exact sharpened branch]
+\label{prop:origin_exact}
+At the preserved exact-preserving branch point
+\[
+(\RootTensor,\RootRelabel,\RootFree)=(0,0,0),
+\]
+all six exact defects of Definition \ref{def:defects} vanish. Hence the origin branch of the sharpened package is an exact sharpened branch.
+\end{proposition}
+
+\begin{proof}
+For the current-defect sectors, \eqref{eq:current_zero} gives
+\[
+\mathfrak d_{\mathrm{car}}^{\mathrm{cur}}(0)=\TensorCurrent(0)=0,\qquad
+\mathfrak d_{\mathrm{cur}}^{\mathrm{cur}}(0)=\CurCurrent(0)=0,\qquad
+\mathfrak d_{\mathrm{hom}}^{\mathrm{cur}}(0)=\HomCurrent(0)=0.
+\]
+
+For the equilibrium-defect sectors, \eqref{eq:theta} gives
+\[
+\TensorTheta(0)=0,\qquad
+\CurTheta(0)=0,\qquad
+\HomTheta(0)=0,
+\]
+because the symmetry projectors, compatibility projectors, and exact-preserving readouts are linear and preserve the origin. Therefore
+\[
+\mathfrak d_{\mathrm{car}}^{\mathrm{eq}}(0)
+=(\mathbf 1-\TensorEqKerProj)\TensorTheta(0)=0,
+\]
+\[
+\mathfrak d_{\mathrm{cur}}^{\mathrm{eq}}(0)
+=(\mathbf 1-\CurEqKerProj)\CurTheta(0)=0,
+\]
+\[
+\mathfrak d_{\mathrm{hom}}^{\mathrm{eq}}(0)
+=(\mathbf 1-\HomEqKerProj)\HomTheta(0)=0.
+\]
+Thus all six exact defects vanish at the preserved exact-preserving branch point, so that point is an exact sharpened branch.
+\end{proof}
+
+\begin{definition}[Branch locking for the sharpened package]
+\label{def:locking}
+The minimal nonlinear continuity-Hessian sharpening is said to satisfy \emph{branch locking} on the active completed one-metric branch if the same branch that enters the observer equation \eqref{eq:completed} is carried by an exact sharpened branch in the sense of Definition \ref{def:defects}. Equivalently, all six exact defects in \eqref{eq:current_defects}--\eqref{eq:hom_eq_defect} vanish on the active completed branch.
+\end{definition}
+
+\begin{theorem}[Branch locking on the active completed observer branch]
+\label{thm:locking}
+The minimal nonlinear continuity-Hessian sharpening of Definition \ref{def:sharp} satisfies branch locking on the active completed one-metric branch.
+\end{theorem}
+
+\begin{proof}
+Definition \ref{def:sharp} keeps the same fixed one-metric observer package and the same visible branch inputs. Hence the active completed observer branch is the downstream observer-side image of the preserved exact-preserving branch point of the sharpened variables, namely \((\RootTensor,\RootRelabel,\RootFree)=(0,0,0)\). Proposition \ref{prop:origin_exact} shows that this preserved branch point is an exact sharpened branch. Therefore the same active completed branch that feeds \eqref{eq:completed} is carried by an exact sharpened branch, which is exactly the branch-locking statement of Definition \ref{def:locking}.
+\end{proof}
+
+\begin{remark}
+Theorem \ref{thm:locking} is a real theorem gain, but it is only the first half of the direct route. It proves that the sharpened continuity-Hessian package is already locked onto the active completed observer branch. It does not yet factor \(\ObsBurden\) through the exact defects, so it does not yet prove direct absorbability.
+\end{remark}
+
 \section{Direct Absorbability Bridge Theorem}
 
 \begin{definition}[Direct absorbability bridge datum]
@@ -516,7 +574,18 @@ from the three current-defect target spaces and exact-preserving observer-tensor
 \CurEqBridge,\qquad
 \HomEqBridge
 \]
-from the three equilibrium-defect sectors, together with already-extracted null tensors \(\GaugeExact\) and \(\ConstraintExact\), such that on the completed branch
+from the three equilibrium-defect sectors, satisfying
+\[
+\TensorCurrentBridge(0)=0,\qquad
+\CurCurrentBridge(0)=0,\qquad
+\HomCurrentBridge(0)=0,
+\]
+\[
+\TensorEqBridge(0)=0,\qquad
+\CurEqBridge(0)=0,\qquad
+\HomEqBridge(0)=0,
+\]
+and together with already-extracted null tensors \(\GaugeExact\) and \(\ConstraintExact\), such that on the completed branch
 \begin{equation}
 \begin{aligned}
 \ObsBurden
@@ -552,8 +621,21 @@ On an exact sharpened branch, all six exact defects in Definition \ref{def:defec
 But Definition \ref{def:fixed} records that the observer quotient mods out exactly those already-extracted gauge-bookkeeping / gauge-exact and constraint-exact classes. Hence \(\ObserverClass{\ObsBurden}=0\), which is exactly the direct absorbability statement.
 \end{proof}
 
+\begin{proposition}[What remains on the direct route after branch locking]
+\label{prop:direct_burden}
+After Theorem \ref{thm:locking}, the remaining direct-route burden on the active completed branch is exactly a direct absorbability bridge datum in the sense of Definition \ref{def:direct_bridge}. Once such a factorization theorem is established, Theorem \ref{thm:direct} yields
+\[
+\ObserverClass{\ObsBurden}=0
+\]
+on the active completed branch.
+\end{proposition}
+
+\begin{proof}
+Theorem \ref{thm:direct} requires two inputs: branch locking and a direct absorbability bridge datum. Theorem \ref{thm:locking} supplies the first input on the active completed branch. Therefore only the second input remains. Once Definition \ref{def:direct_bridge} is proved on that branch, Theorem \ref{thm:direct} applies immediately and gives \(\ObserverClass{\ObsBurden}=0\).
+\end{proof}
+
 \begin{remark}
-Theorem \ref{thm:direct} identifies the precise missing theorem burden on the direct route. It is not enough to deepen the origin of the current maps or the ambient Hessians while reproducing the same quadratic package. One must derive the actual factorization \eqref{eq:direct_bridge} of the observer burden through the exact nonlinear continuity and equilibrium defects.
+Theorem \ref{thm:locking}, Theorem \ref{thm:direct}, and Proposition \ref{prop:direct_burden} identify the precise remaining theorem burden on the direct route. It is not enough to deepen the origin of the current maps or the ambient Hessians while reproducing the same quadratic package. The branch-locking part is now in hand. What remains is the actual factorization \eqref{eq:direct_bridge} of the observer burden through the exact nonlinear continuity and equilibrium defects.
 \end{remark}
 
 \section{Same-Package Field-Redefinition Bridge Theorem}
@@ -572,7 +654,18 @@ from the current-defect target spaces and exact-preserving lift maps
 \CurEqLift,\qquad
 \HomEqLift
 \]
-from the equilibrium-defect sectors into observer-compatible symmetric tensors, such that
+from the equilibrium-defect sectors into observer-compatible symmetric tensors, satisfying
+\[
+\TensorShiftLift(0)=0,\qquad
+\CurShiftLift(0)=0,\qquad
+\HomShiftLift(0)=0,
+\]
+\[
+\TensorEqLift(0)=0,\qquad
+\CurEqLift(0)=0,\qquad
+\HomEqLift(0)=0,
+\]
+such that
 \begin{equation}
 \begin{aligned}
 \BridgeShift
@@ -647,6 +740,21 @@ Definition \ref{def:fixed} records that the observer quotient mods out exactly t
 The remaining parts of Definition \ref{def:redef_bridge} are exactly the package-level requirements for an explicit same-package field-redefinition theorem: the rewritten metric is explicit, uses only the same package data, introduces no second operative metric and no second matter law, and is observer-side invertible. Hence the sharpened package supplies the required missing field-redefinition ingredient.
 \end{proof}
 
+\begin{proposition}[Branch-locked same-package character of the rewritten metric]
+\label{prop:redef_lock}
+Assume branch locking in the sense of Definition \ref{def:locking} and a same-package field-redefinition bridge datum in the sense of Definition \ref{def:redef_bridge}. Then on the active completed branch,
+\[
+\BridgeShift=0,
+\qquad
+\RedefMetric=\CompletedMetric.
+\]
+Hence the rewritten metric is a same-package re-expression of the active completed branch rather than a second observer-side branch.
+\end{proposition}
+
+\begin{proof}
+Under branch locking, all six exact defects of Definition \ref{def:defects} vanish on the active completed branch. The zero-preserving conditions in Definition \ref{def:redef_bridge} therefore force every term in \eqref{eq:bridgeshift} to vanish on that branch, so \(\BridgeShift=0\). Equation \eqref{eq:redefmetric} then gives \(\RedefMetric=\CompletedMetric\). Since the rewritten metric is already assumed invertible and same-package by Definition \ref{def:redef_bridge}, the conclusion is precisely that the rewrite is an explicit same-package re-expression rather than a distinct observer-side branch.
+\end{proof}
+
 \begin{remark}
 Theorem \ref{thm:redef} is different in logical character from Theorem \ref{thm:direct}. The field-redefinition route need not prove \(\ObserverClass{\ObsBurden}=0\) in the original completed variable \(g^\sharp\). Instead it must produce the exact rewriting identity \eqref{eq:redef_bridge} together with an explicit invertible same-package rewritten one-metric variable.
 \end{remark}
@@ -660,6 +768,29 @@ At current scope, a deeper-origin manuscript based on the continuity-Hessian int
 
 \begin{proof}
 Proposition \ref{prop:quadratic} shows that the recorded quadratic package is exactly the truncation of the minimal nonlinear sharpening. Therefore a manuscript that stops at that truncation reproduces the same fixed observer package of Definition \ref{def:fixed}. But the fixed-package maximality theorem already recorded that strict observer-side closure on that package requires either direct absorbability of \(\ObsBurden\) or an explicit same-package field-redefinition theorem. Theorems \ref{thm:direct} and \ref{thm:redef} identify exactly how the sharpened continuity-Hessian package could supply those missing ingredients. Without at least one of those bridge data, no new strict observer-side closure theorem has been provided.
+\end{proof}
+
+\begin{corollary}[No next primary manuscript before a bridge theorem is in hand]
+\label{cor:no_primary_yet}
+At current scope, the next primary manuscript on this bottleneck is not honestly in hand until one of the two sharpened-package theorem routes has actually been proved. Concretely, one must prove either:
+\begin{enumerate}
+    \item a direct absorbability bridge datum, so that Theorems \ref{thm:locking} and \ref{thm:direct} yield \(\ObserverClass{\ObsBurden}=0\) on the active completed branch; or
+    \item a same-package field-redefinition bridge datum, so that Theorem \ref{thm:redef} yields an explicit rewritten one-metric closure theorem.
+\end{enumerate}
+A manuscript that stops short of those results remains theorem-building support rather than the next front-line paper.
+\end{corollary}
+
+\begin{proof}
+Proposition \ref{prop:direct_burden} identifies the remaining direct-route burden on the active completed branch after Theorem \ref{thm:locking}, and Theorem \ref{thm:redef} identifies the full rewritten-metric route. Corollary \ref{cor:promotion} already states that merely reproducing the quadratic truncation or preserving the same downstream package is not enough for primary status. Therefore the next primary manuscript is honestly in hand only once one of the two theorem routes listed above has actually been completed.
+\end{proof}
+
+\begin{corollary}[Most concrete immediate subtask after branch locking]
+\label{cor:immediate}
+After Theorem \ref{thm:locking}, the most concrete immediate front-line task on the sharpened continuity-Hessian package is the direct-route factorization theorem \eqref{eq:direct_bridge}. If that theorem is not obtained first, the only alternative front-line route is the explicit same-package rewritten-metric theorem of Definition \ref{def:redef_bridge}.
+\end{corollary}
+
+\begin{proof}
+Theorem \ref{thm:locking} removes the first direct-route burden. Proposition \ref{prop:direct_burden} therefore shows that the next remaining direct-route task is exactly the factorization theorem \eqref{eq:direct_bridge}. The only other admissible front-line route identified in the present note is the rewritten-metric route of Definition \ref{def:redef_bridge}.
 \end{proof}
 
 \section{Conclusion}
@@ -690,8 +821,10 @@ The resulting sharpened functional \(\SharpFunctional\) has the recorded functio
 \mathfrak d_{\mathrm{hom}}^{\mathrm{eq}}.
 \]
 
-The main theorem burden is now reduced to deriving one of two precise bridge identities from that sharpened package. On the direct route, one must factor the observer burden \(\ObsBurden\) through those exact defects modulo the already-extracted gauge-exact and constraint-exact sectors. On the rewritten-metric route, one must construct an explicit invertible same-package metric variable \(\RedefMetric\) from the same defects and prove the exact rewriting identity \eqref{eq:redef_bridge}. Until one of those bridge data is actually derived, a deeper-origin continuation that merely preserves the same quadratic package remains side work rather than the next primary paper.
+The first direct-route theorem is now in hand. The preserved exact-preserving branch is already an exact sharpened branch, so the minimal nonlinear sharpening is branch-locked onto the active completed observer branch. That is a real theorem gain: the sharpened defect package is now known to live on the actual observer-side branch rather than on an unrelated auxiliary branch.
 
-That is the honest current conclusion. The next primary move is theorem-building: derive one of those bridge data cleanly, and only then write the next front-line manuscript around the resulting closure upgrade.
+The remaining theorem burden is therefore sharper than before. On the direct route, one must now factor the observer burden \(\ObsBurden\) through those exact defects modulo the already-extracted gauge-exact and constraint-exact sectors. On the rewritten-metric route, one must construct an explicit invertible same-package metric variable \(\RedefMetric\) from the same defects and prove the exact rewriting identity \eqref{eq:redef_bridge}. Until one of those two bridge theorems is actually completed, a deeper-origin continuation that merely preserves the same quadratic package remains side work rather than the next primary paper.
+
+That is the honest current conclusion. The next primary move is theorem-building on the same sharpened package, and the most concrete immediate subtask is now explicit: derive the direct-route factorization theorem \eqref{eq:direct_bridge}. Only if that route does not close should the rewritten-metric bridge theorem be the next front-line attempt. In either case, the next primary manuscript should be written only once one of those full bridge theorems is actually in hand.
 
 \end{document}
