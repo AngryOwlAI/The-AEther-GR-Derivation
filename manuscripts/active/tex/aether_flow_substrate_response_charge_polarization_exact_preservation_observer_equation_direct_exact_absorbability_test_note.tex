@@ -1,0 +1,279 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\ObserverMetric}{g^{\mathrm{br}}}
+\newcommand{\CandidateMetric}{g^{\mathrm{cand}}}
+\newcommand{\CompletedMetric}{g^{\sharp}}
+\newcommand{\BaseShift}{\Sigma^{\mathrm{IER}}}
+\newcommand{\ResponseShift}{\Sigma^{\mathrm{resp}}}
+\newcommand{\CompShift}{\Sigma^{\mathrm{cmp}}}
+\newcommand{\ResidualCore}{\mathcal V_{\mu\nu}^{\mathrm{res}}}
+\newcommand{\ResidualDec}{\mathcal D_{\mu\nu}^{\mathrm{res}}}
+\newcommand{\MixQuad}{\mathcal M_{\mu\nu}^{\mathrm{mix}}}
+\newcommand{\RespQuad}{\mathcal Q_{\mu\nu}^{\mathrm{resp}}}
+\newcommand{\DeltaTCand}{\Delta T_{\mu\nu}^{\mathrm{cand}}}
+\newcommand{\ReducedEin}{\mathcal L_{\ObserverMetric}}
+\newcommand{\GaugeBook}{\mathcal G_{\ObserverMetric}}
+\newcommand{\CompMix}{\mathcal M_{\mu\nu}^{\mathrm{cmp}}}
+\newcommand{\CompQuad}{\mathcal Q_{\mu\nu}^{\mathrm{cmp}}}
+\newcommand{\DeltaTComp}{\Delta T_{\mu\nu}^{\mathrm{cmp}}}
+\newcommand{\ObsBurden}{\mathfrak B_{\mu\nu}^{\mathrm{obs}}}
+\newcommand{\ObserverClass}[1]{\left[#1\right]_{\mathrm{obs}}}
+\newcommand{\GaugeExact}{\mathfrak G_{\mu\nu}^{\mathrm{ex}}}
+\newcommand{\ConstraintExact}{\mathfrak C_{\mu\nu}^{\mathrm{ex}}}
+\newcommand{\RedefMetric}{\widehat g}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Substrate-Response / Self-Response Charge-Polarization Candidate\\
+\large Exact-Preservation Observer-Equation Direct Exact Absorbability Test Note}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The active one-metric exact-preservation branch has already reached the exact observer-side effective-equivalence theorem: the displayed burden
+\[
+\ObsBurden
+=
+\ResidualDec+\CompMix+\CompQuad-8\pi G_N\,\DeltaTComp
+\]
+does not survive as additional independent observer-side physics. The ordered attack note then fixed the next exact task: test direct exact absorbability first, namely whether \(\ObsBurden\) vanishes in the exact observer quotient modulo only the already-extracted gauge-exact and constraint-exact sectors.
+
+The present manuscript performs that first test on the currently recorded fixed package. Its conclusion is disciplined and narrower than a no-go theorem. Direct exact absorbability would require a new exact identity
+\[
+\ObsBurden=\GaugeExact+\ConstraintExact
+\]
+with \(\GaugeExact\) gauge exact and \(\ConstraintExact\) constraint exact in the already-recorded sense. But the same fixed package also records that those null sectors were extracted before \(\ObsBurden\) was defined, and the current exact observer-side theorem proves only exact non-independence of the displayed sectors, not their vanishing in the observer quotient. Exact non-independence is not itself a quotient relation.
+
+Accordingly, the direct exact absorbability test does not yet close on the current package: \(\ObserverClass{\ObsBurden}=0\) is not presently established. The strongest proved exact observer-side theorem therefore remains effective equivalence rather than strict observer-side closure. The next active exact upgrade test on this same one-metric line is the explicit same-package field-redefinition route; only if that also fails honestly should the next primary paper become a genuine necessity, maximality, or no-go theorem.
+\end{abstract}
+
+\section{Introduction}
+
+The previous observer-equation notes performed three increasingly sharp reductions on the same one-metric exact-preservation branch. First, the completed observer equation was written explicitly and the live observer-side burden was collapsed to the single tensor \(\ObsBurden\). Second, the displayed sectors inside that burden were classified and shown to be absent or benchmark-decoupled at the benchmark-facing level. Third, those same sectors were shown not to survive as additional independent observer-side physics on the exact completed branch. That sequence was real progress, but it still stopped one step short of strict observer-side closure.
+
+The ordered attack note fixed the next move accordingly. Before inventing more depth or a new rewriting, one must test the minimal exact possibility still open on the existing package:
+\begin{quote}
+can \(\ObsBurden\) already be removed in the exact observer quotient modulo only the already-extracted gauge-exact and constraint-exact sectors?
+\end{quote}
+The present note performs precisely that test and nothing else. It does not add a deeper-origin layer, and it does not yet test a new rewritten metric variable. It stays on the same one-metric observer equation and asks what the currently recorded package does and does not already prove about direct exact absorbability.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not claim a completed first-principles derivation of GR from substrate microphysics. It does not claim the strict identity \(\ObsBurden=0\). It does not claim a no-go theorem against future exact absorbability on an enlarged or newly upgraded package. Its narrower positive role is to perform the first ordered exact test on the currently fixed package and state its present verdict honestly.
+
+\section{Fixed Package and Quotient}
+
+\begin{definition}[Fixed one-metric exact-preservation package]
+\label{def:fixed}
+The present note keeps the following observer-level data fixed.
+\begin{enumerate}
+    \item The candidate and completed operative metrics are
+    \begin{equation}
+    \CandidateMetric
+    =
+    \ObserverMetric+\BaseShift+\ResponseShift,
+    \qquad
+    \CompletedMetric
+    =
+    \ObserverMetric+\BaseShift+\ResponseShift+\CompShift.
+    \label{eq:metrics}
+    \end{equation}
+    \item The fixed completion solve is
+    \begin{equation}
+    \ReducedEin(\CompShift)=-\ResidualCore.
+    \label{eq:solve}
+    \end{equation}
+    \item The completed observer equation is
+    \begin{equation}
+    G_{\mu\nu}[\CompletedMetric]
+    =
+    8\pi G_N\,T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
+    +\GaugeBook(\CompShift)_{\mu\nu}
+    +\ObsBurden,
+    \label{eq:completed}
+    \end{equation}
+    with
+    \begin{equation}
+    \ObsBurden
+    \equiv
+    \ResidualDec+\CompMix+\CompQuad-8\pi G_N\,\DeltaTComp.
+    \label{eq:burden}
+    \end{equation}
+    \item The inherited candidate-branch decomposition
+    \begin{equation}
+    \ResidualDec
+    =
+    \MixQuad+\RespQuad-8\pi G_N\,\DeltaTCand
+    \label{eq:resdec}
+    \end{equation}
+    is kept fixed.
+    \item Gauge bookkeeping is already extracted explicitly in \eqref{eq:completed}, and the constraint-exact elimination sectors have already been removed before \(\ObsBurden\) is defined.
+    \item The strongest previously established exact theorem on this branch is that \(\ResidualDec\), \(\CompMix\), \(\CompQuad\), and \(\DeltaTComp\) are exactly non-independent observer sectors, so the completed branch is exactly observer-side effectively equivalent to Einstein--Hilbert plus ordinary matter through the same one operative metric \(\CompletedMetric\).
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Exact observer quotient]
+\label{def:quot}
+For the fixed package of Definition \ref{def:fixed}, the \emph{exact observer quotient} is the quotient of observer-side tensors by the already-extracted null classes:
+\begin{enumerate}
+    \item gauge-exact bookkeeping tensors;
+    \item constraint-exact elimination tensors.
+\end{enumerate}
+The observer-quotient class of a tensor \(X_{\mu\nu}\) is denoted \(\ObserverClass{X_{\mu\nu}}\).
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:quot} does not enlarge the null classes by declaring benchmark decoupling or exact non-independence to be zero. The present test is stricter: only the already-extracted gauge-exact and constraint-exact sectors are quotiented away.
+\end{remark}
+
+\begin{definition}[Direct exact absorbability]
+\label{def:direct}
+The burden \(\ObsBurden\) is \emph{directly exactly absorbable} on the fixed package if
+\begin{equation}
+\ObserverClass{\ObsBurden}=0.
+\label{eq:obsvanish}
+\end{equation}
+Equivalently, there exist already-extracted gauge-exact and constraint-exact tensors \(\GaugeExact\) and \(\ConstraintExact\) such that
+\begin{equation}
+\ObsBurden=\GaugeExact+\ConstraintExact.
+\label{eq:direct}
+\end{equation}
+\end{definition}
+
+\section{What the Direct Test Must Show}
+
+\begin{proposition}[Direct absorbability is an exact null-class representation problem]
+\label{prop:repr}
+On the fixed package of Definition \ref{def:fixed}, direct exact absorbability is equivalent to exhibiting an exact representation of the displayed burden \eqref{eq:burden} as a sum of already-extracted gauge-exact and constraint-exact tensors.
+\end{proposition}
+
+\begin{proof}
+This is exactly the equivalence written in Definition \ref{def:direct}. Since Definition \ref{def:quot} quotients only by the already-extracted gauge-exact and constraint-exact null classes, \(\ObserverClass{\ObsBurden}=0\) holds if and only if \(\ObsBurden\) can be written in the form \eqref{eq:direct}.
+\end{proof}
+
+\begin{proposition}[Exact non-independence is not observer-quotient triviality]
+\label{prop:notsame}
+On the fixed package, the statement that a tensor sector is exactly non-independent does not by itself imply that its observer-quotient class vanishes.
+\end{proposition}
+
+\begin{proof}
+Exact non-independence says that a sector introduces no second operative metric, no second matter law, no additional observer equation, and no unsuppressed linear observer mode. By Definition \ref{def:quot}, however, a tensor vanishes in the exact observer quotient only if it is gauge exact or constraint exact in the already-extracted sense. Those are different statements. Therefore exact non-independence alone does not imply observer-quotient triviality.
+\end{proof}
+
+\begin{remark}
+Proposition \ref{prop:notsame} is the logical hinge of the present test. The previous effective-equivalence note already proved exact non-independence of the displayed sectors in \(\ObsBurden\), but direct absorbability asks for the stronger quotient-zero statement \eqref{eq:obsvanish}.
+\end{remark}
+
+\section{Direct Exact Absorbability Test on the Current Package}
+
+\begin{proposition}[The already-extracted null sectors are outside \texorpdfstring{\(\ObsBurden\)}{ObsBurden}]
+\label{prop:outside}
+On the fixed package, gauge bookkeeping is already isolated explicitly as \(\GaugeBook(\CompShift)\) in \eqref{eq:completed}, while the constraint-exact elimination sectors have already been removed before \(\ObsBurden\) is defined. Consequently the direct absorbability test concerns only the displayed burden sectors \(\ResidualDec\), \(\CompMix\), \(\CompQuad\), and \(\DeltaTComp\).
+\end{proposition}
+
+\begin{proof}
+Item (5) of Definition \ref{def:fixed} states exactly this separation. Equation \eqref{eq:completed} places \(\GaugeBook(\CompShift)\) outside \(\ObsBurden\), and the same fixed package records that the constraint-exact elimination sectors were removed earlier in the observer-equation reduction. Therefore no hidden already-extracted null sector remains inside \eqref{eq:burden}.
+\end{proof}
+
+\begin{proposition}[What the current package already proves about the displayed sectors]
+\label{prop:current}
+On the current fixed package:
+\begin{enumerate}
+    \item the displayed sectors \(\ResidualDec\), \(\CompMix\), \(\CompQuad\), and \(\DeltaTComp\) are exactly non-independent observer sectors;
+    \item the same package does not yet include a theorem exhibiting their sum \(\ObsBurden\) as a gauge-exact plus constraint-exact tensor in the sense of \eqref{eq:direct}.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Item (1) is part of Definition \ref{def:fixed}: it records the exact observer-side effective-equivalence theorem already proved on the same completed branch. For item (2), Proposition \ref{prop:outside} shows that the already-extracted gauge-exact and constraint-exact sectors were separated before \(\ObsBurden\) was written. The recorded full-branch conclusions about the displayed sectors are benchmark decoupling and exact non-independence, not an explicit exact identity of the form \eqref{eq:direct}. Therefore the current fixed package does not yet contain the direct absorbability identity itself.
+\end{proof}
+
+\begin{theorem}[Current verdict of the direct exact absorbability test]
+\label{thm:test}
+On the currently recorded fixed package, direct exact absorbability of \(\ObsBurden\) is not yet established. Equivalently, the present package does not yet prove
+\begin{equation}
+\ObserverClass{\ObsBurden}=0.
+\label{eq:notproved}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+By Proposition \ref{prop:repr}, direct exact absorbability requires an exact null-class representation of \(\ObsBurden\) of the form \eqref{eq:direct}. Proposition \ref{prop:current}(1) says only that the displayed sectors are exactly non-independent, while Proposition \ref{prop:notsame} shows that exact non-independence is not itself enough to force vanishing in the observer quotient. Proposition \ref{prop:current}(2) then states the decisive package-level fact: the current fixed branch has not yet supplied the exact identity \eqref{eq:direct}. Therefore the direct absorbability test does not yet close on the currently recorded package, and \eqref{eq:notproved} is the honest present verdict.
+\end{proof}
+
+\begin{corollary}[Strongest exact observer-side theorem after the direct test]
+\label{cor:strongest}
+After the direct exact absorbability test of Theorem \ref{thm:test}, the strongest exact observer-side theorem still proved on the current one-metric branch remains the exact observer-side effective-equivalence theorem rather than strict observer-side closure.
+\end{corollary}
+
+\begin{proof}
+The previously proved effective-equivalence theorem is part of the fixed package in Definition \ref{def:fixed}. Theorem \ref{thm:test} shows that the stronger quotient-zero upgrade has not yet been established on that same package. Therefore effective equivalence remains the strongest exact observer-side theorem currently proved.
+\end{proof}
+
+\section{Consequence for the Ordered Attack}
+
+\begin{theorem}[Next exact move after the direct test]
+\label{thm:next}
+Because the direct exact absorbability test has not yet closed on the current fixed package, the next active exact upgrade test on the same one-metric observer-equation bottleneck is the explicit same-package field-redefinition route. Only if that route also fails honestly on the fixed package does the next primary paper become a genuine necessity, maximality, or no-go theorem.
+\end{theorem}
+
+\begin{proof}
+Theorem \ref{thm:test} gives the present outcome of the first ordered test: direct absorbability is not yet established on the current package. The previously recorded attack order on the same branch then leaves one remaining upgrade route before any no-go paper is honest, namely an explicit same-package field redefinition that rewrites the completed observer equation as exact Einstein--Hilbert plus ordinary matter without introducing a second operative metric or a second matter law. If that second route also cannot be established, the closure-upgrade program on the fixed package has been exhausted and the next honest primary task changes from ``prove closure'' to ``prove necessity/maximality or no-go.''
+\end{proof}
+
+\begin{proposition}[Primary-status rule for deeper-origin continuation after the direct test]
+\label{prop:depth}
+After Theorem \ref{thm:test}, a deeper-origin note is primary only if it directly supplies one of the two remaining upgrade ingredients: either the missing direct absorbability identity itself or an explicit same-package field-redefinition theorem. A deeper-origin note that merely preserves the same completed observer equation without one of those upgrades is supporting context rather than the immediate next move.
+\end{proposition}
+
+\begin{proof}
+The direct test has now been performed on the current package and does not yet close. Theorem \ref{thm:next} identifies the remaining closure-upgrade route before a no-go paper becomes honest. Therefore a deeper-origin continuation is primary only when it directly delivers one of those missing upgrade ingredients rather than merely reproducing the same observer equation.
+\end{proof}
+
+\section{Conclusion}
+
+The present manuscript performs the first ordered exact attack on the remaining one-metric observer-equation bottleneck. That attack is direct exact absorbability: determine whether the displayed burden \(\ObsBurden\) already vanishes in the exact observer quotient modulo only the gauge-exact and constraint-exact sectors extracted earlier in the same reduction.
+
+The outcome is narrower than a no-go theorem but sharper than another status memo. The current fixed package does not yet establish direct exact absorbability. The branch already proves that the displayed sectors are exactly non-independent and therefore observer-side effectively equivalent to Einstein--Hilbert plus ordinary matter through the same operative metric. But exact non-independence is not the same as quotient triviality, and the current package does not yet supply the stronger null-class identity needed for \(\ObserverClass{\ObsBurden}=0\).
+
+This is the positive result recorded here. It clarifies exactly where the present branch now stands and what must come next. The immediate next exact test is the explicit same-package field-redefinition route on the same one-metric package. If that route also fails honestly, then the next primary paper should be a genuine necessity, maximality, or no-go theorem. A deeper-origin continuation is primary only if it directly supplies one of those missing upgrade ingredients.
+
+\end{document}
