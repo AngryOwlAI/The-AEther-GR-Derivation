@@ -1,0 +1,1053 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+
+\newcommand{\CompletedMetric}{g^{\sharp}}
+
+\newcommand{\Car}{\mathrm{car}}
+\newcommand{\Cur}{\mathrm{cur}}
+\newcommand{\Hom}{\mathrm{hom}}
+
+\newcommand{\ForSpace}[1]{\mathcal I_{#1}^{\mathrm{for}}}
+\newcommand{\PrimShell}{\mathcal S_{\mathrm{prim}}}
+
+\newcommand{\Reduction}[1]{\mathcal R_{#1}}
+\newcommand{\CurrentCarrier}[1]{\mathfrak C_{#1}^{\mathrm{cur}}}
+\newcommand{\EqCarrier}[1]{\mathfrak C_{#1}^{\mathrm{eq}}}
+\newcommand{\CurrentExtract}[1]{\mathscr E_{#1}^{\mathrm{cur}}}
+\newcommand{\EqExtract}[1]{\mathscr E_{#1}^{\mathrm{eq}}}
+\newcommand{\PrimCurrent}[1]{\mathcal J_{#1}^{\mathrm{prim}}}
+\newcommand{\PrimTheta}[1]{\Theta_{#1}^{\mathrm{prim}}}
+
+\newcommand{\MetricOut}{\mathscr G_{\mathrm{out}}}
+\newcommand{\MatterOut}{\mathscr T_{\mathrm{out}}}
+\newcommand{\DeepMetricOut}{\mathscr G_{\mathrm{deep}}}
+\newcommand{\DeepMatterOut}{\mathscr T_{\mathrm{deep}}}
+
+\newcommand{\SubSpace}[1]{\mathcal M_{#1}}
+\newcommand{\SubMetric}[1]{G_{#1}}
+\newcommand{\DataProj}[1]{\pi_{#1}}
+\newcommand{\SubVisible}[1]{\pi_{#1}^{X}}
+\newcommand{\SubCurrent}[1]{\pi_{#1}^{\mathrm{cur}}}
+\newcommand{\SubEq}[1]{\pi_{#1}^{\mathrm{eq}}}
+\newcommand{\SubTarget}[1]{\mathcal E_{#1}}
+\newcommand{\SubTargetMetric}[1]{h_{#1}}
+\newcommand{\ShellEquation}[1]{\Phi_{#1}}
+\newcommand{\Fiber}[1]{\mathcal F_{#1}}
+\newcommand{\ShellEmbed}[1]{\iota_{#1}^{\mathrm{sh}}}
+\newcommand{\StationaryFunctional}[1]{\mathscr A_{#1}}
+\newcommand{\TimeRev}[1]{\tau_{#1}}
+
+\newcommand{\DeepSpace}[1]{\mathcal U_{#1}}
+\newcommand{\VisibleMap}[1]{\mathcal V_{#1}}
+\newcommand{\DeepCurrentCarrier}[1]{\mathfrak C_{#1}^{\mathrm{deep,cur}}}
+\newcommand{\DeepEqCarrier}[1]{\mathfrak C_{#1}^{\mathrm{deep,eq}}}
+\newcommand{\ChainSelect}[1]{\mathcal S_{#1}}
+\newcommand{\DeepShell}{\mathcal U_{\mathrm{tot}}}
+\newcommand{\ChainSelectTriple}{\mathcal S_{\mathrm{tot}}}
+
+\newcommand{\VisibleAffine}[1]{\widehat X_{#1}}
+\newcommand{\CoordSpace}[1]{Q_{#1}}
+\newcommand{\CoordBody}[1]{K_{#1}}
+\newcommand{\NormalSpace}[1]{N_{#1}}
+\newcommand{\NormalBody}[1]{B_{#1}}
+\newcommand{\AffineData}[1]{\widehat{\mathcal D}_{#1}}
+\newcommand{\ConstraintMap}[1]{C_{#1}}
+\newcommand{\ConstraintValue}[1]{c_{#1}}
+\newcommand{\NormalOperator}[1]{H_{#1}}
+\newcommand{\SymGroup}[1]{G_{#1}}
+\newcommand{\ShellChart}[1]{\chi_{#1}}
+\newcommand{\DynamicResidual}[1]{\mathfrak E_{#1}}
+\newcommand{\LinearData}[1]{L_{#1}^{\mathrm{dat}}}
+\newcommand{\AltDataProj}[1]{\widetilde\pi_{#1}}
+\newcommand{\AltShellEquation}[1]{\widetilde\Phi_{#1}}
+\newcommand{\AltTarget}[1]{\widetilde{\mathcal E}_{#1}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Primitive-Reservoir Observer-Reduction\\
+\large Explicit Substrate Equation / Symmetry / Constraint\\
+\large Package Necessity / Uniqueness from Primitive Dynamics}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The new stationary-construction theorem on the active primitive-reservoir observer-reduction line identifies a sharper remaining burden than before. The open task is no longer to assume selectors, no longer to assume the stationary substrate construction, and no longer to write another deeper-origin relay that preserves the same downstream package. The open task is to derive why the explicit substrate equation / symmetry / constraint package itself is the forced one.
+
+The present note records a stronger next step of exactly that kind. For each sector it introduces a still more primitive reversible constrained substrate dynamics normal form: a compact convex shell-coordinate body, a compact convex off-shell body, an affine shell-data readout into visible/current/equilibrium coordinates, an exact shell-coordinate chart for the recorded primitive forcing shell, a linear constraint residual on shell coordinates, a positive self-adjoint off-shell operator, symmetry and time-reversal actions preserving all of those data, a data-preserving shell-solvability condition, and a data-kernel coercivity inequality. From that primitive dynamics package one derives canonically the explicit substrate state space, the data projection, the shell equations, the exact primitive-shell zero locus, compact and convex data fibers, and the uniform fiber Hessian positivity that yields coercivity and strict convexity.
+
+The theorem is stronger than a new existence relay. Inside this primitive-dynamics class, the resulting explicit equation / symmetry / constraint package is necessary and unique up to package-faithful equivalence: any benchmark-faithful alternative package with the same fibers, same shell realization, same symmetry discipline, and the same stationary functional must have the same data projection and the same shell equations up to an orthogonal target-space reparameterization. The downstream selector, chain-separation, and same-package output consequences are therefore forced rather than merely available. Pullback along the unique total selector preserves exactly the same one operative metric \(\CompletedMetric\) and exactly the same ordinary-matter route through that metric, with no second operative metric and no enlarged low-energy matter law. The claim remains disciplined: this is not yet a completed first-principles derivation of GR from final substrate microphysics, but it does discharge the current explicit-package burden at the next honest layer.
+\end{abstract}
+
+\section{Introduction}
+
+The active derivational program of \TheoryName{} has now reached a cleaner bottleneck than before. The primitive observer-reduction datum, defect-fiber factorization, one-metric output map, chain forcing, selector existence / uniqueness, and later stationary-construction theorem have already done the work that was honestly available at their respective levels. The latest theorem in that sequence is especially important because it narrows the next burden rather than merely pushing it deeper. The remaining honest question is no longer why selectors should exist once one grants a stationary substrate functional, nor why a stationary substrate construction should exist once one grants an explicit equation / symmetry / constraint package. The remaining question is why that explicit package itself should be forced rather than becoming the new disciplined stopping point.
+
+That is the burden addressed here. The present note does not reopen the benchmark effective package. It does not alter the one operative completed metric, it does not add a second matter route, and it does not strengthen promotion language. Its purpose is narrower and sharper. It introduces a still more primitive reversible constrained substrate dynamics normal form and proves that the explicit equation / symmetry / constraint package used in the current stationary-construction theorem is a canonical output of that normal form. More than that, it proves that within this primitive-dynamics class the explicit package is necessary and unique up to package-faithful equivalence.
+
+This is the sense in which the note is intended to be stronger than another deeper-origin relay. The positive result is not merely that one more layer reproduces the same lower package. The positive result is that, once the primitive reversible constrained dynamics are fixed, the lower explicit package is no longer optional. Its state spaces, data projections, shell zero loci, compact/convex fibers, and Hessian positivity are all forced. Several layers of the current line therefore collapse into one sharper theorem.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not claim that final substrate microphysics has already been found. Its narrower theorem is only that the explicit substrate equation / symmetry / constraint package used in the current stationary-construction theorem is itself a forced output of a deeper primitive-dynamics normal form on the current one-metric line, and is unique there up to package-faithful equivalence.
+
+\section{Fixed Primitive Continuation Data}
+
+\begin{definition}[Recorded primitive continuation data]
+\label{def:fixed}
+Fix the following continuation data from the active primitive-reservoir observer-reduction line.
+\begin{enumerate}
+    \item For each sector label \(\sigma\in\{\Car,\Cur,\Hom\}\), a primitive forcing shell
+    \[
+    \ForSpace{\sigma},
+    \]
+    a visible reduction map
+    \[
+    \Reduction{\sigma}:\ForSpace{\sigma}\to X_{\sigma},
+    \]
+    and shell-level current and equilibrium carriers
+    \[
+    \CurrentCarrier{\sigma}:\ForSpace{\sigma}\to Z_{\sigma}^{\mathrm{cur}},
+    \qquad
+    \EqCarrier{\sigma}:\ForSpace{\sigma}\to Z_{\sigma}^{\mathrm{eq}}.
+    \]
+    \item The product shell
+    \[
+    \PrimShell
+    \equiv
+    \ForSpace{\Car}\times \ForSpace{\Cur}\times \ForSpace{\Hom}.
+    \]
+    \item Fixed shell extractors
+    \[
+    \CurrentExtract{\sigma}:Z_{\sigma}^{\mathrm{cur}}\to Y_{\sigma}^{\mathrm{cur}},
+    \qquad
+    \EqExtract{\sigma}:Z_{\sigma}^{\mathrm{eq}}\to Y_{\sigma}^{\mathrm{eq}},
+    \]
+    together with the recorded shell composites
+    \begin{equation}
+    \PrimCurrent{\sigma}
+    =
+    \CurrentExtract{\sigma}\circ \CurrentCarrier{\sigma},
+    \qquad
+    \PrimTheta{\sigma}
+    =
+    \EqExtract{\sigma}\circ \EqCarrier{\sigma}.
+    \label{eq:primcomposites}
+    \end{equation}
+    \item The recorded metric and ordinary-matter outputs
+    \[
+    \MetricOut:\PrimShell\to\{\text{observer metrics}\},
+    \qquad
+    \MatterOut:\PrimShell\times\Psi\to\{\text{observer stress tensors}\},
+    \]
+    satisfying
+    \begin{equation}
+    \MetricOut(\mathbf w)=\CompletedMetric,
+    \qquad
+    \MatterOut(\mathbf w,\psi)
+    =
+    T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
+    \label{eq:fixedoutputs}
+    \end{equation}
+    for every \(\mathbf w\in\PrimShell\) and every matter configuration \(\psi\in\Psi\).
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:fixed} is not reopened in the present note. The primitive forcing shells, the shell-level carriers, and the benchmark one-metric / ordinary-matter outputs remain fixed continuation data. The new work begins one level deeper: how to force the explicit substrate package that was still assumed by the latest stationary-construction theorem.
+\end{remark}
+
+\section{Primitive Reversible Constrained Substrate Dynamics}
+
+\begin{definition}[Sectorwise primitive reversible constrained dynamics]
+\label{def:primitive}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). A \emph{primitive reversible constrained substrate dynamics package} for sector \(\sigma\) consists of the following data.
+\begin{enumerate}
+    \item Finite-dimensional Euclidean spaces
+    \[
+    \CoordSpace{\sigma},\qquad
+    \NormalSpace{\sigma},\qquad
+    \VisibleAffine{\sigma},\qquad
+    E_{\sigma},
+    \]
+    together with compact convex bodies
+    \[
+    \CoordBody{\sigma}\subset \CoordSpace{\sigma},
+    \qquad
+    \NormalBody{\sigma}\subset \NormalSpace{\sigma},
+    \]
+    each with nonempty interior, and with \(0\in\operatorname{int}\NormalBody{\sigma}\).
+    \item A smooth embedding
+    \[
+    \jmath_{\sigma}:X_{\sigma}\hookrightarrow \VisibleAffine{\sigma}.
+    \]
+    \item An affine shell-data readout map
+    \[
+    \AffineData{\sigma}:\CoordSpace{\sigma}\to
+    \VisibleAffine{\sigma}\times Z_{\sigma}^{\mathrm{cur}}\times Z_{\sigma}^{\mathrm{eq}}
+    \]
+    whose image on \(\CoordBody{\sigma}\) lies in
+    \[
+    \jmath_{\sigma}(X_{\sigma})\times Z_{\sigma}^{\mathrm{cur}}\times Z_{\sigma}^{\mathrm{eq}}.
+    \]
+    Let
+    \[
+    \LinearData{\sigma}:D\AffineData{\sigma}
+    \]
+    denote its constant linear part.
+    \item A linear constraint operator
+    \[
+    \ConstraintMap{\sigma}:\CoordSpace{\sigma}\to E_{\sigma}
+    \]
+    and a fixed constraint value
+    \[
+    \ConstraintValue{\sigma}\in E_{\sigma}.
+    \]
+    \item A positive self-adjoint operator
+    \[
+    \NormalOperator{\sigma}:\NormalSpace{\sigma}\to\NormalSpace{\sigma}
+    \]
+    with a positive lower bound
+    \begin{equation}
+    \ev{\eta,\NormalOperator{\sigma}\eta}\ge \mu_{\sigma}\,\|\eta\|^{2}
+    \qquad
+    \text{for all }\eta\in\NormalSpace{\sigma}
+    \label{eq:Hlower}
+    \end{equation}
+    for some \(\mu_{\sigma}>0\).
+    \item A compact symmetry group
+    \[
+    \SymGroup{\sigma}\subset O(\CoordSpace{\sigma})\times O(\NormalSpace{\sigma})
+    \]
+    preserving \(\CoordBody{\sigma}\), \(\NormalBody{\sigma}\), \(\AffineData{\sigma}\), \(\ConstraintMap{\sigma}\), and \(\NormalOperator{\sigma}\), together with an orthogonal involution
+    \[
+    \TimeRev{\sigma}\in O(\CoordSpace{\sigma})\times O(\NormalSpace{\sigma})
+    \]
+    that commutes with \(\SymGroup{\sigma}\) and preserves the same data.
+    \item A shell-coordinate chart
+    \[
+    \ShellChart{\sigma}:\ForSpace{\sigma}\to \CoordBody{\sigma}\cap \ConstraintMap{\sigma}^{-1}(\ConstraintValue{\sigma})
+    \]
+    whose image is contained in \(\operatorname{int}\CoordBody{\sigma}\), that is a diffeomorphism onto the full constrained shell-coordinate locus, and that satisfies
+    \begin{equation}
+    \AffineData{\sigma}\bigl(\ShellChart{\sigma}(w)\bigr)
+    =
+    \bigl(
+    \jmath_{\sigma}(\Reduction{\sigma}(w)),
+    \CurrentCarrier{\sigma}(w),
+    \EqCarrier{\sigma}(w)
+    \bigr)
+    \label{eq:shellchartcompat}
+    \end{equation}
+    for every \(w\in\ForSpace{\sigma}\).
+    \item Data-preserving shell solvability:
+    \begin{equation}
+    \AffineData{\sigma}(\CoordBody{\sigma})
+    =
+    \AffineData{\sigma}
+    \bigl(
+    \CoordBody{\sigma}\cap \ConstraintMap{\sigma}^{-1}(\ConstraintValue{\sigma})
+    \bigr).
+    \label{eq:solvability}
+    \end{equation}
+    \item Data-kernel coercivity: there exists \(\kappa_{\sigma}>0\) such that for every
+    \[
+    \delta q\in \ker \LinearData{\sigma},
+    \qquad
+    \delta n\in \NormalSpace{\sigma},
+    \]
+    one has
+    \begin{equation}
+    \|\ConstraintMap{\sigma}\delta q\|^{2}
+    +
+    \ev{\delta n,\NormalOperator{\sigma}\delta n}
+    \ge
+    \kappa_{\sigma}\,
+    \bigl(
+    \|\delta q\|^{2}+\|\delta n\|^{2}
+    \bigr).
+    \label{eq:kernelcoercive}
+    \end{equation}
+\end{enumerate}
+Define the primitive dynamic residual on the product body
+\[
+\CoordBody{\sigma}\times\NormalBody{\sigma}
+\]
+by
+\begin{equation}
+\DynamicResidual{\sigma}(q,n)
+\equiv
+\bigl(
+\ConstraintMap{\sigma}q-\ConstraintValue{\sigma},
+\;
+\NormalOperator{\sigma}^{1/2}n
+\bigr)
+\in E_{\sigma}\oplus\NormalSpace{\sigma}.
+\label{eq:dynamicresidual}
+\end{equation}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:primitive} is the still deeper layer used in the present note. The shell-coordinate variable \(q\) records the primitive-shell data direction, the off-shell variable \(n\) records deviations that are invisible to the shell-data readout, the constraint residual \(\ConstraintMap{\sigma}q-\ConstraintValue{\sigma}\) cuts out the shell-coordinate locus, and the positive operator \(\NormalOperator{\sigma}\) penalizes off-shell displacement. The symmetry and time-reversal data preserve both the readout and the residual. The coercivity inequality \eqref{eq:kernelcoercive} is the key primitive statement that later becomes fiberwise Hessian positivity.
+\end{remark}
+
+\begin{proposition}[Each datum has a unique shell representative]
+\label{prop:uniqueshell}
+Assume Definition \ref{def:primitive}. Then for every
+\[
+u\in \AffineData{\sigma}(\CoordBody{\sigma}),
+\]
+there exists a unique
+\[
+q_{\sigma}(u)\in \CoordBody{\sigma}\cap \ConstraintMap{\sigma}^{-1}(\ConstraintValue{\sigma})
+\]
+such that
+\[
+\AffineData{\sigma}\bigl(q_{\sigma}(u)\bigr)=u.
+\]
+\end{proposition}
+
+\begin{proof}
+Existence is exactly \eqref{eq:solvability}. For uniqueness, let \(q,q'\in\CoordBody{\sigma}\cap \ConstraintMap{\sigma}^{-1}(\ConstraintValue{\sigma})\) satisfy
+\[
+\AffineData{\sigma}(q)=\AffineData{\sigma}(q').
+\]
+Then
+\[
+\delta q\equiv q-q'\in\ker\LinearData{\sigma}
+\qquad\text{and}\qquad
+\ConstraintMap{\sigma}\delta q=0.
+\]
+Applying \eqref{eq:kernelcoercive} with \(\delta n=0\) gives
+\[
+0
+=
+\|\ConstraintMap{\sigma}\delta q\|^{2}
+\ge
+\kappa_{\sigma}\|\delta q\|^{2},
+\]
+so \(\delta q=0\). Hence \(q=q'\).
+\end{proof}
+
+\section{Canonical Explicit Substrate Package}
+
+\begin{definition}[Canonical explicit package derived from primitive dynamics]
+\label{def:canonical}
+Assume Definition \ref{def:primitive}. Define the canonical explicit package in sector \(\sigma\) as follows.
+\begin{enumerate}
+    \item The substrate state space is the compact convex body
+    \[
+    \SubSpace{\sigma}
+    \equiv
+    \CoordBody{\sigma}\times\NormalBody{\sigma}
+    \]
+    equipped with the Euclidean product metric
+    \[
+    \SubMetric{\sigma}\bigl((\delta q,\delta n),(\delta q,\delta n)\bigr)
+    \equiv
+    \|\delta q\|^{2}+\|\delta n\|^{2}.
+    \]
+    \item The data projection is
+    \begin{equation}
+    \DataProj{\sigma}(q,n)
+    \equiv
+    \bigl(
+    \jmath_{\sigma}^{-1}(\operatorname{pr}_{X}\AffineData{\sigma}(q)),
+    \operatorname{pr}_{\mathrm{cur}}\AffineData{\sigma}(q),
+    \operatorname{pr}_{\mathrm{eq}}\AffineData{\sigma}(q)
+    \bigr),
+    \label{eq:canonicalpi}
+    \end{equation}
+    where \(\operatorname{pr}_{X}\), \(\operatorname{pr}_{\mathrm{cur}}\), and \(\operatorname{pr}_{\mathrm{eq}}\) denote the three coordinate projections on
+    \[
+    \VisibleAffine{\sigma}\times Z_{\sigma}^{\mathrm{cur}}\times Z_{\sigma}^{\mathrm{eq}}.
+    \]
+    Write these three components as
+    \[
+    \SubVisible{\sigma},\qquad
+    \SubCurrent{\sigma},\qquad
+    \SubEq{\sigma}.
+    \]
+    \item The target space is
+    \[
+    \SubTarget{\sigma}\equiv E_{\sigma}\oplus\NormalSpace{\sigma}
+    \]
+    with the Euclidean target metric
+    \[
+    \SubTargetMetric{\sigma}\bigl((e,\eta),(e,\eta)\bigr)
+    \equiv
+    \|e\|^{2}+\|\eta\|^{2}.
+    \]
+    \item The shell equation is the primitive residual
+    \begin{equation}
+    \ShellEquation{\sigma}(q,n)
+    \equiv
+    \DynamicResidual{\sigma}(q,n)
+    =
+    \bigl(
+    \ConstraintMap{\sigma}q-\ConstraintValue{\sigma},
+    \NormalOperator{\sigma}^{1/2}n
+    \bigr).
+    \label{eq:canonicalphi}
+    \end{equation}
+    \item The stationary functional is the norm-square residual
+    \begin{equation}
+    \StationaryFunctional{\sigma}(q,n)
+    \equiv
+    \frac12\,
+    \SubTargetMetric{\sigma}
+    \bigl(
+    \ShellEquation{\sigma}(q,n),
+    \ShellEquation{\sigma}(q,n)
+    \bigr)
+    =
+    \frac12\|\ConstraintMap{\sigma}q-\ConstraintValue{\sigma}\|^{2}
+    +
+    \frac12\ev{n,\NormalOperator{\sigma}n}.
+    \label{eq:canonicalA}
+    \end{equation}
+    \item The primitive-shell embedding is
+    \begin{equation}
+    \ShellEmbed{\sigma}(w)
+    \equiv
+    \bigl(
+    \ShellChart{\sigma}(w),
+    0
+    \bigr).
+    \label{eq:canonicalembed}
+    \end{equation}
+\end{enumerate}
+Define the deeper sector space by
+\begin{equation}
+\DeepSpace{\sigma}
+\equiv
+\operatorname{im}\DataProj{\sigma}
+\subset
+X_{\sigma}\times Z_{\sigma}^{\mathrm{cur}}\times Z_{\sigma}^{\mathrm{eq}},
+\label{eq:deepspace}
+\end{equation}
+and define the induced deeper visible/current/equilibrium maps by coordinate restriction:
+\begin{equation}
+\VisibleMap{\sigma}(x,z^{\mathrm{cur}},z^{\mathrm{eq}})\equiv x,
+\quad
+\DeepCurrentCarrier{\sigma}(x,z^{\mathrm{cur}},z^{\mathrm{eq}})
+\equiv z^{\mathrm{cur}},
+\quad
+\DeepEqCarrier{\sigma}(x,z^{\mathrm{cur}},z^{\mathrm{eq}})
+\equiv z^{\mathrm{eq}}.
+\label{eq:deepcoords}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[Exact zero-shell realization]
+\label{prop:zeroshell}
+Under Definition \ref{def:canonical},
+\begin{equation}
+\operatorname{im}\ShellEmbed{\sigma}
+=
+\ShellEquation{\sigma}^{-1}(0)
+=
+\left\{
+(q,n)\in\SubSpace{\sigma}:\StationaryFunctional{\sigma}(q,n)=0
+\right\}.
+\label{eq:zeroshell}
+\end{equation}
+Moreover,
+\begin{equation}
+\SubVisible{\sigma}\circ\ShellEmbed{\sigma}
+=
+\Reduction{\sigma},
+\qquad
+\SubCurrent{\sigma}\circ\ShellEmbed{\sigma}
+=
+\CurrentCarrier{\sigma},
+\qquad
+\SubEq{\sigma}\circ\ShellEmbed{\sigma}
+=
+\EqCarrier{\sigma}.
+\label{eq:embedcompat}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+By \eqref{eq:canonicalphi},
+\[
+\ShellEquation{\sigma}(q,n)=0
+\quad\Longleftrightarrow\quad
+\ConstraintMap{\sigma}q=\ConstraintValue{\sigma}
+\ \text{and}\ 
+n=0,
+\]
+because \(\NormalOperator{\sigma}^{1/2}\) is injective by \eqref{eq:Hlower}. Since \(\ShellChart{\sigma}\) is onto
+\[
+\CoordBody{\sigma}\cap \ConstraintMap{\sigma}^{-1}(\ConstraintValue{\sigma}),
+\]
+\eqref{eq:canonicalembed} gives the first equality in \eqref{eq:zeroshell}. The second equality follows from the positive-definite target metric in \eqref{eq:canonicalA}. The identities \eqref{eq:embedcompat} are immediate from \eqref{eq:canonicalembed} and \eqref{eq:shellchartcompat}.
+\end{proof}
+
+\begin{definition}[Data fibers]
+\label{def:fibers}
+For \(u\in\DeepSpace{\sigma}\), define the full data fiber
+\[
+\Fiber{\sigma}(u)\equiv\DataProj{\sigma}^{-1}(u).
+\]
+For a visible datum \(x\in X_{\sigma}\), define the visible fiber
+\[
+\bigl(\SubVisible{\sigma}\bigr)^{-1}(x)
+\equiv
+\{(q,n)\in\SubSpace{\sigma}:\SubVisible{\sigma}(q,n)=x\}.
+\]
+\end{definition}
+
+\begin{proposition}[Compact and convex fibers]
+\label{prop:fibers}
+Assume Definition \ref{def:canonical}. Then:
+\begin{enumerate}
+    \item for every \(u\in\DeepSpace{\sigma}\), the fiber \(\Fiber{\sigma}(u)\) is nonempty, compact, connected, and convex;
+    \item for every visible datum \(x\in X_{\sigma}\), the visible fiber \(\bigl(\SubVisible{\sigma}\bigr)^{-1}(x)\) is compact and convex;
+    \item for every \(u\in\DeepSpace{\sigma}\), the fiber \(\Fiber{\sigma}(u)\) contains the unique shell point
+    \[
+    \bigl(q_{\sigma}(u),0\bigr)
+    \in
+    \ShellEquation{\sigma}^{-1}(0).
+    \]
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Fix \(u\in\DeepSpace{\sigma}\). Because \(\DataProj{\sigma}(q,n)\) depends only on \(q\), the fiber has the form
+\[
+\Fiber{\sigma}(u)
+=
+\bigl(
+\AffineData{\sigma}^{-1}(\jmath_{\sigma}(x),z^{\mathrm{cur}},z^{\mathrm{eq}})
+\cap
+\CoordBody{\sigma}
+\bigr)
+\times
+\NormalBody{\sigma},
+\]
+where \(u=(x,z^{\mathrm{cur}},z^{\mathrm{eq}})\). Since \(\AffineData{\sigma}\) is affine, its preimage of a point is an affine subspace of \(\CoordSpace{\sigma}\). Intersecting with the compact convex body \(\CoordBody{\sigma}\) yields a compact convex set, and the product with the compact convex body \(\NormalBody{\sigma}\) is again compact convex. Nonemptiness follows from \(u\in\DeepSpace{\sigma}\). Convexity implies connectedness.
+
+The visible-fiber statement is identical, replacing \(\AffineData{\sigma}\) by its first coordinate.
+
+For item (3), Proposition \ref{prop:uniqueshell} supplies the unique shell coordinate \(q_{\sigma}(u)\) with
+\[
+\AffineData{\sigma}\bigl(q_{\sigma}(u)\bigr)
+=
+\bigl(
+\jmath_{\sigma}(x),z^{\mathrm{cur}},z^{\mathrm{eq}}
+\bigr).
+\]
+Therefore \((q_{\sigma}(u),0)\in\Fiber{\sigma}(u)\), and Proposition \ref{prop:zeroshell} shows that it lies in \(\ShellEquation{\sigma}^{-1}(0)\).
+\end{proof}
+
+\begin{proposition}[Positive normal shell gap]
+\label{prop:normalgap}
+Assume Definition \ref{def:canonical}. Then there exists \(\lambda_{\sigma}>0\) such that for every
+\[
+m\in \ShellEquation{\sigma}^{-1}(0)
+\]
+and every \(\xi\in T_{m}\SubSpace{\sigma}\) orthogonal, with respect to \(\SubMetric{\sigma}\), to the tangent space of the zero shell, one has
+\begin{equation}
+\SubTargetMetric{\sigma}
+\!\left(
+D\ShellEquation{\sigma}(m)\xi,
+D\ShellEquation{\sigma}(m)\xi
+\right)
+\ge
+\lambda_{\sigma}\,
+\SubMetric{\sigma}(\xi,\xi).
+\label{eq:normalgap}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Fix \(m=(q,0)\in\ShellEquation{\sigma}^{-1}(0)\). By \eqref{eq:canonicalphi}, the shell tangent directions are precisely
+\[
+T_{m}\ShellEquation{\sigma}^{-1}(0)
+=
+\ker\ConstraintMap{\sigma}\times\{0\}.
+\]
+Hence an orthogonal normal vector has the form
+\[
+\xi=(\delta q,\delta n)
+\]
+with \(\delta q\perp\ker\ConstraintMap{\sigma}\). Since \(\ConstraintMap{\sigma}\) is linear on a finite-dimensional Euclidean space, there exists \(\lambda_{\sigma}^{Q}>0\) such that
+\[
+\|\ConstraintMap{\sigma}\delta q\|^{2}
+\ge
+\lambda_{\sigma}^{Q}\,\|\delta q\|^{2}
+\qquad
+\text{for all }\delta q\perp\ker\ConstraintMap{\sigma}.
+\]
+Let
+\[
+\lambda_{\sigma}\equiv \min\{\lambda_{\sigma}^{Q},\mu_{\sigma}\}.
+\]
+Then, using \eqref{eq:Hlower},
+\[
+\SubTargetMetric{\sigma}
+\!\left(
+D\ShellEquation{\sigma}(m)\xi,
+D\ShellEquation{\sigma}(m)\xi
+\right)
+=
+\|\ConstraintMap{\sigma}\delta q\|^{2}
++
+\ev{\delta n,\NormalOperator{\sigma}\delta n}
+\ge
+\lambda_{\sigma}\,
+\bigl(\|\delta q\|^{2}+\|\delta n\|^{2}\bigr),
+\]
+which is exactly \eqref{eq:normalgap}.
+\end{proof}
+
+\begin{theorem}[Fiber Hessian positivity, coercivity, and strict convexity]
+\label{thm:convexity}
+Assume Definition \ref{def:canonical}. Then for every \(u\in\DeepSpace{\sigma}\):
+\begin{enumerate}
+    \item the restricted functional
+    \[
+    \StationaryFunctional{\sigma}\big|_{\Fiber{\sigma}(u)}
+    \]
+    is nonnegative, lower semicontinuous, and coercive;
+    \item its Hessian on fiber-tangent vectors satisfies
+    \begin{equation}
+    \operatorname{Hess}_{\Fiber{\sigma}(u)}
+    \bigl(
+    \StationaryFunctional{\sigma}\big|_{\Fiber{\sigma}(u)}
+    \bigr)_{(q,n)}
+    \bigl((\delta q,\delta n),(\delta q,\delta n)\bigr)
+    \ge
+    \kappa_{\sigma}\,
+    \bigl(
+    \|\delta q\|^{2}+\|\delta n\|^{2}
+    \bigr)
+    \label{eq:fiberhessian}
+    \end{equation}
+    for every \((q,n)\in\Fiber{\sigma}(u)\) and every fiber-tangent vector \((\delta q,\delta n)\);
+    \item consequently the restricted functional is strictly convex on \(\Fiber{\sigma}(u)\);
+    \item the unique minimizer on \(\Fiber{\sigma}(u)\) is the shell point \(\bigl(q_{\sigma}(u),0\bigr)\), and the minimum value is \(0\).
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Item (1) follows from \eqref{eq:canonicalA}: the functional is continuous and nonnegative on the compact fiber \(\Fiber{\sigma}(u)\), so it is lower semicontinuous and coercive there.
+
+For item (2), let
+\[
+(\delta q,\delta n)\in T_{(q,n)}\Fiber{\sigma}(u).
+\]
+Because \(\DataProj{\sigma}\) depends only on \(q\) through the affine map \(\AffineData{\sigma}\), fiber tangency is exactly
+\[
+\delta q\in\ker\LinearData{\sigma},
+\qquad
+\delta n\in\NormalSpace{\sigma}.
+\]
+Differentiating \eqref{eq:canonicalA} gives
+\[
+\operatorname{Hess}
+\bigl(
+\StationaryFunctional{\sigma}
+\bigr)_{(q,n)}
+\bigl((\delta q,\delta n),(\delta q,\delta n)\bigr)
+=
+\|\ConstraintMap{\sigma}\delta q\|^{2}
++
+\ev{\delta n,\NormalOperator{\sigma}\delta n}.
+\]
+Applying \eqref{eq:kernelcoercive} yields \eqref{eq:fiberhessian}.
+
+Item (3) is immediate from the positive lower bound \eqref{eq:fiberhessian}: along any nonconstant line segment in the convex fiber, the second derivative of the restricted functional is strictly positive.
+
+For item (4), Proposition \ref{prop:fibers}(3) supplies a shell point \(\bigl(q_{\sigma}(u),0\bigr)\in\Fiber{\sigma}(u)\). Proposition \ref{prop:zeroshell} then gives
+\[
+\StationaryFunctional{\sigma}\bigl(q_{\sigma}(u),0\bigr)=0.
+\]
+Since the functional is nonnegative everywhere, the minimum value is \(0\). Uniqueness follows from strict convexity.
+\end{proof}
+
+\begin{definition}[Sectorwise selector]
+\label{def:selector}
+For \(u\in\DeepSpace{\sigma}\), define
+\begin{equation}
+\ChainSelect{\sigma}(u)
+\equiv
+\ShellChart{\sigma}^{-1}\bigl(q_{\sigma}(u)\bigr),
+\label{eq:selector}
+\end{equation}
+where \(q_{\sigma}(u)\) is the unique shell coordinate from Proposition \ref{prop:uniqueshell}.
+\end{definition}
+
+\begin{proposition}[Chain identities and separation]
+\label{prop:separation}
+Assume Definition \ref{def:selector}. Then:
+\begin{enumerate}
+    \item
+    \[
+    \Reduction{\sigma}\circ\ChainSelect{\sigma}
+    =
+    \VisibleMap{\sigma},
+    \qquad
+    \CurrentCarrier{\sigma}\circ\ChainSelect{\sigma}
+    =
+    \DeepCurrentCarrier{\sigma},
+    \qquad
+    \EqCarrier{\sigma}\circ\ChainSelect{\sigma}
+    =
+    \DeepEqCarrier{\sigma};
+    \]
+    \item if \(w,w'\in\ForSpace{\sigma}\) satisfy
+    \[
+    \Reduction{\sigma}(w)=\Reduction{\sigma}(w'),
+    \quad
+    \CurrentCarrier{\sigma}(w)=\CurrentCarrier{\sigma}(w'),
+    \quad
+    \EqCarrier{\sigma}(w)=\EqCarrier{\sigma}(w'),
+    \]
+    then \(w=w'\).
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+For item (1), let \(u=(x,z^{\mathrm{cur}},z^{\mathrm{eq}})\in\DeepSpace{\sigma}\). By definition of \(q_{\sigma}(u)\),
+\[
+\AffineData{\sigma}\bigl(q_{\sigma}(u)\bigr)
+=
+\bigl(
+\jmath_{\sigma}(x),z^{\mathrm{cur}},z^{\mathrm{eq}}
+\bigr).
+\]
+Applying \eqref{eq:shellchartcompat} with \(w=\ChainSelect{\sigma}(u)\) gives the three identities.
+
+For item (2), the assumed equalities imply that
+\[
+\AffineData{\sigma}\bigl(\ShellChart{\sigma}(w)\bigr)
+=
+\AffineData{\sigma}\bigl(\ShellChart{\sigma}(w')\bigr).
+\]
+Both shell coordinates lie in
+\[
+\CoordBody{\sigma}\cap\ConstraintMap{\sigma}^{-1}(\ConstraintValue{\sigma}),
+\]
+so Proposition \ref{prop:uniqueshell} yields
+\[
+\ShellChart{\sigma}(w)=\ShellChart{\sigma}(w').
+\]
+Since \(\ShellChart{\sigma}\) is injective, \(w=w'\).
+\end{proof}
+
+\section{Same One-Metric Output}
+
+\begin{definition}[Total selector and deeper outputs]
+\label{def:deepoutputs}
+Define
+\[
+\DeepShell
+\equiv
+\DeepSpace{\Car}\times\DeepSpace{\Cur}\times\DeepSpace{\Hom},
+\]
+\[
+\ChainSelectTriple(u_{\Car},u_{\Cur},u_{\Hom})
+\equiv
+\bigl(
+\ChainSelect{\Car}(u_{\Car}),
+\ChainSelect{\Cur}(u_{\Cur}),
+\ChainSelect{\Hom}(u_{\Hom})
+\bigr).
+\]
+Define
+\[
+\DeepMetricOut:\DeepShell\to\{\text{observer metrics}\}
+\]
+and
+\[
+\DeepMatterOut:\DeepShell\times\Psi\to\{\text{observer stress tensors}\}
+\]
+by
+\begin{equation}
+\DeepMetricOut
+\equiv
+\MetricOut\circ\ChainSelectTriple,
+\qquad
+\DeepMatterOut(\mathbf u,\psi)
+\equiv
+\MatterOut(\ChainSelectTriple(\mathbf u),\psi).
+\label{eq:deepoutputs}
+\end{equation}
+\end{definition}
+
+\begin{theorem}[Primitive dynamics preserve the benchmark one-metric package]
+\label{thm:outputs}
+For every \(\mathbf u\in\DeepShell\) and every matter configuration \(\psi\in\Psi\),
+\begin{equation}
+\DeepMetricOut(\mathbf u)=\CompletedMetric
+\label{eq:deepmetric}
+\end{equation}
+and
+\begin{equation}
+\DeepMatterOut(\mathbf u,\psi)
+=
+T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi].
+\label{eq:deepmatter}
+\end{equation}
+Consequently the primitive-dynamics-derived package introduces neither a second operative metric nor an enlarged low-energy matter law.
+\end{theorem}
+
+\begin{proof}
+Equation \eqref{eq:deepmetric} follows immediately from \eqref{eq:deepoutputs} and \eqref{eq:fixedoutputs}:
+\[
+\DeepMetricOut(\mathbf u)
+=
+\MetricOut(\ChainSelectTriple(\mathbf u))
+=
+\CompletedMetric.
+\]
+Likewise,
+\[
+\DeepMatterOut(\mathbf u,\psi)
+=
+\MatterOut(\ChainSelectTriple(\mathbf u),\psi)
+=
+T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi],
+\]
+which proves \eqref{eq:deepmatter}.
+\end{proof}
+
+\section{Necessity and Uniqueness of the Explicit Package}
+
+\begin{definition}[Benchmark-faithful alternative explicit package]
+\label{def:alt}
+Fix a primitive reversible constrained dynamics package in the sense of Definition \ref{def:primitive}, together with its canonical explicit package from Definition \ref{def:canonical}. A \emph{benchmark-faithful alternative explicit package} over the same primitive dynamics in sector \(\sigma\) consists of:
+\begin{enumerate}
+    \item a data projection
+    \[
+    \AltDataProj{\sigma}:\SubSpace{\sigma}\to
+    X_{\sigma}\times Z_{\sigma}^{\mathrm{cur}}\times Z_{\sigma}^{\mathrm{eq}}
+    \]
+    with exactly the same fibers as \(\DataProj{\sigma}\), and agreeing with \(\DataProj{\sigma}\) on \(\operatorname{im}\ShellEmbed{\sigma}\);
+    \item an affine shell equation
+    \[
+    \AltShellEquation{\sigma}:\SubSpace{\sigma}\to \AltTarget{\sigma}
+    \]
+    into a Euclidean target space \(\AltTarget{\sigma}\) of the same dimension as \(\SubTarget{\sigma}\), whose zero locus is exactly \(\operatorname{im}\ShellEmbed{\sigma}\);
+    \item the same symmetry and time-reversal actions as in Definition \ref{def:primitive}, preserving \(\AltDataProj{\sigma}\) and \(\AltShellEquation{\sigma}\);
+    \item the same stationary functional:
+    \begin{equation}
+    \frac12\,
+    \|\AltShellEquation{\sigma}(m)\|_{\AltTarget{\sigma}}^{2}
+    =
+    \StationaryFunctional{\sigma}(m)
+    \qquad
+    \text{for every }m\in\SubSpace{\sigma}.
+    \label{eq:samefunctional}
+    \end{equation}
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Package-faithful equivalence]
+\label{def:equiv}
+The canonical package and a benchmark-faithful alternative package are \emph{package-faithfully equivalent} if there exists an orthogonal isomorphism
+\[
+U_{\sigma}:\SubTarget{\sigma}\to \AltTarget{\sigma}
+\]
+such that
+\[
+\AltShellEquation{\sigma}=U_{\sigma}\circ\ShellEquation{\sigma}
+\]
+and
+\[
+\AltDataProj{\sigma}=\DataProj{\sigma}.
+\]
+\end{definition}
+
+\begin{proposition}[The data projection is forced]
+\label{prop:dataneq}
+Every benchmark-faithful alternative explicit package satisfies
+\[
+\AltDataProj{\sigma}=\DataProj{\sigma}.
+\]
+\end{proposition}
+
+\begin{proof}
+Fix \(m\in\SubSpace{\sigma}\), and write
+\[
+u\equiv \DataProj{\sigma}(m).
+\]
+By Proposition \ref{prop:fibers}(3), the canonical fiber \(\Fiber{\sigma}(u)\) contains the unique shell point
+\[
+s(u)\equiv \bigl(q_{\sigma}(u),0\bigr).
+\]
+Because \(\AltDataProj{\sigma}\) has exactly the same fibers as \(\DataProj{\sigma}\), the point \(m\) lies in the same alternative fiber as \(s(u)\). Hence
+\[
+\AltDataProj{\sigma}(m)=\AltDataProj{\sigma}(s(u)).
+\]
+But \(\AltDataProj{\sigma}\) agrees with \(\DataProj{\sigma}\) on \(\operatorname{im}\ShellEmbed{\sigma}\), so
+\[
+\AltDataProj{\sigma}(s(u))
+=
+\DataProj{\sigma}(s(u))
+=
+u
+=
+\DataProj{\sigma}(m).
+\]
+Therefore \(\AltDataProj{\sigma}(m)=\DataProj{\sigma}(m)\) for every \(m\), proving the claim.
+\end{proof}
+
+\begin{proposition}[The shell equation is unique up to orthogonal target reparameterization]
+\label{prop:phiequiv}
+Every benchmark-faithful alternative explicit package is package-faithfully equivalent to the canonical package.
+\end{proposition}
+
+\begin{proof}
+By Proposition \ref{prop:dataneq}, only the shell equation remains to be compared. Choose any shell point
+\[
+m_{0}\in \operatorname{im}\ShellEmbed{\sigma}.
+\]
+Because both \(\ShellEquation{\sigma}\) and \(\AltShellEquation{\sigma}\) vanish on the entire shell image, translating coordinates by \(m_{0}\) rewrites them as linear maps
+\[
+L_{\sigma},\widetilde L_{\sigma}:T_{m_{0}}\SubSpace{\sigma}\to
+\SubTarget{\sigma},\AltTarget{\sigma}
+\]
+with
+\[
+\ShellEquation{\sigma}(m_{0}+v)=L_{\sigma}v,
+\qquad
+\AltShellEquation{\sigma}(m_{0}+v)=\widetilde L_{\sigma}v.
+\]
+Their kernels are the same because their zero loci are the same shell affine subspace:
+\[
+\ker L_{\sigma}=\ker \widetilde L_{\sigma}.
+\]
+Equation \eqref{eq:samefunctional} gives, for every \(v\),
+\[
+\|L_{\sigma}v\|^{2}
+=
+\|\widetilde L_{\sigma}v\|^{2}.
+\]
+Hence
+\[
+L_{\sigma}^{*}L_{\sigma}
+=
+\widetilde L_{\sigma}^{*}\widetilde L_{\sigma}.
+\]
+Let
+\[
+W_{\sigma}\equiv (\ker L_{\sigma})^{\perp}.
+\]
+On \(W_{\sigma}\), both \(L_{\sigma}\) and \(\widetilde L_{\sigma}\) are injective and have the same Gram form. Therefore there exists a unique isometry
+\[
+U_{0,\sigma}:\operatorname{im}L_{\sigma}\to\operatorname{im}\widetilde L_{\sigma}
+\]
+such that
+\[
+U_{0,\sigma}\circ L_{\sigma}\big|_{W_{\sigma}}
+=
+\widetilde L_{\sigma}\big|_{W_{\sigma}}.
+\]
+Because \(\SubTarget{\sigma}\) and \(\AltTarget{\sigma}\) have the same dimension, extend \(U_{0,\sigma}\) to an orthogonal isomorphism
+\[
+U_{\sigma}:\SubTarget{\sigma}\to \AltTarget{\sigma}.
+\]
+Then \(U_{\sigma}\circ L_{\sigma}=\widetilde L_{\sigma}\) on \(W_{\sigma}\) and both sides vanish on \(\ker L_{\sigma}\), so
+\[
+U_{\sigma}\circ L_{\sigma}=\widetilde L_{\sigma}
+\]
+on all of \(T_{m_{0}}\SubSpace{\sigma}\). Translating back gives
+\[
+\AltShellEquation{\sigma}=U_{\sigma}\circ\ShellEquation{\sigma}.
+\]
+Together with Proposition \ref{prop:dataneq}, this is exactly package-faithful equivalence.
+\end{proof}
+
+\begin{theorem}[The explicit package is necessary and unique from primitive dynamics]
+\label{thm:necessity}
+Fix the primitive reversible constrained dynamics of Definition \ref{def:primitive}. Then the canonical explicit substrate equation / symmetry / constraint package of Definition \ref{def:canonical} is forced by that primitive dynamics in the following sense.
+\begin{enumerate}
+    \item The state space \(\SubSpace{\sigma}\), data projection \(\DataProj{\sigma}\), shell zero locus \(\ShellEquation{\sigma}^{-1}(0)\), compact/convex fiber geometry, and fiber Hessian positivity are all determined directly by the primitive-dynamics data.
+    \item Every benchmark-faithful alternative explicit package over the same primitive dynamics is package-faithfully equivalent to the canonical package.
+    \item Consequently the explicit package is unique up to orthogonal target-space reparameterization of the shell equation, and is not merely one convenient realization among many inequivalent benchmark-faithful options.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Item (1) is the combined content of Definitions \ref{def:primitive} and \ref{def:canonical}, together with Propositions \ref{prop:uniqueshell}, \ref{prop:zeroshell}, \ref{prop:fibers}, and \ref{prop:normalgap}, and Theorem \ref{thm:convexity}. Item (2) is Proposition \ref{prop:phiequiv}. Item (3) is just a restatement of item (2) in the present routing language.
+\end{proof}
+
+\section{Collapsed Downstream Consequences}
+
+\begin{theorem}[Primitive dynamics collapse the current explicit-package burden]
+\label{thm:main}
+Assume the fixed primitive continuation data of Definition \ref{def:fixed} and, for each sector \(\sigma\in\{\Car,\Cur,\Hom\}\), a primitive reversible constrained dynamics package in the sense of Definition \ref{def:primitive}. Then:
+\begin{enumerate}
+    \item the explicit substrate state space, data projection, shell equation, exact shell zero locus, compact/convex fiber geometry, positive normal gap, and fiberwise coercive strict convexity are canonical outputs of that primitive dynamics;
+    \item the sectorwise selectors \(\ChainSelect{\sigma}\) are uniquely determined, and primitive chain separation is a theorem rather than a separate assumption;
+    \item the explicit equation / symmetry / constraint package is necessary and unique up to package-faithful equivalence within the primitive-dynamics class;
+    \item the total selector \(\ChainSelectTriple\) is therefore unique;
+    \item the deeper metric output is exactly the same one operative metric \(\CompletedMetric\), and the deeper ordinary-matter output is exactly the same standard matter route through that metric;
+    \item consequently the active primitive-observer-reduction line gains not another deeper same-output relay but a genuine necessity / uniqueness theorem for the explicit package that was previously the remaining open burden.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Item (1) is Theorem \ref{thm:necessity} together with Proposition \ref{prop:normalgap} and Theorem \ref{thm:convexity}. Item (2) is Definition \ref{def:selector} and Proposition \ref{prop:separation}. Item (3) is Theorem \ref{thm:necessity}. Item (4) is Definition \ref{def:deepoutputs}. Item (5) is Theorem \ref{thm:outputs}. Item (6) is the project-level consequence of the previous items taken together.
+\end{proof}
+
+\begin{corollary}[What remains open after this theorem]
+\label{cor:next}
+After Theorem \ref{thm:main}, the remaining honest burden is no longer to justify the explicit substrate equation / symmetry / constraint package on the current primitive-observer-reduction line. That package is now forced, within the present primitive-dynamics class, by a deeper reversible constrained substrate normal form. The next honest burden is deeper again: derive or justify that primitive-dynamics normal form itself from still more primitive substrate law, or else prove a sharper inevitability theorem that removes even that remaining normal-form choice.
+\end{corollary}
+
+\begin{proof}
+Theorem \ref{thm:main} converts the explicit package from a still-open benchmark-facing burden into a canonical and unique output of the primitive dynamics. What remains open is why that primitive-dynamics class itself should hold, rather than being the current deepest disciplined assumption.
+\end{proof}
+
+\section{Conclusion}
+
+The positive gain of this note is stronger than another deeper origin relay and narrower than a completed microphysical derivation. Starting from a primitive reversible constrained dynamics normal form, the note derives canonically the explicit substrate equation / symmetry / constraint package that had remained open after the latest stationary-construction theorem. The substrate state spaces, the data projections, the primitive-shell zero loci, the compact and convex fibers, the positive normal shell gap, and the fiber Hessian positivity are no longer recorded here as independent assumptions. They are forced outputs of the deeper primitive dynamics.
+
+The stronger theorem is the necessity / uniqueness statement. Within the present primitive-dynamics class, any benchmark-faithful alternative explicit package must have the same data projection and the same shell equation up to orthogonal target-space reparameterization. The package is therefore unique at current scope rather than merely available. The resulting selectors and chain-separation property are forced, and pulling the fixed primitive outputs back along the unique total selector still yields exactly the same one operative metric \(\CompletedMetric\) and exactly the same ordinary-matter route through that metric, with no second operative metric and no enlarged low-energy matter law.
+
+This remains a disciplined result rather than a final derivation claim. The note does not yet derive the primitive reversible constrained dynamics from ultimate substrate microphysics. Its honest open burden is exactly that deeper next step. But the current explicit-package bottleneck has now been handled in the stronger form required by the project goal: the explicit construction is no longer merely realized one layer deeper, but forced there.
+
+\end{document}
