@@ -1,0 +1,808 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+
+\newcommand{\CompletedMetric}{g^{\sharp}}
+
+\newcommand{\Car}{\mathrm{car}}
+\newcommand{\Cur}{\mathrm{cur}}
+\newcommand{\Hom}{\mathrm{hom}}
+
+\newcommand{\ForSpace}[1]{\mathcal I_{#1}^{\mathrm{for}}}
+\newcommand{\PrimShell}{\mathcal S_{\mathrm{prim}}}
+
+\newcommand{\Reduction}[1]{\mathcal R_{#1}}
+\newcommand{\CurrentCarrier}[1]{\mathfrak C_{#1}^{\mathrm{cur}}}
+\newcommand{\EqCarrier}[1]{\mathfrak C_{#1}^{\mathrm{eq}}}
+\newcommand{\CurrentExtract}[1]{\mathscr E_{#1}^{\mathrm{cur}}}
+\newcommand{\EqExtract}[1]{\mathscr E_{#1}^{\mathrm{eq}}}
+\newcommand{\PrimCurrent}[1]{\mathcal J_{#1}^{\mathrm{prim}}}
+\newcommand{\PrimTheta}[1]{\Theta_{#1}^{\mathrm{prim}}}
+
+\newcommand{\MetricOut}{\mathscr G_{\mathrm{out}}}
+\newcommand{\MatterOut}{\mathscr T_{\mathrm{out}}}
+\newcommand{\DeepMetricOut}{\mathscr G_{\mathrm{deep}}}
+\newcommand{\DeepMatterOut}{\mathscr T_{\mathrm{deep}}}
+
+\newcommand{\SubSpace}[1]{\mathcal M_{#1}}
+\newcommand{\SubMetric}[1]{G_{#1}}
+\newcommand{\DataProj}[1]{\pi_{#1}}
+\newcommand{\SubVisible}[1]{\pi_{#1}^{X}}
+\newcommand{\SubCurrent}[1]{\pi_{#1}^{\mathrm{cur}}}
+\newcommand{\SubEq}[1]{\pi_{#1}^{\mathrm{eq}}}
+\newcommand{\SubTarget}[1]{\mathcal E_{#1}}
+\newcommand{\SubTargetMetric}[1]{h_{#1}}
+\newcommand{\ShellEquation}[1]{\Phi_{#1}}
+\newcommand{\Fiber}[1]{\mathcal F_{#1}}
+\newcommand{\ShellEmbed}[1]{\iota_{#1}^{\mathrm{sh}}}
+\newcommand{\StationaryFunctional}[1]{\mathscr A_{#1}}
+\newcommand{\TimeRev}[1]{\tau_{#1}}
+\newcommand{\StationaryReduction}[1]{\mathfrak s_{#1}}
+
+\newcommand{\DeepSpace}[1]{\mathcal U_{#1}}
+\newcommand{\VisibleMap}[1]{\mathcal V_{#1}}
+\newcommand{\DeepCurrentCarrier}[1]{\mathfrak C_{#1}^{\mathrm{deep,cur}}}
+\newcommand{\DeepEqCarrier}[1]{\mathfrak C_{#1}^{\mathrm{deep,eq}}}
+\newcommand{\ChainSelect}[1]{\mathcal S_{#1}}
+\newcommand{\DeepCurrent}[1]{\mathcal J_{#1}^{\mathrm{deep}}}
+\newcommand{\DeepTheta}[1]{\Theta_{#1}^{\mathrm{deep}}}
+\newcommand{\DeepShell}{\mathcal U_{\mathrm{tot}}}
+\newcommand{\ChainSelectTriple}{\mathcal S_{\mathrm{tot}}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Primitive-Reservoir Observer-Reduction\\
+\large Stationary Substrate Construction from Explicit\\
+\large Substrate Equations, Symmetries, and Constraints}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The current selector-existence theorem for the primitive-reservoir observer-reduction line already identified the next honest burden: not another same-output relay, but derivation of the stationary substrate construction itself from more explicit substrate equations, symmetries, or constraints. The present note records exactly that next benchmark-facing step.
+
+For each sector it introduces an explicit substrate package consisting of a substrate state manifold with a positive metric, a visible/current/equilibrium data projection, an exact shell-equation section into a positive target space, a time-reversal symmetry preserving the data projection and shell functional, compact visible fibers, fiberwise solvability of the constrained shell equations, and a uniform positive lower bound on the fiber Hessian of the norm-square shell functional. From that explicit package the deeper sector space is derived canonically as the image of the data projection; the primitive shell embeds as the exact zero locus of the shell equations; and the norm-square shell functional acquires the coercivity, exact zero-shell, and strict geodesic convexity properties needed for unique fiberwise minimizers.
+
+The selector and separation consequences then cease to be assumptions. The sectorwise selector is the unique zero-energy stationary point in each fixed data fiber, the chain-separation property follows from that uniqueness, and the chain-faithful deeper package used in the current primitive observer-reduction chain forcing theorem is thereby realized rather than postulated. Pullback along the resulting total selector preserves exactly the same one operative metric \(\CompletedMetric\) and exactly the same standard matter route through that metric, with no second operative metric and no enlarged low-energy matter law. The claim remains disciplined: this is not yet a completed first-principles derivation of GR from final substrate microphysics, but it does discharge the stationary-construction assumption used in the current chain-forcing line.
+\end{abstract}
+
+\section{Introduction}
+
+The active derivational program of \TheoryName{} has reached a point at which the remaining honest burden is sharply identifiable. The primitive observer-reduction datum, defect-fiber factorization, one-metric output, chain forcing, and selector-existence notes have already done the work that needed to be done at their own layers. What they leave open is narrower and deeper: why the stationary substrate construction used in the selector-existence theorem should hold at all rather than becoming the new deepest disciplined assumption.
+
+That is the next benchmark-facing step, and it is the one recorded here. The present note does not reopen the one operative metric output, does not introduce a second matter route, and does not strengthen promotion language. Its purpose is more specific. It introduces an explicit sectorwise substrate equation / symmetry / constraint package and proves that this package induces the stationary substrate construction required by the selector theorem. In that sense the next layer is not obtained by relabeling the previous one; it is obtained by showing how the previous one is generated.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not claim that final substrate microphysics has already been found. Its narrower theorem is only that a sufficiently explicit substrate equation / symmetry / constraint package yields the stationary substrate construction used in the current selector-existence note and therefore discharges the corresponding assumption in the present chain-forcing line while preserving the same benchmark one-metric package.
+
+\section{Fixed Primitive Continuation Data}
+
+\begin{definition}[Recorded primitive continuation data]
+\label{def:fixed}
+Fix the following continuation data from the active primitive-reservoir observer-reduction line.
+\begin{enumerate}
+    \item For each sector label \(\sigma\in\{\Car,\Cur,\Hom\}\), a primitive forcing shell
+    \[
+    \ForSpace{\sigma},
+    \]
+    a visible reduction map
+    \[
+    \Reduction{\sigma}:\ForSpace{\sigma}\to X_{\sigma},
+    \]
+    and shell-level current and equilibrium carriers
+    \[
+    \CurrentCarrier{\sigma}:\ForSpace{\sigma}\to Z_{\sigma}^{\mathrm{cur}},
+    \qquad
+    \EqCarrier{\sigma}:\ForSpace{\sigma}\to Z_{\sigma}^{\mathrm{eq}}.
+    \]
+    \item The product shell
+    \[
+    \PrimShell
+    \equiv
+    \ForSpace{\Car}\times \ForSpace{\Cur}\times \ForSpace{\Hom}.
+    \]
+    \item Fixed shell extractors
+    \[
+    \CurrentExtract{\sigma}:Z_{\sigma}^{\mathrm{cur}}\to Y_{\sigma}^{\mathrm{cur}},
+    \qquad
+    \EqExtract{\sigma}:Z_{\sigma}^{\mathrm{eq}}\to Y_{\sigma}^{\mathrm{eq}},
+    \]
+    together with the recorded shell composites
+    \begin{equation}
+    \PrimCurrent{\sigma}
+    =
+    \CurrentExtract{\sigma}\circ \CurrentCarrier{\sigma},
+    \qquad
+    \PrimTheta{\sigma}
+    =
+    \EqExtract{\sigma}\circ \EqCarrier{\sigma}.
+    \label{eq:primcomposites}
+    \end{equation}
+    \item The recorded metric and ordinary-matter outputs
+    \[
+    \MetricOut:\PrimShell\to\{\text{observer metrics}\},
+    \qquad
+    \MatterOut:\PrimShell\times\Psi\to\{\text{observer stress tensors}\},
+    \]
+    satisfying
+    \begin{equation}
+    \MetricOut(\mathbf w)=\CompletedMetric,
+    \qquad
+    \MatterOut(\mathbf w,\psi)
+    =
+    T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
+    \label{eq:fixedoutputs}
+    \end{equation}
+    for every \(\mathbf w\in\PrimShell\) and every matter configuration \(\psi\in\Psi\).
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+The present note does not alter Definition \ref{def:fixed}. The primitive shell, the benchmark output maps, and the one operative metric package remain fixed continuation data. The sole question is whether the stationary substrate construction used below that line can be derived from more explicit substrate equations, symmetries, and constraints.
+\end{remark}
+
+\section{Explicit Substrate Equation / Symmetry / Constraint Package}
+
+\begin{definition}[Sectorwise explicit substrate equation / symmetry / constraint package]
+\label{def:package}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). An \emph{explicit substrate equation / symmetry / constraint package} for sector \(\sigma\) consists of the following data.
+\begin{enumerate}
+    \item A finite-dimensional smooth substrate state manifold
+    \[
+    \SubSpace{\sigma}
+    \]
+    with a complete positive-definite metric
+    \[
+    \SubMetric{\sigma}.
+    \]
+    \item A smooth data projection
+    \[
+    \DataProj{\sigma}:\SubSpace{\sigma}\to
+    X_{\sigma}\times Z_{\sigma}^{\mathrm{cur}}\times Z_{\sigma}^{\mathrm{eq}},
+    \]
+    written componentwise as
+    \[
+    \DataProj{\sigma}(m)
+    =
+    \bigl(
+    \SubVisible{\sigma}(m),
+    \SubCurrent{\sigma}(m),
+    \SubEq{\sigma}(m)
+    \bigr).
+    \]
+    For \(u\in\operatorname{im}\DataProj{\sigma}\), define the full data fiber
+    \[
+    \Fiber{\sigma}(u)\equiv\DataProj{\sigma}^{-1}(u).
+    \]
+    \item A smooth involution
+    \[
+    \TimeRev{\sigma}:\SubSpace{\sigma}\to\SubSpace{\sigma}
+    \]
+    satisfying
+    \[
+    \TimeRev{\sigma}^{2}=\mathrm{id}_{\SubSpace{\sigma}},
+    \qquad
+    \DataProj{\sigma}\circ\TimeRev{\sigma}=\DataProj{\sigma},
+    \]
+    and preserving the metric \(\SubMetric{\sigma}\).
+    \item A finite-dimensional real target space
+    \[
+    \SubTarget{\sigma}
+    \]
+    with a positive-definite metric
+    \[
+    \SubTargetMetric{\sigma},
+    \]
+    together with a smooth shell-equation section
+    \[
+    \ShellEquation{\sigma}:\SubSpace{\sigma}\to\SubTarget{\sigma}
+    \]
+    satisfying
+    \[
+    \ShellEquation{\sigma}\circ\TimeRev{\sigma}
+    =
+    \ShellEquation{\sigma}.
+    \]
+    Define the associated norm-square stationary functional by
+    \begin{equation}
+    \StationaryFunctional{\sigma}(m)
+    \equiv
+    \frac12\,
+    \SubTargetMetric{\sigma}\bigl(
+    \ShellEquation{\sigma}(m),
+    \ShellEquation{\sigma}(m)
+    \bigr).
+    \label{eq:functional}
+    \end{equation}
+    \item Exact primitive-shell realization: the zero locus
+    \[
+    \ShellEquation{\sigma}^{-1}(0)
+    \]
+    is a closed embedded \(C^{2}\) submanifold of \(\SubSpace{\sigma}\), and there is a smooth embedding
+    \[
+    \ShellEmbed{\sigma}:\ForSpace{\sigma}\hookrightarrow\SubSpace{\sigma}
+    \]
+    whose image is exactly that zero locus and which satisfies
+    \begin{equation}
+    \SubVisible{\sigma}\circ\ShellEmbed{\sigma}
+    =
+    \Reduction{\sigma},
+    \qquad
+    \SubCurrent{\sigma}\circ\ShellEmbed{\sigma}
+    =
+    \CurrentCarrier{\sigma},
+    \qquad
+    \SubEq{\sigma}\circ\ShellEmbed{\sigma}
+    =
+    \EqCarrier{\sigma}.
+    \label{eq:embedcompat}
+    \end{equation}
+    \item Positive normal shell gap: there exists \(\lambda_{\sigma}>0\) such that for every
+    \[
+    m\in\ShellEquation{\sigma}^{-1}(0)
+    \]
+    and every \(\xi\in T_m\SubSpace{\sigma}\) orthogonal, with respect to \(\SubMetric{\sigma}\), to
+    \[
+    T_m\ShellEquation{\sigma}^{-1}(0),
+    \]
+    one has
+    \begin{equation}
+    \SubTargetMetric{\sigma}\!\left(
+    D\ShellEquation{\sigma}(m)\xi,
+    D\ShellEquation{\sigma}(m)\xi
+    \right)
+    \ge
+    \lambda_{\sigma}\,
+    \SubMetric{\sigma}(\xi,\xi).
+    \label{eq:normalgap}
+    \end{equation}
+    \item Fiber geometry and constrained shell solvability:
+    \begin{enumerate}
+        \item for every \(u\in\operatorname{im}\DataProj{\sigma}\), the fiber \(\Fiber{\sigma}(u)\) is connected, closed, and geodesically convex in \(\SubSpace{\sigma}\);
+        \item for every visible datum \(x\in X_{\sigma}\), the visible fiber \(\bigl(\SubVisible{\sigma}\bigr)^{-1}(x)\) is compact;
+        \item for every \(u\in\operatorname{im}\DataProj{\sigma}\), the constrained shell equations
+        \[
+        \DataProj{\sigma}(m)=u,
+        \qquad
+        \ShellEquation{\sigma}(m)=0
+        \]
+        admit at least one solution \(m\in\SubSpace{\sigma}\).
+    \end{enumerate}
+    \item Uniform fiber Hessian positivity: there exists \(\kappa_{\sigma}>0\) such that for every \(u\in\operatorname{im}\DataProj{\sigma}\), every \(m\in\Fiber{\sigma}(u)\), and every \(\xi\in T_m\Fiber{\sigma}(u)\),
+    \begin{equation}
+    \operatorname{Hess}_{\Fiber{\sigma}(u)}
+    \bigl(\StationaryFunctional{\sigma}\big|_{\Fiber{\sigma}(u)}\bigr)_m(\xi,\xi)
+    \ge
+    \kappa_{\sigma}\,
+    \SubMetric{\sigma}(\xi,\xi).
+    \label{eq:fiberhessian}
+    \end{equation}
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:package} is the compressed observer-reduction form of the stationary zero-shell and positive-gap language already present in the deeper primitive-reservoir origin note. The positive normal gap \eqref{eq:normalgap} stabilizes the shell as an exact zero locus inside the substrate state space. The additional Hessian bound \eqref{eq:fiberhessian} is the new ingredient that converts shell existence on each fixed data fiber into strict convexity and hence unique selector output. Both ingredients matter: the former identifies the shell, while the latter discharges the selector-uniqueness burden.
+\end{remark}
+
+\section{Derivation of the Stationary Substrate Construction}
+
+\begin{lemma}[Uniform fiber Hessian positivity implies strict geodesic convexity]
+\label{lem:strictconvex}
+Assume Definition \ref{def:package}. Then for every \(u\in\operatorname{im}\DataProj{\sigma}\), the restricted functional
+\[
+\StationaryFunctional{\sigma}\big|_{\Fiber{\sigma}(u)}
+\]
+is strictly geodesically convex on \(\Fiber{\sigma}(u)\).
+\end{lemma}
+
+\begin{proof}
+Fix \(u\in\operatorname{im}\DataProj{\sigma}\), and let
+\[
+\gamma:[0,1]\to\Fiber{\sigma}(u)
+\]
+be a nonconstant geodesic. Set
+\[
+f(t)\equiv \StationaryFunctional{\sigma}(\gamma(t)).
+\]
+Because \(\gamma\) is a geodesic in the fiber and the restricted functional is \(C^{2}\), the usual second-derivative formula gives
+\[
+f''(t)
+=
+\operatorname{Hess}_{\Fiber{\sigma}(u)}
+\bigl(\StationaryFunctional{\sigma}\big|_{\Fiber{\sigma}(u)}\bigr)_{\gamma(t)}
+\bigl(\dot\gamma(t),\dot\gamma(t)\bigr).
+\]
+By \eqref{eq:fiberhessian},
+\[
+f''(t)\ge \kappa_{\sigma}\,
+\SubMetric{\sigma}\bigl(\dot\gamma(t),\dot\gamma(t)\bigr).
+\]
+Because \(\gamma\) is a nonconstant geodesic, it has constant positive speed. Hence
+\[
+\SubMetric{\sigma}\bigl(\dot\gamma(t),\dot\gamma(t)\bigr)>0
+\qquad
+\text{for all }t\in[0,1].
+\]
+Therefore \(f''(t)>0\) on \([0,1]\), so \(f\) is strictly convex there. This is exactly strict geodesic convexity of \(\StationaryFunctional{\sigma}\big|_{\Fiber{\sigma}(u)}\).
+\end{proof}
+
+\begin{theorem}[Explicit substrate equations induce the stationary substrate construction]
+\label{thm:construction}
+Assume Definitions \ref{def:fixed} and \ref{def:package}. Then for each \(\sigma\in\{\Car,\Cur,\Hom\}\):
+\begin{enumerate}
+    \item the deeper sector space is generated canonically as the image
+    \[
+    \DeepSpace{\sigma}
+    \equiv
+    \operatorname{im}\DataProj{\sigma}
+    \subset
+    X_{\sigma}\times Z_{\sigma}^{\mathrm{cur}}\times Z_{\sigma}^{\mathrm{eq}};
+    \]
+    \item the deeper visible map and deeper current/equilibrium carriers are the coordinate restrictions
+    \begin{equation}
+    \VisibleMap{\sigma}(x,z^{\mathrm{cur}},z^{\mathrm{eq}})\equiv x,
+    \quad
+    \DeepCurrentCarrier{\sigma}(x,z^{\mathrm{cur}},z^{\mathrm{eq}})
+    \equiv z^{\mathrm{cur}},
+    \quad
+    \DeepEqCarrier{\sigma}(x,z^{\mathrm{cur}},z^{\mathrm{eq}})
+    \equiv z^{\mathrm{eq}};
+    \label{eq:deepcoords}
+    \end{equation}
+    \item the primitive shell embeds as the exact stationary zero locus
+    \[
+    \operatorname{im}\ShellEmbed{\sigma}
+    =
+    \ShellEquation{\sigma}^{-1}(0)
+    =
+    \left\{
+    m\in\SubSpace{\sigma}:\StationaryFunctional{\sigma}(m)=0
+    \right\};
+    \]
+    \item for every \(u\in\DeepSpace{\sigma}\), the fiber \(\Fiber{\sigma}(u)\) is compact, connected, and geodesically convex, while the restricted functional
+    \[
+    \StationaryFunctional{\sigma}\big|_{\Fiber{\sigma}(u)}
+    \]
+    is nonnegative, lower semicontinuous, coercive, and strictly geodesically convex;
+    \item for every \(u\in\DeepSpace{\sigma}\),
+    \begin{equation}
+    \inf_{m\in\Fiber{\sigma}(u)}
+    \StationaryFunctional{\sigma}(m)=0;
+    \label{eq:zeroinf}
+    \end{equation}
+    \item consequently \((\SubSpace{\sigma},\DataProj{\sigma},\ShellEmbed{\sigma},\StationaryFunctional{\sigma})\) realizes exactly the stationary substrate construction required for the current selector-existence theorem.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Item (1) is the definition of \(\DeepSpace{\sigma}\). Item (2) is then just coordinate restriction on that image.
+
+For item (3), Definition \ref{def:package} gives
+\[
+\operatorname{im}\ShellEmbed{\sigma}
+=
+\ShellEquation{\sigma}^{-1}(0).
+\]
+Because \(\StationaryFunctional{\sigma}\) is the norm square \eqref{eq:functional} in a positive-definite target metric, one has
+\[
+\StationaryFunctional{\sigma}(m)=0
+\quad\Longleftrightarrow\quad
+\ShellEquation{\sigma}(m)=0.
+\]
+Hence
+\[
+\operatorname{im}\ShellEmbed{\sigma}
+=
+\ShellEquation{\sigma}^{-1}(0)
+=
+\{m:\StationaryFunctional{\sigma}(m)=0\}.
+\]
+
+For item (4), fix \(u=(x,z^{\mathrm{cur}},z^{\mathrm{eq}})\in\DeepSpace{\sigma}\). By Definition \ref{def:package}, the fiber \(\Fiber{\sigma}(u)\) is connected, closed, and geodesically convex. Since
+\[
+\Fiber{\sigma}(u)\subset \bigl(\SubVisible{\sigma}\bigr)^{-1}(x),
+\]
+and the visible fiber \(\bigl(\SubVisible{\sigma}\bigr)^{-1}(x)\) is compact, \(\Fiber{\sigma}(u)\) is compact as a closed subset of a compact set. The functional \(\StationaryFunctional{\sigma}\) is continuous and nonnegative by construction, so its restriction to the compact fiber is lower semicontinuous and coercive. Strict geodesic convexity is Lemma \ref{lem:strictconvex}.
+
+For item (5), constrained shell solvability gives some \(m_{0}\in\Fiber{\sigma}(u)\) with
+\[
+\ShellEquation{\sigma}(m_{0})=0.
+\]
+By item (3),
+\[
+\StationaryFunctional{\sigma}(m_{0})=0.
+\]
+Since \(\StationaryFunctional{\sigma}\ge 0\) everywhere, \eqref{eq:zeroinf} follows.
+
+Item (6) is now immediate from items (1)--(5) together with the compatibility identities \eqref{eq:embedcompat}. These are exactly the data and properties used by the selector-existence stationary-substrate theorem.
+\end{proof}
+
+\begin{proposition}[The deeper space is already the shell-data image]
+\label{prop:shellimage}
+Under the hypotheses of Theorem \ref{thm:construction},
+\begin{equation}
+\DeepSpace{\sigma}
+=
+\operatorname{im}\bigl(\DataProj{\sigma}|_{\operatorname{im}\ShellEmbed{\sigma}}\bigr)
+=
+\operatorname{im}
+\bigl(
+\Reduction{\sigma},
+\CurrentCarrier{\sigma},
+\EqCarrier{\sigma}
+\bigr).
+\label{eq:shellimage}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+If \(u\in\DeepSpace{\sigma}\), then \(u=\DataProj{\sigma}(m)\) for some \(m\in\SubSpace{\sigma}\). By constrained shell solvability, there exists \(m_{0}\in\Fiber{\sigma}(u)\) with \(\ShellEquation{\sigma}(m_{0})=0\). By Theorem \ref{thm:construction}(3),
+\[
+m_{0}\in\operatorname{im}\ShellEmbed{\sigma},
+\]
+so
+\[
+u=\DataProj{\sigma}(m_{0})\in
+\operatorname{im}\bigl(\DataProj{\sigma}|_{\operatorname{im}\ShellEmbed{\sigma}}\bigr).
+\]
+The reverse inclusion is immediate because \(\operatorname{im}\ShellEmbed{\sigma}\subset\SubSpace{\sigma}\). Using \eqref{eq:embedcompat} then gives the second equality in \eqref{eq:shellimage}.
+\end{proof}
+
+\section{Unique Stationary Reduction and Selector Consequences}
+
+\begin{theorem}[Unique fiberwise stationary reduction]
+\label{thm:minimizer}
+Assume Theorem \ref{thm:construction}. Then for every \(u\in\DeepSpace{\sigma}\), there exists a unique point
+\[
+m_{\sigma}(u)\in\Fiber{\sigma}(u)
+\]
+such that
+\[
+\StationaryFunctional{\sigma}(m_{\sigma}(u))=0.
+\]
+Equivalently, \(m_{\sigma}(u)\) is the unique minimizer of \(\StationaryFunctional{\sigma}\) on the fiber \(\Fiber{\sigma}(u)\).
+\end{theorem}
+
+\begin{proof}
+Fix \(u\in\DeepSpace{\sigma}\). By Theorem \ref{thm:construction}(4), the fiber \(\Fiber{\sigma}(u)\) is compact, so the continuous functional \(\StationaryFunctional{\sigma}\) attains a minimum there. By Theorem \ref{thm:construction}(5), the minimum value is \(0\), so at least one zero-energy minimizer exists.
+
+To prove uniqueness, suppose \(m,m'\in\Fiber{\sigma}(u)\) both satisfy
+\[
+\StationaryFunctional{\sigma}(m)=
+\StationaryFunctional{\sigma}(m')=0.
+\]
+If \(m\neq m'\), geodesic convexity of the fiber gives a nonconstant geodesic \(\gamma\) in \(\Fiber{\sigma}(u)\) joining them. Strict convexity then gives, for \(0<t<1\),
+\[
+\StationaryFunctional{\sigma}(\gamma(t))
+<
+(1-t)\StationaryFunctional{\sigma}(m)
++
+t\,\StationaryFunctional{\sigma}(m')
+=
+0,
+\]
+contradicting nonnegativity of \(\StationaryFunctional{\sigma}\). Hence the zero-energy minimizer is unique.
+\end{proof}
+
+\begin{definition}[Stationary reduction and sectorwise selector]
+\label{def:selector}
+Under Theorem \ref{thm:minimizer}, define the stationary reduction map
+\[
+\StationaryReduction{\sigma}:\SubSpace{\sigma}\to\operatorname{im}\ShellEmbed{\sigma}
+\]
+by
+\begin{equation}
+\StationaryReduction{\sigma}(m)\equiv
+m_{\sigma}\bigl(\DataProj{\sigma}(m)\bigr),
+\label{eq:stationaryreduction}
+\end{equation}
+and define the sectorwise selector
+\[
+\ChainSelect{\sigma}:\DeepSpace{\sigma}\to\ForSpace{\sigma}
+\]
+by the condition
+\begin{equation}
+\ShellEmbed{\sigma}\bigl(\ChainSelect{\sigma}(u)\bigr)
+=
+m_{\sigma}(u).
+\label{eq:selectordef}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[Stationary reduction preserves data and selectors satisfy the chain identities]
+\label{prop:compat}
+For every \(\sigma\in\{\Car,\Cur,\Hom\}\),
+\begin{equation}
+\DataProj{\sigma}\circ\StationaryReduction{\sigma}
+=
+\DataProj{\sigma},
+\label{eq:reductionpreservesdata}
+\end{equation}
+and
+\begin{equation}
+\Reduction{\sigma}\circ\ChainSelect{\sigma}
+=
+\VisibleMap{\sigma},
+\label{eq:visiblecompat}
+\end{equation}
+\begin{equation}
+\CurrentCarrier{\sigma}\circ\ChainSelect{\sigma}
+=
+\DeepCurrentCarrier{\sigma},
+\qquad
+\EqCarrier{\sigma}\circ\ChainSelect{\sigma}
+=
+\DeepEqCarrier{\sigma}.
+\label{eq:carriercompat}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Equation \eqref{eq:reductionpreservesdata} is immediate from the definition of \(m_{\sigma}(u)\): by construction,
+\[
+\StationaryReduction{\sigma}(m)\in
+\Fiber{\sigma}\bigl(\DataProj{\sigma}(m)\bigr),
+\]
+so applying \(\DataProj{\sigma}\) recovers \(\DataProj{\sigma}(m)\).
+
+Now fix \(u\in\DeepSpace{\sigma}\). By \eqref{eq:selectordef},
+\[
+\ShellEmbed{\sigma}\bigl(\ChainSelect{\sigma}(u)\bigr)=m_{\sigma}(u).
+\]
+Applying the compatibility identities \eqref{eq:embedcompat} gives
+\[
+\Reduction{\sigma}\bigl(\ChainSelect{\sigma}(u)\bigr)
+=
+\SubVisible{\sigma}\bigl(m_{\sigma}(u)\bigr),
+\]
+\[
+\CurrentCarrier{\sigma}\bigl(\ChainSelect{\sigma}(u)\bigr)
+=
+\SubCurrent{\sigma}\bigl(m_{\sigma}(u)\bigr),
+\qquad
+\EqCarrier{\sigma}\bigl(\ChainSelect{\sigma}(u)\bigr)
+=
+\SubEq{\sigma}\bigl(m_{\sigma}(u)\bigr).
+\]
+Because \(m_{\sigma}(u)\in\Fiber{\sigma}(u)\), one has \(\DataProj{\sigma}(m_{\sigma}(u))=u\). The coordinate definitions \eqref{eq:deepcoords} then imply \eqref{eq:visiblecompat} and \eqref{eq:carriercompat}.
+\end{proof}
+
+\begin{theorem}[Chain-separation from stationary uniqueness]
+\label{thm:separation}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). If \(w,w'\in\ForSpace{\sigma}\) satisfy
+\begin{equation}
+\Reduction{\sigma}(w)=\Reduction{\sigma}(w'),
+\qquad
+\CurrentCarrier{\sigma}(w)=\CurrentCarrier{\sigma}(w'),
+\qquad
+\EqCarrier{\sigma}(w)=\EqCarrier{\sigma}(w'),
+\label{eq:samedata}
+\end{equation}
+then \(w=w'\).
+\end{theorem}
+
+\begin{proof}
+Assume \eqref{eq:samedata}. By \eqref{eq:embedcompat},
+\[
+\DataProj{\sigma}\bigl(\ShellEmbed{\sigma}(w)\bigr)
+=
+\DataProj{\sigma}\bigl(\ShellEmbed{\sigma}(w')\bigr).
+\]
+Call the common value \(u\in\DeepSpace{\sigma}\). Because \(\ShellEmbed{\sigma}(w)\) and \(\ShellEmbed{\sigma}(w')\) lie in the exact zero locus of \(\StationaryFunctional{\sigma}\), both are zero-energy points in the same fiber \(\Fiber{\sigma}(u)\). Theorem \ref{thm:minimizer} gives uniqueness of that zero-energy point, so
+\[
+\ShellEmbed{\sigma}(w)=\ShellEmbed{\sigma}(w').
+\]
+Since \(\ShellEmbed{\sigma}\) is injective, \(w=w'\).
+\end{proof}
+
+\begin{corollary}[The chain-faithful deeper package is realized]
+\label{cor:chainfaithful}
+For each \(\sigma\in\{\Car,\Cur,\Hom\}\), the data
+\[
+\DeepSpace{\sigma},\qquad
+\VisibleMap{\sigma},\qquad
+\DeepCurrentCarrier{\sigma},\qquad
+\DeepEqCarrier{\sigma},\qquad
+\ChainSelect{\sigma}
+\]
+form the chain-faithful deeper package used in the current primitive-reservoir observer-reduction chain forcing theorem, and the separation property required there is now Theorem \ref{thm:separation} rather than an extra hypothesis.
+\end{corollary}
+
+\begin{proof}
+The existence of \(\DeepSpace{\sigma}\), \(\VisibleMap{\sigma}\), \(\DeepCurrentCarrier{\sigma}\), \(\DeepEqCarrier{\sigma}\), and \(\ChainSelect{\sigma}\) is Theorem \ref{thm:construction} together with Definition \ref{def:selector}. The chain identities are Proposition \ref{prop:compat}. The separation property is Theorem \ref{thm:separation}.
+\end{proof}
+
+\section{Induced Readouts and the Same One-Metric Output}
+
+\begin{proposition}[The primitive current and equilibrium composites are induced]
+\label{prop:readouts}
+For each \(\sigma\in\{\Car,\Cur,\Hom\}\), define
+\[
+\DeepCurrent{\sigma}
+\equiv
+\CurrentExtract{\sigma}\circ \DeepCurrentCarrier{\sigma},
+\qquad
+\DeepTheta{\sigma}
+\equiv
+\EqExtract{\sigma}\circ \DeepEqCarrier{\sigma}.
+\]
+Then
+\begin{equation}
+\DeepCurrent{\sigma}
+=
+\PrimCurrent{\sigma}\circ \ChainSelect{\sigma},
+\qquad
+\DeepTheta{\sigma}
+=
+\PrimTheta{\sigma}\circ \ChainSelect{\sigma}.
+\label{eq:readoutpullback}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Using \eqref{eq:primcomposites} and \eqref{eq:carriercompat},
+\[
+\PrimCurrent{\sigma}\circ \ChainSelect{\sigma}
+=
+\CurrentExtract{\sigma}\circ \CurrentCarrier{\sigma}\circ \ChainSelect{\sigma}
+=
+\CurrentExtract{\sigma}\circ \DeepCurrentCarrier{\sigma}
+=
+\DeepCurrent{\sigma}.
+\]
+The proof for \(\DeepTheta{\sigma}\) is identical.
+\end{proof}
+
+\begin{definition}[Total selector and deeper outputs]
+\label{def:deepoutputs}
+Define
+\[
+\DeepShell
+\equiv
+\DeepSpace{\Car}\times\DeepSpace{\Cur}\times\DeepSpace{\Hom},
+\]
+\[
+\ChainSelectTriple(u_{\Car},u_{\Cur},u_{\Hom})
+\equiv
+\bigl(
+\ChainSelect{\Car}(u_{\Car}),
+\ChainSelect{\Cur}(u_{\Cur}),
+\ChainSelect{\Hom}(u_{\Hom})
+\bigr).
+\]
+Define
+\[
+\DeepMetricOut:\DeepShell\to\{\text{observer metrics}\}
+\]
+and
+\[
+\DeepMatterOut:\DeepShell\times\Psi\to\{\text{observer stress tensors}\}
+\]
+by
+\begin{equation}
+\DeepMetricOut
+\equiv
+\MetricOut\circ \ChainSelectTriple,
+\qquad
+\DeepMatterOut(\mathbf u,\psi)
+\equiv
+\MatterOut(\ChainSelectTriple(\mathbf u),\psi).
+\label{eq:deepoutputs}
+\end{equation}
+\end{definition}
+
+\begin{theorem}[The explicit substrate package preserves the same one operative metric and matter route]
+\label{thm:outputs}
+For every \(\mathbf u\in\DeepShell\) and every \(\psi\in\Psi\),
+\begin{equation}
+\DeepMetricOut(\mathbf u)=\CompletedMetric
+\label{eq:deepmetric}
+\end{equation}
+and
+\begin{equation}
+\DeepMatterOut(\mathbf u,\psi)
+=
+T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi].
+\label{eq:deepmatter}
+\end{equation}
+Consequently the explicit substrate equation / symmetry / constraint package introduces neither a second operative metric nor an enlarged low-energy matter law.
+\end{theorem}
+
+\begin{proof}
+Equation \eqref{eq:deepmetric} follows immediately from \eqref{eq:deepoutputs} and \eqref{eq:fixedoutputs}:
+\[
+\DeepMetricOut(\mathbf u)
+=
+\MetricOut(\ChainSelectTriple(\mathbf u))
+=
+\CompletedMetric.
+\]
+Likewise,
+\[
+\DeepMatterOut(\mathbf u,\psi)
+=
+\MatterOut(\ChainSelectTriple(\mathbf u),\psi)
+=
+T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi],
+\]
+which proves \eqref{eq:deepmatter}. Since the deeper outputs are pullbacks of the already fixed primitive outputs, they introduce no additional operative metric and no enlarged matter law.
+\end{proof}
+
+\section{Main Theorem}
+
+\begin{theorem}[Stationary substrate construction is derived from explicit substrate structure]
+\label{thm:main}
+Assume the fixed primitive continuation data of Definition \ref{def:fixed} and, for each sector \(\sigma\in\{\Car,\Cur,\Hom\}\), an explicit substrate equation / symmetry / constraint package in the sense of Definition \ref{def:package}. Then:
+\begin{enumerate}
+    \item the deeper sector spaces \(\DeepSpace{\sigma}\) are generated canonically as the images of the substrate data projections \(\DataProj{\sigma}\);
+    \item the deeper visible maps and deeper current/equilibrium carriers arise canonically as coordinate projections on those images;
+    \item each primitive shell \(\ForSpace{\sigma}\) embeds as the exact zero locus of the explicit shell equations \(\ShellEquation{\sigma}\), equivalently as the exact zero-energy locus of the norm-square stationary functional \(\StationaryFunctional{\sigma}\);
+    \item on every fixed data fiber, the functional \(\StationaryFunctional{\sigma}\) is nonnegative, coercive, lower semicontinuous, and strictly geodesically convex, with minimum value \(0\);
+    \item the sectorwise stationary reductions \(\StationaryReduction{\sigma}\), sectorwise selectors \(\ChainSelect{\sigma}\), and total selector \(\ChainSelectTriple\) therefore exist uniquely;
+    \item the primitive chain-separation property is a consequence of the constrained stationary problem rather than a separate assumption;
+    \item the primitive current and equilibrium composites are induced from the deeper current and equilibrium carriers through the already fixed shell extractors;
+    \item the chain-faithful deeper package used in the current primitive-reservoir observer-reduction chain forcing theorem is thereby realized rather than postulated;
+    \item the deeper metric output is exactly the same one operative metric \(\CompletedMetric\), and the deeper ordinary-matter output is exactly the same standard matter route through \(\CompletedMetric\);
+    \item consequently this explicit substrate package introduces neither a second operative metric nor an enlarged low-energy matter law.
+\end{enumerate}
+Therefore the main assumption used by the current selector-existence and chain-forcing notes is genuinely discharged at this level: the stationary substrate construction itself now follows from explicit substrate equations, symmetries, and constraints.
+\end{theorem}
+
+\begin{proof}
+Items (1)--(4) are Theorem \ref{thm:construction}. Item (5) is Theorem \ref{thm:minimizer} together with Definition \ref{def:selector} and Definition \ref{def:deepoutputs}. Item (6) is Theorem \ref{thm:separation}. Item (7) is Proposition \ref{prop:readouts}. Item (8) is Corollary \ref{cor:chainfaithful}. Items (9) and (10) are Theorem \ref{thm:outputs}. The final sentence is the combined routing consequence of those items.
+\end{proof}
+
+\begin{corollary}[What remains open after this theorem]
+\label{cor:next}
+After Theorem \ref{thm:main}, the remaining honest burden is no longer to assume the stationary substrate construction or its selector consequences. The remaining burden is one layer deeper again: derive or justify the explicit substrate equation / symmetry / constraint package itself from still more primitive substrate dynamics while preserving the same benchmark one-metric package.
+\end{corollary}
+
+\begin{proof}
+Theorem \ref{thm:main} converts the stationary substrate construction from an assumption into an output of a more explicit substrate package. What remains open is why that package should itself arise from still more primitive substrate dynamics, rather than being the deepest current-scope postulate.
+\end{proof}
+
+\section{Conclusion}
+
+The positive result of this note is focused but benchmark-facing. The stationary substrate construction used in the current selector-existence line is no longer simply assumed once one specifies an explicit substrate equation / symmetry / constraint package. The deeper sector spaces are generated as images of the data projections. The primitive shells are exact stationary zero loci of the shell equations. The norm-square shell functionals are fiberwise coercive and strictly geodesically convex. The sectorwise selectors and chain-separation property therefore follow from the constrained stationary problem itself rather than being inserted separately.
+
+The benchmark boundary remains fixed. Pulling the already recorded primitive outputs back along the resulting total selector yields exactly the same one operative metric \(\CompletedMetric\) and exactly the same standard ordinary-matter route through that metric, with no second operative metric and no enlarged low-energy matter law. This is still not a completed first-principles derivation of GR from final substrate microphysics. It is, however, the right next step below the current selector theorem: the assumption of a stationary substrate construction is now discharged by a more explicit theorem in substrate equations, symmetries, and constraints. The next honest burden is deeper again and more specific: derive that explicit package itself from yet more primitive substrate dynamics.
+
+\end{document}
