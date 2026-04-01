@@ -1,0 +1,906 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+
+\newcommand{\CompletedMetric}{g^{\sharp}}
+
+\newcommand{\Car}{\mathrm{car}}
+\newcommand{\Cur}{\mathrm{cur}}
+\newcommand{\Hom}{\mathrm{hom}}
+
+\newcommand{\ForSpace}[1]{\mathcal I_{#1}^{\mathrm{for}}}
+\newcommand{\PrimShell}{\mathcal S_{\mathrm{prim}}}
+
+\newcommand{\Reduction}[1]{\mathcal R_{#1}}
+\newcommand{\CurrentCarrier}[1]{\mathfrak C_{#1}^{\mathrm{cur}}}
+\newcommand{\EqCarrier}[1]{\mathfrak C_{#1}^{\mathrm{eq}}}
+\newcommand{\CurrentExtract}[1]{\mathscr E_{#1}^{\mathrm{cur}}}
+\newcommand{\EqExtract}[1]{\mathscr E_{#1}^{\mathrm{eq}}}
+\newcommand{\PrimCurrent}[1]{\mathcal J_{#1}^{\mathrm{prim}}}
+\newcommand{\PrimTheta}[1]{\Theta_{#1}^{\mathrm{prim}}}
+
+\newcommand{\MetricOut}{\mathscr G_{\mathrm{out}}}
+\newcommand{\MatterOut}{\mathscr T_{\mathrm{out}}}
+
+\newcommand{\VisibleAffine}[1]{\widehat X_{#1}}
+\newcommand{\DataSpace}[1]{\mathcal Y_{#1}^{\mathrm{obs}}}
+\newcommand{\AmbientTarget}[1]{E_{#1}^{\mathrm{amb}}}
+
+\newcommand{\BalSpace}[1]{\mathcal Z_{#1}}
+\newcommand{\BalBody}[1]{\mathcal B_{#1}^{\mathrm{bal}}}
+\newcommand{\BalData}[1]{\Lambda_{#1}^{\mathrm{dat}}}
+\newcommand{\BalShell}[1]{\Lambda_{#1}^{\mathrm{sh}}}
+\newcommand{\ZeroHiddenSlice}[1]{\mathcal Z_{#1}^{0}}
+\newcommand{\ZeroHiddenVec}[1]{V_{#1}^{0}}
+\newcommand{\Kernel}[1]{K_{#1}^{0}}
+\newcommand{\BalOp}[1]{\mathcal K_{#1}^{\mathrm{bal}}}
+\newcommand{\BalSym}[1]{\mathbb B_{#1}}
+\newcommand{\BalTime}[1]{\vartheta_{#1}^{\mathrm{bal}}}
+\newcommand{\BalEmbed}[1]{\zeta_{#1}^{\mathrm{bal}}}
+\newcommand{\ReferencePoint}[1]{z_{#1}^{\ast}}
+\newcommand{\StateComp}[1]{P_{#1}^{\mathrm{co}}}
+
+\newcommand{\GapSpace}[1]{H_{#1}}
+\newcommand{\GapBody}[1]{D_{#1}}
+\newcommand{\HiddenOperator}[1]{K_{#1}^{\mathrm{hid}}}
+
+\newcommand{\CoreState}[1]{\mathcal C_{#1}}
+\newcommand{\CoreSpace}[1]{\mathcal Q_{#1}}
+\newcommand{\CoreAffine}[1]{\mathcal F_{#1}^{\mathrm{co}}}
+\newcommand{\CoreBody}[1]{Q_{#1}^{\mathrm{co}}}
+\newcommand{\CoreStateBody}[1]{P_{#1}^{\mathrm{co}}}
+\newcommand{\CoreStateProj}[1]{\Pi_{#1}^{\mathrm{co,st}}}
+\newcommand{\CoreDataProj}[1]{\Pi_{#1}^{\mathrm{co,dat}}}
+\newcommand{\CoreShellProj}[1]{\Pi_{#1}^{\mathrm{co,sh}}}
+\newcommand{\CoreCoord}[1]{\pi_{#1}^{\mathrm{co}}}
+\newcommand{\CoreDataMap}[1]{\Omega_{#1}^{\mathrm{co,dat}}}
+\newcommand{\CoreShellMap}[1]{\Omega_{#1}^{\mathrm{co,sh}}}
+\newcommand{\CoreSym}[1]{\mathbb K_{#1}^{\mathrm{co}}}
+\newcommand{\CoreTime}[1]{\tau_{#1}^{\mathrm{co}}}
+\newcommand{\CoreEmbed}[1]{\eta_{#1}}
+
+\newcommand{\ProtoSpace}[1]{\mathcal M_{#1}}
+\newcommand{\ProtoBody}[1]{\mathcal P_{#1}}
+\newcommand{\ResponseSpace}[1]{\mathcal R_{#1}}
+\newcommand{\ResponseMap}[1]{\Xi_{#1}}
+\newcommand{\ResponseData}[1]{\Xi_{#1}^{\mathrm{dat}}}
+\newcommand{\ResponseShell}[1]{\Xi_{#1}^{\mathrm{sh}}}
+\newcommand{\ResponseHidden}[1]{\Xi_{#1}^{\mathrm{hid}}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Primitive-Reservoir Observer-Reduction\\
+\large Minimal Zero-Response Affine Completion Core\\
+\large Necessity / Uniqueness from Completion-Balance Ambient Dynamics}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The current benchmark-facing theorem on the active primitive-reservoir observer-reduction line already sharpened the burden once more: the affine response-graph layer and the combined-response layer have both collapsed to a smaller minimal zero-response affine completion core with hidden-sector gap. The remaining honest task is therefore no longer to justify the graph package or the combined-response package. It is to justify why that completion core itself should hold.
+
+The present note makes that next move in the strongest disciplined form now available without claiming final microphysical closure. For each sector it introduces a deeper completion-balance ambient dynamics package consisting of a compact convex ambient admissible body, affine observer-data and shell-response readouts, an invariant affine zero-hidden slice, a positive ambient balance operator whose kernel is exactly the zero-hidden translation space, exact splitting of the admissible body over zero-hidden and hidden directions, symmetry and time-reversal actions preserving the whole ambient package, an exact zero-response shell realization, fixed-data shell solvability on the zero-hidden slice, and a coercive balance inequality on data-invisible zero-hidden directions modulo the inert completion kernel.
+
+From that ambient package one derives canonically the remaining completion-core objects that now require justification: the affine completion plane, the compact convex completion body, the completion-state projection and completion-state body, the unique affine zero-hidden completion maps, the hidden factor and positive gap operator, the symmetry and time-reversal structure, the exact zero-response shell realization, the fixed-data solvability property, and the core-kernel coercivity mechanism. Within this ambient-dynamics class those constituents are not merely available. They are necessary and unique up to the obvious choice of completion-state origin and orthogonal completion-state coordinate identification. In particular, the later primitive substrate body and the combined response map are already fixed by the zero-hidden completion data together with the hidden factor.
+
+The benchmark package remains fixed throughout. The same primitive shell remains the shell that carries the observer outputs, so the one operative metric is still exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, and the low-energy matter law is not enlarged. The claim remains disciplined: this is a genuine upstream derivational gain, but not yet a final first-principles derivation of GR from ultimate substrate microphysics.
+\end{abstract}
+
+\section{Introduction}
+
+The active derivational program of \TheoryName{} has again narrowed what counts as an honest next step. The primitive-observer-reduction datum theorem, the defect-fiber factorization theorem, the one-metric output theorem, the chain-forcing theorem, the selector theorem, the stationary-construction theorem, the explicit-package theorem, the primitive-normal-form theorem, the ambient-shell-law theorem, the combined-response theorem, and the later graph-collapse theorem each discharged what was honestly open at its own layer. The latest result matters because it removes a tempting but no longer legitimate stopping point. Once the affine response-graph package and the combined-response package have both collapsed to a smaller minimal zero-response affine completion core, it is no longer enough to revisit those larger packages under a different presentation.
+
+The remaining honest burden is therefore deeper and more precise. The task is now to explain why the completion core itself should exist, rather than letting the completion plane, completion body, completion-state projection, zero-hidden affine completion maps, hidden factor, exact shell realization, solvability property, and coercivity mechanism stand as the new deepest disciplined assumptions. That is the burden addressed here.
+
+The present note does not reopen the benchmark effective package. It does not alter the one operative completed metric, it does not introduce a second operative metric, and it does not enlarge the low-energy matter law. Its gain is narrower and more upstream. It introduces a deeper completion-balance ambient dynamics package and proves that the minimal zero-response affine completion core is the canonical and necessary reduction of that package on the active line.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not claim that final substrate microphysics has already been found. Its narrower theorem is only that, on the active primitive-observer-reduction line, the minimal zero-response affine completion core is itself forced by a deeper completion-balance ambient dynamics package, and is unique there up to the obvious completion-state affine reparameterization.
+
+\section{Fixed Primitive Continuation Data}
+
+\begin{definition}[Recorded primitive continuation data]
+\label{def:fixed}
+Fix the following continuation data from the active primitive-reservoir observer-reduction line.
+\begin{enumerate}
+    \item For each sector label \(\sigma\in\{\Car,\Cur,\Hom\}\), a primitive forcing shell
+    \[
+    \ForSpace{\sigma},
+    \]
+    a visible reduction map
+    \[
+    \Reduction{\sigma}:\ForSpace{\sigma}\to X_{\sigma},
+    \]
+    and shell-level current and equilibrium carriers
+    \[
+    \CurrentCarrier{\sigma}:\ForSpace{\sigma}\to Z_{\sigma}^{\mathrm{cur}},
+    \qquad
+    \EqCarrier{\sigma}:\ForSpace{\sigma}\to Z_{\sigma}^{\mathrm{eq}}.
+    \]
+    \item The product shell
+    \[
+    \PrimShell
+    \equiv
+    \ForSpace{\Car}\times \ForSpace{\Cur}\times \ForSpace{\Hom}.
+    \]
+    \item Fixed shell extractors
+    \[
+    \CurrentExtract{\sigma}:Z_{\sigma}^{\mathrm{cur}}\to Y_{\sigma}^{\mathrm{cur}},
+    \qquad
+    \EqExtract{\sigma}:Z_{\sigma}^{\mathrm{eq}}\to Y_{\sigma}^{\mathrm{eq}},
+    \]
+    together with the recorded shell composites
+    \begin{equation}
+    \PrimCurrent{\sigma}
+    =
+    \CurrentExtract{\sigma}\circ \CurrentCarrier{\sigma},
+    \qquad
+    \PrimTheta{\sigma}
+    =
+    \EqExtract{\sigma}\circ \EqCarrier{\sigma}.
+    \label{eq:primcomposites}
+    \end{equation}
+    \item The recorded metric and ordinary-matter outputs
+    \[
+    \MetricOut:\PrimShell\to\{\text{observer metrics}\},
+    \qquad
+    \MatterOut:\PrimShell\times\Psi\to\{\text{observer stress tensors}\},
+    \]
+    satisfying
+    \begin{equation}
+    \MetricOut(\mathbf w)=\CompletedMetric,
+    \qquad
+    \MatterOut(\mathbf w,\psi)
+    =
+    T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
+    \label{eq:fixedoutputs}
+    \end{equation}
+    for every \(\mathbf w\in\PrimShell\) and every matter configuration \(\psi\in\Psi\).
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:fixed} is not reopened here. The primitive shell data and the benchmark one-metric / ordinary-matter outputs remain fixed continuation data. The work begins one layer deeper again: why the completion core that now carries the active line should itself be forced.
+\end{remark}
+
+\section{Target Completion Core}
+
+\begin{definition}[Minimal zero-response affine completion core with hidden-sector gap]
+\label{def:core}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). A \emph{minimal zero-response affine completion core with hidden-sector gap} for sector \(\sigma\) consists of the following data.
+\begin{enumerate}
+    \item A finite-dimensional Euclidean completion-state space
+    \[
+    \CoreState{\sigma},
+    \]
+    an observer-data space
+    \[
+    \DataSpace{\sigma}
+    \equiv
+    \VisibleAffine{\sigma}\times Z_{\sigma}^{\mathrm{cur}}\times Z_{\sigma}^{\mathrm{eq}},
+    \]
+    an ambient shell-response space
+    \[
+    \AmbientTarget{\sigma},
+    \]
+    a hidden space
+    \[
+    \GapSpace{\sigma},
+    \]
+    and the zero-hidden completion space
+    \[
+    \CoreSpace{\sigma}
+    \equiv
+    \CoreState{\sigma}\oplus\DataSpace{\sigma}\oplus\AmbientTarget{\sigma}.
+    \]
+    Let
+    \[
+    \CoreStateProj{\sigma}:\CoreSpace{\sigma}\to\CoreState{\sigma},
+    \qquad
+    \CoreDataProj{\sigma}:\CoreSpace{\sigma}\to\DataSpace{\sigma},
+    \qquad
+    \CoreShellProj{\sigma}:\CoreSpace{\sigma}\to\AmbientTarget{\sigma}
+    \]
+    denote the coordinate projections.
+    \item An affine completion plane
+    \[
+    \CoreAffine{\sigma}\subset\CoreSpace{\sigma}
+    \]
+    such that the restriction
+    \[
+    \CoreStateProj{\sigma}\big|_{\CoreAffine{\sigma}}:
+    \CoreAffine{\sigma}\to\CoreState{\sigma}
+    \]
+    is an affine isomorphism.
+    \item A compact convex completion body
+    \[
+    \CoreBody{\sigma}\subset\CoreAffine{\sigma}
+    \]
+    with nonempty relative interior in \(\CoreAffine{\sigma}\).
+    \item A compact convex hidden body
+    \[
+    \GapBody{\sigma}\subset\GapSpace{\sigma}
+    \]
+    with
+    \[
+    0\in\operatorname{int}\GapBody{\sigma},
+    \]
+    together with a positive self-adjoint hidden-sector operator
+    \[
+    \HiddenOperator{\sigma}:\GapSpace{\sigma}\to\GapSpace{\sigma}
+    \]
+    satisfying
+    \begin{equation}
+    \ev{\eta,\HiddenOperator{\sigma}\eta}
+    \ge
+    \kappa_{\sigma}^{\mathrm{hid}}\,
+    \|\eta\|^{2}
+    \qquad
+    \text{for all }\eta\in\GapSpace{\sigma}
+    \label{eq:coregap}
+    \end{equation}
+    for some \(\kappa_{\sigma}^{\mathrm{hid}}>0\).
+    \item A compact symmetry group
+    \[
+    \CoreSym{\sigma}\subset
+    O(\CoreState{\sigma})\times
+    O(\DataSpace{\sigma})\times
+    O(\AmbientTarget{\sigma})\times
+    O(\GapSpace{\sigma})
+    \]
+    and an orthogonal involution
+    \[
+    \CoreTime{\sigma}\in
+    O(\CoreState{\sigma})\times
+    O(\DataSpace{\sigma})\times
+    O(\AmbientTarget{\sigma})\times
+    O(\GapSpace{\sigma})
+    \]
+    preserving \(\CoreAffine{\sigma}\), \(\CoreBody{\sigma}\), the zero-response slice
+    \[
+    \CoreState{\sigma}\oplus\DataSpace{\sigma}\oplus\{0\},
+    \]
+    the hidden body \(\GapBody{\sigma}\), and \(\HiddenOperator{\sigma}\).
+    \item A smooth embedding
+    \[
+    \jmath_{\sigma}:X_{\sigma}\hookrightarrow \VisibleAffine{\sigma}
+    \]
+    and a smooth zero-response shell realization
+    \[
+    \CoreEmbed{\sigma}:\ForSpace{\sigma}\hookrightarrow\CoreSpace{\sigma}
+    \]
+    whose image is exactly
+    \[
+    \CoreBody{\sigma}\cap
+    \bigl(\CoreShellProj{\sigma}\bigr)^{-1}(0),
+    \]
+    and such that
+    \begin{equation}
+    \CoreDataProj{\sigma}\bigl(\CoreEmbed{\sigma}(w)\bigr)
+    =
+    \bigl(
+    \jmath_{\sigma}(\Reduction{\sigma}(w)),
+    \CurrentCarrier{\sigma}(w),
+    \EqCarrier{\sigma}(w)
+    \bigr)
+    \label{eq:corecompat}
+    \end{equation}
+    for every \(w\in\ForSpace{\sigma}\).
+    \item Fixed-data solvability on the zero-response slice:
+    \begin{equation}
+    \CoreDataProj{\sigma}\bigl(\CoreBody{\sigma}\bigr)
+    =
+    \CoreDataProj{\sigma}
+    \Bigl(
+    \CoreBody{\sigma}\cap
+    \bigl(\CoreShellProj{\sigma}\bigr)^{-1}(0)
+    \Bigr).
+    \label{eq:coresolvability}
+    \end{equation}
+    \item Core-kernel coercivity on the zero-response shell: there exists \(\kappa_{\sigma}^{\mathrm{co}}>0\) such that for every
+    \[
+    w\in\ForSpace{\sigma},
+    \qquad
+    \delta c\in T_{\CoreEmbed{\sigma}(w)}\CoreAffine{\sigma}
+    \]
+    satisfying
+    \[
+    \CoreDataProj{\sigma}(\delta c)=0,
+    \]
+    one has
+    \begin{equation}
+    \bigl\|
+    \CoreShellProj{\sigma}(\delta c)
+    \bigr\|^{2}
+    \ge
+    \kappa_{\sigma}^{\mathrm{co}}\,
+    \bigl\|
+    \CoreStateProj{\sigma}(\delta c)
+    \bigr\|^{2}.
+    \label{eq:corecoercive}
+    \end{equation}
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:core} is exactly the remaining layer singled out by the previous note. The present task is to derive or force the objects appearing there, not to insert a new presentation of the already-collapsed graph package.
+\end{remark}
+
+\section{Completion-Balance Ambient Dynamics}
+
+\begin{definition}[Completion-balance ambient dynamics with inert completion kernel]
+\label{def:ambient}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). A \emph{completion-balance ambient dynamics package} for sector \(\sigma\) consists of the following data.
+\begin{enumerate}
+    \item A finite-dimensional Euclidean ambient state space
+    \[
+    \BalSpace{\sigma},
+    \]
+    the observer-data space
+    \[
+    \DataSpace{\sigma}
+    \equiv
+    \VisibleAffine{\sigma}\times Z_{\sigma}^{\mathrm{cur}}\times Z_{\sigma}^{\mathrm{eq}},
+    \]
+    an ambient shell-response space
+    \[
+    \AmbientTarget{\sigma},
+    \]
+    and a compact convex ambient admissible body
+    \[
+    \BalBody{\sigma}\subset\BalSpace{\sigma}
+    \]
+    with nonempty interior.
+    \item An affine observer-data readout
+    \[
+    \BalData{\sigma}:\BalSpace{\sigma}\to\DataSpace{\sigma}
+    \]
+    and an affine shell-response readout
+    \[
+    \BalShell{\sigma}:\BalSpace{\sigma}\to\AmbientTarget{\sigma}.
+    \]
+    \item An affine zero-hidden slice
+    \[
+    \ZeroHiddenSlice{\sigma}\subset\BalSpace{\sigma}
+    \]
+    with translation space
+    \[
+    \ZeroHiddenVec{\sigma}\equiv T_{z}\ZeroHiddenSlice{\sigma}
+    \qquad
+    (z\in\ZeroHiddenSlice{\sigma}),
+    \]
+    and hidden complement
+    \[
+    \GapSpace{\sigma}
+    \equiv
+    {\ZeroHiddenVec{\sigma}}^{\perp}\subset\BalSpace{\sigma}.
+    \]
+    \item A positive self-adjoint ambient balance operator
+    \[
+    \BalOp{\sigma}:\BalSpace{\sigma}\to\BalSpace{\sigma}
+    \]
+    whose kernel is exactly the zero-hidden translation space,
+    \[
+    \ker \BalOp{\sigma}=\ZeroHiddenVec{\sigma},
+    \]
+    and whose restriction to the hidden complement obeys
+    \begin{equation}
+    \ev{\eta,\BalOp{\sigma}\eta}
+    \ge
+    \kappa_{\sigma}^{\mathrm{hid}}\,
+    \|\eta\|^{2}
+    \qquad
+    \text{for all }\eta\in\GapSpace{\sigma}
+    \label{eq:ambientgap}
+    \end{equation}
+    for some \(\kappa_{\sigma}^{\mathrm{hid}}>0\).
+    \item The hidden projection body
+    \[
+    \GapBody{\sigma}
+    \equiv
+    \left\{
+    \eta\in\GapSpace{\sigma}:
+    z+\eta\in\BalBody{\sigma}
+    \text{ for some }z\in \BalBody{\sigma}\cap\ZeroHiddenSlice{\sigma}
+    \right\}
+    \]
+    is compact and convex, satisfies
+    \[
+    0\in\operatorname{int}\GapBody{\sigma},
+    \]
+    and the ambient admissible body splits exactly as
+    \begin{equation}
+    \BalBody{\sigma}
+    =
+    \left\{
+    z+\eta:
+    z\in\BalBody{\sigma}\cap\ZeroHiddenSlice{\sigma},
+    \quad
+    \eta\in\GapBody{\sigma}
+    \right\}.
+    \label{eq:bodysplitting}
+    \end{equation}
+    \item A compact symmetry group
+    \[
+    \BalSym{\sigma}\subset
+    O(\BalSpace{\sigma})\times
+    O(\DataSpace{\sigma})\times
+    O(\AmbientTarget{\sigma})
+    \]
+    and an orthogonal involution
+    \[
+    \BalTime{\sigma}\in
+    O(\BalSpace{\sigma})\times
+    O(\DataSpace{\sigma})\times
+    O(\AmbientTarget{\sigma})
+    \]
+    preserving \(\BalBody{\sigma}\), \(\ZeroHiddenSlice{\sigma}\), \(\BalData{\sigma}\), \(\BalShell{\sigma}\), and \(\BalOp{\sigma}\).
+    \item A smooth embedding
+    \[
+    \jmath_{\sigma}:X_{\sigma}\hookrightarrow\VisibleAffine{\sigma}
+    \]
+    and a smooth zero-response shell realization
+    \[
+    \BalEmbed{\sigma}:\ForSpace{\sigma}\hookrightarrow\BalSpace{\sigma}
+    \]
+    whose image is exactly
+    \[
+    \BalBody{\sigma}\cap
+    \ZeroHiddenSlice{\sigma}\cap
+    \bigl(\BalShell{\sigma}\bigr)^{-1}(0),
+    \]
+    and such that
+    \begin{equation}
+    \BalData{\sigma}\bigl(\BalEmbed{\sigma}(w)\bigr)
+    =
+    \bigl(
+    \jmath_{\sigma}(\Reduction{\sigma}(w)),
+    \CurrentCarrier{\sigma}(w),
+    \EqCarrier{\sigma}(w)
+    \bigr)
+    \label{eq:ambientcompat}
+    \end{equation}
+    for every \(w\in\ForSpace{\sigma}\).
+    \item Fixed-data shell solvability on the zero-hidden slice:
+    \begin{equation}
+    \BalData{\sigma}\bigl(
+    \BalBody{\sigma}\cap\ZeroHiddenSlice{\sigma}
+    \bigr)
+    =
+    \BalData{\sigma}\Bigl(
+    \BalBody{\sigma}\cap
+    \ZeroHiddenSlice{\sigma}\cap
+    \bigl(\BalShell{\sigma}\bigr)^{-1}(0)
+    \Bigr).
+    \label{eq:ambientsolvability}
+    \end{equation}
+    \item The inert completion kernel
+    \[
+    \Kernel{\sigma}
+    \equiv
+    \ker\bigl(D\BalData{\sigma}\big|_{\ZeroHiddenVec{\sigma}}\bigr)
+    \cap
+    \ker\bigl(D\BalShell{\sigma}\big|_{\ZeroHiddenVec{\sigma}}\bigr)
+    \]
+    and the orthogonal completion-state projector
+    \[
+    \StateComp{\sigma}:\ZeroHiddenVec{\sigma}\to{\Kernel{\sigma}}^{\perp}\cap\ZeroHiddenVec{\sigma}.
+    \]
+    \item Completion-balance coercivity on data-invisible zero-hidden directions: there exists \(\kappa_{\sigma}^{\mathrm{co}}>0\) such that for every
+    \[
+    w\in\ForSpace{\sigma},
+    \qquad
+    \delta z\in T_{\BalEmbed{\sigma}(w)}\ZeroHiddenSlice{\sigma}=\ZeroHiddenVec{\sigma}
+    \]
+    satisfying
+    \[
+    D\BalData{\sigma}\,\delta z=0,
+    \]
+    one has
+    \begin{equation}
+    \|D\BalShell{\sigma}\,\delta z\|^{2}
+    \ge
+    \kappa_{\sigma}^{\mathrm{co}}\,
+    \|\StateComp{\sigma}\delta z\|^{2}.
+    \label{eq:ambientcoercive}
+    \end{equation}
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:ambient} is deeper than the completion core in exactly the way needed now. It does not begin with a completion plane, a completion body, or a completion-state projection. Instead it begins with an ambient admissible body, an invariant zero-hidden slice, and an inert kernel on that slice. The completion core must then be recovered as the faithful quotient of the zero-hidden slice after those invisible directions are removed.
+\end{remark}
+
+\section{Canonical Completion Core Induced by Ambient Dynamics}
+
+\begin{definition}[Canonical completion core induced by ambient dynamics]
+\label{def:canonical}
+Assume Definition \ref{def:ambient}. Choose once and for all a reference shell point
+\[
+w_{\sigma}^{\ast}\in\ForSpace{\sigma},
+\qquad
+\ReferencePoint{\sigma}\equiv \BalEmbed{\sigma}(w_{\sigma}^{\ast}).
+\]
+Define the canonical completion core as follows.
+\begin{enumerate}
+    \item The completion-state space is
+    \[
+    \CoreState{\sigma}
+    \equiv
+    {\Kernel{\sigma}}^{\perp}\cap\ZeroHiddenVec{\sigma}.
+    \]
+    \item The zero-hidden state coordinate is the affine map
+    \begin{equation}
+    \CoreCoord{\sigma}(z)
+    \equiv
+    \StateComp{\sigma}\bigl(z-\ReferencePoint{\sigma}\bigr),
+    \qquad
+    z\in\ZeroHiddenSlice{\sigma}.
+    \label{eq:corecoord}
+    \end{equation}
+    \item The unique affine zero-hidden completion maps are
+    \begin{equation}
+    \CoreDataMap{\sigma}(m)
+    \equiv
+    \BalData{\sigma}\bigl(\ReferencePoint{\sigma}+m\bigr),
+    \qquad
+    \CoreShellMap{\sigma}(m)
+    \equiv
+    \BalShell{\sigma}\bigl(\ReferencePoint{\sigma}+m\bigr),
+    \label{eq:coremaps}
+    \end{equation}
+    for \(m\in\CoreState{\sigma}\).
+    \item The zero-hidden completion space is
+    \[
+    \CoreSpace{\sigma}
+    \equiv
+    \CoreState{\sigma}\oplus\DataSpace{\sigma}\oplus\AmbientTarget{\sigma},
+    \]
+    with coordinate projections \(\CoreStateProj{\sigma}\), \(\CoreDataProj{\sigma}\), and \(\CoreShellProj{\sigma}\).
+    \item The affine completion plane is
+    \begin{equation}
+    \CoreAffine{\sigma}
+    \equiv
+    \left\{
+    \bigl(
+    m,
+    \CoreDataMap{\sigma}(m),
+    \CoreShellMap{\sigma}(m)
+    \bigr):
+    m\in\CoreState{\sigma}
+    \right\}.
+    \label{eq:coreplane}
+    \end{equation}
+    \item The completion-state body is
+    \begin{equation}
+    \CoreStateBody{\sigma}
+    \equiv
+    \left\{
+    \CoreCoord{\sigma}(z):
+    z\in\BalBody{\sigma}\cap\ZeroHiddenSlice{\sigma}
+    \right\},
+    \label{eq:corestatebody}
+    \end{equation}
+    and the completion body is
+    \begin{equation}
+    \CoreBody{\sigma}
+    \equiv
+    \left\{
+    \bigl(
+    \CoreCoord{\sigma}(z),
+    \BalData{\sigma}(z),
+    \BalShell{\sigma}(z)
+    \bigr):
+    z\in\BalBody{\sigma}\cap\ZeroHiddenSlice{\sigma}
+    \right\}.
+    \label{eq:corebody}
+    \end{equation}
+    \item The hidden operator is the restriction
+    \begin{equation}
+    \HiddenOperator{\sigma}
+    \equiv
+    \BalOp{\sigma}\big|_{\GapSpace{\sigma}}.
+    \label{eq:hiddenop}
+    \end{equation}
+    \item The induced symmetry group and time reversal are obtained by restricting the ambient \(\BalSpace{\sigma}\)-action to \(\CoreState{\sigma}\oplus\GapSpace{\sigma}\) and keeping the recorded data and shell actions:
+    \[
+    \CoreSym{\sigma}
+    \equiv
+    \left\{
+    (g_{\mathrm{co}},g_{\mathrm{dat}},g_{\mathrm{sh}},g_{\mathrm{hid}}):
+    (g_{\mathrm{amb}},g_{\mathrm{dat}},g_{\mathrm{sh}})
+    \in\BalSym{\sigma}
+    \right\},
+    \]
+    where \(g_{\mathrm{co}}\) and \(g_{\mathrm{hid}}\) are the restrictions of \(g_{\mathrm{amb}}\) to \(\CoreState{\sigma}\) and \(\GapSpace{\sigma}\), and
+    \[
+    \CoreTime{\sigma}
+    \equiv
+    \bigl(
+    \BalTime{\sigma}\big|_{\CoreState{\sigma}},
+    \BalTime{\sigma}\big|_{\DataSpace{\sigma}},
+    \BalTime{\sigma}\big|_{\AmbientTarget{\sigma}},
+    \BalTime{\sigma}\big|_{\GapSpace{\sigma}}
+    \bigr).
+    \]
+    \item The zero-response shell realization is
+    \begin{equation}
+    \CoreEmbed{\sigma}(w)
+    \equiv
+    \bigl(
+    \CoreCoord{\sigma}(\BalEmbed{\sigma}(w)),
+    \BalData{\sigma}(\BalEmbed{\sigma}(w)),
+    0
+    \bigr).
+    \label{eq:coreembed}
+    \end{equation}
+    \item The later primitive substrate body and combined response map are
+    \begin{equation}
+    \ProtoSpace{\sigma}
+    \equiv
+    \CoreState{\sigma}\oplus\GapSpace{\sigma},
+    \qquad
+    \ProtoBody{\sigma}
+    \equiv
+    \CoreStateBody{\sigma}\times\GapBody{\sigma},
+    \label{eq:protobody}
+    \end{equation}
+    and
+    \begin{equation}
+    \ResponseMap{\sigma}(m,\eta)
+    \equiv
+    \bigl(
+    \CoreDataMap{\sigma}(m),
+    \CoreShellMap{\sigma}(m),
+    \eta
+    \bigr)
+    \label{eq:responsemap}
+    \end{equation}
+    on
+    \[
+    \ResponseSpace{\sigma}
+    \equiv
+    \DataSpace{\sigma}\oplus\AmbientTarget{\sigma}\oplus\GapSpace{\sigma}.
+    \]
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+The chosen reference point \(\ReferencePoint{\sigma}\) fixes only the affine origin of \(\CoreState{\sigma}\). A different choice translates the completion-state coordinate and therefore yields a completion-faithful equivalent core. No benchmark-relevant quantity depends on that choice.
+\end{remark}
+
+\begin{proposition}[Ambient dynamics induce a completion core]
+\label{prop:induce}
+Assume Definitions \ref{def:ambient} and \ref{def:canonical}. Then the canonical data of Definition \ref{def:canonical} satisfy every requirement of Definition \ref{def:core}.
+\end{proposition}
+
+\begin{proof}
+Because \(\Kernel{\sigma}\subset\ZeroHiddenVec{\sigma}\) and \(\CoreState{\sigma}={\Kernel{\sigma}}^{\perp}\cap\ZeroHiddenVec{\sigma}\), every \(z\in\ZeroHiddenSlice{\sigma}\) can be written uniquely as
+\[
+z=\ReferencePoint{\sigma}+m+k
+\qquad
+\text{with }
+m\in\CoreState{\sigma},
+\quad
+k\in\Kernel{\sigma}.
+\]
+Since \(\BalData{\sigma}\) and \(\BalShell{\sigma}\) are affine and \(\Kernel{\sigma}\) lies in the kernels of their linear parts on \(\ZeroHiddenVec{\sigma}\), both maps are constant along the affine fibers \(\ReferencePoint{\sigma}+m+\Kernel{\sigma}\). Hence \eqref{eq:coremaps} is well defined and affine, and \(\CoreAffine{\sigma}\) in \eqref{eq:coreplane} is an affine graph over \(\CoreState{\sigma}\). Therefore
+\[
+\CoreStateProj{\sigma}\big|_{\CoreAffine{\sigma}}:
+\CoreAffine{\sigma}\to\CoreState{\sigma}
+\]
+is an affine isomorphism.
+
+The set \(\BalBody{\sigma}\cap\ZeroHiddenSlice{\sigma}\) is compact and convex, so its image \(\CoreStateBody{\sigma}\) under the affine map \(\CoreCoord{\sigma}\) is compact and convex. Equation \eqref{eq:corebody} shows that \(\CoreBody{\sigma}\) is the affine image of the same compact convex set, hence is compact and convex inside \(\CoreAffine{\sigma}\). Because \(\BalBody{\sigma}\) has nonempty interior and splits exactly as in \eqref{eq:bodysplitting} with \(0\in\operatorname{int}\GapBody{\sigma}\), the zero-hidden slice carries nonempty relative interior in the ambient body; thus \(\CoreBody{\sigma}\) has nonempty relative interior in \(\CoreAffine{\sigma}\).
+
+By definition, \(\GapBody{\sigma}\subset\GapSpace{\sigma}\) is compact and convex with \(0\in\operatorname{int}\GapBody{\sigma}\). Equation \eqref{eq:hiddenop} together with \eqref{eq:ambientgap} gives
+\[
+\ev{\eta,\HiddenOperator{\sigma}\eta}
+=
+\ev{\eta,\BalOp{\sigma}\eta}
+\ge
+\kappa_{\sigma}^{\mathrm{hid}}\|\eta\|^{2}
+\qquad
+(\eta\in\GapSpace{\sigma}),
+\]
+which is \eqref{eq:coregap}.
+
+The ambient symmetries preserve \(\ZeroHiddenSlice{\sigma}\), so they preserve \(\ZeroHiddenVec{\sigma}\), its orthogonal complement \(\GapSpace{\sigma}\), and the inert kernel \(\Kernel{\sigma}\). Therefore they preserve \(\CoreState{\sigma}={\Kernel{\sigma}}^{\perp}\cap\ZeroHiddenVec{\sigma}\) and induce the group \(\CoreSym{\sigma}\) and involution \(\CoreTime{\sigma}\). Because they preserve \(\BalData{\sigma}\), \(\BalShell{\sigma}\), \(\BalBody{\sigma}\), \(\ZeroHiddenSlice{\sigma}\), and \(\BalOp{\sigma}\), they preserve \(\CoreAffine{\sigma}\), \(\CoreBody{\sigma}\), the zero-response slice, \(\GapBody{\sigma}\), and \(\HiddenOperator{\sigma}\).
+
+For the shell realization, \eqref{eq:coreembed} lands in \(\CoreBody{\sigma}\cap(\CoreShellProj{\sigma})^{-1}(0)\) because \(\BalEmbed{\sigma}(\ForSpace{\sigma})\subset \BalBody{\sigma}\cap\ZeroHiddenSlice{\sigma}\cap(\BalShell{\sigma})^{-1}(0)\). Conversely, if
+\[
+(m,u,0)\in\CoreBody{\sigma}\cap(\CoreShellProj{\sigma})^{-1}(0),
+\]
+then by \eqref{eq:corebody} there exists \(z\in\BalBody{\sigma}\cap\ZeroHiddenSlice{\sigma}\cap(\BalShell{\sigma})^{-1}(0)\) with
+\[
+m=\CoreCoord{\sigma}(z),
+\qquad
+u=\BalData{\sigma}(z).
+\]
+Since \(\BalEmbed{\sigma}\) is a diffeomorphism onto that exact ambient shell-zero locus, there is a unique \(w\in\ForSpace{\sigma}\) with \(z=\BalEmbed{\sigma}(w)\), and then \((m,u,0)=\CoreEmbed{\sigma}(w)\). Thus the image of \(\CoreEmbed{\sigma}\) is exactly the shell-zero slice of \(\CoreBody{\sigma}\). Equation \eqref{eq:corecompat} follows directly from \eqref{eq:ambientcompat}.
+
+For fixed-data solvability, let \(u\in\CoreDataProj{\sigma}(\CoreBody{\sigma})\). Then \(u=\BalData{\sigma}(z)\) for some \(z\in\BalBody{\sigma}\cap\ZeroHiddenSlice{\sigma}\). By \eqref{eq:ambientsolvability}, there exists
+\[
+z_{0}\in
+\BalBody{\sigma}\cap
+\ZeroHiddenSlice{\sigma}\cap
+\bigl(\BalShell{\sigma}\bigr)^{-1}(0)
+\]
+with \(\BalData{\sigma}(z_{0})=u\). The corresponding core point belongs to \(\CoreBody{\sigma}\cap(\CoreShellProj{\sigma})^{-1}(0)\) and has the same data coordinate \(u\). This proves \eqref{eq:coresolvability}.
+
+Finally, let
+\[
+w\in\ForSpace{\sigma},
+\qquad
+\delta c\in T_{\CoreEmbed{\sigma}(w)}\CoreAffine{\sigma}
+\]
+with \(\CoreDataProj{\sigma}(\delta c)=0\). Since \(\CoreAffine{\sigma}\) is the graph of the affine pair \((\CoreDataMap{\sigma},\CoreShellMap{\sigma})\), there exists a unique \(\delta m\in\CoreState{\sigma}\) such that
+\[
+\delta c=
+\bigl(
+\delta m,
+D\CoreDataMap{\sigma}\,\delta m,
+D\CoreShellMap{\sigma}\,\delta m
+\bigr).
+\]
+The data-kernel hypothesis says \(D\CoreDataMap{\sigma}\,\delta m=0\). Viewing \(\delta m\) as a vector of \(\ZeroHiddenVec{\sigma}\), the ambient coercivity inequality \eqref{eq:ambientcoercive} applies, because \(\StateComp{\sigma}\delta m=\delta m\). Hence
+\[
+\|D\CoreShellMap{\sigma}\,\delta m\|^{2}
+=
+\|D\BalShell{\sigma}\,\delta m\|^{2}
+\ge
+\kappa_{\sigma}^{\mathrm{co}}\|\delta m\|^{2}.
+\]
+But
+\[
+\CoreStateProj{\sigma}(\delta c)=\delta m,
+\qquad
+\CoreShellProj{\sigma}(\delta c)=D\CoreShellMap{\sigma}\,\delta m,
+\]
+so \eqref{eq:corecoercive} follows. All requirements of Definition \ref{def:core} are therefore satisfied.
+\end{proof}
+
+\section{Forced Constituents and Uniqueness}
+
+\begin{proposition}[All completion-core constituents are forced by ambient dynamics]
+\label{prop:forced}
+Assume Definition \ref{def:ambient}. Then the following constituents are fixed by the ambient package itself.
+\begin{enumerate}
+    \item The completion-state space is the faithful quotient of the zero-hidden translation space by the inert kernel, represented canonically by the orthogonal complement
+    \[
+    \CoreState{\sigma}={\Kernel{\sigma}}^{\perp}\cap\ZeroHiddenVec{\sigma}.
+    \]
+    \item The affine completion plane is necessarily the graph \eqref{eq:coreplane} of the unique affine zero-hidden completion maps \eqref{eq:coremaps}.
+    \item The compact convex completion body is necessarily the image \eqref{eq:corebody} of the zero-hidden ambient body.
+    \item The completion-state body is necessarily \eqref{eq:corestatebody}; hence the later primitive substrate body is necessarily the product body \eqref{eq:protobody}.
+    \item The hidden factor is necessarily the orthogonal complement \(\GapSpace{\sigma}={\ZeroHiddenVec{\sigma}}^{\perp}\), the hidden body is necessarily \(\GapBody{\sigma}\), and the positive gap operator is necessarily the restriction \eqref{eq:hiddenop} of the ambient balance operator.
+    \item The symmetry / time-reversal structure, the exact zero-response shell realization, the fixed-data solvability property, and the core-kernel coercivity mechanism are all induced by the same ambient package and are not extra completion-level freedom.
+    \item Consequently the later combined response map is already fixed by
+    \[
+    \ResponseMap{\sigma}(m,\eta)
+    =
+    \bigl(
+    \CoreDataMap{\sigma}(m),
+    \CoreShellMap{\sigma}(m),
+    \eta
+    \bigr).
+    \]
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Items (1) through (3) are the content of Definition \ref{def:canonical}: once the zero-hidden slice and inert kernel are fixed, the only faithful completion-state coordinates are those that quotient out the inert kernel, and the only completion plane compatible with the ambient data and shell readouts is the graph of the descended affine maps \eqref{eq:coremaps}. The completion body is then necessarily the image of the zero-hidden ambient body under those coordinates.
+
+Item (4) follows because the completion-state body is exactly the completion-state projection of the zero-hidden ambient body. Adjoining the hidden factor fixed in item (5) yields the product body \eqref{eq:protobody}; no second primitive substrate body can be compatible with the same zero-hidden slice, the same hidden splitting, and the same faithful state coordinates. Item (5) is immediate from the orthogonal decomposition of the ambient space along \(\ZeroHiddenVec{\sigma}\oplus\GapSpace{\sigma}\) together with the balance-operator kernel statement \(\ker \BalOp{\sigma}=\ZeroHiddenVec{\sigma}\).
+
+Item (6) follows because the ambient symmetry group and time reversal preserve the entire package from which those constituents are induced, and Proposition \ref{prop:induce} already showed how the shell realization, solvability, and coercivity descend. Item (7) is then only the explicit downstream rewriting of the same completion data after the hidden factor is adjoined.
+\end{proof}
+
+\begin{theorem}[Minimal completion core necessity / uniqueness from ambient dynamics]
+\label{thm:necessity}
+Assume Definition \ref{def:ambient}. Then:
+\begin{enumerate}
+    \item the canonical construction of Definition \ref{def:canonical} yields a minimal zero-response affine completion core in the sense of Definition \ref{def:core};
+    \item every remaining core-level object singled out by the previous collapse theorem is forced by the ambient package: the affine completion plane, the compact convex completion body, the completion-state projection and completion-state body, the unique affine zero-hidden completion maps, the hidden factor and positive gap operator, the symmetry / time-reversal structure, the exact zero-response shell realization, the fixed-data solvability property, and the core-kernel coercivity mechanism;
+    \item any other completion core compatible with the same ambient package differs from the canonical one only by the harmless choice of completion-state origin and by an orthogonal coordinate identification on \(\CoreState{\sigma}\);
+    \item consequently the later primitive substrate body and combined response map are not separate freedom either. They are already fixed by the same ambient dynamics.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Item (1) is Proposition \ref{prop:induce}. Item (2) is Proposition \ref{prop:forced}. For item (3), changing the reference shell point \(\ReferencePoint{\sigma}\) only translates the completion-state coordinate, while changing the faithful orthogonal coordinates on \({\Kernel{\sigma}}^{\perp}\cap\ZeroHiddenVec{\sigma}\) acts only by an orthogonal identification of the same Euclidean completion-state space. No other compatible freedom remains once the ambient zero-hidden slice, inert kernel, and ambient readouts are fixed. Item (4) is item (7) of Proposition \ref{prop:forced} together with \eqref{eq:protobody}.
+\end{proof}
+
+\section{Benchmark Preservation}
+
+\begin{theorem}[The derived completion core preserves the same one-metric benchmark package]
+\label{thm:outputs}
+Assume Definition \ref{def:ambient}. Then the benchmark output statements of Definition \ref{def:fixed} remain unchanged:
+\[
+\MetricOut(\mathbf w)=\CompletedMetric,
+\qquad
+\MatterOut(\mathbf w,\psi)
+=
+T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
+\]
+for every \(\mathbf w\in\PrimShell\) and every matter configuration \(\psi\in\Psi\). Consequently the deeper ambient package, the induced completion core, and the later combined response map introduce neither a second operative metric nor an enlarged low-energy matter law.
+\end{theorem}
+
+\begin{proof}
+The present note changes only the upstream origin of the completion data. It does not alter the primitive shell \(\PrimShell\), the recorded metric map \(\MetricOut\), or the recorded matter map \(\MatterOut\). Those remain the fixed continuation data of Definition \ref{def:fixed}, so \eqref{eq:fixedoutputs} continues to hold exactly. The induced completion core and the later combined response map are built to preserve the same exact shell realization of that unchanged primitive shell, not to replace it with a different observer-output law.
+\end{proof}
+
+\section{Main Theorem}
+
+\begin{theorem}[The remaining burden moves below the completion core]
+\label{thm:main}
+Assume the fixed primitive continuation data of Definition \ref{def:fixed} and, for each sector \(\sigma\in\{\Car,\Cur,\Hom\}\), a completion-balance ambient dynamics package in the sense of Definition \ref{def:ambient}. Then:
+\begin{enumerate}
+    \item the minimal zero-response affine completion core of Definition \ref{def:core} is canonically induced by the ambient package;
+    \item the affine completion plane, the compact convex completion body, the completion-state projection and completion-state body, the unique affine zero-hidden completion maps, the hidden factor and positive gap operator, the symmetry / time-reversal structure, the exact zero-response shell realization, the fixed-data solvability property, and the core-kernel coercivity mechanism are all forced by that same ambient package;
+    \item the later primitive substrate body and the combined response map are likewise forced by the same ambient package through \eqref{eq:protobody} and \eqref{eq:responsemap};
+    \item the one operative metric remains exactly \(\CompletedMetric\), the ordinary matter route remains exactly the standard one through that metric, there is no second operative metric, and the low-energy matter law is not enlarged;
+    \item consequently the benchmark-facing burden after the previous collapse theorem is discharged in the stronger form now available on the active line: the completion core is no longer an unexplained stopping point, but a necessary reduction of a deeper completion-balance ambient dynamics package.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Item (1) is Theorem \ref{thm:necessity}(1). Item (2) is Theorem \ref{thm:necessity}(2). Item (3) is Theorem \ref{thm:necessity}(4). Item (4) is Theorem \ref{thm:outputs}. Item (5) is the combined routing consequence.
+\end{proof}
+
+\begin{corollary}[What remains open after this theorem]
+\label{cor:next}
+After Theorem \ref{thm:main}, the remaining honest burden is no longer to justify the completion core itself on the active primitive-observer-reduction line. The next honest burden is deeper again: derive or justify the completion-balance ambient dynamics package from still more primitive substrate dynamics, or else prove a sharper inevitability theorem that removes even that remaining ambient-balance freedom while preserving the same benchmark one-metric package and claim boundary.
+\end{corollary}
+
+\begin{proof}
+Theorem \ref{thm:main} converts the completion core from a remaining benchmark-facing burden into a canonical reduction of deeper ambient dynamics. What remains open is why that ambient dynamics package itself should hold, rather than becoming the new disciplined stopping point.
+\end{proof}
+
+\section{Conclusion}
+
+The positive result of this note is deliberately narrower than a completed final microphysical derivation and stronger than another deeper same-output relay. The previous collapse theorem had already shown that the affine response-graph layer and the combined-response layer carry no extra operative freedom beyond a smaller minimal zero-response affine completion core. The present note goes one honest step further by showing that the completion core itself is not left hanging either. It is canonically induced by a deeper completion-balance ambient dynamics package.
+
+That gain directly addresses the precise objects that had become the next burden: the affine completion plane, the compact convex completion body, the completion-state projection, the unique affine zero-hidden completion maps, the hidden factor and positive gap operator, the symmetry / time-reversal structure, the exact zero-response shell realization, the fixed-data solvability property, and the core-kernel coercivity mechanism. Within the recorded ambient-dynamics class those are no longer optional inserted ingredients. They are forced outputs, unique up to the harmless affine choice of completion-state origin and orthogonal completion-state coordinates.
+
+The benchmark boundary remains fixed throughout. The same primitive shell remains the shell carrying the observer outputs, so the one operative metric is still exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, and the low-energy matter law is not enlarged. This is therefore a disciplined upstream derivational gain, not a final completion claim. The note still does not derive the ambient completion-balance dynamics from ultimate substrate microphysics. That is the next honest open burden. But the completion core itself is no longer the stopping point on the active line.
+
+\end{document}
