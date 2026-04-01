@@ -12,11 +12,12 @@ This checklist is intentionally compact. It tracks the active operational rules 
 
 ## Current Primary Research Step
 
-- [ ] Do not default to another generic deeper-origin note.
+- [ ] Do not default to another generic same-package or deeper-origin note.
 - [ ] The next primary manuscript must either:
-  - derive or justify the deeper primitive-reservoir layer below [the forcing-principle primitive-reservoir / stationary-reduction origin note](manuscripts/active/tex/aether_flow_substrate_response_charge_polarization_exact_preservation_forcing_principle_primitive_reservoir_stationary_reduction_origin_note.tex)
-  - collapse several deeper layers into one sharper necessity or uniqueness result
-  - or produce another concrete observer-equation gain on the same one-metric charge-polarization line
+  - directly prove a stronger direct absorbability identity for `\ObsBurden` on a sharpened package
+  - directly prove an explicit same-package field-redefinition theorem
+  - or introduce a deeper-origin sharpening only if it directly furnishes one of those two strict observer-side closure ingredients
+- [ ] Treat the current fixed one-metric observer package as maximal at current scope with respect to strict same-package observer-side closure unless one of those two upgrade ingredients is added.
 - [ ] Keep stronger promotion language paused until one of those happens.
 
 ## Current Supporting Context
@@ -25,6 +26,7 @@ This checklist is intentionally compact. It tracks the active operational rules 
 - [x] Observer-remainder classification and redesign gate screen are recorded.
 - [x] Candidate, infrared/universal-coupling gate, controlled-GR-limit, and residual-sector verdict notes are recorded on the charge-polarization line.
 - [x] Quartic-completion and exact-preservation continuation notes are recorded through the current deepest benchmark-facing origin note.
+- [x] The fixed-package strict-closure necessity / maximality theorem is recorded on the one-metric observer-equation bottleneck.
 - [ ] Side continuations remain non-primary unless they change the benchmark-facing burden.
 
 ## TeX / PDF Workflow
@@ -46,5 +48,6 @@ Before treating a note as progress on the main line, confirm:
 
 - [ ] it preserves the exact benchmark package
 - [ ] it addresses the current deepest burden or provides an equivalent observer-equation gain
+- [ ] if it is a deeper-origin continuation, it directly supplies a stronger absorbability identity or an explicit same-package field-redefinition theorem
 - [ ] it does not conflate adoption with derivation
 - [ ] it preserves the one operative metric and the recorded Phase D / E / F gains at the stated scope
