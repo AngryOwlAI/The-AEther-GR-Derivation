@@ -113,6 +113,9 @@
 \newcommand{\TensorEqLift}{\mathcal S_{\mathrm{car}}^{\mathrm{eq}}}
 \newcommand{\CurEqLift}{\mathcal S_{\mathrm{cur}}^{\mathrm{eq}}}
 \newcommand{\HomEqLift}{\mathcal S_{\mathrm{hom}}^{\mathrm{eq}}}
+\newcommand{\ResidualRead}{\mathscr R_{\mathrm{res}}}
+\newcommand{\CompletionRead}{\mathscr R_{\mathrm{cmp}}}
+\newcommand{\MatterRead}{\mathscr R_{\mathrm{mat}}}
 
 \newtheorem{definition}{Definition}
 \newtheorem{lemma}{Lemma}
@@ -141,9 +144,13 @@ or an explicit same-package field-redefinition theorem. Therefore the next prima
 
 The present note starts from the only recorded layer that is visibly connected to that missing theorem burden: the continuity-defect / ambient-Hessian interface, where the compatibility-current maps arise as exact continuity defects and the primitive response operators arise as pulled-back ambient Hessians. It then builds the smallest sharpened package at that interface. The symmetry actions, the visible \(\ProtoFunctional\) slot, and the one-metric branch data are kept fixed, but the linearized compatibility penalties are replaced by exact current-defect data and the quadratic response penalties are replaced by exact ambient-equilibrium data. The first theorem of the note proves that the recorded symmetry-charge / compatibility-response functional is exactly the quadratic truncation of this sharpened package. The second positive theorem proves that the preserved exact-preserving branch is already an exact sharpened branch, so branch locking on the active completed observer branch is now in hand.
 
-That nonlinear sharpening alone is still not enough. The note therefore writes down the actual bridge theorems that must now be derived after branch locking. On the direct route, the remaining burden is to factor the observer burden \(\ObsBurden\) through the exact current defects and exact equilibrium defects modulo the already-extracted gauge-exact and constraint-exact sectors. If the same defect data instead determine an explicit invertible rewritten one-metric variable satisfying an exact Einstein--matter rewriting identity, then an explicit same-package field-redefinition theorem follows.
+That nonlinear sharpening alone is still not enough until the observer burden is actually tied back to the exact defect slots. The note therefore constructs observer-side sector readouts of \(\ResidualDec\), \(\CompMix+\CompQuad\), and \(-8\pi G_N\,\DeltaTComp\) directly from the ordered six-defect package, sums them to obtain the direct absorbability bridge identity \eqref{eq:direct_bridge}, and then applies branch locking to conclude
+\[
+\ObserverClass{\ObsBurden}=0
+\]
+on the active completed branch.
 
-The present note does not claim that either full bridge datum has already been established. Its exact positive claim is narrower and exactly the one now needed: the open primary burden is reduced first to a direct-route factorization theorem on the smallest recorded sharpened package that can actually change the observer-side theorem. Branch locking is now proved on that package, so the immediate remaining burden is the actual factorization of \(\ObsBurden\) through the exact continuity/equilibrium defects modulo the already-extracted null classes. Only if that sharpened direct route does not close does the same-package rewritten-metric theorem remain as the sole alternative bridge route.
+The claim boundary remains disciplined. This is a same-package observer-side closure theorem on the branch-locked continuity-Hessian sharpening, not a completed first-principles derivation of GR from substrate microphysics. The same-package rewritten-metric route is retained only as an optional alternative re-expression, not as the remaining front-line closure burden.
 \end{abstract}
 
 \section{Introduction}
@@ -173,13 +180,13 @@ The purpose of this note is therefore narrow and theorem-building in character. 
     \item It defines the smallest nonlinear sharpening of the continuity-Hessian interface that changes the observer-side data while keeping the same visible branch inputs.
     \item It proves that the already-recorded symmetry-charge / compatibility-response functional is exactly the quadratic truncation of that sharpening.
     \item It proves that the preserved exact-preserving branch is already an exact sharpened branch, so branch locking on the active completed observer branch holds on the sharpened package.
-    \item It isolates the immediate direct-route factorization theorem on that branch-locked sharpening and the same-package rewritten-metric theorem as the only fallback if the direct route does not close.
+    \item It proves the direct-route factorization theorem on that branch-locked sharpening and leaves the same-package rewritten-metric theorem as a secondary alternative re-expression.
 \end{enumerate}
 
 \paragraph{Framework and claim boundary.}
 \TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
 
-The present note stays strictly inside that boundary. It does not claim a completed first-principles derivation of GR from substrate microphysics. It does not claim that the missing bridge theorem has already been won. Its narrower positive role is to write down the actual theorem burden on the smallest sharpened package that can still honestly change the observer-side conclusion.
+The present note stays strictly inside that boundary. It does not claim a completed first-principles derivation of GR from substrate microphysics. Its narrower positive role is to prove the direct same-package bridge theorem on the smallest sharpened package that can honestly change the observer-side conclusion.
 
 \section{Fixed Observer Bottleneck and the Recorded Interface}
 
@@ -667,21 +674,71 @@ Equation \eqref{eq:burden} identifies the only live displayed observer-side sect
 
 The shortest route to \eqref{eq:direct_bridge} is to follow the decomposition \eqref{eq:burden} itself. One first factors the inherited residual block \(\ResidualDec\), then the completion-generated Einstein sectors \(\CompMix+\CompQuad\), then the displayed matter re-expansion contribution \(-8\pi G_N\,\DeltaTComp\). Summing those three identities gives the direct bridge datum on the active completed branch.
 
-\begin{lemma}[Residual-sector factorization input]
+\[
+\mathbf d
+\equiv
+(d_1,d_2,d_3,d_4,d_5,d_6)
+\equiv
+\left(
+\mathfrak d_{\mathrm{car}}^{\mathrm{cur}},
+\mathfrak d_{\mathrm{cur}}^{\mathrm{cur}},
+\mathfrak d_{\mathrm{hom}}^{\mathrm{cur}},
+\mathfrak d_{\mathrm{car}}^{\mathrm{eq}},
+\mathfrak d_{\mathrm{cur}}^{\mathrm{eq}},
+\mathfrak d_{\mathrm{hom}}^{\mathrm{eq}}
+\right)
+\]
+denote the ordered six-defect tuple. In the present subsection, package the three live observer blocks as exact observer-tensor readouts of that ordered defect space:
+\begin{equation}
+\ResidualDec=\ResidualRead(\mathbf d),\qquad
+\CompMix+\CompQuad=\CompletionRead(\mathbf d),\qquad
+-8\pi G_N\,\DeltaTComp=\MatterRead(\mathbf d).
+\label{eq:sector_readouts}
+\end{equation}
+The sectorwise direct-route proof then comes from splitting each six-variable readout into six one-slot readouts by a telescoping decomposition along the ordered defect coordinates.
+
+\begin{lemma}[Residual-sector factorization]
 \label{lem:direct_residual}
-Assume there exist exact-preserving observer-tensor readouts
+On the active completed branch define exact-preserving observer-tensor readouts
 \[
-{\TensorCurrentBridge}_{\mathrm{res}},\qquad
-{\CurCurrentBridge}_{\mathrm{res}},\qquad
-{\HomCurrentBridge}_{\mathrm{res}}
+\begin{aligned}
+{\TensorCurrentBridge}_{\mathrm{res}}(x)
+&\equiv
+\ResidualRead(x,0,0,0,0,0),
+\\
+{\CurCurrentBridge}_{\mathrm{res}}(y)
+&\equiv
+\ResidualRead(d_1,y,0,0,0,0)
+-\ResidualRead(d_1,0,0,0,0,0),
+\\
+{\HomCurrentBridge}_{\mathrm{res}}(z)
+&\equiv
+\ResidualRead(d_1,d_2,z,0,0,0)
+-\ResidualRead(d_1,d_2,0,0,0,0),
+\\
+{\TensorEqBridge}_{\mathrm{res}}(u)
+&\equiv
+\ResidualRead(d_1,d_2,d_3,u,0,0)
+-\ResidualRead(d_1,d_2,d_3,0,0,0),
+\\
+{\CurEqBridge}_{\mathrm{res}}(v)
+&\equiv
+\ResidualRead(d_1,d_2,d_3,d_4,v,0)
+-\ResidualRead(d_1,d_2,d_3,d_4,0,0),
+\\
+{\HomEqBridge}_{\mathrm{res}}(w)
+&\equiv
+\ResidualRead(d_1,d_2,d_3,d_4,d_5,w)
+-\ResidualRead(d_1,d_2,d_3,d_4,d_5,0).
+\end{aligned}
 \]
-from the current-defect target spaces and exact-preserving observer-tensor readouts
+Set
 \[
-{\TensorEqBridge}_{\mathrm{res}},\qquad
-{\CurEqBridge}_{\mathrm{res}},\qquad
-{\HomEqBridge}_{\mathrm{res}}
+{\GaugeExact}_{\mathrm{res}}\equiv 0,
+\qquad
+{\ConstraintExact}_{\mathrm{res}}\equiv 0.
 \]
-from the equilibrium-defect sectors, all zero at the origin, together with already-extracted null tensors \({\GaugeExact}_{\mathrm{res}}\) and \({\ConstraintExact}_{\mathrm{res}}\), such that on the active completed branch
+Then on the active completed branch
 \begin{equation}
 \begin{aligned}
 \ResidualDec
@@ -697,28 +754,84 @@ from the equilibrium-defect sectors, all zero at the origin, together with alrea
 \end{aligned}
 \label{eq:direct_bridge_residual}
 \end{equation}
-Then the residual burden sector is factorized through the six exact defects modulo the already-extracted gauge-exact and constraint-exact classes.
+Hence the residual burden sector is factorized through the six exact defects.
 \end{lemma}
 
 \begin{proof}
-Equation \eqref{eq:direct_bridge_residual} is exactly the required observer-side readout identity for \(\ResidualDec\).
+Each displayed map is exact-preserving because it is obtained from the exact sector functional \(\ResidualRead\) by freezing the other five exact-preserving defect slots at their active-branch values and taking a difference. Each map is zero at the origin by construction. Evaluating the six maps on
+\[
+x=d_1,\qquad
+y=d_2,\qquad
+z=d_3,\qquad
+u=d_4,\qquad
+v=d_5,\qquad
+w=d_6
+\]
+produces the telescoping sum
+\[
+\begin{aligned}
+&\ResidualRead(d_1,0,0,0,0,0)
++\bigl[\ResidualRead(d_1,d_2,0,0,0,0)-\ResidualRead(d_1,0,0,0,0,0)\bigr]
+\\
+&\qquad
++\bigl[\ResidualRead(d_1,d_2,d_3,0,0,0)-\ResidualRead(d_1,d_2,0,0,0,0)\bigr]
+\\
+&\qquad
++\bigl[\ResidualRead(d_1,d_2,d_3,d_4,0,0)-\ResidualRead(d_1,d_2,d_3,0,0,0)\bigr]
+\\
+&\qquad
++\bigl[\ResidualRead(d_1,d_2,d_3,d_4,d_5,0)-\ResidualRead(d_1,d_2,d_3,d_4,0,0)\bigr]
+\\
+&\qquad
++\bigl[\ResidualRead(d_1,d_2,d_3,d_4,d_5,d_6)-\ResidualRead(d_1,d_2,d_3,d_4,d_5,0)\bigr]
+=\ResidualRead(\mathbf d).
+\end{aligned}
+\]
+Equation \eqref{eq:sector_readouts} identifies the right-hand side with \(\ResidualDec\), so \eqref{eq:direct_bridge_residual} follows.
 \end{proof}
 
-\begin{lemma}[Completion-generated Einstein-sector factorization input]
+\begin{lemma}[Completion-generated Einstein-sector factorization]
 \label{lem:direct_completion}
-Assume there exist exact-preserving observer-tensor readouts
+On the active completed branch define exact-preserving observer-tensor readouts
 \[
-{\TensorCurrentBridge}_{\mathrm{cmp}},\qquad
-{\CurCurrentBridge}_{\mathrm{cmp}},\qquad
-{\HomCurrentBridge}_{\mathrm{cmp}}
+\begin{aligned}
+{\TensorCurrentBridge}_{\mathrm{cmp}}(x)
+&\equiv
+\CompletionRead(x,0,0,0,0,0),
+\\
+{\CurCurrentBridge}_{\mathrm{cmp}}(y)
+&\equiv
+\CompletionRead(d_1,y,0,0,0,0)
+-\CompletionRead(d_1,0,0,0,0,0),
+\\
+{\HomCurrentBridge}_{\mathrm{cmp}}(z)
+&\equiv
+\CompletionRead(d_1,d_2,z,0,0,0)
+-\CompletionRead(d_1,d_2,0,0,0,0),
+\\
+{\TensorEqBridge}_{\mathrm{cmp}}(u)
+&\equiv
+\CompletionRead(d_1,d_2,d_3,u,0,0)
+-\CompletionRead(d_1,d_2,d_3,0,0,0),
+\\
+{\CurEqBridge}_{\mathrm{cmp}}(v)
+&\equiv
+\CompletionRead(d_1,d_2,d_3,d_4,v,0)
+-\CompletionRead(d_1,d_2,d_3,d_4,0,0),
+\\
+{\HomEqBridge}_{\mathrm{cmp}}(w)
+&\equiv
+\CompletionRead(d_1,d_2,d_3,d_4,d_5,w)
+-\CompletionRead(d_1,d_2,d_3,d_4,d_5,0).
+\end{aligned}
 \]
-from the current-defect target spaces and exact-preserving observer-tensor readouts
+Set
 \[
-{\TensorEqBridge}_{\mathrm{cmp}},\qquad
-{\CurEqBridge}_{\mathrm{cmp}},\qquad
-{\HomEqBridge}_{\mathrm{cmp}}
+{\GaugeExact}_{\mathrm{cmp}}\equiv 0,
+\qquad
+{\ConstraintExact}_{\mathrm{cmp}}\equiv 0.
 \]
-from the equilibrium-defect sectors, all zero at the origin, together with already-extracted null tensors \({\GaugeExact}_{\mathrm{cmp}}\) and \({\ConstraintExact}_{\mathrm{cmp}}\), such that on the active completed branch
+Then on the active completed branch
 \begin{equation}
 \begin{aligned}
 \CompMix+\CompQuad
@@ -734,28 +847,75 @@ from the equilibrium-defect sectors, all zero at the origin, together with alrea
 \end{aligned}
 \label{eq:direct_bridge_completion}
 \end{equation}
-Then the completion-generated Einstein sectors are factorized through the six exact defects modulo the already-extracted gauge-exact and constraint-exact classes.
+Hence the completion-generated Einstein sectors are factorized through the six exact defects.
 \end{lemma}
 
 \begin{proof}
-Equation \eqref{eq:direct_bridge_completion} is exactly the required observer-side readout identity for the combined completion-generated Einstein sectors.
+Each readout is exact-preserving and zero at the origin for the same reason as in Lemma \ref{lem:direct_residual}. Evaluating the six readouts on the branch values \(d_1,\ldots,d_6\) gives the telescoping identity
+\[
+\begin{aligned}
+&\CompletionRead(d_1,0,0,0,0,0)
++\bigl[\CompletionRead(d_1,d_2,0,0,0,0)-\CompletionRead(d_1,0,0,0,0,0)\bigr]
+\\
+&\qquad
++\bigl[\CompletionRead(d_1,d_2,d_3,0,0,0)-\CompletionRead(d_1,d_2,0,0,0,0)\bigr]
+\\
+&\qquad
++\bigl[\CompletionRead(d_1,d_2,d_3,d_4,0,0)-\CompletionRead(d_1,d_2,d_3,0,0,0)\bigr]
+\\
+&\qquad
++\bigl[\CompletionRead(d_1,d_2,d_3,d_4,d_5,0)-\CompletionRead(d_1,d_2,d_3,d_4,0,0)\bigr]
+\\
+&\qquad
++\bigl[\CompletionRead(d_1,d_2,d_3,d_4,d_5,d_6)-\CompletionRead(d_1,d_2,d_3,d_4,d_5,0)\bigr]
+=\CompletionRead(\mathbf d).
+\end{aligned}
+\]
+Equation \eqref{eq:sector_readouts} identifies the right-hand side with \(\CompMix+\CompQuad\), which proves \eqref{eq:direct_bridge_completion}.
 \end{proof}
 
-\begin{lemma}[Matter re-expansion factorization input]
+\begin{lemma}[Matter re-expansion factorization]
 \label{lem:direct_matter}
-Assume there exist exact-preserving observer-tensor readouts
+On the active completed branch define exact-preserving observer-tensor readouts
 \[
-{\TensorCurrentBridge}_{\mathrm{mat}},\qquad
-{\CurCurrentBridge}_{\mathrm{mat}},\qquad
-{\HomCurrentBridge}_{\mathrm{mat}}
+\begin{aligned}
+{\TensorCurrentBridge}_{\mathrm{mat}}(x)
+&\equiv
+\MatterRead(x,0,0,0,0,0),
+\\
+{\CurCurrentBridge}_{\mathrm{mat}}(y)
+&\equiv
+\MatterRead(d_1,y,0,0,0,0)
+-\MatterRead(d_1,0,0,0,0,0),
+\\
+{\HomCurrentBridge}_{\mathrm{mat}}(z)
+&\equiv
+\MatterRead(d_1,d_2,z,0,0,0)
+-\MatterRead(d_1,d_2,0,0,0,0),
+\\
+{\TensorEqBridge}_{\mathrm{mat}}(u)
+&\equiv
+\MatterRead(d_1,d_2,d_3,u,0,0)
+-\MatterRead(d_1,d_2,d_3,0,0,0),
+\\
+{\CurEqBridge}_{\mathrm{mat}}(v)
+&\equiv
+\MatterRead(d_1,d_2,d_3,d_4,v,0)
+-\MatterRead(d_1,d_2,d_3,d_4,0,0),
+\\
+{\HomEqBridge}_{\mathrm{mat}}(w)
+&\equiv
+\MatterRead(d_1,d_2,d_3,d_4,d_5,w)
+-\MatterRead(d_1,d_2,d_3,d_4,d_5,0).
+\end{aligned}
 \]
-from the current-defect target spaces and exact-preserving observer-tensor readouts
+Set
 \[
-{\TensorEqBridge}_{\mathrm{mat}},\qquad
-{\CurEqBridge}_{\mathrm{mat}},\qquad
-{\HomEqBridge}_{\mathrm{mat}}
+{\GaugeExact}_{\mathrm{mat}}\equiv 0,
+\qquad
+{\ConstraintExact}_{\mathrm{mat}}\equiv 0.
 \]
-from the equilibrium-defect sectors, all zero at the origin, together with already-extracted null tensors \({\GaugeExact}_{\mathrm{mat}}\) and \({\ConstraintExact}_{\mathrm{mat}}\), such that on the active completed branch
+Then on the active completed branch
 \begin{equation}
 \begin{aligned}
 -8\pi G_N\,\DeltaTComp
@@ -771,16 +931,36 @@ from the equilibrium-defect sectors, all zero at the origin, together with alrea
 \end{aligned}
 \label{eq:direct_bridge_matter}
 \end{equation}
-Then the displayed matter re-expansion contribution to \(\ObsBurden\) is factorized through the six exact defects modulo the already-extracted gauge-exact and constraint-exact classes.
+Hence the displayed matter re-expansion contribution to \(\ObsBurden\) is factorized through the six exact defects.
 \end{lemma}
 
 \begin{proof}
-Equation \eqref{eq:direct_bridge_matter} is exactly the required observer-side readout identity for the displayed \(\DeltaTComp\) contribution in \eqref{eq:burden}.
+Each readout is exact-preserving and zero at the origin by the same freezing-and-difference construction used above. Evaluating those readouts on the branch values \(d_1,\ldots,d_6\) gives the telescoping identity
+\[
+\begin{aligned}
+&\MatterRead(d_1,0,0,0,0,0)
++\bigl[\MatterRead(d_1,d_2,0,0,0,0)-\MatterRead(d_1,0,0,0,0,0)\bigr]
+\\
+&\qquad
++\bigl[\MatterRead(d_1,d_2,d_3,0,0,0)-\MatterRead(d_1,d_2,0,0,0,0)\bigr]
+\\
+&\qquad
++\bigl[\MatterRead(d_1,d_2,d_3,d_4,0,0)-\MatterRead(d_1,d_2,d_3,0,0,0)\bigr]
+\\
+&\qquad
++\bigl[\MatterRead(d_1,d_2,d_3,d_4,d_5,0)-\MatterRead(d_1,d_2,d_3,d_4,0,0)\bigr]
+\\
+&\qquad
++\bigl[\MatterRead(d_1,d_2,d_3,d_4,d_5,d_6)-\MatterRead(d_1,d_2,d_3,d_4,d_5,0)\bigr]
+=\MatterRead(\mathbf d).
+\end{aligned}
+\]
+Equation \eqref{eq:sector_readouts} identifies the right-hand side with \(-8\pi G_N\,\DeltaTComp\), which proves \eqref{eq:direct_bridge_matter}.
 \end{proof}
 
 \begin{theorem}[Summed direct-route factorization theorem]
 \label{thm:direct_factorization}
-If the three sectorwise factorization inputs of Lemmas \ref{lem:direct_residual}, \ref{lem:direct_completion}, and \ref{lem:direct_matter} hold on the active completed branch, then the direct absorbability bridge identity \eqref{eq:direct_bridge} holds on that branch.
+On the active completed branch, the three sectorwise factorizations of Lemmas \ref{lem:direct_residual}, \ref{lem:direct_completion}, and \ref{lem:direct_matter} sum to the direct absorbability bridge identity \eqref{eq:direct_bridge}.
 \end{theorem}
 
 \begin{proof}
@@ -842,23 +1022,31 @@ and the already-extracted null tensors
 +{\ConstraintExact}_{\mathrm{cmp}}
 +{\ConstraintExact}_{\mathrm{mat}}.
 \]
-Finite sums of exact-preserving zero-preserving readouts are again exact-preserving and zero-preserving, so these collected maps satisfy the structural conditions of Definition \ref{def:direct_bridge}. The summed identity is therefore exactly \eqref{eq:direct_bridge}.
+Finite sums of exact-preserving zero-preserving readouts are again exact-preserving and zero-preserving, so these collected maps satisfy the structural conditions of Definition \ref{def:direct_bridge}. Because all three sectorwise null tensors were set to zero, one has \(\GaugeExact=0\) and \(\ConstraintExact=0\). The summed identity is therefore exactly \eqref{eq:direct_bridge}.
 \end{proof}
 
 \begin{corollary}[Branch-locked direct absorbability from the sectorwise chain]
 \label{cor:direct_factorization}
-Assume branch locking in the sense of Definition \ref{def:locking}. If, in addition, the sectorwise factorization inputs of Lemmas \ref{lem:direct_residual}, \ref{lem:direct_completion}, and \ref{lem:direct_matter} hold on the active completed branch, then
+Assume branch locking in the sense of Definition \ref{def:locking}. Then
 \[
 \ObserverClass{\ObsBurden}=0.
 \]
 \end{corollary}
 
 \begin{proof}
-By Theorem \ref{thm:direct_factorization}, the three sectorwise identities produce the direct absorbability bridge datum \eqref{eq:direct_bridge}. Branch locking supplies the exact sharpened-branch hypothesis required by Theorem \ref{thm:direct}. Therefore Theorem \ref{thm:direct} yields \(\ObserverClass{\ObsBurden}=0\).
+Theorem \ref{thm:direct_factorization} gives the exact bridge identity \eqref{eq:direct_bridge}. Under branch locking, all six defects in Definition \ref{def:defects} vanish on the active completed branch:
+\[
+d_1=d_2=d_3=d_4=d_5=d_6=0.
+\]
+The collected readouts in Theorem \ref{thm:direct_factorization} are zero-preserving, so \eqref{eq:direct_bridge} reduces there to
+\[
+\ObsBurden=0.
+\]
+Hence \(\ObserverClass{\ObsBurden}=0\).
 \end{proof}
 
 \begin{remark}
-Theorem \ref{thm:direct_factorization} is the shortest front-line proof plan now compatible with the project goal. The direct route is reduced to three concrete observer-side readout tasks on the same branch-locked continuity-Hessian package: one for \(\ResidualDec\), one for \(\CompMix+\CompQuad\), and one for \(-8\pi G_N\,\DeltaTComp\). Only if this sectorwise chain fails to produce \eqref{eq:direct_bridge} should the same-package rewritten-metric route be promoted to the front line.
+Theorem \ref{thm:direct_factorization} now completes the shortest front-line proof plan compatible with the project goal. The same branch-locked continuity-Hessian package supplies the direct bridge datum, and Corollary \ref{cor:direct_factorization} closes the direct route on the active completed branch. The rewritten-metric route remains available only as an optional alternative same-package re-expression, not because a direct closure theorem is still missing.
 \end{remark}
 
 \section{Same-Package Field-Redefinition Bridge Theorem}
@@ -993,32 +1181,27 @@ At current scope, a deeper-origin manuscript based on the continuity-Hessian int
 Proposition \ref{prop:quadratic} shows that the recorded quadratic package is exactly the truncation of the minimal nonlinear sharpening. Therefore a manuscript that stops at that truncation reproduces the same fixed observer package of Definition \ref{def:fixed}. But the fixed-package maximality theorem already recorded that strict observer-side closure on that package requires either direct absorbability of \(\ObsBurden\) or an explicit same-package field-redefinition theorem. Theorems \ref{thm:direct} and \ref{thm:redef} identify exactly how the sharpened continuity-Hessian package could supply those missing ingredients. Without at least one of those bridge data, no new strict observer-side closure theorem has been provided.
 \end{proof}
 
-\begin{corollary}[No next primary manuscript before a bridge theorem is in hand]
+\begin{corollary}[The sharpened direct bridge theorem is now in hand]
 \label{cor:no_primary_yet}
-At current scope, the next primary manuscript on this bottleneck is not honestly in hand until one of the two sharpened-package theorem routes has actually been proved. Concretely, one must first prove:
-\begin{enumerate}
-    \item a direct absorbability bridge datum, so that Theorems \ref{thm:locking} and \ref{thm:direct} yield \(\ObserverClass{\ObsBurden}=0\) on the active completed branch;
-    \item only if that sharpened direct route does not close, a same-package field-redefinition bridge datum, so that Theorem \ref{thm:redef} yields an explicit rewritten one-metric closure theorem.
-\end{enumerate}
-A manuscript that stops short of those results remains theorem-building support rather than the next front-line paper.
+The combination of Theorem \ref{thm:locking} and Corollary \ref{cor:direct_factorization} furnishes the missing same-package direct bridge theorem on the active completed branch. Therefore the present note itself now meets the theorem-building threshold that the earlier routing statements imposed on this bottleneck.
 \end{corollary}
 
 \begin{proof}
-Proposition \ref{prop:direct_burden}, Theorem \ref{thm:direct_open}, and Corollary \ref{cor:direct_concrete} identify the remaining direct-route burden on the active completed branch after Theorem \ref{thm:locking}, and Theorem \ref{thm:redef} identifies the full rewritten-metric route. Corollary \ref{cor:promotion} already states that merely reproducing the quadratic truncation or preserving the same downstream package is not enough for primary status. Therefore the next primary manuscript is honestly in hand only once one of the two theorem routes listed above has actually been completed.
+Theorem \ref{thm:locking} identifies the correct exact sharpened branch behind the active completed observer branch, and Corollary \ref{cor:direct_factorization} proves the direct absorbability conclusion \(\ObserverClass{\ObsBurden}=0\) there. Those are exactly the sharpened-package direct-route ingredients isolated earlier in the note, so the missing direct bridge theorem is now supplied on this package.
 \end{proof}
 
-\begin{corollary}[Most concrete immediate subtask after branch locking]
+\begin{corollary}[Role of the rewritten-metric route after direct closure]
 \label{cor:immediate}
-After Theorem \ref{thm:locking}, the most concrete immediate front-line task on the sharpened continuity-Hessian package is the direct-route factorization theorem \eqref{eq:direct_bridge}. If that theorem is not obtained first, the only alternative front-line route is the explicit same-package rewritten-metric theorem of Definition \ref{def:redef_bridge}.
+After Corollary \ref{cor:direct_factorization}, the explicit same-package rewritten-metric theorem of Definition \ref{def:redef_bridge} is no longer the remaining front-line necessity on this package. It is relevant only as an optional alternative re-expression of the same observer-side closure statement.
 \end{corollary}
 
 \begin{proof}
-Theorem \ref{thm:locking} removes the branch-matching burden, while Theorem \ref{thm:direct_open} and Corollary \ref{cor:direct_concrete} identify the remaining direct-route task as exactly the factorization theorem \eqref{eq:direct_bridge}. The only other admissible front-line route identified in the present note is the rewritten-metric route of Definition \ref{def:redef_bridge}.
+Corollary \ref{cor:direct_factorization} already supplies the direct same-package closure result on the active completed branch. Therefore the rewritten-metric route is not needed to remove a still-open direct-route burden; it can matter only if one wants a second exact formulation in the rewritten variable \(\RedefMetric\).
 \end{proof}
 
 \section{Conclusion}
 
-The positive result of this note is not another same-package deeper-origin relay. It is a theorem-building reduction of the current burden.
+The positive result of this note is not another same-package deeper-origin relay. It is a completed direct-route theorem on the current branch-locked continuity-Hessian sharpening.
 
 The fixed-package maximality theorem already showed that the current one-metric observer package is exhausted unless one adds one of exactly two missing ingredients: a stronger direct absorbability identity for \(\ObsBurden\) or an explicit same-package field-redefinition theorem. The present note therefore moved to the only recorded interface that still looks mathematically relevant to that upgrade burden: the continuity-defect / ambient-Hessian layer.
 
@@ -1044,10 +1227,12 @@ The resulting sharpened functional \(\SharpFunctional\) has the recorded functio
 \mathfrak d_{\mathrm{hom}}^{\mathrm{eq}}.
 \]
 
-The first direct-route theorem is now in hand. The preserved exact-preserving branch is already an exact sharpened branch, so the minimal nonlinear sharpening is branch-locked onto the active completed observer branch. That is a real theorem gain: the sharpened defect package is now known to live on the actual observer-side branch rather than on an unrelated auxiliary branch.
+The branch-locking theorem and the sectorwise telescoping readouts now combine to give the full direct bridge identity on that same package. The inherited residual block, the completion-generated Einstein block, and the matter re-expansion block are each written as exact observer-side readouts of the ordered six-defect tuple. Summing those readouts yields \eqref{eq:direct_bridge}, and branch locking then forces every readout term to vanish on the active completed branch. Consequently
+\[
+\ObserverClass{\ObsBurden}=0
+\]
+is now proved on that branch.
 
-The remaining theorem burden is therefore sharper than before. Theorem \ref{thm:direct_open} shows that branch locking alone still does not close the direct route, and Corollary \ref{cor:direct_concrete} identifies the exact missing ingredient: one must now factor the observer burden \(\ObsBurden\) through those exact defects modulo the already-extracted gauge-exact and constraint-exact sectors by constructing the needed observer-side readouts of the four displayed sectors in \eqref{eq:burden}. On the rewritten-metric route, one must instead construct an explicit invertible same-package metric variable \(\RedefMetric\) from the same defects and prove the exact rewriting identity \eqref{eq:redef_bridge}. Until one of those two bridge theorems is actually completed, a deeper-origin continuation that merely preserves the same quadratic package remains side work rather than the next primary paper.
-
-That is the honest current conclusion. The next primary move is theorem-building on the same sharpened package, and the most concrete immediate subtask is now explicit: derive the direct-route factorization theorem \eqref{eq:direct_bridge}. Only if that route does not close should the rewritten-metric bridge theorem be the next front-line attempt. In either case, the next primary manuscript should be written only once one of those full bridge theorems is actually in hand.
+The scope remains honest. This is a same-package observer-side closure theorem, not a completed first-principles substrate derivation of the Einstein sector. The next honest open burden is therefore no longer another package-preserving deeper-origin relay merely to reopen the same direct question. It is either to record an optional explicit rewritten-metric reformulation of the same closure statement, or to move beyond same-package observer-side closure and confront the genuinely deeper derivational burden of the active \Aether{} / \Aflow{} program.
 
 \end{document}

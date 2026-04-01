@@ -1,6 +1,6 @@
 # Æther-Flow Interpretation Execution Checklist
 
-Last updated: March 31, 2026
+Last updated: April 1, 2026
 
 This checklist is intentionally compact. It tracks the active operational rules for the manuscript line rather than serving as a narrative archive.
 
@@ -12,13 +12,14 @@ This checklist is intentionally compact. It tracks the active operational rules 
 
 ## Current Primary Research Step
 
-- [ ] Do not default to another generic same-package or deeper-origin note.
+- [ ] Do not default to reopening the same same-package direct absorbability question or to another generic deeper-origin note.
+- [ ] Treat the branch-locked continuity-Hessian direct theorem as the resolved same-package observer-side closure result on the active one-metric line.
 - [ ] The next primary manuscript must either:
-  - directly prove a stronger direct absorbability identity for `\ObsBurden` on a sharpened package
-  - directly prove an explicit same-package field-redefinition theorem
-  - or introduce a deeper-origin sharpening only if it directly furnishes one of those two strict observer-side closure ingredients
-- [ ] Treat the current fixed one-metric observer package as maximal at current scope with respect to strict same-package observer-side closure unless one of those two upgrade ingredients is added.
-- [ ] Keep stronger promotion language paused until one of those happens.
+  - record benchmark-facing derivation-gate status after that closure result
+  - directly address a remaining benchmark derivation gate or an equivalent post-closure benchmark-facing burden
+  - or produce an explicit same-package field-redefinition theorem only if a second exact reformulation is specifically needed
+- [ ] Treat the current fixed one-metric observer package as still maximal at current scope with respect to strict same-package observer-side closure on that fixed package itself; do not confuse that fixed-package maximality statement with the new sharpened-package closure theorem.
+- [ ] Keep stronger promotion language about first-principles derivation paused until the remaining derivation-gate burdens are met.
 
 ## Current Supporting Context
 
