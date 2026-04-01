@@ -1,0 +1,403 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\ObserverMetric}{g^{\mathrm{br}}}
+\newcommand{\CandidateMetric}{g^{\mathrm{cand}}}
+\newcommand{\CompletedMetric}{g^{\sharp}}
+\newcommand{\BaseShift}{\Sigma^{\mathrm{IER}}}
+\newcommand{\ResponseShift}{\Sigma^{\mathrm{resp}}}
+\newcommand{\CompShift}{\Sigma^{\mathrm{cmp}}}
+\newcommand{\ResidualCore}{\mathcal V_{\mu\nu}^{\mathrm{res}}}
+\newcommand{\ResidualDec}{\mathcal D_{\mu\nu}^{\mathrm{res}}}
+\newcommand{\MixQuad}{\mathcal M_{\mu\nu}^{\mathrm{mix}}}
+\newcommand{\RespQuad}{\mathcal Q_{\mu\nu}^{\mathrm{resp}}}
+\newcommand{\DeltaTCand}{\Delta T_{\mu\nu}^{\mathrm{cand}}}
+\newcommand{\ReducedEin}{\mathcal L_{\ObserverMetric}}
+\newcommand{\GaugeBook}{\mathcal G_{\ObserverMetric}}
+\newcommand{\CompMix}{\mathcal M_{\mu\nu}^{\mathrm{cmp}}}
+\newcommand{\CompQuad}{\mathcal Q_{\mu\nu}^{\mathrm{cmp}}}
+\newcommand{\DeltaTComp}{\Delta T_{\mu\nu}^{\mathrm{cmp}}}
+\newcommand{\ObsBurden}{\mathfrak B_{\mu\nu}^{\mathrm{obs}}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Substrate-Response / Self-Response Charge-Polarization Candidate\\
+\large Exact-Preservation Observer-Equation Exact Non-Independence / Effective-Equivalence Note}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The previous observer-equation burden sector-classification note proved that every displayed contribution to
+\[
+\ObsBurden
+=
+\ResidualDec+\CompMix+\CompQuad-8\pi G_N\,\DeltaTComp
+\]
+is absent or benchmark-decoupled on the preserved one-metric exact-preservation branch. The sharper next question is exact rather than benchmark facing: do these sectors survive as genuine physics in the exact effective observer theory of the completed branch?
+
+The strongest honest answer currently available on that same line is not the strict tensor identity \(\ObsBurden=0\). The present manuscript does not prove that identity, and it does not claim a literal equation-by-equation reduction to the Einstein equation without remainder. What it does prove is the strongest exact fallback now supported by the recorded branch: every displayed burden sector is \emph{exactly non-independent} at observer level. More precisely, \(\ResidualDec\), \(\CompMix\), \(\CompQuad\), and \(\DeltaTComp\) are all exact functionals of the already fixed response/completion data and the same one operative metric, introduce no second operative metric, no second universal matter law, no extra independent observer equation, and no unsuppressed linear observer mode.
+
+Consequently the completed branch is exactly observer-side effectively equivalent to Einstein--Hilbert plus ordinary matter through the same single operative metric \(\CompletedMetric\), in the precise sense that every term beyond that Einstein--matter sector is either gauge bookkeeping or an exact non-independent sector rather than an additional observer-side law. This is stronger than the previous benchmark-decoupled classification, but still weaker than the unproved identity \(\ObsBurden=0\). No completed first-principles derivation of GR is claimed.
+\end{abstract}
+
+\section{Introduction}
+
+The burden-collapse note reduced the exact-preservation observer equation to one explicit tensor class \(\ObsBurden\). The subsequent sector-classification note then handled the benchmark-facing question: every displayed burden sector is absent or benchmark-decoupled on the same one-metric branch. That was a genuine observer-equation gain, but it still stopped short of the sharper exact question now forced by the project goal. If the branch is to move forward on the same one-metric line, one must ask whether the classified sectors survive as genuine exact observer-side physics, not merely whether they are harmless in the benchmark taxonomy.
+
+The present note addresses exactly that sharper question and nothing else. It does not introduce a deeper origin layer, a new completion solve, or a new branch. It keeps fixed the same candidate metric, the same completed metric, the same completion solve, and the same one operative metric. It asks for the strongest honest exact theorem now available about the already classified burden sectors.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not claim that GR has now been derived from substrate microphysics. It does not claim the strict tensor identity \(\ObsBurden=0\). Its exact positive claim is narrower and more honest: the classified burden sectors do not survive as additional independent observer-side physics on the completed branch, even though their literal vanishing has not been proved.
+
+\section{Fixed Completed-Branch Inputs}
+
+\begin{definition}[Fixed one-metric exact-preservation package]
+\label{def:fixed}
+The present note treats the following observer-level data as fixed inputs from the same exact-preservation line.
+\begin{enumerate}
+    \item The candidate and completed operative metrics are
+    \begin{equation}
+    \CandidateMetric
+    =
+    \ObserverMetric+\BaseShift+\ResponseShift,
+    \qquad
+    \CompletedMetric
+    =
+    \ObserverMetric+\BaseShift+\ResponseShift+\CompShift.
+    \label{eq:metrics}
+    \end{equation}
+    \item The fixed completion solve is
+    \begin{equation}
+    \ReducedEin(\CompShift)=-\ResidualCore.
+    \label{eq:solve}
+    \end{equation}
+    \item The candidate and completed observer equations are
+    \begin{equation}
+    G_{\mu\nu}[\CandidateMetric]
+    =
+    8\pi G_N\,T_{\mu\nu}^{\mathrm{matter}}[\CandidateMetric,\psi]
+    +\ResidualCore+\ResidualDec,
+    \label{eq:candidate}
+    \end{equation}
+    and
+    \begin{equation}
+    G_{\mu\nu}[\CompletedMetric]
+    =
+    8\pi G_N\,T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
+    +\GaugeBook(\CompShift)_{\mu\nu}
+    +\ObsBurden,
+    \label{eq:completed}
+    \end{equation}
+    with
+    \begin{equation}
+    \ObsBurden
+    \equiv
+    \ResidualDec+\CompMix+\CompQuad-8\pi G_N\,\DeltaTComp.
+    \label{eq:burden}
+    \end{equation}
+    \item The same one operative metric and ordinary matter route are preserved: matter and light couple only through \(\CompletedMetric\), and
+    \begin{equation}
+    \DeltaTComp
+    \equiv
+    T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
+    -
+    T_{\mu\nu}^{\mathrm{matter}}[\CandidateMetric,\psi]
+    \label{eq:deltatcomp}
+    \end{equation}
+    is only same-metric matter re-expansion rather than a second source law.
+    \item The inherited block \(\ResidualDec\) already has the exact candidate-branch decomposition
+    \begin{equation}
+    \ResidualDec
+    =
+    \MixQuad+\RespQuad-8\pi G_N\,\DeltaTCand,
+    \label{eq:resdec}
+    \end{equation}
+    where \(\MixQuad\) is bilinear in \(\BaseShift\) and \(\ResponseShift\), \(\RespQuad\) is at least quadratic in \(\ResponseShift\), and \(\DeltaTCand\) is the candidate-branch same-metric matter re-expansion term.
+    \item The gauge-exact bookkeeping tensor \(\GaugeBook(\CompShift)\) is already separated explicitly in \eqref{eq:completed}, and the constraint-exact elimination sectors have already been removed before \(\ObsBurden\) is defined.
+    \item On the admissible homogeneous benchmark background,
+    \begin{equation}
+    \delta\ResponseShift_{\mu\nu}=0,
+    \qquad
+    \delta\CompShift_{\mu\nu}=0,
+    \label{eq:linearzero}
+    \end{equation}
+    so the response/completion sectors add no independent unsuppressed linear observer mode.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:fixed} records the exact structural input needed below. Unlike the previous benchmark-decoupling note, the present manuscript will not use infrared order bounds as part of its primary definition. The goal here is exact observer-theory status, not controlled-family size estimates.
+\end{remark}
+
+\section{Exact Observer-Theory Notions}
+
+\begin{definition}[Exact non-independent observer sector]
+\label{def:nonind}
+An observer-side tensor sector \(X_{\mu\nu}\) on the fixed branch of Definition \ref{def:fixed} is \emph{exactly non-independent} if all of the following hold.
+\begin{enumerate}
+    \item \(X_{\mu\nu}\) is an exact functional only of the already fixed branch data \((\BaseShift,\ResponseShift,\CompShift,\CompletedMetric,\psi)\) and introduces no additional observer variable.
+    \item \(X_{\mu\nu}\) contributes no independent observer-side equation of motion beyond the completed metric equation \eqref{eq:completed}.
+    \item \(X_{\mu\nu}\) introduces no second operative metric and no second universal matter law.
+    \item \(X_{\mu\nu}\) carries no independent unsuppressed linear observer mode on the admissible homogeneous benchmark background.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:nonind} is stronger than the previous benchmark-decoupled classification in one direction and weaker in another. It is stronger because it is an exact structural notion, not an infrared-family notion. It is weaker because it does not claim literal vanishing. It says only that a sector is not a new independent observer-side law or field content.
+\end{remark}
+
+\begin{definition}[Exact observer-side effective equivalence]
+\label{def:equiv}
+The completed observer description is \emph{exactly observer-side effectively equivalent} to Einstein--Hilbert plus ordinary matter if:
+\begin{enumerate}
+    \item the operative metric is exactly the same single metric \(\CompletedMetric\);
+    \item the ordinary matter route is exactly the same route \(T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]\);
+    \item the unsuppressed linear observer content is exactly the same as that of the already-screened one-metric branch;
+    \item every term beyond the Einstein--matter sector in the exact observer equation is either gauge exact, constraint exact, or exactly non-independent in the sense of Definition \ref{def:nonind}.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:equiv} is an observer-theory statement about exact field content and exact operative law. It does \emph{not} mean that the stronger tensor identity
+\[
+G_{\mu\nu}[\CompletedMetric]
+=
+8\pi G_N\,T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
+\]
+has already been proved term by term.
+\end{remark}
+
+\section{Why the Strict Identity Is Not Yet Proved}
+
+\begin{proposition}[The present branch does not yet prove \texorpdfstring{\(\ObsBurden=0\)}{ObsBurden=0}]
+\label{prop:nozero}
+The existing exact-preservation package does not presently justify the strict identity
+\begin{equation}
+\ObsBurden=0
+\label{eq:nozero}
+\end{equation}
+on the full completed branch. Consequently it does not yet justify a literal tensor identity between \eqref{eq:completed} and the pure Einstein equation without remainder.
+\end{proposition}
+
+\begin{proof}
+The previous burden sector-classification note proves that \(\ResidualDec\), \(\CompMix\), \(\CompQuad\), and \(\DeltaTComp\) are benchmark-decoupled on the full branch and gives controlled-family size estimates for them. It does \emph{not} prove exact full-branch vanishing of any of those sectors, except for the special matter-free statement that \(\DeltaTComp=0\) there. In particular, the recorded full-branch statements are structural and infrared-order statements, not identities
+\[
+\ResidualDec=0,
+\qquad
+\CompMix=0,
+\qquad
+\CompQuad=0,
+\qquad
+\DeltaTComp=0.
+\]
+Without those stronger equalities, the sum \eqref{eq:burden} cannot honestly be claimed to vanish identically. Therefore \eqref{eq:nozero} is not presently proved.
+\end{proof}
+
+\begin{remark}
+Proposition \ref{prop:nozero} is not a negative verdict on the completed branch. It identifies the exact claim boundary. The branch now supports a stronger exact theorem than the earlier benchmark-decoupled note, but that stronger theorem is the non-independence / effective-equivalence theorem proved below, not the unproved literal identity \(\ObsBurden=0\).
+\end{remark}
+
+\section{Exact Non-Independence of the Displayed Sectors}
+
+\begin{proposition}[Gauge bookkeeping remains gauge exact]
+\label{prop:gauge}
+On the fixed completed branch, \(\GaugeBook(\CompShift)\) is gauge exact rather than an additional observer-side law.
+\end{proposition}
+
+\begin{proof}
+This is already part of the exact decomposition recorded in Definition \ref{def:fixed}: the completed observer equation \eqref{eq:completed} isolates \(\GaugeBook(\CompShift)\) precisely as the bookkeeping tensor attached to the reduced completion operator \(\ReducedEin\). It is therefore gauge bookkeeping by construction, not a second dynamical observer equation.
+\end{proof}
+
+\begin{proposition}[The completion-generated sectors are exactly non-independent]
+\label{prop:completion}
+On the fixed completed branch, the sectors \(\CompMix\), \(\CompQuad\), and \(\DeltaTComp\) are exactly non-independent in the sense of Definition \ref{def:nonind}.
+\end{proposition}
+
+\begin{proof}
+The tensors \(\CompMix\) and \(\CompQuad\) are exact nonlinear Einstein re-expansion sectors built only from the already fixed shifts \(\BaseShift\), \(\ResponseShift\), and \(\CompShift\). They therefore introduce no additional observer variable and no additional observer-side field equation beyond \eqref{eq:completed}. They also do not define a second operative metric: they are constructed entirely on the same completed metric branch \(\CompletedMetric=\ObserverMetric+\BaseShift+\ResponseShift+\CompShift\).
+
+For \(\DeltaTComp\), Definition \ref{def:fixed} states explicitly that it is only the re-expansion
+\[
+T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
+-
+T_{\mu\nu}^{\mathrm{matter}}[\CandidateMetric,\psi]
+\]
+of the same ordinary matter law under the same one operative metric route. Hence \(\DeltaTComp\) is not a second matter law and does not create a new observer-side source sector.
+
+Finally, \eqref{eq:linearzero} gives \(\delta\CompShift_{\mu\nu}=0\) on the admissible homogeneous benchmark background, and the recorded one-metric exact-preservation line already fixes that no new unsuppressed linear observer sector is introduced by the completion. Therefore \(\CompMix\), \(\CompQuad\), and \(\DeltaTComp\) satisfy all four items of Definition \ref{def:nonind}.
+\end{proof}
+
+\begin{proposition}[The inherited sector \texorpdfstring{\(\ResidualDec\)}{ResidualDec} is exactly non-independent]
+\label{prop:resdec}
+On the fixed completed branch, the inherited sector \(\ResidualDec\) is exactly non-independent.
+\end{proposition}
+
+\begin{proof}
+By Definition \ref{def:fixed}, the exact candidate-branch decomposition of \(\ResidualDec\) is
+\[
+\ResidualDec
+=
+\MixQuad+\RespQuad-8\pi G_N\,\DeltaTCand.
+\]
+Here \(\MixQuad\) is bilinear in \(\BaseShift\) and \(\ResponseShift\), while \(\RespQuad\) is at least quadratic in \(\ResponseShift\). These are therefore exact functionals only of the already fixed response data and introduce no new observer variable and no second observer-side equation. The term \(\DeltaTCand\) is the candidate-branch same-metric matter re-expansion term, so it is again not a second matter law and introduces no second operative metric.
+
+Moreover, the response sector carries no independent unsuppressed linear observer mode by \eqref{eq:linearzero}. Therefore none of the three displayed pieces introduces an independent linear observer branch. Since \(\ResidualDec\) is exactly their sum, it satisfies all four items of Definition \ref{def:nonind}.
+\end{proof}
+
+\begin{proposition}[Finite sums preserve exact non-independence]
+\label{prop:sum}
+If \(X_{\mu\nu}\) and \(Y_{\mu\nu}\) are exactly non-independent on the fixed branch, then \(X_{\mu\nu}+Y_{\mu\nu}\) is exactly non-independent as well.
+\end{proposition}
+
+\begin{proof}
+Items (1)--(4) of Definition \ref{def:nonind} are preserved under finite sums: the sum of exact functionals of the same fixed branch data is again such a functional, the sum introduces no additional observer equation beyond the same completed metric equation, no second operative metric or matter law is created, and no unsuppressed linear observer mode appears if none was present in the summands.
+\end{proof}
+
+\begin{theorem}[Exact non-independence of the completed observer burden]
+\label{thm:burden}
+On the fixed one-metric exact-preservation branch, the completed observer burden
+\[
+\ObsBurden
+=
+\ResidualDec+\CompMix+\CompQuad-8\pi G_N\,\DeltaTComp
+\]
+is exactly non-independent.
+\end{theorem}
+
+\begin{proof}
+Proposition \ref{prop:resdec} shows that \(\ResidualDec\) is exactly non-independent. Proposition \ref{prop:completion} shows the same for \(\CompMix\), \(\CompQuad\), and \(\DeltaTComp\). Proposition \ref{prop:sum} then implies that the finite sum \eqref{eq:burden} is exactly non-independent.
+\end{proof}
+
+\begin{corollary}[No additional independent observer-side field content survives in \texorpdfstring{\(\ObsBurden\)}{ObsBurden}]
+\label{cor:nophysics}
+On the completed branch, \(\ObsBurden\) does not survive as an additional independent observer-side metric law, matter law, or linear field content. It survives only as an exact non-independent sector of the same one-metric completed observer equation.
+\end{corollary}
+
+\begin{proof}
+This is exactly the content of Theorem \ref{thm:burden} unpacked into the three observer-theory categories relevant at current scope: operative metric, matter route, and unsuppressed linear observer content.
+\end{proof}
+
+\section{Exact Observer-Side Effective-Equivalence Theorem}
+
+\begin{theorem}[Completed-branch exact observer-side effective equivalence]
+\label{thm:equiv}
+In the sense of Definition \ref{def:equiv}, the fixed completed branch is exactly observer-side effectively equivalent to Einstein--Hilbert plus ordinary matter through the single operative metric \(\CompletedMetric\).
+\end{theorem}
+
+\begin{proof}
+Definition \ref{def:fixed} already gives items (1) and (2) of Definition \ref{def:equiv}: the operative metric is exactly \(\CompletedMetric\), and the ordinary matter route is exactly \(T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]\). Equation \eqref{eq:linearzero} together with the fixed one-metric exact-preservation package gives item (3): no new unsuppressed linear observer mode is introduced by the response/completion sectors.
+
+For item (4), Proposition \ref{prop:gauge} shows that \(\GaugeBook(\CompShift)\) is gauge exact. Definition \ref{def:fixed} records that the constraint-exact elimination sectors have already been removed before \(\ObsBurden\) is written. Theorem \ref{thm:burden} then shows that the remaining explicit burden \(\ObsBurden\) is exactly non-independent. Therefore every term beyond the Einstein--matter sector in the exact observer equation \eqref{eq:completed} is either gauge exact, constraint exact, or exactly non-independent. This is precisely the effective-equivalence criterion of Definition \ref{def:equiv}.
+\end{proof}
+
+\begin{corollary}[The strongest honest exact theorem on the present one-metric line]
+\label{cor:strongest}
+At current manuscript scope, the strongest honest exact observer-side theorem on the completed branch is Theorem \ref{thm:equiv}, not the stronger identity \(\ObsBurden=0\).
+\end{corollary}
+
+\begin{proof}
+Theorem \ref{thm:equiv} is proved above. Proposition \ref{prop:nozero} shows that the stronger identity \(\ObsBurden=0\) is not presently justified. Therefore the exact observer-side effective-equivalence theorem is the strongest honest theorem now available on the same one-metric line.
+\end{proof}
+
+\begin{remark}
+Theorem \ref{thm:equiv} sharpens the previous benchmark-decoupled classification in the exact direction the project now requires. The burden sectors are no longer treated only as benchmark-safe; they are now shown not to define additional independent observer-side physics on the exact completed branch. But the theorem still stops short of literal tensor identity, so stronger promotion language remains paused.
+\end{remark}
+
+\section{Gate Consequence and Claim Boundary}
+
+\begin{theorem}[Observer-side gate consequence on the completed branch]
+\label{thm:gate}
+For the exact observer theory of the completed one-metric branch, the sectors \(\ResidualDec\), \(\CompMix\), \(\CompQuad\), and \(\DeltaTComp\) do not survive as genuine additional observer-side physics. More precisely:
+\begin{enumerate}
+    \item \(\GaugeBook(\CompShift)\) is gauge exact;
+    \item no hidden constraint-exact sector remains inside \(\ObsBurden\);
+    \item \(\ObsBurden\) is exactly non-independent;
+    \item therefore the exact completed observer theory carries no additional independent observer-side metric law, matter law, or unsuppressed linear field content beyond the one-metric Einstein--matter sector.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Item (1) is Proposition \ref{prop:gauge}. Item (2) is part of the fixed package in Definition \ref{def:fixed}. Item (3) is Theorem \ref{thm:burden}. Item (4) is then Corollary \ref{cor:nophysics} together with Theorem \ref{thm:equiv}.
+\end{proof}
+
+\begin{corollary}[What this note does and does not claim]
+\label{cor:scope}
+The present note proves a genuine exact observer-side non-independence / effective-equivalence theorem on the same one-metric branch, but it does not claim:
+\begin{enumerate}
+    \item the strict tensor identity \(\ObsBurden=0\);
+    \item a literal equation-by-equation equality with the pure Einstein equation without remainder;
+    \item a completed first-principles substrate derivation of GR.
+\end{enumerate}
+Its exact positive claim is narrower: the classified burden sectors do not survive as additional independent observer-side physics in the exact effective observer theory of the completed branch.
+\end{corollary}
+
+\begin{proof}
+The positive claim is Theorems \ref{thm:burden}, \ref{thm:equiv}, and \ref{thm:gate}. Item (1) is excluded by Proposition \ref{prop:nozero}. Item (2) is excluded for the same reason. Item (3) is excluded by the project-wide adoption/derivation boundary stated in the introduction.
+\end{proof}
+
+\begin{theorem}[Exact observer-side verdict]
+\label{thm:verdict}
+At the disciplined scope of the present note, the exact positive result is the following.
+\begin{enumerate}
+    \item The same candidate metric, the same completed metric, the same completion solve, and the same one operative metric are kept fixed.
+    \item The strict identity \(\ObsBurden=0\) is not presently justified on the full completed branch.
+    \item The bookkeeping tensor \(\GaugeBook(\CompShift)\) is gauge exact.
+    \item The inherited sector \(\ResidualDec\) and the completion-generated sectors \(\CompMix\), \(\CompQuad\), and \(\DeltaTComp\) are exactly non-independent observer sectors.
+    \item Therefore \(\ObsBurden\) itself is exactly non-independent.
+    \item Consequently the exact completed observer theory is observer-side effectively equivalent to Einstein--Hilbert plus ordinary matter through the same one operative metric \(\CompletedMetric\).
+    \item In that precise sense, the benchmark-decoupled sectors of the previous note do not survive as genuine additional observer-side physics on the exact completed branch.
+    \item Stronger promotion language is still not justified here, because the note does not prove the literal tensor identity \(\ObsBurden=0\) and does not claim a completed first-principles derivation of GR.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Item (1) is Definition \ref{def:fixed}. Item (2) is Proposition \ref{prop:nozero}. Item (3) is Proposition \ref{prop:gauge}. Item (4) is Propositions \ref{prop:completion} and \ref{prop:resdec}. Item (5) is Theorem \ref{thm:burden}. Item (6) is Theorem \ref{thm:equiv}. Item (7) is Theorem \ref{thm:gate}. Item (8) is Corollary \ref{cor:scope}.
+\end{proof}
+
+\section{Conclusion}
+
+The previous burden sector-classification note settled the benchmark-facing status of \(\ObsBurden\), but it left open the sharper exact question now required by the project goal: whether those sectors survive as genuine physics in the exact effective observer theory of the completed branch. The present manuscript answers that question at the strongest honest level currently supported by the branch.
+
+The answer is not the strict tensor identity \(\ObsBurden=0\). That identity is still unproved on the full branch and is not claimed here. The exact positive theorem is different: the displayed burden sectors are all exactly non-independent. They are exact functionals of already fixed response/completion data and the same one operative metric, introduce no second operative metric, no second matter law, no extra independent observer equation, and no unsuppressed linear observer mode. In that precise sense, they do not survive as additional independent observer-side physics.
+
+This sharpens the one-metric observer-equation line beyond the previous benchmark-decoupled classification. The completed branch is now shown to be exactly observer-side effectively equivalent to Einstein--Hilbert plus ordinary matter through the same operative metric \(\CompletedMetric\), even though the stronger literal tensor identity has not been proved. The next honest primary burden is therefore exactly what remains after this sharpening: either prove the still-open strict identity \(\ObsBurden=0\) on the completed branch, or, if that cannot be done honestly, switch to a genuine necessity, uniqueness, or compression theorem for the current exact-preservation package.
+
+\end{document}
