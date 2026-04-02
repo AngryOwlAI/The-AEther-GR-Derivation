@@ -1,0 +1,797 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+
+\newcommand{\CompletedMetric}{g^{\sharp}}
+\newcommand{\MatterSpace}{\Psi}
+
+\newcommand{\Car}{\mathrm{car}}
+\newcommand{\Cur}{\mathrm{cur}}
+\newcommand{\Hom}{\mathrm{hom}}
+
+\newcommand{\ForSpace}[1]{\mathcal I_{#1}^{\mathrm{for}}}
+\newcommand{\PrimShell}{\mathcal S_{\mathrm{prim}}}
+
+\newcommand{\Reduction}[1]{\mathcal R_{#1}}
+\newcommand{\CurrentCarrier}[1]{\mathfrak C_{#1}^{\mathrm{cur}}}
+\newcommand{\EqCarrier}[1]{\mathfrak C_{#1}^{\mathrm{eq}}}
+
+\newcommand{\MetricOut}{\mathscr G_{\mathrm{out}}}
+\newcommand{\MatterOut}{\mathscr T_{\mathrm{out}}}
+
+\newcommand{\VisibleAffine}[1]{\widehat X_{#1}}
+\newcommand{\DataSpace}[1]{\mathcal Y_{#1}^{\mathrm{obs}}}
+\newcommand{\AmbientTarget}[1]{E_{#1}^{\mathrm{amb}}}
+
+\newcommand{\SubSpace}[1]{\mathcal M_{#1}^{\mathrm{sub}}}
+\newcommand{\SubBody}[1]{\mathcal B_{#1}^{\mathrm{sub}}}
+\newcommand{\SubTarget}[1]{E_{#1}^{\mathrm{sub}}}
+\newcommand{\SubPair}[1]{\mathfrak s_{#1}^{\mathrm{sub}}}
+
+\newcommand{\LiftSpace}[1]{\mathcal L_{#1}^{\mathrm{lift}}}
+\newcommand{\LiftBody}[1]{\mathcal B_{#1}^{\mathrm{lift}}}
+\newcommand{\PrecSpace}[1]{\mathcal P_{#1}^{\mathrm{prec}}}
+\newcommand{\PrecBody}[1]{\mathcal B_{#1}^{\mathrm{prec}}}
+\newcommand{\OrigSpace}[1]{\mathcal O_{#1}^{\mathrm{orig}}}
+\newcommand{\OrigBody}[1]{\mathcal B_{#1}^{\mathrm{orig}}}
+
+\newcommand{\GroundSpace}[1]{\mathcal G_{#1}^{\mathrm{grd}}}
+\newcommand{\GroundBody}[1]{\mathcal B_{#1}^{\mathrm{grd}}}
+\newcommand{\GroundProj}[1]{\Pi_{#1}^{\mathrm{grd}}}
+\newcommand{\GroundOrigMin}[1]{\mathfrak f_{#1}^{\mathrm{grd,orig}}}
+\newcommand{\GroundPrecMin}[1]{\mathfrak f_{#1}^{\mathrm{grd,prec}}}
+\newcommand{\GroundLiftMin}[1]{\mathfrak f_{#1}^{\mathrm{grd,lift}}}
+\newcommand{\GroundSubMin}[1]{\mathfrak m_{#1}^{\mathrm{grd}}}
+\newcommand{\GroundSection}[1]{\Gamma_{#1}^{\mathrm{grd}}}
+\newcommand{\GroundFunctional}[1]{\mathscr W_{#1}^{\mathrm{grd}}}
+\newcommand{\GroundData}[1]{\Lambda_{#1}^{\mathrm{grd,dat}}}
+\newcommand{\GroundShellMap}[1]{\Lambda_{#1}^{\mathrm{grd,sh}}}
+\newcommand{\GroundShellSet}[1]{\mathcal Z_{#1}^{\mathrm{grd}}}
+\newcommand{\GroundChart}[1]{\Xi_{#1}^{\mathrm{grd}}}
+\newcommand{\GroundSupport}[1]{\Theta_{#1}^{\mathrm{grd,sup}}}
+\newcommand{\GroundSupportShell}[1]{\mathcal Z_{#1}^{\mathrm{grd,sup}}}
+\newcommand{\GroundZeroCore}[1]{\mathcal Z_{#1}^{0,\mathrm{grd}}}
+\newcommand{\GroundEqChart}[1]{\Psi_{#1}^{\mathrm{grd,sup}}}
+\newcommand{\GroundZeroChart}[1]{\Psi_{#1}^{0,\mathrm{grd}}}
+\newcommand{\GroundSplit}[1]{\Phi_{#1}^{\mathrm{grd}}}
+\newcommand{\GroundCharge}[1]{\mathcal Q_{#1}^{\mathrm{grd}}}
+\newcommand{\GroundResidual}[1]{\mathcal R_{#1}^{\mathrm{grd}}}
+\newcommand{\GroundEmbed}[1]{\zeta_{#1}^{\mathrm{grd}}}
+\newcommand{\GroundKernelCh}[1]{\widetilde K_{#1}^{0,\mathrm{grd}}}
+\newcommand{\GroundStateComp}[1]{P_{#1}^{\mathrm{grd,co}}}
+
+\newcommand{\FoundSpace}[1]{\mathcal F_{#1}^{\mathrm{fdn}}}
+\newcommand{\FoundBody}[1]{\mathcal B_{#1}^{\mathrm{fdn}}}
+\newcommand{\FoundProj}[1]{\Pi_{#1}^{\mathrm{fdn}}}
+\newcommand{\FoundGroundMin}[1]{\mathfrak f_{#1}^{\mathrm{fdn,grd}}}
+\newcommand{\FoundOrigMin}[1]{\mathfrak f_{#1}^{\mathrm{fdn,orig}}}
+\newcommand{\FoundPrecMin}[1]{\mathfrak f_{#1}^{\mathrm{fdn,prec}}}
+\newcommand{\FoundLiftMin}[1]{\mathfrak f_{#1}^{\mathrm{fdn,lift}}}
+\newcommand{\FoundSubMin}[1]{\mathfrak m_{#1}^{\mathrm{fdn}}}
+\newcommand{\FoundSection}[1]{\Gamma_{#1}^{\mathrm{fdn}}}
+\newcommand{\FoundFunctional}[1]{\mathscr W_{#1}^{\mathrm{fdn}}}
+\newcommand{\FoundData}[1]{\Lambda_{#1}^{\mathrm{fdn,dat}}}
+\newcommand{\FoundShellMap}[1]{\Lambda_{#1}^{\mathrm{fdn,sh}}}
+\newcommand{\FoundSym}[1]{\mathbb G_{#1}^{\mathrm{fdn}}}
+\newcommand{\FoundTime}[1]{\vartheta_{#1}^{\mathrm{fdn}}}
+\newcommand{\FoundShellSet}[1]{\mathcal Z_{#1}^{\mathrm{fdn}}}
+\newcommand{\FoundChart}[1]{\Xi_{#1}^{\mathrm{fdn}}}
+\newcommand{\FoundSupport}[1]{\Theta_{#1}^{\mathrm{fdn,sup}}}
+\newcommand{\FoundSupportShell}[1]{\mathcal Z_{#1}^{\mathrm{fdn,sup}}}
+\newcommand{\FoundZeroCore}[1]{\mathcal Z_{#1}^{0,\mathrm{fdn}}}
+\newcommand{\FoundEqChart}[1]{\Psi_{#1}^{\mathrm{fdn,sup}}}
+\newcommand{\FoundZeroChart}[1]{\Psi_{#1}^{0,\mathrm{fdn}}}
+\newcommand{\FoundSplit}[1]{\Phi_{#1}^{\mathrm{fdn}}}
+\newcommand{\FoundCharge}[1]{\mathcal Q_{#1}^{\mathrm{fdn}}}
+\newcommand{\FoundResidual}[1]{\mathcal R_{#1}^{\mathrm{fdn}}}
+\newcommand{\FoundEmbed}[1]{\zeta_{#1}^{\mathrm{fdn}}}
+\newcommand{\FoundKernelCh}[1]{\widetilde K_{#1}^{0,\mathrm{fdn}}}
+\newcommand{\FoundStateComp}[1]{P_{#1}^{\mathrm{fdn,co}}}
+
+\newcommand{\RootSpace}[1]{\mathcal R_{#1}^{\mathrm{rt}}}
+\newcommand{\RootBody}[1]{\mathcal B_{#1}^{\mathrm{rt}}}
+\newcommand{\RootProj}[1]{\Pi_{#1}^{\mathrm{rt}}}
+\newcommand{\RootFoundMin}[1]{\mathfrak f_{#1}^{\mathrm{rt,fdn}}}
+\newcommand{\RootGroundMin}[1]{\mathfrak f_{#1}^{\mathrm{rt,grd}}}
+\newcommand{\RootOrigMin}[1]{\mathfrak f_{#1}^{\mathrm{rt,orig}}}
+\newcommand{\RootPrecMin}[1]{\mathfrak f_{#1}^{\mathrm{rt,prec}}}
+\newcommand{\RootLiftMin}[1]{\mathfrak f_{#1}^{\mathrm{rt,lift}}}
+\newcommand{\RootSubMin}[1]{\mathfrak m_{#1}^{\mathrm{rt}}}
+\newcommand{\RootSection}[1]{\Gamma_{#1}^{\mathrm{rt}}}
+\newcommand{\RootFunctional}[1]{\mathscr W_{#1}^{\mathrm{rt}}}
+\newcommand{\RootData}[1]{\Lambda_{#1}^{\mathrm{rt,dat}}}
+\newcommand{\RootShellMap}[1]{\Lambda_{#1}^{\mathrm{rt,sh}}}
+\newcommand{\RootSym}[1]{\mathbb G_{#1}^{\mathrm{rt}}}
+\newcommand{\RootTime}[1]{\vartheta_{#1}^{\mathrm{rt}}}
+\newcommand{\RootShellSet}[1]{\mathcal Z_{#1}^{\mathrm{rt}}}
+\newcommand{\RootChart}[1]{\Xi_{#1}^{\mathrm{rt}}}
+\newcommand{\RootSupport}[1]{\Theta_{#1}^{\mathrm{rt,sup}}}
+\newcommand{\RootSupportShell}[1]{\mathcal Z_{#1}^{\mathrm{rt,sup}}}
+\newcommand{\RootZeroCore}[1]{\mathcal Z_{#1}^{0,\mathrm{rt}}}
+\newcommand{\RootEqChart}[1]{\Psi_{#1}^{\mathrm{rt,sup}}}
+\newcommand{\RootZeroChart}[1]{\Psi_{#1}^{0,\mathrm{rt}}}
+\newcommand{\RootSplit}[1]{\Phi_{#1}^{\mathrm{rt}}}
+\newcommand{\RootCharge}[1]{\mathcal Q_{#1}^{\mathrm{rt}}}
+\newcommand{\RootResidual}[1]{\mathcal R_{#1}^{\mathrm{rt}}}
+\newcommand{\RootEmbed}[1]{\zeta_{#1}^{\mathrm{rt}}}
+\newcommand{\RootKernelCh}[1]{\widetilde K_{#1}^{0,\mathrm{rt}}}
+\newcommand{\RootStateComp}[1]{P_{#1}^{\mathrm{rt,co}}}
+
+\newcommand{\ResSpace}[1]{\mathcal U_{#1}^{\mathrm{sup,res}}}
+\newcommand{\ResTarget}[1]{S_{#1}^{\mathrm{sup,res}}}
+\newcommand{\SeedHidden}[1]{\mathcal H_{#1}^{\mathrm{sup}}}
+\newcommand{\SeedHiddenBody}[1]{D_{#1}^{\mathrm{sup}}}
+
+\newcommand{\EqnSpace}[1]{\mathcal U_{#1}^{\mathrm{eqn}}}
+\newcommand{\EqnTarget}[1]{Q_{#1}^{\mathrm{eqn}}}
+\newcommand{\EqnData}[1]{\Lambda_{#1}^{\mathrm{eqn,dat}}}
+\newcommand{\EqnShell}[1]{\Lambda_{#1}^{\mathrm{eqn,sh}}}
+\newcommand{\EqnHidden}[1]{H_{#1}^{\mathrm{eqn}}}
+\newcommand{\EqnZero}[1]{V_{#1}^{\mathrm{eqn},0}}
+\newcommand{\HiddenChart}[1]{\Psi_{#1}^{\mathrm{hid}}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Primitive-Reservoir Observer-Reduction\\
+\large Ground-Generating Substrate Foundation Dynamics\\
+\large from Foundation-Generating Substrate Root Dynamics}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The routing layer now treats the foundation necessity / uniqueness theorem as the live benchmark-facing frontier on the active primitive-reservoir observer-reduction line. That theorem already spent the honest internal-compression move at foundation scope: the benchmark-relevant foundation core is no longer free once the fixed ground package is required. After that result, another shell-, lift-, support-, reservoir-, or ground-level restatement would no longer count as the right next move, nor would a reopening of stationary reduction, stationary Hessians, spectral generators, or selector mechanics. The clean remaining task is to go below the current foundation frontier itself.
+
+The present note takes exactly that deeper route. For each sector it introduces foundation-generating substrate root dynamics: a compact convex root body over the recorded foundation state space, unique root minimizers on the fixed foundation, ground, origin, precursor, lift, and substrate fibers, a smooth root restriction section, affine root observer-data and shell-response readouts constant on root fibers over the same foundation point, symmetry and time reversal, an exact root shell projecting diffeomorphically to the exact foundation shell, a root shell chart to the same reservoir space, a root shell-internal support recorder, a root support shell with zero-core / hidden-seed decomposition in the same equation variables, a root hidden charge with positive gap, an observer-compatible exact root zero-response realization, fixed-data solvability, and coercive control on root data-invisible directions.
+
+From that deeper root package the recorded ground-generating substrate foundation dynamics are recovered canonically by projected exact-shell transport. Consequently the honest burden moves below the foundation layer itself rather than back upward into already settled lower packages. The benchmark boundary remains unchanged throughout: the one operative metric is still exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, and the low-energy matter law is not enlarged. This remains a disciplined derivational gain inside the active program of \TheoryName{}, not a license for stronger promotion language. The next honest burden is deeper again: derive or justify the foundation-generating substrate root dynamics from still more primitive substrate structure, or else prove a sharper inevitability theorem at that root level.
+\end{abstract}
+
+\section{Introduction}
+
+The active derivational program of \TheoryName{} again has a sharper next task than another same-output relay. The immediately preceding foundation necessity / uniqueness theorem already showed that the benchmark-relevant internal freedom of the current foundation layer has been removed. That theorem matters precisely because it blocks a redundant second compression pass at the same level. Once the current foundation presentation is required to induce the fixed ground package, the fiber-minimizing exact-shell foundation core is already forced up to canonical equivalence.
+
+That changes what the next benchmark-facing manuscript must do. The correct next move is no longer another shell-, lift-, support-, reservoir-, or ground-level reformulation, and it is no longer a reopening of stationary reduction, stationary Hessians, spectral generators, or selector mechanics. The clean remaining burden is to go one honest layer lower than the current foundation frontier and explain why the recorded foundation dynamics should exist in the first place.
+
+The present note takes that explicit deeper route. It does not claim a final microscopic closure. Its narrower positive result is that the recorded foundation package itself is no longer the unexplained stopping point on the active line. Instead it is recovered as the projected exact-shell output of a still more primitive root layer. The label \emph{root} is used here only as a local marker for that deeper layer below foundation on the present primitive-reservoir observer-reduction chain.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not alter the benchmark exact-closure package. It does not introduce a second operative metric or a new low-energy matter law. It only strengthens the deeper substrate-side explanation of why the current foundation package used by the live frontier theorem should exist.
+
+\section{Fixed Primitive Continuation Data}
+
+\begin{definition}[Recorded primitive continuation data]
+\label{def:fixed}
+Fix the following continuation data from the active primitive-reservoir observer-reduction line.
+\begin{enumerate}
+    \item For each sector label \(\sigma\in\{\Car,\Cur,\Hom\}\), a primitive forcing shell
+    \[
+    \ForSpace{\sigma},
+    \]
+    a visible reduction map
+    \[
+    \Reduction{\sigma}:\ForSpace{\sigma}\to X_{\sigma},
+    \]
+    and shell-level current and equilibrium carriers
+    \[
+    \CurrentCarrier{\sigma}:\ForSpace{\sigma}\to Z_{\sigma}^{\mathrm{cur}},
+    \qquad
+    \EqCarrier{\sigma}:\ForSpace{\sigma}\to Z_{\sigma}^{\mathrm{eq}}.
+    \]
+    \item The product shell
+    \[
+    \PrimShell
+    \equiv
+    \ForSpace{\Car}\times \ForSpace{\Cur}\times \ForSpace{\Hom}.
+    \]
+    \item The recorded metric and ordinary-matter outputs
+    \[
+    \MetricOut:\PrimShell\to\{\text{observer metrics}\},
+    \qquad
+    \MatterOut:\PrimShell\times\MatterSpace\to\{\text{observer stress tensors}\},
+    \]
+    satisfying
+    \begin{equation}
+    \MetricOut(\mathbf w)=\CompletedMetric,
+    \qquad
+    \MatterOut(\mathbf w,\psi)
+    =
+    T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
+    \label{eq:fixedoutputs}
+    \end{equation}
+    for every \(\mathbf w\in\PrimShell\) and every matter configuration \(\psi\in\MatterSpace\).
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:fixed} is not reopened here. The primitive continuation data, the one operative metric, and the ordinary matter route remain fixed. The present note only addresses the deeper status of the recorded foundation package that now sits below the current foundation-core compression theorem on the active line.
+\end{remark}
+
+\section{Recorded Ground Target}
+
+\begin{definition}[Recorded origin-generating substrate ground package]
+\label{def:ground}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). The fixed ground package on the active line consists of the following data.
+\begin{enumerate}
+    \item A finite-dimensional Euclidean ground state space \(\GroundSpace{\sigma}\), a compact convex ground body \(\GroundBody{\sigma}\subset\GroundSpace{\sigma}\) with nonempty interior, and fixed lower bodies
+    \[
+    \OrigBody{\sigma},\qquad
+    \PrecBody{\sigma},\qquad
+    \LiftBody{\sigma},\qquad
+    \SubBody{\sigma},
+    \]
+    together with an affine surjection
+    \[
+    \GroundProj{\sigma}:\GroundSpace{\sigma}\to\OrigSpace{\sigma}
+    \]
+    and unique ground fiber minimizers
+    \[
+    \GroundOrigMin{\sigma},\quad
+    \GroundPrecMin{\sigma},\quad
+    \GroundLiftMin{\sigma},\quad
+    \GroundSubMin{\sigma}
+    \]
+    on the already recorded origin, precursor, lift, and substrate fibers of the active lower line.
+    \item The same finite-dimensional Euclidean substrate restriction target \(\SubTarget{\sigma}\), the same positive-definite symmetric substrate pairing
+    \[
+    \SubPair{\sigma}:\SubTarget{\sigma}\times\SubTarget{\sigma}\to\mathbb R,
+    \]
+    a smooth ground restriction section
+    \[
+    \GroundSection{\sigma}:\GroundSpace{\sigma}\to\SubTarget{\sigma},
+    \]
+    the ground functional
+    \[
+    \GroundFunctional{\sigma}(g)
+    \equiv
+    \SubPair{\sigma}\bigl(\GroundSection{\sigma}(g),\GroundSection{\sigma}(g)\bigr),
+    \]
+    and the exact ground shell
+    \[
+    \GroundShellSet{\sigma}
+    \equiv
+    \bigl(\GroundSection{\sigma}\bigr)^{-1}(0)\cap\GroundBody{\sigma}.
+    \]
+    \item Affine observer-data and shell-response readouts
+    \[
+    \GroundData{\sigma}:\GroundSpace{\sigma}\to\DataSpace{\sigma},
+    \qquad
+    \GroundShellMap{\sigma}:\GroundSpace{\sigma}\to\AmbientTarget{\sigma},
+    \]
+    together with a compact symmetry group and an involution preserving the displayed data and bodies.
+    \item A Euclidean shell chart
+    \[
+    \GroundChart{\sigma}:\GroundShellSet{\sigma}\to\ResSpace{\sigma}
+    \]
+    together with a shell-internal support recorder
+    \[
+    \GroundSupport{\sigma}:\GroundShellSet{\sigma}\to\ResTarget{\sigma},
+    \]
+    the exact ground support shell
+    \[
+    \GroundSupportShell{\sigma}
+    \equiv
+    \bigl(\GroundSupport{\sigma}\bigr)^{-1}(0)\cap\GroundShellSet{\sigma},
+    \]
+    and the corresponding support-shell transport to the same reservoir space.
+    \item A closed embedded ground support zero core
+    \[
+    \GroundZeroCore{\sigma}\subset\GroundSupportShell{\sigma},
+    \]
+    a hidden-seed space \(\SeedHidden{\sigma}\) with compact convex body \(\SeedHiddenBody{\sigma}\) containing \(0\) in its interior, a support-shell chart
+    \[
+    \GroundEqChart{\sigma}:\GroundSupportShell{\sigma}\to\EqnSpace{\sigma},
+    \]
+    an affine zero chart
+    \[
+    \GroundZeroChart{\sigma}:\GroundZeroCore{\sigma}\to\EqnZero{\sigma},
+    \]
+    the linear isometric embedding
+    \[
+    \HiddenChart{\sigma}:\SeedHidden{\sigma}\to\EqnHidden{\sigma},
+    \]
+    the orthogonal splitting
+    \[
+    \EqnSpace{\sigma}
+    =
+    \EqnZero{\sigma}\oplus\EqnHidden{\sigma},
+    \]
+    and a diffeomorphism
+    \[
+    \GroundSplit{\sigma}:
+    \GroundZeroCore{\sigma}\times\SeedHiddenBody{\sigma}
+    \xrightarrow{\cong}
+    \GroundSupportShell{\sigma}
+    \]
+    satisfying the chart split
+    \[
+    \GroundEqChart{\sigma}\bigl(\GroundSplit{\sigma}(z,\eta)\bigr)
+    =
+    \GroundZeroChart{\sigma}(z)+\HiddenChart{\sigma}(\eta).
+    \]
+    There are affine equation readouts
+    \[
+    \EqnData{\sigma}:\EqnSpace{\sigma}\to\DataSpace{\sigma},
+    \qquad
+    \EqnShell{\sigma}:\EqnSpace{\sigma}\to\AmbientTarget{\sigma}
+    \]
+    compatible with the ground support-shell chart.
+    \item A linear hidden charge
+    \[
+    \GroundCharge{\sigma}:\SeedHidden{\sigma}\to\EqnTarget{\sigma}
+    \]
+    with positive hidden gap, the hidden recorder
+    \[
+    \GroundResidual{\sigma}\bigl(\GroundSplit{\sigma}(z,\eta)\bigr)
+    \equiv
+    \GroundCharge{\sigma}(\eta),
+    \]
+    and a smooth observer-compatible exact zero-response realization
+    \[
+    \GroundEmbed{\sigma}:\ForSpace{\sigma}\hookrightarrow\GroundZeroCore{\sigma}
+    \]
+    recovering the fixed visible, current, and equilibrium shell data.
+    \item Fixed-data solvability on \(\GroundZeroCore{\sigma}\) and coercive control on data-invisible directions, recorded through the charted kernel \(\GroundKernelCh{\sigma}\) and orthogonal projector \(\GroundStateComp{\sigma}\).
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:ground} is the fixed target already carried by the recorded ground-from-foundation continuation. The present note does not spend its move on a second ground restatement. It records the fixed ground package only because the recorded foundation dynamics are defined relative to it.
+\end{remark}
+
+\section{Recorded Foundation Target}
+
+\begin{definition}[Ground-generating substrate foundation dynamics]
+\label{def:foundation}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). A ground-generating substrate foundation presentation for sector \(\sigma\) consists of the following data.
+\begin{enumerate}
+    \item A finite-dimensional Euclidean foundation state space \(\FoundSpace{\sigma}\), a compact convex foundation body \(\FoundBody{\sigma}\subset\FoundSpace{\sigma}\) with nonempty interior, an affine surjection
+    \[
+    \FoundProj{\sigma}:\FoundSpace{\sigma}\to\GroundSpace{\sigma},
+    \]
+    and unique foundation fiber minimizers
+    \[
+    \FoundGroundMin{\sigma},\quad
+    \FoundOrigMin{\sigma},\quad
+    \FoundPrecMin{\sigma},\quad
+    \FoundLiftMin{\sigma},\quad
+    \FoundSubMin{\sigma}
+    \]
+    on the fixed ground, origin, precursor, lift, and substrate fibers of the active line.
+    \item The same substrate target \(\SubTarget{\sigma}\), the same pairing \(\SubPair{\sigma}\), a smooth foundation section
+    \[
+    \FoundSection{\sigma}:\FoundSpace{\sigma}\to\SubTarget{\sigma},
+    \]
+    the foundation functional
+    \[
+    \FoundFunctional{\sigma}(f)
+    \equiv
+    \SubPair{\sigma}\bigl(\FoundSection{\sigma}(f),\FoundSection{\sigma}(f)\bigr),
+    \]
+    and the exact foundation shell
+    \[
+    \FoundShellSet{\sigma}
+    \equiv
+    \bigl(\FoundSection{\sigma}\bigr)^{-1}(0)\cap\FoundBody{\sigma}.
+    \]
+    \item Affine foundation observer-data and shell-response readouts
+    \[
+    \FoundData{\sigma}:\FoundSpace{\sigma}\to\DataSpace{\sigma},
+    \qquad
+    \FoundShellMap{\sigma}:\FoundSpace{\sigma}\to\AmbientTarget{\sigma},
+    \]
+    together with a compact symmetry group \(\FoundSym{\sigma}\) and an involution \(\FoundTime{\sigma}\) preserving all displayed foundation data.
+    \item A Euclidean foundation shell chart
+    \[
+    \FoundChart{\sigma}:\FoundShellSet{\sigma}\to\ResSpace{\sigma},
+    \]
+    a shell-internal support recorder
+    \[
+    \FoundSupport{\sigma}:\FoundShellSet{\sigma}\to\ResTarget{\sigma},
+    \]
+    the exact foundation support shell
+    \[
+    \FoundSupportShell{\sigma}
+    \equiv
+    \bigl(\FoundSupport{\sigma}\bigr)^{-1}(0)\cap\FoundShellSet{\sigma},
+    \]
+    a closed embedded foundation zero core
+    \[
+    \FoundZeroCore{\sigma}\subset\FoundSupportShell{\sigma},
+    \]
+    a support-shell chart
+    \[
+    \FoundEqChart{\sigma}:\FoundSupportShell{\sigma}\to\EqnSpace{\sigma},
+    \]
+    a zero chart
+    \[
+    \FoundZeroChart{\sigma}:\FoundZeroCore{\sigma}\to\EqnZero{\sigma},
+    \]
+    and a diffeomorphism
+    \[
+    \FoundSplit{\sigma}:
+    \FoundZeroCore{\sigma}\times\SeedHiddenBody{\sigma}
+    \xrightarrow{\cong}
+    \FoundSupportShell{\sigma}
+    \]
+    obeying the same zero/hidden split in the same equation variables.
+    \item A hidden charge
+    \[
+    \FoundCharge{\sigma}:\SeedHidden{\sigma}\to\EqnTarget{\sigma}
+    \]
+    with positive hidden gap, the hidden recorder
+    \[
+    \FoundResidual{\sigma}\bigl(\FoundSplit{\sigma}(z,\eta)\bigr)
+    \equiv
+    \FoundCharge{\sigma}(\eta),
+    \]
+    and a smooth observer-compatible exact foundation zero-response realization
+    \[
+    \FoundEmbed{\sigma}:\ForSpace{\sigma}\hookrightarrow\FoundZeroCore{\sigma}
+    \]
+    recovering the fixed visible, current, and equilibrium shell data.
+    \item Fixed-data solvability on \(\FoundZeroCore{\sigma}\) and coercive control on foundation data-invisible directions, recorded through the charted kernel \(\FoundKernelCh{\sigma}\) and orthogonal projector \(\FoundStateComp{\sigma}\).
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:foundation} is the exact target that must now be explained one layer deeper. The preceding foundation necessity / uniqueness theorem already settled the smaller internal-collapse option at benchmark scope. The honest remaining move is therefore the deeper derivation route recorded here.
+\end{remark}
+
+\section{Foundation-Generating Substrate Root Dynamics}
+
+\begin{definition}[Foundation-generating substrate root dynamics]
+\label{def:root}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). A foundation-generating substrate root package for sector \(\sigma\) consists of the following data.
+\begin{enumerate}
+    \item A finite-dimensional Euclidean root state space \(\RootSpace{\sigma}\), a compact convex root body \(\RootBody{\sigma}\subset\RootSpace{\sigma}\) with nonempty interior, an affine surjection
+    \[
+    \RootProj{\sigma}:\RootSpace{\sigma}\to\FoundSpace{\sigma},
+    \]
+    and unique root fiber minimizers
+    \[
+    \RootFoundMin{\sigma},\quad
+    \RootGroundMin{\sigma},\quad
+    \RootOrigMin{\sigma},\quad
+    \RootPrecMin{\sigma},\quad
+    \RootLiftMin{\sigma},\quad
+    \RootSubMin{\sigma}
+    \]
+    on the fixed foundation, ground, origin, precursor, lift, and substrate fibers of the active line.
+    \item The same substrate target \(\SubTarget{\sigma}\), the same pairing \(\SubPair{\sigma}\), a smooth root section
+    \[
+    \RootSection{\sigma}:\RootSpace{\sigma}\to\SubTarget{\sigma},
+    \]
+    the root functional
+    \[
+    \RootFunctional{\sigma}(r)
+    \equiv
+    \SubPair{\sigma}\bigl(\RootSection{\sigma}(r),\RootSection{\sigma}(r)\bigr),
+    \]
+    and the exact root shell
+    \[
+    \RootShellSet{\sigma}
+    \equiv
+    \bigl(\RootSection{\sigma}\bigr)^{-1}(0)\cap\RootBody{\sigma}.
+    \]
+    \item Affine root observer-data and shell-response readouts
+    \[
+    \RootData{\sigma}:\RootSpace{\sigma}\to\DataSpace{\sigma},
+    \qquad
+    \RootShellMap{\sigma}:\RootSpace{\sigma}\to\AmbientTarget{\sigma},
+    \]
+    such that both maps are constant on fibers of \(\RootProj{\sigma}\), together with a compact symmetry group \(\RootSym{\sigma}\) and an involution \(\RootTime{\sigma}\) preserving all displayed root data.
+    \item A Euclidean root shell chart
+    \[
+    \RootChart{\sigma}:\RootShellSet{\sigma}\to\ResSpace{\sigma},
+    \]
+    a shell-internal support recorder
+    \[
+    \RootSupport{\sigma}:\RootShellSet{\sigma}\to\ResTarget{\sigma},
+    \]
+    the exact root support shell
+    \[
+    \RootSupportShell{\sigma}
+    \equiv
+    \bigl(\RootSupport{\sigma}\bigr)^{-1}(0)\cap\RootShellSet{\sigma},
+    \]
+    a closed embedded root zero core
+    \[
+    \RootZeroCore{\sigma}\subset\RootSupportShell{\sigma},
+    \]
+    a support-shell chart
+    \[
+    \RootEqChart{\sigma}:\RootSupportShell{\sigma}\to\EqnSpace{\sigma},
+    \]
+    a zero chart
+    \[
+    \RootZeroChart{\sigma}:\RootZeroCore{\sigma}\to\EqnZero{\sigma},
+    \]
+    and a diffeomorphism
+    \[
+    \RootSplit{\sigma}:
+    \RootZeroCore{\sigma}\times\SeedHiddenBody{\sigma}
+    \xrightarrow{\cong}
+    \RootSupportShell{\sigma}
+    \]
+    obeying the same zero/hidden split in the same equation variables. Assume the restrictions
+    \[
+    \RootProj{\sigma}\big|_{\RootShellSet{\sigma}},
+    \qquad
+    \RootProj{\sigma}\big|_{\RootSupportShell{\sigma}},
+    \qquad
+    \RootProj{\sigma}\big|_{\RootZeroCore{\sigma}}
+    \]
+    are diffeomorphisms onto their projected images in \(\FoundSpace{\sigma}\).
+    \item A hidden charge
+    \[
+    \RootCharge{\sigma}:\SeedHidden{\sigma}\to\EqnTarget{\sigma}
+    \]
+    with positive hidden gap, the hidden recorder
+    \[
+    \RootResidual{\sigma}\bigl(\RootSplit{\sigma}(z,\eta)\bigr)
+    \equiv
+    \RootCharge{\sigma}(\eta),
+    \]
+    and a smooth observer-compatible exact root zero-response realization
+    \[
+    \RootEmbed{\sigma}:\ForSpace{\sigma}\hookrightarrow\RootZeroCore{\sigma}
+    \]
+    recovering the fixed visible, current, and equilibrium shell data.
+    \item Fixed-data solvability on \(\RootZeroCore{\sigma}\) and coercive control on root data-invisible directions, recorded through the charted kernel \(\RootKernelCh{\sigma}\) and orthogonal projector \(\RootStateComp{\sigma}\).
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:root} introduces a genuinely deeper layer than the live foundation frontier while keeping the same benchmark outputs and the same equation variables. The point is not to enlarge observer-level physics. The point is only to remove the recorded foundation package itself as the next unexplained insertion on the active line.
+\end{remark}
+
+\section{Canonical Foundation Package}
+
+\begin{proposition}[The recorded foundation package is produced canonically]
+\label{prop:foundation}
+Assume Definition \ref{def:root}. Define, for each sector \(\sigma\in\{\Car,\Cur,\Hom\}\),
+\begin{equation}
+\FoundBody{\sigma}
+\equiv
+\RootProj{\sigma}\bigl(\RootBody{\sigma}\bigr),
+\qquad
+\FoundGroundMin{\sigma}
+\equiv
+\RootProj{\sigma}\circ\RootGroundMin{\sigma},
+\qquad
+\FoundOrigMin{\sigma}
+\equiv
+\RootProj{\sigma}\circ\RootOrigMin{\sigma},
+\label{eq:inducedfoundmin1}
+\end{equation}
+\begin{equation}
+\FoundPrecMin{\sigma}
+\equiv
+\RootProj{\sigma}\circ\RootPrecMin{\sigma},
+\qquad
+\FoundLiftMin{\sigma}
+\equiv
+\RootProj{\sigma}\circ\RootLiftMin{\sigma},
+\qquad
+\FoundSubMin{\sigma}
+\equiv
+\RootProj{\sigma}\circ\RootSubMin{\sigma},
+\label{eq:inducedfoundmin2}
+\end{equation}
+\begin{equation}
+\FoundSection{\sigma}
+\equiv
+\RootSection{\sigma}\circ\RootFoundMin{\sigma},
+\qquad
+\FoundShellSet{\sigma}
+\equiv
+\RootProj{\sigma}\bigl(\RootShellSet{\sigma}\bigr),
+\label{eq:inducedfoundshell}
+\end{equation}
+\begin{equation}
+\FoundData{\sigma}(f)
+\equiv
+\RootData{\sigma}(r),
+\qquad
+\FoundShellMap{\sigma}(f)
+\equiv
+\RootShellMap{\sigma}(r),
+\qquad
+f=\RootProj{\sigma}(r),
+\label{eq:inducedfoundreadouts}
+\end{equation}
+\begin{equation}
+\FoundChart{\sigma}
+\equiv
+\RootChart{\sigma}\circ
+\bigl(\RootProj{\sigma}\big|_{\RootShellSet{\sigma}}\bigr)^{-1},
+\qquad
+\FoundSupport{\sigma}
+\equiv
+\RootSupport{\sigma}\circ
+\bigl(\RootProj{\sigma}\big|_{\RootShellSet{\sigma}}\bigr)^{-1},
+\label{eq:inducedfoundchart}
+\end{equation}
+\begin{equation}
+\FoundSupportShell{\sigma}
+\equiv
+\RootProj{\sigma}\bigl(\RootSupportShell{\sigma}\bigr),
+\qquad
+\FoundZeroCore{\sigma}
+\equiv
+\RootProj{\sigma}\bigl(\RootZeroCore{\sigma}\bigr),
+\label{eq:inducedfoundsupport}
+\end{equation}
+\begin{equation}
+\FoundEqChart{\sigma}
+\equiv
+\RootEqChart{\sigma}\circ
+\bigl(\RootProj{\sigma}\big|_{\RootSupportShell{\sigma}}\bigr)^{-1},
+\qquad
+\FoundZeroChart{\sigma}
+\equiv
+\RootZeroChart{\sigma}\circ
+\bigl(\RootProj{\sigma}\big|_{\RootZeroCore{\sigma}}\bigr)^{-1},
+\label{eq:inducedfoundeqcharts}
+\end{equation}
+\begin{equation}
+\FoundSplit{\sigma}(z,\eta)
+\equiv
+\RootProj{\sigma}\Bigl(
+\RootSplit{\sigma}\bigl(
+\bigl(\RootProj{\sigma}\big|_{\RootZeroCore{\sigma}}\bigr)^{-1}(z),
+\eta
+\bigr)
+\Bigr),
+\label{eq:inducedfoundsplit}
+\end{equation}
+\begin{equation}
+\FoundCharge{\sigma}
+\equiv
+\RootCharge{\sigma},
+\qquad
+\FoundResidual{\sigma}\bigl(\FoundSplit{\sigma}(z,\eta)\bigr)
+\equiv
+\RootCharge{\sigma}(\eta),
+\qquad
+\FoundEmbed{\sigma}
+\equiv
+\RootProj{\sigma}\circ\RootEmbed{\sigma}.
+\label{eq:inducedfoundhidden}
+\end{equation}
+Then the resulting data satisfy exactly the ground-generating substrate foundation dynamics package of Definition \ref{def:foundation}.
+\end{proposition}
+
+\begin{proof}
+We verify the items of Definition \ref{def:foundation} in order.
+
+For item (1), \(\FoundSpace{\sigma}\) is the recorded foundation state space, \(\FoundBody{\sigma}\) is the projected image \(\RootProj{\sigma}(\RootBody{\sigma})\), and the affine surjection \(\FoundProj{\sigma}:\FoundSpace{\sigma}\to\GroundSpace{\sigma}\) is the same recorded lower projection already fixed in Definition \ref{def:foundation}. The induced minimizers \eqref{eq:inducedfoundmin1}--\eqref{eq:inducedfoundmin2} are smooth because they are compositions of smooth maps. Since Definition \ref{def:root}(1) assumes the corresponding root minimizers are the unique minimizers on the fixed foundation, ground, origin, precursor, lift, and substrate fibers of the active line, their projections through \(\RootProj{\sigma}\) give exactly the recorded foundation minimizers on those same lower fibers.
+
+For item (2), the induced section \(\FoundSection{\sigma}\) in \eqref{eq:inducedfoundshell} yields the foundation functional
+\[
+\FoundFunctional{\sigma}(f)
+=
+\SubPair{\sigma}\bigl(\FoundSection{\sigma}(f),\FoundSection{\sigma}(f)\bigr).
+\]
+If \(f\in\FoundShellSet{\sigma}\), choose the unique \(r\in\RootShellSet{\sigma}\) with \(\RootProj{\sigma}(r)=f\). Then \(\RootFunctional{\sigma}(r)=0\), so \(\FoundFunctional{\sigma}(f)=0\). Conversely, if \(\FoundFunctional{\sigma}(f)=0\), then the root foundation-fiber minimizer over \(f\) lies in \(\RootShellSet{\sigma}\), hence \(f\in\RootProj{\sigma}(\RootShellSet{\sigma})\). Therefore \(\FoundShellSet{\sigma}\) is exactly the projected root shell recorded in \eqref{eq:inducedfoundshell}.
+
+For item (3), \eqref{eq:inducedfoundreadouts} is well defined because Definition \ref{def:root}(3) makes \(\RootData{\sigma}\) and \(\RootShellMap{\sigma}\) constant on fibers of \(\RootProj{\sigma}\). The support spaces, equation variables, symmetry, and time-reversal structures are unchanged; the root layer only refines the same recorded observer-side and shell-response slots rather than enlarging them.
+
+For item (4), the restrictions of \(\RootProj{\sigma}\) to \(\RootShellSet{\sigma}\), \(\RootSupportShell{\sigma}\), and \(\RootZeroCore{\sigma}\) are diffeomorphisms onto their projected images by Definition \ref{def:root}(4), so \eqref{eq:inducedfoundchart}--\eqref{eq:inducedfoundsupport} define the required foundation chart, support recorder, support shell, and zero core. By construction,
+\[
+\FoundSupportShell{\sigma}
+=
+\bigl(\FoundSupport{\sigma}\bigr)^{-1}(0)\cap\FoundShellSet{\sigma},
+\]
+and the foundation shell chart lands in the same reservoir space \(\ResSpace{\sigma}\).
+
+For item (5), \eqref{eq:inducedfoundeqcharts} and \eqref{eq:inducedfoundsplit} define the support-shell chart, zero chart, and split diffeomorphism on the projected foundation loci. The same hidden-seed space, the same embedding \(\HiddenChart{\sigma}\), and the same orthogonal splitting
+\[
+\EqnSpace{\sigma}=\EqnZero{\sigma}\oplus\EqnHidden{\sigma}
+\]
+are inherited unchanged from the root layer. Because the root split already obeys the zero/hidden decomposition in those same equation variables, the transported foundation split does as well.
+
+For item (6), \eqref{eq:inducedfoundhidden} identifies the foundation hidden charge and residual recorder with the root hidden charge and its recorder. The positive hidden gap therefore survives unchanged, and the projected exact zero-response realization \(\FoundEmbed{\sigma}\) remains observer compatible because \(\RootEmbed{\sigma}\) already recovers the fixed visible, current, and equilibrium shell data.
+
+For item (7), fixed-data solvability on \(\FoundZeroCore{\sigma}\) is the projection of the corresponding solvability statement on \(\RootZeroCore{\sigma}\) through the zero-core diffeomorphism \(\RootProj{\sigma}\big|_{\RootZeroCore{\sigma}}\). The same transport also carries the charted kernel \(\RootKernelCh{\sigma}\) and orthogonal projector \(\RootStateComp{\sigma}\) to the foundation quantities \(\FoundKernelCh{\sigma}\) and \(\FoundStateComp{\sigma}\), so the coercive control on data-invisible directions is inherited without change.
+
+All constituents of Definition \ref{def:foundation} are therefore recovered canonically from the root package. 
+\end{proof}
+
+\begin{remark}
+Proposition \ref{prop:foundation} does more than insert another deeper shell. Every constituent of the recorded foundation package is now an explicit projected or transported image of the deeper root data. The foundation layer is therefore no longer left as a free stopping point on the active line.
+\end{remark}
+
+\section{Benchmark Preservation}
+
+\begin{theorem}[The same benchmark one-metric package is preserved]
+\label{thm:outputs}
+Assume Definition \ref{def:fixed} and, for each sector \(\sigma\in\{\Car,\Cur,\Hom\}\), foundation-generating substrate root dynamics in the sense of Definition \ref{def:root}. Then the benchmark output statements of \eqref{eq:fixedoutputs} remain unchanged:
+\[
+\MetricOut(\mathbf w)=\CompletedMetric,
+\qquad
+\MatterOut(\mathbf w,\psi)
+=
+T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
+\]
+for every \(\mathbf w\in\PrimShell\) and every matter configuration \(\psi\in\MatterSpace\). Consequently the deeper root theorem introduces neither a second operative metric nor an enlarged low-energy matter law.
+\end{theorem}
+
+\begin{proof}
+The present note changes only the deeper substrate-side status of the recorded foundation package. It does not alter the fixed primitive shell \(\PrimShell\), the recorded metric map \(\MetricOut\), or the recorded matter map \(\MatterOut\). Those remain the continuation data of Definition \ref{def:fixed}, so \eqref{eq:fixedoutputs} continues to hold exactly.
+\end{proof}
+
+\section{Main Theorem}
+
+\begin{theorem}[The foundation burden moves below the recorded foundation package]
+\label{thm:main}
+Assume the fixed primitive continuation data of Definition \ref{def:fixed} and, for each sector \(\sigma\in\{\Car,\Cur,\Hom\}\), foundation-generating substrate root dynamics in the sense of Definition \ref{def:root}. Then:
+\begin{enumerate}
+    \item the recorded ground-generating substrate foundation dynamics are produced unchanged by projected exact-shell transport from the deeper root package;
+    \item because the induced foundation package is exactly the one already used by the immediately preceding foundation necessity / uniqueness theorem, the downstream foundation-core compression verdict and the recorded ground-from-foundation continuation remain available unchanged;
+    \item the same benchmark one-metric package remains fixed: the operative metric is still exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, and the low-energy matter law is not enlarged;
+    \item consequently the remaining honest burden on the active line is deeper again: derive or justify the foundation-generating substrate root dynamics themselves from still more primitive substrate structure, or else prove a sharper inevitability theorem at that root level.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Item (1) is Proposition \ref{prop:foundation}. Item (2) is the routing consequence of item (1): the present note reproduces exactly the foundation package that the immediately preceding foundation-core theorem already uses as its input, so that theorem and the supporting ground-from-foundation continuation apply unchanged. Item (3) is Theorem \ref{thm:outputs}. Item (4) is the project-level consequence of the previous items.
+\end{proof}
+
+\begin{corollary}[What remains open after this theorem]
+\label{cor:next}
+After Theorem \ref{thm:main}, the remaining honest burden is no longer to justify the ground-generating substrate foundation dynamics themselves. Those dynamics are now the canonical projected exact-shell output of a deeper root class. What remains open is why the foundation-generating substrate root dynamics should hold, or whether an even sharper inevitability theorem can remove the remaining root-level freedom while preserving the same benchmark one-metric package and claim boundary.
+\end{corollary}
+
+\begin{proof}
+Theorem \ref{thm:main} removes the recorded foundation package as the current unexplained stopping point. The next honest burden therefore lies strictly below it.
+\end{proof}
+
+\section{Conclusion}
+
+The positive result of this note is narrower than a completed first-principles derivation and sharper than another package-preserving relay. The recorded foundation package is no longer left on the active line as a merely deeper assumption. Starting from foundation-generating substrate root dynamics, the note recovers the foundation-to-ground projection, the foundation fiber minimizers, the exact foundation shell, the foundation shell chart to the same reservoir space, the foundation shell-internal support recorder, the foundation support shell and foundation zero core, the same zero-core / hidden-seed decomposition in the same equation variables, the same hidden charge, the exact foundation zero-response realization, the fixed-data solvability statement, and the same coercive control.
+
+Because that induced foundation package is exactly the one already used by the immediately preceding foundation necessity / uniqueness theorem, the gain is more than another same-output deeper-origin relay. The deeper root theorem removes the foundation layer itself as the current unexplained insertion while leaving the foundation-core compression verdict and the recorded ground-from-foundation continuation available unchanged.
+
+The scope remains disciplined. The benchmark package is unchanged: the one operative metric is still exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, and the low-energy matter law is not enlarged. This is therefore a deeper substrate-side continuation inside the active derivational program of \TheoryName{}, not a basis for stronger promotion language. The next honest burden is deeper again: derive or justify the foundation-generating substrate root dynamics themselves from still more primitive substrate structure, or else prove a sharper inevitability theorem there. Until then, adoption and derivation should continue to be kept sharply separated.
+
+\end{document}
