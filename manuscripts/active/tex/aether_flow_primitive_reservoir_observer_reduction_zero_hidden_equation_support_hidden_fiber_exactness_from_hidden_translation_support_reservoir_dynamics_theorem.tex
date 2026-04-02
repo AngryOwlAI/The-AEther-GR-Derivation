@@ -1,0 +1,958 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+
+\newcommand{\CompletedMetric}{g^{\sharp}}
+
+\newcommand{\Car}{\mathrm{car}}
+\newcommand{\Cur}{\mathrm{cur}}
+\newcommand{\Hom}{\mathrm{hom}}
+
+\newcommand{\ForSpace}[1]{\mathcal I_{#1}^{\mathrm{for}}}
+\newcommand{\PrimShell}{\mathcal S_{\mathrm{prim}}}
+
+\newcommand{\Reduction}[1]{\mathcal R_{#1}}
+\newcommand{\CurrentCarrier}[1]{\mathfrak C_{#1}^{\mathrm{cur}}}
+\newcommand{\EqCarrier}[1]{\mathfrak C_{#1}^{\mathrm{eq}}}
+\newcommand{\CurrentExtract}[1]{\mathscr E_{#1}^{\mathrm{cur}}}
+\newcommand{\EqExtract}[1]{\mathscr E_{#1}^{\mathrm{eq}}}
+\newcommand{\PrimCurrent}[1]{\mathcal J_{#1}^{\mathrm{prim}}}
+\newcommand{\PrimTheta}[1]{\Theta_{#1}^{\mathrm{prim}}}
+
+\newcommand{\MetricOut}{\mathscr G_{\mathrm{out}}}
+\newcommand{\MatterOut}{\mathscr T_{\mathrm{out}}}
+
+\newcommand{\VisibleAffine}[1]{\widehat X_{#1}}
+\newcommand{\DataSpace}[1]{\mathcal Y_{#1}^{\mathrm{obs}}}
+\newcommand{\AmbientTarget}[1]{E_{#1}^{\mathrm{amb}}}
+
+\newcommand{\Kernel}[1]{K_{#1}^{0}}
+\newcommand{\StateComp}[1]{P_{#1}^{\mathrm{co}}}
+
+\newcommand{\EqnSpace}[1]{\mathcal U_{#1}^{\mathrm{eqn}}}
+\newcommand{\EqnBody}[1]{\mathcal B_{#1}^{\mathrm{eqn}}}
+\newcommand{\EqnData}[1]{\Lambda_{#1}^{\mathrm{eqn,dat}}}
+\newcommand{\EqnShell}[1]{\Lambda_{#1}^{\mathrm{eqn,sh}}}
+\newcommand{\EqnTarget}[1]{Q_{#1}^{\mathrm{eqn}}}
+\newcommand{\EqnPair}[1]{\mathfrak b_{#1}^{\mathrm{eqn}}}
+\newcommand{\EqnResidual}[1]{\mathcal E_{#1}^{\mathrm{eqn}}}
+\newcommand{\EqnZero}[1]{V_{#1}^{\mathrm{eqn},0}}
+\newcommand{\EqnHidden}[1]{H_{#1}^{\mathrm{eqn}}}
+\newcommand{\EqnHiddenBody}[1]{D_{#1}^{\mathrm{eqn}}}
+\newcommand{\EqnProj}[1]{\Pi_{#1}^{\mathrm{eqn,hid}}}
+\newcommand{\EqnLin}[1]{\mathcal N_{#1}^{\mathrm{eqn}}}
+\newcommand{\EqnSym}[1]{\mathbb Q_{#1}}
+\newcommand{\EqnTime}[1]{\vartheta_{#1}^{\mathrm{eqn}}}
+\newcommand{\EqnEmbed}[1]{\zeta_{#1}^{\mathrm{eqn}}}
+
+\newcommand{\ResSpace}[1]{\mathcal U_{#1}^{\mathrm{sup,res}}}
+\newcommand{\ResBody}[1]{\mathcal B_{#1}^{\mathrm{sup,res}}}
+\newcommand{\ResTarget}[1]{S_{#1}^{\mathrm{sup,res}}}
+\newcommand{\ResPair}[1]{\mathfrak m_{#1}^{\mathrm{sup,res}}}
+\newcommand{\ResSection}[1]{\Theta_{#1}^{\mathrm{sup,res}}}
+\newcommand{\ResFunctional}[1]{\mathscr F_{#1}^{\mathrm{sup,res}}}
+\newcommand{\ResShellSet}[1]{\mathcal Z_{#1}^{\mathrm{sup,res}}}
+\newcommand{\ResData}[1]{\Lambda_{#1}^{\mathrm{sup,dat}}}
+\newcommand{\ResShellMap}[1]{\Lambda_{#1}^{\mathrm{sup,sh}}}
+\newcommand{\ResSym}[1]{\mathbb G_{#1}^{\mathrm{sup}}}
+\newcommand{\ResTime}[1]{\vartheta_{#1}^{\mathrm{sup}}}
+\newcommand{\ResZeroCore}[1]{\mathcal Z_{#1}^{0,\mathrm{sup}}}
+\newcommand{\SeedHidden}[1]{\mathcal H_{#1}^{\mathrm{sup}}}
+\newcommand{\SeedHiddenBody}[1]{D_{#1}^{\mathrm{sup}}}
+\newcommand{\ShellChart}[1]{\Psi_{#1}^{\mathrm{sup}}}
+\newcommand{\ZeroChart}[1]{\Psi_{#1}^{0}}
+\newcommand{\HiddenChart}[1]{\Psi_{#1}^{\mathrm{hid}}}
+\newcommand{\SplitMap}[1]{\Phi_{#1}^{\mathrm{sup}}}
+\newcommand{\ZeroFiberSpace}[1]{V_{#1}^{0,\mathrm{sup}}}
+\newcommand{\HiddenFiberSpace}[1]{H_{#1}^{\mathrm{sup}}}
+\newcommand{\ZeroBody}[1]{\mathcal B_{#1}^{0,\mathrm{sup}}}
+\newcommand{\ResResidual}[1]{\mathcal R_{#1}^{\mathrm{sup}}}
+\newcommand{\HiddenCharge}[1]{\mathcal Q_{#1}^{\mathrm{sup}}}
+\newcommand{\ResEmbed}[1]{\zeta_{#1}^{\mathrm{sup}}}
+\newcommand{\ResKernel}[1]{K_{#1}^{0,\mathrm{sup}}}
+\newcommand{\ResKernelCh}[1]{\widetilde K_{#1}^{0,\mathrm{sup}}}
+\newcommand{\ResStateComp}[1]{P_{#1}^{\mathrm{sup,co}}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Primitive-Reservoir Observer-Reduction\\
+\large Zero-Hidden Equation Support and Hidden-Fiber Exactness\\
+\large from Hidden-Translation Support Reservoir Dynamics}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The current active theorem line has already shown that the zero-hidden stationary equation law is no longer the honest stopping point. Once a smaller zero-hidden equation-support package and hidden-fiber exactness are granted, the stationary equation law is forced. The remaining burden is therefore one layer deeper again: explain why that support package exists and why hidden-fiber exactness holds.
+
+The present note takes the origin-side route rather than reopening the stationary-reduction, stationary-Hessian, spectral, or selector layers. For each sector it introduces a more primitive hidden-translation support reservoir dynamics: a compact convex reservoir body carrying an exact support section and positive normal stability, affine observer-data and shell-response readouts, a compact symmetry group and time reversal, a zero-core / hidden-seed shell decomposition in a shell chart, a linear hidden defect recorder with positive hidden gap, an observer-compatible exact zero-response realization, fixed-data shell solvability on the zero core, and a transported coercivity inequality. The support-layer data are then recovered as shell-chart images of that reservoir package rather than inserted independently.
+
+From that deeper reservoir dynamics one obtains the designated zero-hidden equation-support package together with a canonically induced hidden residual
+\[
+\EqnResidual{\sigma}(z+\eta)=\EqnLin{\sigma}(\eta),
+\]
+which is automatically zero-fiber invariant, hidden additive, and support-linearization compatible. Thus the remaining support-level freedom collapses on the origin side: the compact convex equation-state body, affine readouts, hidden target with positive pairing, zero/hidden splitting, common zero-locus defect map, exact zero-response shell realization, fixed-data solvability, inert kernel and projector, equation coercivity, zero-fiber invariance, and hidden additivity are all forced by the deeper reservoir package. The benchmark package remains unchanged throughout: the same one operative metric \(\CompletedMetric\) and the same ordinary matter route are preserved exactly, with no second operative metric and no enlarged low-energy matter law.
+\end{abstract}
+
+\section{Introduction}
+
+The active derivational program of \TheoryName{} has now reached a narrower burden than another same-output observer-equation relay. The latest theorem on the primitive-reservoir observer-reduction line already records that the zero-hidden stationary equation law is forced once one is given the smaller zero-hidden equation-support package together with hidden-fiber exactness. That theorem matters precisely because it removes the temptation to stop at the equation law itself. The next honest step is not to restate stationary reduction under a different presentation, not to change the one operative metric, and not to promote the project more strongly before the deeper origin burden is met. The next honest step is to explain why the smaller support package and hidden-fiber exactness should hold.
+
+There are only two disciplined ways to move forward from that point. One can prove a still sharper inevitability theorem that leaves no substantive support-level freedom. Or one can descend on the origin side and show that the designated support layer is itself forced by more primitive substrate dynamics. The present note takes the second route. Its positive claim is that there is a clean origin-side package below the support layer: a hidden-translation support reservoir whose exact shell, shell chart, and hidden charge data induce the full support package and hidden-fiber exactness without changing the benchmark one-metric package.
+
+This is still not a claim of completed substrate derivation from final microphysics. The present note is narrower. It shows that the support-layer data need not remain primitive on the active line once one passes to a deeper exact support reservoir with a zero-core / hidden-seed decomposition. In that sense the theorem is stronger than another support-level restatement and weaker than a final completed microscopic closure. That is the right scope for the next manuscript.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present manuscript stays strictly inside that boundary. It does not alter the operative relativistic sector. It does not introduce a second metric or a new low-energy matter law. It only strengthens the origin-side explanation of why the support package named by the previous theorem should exist and why hidden-fiber exactness should hold there.
+
+\section{Fixed Primitive Continuation Data}
+
+\begin{definition}[Recorded primitive continuation data]
+\label{def:fixed}
+Fix the following continuation data from the active primitive-reservoir observer-reduction line.
+\begin{enumerate}
+    \item For each sector label \(\sigma\in\{\Car,\Cur,\Hom\}\), a primitive forcing shell
+    \[
+    \ForSpace{\sigma},
+    \]
+    a visible reduction map
+    \[
+    \Reduction{\sigma}:\ForSpace{\sigma}\to X_{\sigma},
+    \]
+    and shell-level current and equilibrium carriers
+    \[
+    \CurrentCarrier{\sigma}:\ForSpace{\sigma}\to Z_{\sigma}^{\mathrm{cur}},
+    \qquad
+    \EqCarrier{\sigma}:\ForSpace{\sigma}\to Z_{\sigma}^{\mathrm{eq}}.
+    \]
+    \item The product shell
+    \[
+    \PrimShell
+    \equiv
+    \ForSpace{\Car}\times \ForSpace{\Cur}\times \ForSpace{\Hom}.
+    \]
+    \item Fixed shell extractors
+    \[
+    \CurrentExtract{\sigma}:Z_{\sigma}^{\mathrm{cur}}\to Y_{\sigma}^{\mathrm{cur}},
+    \qquad
+    \EqExtract{\sigma}:Z_{\sigma}^{\mathrm{eq}}\to Y_{\sigma}^{\mathrm{eq}},
+    \]
+    together with the recorded shell composites
+    \begin{equation}
+    \PrimCurrent{\sigma}
+    =
+    \CurrentExtract{\sigma}\circ \CurrentCarrier{\sigma},
+    \qquad
+    \PrimTheta{\sigma}
+    =
+    \EqExtract{\sigma}\circ \EqCarrier{\sigma}.
+    \label{eq:primcomposites}
+    \end{equation}
+    \item The recorded metric and ordinary-matter outputs
+    \[
+    \MetricOut:\PrimShell\to\{\text{observer metrics}\},
+    \qquad
+    \MatterOut:\PrimShell\times\Psi\to\{\text{observer stress tensors}\},
+    \]
+    satisfying
+    \begin{equation}
+    \MetricOut(\mathbf w)=\CompletedMetric,
+    \qquad
+    \MatterOut(\mathbf w,\psi)
+    =
+    T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
+    \label{eq:fixedoutputs}
+    \end{equation}
+    for every \(\mathbf w\in\PrimShell\) and every matter configuration \(\psi\in\Psi\).
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:fixed} is not reopened here. The present note works strictly below the already fixed primitive continuation data and asks only why the remaining support-layer package should itself arise from more primitive substrate dynamics.
+\end{remark}
+
+\section{Recorded Support-Layer Target}
+
+\begin{definition}[Zero-hidden stationary equation support package]
+\label{def:support}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). A \emph{zero-hidden stationary equation support package} for sector \(\sigma\) consists of the following data.
+\begin{enumerate}
+    \item A finite-dimensional Euclidean equation state space
+    \[
+    \EqnSpace{\sigma},
+    \]
+    the observer-data space
+    \[
+    \DataSpace{\sigma}
+    \equiv
+    \VisibleAffine{\sigma}\times Z_{\sigma}^{\mathrm{cur}}\times Z_{\sigma}^{\mathrm{eq}},
+    \]
+    an ambient shell-response space
+    \[
+    \AmbientTarget{\sigma},
+    \]
+    a finite-dimensional real hidden equation target
+    \[
+    \EqnTarget{\sigma},
+    \]
+    and a compact convex equation state body
+    \[
+    \EqnBody{\sigma}\subset\EqnSpace{\sigma}
+    \]
+    with nonempty interior.
+    \item An affine observer-data readout
+    \[
+    \EqnData{\sigma}:\EqnSpace{\sigma}\to\DataSpace{\sigma}
+    \]
+    and an affine shell-response readout
+    \[
+    \EqnShell{\sigma}:\EqnSpace{\sigma}\to\AmbientTarget{\sigma}.
+    \]
+    \item A positive-definite symmetric hidden-equation pairing
+    \[
+    \EqnPair{\sigma}:
+    \EqnTarget{\sigma}\times\EqnTarget{\sigma}\to\mathbb R.
+    \]
+    \item A distinguished linear zero-hidden equation subspace
+    \[
+    \EqnZero{\sigma}\subset\EqnSpace{\sigma},
+    \]
+    the hidden equation space
+    \[
+    \EqnHidden{\sigma}
+    \equiv
+    \bigl(\EqnZero{\sigma}\bigr)^{\perp},
+    \]
+    the orthogonal projector
+    \[
+    \EqnProj{\sigma}:\EqnSpace{\sigma}\to\EqnHidden{\sigma},
+    \]
+    and a compact convex hidden equation body
+    \[
+    \EqnHiddenBody{\sigma}\subset\EqnHidden{\sigma}
+    \]
+    with
+    \[
+    0\in\operatorname{int}\EqnHiddenBody{\sigma},
+    \]
+    such that the equation state body splits exactly as
+    \begin{equation}
+    \EqnBody{\sigma}
+    =
+    \left\{
+    z+\eta:
+    z\in\EqnBody{\sigma}\cap\EqnZero{\sigma},
+    \quad
+    \eta\in\EqnHiddenBody{\sigma}
+    \right\}.
+    \label{eq:supportsplitting}
+    \end{equation}
+    \item A linear common zero-locus defect map
+    \[
+    \EqnLin{\sigma}:\EqnSpace{\sigma}\to\EqnTarget{\sigma}
+    \]
+    satisfying
+    \begin{equation}
+    \EqnLin{\sigma}(\delta z)=0
+    \qquad
+    \text{for all }\delta z\in\EqnZero{\sigma},
+    \label{eq:supportzero}
+    \end{equation}
+    and such that there exists \(\lambda_{\sigma}^{\mathrm{eqn}}>0\) with
+    \begin{equation}
+    \EqnPair{\sigma}\bigl(\EqnLin{\sigma}\eta,\EqnLin{\sigma}\eta\bigr)
+    \ge
+    \lambda_{\sigma}^{\mathrm{eqn}}\,
+    \|\eta\|^{2}
+    \qquad
+    \text{for all }\eta\in\EqnHidden{\sigma}.
+    \label{eq:supportgap}
+    \end{equation}
+    \item A compact symmetry group
+    \[
+    \EqnSym{\sigma}
+    \]
+    and an involution
+    \[
+    \EqnTime{\sigma},
+    \]
+    acting linearly on \(\EqnSpace{\sigma}\), \(\DataSpace{\sigma}\), and \(\AmbientTarget{\sigma}\) by orthogonal maps and on \(\EqnTarget{\sigma}\) by \(\EqnPair{\sigma}\)-isometries, preserving \(\EqnBody{\sigma}\), \(\EqnZero{\sigma}\), \(\EqnHiddenBody{\sigma}\), \(\EqnData{\sigma}\), and \(\EqnShell{\sigma}\), and intertwining \(\EqnLin{\sigma}\).
+    \item A smooth embedding
+    \[
+    \jmath_{\sigma}:X_{\sigma}\hookrightarrow\VisibleAffine{\sigma}
+    \]
+    and a smooth zero-response shell realization
+    \[
+    \EqnEmbed{\sigma}:\ForSpace{\sigma}\hookrightarrow\EqnSpace{\sigma}
+    \]
+    whose image is exactly
+    \[
+    \EqnBody{\sigma}\cap
+    \EqnZero{\sigma}\cap
+    \bigl(\EqnShell{\sigma}\bigr)^{-1}(0),
+    \]
+    and such that
+    \begin{equation}
+    \EqnData{\sigma}\bigl(\EqnEmbed{\sigma}(w)\bigr)
+    =
+    \bigl(
+    \jmath_{\sigma}(\Reduction{\sigma}(w)),
+    \CurrentCarrier{\sigma}(w),
+    \EqCarrier{\sigma}(w)
+    \bigr)
+    \label{eq:supportcompat}
+    \end{equation}
+    for every \(w\in\ForSpace{\sigma}\).
+    \item Fixed-data shell solvability on the zero-hidden equation subspace:
+    \begin{equation}
+    \EqnData{\sigma}\bigl(
+    \EqnBody{\sigma}\cap\EqnZero{\sigma}
+    \bigr)
+    =
+    \EqnData{\sigma}\Bigl(
+    \EqnBody{\sigma}\cap
+    \EqnZero{\sigma}\cap
+    \bigl(\EqnShell{\sigma}\bigr)^{-1}(0)
+    \Bigr).
+    \label{eq:supportsolvability}
+    \end{equation}
+    \item The inert zero-hidden kernel
+    \[
+    \Kernel{\sigma}
+    \equiv
+    \ker\bigl(D\EqnData{\sigma}\big|_{\EqnZero{\sigma}}\bigr)
+    \cap
+    \ker\bigl(D\EqnShell{\sigma}\big|_{\EqnZero{\sigma}}\bigr)
+    \]
+    and the orthogonal projector
+    \[
+    \StateComp{\sigma}:
+    \EqnZero{\sigma}\to
+    {\Kernel{\sigma}}^{\perp}\cap\EqnZero{\sigma}.
+    \]
+    \item Equation coercivity on data-invisible directions: there exists \(\kappa_{\sigma}^{\mathrm{eqn}}>0\) such that for every
+    \[
+    w\in\ForSpace{\sigma},
+    \qquad
+    \delta u\in T_{\EqnEmbed{\sigma}(w)}\EqnSpace{\sigma}=\EqnSpace{\sigma}
+    \]
+    satisfying
+    \[
+    D\EqnData{\sigma}\,\delta u=0,
+    \]
+    one has
+    \begin{equation}
+    \|D\EqnShell{\sigma}\,\delta u\|^{2}
+    +
+    \EqnPair{\sigma}\bigl(\EqnLin{\sigma}\delta u,\EqnLin{\sigma}\delta u\bigr)
+    \ge
+    \kappa_{\sigma}^{\mathrm{eqn}}
+    \left(
+    \|\StateComp{\sigma}\bigl((I-\EqnProj{\sigma})\delta u\bigr)\|^{2}
+    +
+    \|\EqnProj{\sigma}\delta u\|^{2}
+    \right).
+    \label{eq:supportcoercive}
+    \end{equation}
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Hidden-fiber exact residual]
+\label{def:exact}
+Assume Definition \ref{def:support}. A smooth map
+\[
+\EqnResidual{\sigma}:\EqnSpace{\sigma}\to\EqnTarget{\sigma}
+\]
+is called a \emph{hidden-fiber exact residual} over the support package if it satisfies the following properties.
+\begin{enumerate}
+    \item Zero-fiber invariance:
+    \begin{equation}
+    \EqnResidual{\sigma}(u)
+    =
+    \EqnResidual{\sigma}\bigl(\EqnProj{\sigma}u\bigr)
+    \qquad
+    \text{for all }u\in\EqnSpace{\sigma}.
+    \label{eq:exactinvariant}
+    \end{equation}
+    \item Hidden additivity:
+    \begin{equation}
+    \EqnResidual{\sigma}(\eta_{1}+\eta_{2})
+    =
+    \EqnResidual{\sigma}(\eta_{1})
+    +
+    \EqnResidual{\sigma}(\eta_{2})
+    \qquad
+    \text{for all }\eta_{1},\eta_{2}\in\EqnHidden{\sigma}.
+    \label{eq:exactadditive}
+    \end{equation}
+    \item Support-linearization compatibility: for every \(z\in\EqnZero{\sigma}\),
+    \begin{equation}
+    D\EqnResidual{\sigma}(z)=\EqnLin{\sigma}.
+    \label{eq:exactlinearization}
+    \end{equation}
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definitions \ref{def:support} and \ref{def:exact} are the precise objects whose existence and origin are now at issue on the active line. The present note does not treat them as the new deepest stopping point. It asks why they should themselves be forced by a still more primitive substrate package.
+\end{remark}
+
+\section{Hidden-Translation Support Reservoir Dynamics}
+
+\begin{definition}[Hidden-translation support reservoir package]
+\label{def:reservoir}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). A \emph{hidden-translation support reservoir package} for sector \(\sigma\) consists of the following deeper data.
+\begin{enumerate}
+    \item A finite-dimensional Euclidean support-reservoir state space
+    \[
+    \ResSpace{\sigma},
+    \]
+    a compact convex support-reservoir body
+    \[
+    \ResBody{\sigma}\subset\ResSpace{\sigma}
+    \]
+    with nonempty interior, a finite-dimensional Euclidean support target
+    \[
+    \ResTarget{\sigma},
+    \]
+    a positive-definite symmetric support pairing
+    \[
+    \ResPair{\sigma}:\ResTarget{\sigma}\times\ResTarget{\sigma}\to\mathbb R,
+    \]
+    and a smooth support section
+    \[
+    \ResSection{\sigma}:\ResSpace{\sigma}\to\ResTarget{\sigma}.
+    \]
+    Define the support functional
+    \begin{equation}
+    \ResFunctional{\sigma}(v)
+    \equiv
+    \ResPair{\sigma}\bigl(\ResSection{\sigma}(v),\ResSection{\sigma}(v)\bigr)
+    \label{eq:reservoirfunctional}
+    \end{equation}
+    and the exact support shell
+    \begin{equation}
+    \ResShellSet{\sigma}
+    \equiv
+    \bigl(\ResSection{\sigma}\bigr)^{-1}(0)\cap\ResBody{\sigma}.
+    \label{eq:reservoirshell}
+    \end{equation}
+    Assume \(\ResShellSet{\sigma}\) is a closed embedded submanifold of \(\ResSpace{\sigma}\) and there exists \(\nu_{\sigma}^{\mathrm{sup}}>0\) such that
+    \begin{equation}
+    \ResFunctional{\sigma}(v)
+    \ge
+    \nu_{\sigma}^{\mathrm{sup}}\,
+    \operatorname{dist}\bigl(v,\ResShellSet{\sigma}\bigr)^{2}
+    \qquad
+    \text{for all }v\in\ResBody{\sigma}.
+    \label{eq:reservoirnormalcoercive}
+    \end{equation}
+    \item Affine support-reservoir observer-data and shell-response readouts
+    \[
+    \ResData{\sigma}:\ResSpace{\sigma}\to\DataSpace{\sigma},
+    \qquad
+    \ResShellMap{\sigma}:\ResSpace{\sigma}\to\AmbientTarget{\sigma},
+    \]
+    a finite-dimensional real hidden defect target
+    \[
+    \EqnTarget{\sigma},
+    \]
+    and a positive-definite symmetric hidden-defect pairing
+    \[
+    \EqnPair{\sigma}:
+    \EqnTarget{\sigma}\times\EqnTarget{\sigma}\to\mathbb R.
+    \]
+    \item A compact symmetry group
+    \[
+    \ResSym{\sigma}
+    \]
+    and an involution
+    \[
+    \ResTime{\sigma},
+    \]
+    acting orthogonally on \(\ResSpace{\sigma}\), \(\DataSpace{\sigma}\), \(\AmbientTarget{\sigma}\), and \(\ResTarget{\sigma}\), and by \(\EqnPair{\sigma}\)-isometries on \(\EqnTarget{\sigma}\), preserving \(\ResBody{\sigma}\), \(\ResShellSet{\sigma}\), \(\ResSection{\sigma}\), \(\ResData{\sigma}\), and \(\ResShellMap{\sigma}\).
+    \item A closed embedded zero-core submanifold
+    \[
+    \ResZeroCore{\sigma}\subset\ResShellSet{\sigma},
+    \]
+    a finite-dimensional Euclidean hidden-seed space
+    \[
+    \SeedHidden{\sigma},
+    \]
+    and a compact convex hidden-seed body
+    \[
+    \SeedHiddenBody{\sigma}\subset\SeedHidden{\sigma}
+    \]
+    with
+    \[
+    0\in\operatorname{int}\SeedHiddenBody{\sigma}.
+    \]
+    There is a Euclidean shell chart
+    \[
+    \ShellChart{\sigma}:\ResShellSet{\sigma}\to\EqnSpace{\sigma},
+    \]
+    an affine chart on the zero core
+    \[
+    \ZeroChart{\sigma}:\ResZeroCore{\sigma}\to\EqnZero{\sigma},
+    \]
+    and a linear isometric embedding
+    \[
+    \HiddenChart{\sigma}:\SeedHidden{\sigma}\to\EqnHidden{\sigma}
+    \]
+    such that
+    \[
+    \EqnSpace{\sigma}
+    =
+    \EqnZero{\sigma}\oplus\EqnHidden{\sigma}
+    \]
+    is an orthogonal direct sum, the set
+    \[
+    \ZeroBody{\sigma}
+    \equiv
+    \ZeroChart{\sigma}\bigl(\ResZeroCore{\sigma}\cap\ResBody{\sigma}\bigr)
+    \]
+    is compact convex with nonempty interior in \(\EqnZero{\sigma}\), and there is a diffeomorphism
+    \begin{equation}
+    \SplitMap{\sigma}:
+    \bigl(\ResZeroCore{\sigma}\cap\ResBody{\sigma}\bigr)
+    \times
+    \SeedHiddenBody{\sigma}
+    \xrightarrow{\cong}
+    \ResShellSet{\sigma}\cap\ResBody{\sigma}
+    \label{eq:splitmap}
+    \end{equation}
+    satisfying
+    \begin{equation}
+    \ShellChart{\sigma}\bigl(\SplitMap{\sigma}(z,\eta)\bigr)
+    =
+    \ZeroChart{\sigma}(z)+\HiddenChart{\sigma}(\eta).
+    \label{eq:chartsplit}
+    \end{equation}
+    \item The shell-body image
+    \[
+    \EqnBody{\sigma}
+    \equiv
+    \ShellChart{\sigma}\bigl(\ResShellSet{\sigma}\cap\ResBody{\sigma}\bigr)
+    \]
+    has nonempty interior in \(\EqnSpace{\sigma}\). The shell readouts become affine in the shell chart:
+    \begin{equation}
+    \EqnData{\sigma}\circ\ShellChart{\sigma}
+    =
+    \ResData{\sigma}\big|_{\ResShellSet{\sigma}},
+    \qquad
+    \EqnShell{\sigma}\circ\ShellChart{\sigma}
+    =
+    \ResShellMap{\sigma}\big|_{\ResShellSet{\sigma}},
+    \label{eq:chartreadouts}
+    \end{equation}
+    and the transported symmetry and time-reversal actions act linearly on \(\EqnSpace{\sigma}\), preserving \(\EqnZero{\sigma}\), \(\EqnHidden{\sigma}\), and \(\EqnBody{\sigma}\).
+    \item A linear hidden charge map
+    \[
+    \HiddenCharge{\sigma}:\SeedHidden{\sigma}\to\EqnTarget{\sigma}
+    \]
+    such that there exists \(\lambda_{\sigma}^{\mathrm{eqn}}>0\) with
+    \begin{equation}
+    \EqnPair{\sigma}\bigl(\HiddenCharge{\sigma}\eta,\HiddenCharge{\sigma}\eta\bigr)
+    \ge
+    \lambda_{\sigma}^{\mathrm{eqn}}\,
+    \|\eta\|^{2}
+    \qquad
+    \text{for all }\eta\in\SeedHidden{\sigma}.
+    \label{eq:hiddenchargegap}
+    \end{equation}
+    Define the shell residual recorder by
+    \begin{equation}
+    \ResResidual{\sigma}\bigl(\SplitMap{\sigma}(z,\eta)\bigr)
+    \equiv
+    \HiddenCharge{\sigma}(\eta).
+    \label{eq:reservoirresidual}
+    \end{equation}
+    \item A smooth embedding
+    \[
+    \jmath_{\sigma}:X_{\sigma}\hookrightarrow\VisibleAffine{\sigma}
+    \]
+    and a smooth observer-compatible zero-response realization
+    \[
+    \ResEmbed{\sigma}:\ForSpace{\sigma}\hookrightarrow\ResZeroCore{\sigma}\cap\ResBody{\sigma}
+    \]
+    whose image is exactly
+    \[
+    \ResZeroCore{\sigma}\cap\ResBody{\sigma}
+    \cap
+    \bigl(\ResShellMap{\sigma}\bigr)^{-1}(0),
+    \]
+    and such that
+    \begin{equation}
+    \ResData{\sigma}\bigl(\ResEmbed{\sigma}(w)\bigr)
+    =
+    \bigl(
+    \jmath_{\sigma}(\Reduction{\sigma}(w)),
+    \CurrentCarrier{\sigma}(w),
+    \EqCarrier{\sigma}(w)
+    \bigr)
+    \label{eq:reservoircompat}
+    \end{equation}
+    for every \(w\in\ForSpace{\sigma}\).
+    \item Fixed-data shell solvability on the zero core:
+    \begin{equation}
+    \ResData{\sigma}\bigl(
+    \ResZeroCore{\sigma}\cap\ResBody{\sigma}
+    \bigr)
+    =
+    \ResData{\sigma}\Bigl(
+    \ResZeroCore{\sigma}\cap
+    \ResBody{\sigma}\cap
+    \bigl(\ResShellMap{\sigma}\bigr)^{-1}(0)
+    \Bigr).
+    \label{eq:reservoirsolvability}
+    \end{equation}
+    \item The inert zero-core kernel
+    \[
+    \ResKernel{\sigma}
+    \equiv
+    \ker\bigl(D\ResData{\sigma}\big|_{\ResZeroCore{\sigma}}\bigr)
+    \cap
+    \ker\bigl(D\ResShellMap{\sigma}\big|_{\ResZeroCore{\sigma}}\bigr)
+    \]
+    and the orthogonal projector
+    \[
+    \ResStateComp{\sigma}:
+    \EqnZero{\sigma}\to
+    \bigl(\ResKernelCh{\sigma}\bigr)^{\perp}\cap\EqnZero{\sigma},
+    \qquad
+    \ResKernelCh{\sigma}
+    \equiv
+    D\ZeroChart{\sigma}\bigl(\ResKernel{\sigma}\bigr).
+    \]
+    \item Support coercivity on charted data-invisible directions: there exists \(\kappa_{\sigma}^{\mathrm{eqn}}>0\) such that for every
+    \[
+    w\in\ForSpace{\sigma},
+    \qquad
+    \delta v\in T_{\ResEmbed{\sigma}(w)}\ResShellSet{\sigma}
+    \]
+    satisfying
+    \[
+    D\ResData{\sigma}\,\delta v=0,
+    \]
+    if
+    \[
+    D\ShellChart{\sigma}(\delta v)=\delta z+\delta\eta,
+    \qquad
+    \delta z\in\EqnZero{\sigma},
+    \quad
+    \delta\eta\in\EqnHidden{\sigma},
+    \]
+    then
+    \begin{equation}
+    \|D\ResShellMap{\sigma}\,\delta v\|^{2}
+    +
+    \EqnPair{\sigma}\bigl(
+    \EqnLin{\sigma}(\delta z+\delta\eta),
+    \EqnLin{\sigma}(\delta z+\delta\eta)
+    \bigr)
+    \ge
+    \kappa_{\sigma}^{\mathrm{eqn}}
+    \left(
+    \|\ResStateComp{\sigma}(\delta z)\|^{2}
+    +
+    \|\delta\eta\|^{2}
+    \right).
+    \label{eq:reservoircoercive}
+    \end{equation}
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:reservoir} is deeper than the support package in the precise sense needed here. The equation-state body is no longer postulated directly. It is the shell-chart image of an exact stable zero shell inside a larger support reservoir. The zero/hidden splitting is no longer inserted as independent linear data either. It is the charted image of a zero-core / hidden-seed shell decomposition, and the hidden defect is recorded by a linear hidden charge already present on the hidden seeds. This is therefore an origin-side theorem candidate rather than another same-package relay.
+\end{remark}
+
+\section{Induced Zero-Hidden Equation Support Package}
+
+\begin{proposition}[The reservoir package forces the designated support package]
+\label{prop:support}
+Assume Definition \ref{def:reservoir}. Then the chart-induced data satisfy every requirement of Definition \ref{def:support}.
+\end{proposition}
+
+\begin{proof}
+Item (1) of Definition \ref{def:support} is immediate from the reservoir data. The equation state space is the shell chart target \(\EqnSpace{\sigma}\), the observer-data space is fixed, the ambient shell-response space and hidden defect target are exactly the recorded spaces \(\AmbientTarget{\sigma}\) and \(\EqnTarget{\sigma}\), and the equation body is
+\[
+\EqnBody{\sigma}
+=
+\ShellChart{\sigma}\bigl(\ResShellSet{\sigma}\cap\ResBody{\sigma}\bigr).
+\]
+By Definition \ref{def:reservoir}(4)--(5), \(\EqnBody{\sigma}\) is the image of the product of two compact convex bodies under the affine map \((z,\eta)\mapsto z+\eta\). Hence it is compact convex, and it has nonempty interior because \(\ZeroBody{\sigma}\) has nonempty interior in \(\EqnZero{\sigma}\) while \(\HiddenChart{\sigma}(\SeedHiddenBody{\sigma})\) contains \(0\) in its interior inside \(\EqnHidden{\sigma}\).
+
+Item (2) is exactly the affine chart compatibility \eqref{eq:chartreadouts}. The hidden pairing in item (3) is already part of Definition \ref{def:reservoir}(2).
+
+For item (4), define
+\[
+\EqnHiddenBody{\sigma}
+\equiv
+\HiddenChart{\sigma}\bigl(\SeedHiddenBody{\sigma}\bigr).
+\]
+The shell decomposition \eqref{eq:splitmap}--\eqref{eq:chartsplit} gives
+\[
+\EqnBody{\sigma}
+=
+\left\{
+z+\eta:
+z\in\ZeroBody{\sigma},
+\ \eta\in\EqnHiddenBody{\sigma}
+\right\}.
+\]
+Since \(\ZeroBody{\sigma}\subset\EqnZero{\sigma}\), this is exactly the splitting \eqref{eq:supportsplitting}. The hidden space is the orthogonal complement \(\EqnHidden{\sigma}=(\EqnZero{\sigma})^{\perp}\) already built into the shell chart, and \(\EqnProj{\sigma}\) is its orthogonal projector.
+
+For item (5), define the common zero-locus defect map on the orthogonal decomposition \(\EqnSpace{\sigma}=\EqnZero{\sigma}\oplus\EqnHidden{\sigma}\) by
+\begin{equation}
+\EqnLin{\sigma}(z+\eta)
+\equiv
+\HiddenCharge{\sigma}\bigl((\HiddenChart{\sigma})^{-1}\eta\bigr).
+\label{eq:inducedlin}
+\end{equation}
+This is linear, it vanishes on \(\EqnZero{\sigma}\), and the positive hidden gap \eqref{eq:hiddenchargegap} becomes \eqref{eq:supportgap} because \(\HiddenChart{\sigma}\) is isometric.
+
+Item (6) follows by transporting the reservoir symmetries and time reversal through the shell chart. By Definition \ref{def:reservoir}(5), they act linearly on \(\EqnSpace{\sigma}\), preserve \(\EqnBody{\sigma}\), \(\EqnZero{\sigma}\), and \(\EqnHidden{\sigma}\), and intertwine the affine readouts. Because the shell residual recorder \eqref{eq:reservoirresidual} depends only on the hidden seed and the reservoir symmetries preserve that hidden-seed structure, \(\EqnLin{\sigma}\) is intertwined as well.
+
+For item (7), define
+\[
+\EqnEmbed{\sigma}
+\equiv
+\ShellChart{\sigma}\circ\ResEmbed{\sigma}.
+\]
+Since \(\ResEmbed{\sigma}\) lands in the zero core, \(\EqnEmbed{\sigma}(\ForSpace{\sigma})\subset\EqnZero{\sigma}\). Because \(\ResEmbed{\sigma}\) parameterizes exactly the zero-core shell-response locus, its chart image is exactly
+\[
+\EqnBody{\sigma}\cap\EqnZero{\sigma}\cap\bigl(\EqnShell{\sigma}\bigr)^{-1}(0).
+\]
+The compatibility formula \eqref{eq:supportcompat} follows by combining \eqref{eq:chartreadouts} with \eqref{eq:reservoircompat}.
+
+Item (8) is the chart image of \eqref{eq:reservoirsolvability}. Indeed, \(\ShellChart{\sigma}\) identifies \(\ResZeroCore{\sigma}\cap\ResBody{\sigma}\) with \(\EqnBody{\sigma}\cap\EqnZero{\sigma}\), while \(\EqnShell{\sigma}\circ\ShellChart{\sigma}=\ResShellMap{\sigma}\) on the shell.
+
+For item (9), the kernel
+\[
+\Kernel{\sigma}
+\equiv
+\ker\bigl(D\EqnData{\sigma}\big|_{\EqnZero{\sigma}}\bigr)
+\cap
+\ker\bigl(D\EqnShell{\sigma}\big|_{\EqnZero{\sigma}}\bigr)
+\]
+is exactly the chart image \(\ResKernelCh{\sigma}\) of the reservoir inert kernel because \(\EqnData{\sigma}\) and \(\EqnShell{\sigma}\) are transported from the reservoir shell. The orthogonal projector \(\StateComp{\sigma}\) is therefore the same orthogonal projector as \(\ResStateComp{\sigma}\) viewed in the charted zero space.
+
+Finally, item (10) is exactly the transported coercivity inequality. Let \(w\in\ForSpace{\sigma}\) and \(\delta u\in\EqnSpace{\sigma}=T_{\EqnEmbed{\sigma}(w)}\EqnSpace{\sigma}\) satisfy \(D\EqnData{\sigma}\,\delta u=0\). Write \(\delta u=\delta z+\delta\eta\) with \(\delta z\in\EqnZero{\sigma}\) and \(\delta\eta\in\EqnHidden{\sigma}\), and set
+\[
+\delta v\equiv D\bigl((\ShellChart{\sigma})^{-1}\bigr)(\delta u)
+\in
+T_{\ResEmbed{\sigma}(w)}\ResShellSet{\sigma}.
+\]
+Then \(D\ResData{\sigma}\,\delta v=0\), and \eqref{eq:reservoircoercive} gives
+\[
+\|D\EqnShell{\sigma}\,\delta u\|^{2}
++
+\EqnPair{\sigma}\bigl(\EqnLin{\sigma}\delta u,\EqnLin{\sigma}\delta u\bigr)
+\ge
+\kappa_{\sigma}^{\mathrm{eqn}}
+\left(
+\|\StateComp{\sigma}(\delta z)\|^{2}
++
+\|\delta\eta\|^{2}
+\right).
+\]
+Because \(\delta z=(I-\EqnProj{\sigma})\delta u\) and \(\delta\eta=\EqnProj{\sigma}\delta u\), this is exactly \eqref{eq:supportcoercive}. Every support-package item is therefore forced by the deeper reservoir package.
+\end{proof}
+
+\begin{remark}
+Proposition \ref{prop:support} identifies the precise support-layer gain. The designated zero-hidden support package now exists for a reason internal to the origin side of the active line. It is the shell-chart image of a deeper support reservoir with exact shell stability, not a new primitive insertion at the equation level.
+\end{remark}
+
+\section{Induced Hidden-Fiber Exactness}
+
+\begin{proposition}[The reservoir hidden charge forces hidden-fiber exactness]
+\label{prop:exact}
+Assume Definition \ref{def:reservoir}, and let the support package be the induced one of Proposition \ref{prop:support}. Define
+\begin{equation}
+\EqnResidual{\sigma}(z+\eta)
+\equiv
+\EqnLin{\sigma}(\eta)
+\qquad
+\text{for }z\in\EqnZero{\sigma},\ \eta\in\EqnHidden{\sigma}.
+\label{eq:inducedresidual}
+\end{equation}
+Then \(\EqnResidual{\sigma}\) is hidden-fiber exact in the sense of Definition \ref{def:exact}. On the shell body it agrees with the reservoir shell residual recorder:
+\begin{equation}
+\EqnResidual{\sigma}\bigl(\ShellChart{\sigma}(\SplitMap{\sigma}(z,\eta))\bigr)
+=
+\ResResidual{\sigma}\bigl(\SplitMap{\sigma}(z,\eta)\bigr).
+\label{eq:residualagreement}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+The agreement formula \eqref{eq:residualagreement} is immediate from \eqref{eq:reservoirresidual}, \eqref{eq:chartsplit}, and \eqref{eq:inducedlin}. Indeed,
+\[
+\EqnResidual{\sigma}\bigl(\ShellChart{\sigma}(\SplitMap{\sigma}(z,\eta))\bigr)
+=
+\EqnResidual{\sigma}\bigl(\ZeroChart{\sigma}(z)+\HiddenChart{\sigma}(\eta)\bigr)
+=
+\EqnLin{\sigma}\bigl(\HiddenChart{\sigma}(\eta)\bigr)
+=
+\HiddenCharge{\sigma}(\eta).
+\]
+
+To verify Definition \ref{def:exact}, let \(u=z+\eta\) with \(z\in\EqnZero{\sigma}\) and \(\eta\in\EqnHidden{\sigma}\). Then
+\[
+\EqnResidual{\sigma}(u)
+=
+\EqnLin{\sigma}(\eta)
+=
+\EqnLin{\sigma}\bigl(\EqnProj{\sigma}u\bigr)
+=
+\EqnResidual{\sigma}\bigl(\EqnProj{\sigma}u\bigr),
+\]
+so zero-fiber invariance \eqref{eq:exactinvariant} holds. If \(\eta_{1},\eta_{2}\in\EqnHidden{\sigma}\), then by linearity of \(\EqnLin{\sigma}\),
+\[
+\EqnResidual{\sigma}(\eta_{1}+\eta_{2})
+=
+\EqnLin{\sigma}(\eta_{1}+\eta_{2})
+=
+\EqnLin{\sigma}(\eta_{1})+\EqnLin{\sigma}(\eta_{2})
+=
+\EqnResidual{\sigma}(\eta_{1})+\EqnResidual{\sigma}(\eta_{2}),
+\]
+so hidden additivity \eqref{eq:exactadditive} holds as well.
+
+Finally, \(\EqnResidual{\sigma}\) is linear on \(\EqnSpace{\sigma}\), and because \(\EqnLin{\sigma}\) vanishes on \(\EqnZero{\sigma}\) one has \(\EqnResidual{\sigma}=\EqnLin{\sigma}\) on the whole of \(\EqnSpace{\sigma}\). Therefore, for every \(z\in\EqnZero{\sigma}\),
+\[
+D\EqnResidual{\sigma}(z)=\EqnLin{\sigma},
+\]
+which is the support-linearization compatibility \eqref{eq:exactlinearization}.
+\end{proof}
+
+\begin{lemma}[The induced residual is the canonical hidden linear defect]
+\label{lem:canonical}
+Assume the hypotheses of Proposition \ref{prop:exact}. Then for every \(u\in\EqnSpace{\sigma}\),
+\begin{equation}
+\EqnResidual{\sigma}(u)
+=
+\EqnLin{\sigma}\bigl(\EqnProj{\sigma}u\bigr)
+=
+\EqnLin{\sigma}(u).
+\label{eq:residualcanonical}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Write \(u=z+\eta\) with \(z\in\EqnZero{\sigma}\) and \(\eta=\EqnProj{\sigma}u\in\EqnHidden{\sigma}\). Then
+\[
+\EqnResidual{\sigma}(u)
+=
+\EqnLin{\sigma}(\eta)
+=
+\EqnLin{\sigma}\bigl(\EqnProj{\sigma}u\bigr).
+\]
+Since \(\EqnLin{\sigma}\) vanishes on \(\EqnZero{\sigma}\),
+\[
+\EqnLin{\sigma}(u)=\EqnLin{\sigma}(z+\eta)=\EqnLin{\sigma}(\eta),
+\]
+and \eqref{eq:residualcanonical} follows.
+\end{proof}
+
+\begin{remark}
+Theorem-side freedom at the support layer is now gone in the cleanest available origin-side sense. The residual that the previous manuscript treated as canonical inside the hidden-fiber exact class is no longer only theorem-side canonical. In the present note it is the direct charted image of the deeper reservoir hidden charge.
+\end{remark}
+
+\section{Benchmark Preservation}
+
+\begin{theorem}[The same benchmark one-metric package is preserved]
+\label{thm:outputs}
+Assume Definition \ref{def:fixed} and, for each sector \(\sigma\in\{\Car,\Cur,\Hom\}\), a hidden-translation support reservoir package in the sense of Definition \ref{def:reservoir}. Then the benchmark output statements of \eqref{eq:fixedoutputs} remain unchanged:
+\[
+\MetricOut(\mathbf w)=\CompletedMetric,
+\qquad
+\MatterOut(\mathbf w,\psi)
+=
+T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
+\]
+for every \(\mathbf w\in\PrimShell\) and every matter configuration \(\psi\in\Psi\). Consequently the origin-side support-reservoir theorem introduces neither a second operative metric nor an enlarged low-energy matter law.
+\end{theorem}
+
+\begin{proof}
+The present note changes only the deeper origin of the support-layer data. It does not alter the fixed primitive shell \(\PrimShell\), the recorded metric map \(\MetricOut\), or the recorded matter map \(\MatterOut\). Those remain the continuation data of Definition \ref{def:fixed}, so \eqref{eq:fixedoutputs} continues to hold exactly.
+\end{proof}
+
+\section{Main Theorem}
+
+\begin{theorem}[The support-layer burden moves below the designated support package]
+\label{thm:main}
+Assume the fixed primitive continuation data of Definition \ref{def:fixed} and, for each sector \(\sigma\in\{\Car,\Cur,\Hom\}\), a hidden-translation support reservoir package in the sense of Definition \ref{def:reservoir}. Then:
+\begin{enumerate}
+    \item the designated zero-hidden stationary equation support package exists and is forced by the deeper reservoir package;
+    \item the hidden residual induced by the reservoir hidden charge is hidden-fiber exact, and in particular zero-fiber invariance and hidden additivity are forced rather than separately chosen;
+    \item the induced residual is exactly the canonical hidden linear defect
+    \[
+    u\mapsto \EqnLin{\sigma}\bigl(\EqnProj{\sigma}u\bigr),
+    \]
+    so no additional support-level freedom remains inside the hidden-fiber exact class;
+    \item the same benchmark one-metric package remains fixed: the operative metric is still exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, and the low-energy matter law is not enlarged;
+    \item consequently the remaining honest burden on the active line is no longer to explain the existence of the support package or hidden-fiber exactness themselves, but to derive or justify the deeper hidden-translation support reservoir package from still more primitive substrate dynamics, or else to prove a sharper inevitability theorem at that still deeper reservoir level.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Item (1) is Proposition \ref{prop:support}. Item (2) is Proposition \ref{prop:exact}. Item (3) is Lemma \ref{lem:canonical}. Item (4) is Theorem \ref{thm:outputs}. Item (5) is the routing consequence of the previous items.
+\end{proof}
+
+\begin{corollary}[What remains open after this theorem]
+\label{cor:next}
+After Theorem \ref{thm:main}, the remaining honest burden is deeper again. The active line no longer needs to treat the designated zero-hidden equation-support package or hidden-fiber exactness as unexplained stopping points. What remains open is why the hidden-translation support reservoir package itself should hold, or whether an even sharper theorem can remove that remaining reservoir-level freedom while preserving the same benchmark one-metric package and claim boundary.
+\end{corollary}
+
+\begin{proof}
+Theorem \ref{thm:main} pushes the current stopping point one layer lower. The support package and hidden-fiber exactness are now shell-chart consequences of the deeper support reservoir package. Therefore the next honest burden is the origin of that reservoir package rather than the support layer it induces.
+\end{proof}
+
+\section{Conclusion}
+
+The positive result of this note is narrower than a completed microphysical derivation and stronger than another theorem-side restatement of the same equation package. The zero-hidden equation-support layer is no longer left standing as the new deepest disciplined assumption. Instead it is recovered as the charted exact-shell image of a deeper hidden-translation support reservoir carrying an exact support section, normal shell stability, affine readouts, symmetry and time-reversal structure, a zero-core / hidden-seed decomposition, a linear hidden charge, an observer-compatible zero-response realization, fixed-data solvability, and transported coercivity.
+
+That origin-side package forces precisely the objects that had become the next honest burden: the compact convex equation-state body, affine observer-data and shell-response readouts, the hidden target with positive pairing, the designated zero/hidden splitting and hidden body, the common zero-locus defect map, the exact zero-response shell realization, fixed-data shell solvability, the inert kernel and projector, the equation coercivity inequality, zero-fiber invariance, and hidden additivity. The induced residual is exactly the canonical hidden linear defect \(u\mapsto \EqnLin(\EqnProj u)\). So the support layer is no longer a free support-level insertion on the active line.
+
+The scope remains disciplined. The benchmark package is unchanged: the same primitive shell still carries the observer outputs, the one operative metric is still exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, and the low-energy matter law is not enlarged. This is therefore an origin-side derivational gain inside the active program of \TheoryName{}, not a license for stronger promotion language. The next honest burden is deeper again: derive or justify the hidden-translation support reservoir package from still more primitive substrate dynamics, or else remove that remaining reservoir-level freedom by a sharper inevitability theorem. Until then, adoption and derivation should continue to be kept sharply separated.
+
+\end{document}
