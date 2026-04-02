@@ -22,6 +22,7 @@ Notes:
   - Runs pdflatex three times for each target to settle cross-references from a clean build.
   - Deletes the matching .aux, .log, and .out files after a successful build.
   - Leaves temporary files in place if pdflatex fails, so the failure can be inspected.
+  - After building any file under manuscripts/active/tex, validates docs/ACTIVE_MANUSCRIPT_FILE_MAP.csv.
 EOF
 }
 
@@ -71,6 +72,18 @@ pdf_path_for_tex() {
   printf '%s/%s.pdf\n' "$pdf_dir" "$base_name"
 }
 
+validate_active_file_map() {
+  local validator="$script_dir/validate_active_manuscript_file_map.py"
+
+  if [[ ! -f "$validator" ]]; then
+    printf 'Missing validator script: %s\n' "$validator" >&2
+    exit 1
+  fi
+
+  printf 'Validating active manuscript file map\n'
+  python3 "$validator"
+}
+
 build_one() {
   local tex_path="$1"
   local pdf_dir base_name
@@ -115,12 +128,17 @@ EOF
     "$pdf_dir/$base_name.log" \
     "$pdf_dir/$base_name.out"
 
+  if [[ "$tex_path" == "$repo_root"/manuscripts/active/tex/* ]]; then
+    built_active_manuscript=1
+  fi
+
   printf 'Finished %s\n' "$pdf_dir/$base_name.pdf"
 }
 
 build_all=0
 build_missing=0
 build_stale=0
+built_active_manuscript=0
 targets_file="$(mktemp)"
 trap 'rm -f "$targets_file"' EXIT
 
@@ -207,3 +225,7 @@ while IFS= read -r tex_path; do
   [[ -n "$tex_path" ]] || continue
   build_one "$tex_path"
 done < <(sort -u "$targets_file")
+
+if ((built_active_manuscript)); then
+  validate_active_file_map
+fi

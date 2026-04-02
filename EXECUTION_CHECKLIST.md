@@ -40,12 +40,15 @@ This checklist is intentionally compact. It tracks the active operational rules 
 - [ ] After each `.tex` change, rebuild the matching PDF.
 - [ ] Remove temporary `.aux`, `.log`, and `.out` files after successful builds.
 - [ ] Preserve or restore a short `Conclusion` section in active manuscripts.
+- [ ] After adding, removing, or renaming an active manuscript, keep `docs/ACTIVE_MANUSCRIPT_FILE_MAP.csv` in sync and pass `python3 scripts/validate_active_manuscript_file_map.py`.
 
 ## Documentation Hygiene
 
 - [ ] Use [docs/AETHER_FLOW_CLAIM_BOUNDARY.md](docs/AETHER_FLOW_CLAIM_BOUNDARY.md) for claim language.
 - [ ] Use [docs/AETHER_FLOW_NAMING_AND_VOCABULARY.md](docs/AETHER_FLOW_NAMING_AND_VOCABULARY.md) for naming discipline.
 - [ ] Keep routing docs concise; put scientific detail in manuscripts, not Markdown summaries.
+- [ ] Keep `RESEARCH_PLAN.md` active and tracked; retire completed one-off implementation-planning Markdown into `docs/_archived_plans/`.
+- [ ] Treat the active manuscript file map as a tracked routing control layer and keep its validator green.
 
 ## Validation Gate
 

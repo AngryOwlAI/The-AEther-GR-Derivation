@@ -50,6 +50,10 @@ The primary goal is to keep the benchmark exact-closure theory statement scienti
 - Keep ontology, adopted GR benchmark, and derivational ambitions clearly separated.
 - Preserve the fixed benchmark reading order before surfacing downstream derivational notes.
 - Rebuild the matching PDF after each `.tex` change.
+- Keep [RESEARCH_PLAN.md](RESEARCH_PLAN.md) active and tracked as a live control document.
+- Retire completed one-off implementation-planning Markdown into the local ignored archive at `docs/_archived_plans/` instead of leaving it in the active tracked docs surface.
+- After adding, removing, or renaming an active manuscript, keep [docs/ACTIVE_MANUSCRIPT_FILE_MAP.csv](docs/ACTIVE_MANUSCRIPT_FILE_MAP.csv) in sync and run `python3 scripts/validate_active_manuscript_file_map.py`.
+- `scripts/build_aether_pdf.sh` now runs the active manuscript file-map validation automatically after builds from `manuscripts/active/tex/`.
 
 ## Context Economy
 
