@@ -1,0 +1,886 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+
+\newcommand{\CompletedMetric}{g^{\sharp}}
+
+\newcommand{\Car}{\mathrm{car}}
+\newcommand{\Cur}{\mathrm{cur}}
+\newcommand{\Hom}{\mathrm{hom}}
+
+\newcommand{\ForSpace}[1]{\mathcal I_{#1}^{\mathrm{for}}}
+\newcommand{\PrimShell}{\mathcal S_{\mathrm{prim}}}
+
+\newcommand{\Reduction}[1]{\mathcal R_{#1}}
+\newcommand{\CurrentCarrier}[1]{\mathfrak C_{#1}^{\mathrm{cur}}}
+\newcommand{\EqCarrier}[1]{\mathfrak C_{#1}^{\mathrm{eq}}}
+\newcommand{\CurrentExtract}[1]{\mathscr E_{#1}^{\mathrm{cur}}}
+\newcommand{\EqExtract}[1]{\mathscr E_{#1}^{\mathrm{eq}}}
+\newcommand{\PrimCurrent}[1]{\mathcal J_{#1}^{\mathrm{prim}}}
+\newcommand{\PrimTheta}[1]{\Theta_{#1}^{\mathrm{prim}}}
+
+\newcommand{\MetricOut}{\mathscr G_{\mathrm{out}}}
+\newcommand{\MatterOut}{\mathscr T_{\mathrm{out}}}
+
+\newcommand{\VisibleAffine}[1]{\widehat X_{#1}}
+\newcommand{\DataSpace}[1]{\mathcal Y_{#1}^{\mathrm{obs}}}
+\newcommand{\AmbientTarget}[1]{E_{#1}^{\mathrm{amb}}}
+
+\newcommand{\Kernel}[1]{K_{#1}^{0}}
+\newcommand{\StateComp}[1]{P_{#1}^{\mathrm{co}}}
+
+\newcommand{\RedSpace}[1]{\mathcal U_{#1}^{\mathrm{red}}}
+\newcommand{\RedBody}[1]{\mathcal B_{#1}^{\mathrm{red}}}
+\newcommand{\RedData}[1]{\Lambda_{#1}^{\mathrm{red,dat}}}
+\newcommand{\RedShell}[1]{\Lambda_{#1}^{\mathrm{red,sh}}}
+\newcommand{\RedTarget}[1]{F_{#1}^{\mathrm{red}}}
+\newcommand{\RedMap}[1]{\Gamma_{#1}^{\mathrm{red}}}
+\newcommand{\RedZero}[1]{V_{#1}^{\mathrm{red},0}}
+\newcommand{\RedHidden}[1]{H_{#1}^{\mathrm{red}}}
+\newcommand{\RedHiddenBody}[1]{D_{#1}^{\mathrm{red}}}
+\newcommand{\RedProj}[1]{\Pi_{#1}^{\mathrm{red,hid}}}
+\newcommand{\RedLin}[1]{\mathcal M_{#1}^{\mathrm{red}}}
+\newcommand{\RedSym}[1]{\mathbb R_{#1}}
+\newcommand{\RedTime}[1]{\vartheta_{#1}^{\mathrm{red}}}
+\newcommand{\RedEmbed}[1]{\zeta_{#1}^{\mathrm{red}}}
+
+\newcommand{\EqnSpace}[1]{\mathcal U_{#1}^{\mathrm{eqn}}}
+\newcommand{\EqnBody}[1]{\mathcal B_{#1}^{\mathrm{eqn}}}
+\newcommand{\EqnData}[1]{\Lambda_{#1}^{\mathrm{eqn,dat}}}
+\newcommand{\EqnShell}[1]{\Lambda_{#1}^{\mathrm{eqn,sh}}}
+\newcommand{\EqnTarget}[1]{Q_{#1}^{\mathrm{eqn}}}
+\newcommand{\EqnPair}[1]{\mathfrak b_{#1}^{\mathrm{eqn}}}
+\newcommand{\EqnResidual}[1]{\mathcal E_{#1}^{\mathrm{eqn}}}
+\newcommand{\EqnZero}[1]{V_{#1}^{\mathrm{eqn},0}}
+\newcommand{\EqnHidden}[1]{H_{#1}^{\mathrm{eqn}}}
+\newcommand{\EqnHiddenBody}[1]{D_{#1}^{\mathrm{eqn}}}
+\newcommand{\EqnProj}[1]{\Pi_{#1}^{\mathrm{eqn,hid}}}
+\newcommand{\EqnLin}[1]{\mathcal N_{#1}^{\mathrm{eqn}}}
+\newcommand{\EqnSym}[1]{\mathbb Q_{#1}}
+\newcommand{\EqnTime}[1]{\vartheta_{#1}^{\mathrm{eqn}}}
+\newcommand{\EqnEmbed}[1]{\zeta_{#1}^{\mathrm{eqn}}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Primitive-Reservoir Observer-Reduction\\
+\large Zero-Hidden Stationary Reduction Law\\
+\large Necessity / Uniqueness from Zero-Hidden Stationary Equation Law}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The current benchmark-facing theorem on the active primitive-reservoir observer-reduction line already sharpened the burden once more: the zero-hidden stationary Hessian law is no longer merely available, because it is derived canonically from a zero-hidden stationary reduction law and is necessary there up to the harmless orthogonal reparameterization of the hidden reduction target. The remaining honest task is therefore no longer to justify the stationary-Hessian layer. It is to justify why the stationary-reduction law itself should hold.
+
+The present note takes the smallest honest inevitability step now available below that stationary-reduction layer without claiming final microphysical closure. Rather than postulate a Euclidean hidden reduction target and a smooth reduction map directly, it collapses the reduction package into a smaller zero-hidden stationary equation law. For each sector this deeper package consists of a compact convex equation-state body, affine observer-data and shell-response readouts, a finite-dimensional hidden equation space carrying a positive-definite symmetric pairing, a smooth stationary equation residual with an exact zero-hidden equation locus, exact body splitting over zero-hidden and hidden directions, a common zero-locus linearization that vanishes on zero directions and is coercively positive on hidden directions, symmetry and time-reversal actions preserving the full equation law, an exact zero-response shell realization on the zero locus, fixed-data shell solvability on that same locus, the inert zero-hidden kernel and projector, and an equation coercivity inequality on data-invisible variations.
+
+From that stationary equation law one derives canonically every constituent of the stationary-reduction package that now requires justification: the compact convex reduction-state body, the affine observer-data and shell-response readouts, the hidden reduction target, the smooth reduction map with exact zero-hidden locus, the common zero-locus linearization with hidden-direction coercivity, the induced zero/hidden splitting and hidden body, the symmetry and time-reversal structure, the exact zero-response shell realization on the zero locus, fixed-data shell solvability on that locus, the inert zero-hidden kernel and projector, and the reduction coercivity inequality. Within this equation class those reduction constituents are not merely available. They are forced, and the induced stationary-reduction law is unique up to the orthogonal identification of the hidden equation space with any Euclidean reduction target. The benchmark package remains fixed throughout: the one operative metric is still exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, and the low-energy matter law is not enlarged.
+\end{abstract}
+
+\section{Introduction}
+
+The active derivational program of \TheoryName{} has again narrowed what counts as an honest next step. The primitive-observer-reduction datum theorem, the defect-fiber factorization theorem, the one-metric output theorem, the chain-forcing theorem, the selector theorem, the stationary-construction theorem, the explicit-package theorem, the primitive-normal-form theorem, the ambient-shell-law theorem, the combined-response theorem, the graph-collapse theorem, the completion-core theorem, the ambient-dynamics theorem, the selector-law theorem, the spectral-law theorem, and the later stationary-Hessian theorem each discharged what was honestly open at its own layer. The latest result matters because it removes another tempting stopping point. Once the stationary-Hessian package is itself a canonical reduction of a deeper stationary-reduction law, it is no longer enough to revisit the stationary-Hessian layer under a different presentation.
+
+The remaining honest burden is therefore one layer deeper again. The task is now to explain why the zero-hidden stationary reduction law should exist, rather than letting the compact convex reduction-state body, the affine observer-data and shell-response readouts, the hidden reduction target, the smooth reduction map with exact zero-hidden locus, the common zero-locus linearization, the zero/hidden splitting, the hidden body, the shell realization, the solvability statement, the inert kernel and projector, and the reduction coercivity inequality stand as the new deepest disciplined assumptions. That is the burden addressed here.
+
+The present note takes the smallest honest inevitability theorem presently available on the active line. It does not claim a final microscopic substrate law. Its gain is narrower and more upstream. It replaces the Euclidean presentation of the stationary-reduction layer by a smaller stationary equation law: one hidden equation space with a positive pairing and one smooth equation residual whose exact zero locus and common zero-locus linearization canonically generate the entire stationary-reduction package. In that precise sense, the stationary-reduction layer itself ceases to be an independent stopping point.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not claim that final substrate microphysics has already been found. Its narrower theorem is only that, on the active primitive-observer-reduction line, the zero-hidden stationary reduction law is itself forced by a smaller zero-hidden stationary equation law, and is unique there up to the orthogonal identification of the hidden equation space with a Euclidean reduction target.
+
+\section{Fixed Primitive Continuation Data}
+
+\begin{definition}[Recorded primitive continuation data]
+\label{def:fixed}
+Fix the following continuation data from the active primitive-reservoir observer-reduction line.
+\begin{enumerate}
+    \item For each sector label \(\sigma\in\{\Car,\Cur,\Hom\}\), a primitive forcing shell
+    \[
+    \ForSpace{\sigma},
+    \]
+    a visible reduction map
+    \[
+    \Reduction{\sigma}:\ForSpace{\sigma}\to X_{\sigma},
+    \]
+    and shell-level current and equilibrium carriers
+    \[
+    \CurrentCarrier{\sigma}:\ForSpace{\sigma}\to Z_{\sigma}^{\mathrm{cur}},
+    \qquad
+    \EqCarrier{\sigma}:\ForSpace{\sigma}\to Z_{\sigma}^{\mathrm{eq}}.
+    \]
+    \item The product shell
+    \[
+    \PrimShell
+    \equiv
+    \ForSpace{\Car}\times \ForSpace{\Cur}\times \ForSpace{\Hom}.
+    \]
+    \item Fixed shell extractors
+    \[
+    \CurrentExtract{\sigma}:Z_{\sigma}^{\mathrm{cur}}\to Y_{\sigma}^{\mathrm{cur}},
+    \qquad
+    \EqExtract{\sigma}:Z_{\sigma}^{\mathrm{eq}}\to Y_{\sigma}^{\mathrm{eq}},
+    \]
+    together with the recorded shell composites
+    \begin{equation}
+    \PrimCurrent{\sigma}
+    =
+    \CurrentExtract{\sigma}\circ \CurrentCarrier{\sigma},
+    \qquad
+    \PrimTheta{\sigma}
+    =
+    \EqExtract{\sigma}\circ \EqCarrier{\sigma}.
+    \label{eq:primcomposites}
+    \end{equation}
+    \item The recorded metric and ordinary-matter outputs
+    \[
+    \MetricOut:\PrimShell\to\{\text{observer metrics}\},
+    \qquad
+    \MatterOut:\PrimShell\times\Psi\to\{\text{observer stress tensors}\},
+    \]
+    satisfying
+    \begin{equation}
+    \MetricOut(\mathbf w)=\CompletedMetric,
+    \qquad
+    \MatterOut(\mathbf w,\psi)
+    =
+    T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
+    \label{eq:fixedoutputs}
+    \end{equation}
+    for every \(\mathbf w\in\PrimShell\) and every matter configuration \(\psi\in\Psi\).
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:fixed} is not reopened here. The primitive shell data and the benchmark one-metric / ordinary-matter outputs remain fixed continuation data. The work begins one layer deeper again: why the stationary-reduction law that now carries the active theorem line should itself be forced.
+\end{remark}
+
+\section{Target Stationary Reduction Law}
+
+\begin{definition}[Zero-hidden stationary reduction law]
+\label{def:reduction}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). A \emph{zero-hidden stationary reduction law} for sector \(\sigma\) consists of the following data.
+\begin{enumerate}
+    \item A finite-dimensional Euclidean reduction state space
+    \[
+    \RedSpace{\sigma},
+    \]
+    the observer-data space
+    \[
+    \DataSpace{\sigma}
+    \equiv
+    \VisibleAffine{\sigma}\times Z_{\sigma}^{\mathrm{cur}}\times Z_{\sigma}^{\mathrm{eq}},
+    \]
+    an ambient shell-response space
+    \[
+    \AmbientTarget{\sigma},
+    \]
+    a finite-dimensional Euclidean hidden reduction target
+    \[
+    \RedTarget{\sigma},
+    \]
+    and a compact convex reduction state body
+    \[
+    \RedBody{\sigma}\subset\RedSpace{\sigma}
+    \]
+    with nonempty interior.
+    \item An affine observer-data readout
+    \[
+    \RedData{\sigma}:\RedSpace{\sigma}\to\DataSpace{\sigma}
+    \]
+    and an affine shell-response readout
+    \[
+    \RedShell{\sigma}:\RedSpace{\sigma}\to\AmbientTarget{\sigma}.
+    \]
+    \item A smooth stationary reduction map
+    \[
+    \RedMap{\sigma}:\RedSpace{\sigma}\to\RedTarget{\sigma}
+    \]
+    whose exact zero-hidden reduction locus
+    \[
+    \RedZero{\sigma}
+    \equiv
+    \left\{
+    u\in\RedSpace{\sigma}:
+    \RedMap{\sigma}(u)=0
+    \right\}
+    \]
+    is a linear subspace. Define the hidden reduction space
+    \[
+    \RedHidden{\sigma}
+    \equiv
+    \bigl(\RedZero{\sigma}\bigr)^{\perp},
+    \]
+    and let
+    \[
+    \RedProj{\sigma}:\RedSpace{\sigma}\to\RedHidden{\sigma}
+    \]
+    denote the orthogonal projector.
+    \item A compact convex hidden reduction body
+    \[
+    \RedHiddenBody{\sigma}\subset\RedHidden{\sigma}
+    \]
+    with
+    \[
+    0\in\operatorname{int}\RedHiddenBody{\sigma},
+    \]
+    such that the reduction state body splits exactly as
+    \begin{equation}
+    \RedBody{\sigma}
+    =
+    \left\{
+    z+\eta:
+    z\in\RedBody{\sigma}\cap\RedZero{\sigma},
+    \quad
+    \eta\in\RedHiddenBody{\sigma}
+    \right\}.
+    \label{eq:redsplitting}
+    \end{equation}
+    \item A common zero-locus linearization
+    \[
+    \RedLin{\sigma}:\RedSpace{\sigma}\to\RedTarget{\sigma}
+    \]
+    such that for every \(z\in\RedZero{\sigma}\),
+    \begin{equation}
+    D\RedMap{\sigma}(z)=\RedLin{\sigma}.
+    \label{eq:redlinearization}
+    \end{equation}
+    Assume moreover that
+    \begin{equation}
+    \RedLin{\sigma}(\delta z)=0
+    \qquad
+    \text{for all }\delta z\in\RedZero{\sigma},
+    \label{eq:redzero}
+    \end{equation}
+    and that there exists \(\lambda_{\sigma}^{\mathrm{red}}>0\) with
+    \begin{equation}
+    \|\RedLin{\sigma}\eta\|_{\RedTarget{\sigma}}^{2}
+    \ge
+    \lambda_{\sigma}^{\mathrm{red}}\,
+    \|\eta\|^{2}
+    \qquad
+    \text{for all }\eta\in\RedHidden{\sigma}.
+    \label{eq:redgap}
+    \end{equation}
+    \item A compact symmetry group
+    \[
+    \RedSym{\sigma}\subset
+    O(\RedSpace{\sigma})\times
+    O(\DataSpace{\sigma})\times
+    O(\AmbientTarget{\sigma})
+    \]
+    and an orthogonal involution
+    \[
+    \RedTime{\sigma}\in
+    O(\RedSpace{\sigma})\times
+    O(\DataSpace{\sigma})\times
+    O(\AmbientTarget{\sigma})
+    \]
+    preserving \(\RedBody{\sigma}\), \(\RedData{\sigma}\), \(\RedShell{\sigma}\), and \(\RedMap{\sigma}\).
+    \item A smooth embedding
+    \[
+    \jmath_{\sigma}:X_{\sigma}\hookrightarrow\VisibleAffine{\sigma}
+    \]
+    and a smooth zero-response shell realization
+    \[
+    \RedEmbed{\sigma}:\ForSpace{\sigma}\hookrightarrow\RedSpace{\sigma}
+    \]
+    whose image is exactly
+    \[
+    \RedBody{\sigma}\cap
+    \RedZero{\sigma}\cap
+    \bigl(\RedShell{\sigma}\bigr)^{-1}(0),
+    \]
+    and such that
+    \begin{equation}
+    \RedData{\sigma}\bigl(\RedEmbed{\sigma}(w)\bigr)
+    =
+    \bigl(
+    \jmath_{\sigma}(\Reduction{\sigma}(w)),
+    \CurrentCarrier{\sigma}(w),
+    \EqCarrier{\sigma}(w)
+    \bigr)
+    \label{eq:redcompat}
+    \end{equation}
+    for every \(w\in\ForSpace{\sigma}\).
+    \item Fixed-data shell solvability on the zero-hidden reduction locus:
+    \begin{equation}
+    \RedData{\sigma}\bigl(
+    \RedBody{\sigma}\cap\RedZero{\sigma}
+    \bigr)
+    =
+    \RedData{\sigma}\Bigl(
+    \RedBody{\sigma}\cap
+    \RedZero{\sigma}\cap
+    \bigl(\RedShell{\sigma}\bigr)^{-1}(0)
+    \Bigr).
+    \label{eq:redsolvability}
+    \end{equation}
+    \item The inert zero-hidden kernel
+    \[
+    \Kernel{\sigma}
+    \equiv
+    \ker\bigl(D\RedData{\sigma}\big|_{\RedZero{\sigma}}\bigr)
+    \cap
+    \ker\bigl(D\RedShell{\sigma}\big|_{\RedZero{\sigma}}\bigr)
+    \]
+    and the orthogonal projector
+    \[
+    \StateComp{\sigma}:
+    \RedZero{\sigma}\to
+    {\Kernel{\sigma}}^{\perp}\cap\RedZero{\sigma}.
+    \]
+    \item Reduction coercivity on data-invisible directions: there exists \(\kappa_{\sigma}^{\mathrm{red}}>0\) such that for every
+    \[
+    w\in\ForSpace{\sigma},
+    \qquad
+    \delta u\in T_{\RedEmbed{\sigma}(w)}\RedSpace{\sigma}=\RedSpace{\sigma}
+    \]
+    satisfying
+    \[
+    D\RedData{\sigma}\,\delta u=0,
+    \]
+    one has
+    \begin{equation}
+    \|D\RedShell{\sigma}\,\delta u\|^{2}
+    +
+    \|\RedLin{\sigma}\delta u\|_{\RedTarget{\sigma}}^{2}
+    \ge
+    \kappa_{\sigma}^{\mathrm{red}}
+    \left(
+    \|\StateComp{\sigma}\bigl((I-\RedProj{\sigma})\delta u\bigr)\|^{2}
+    +
+    \|\RedProj{\sigma}\delta u\|^{2}
+    \right).
+    \label{eq:redcoercive}
+    \end{equation}
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:reduction} records exactly the reduction-layer objects that now require deeper justification. The present note does not enlarge that package. It asks whether those same objects can be forced by a smaller stationary equation law beneath them.
+\end{remark}
+
+\section{Zero-Hidden Stationary Equation Law}
+
+\begin{definition}[Zero-hidden stationary equation law]
+\label{def:equation}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). A \emph{zero-hidden stationary equation law} for sector \(\sigma\) consists of the following data.
+\begin{enumerate}
+    \item A finite-dimensional Euclidean equation state space
+    \[
+    \EqnSpace{\sigma},
+    \]
+    the observer-data space
+    \[
+    \DataSpace{\sigma}
+    \equiv
+    \VisibleAffine{\sigma}\times Z_{\sigma}^{\mathrm{cur}}\times Z_{\sigma}^{\mathrm{eq}},
+    \]
+    an ambient shell-response space
+    \[
+    \AmbientTarget{\sigma},
+    \]
+    a finite-dimensional real hidden equation space
+    \[
+    \EqnTarget{\sigma},
+    \]
+    and a compact convex equation state body
+    \[
+    \EqnBody{\sigma}\subset\EqnSpace{\sigma}
+    \]
+    with nonempty interior.
+    \item An affine observer-data readout
+    \[
+    \EqnData{\sigma}:\EqnSpace{\sigma}\to\DataSpace{\sigma}
+    \]
+    and an affine shell-response readout
+    \[
+    \EqnShell{\sigma}:\EqnSpace{\sigma}\to\AmbientTarget{\sigma}.
+    \]
+    \item A positive-definite symmetric hidden-equation pairing
+    \[
+    \EqnPair{\sigma}:
+    \EqnTarget{\sigma}\times\EqnTarget{\sigma}\to\mathbb R.
+    \]
+    \item A smooth stationary equation residual
+    \[
+    \EqnResidual{\sigma}:\EqnSpace{\sigma}\to\EqnTarget{\sigma}
+    \]
+    whose exact zero-hidden equation locus
+    \[
+    \EqnZero{\sigma}
+    \equiv
+    \left\{
+    u\in\EqnSpace{\sigma}:
+    \EqnResidual{\sigma}(u)=0
+    \right\}
+    \]
+    is a linear subspace. Define the hidden equation space
+    \[
+    \EqnHidden{\sigma}
+    \equiv
+    \bigl(\EqnZero{\sigma}\bigr)^{\perp},
+    \]
+    and let
+    \[
+    \EqnProj{\sigma}:\EqnSpace{\sigma}\to\EqnHidden{\sigma}
+    \]
+    denote the orthogonal projector.
+    \item A compact convex hidden equation body
+    \[
+    \EqnHiddenBody{\sigma}\subset\EqnHidden{\sigma}
+    \]
+    with
+    \[
+    0\in\operatorname{int}\EqnHiddenBody{\sigma},
+    \]
+    such that the equation state body splits exactly as
+    \begin{equation}
+    \EqnBody{\sigma}
+    =
+    \left\{
+    z+\eta:
+    z\in\EqnBody{\sigma}\cap\EqnZero{\sigma},
+    \quad
+    \eta\in\EqnHiddenBody{\sigma}
+    \right\}.
+    \label{eq:eqnsplitting}
+    \end{equation}
+    \item A common zero-locus linearization
+    \[
+    \EqnLin{\sigma}:\EqnSpace{\sigma}\to\EqnTarget{\sigma}
+    \]
+    such that for every \(z\in\EqnZero{\sigma}\),
+    \begin{equation}
+    D\EqnResidual{\sigma}(z)=\EqnLin{\sigma}.
+    \label{eq:eqnlinearization}
+    \end{equation}
+    Assume moreover that
+    \begin{equation}
+    \EqnLin{\sigma}(\delta z)=0
+    \qquad
+    \text{for all }\delta z\in\EqnZero{\sigma},
+    \label{eq:eqnzero}
+    \end{equation}
+    and that there exists \(\lambda_{\sigma}^{\mathrm{eqn}}>0\) with
+    \begin{equation}
+    \EqnPair{\sigma}\bigl(\EqnLin{\sigma}\eta,\EqnLin{\sigma}\eta\bigr)
+    \ge
+    \lambda_{\sigma}^{\mathrm{eqn}}\,
+    \|\eta\|^{2}
+    \qquad
+    \text{for all }\eta\in\EqnHidden{\sigma}.
+    \label{eq:eqngap}
+    \end{equation}
+    \item A compact symmetry group
+    \[
+    \EqnSym{\sigma}
+    \]
+    and an involution
+    \[
+    \EqnTime{\sigma},
+    \]
+    acting linearly on \(\EqnSpace{\sigma}\), \(\DataSpace{\sigma}\), and \(\AmbientTarget{\sigma}\) by orthogonal maps and on \(\EqnTarget{\sigma}\) by \(\EqnPair{\sigma}\)-isometries, preserving \(\EqnBody{\sigma}\), \(\EqnData{\sigma}\), \(\EqnShell{\sigma}\), and \(\EqnResidual{\sigma}\).
+    \item A smooth embedding
+    \[
+    \jmath_{\sigma}:X_{\sigma}\hookrightarrow\VisibleAffine{\sigma}
+    \]
+    and a smooth zero-response shell realization
+    \[
+    \EqnEmbed{\sigma}:\ForSpace{\sigma}\hookrightarrow\EqnSpace{\sigma}
+    \]
+    whose image is exactly
+    \[
+    \EqnBody{\sigma}\cap
+    \EqnZero{\sigma}\cap
+    \bigl(\EqnShell{\sigma}\bigr)^{-1}(0),
+    \]
+    and such that
+    \begin{equation}
+    \EqnData{\sigma}\bigl(\EqnEmbed{\sigma}(w)\bigr)
+    =
+    \bigl(
+    \jmath_{\sigma}(\Reduction{\sigma}(w)),
+    \CurrentCarrier{\sigma}(w),
+    \EqCarrier{\sigma}(w)
+    \bigr)
+    \label{eq:eqncompat}
+    \end{equation}
+    for every \(w\in\ForSpace{\sigma}\).
+    \item Fixed-data shell solvability on the zero-hidden equation locus:
+    \begin{equation}
+    \EqnData{\sigma}\bigl(
+    \EqnBody{\sigma}\cap\EqnZero{\sigma}
+    \bigr)
+    =
+    \EqnData{\sigma}\Bigl(
+    \EqnBody{\sigma}\cap
+    \EqnZero{\sigma}\cap
+    \bigl(\EqnShell{\sigma}\bigr)^{-1}(0)
+    \Bigr).
+    \label{eq:eqnsolvability}
+    \end{equation}
+    \item The inert zero-hidden kernel
+    \[
+    \Kernel{\sigma}
+    \equiv
+    \ker\bigl(D\EqnData{\sigma}\big|_{\EqnZero{\sigma}}\bigr)
+    \cap
+    \ker\bigl(D\EqnShell{\sigma}\big|_{\EqnZero{\sigma}}\bigr)
+    \]
+    and the orthogonal projector
+    \[
+    \StateComp{\sigma}:
+    \EqnZero{\sigma}\to
+    {\Kernel{\sigma}}^{\perp}\cap\EqnZero{\sigma}.
+    \]
+    \item Equation coercivity on data-invisible directions: there exists \(\kappa_{\sigma}^{\mathrm{eqn}}>0\) such that for every
+    \[
+    w\in\ForSpace{\sigma},
+    \qquad
+    \delta u\in T_{\EqnEmbed{\sigma}(w)}\EqnSpace{\sigma}=\EqnSpace{\sigma}
+    \]
+    satisfying
+    \[
+    D\EqnData{\sigma}\,\delta u=0,
+    \]
+    one has
+    \begin{equation}
+    \|D\EqnShell{\sigma}\,\delta u\|^{2}
+    +
+    \EqnPair{\sigma}\bigl(\EqnLin{\sigma}\delta u,\EqnLin{\sigma}\delta u\bigr)
+    \ge
+    \kappa_{\sigma}^{\mathrm{eqn}}
+    \left(
+    \|\StateComp{\sigma}\bigl((I-\EqnProj{\sigma})\delta u\bigr)\|^{2}
+    +
+    \|\EqnProj{\sigma}\delta u\|^{2}
+    \right).
+    \label{eq:eqncoercive}
+    \end{equation}
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:equation} is smaller than Definition \ref{def:reduction} in the precise way now needed. The hidden reduction target is not chosen as an independent Euclidean presentation, and the reduction map is not stipulated separately from the deeper equation residual. What is kept is only the invariant equation content: the hidden equation space, its positive pairing, and the residual that vanishes exactly on the zero-hidden locus.
+\end{remark}
+
+\section{Canonical Reduction Law Induced by the Stationary Equation Law}
+
+\begin{definition}[Canonical stationary reduction law induced by the equation law]
+\label{def:canonical}
+Assume Definition \ref{def:equation}. Define the canonical zero-hidden stationary reduction law by:
+\begin{enumerate}
+    \item
+    \[
+    \RedSpace{\sigma}\equiv\EqnSpace{\sigma},
+    \qquad
+    \RedBody{\sigma}\equiv\EqnBody{\sigma},
+    \qquad
+    \RedData{\sigma}\equiv\EqnData{\sigma},
+    \qquad
+    \RedShell{\sigma}\equiv\EqnShell{\sigma}.
+    \]
+    \item The hidden reduction target is the same underlying vector space as the hidden equation space, equipped with the inner product induced by the hidden-equation pairing:
+    \begin{equation}
+    \RedTarget{\sigma}\equiv \EqnTarget{\sigma},
+    \qquad
+    \ev{\xi,\eta}_{\RedTarget{\sigma}}
+    \equiv
+    \EqnPair{\sigma}(\xi,\eta)
+    \quad
+    \text{for all }\xi,\eta\in\EqnTarget{\sigma}.
+    \label{eq:redinner}
+    \end{equation}
+    \item The stationary reduction map is the equation residual itself:
+    \begin{equation}
+    \RedMap{\sigma}\equiv\EqnResidual{\sigma}.
+    \label{eq:redfromeqn}
+    \end{equation}
+    \item
+    \[
+    \RedZero{\sigma}\equiv\EqnZero{\sigma},
+    \qquad
+    \RedHidden{\sigma}\equiv\EqnHidden{\sigma},
+    \qquad
+    \RedProj{\sigma}\equiv\EqnProj{\sigma},
+    \qquad
+    \RedHiddenBody{\sigma}\equiv\EqnHiddenBody{\sigma}.
+    \]
+    \item The common zero-locus linearization is
+    \[
+    \RedLin{\sigma}\equiv\EqnLin{\sigma}.
+    \]
+    \item
+    \[
+    \RedSym{\sigma}\equiv\EqnSym{\sigma},
+    \qquad
+    \RedTime{\sigma}\equiv\EqnTime{\sigma},
+    \qquad
+    \RedEmbed{\sigma}\equiv\EqnEmbed{\sigma}.
+    \]
+\end{enumerate}
+\end{definition}
+
+\begin{lemma}[The stationary equation law determines the reduction target and reduction map]
+\label{lem:reduction}
+Assume Definition \ref{def:equation}. Then the canonical data of Definition \ref{def:canonical} satisfy:
+\begin{enumerate}
+    \item \(\RedTarget{\sigma}\) is a finite-dimensional Euclidean space with inner product \eqref{eq:redinner};
+    \item
+    \[
+    \RedZero{\sigma}
+    =
+    \left\{
+    u\in\RedSpace{\sigma}:
+    \RedMap{\sigma}(u)=0
+    \right\}
+    =
+    \EqnZero{\sigma};
+    \]
+    \item for every \(z\in\RedZero{\sigma}\),
+    \[
+    D\RedMap{\sigma}(z)=\RedLin{\sigma};
+    \]
+    \item
+    \[
+    \RedLin{\sigma}(\delta z)=0
+    \qquad
+    \text{for all }\delta z\in\RedZero{\sigma};
+    \]
+    \item
+    \[
+    \|\RedLin{\sigma}\eta\|_{\RedTarget{\sigma}}^{2}
+    =
+    \EqnPair{\sigma}\bigl(\EqnLin{\sigma}\eta,\EqnLin{\sigma}\eta\bigr)
+    \ge
+    \lambda_{\sigma}^{\mathrm{eqn}}\|\eta\|^{2}
+    \qquad
+    \text{for all }\eta\in\RedHidden{\sigma}.
+    \]
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+Item (1) is immediate from the positive definiteness and symmetry of \(\EqnPair{\sigma}\). Item (2) follows from \eqref{eq:redfromeqn}:
+\[
+\RedMap{\sigma}(u)=0
+\iff
+\EqnResidual{\sigma}(u)=0
+\iff
+u\in\EqnZero{\sigma}.
+\]
+Item (3) is \eqref{eq:eqnlinearization} rewritten using \eqref{eq:redfromeqn}. Item (4) is \eqref{eq:eqnzero}. For item (5), use \eqref{eq:redinner}, \(\RedLin{\sigma}=\EqnLin{\sigma}\), and \eqref{eq:eqngap}.
+\end{proof}
+
+\begin{proposition}[The stationary equation law induces a zero-hidden stationary reduction law]
+\label{prop:reduction}
+Assume Definitions \ref{def:equation} and \ref{def:canonical}. Then the canonical data of Definition \ref{def:canonical} satisfy every requirement of Definition \ref{def:reduction}.
+\end{proposition}
+
+\begin{proof}
+Items (1) and (2) of Definition \ref{def:reduction} are immediate from Definition \ref{def:canonical}. By Lemma \ref{lem:reduction}, \(\RedMap{\sigma}\) has exact zero-hidden reduction locus \(\RedZero{\sigma}=\EqnZero{\sigma}\), so item (3) holds with
+\[
+\RedHidden{\sigma}
+=
+\bigl(\RedZero{\sigma}\bigr)^{\perp}
+=
+\EqnHidden{\sigma},
+\qquad
+\RedProj{\sigma}=\EqnProj{\sigma}.
+\]
+
+The compact convex hidden reduction body is \(\RedHiddenBody{\sigma}=\EqnHiddenBody{\sigma}\), and the reduction body splitting \eqref{eq:redsplitting} is exactly the equation splitting \eqref{eq:eqnsplitting}. This gives item (4). Item (5) is precisely Lemma \ref{lem:reduction}.
+
+For item (6), the compact symmetry group and involution are inherited unchanged. Because the hidden equation actions are \(\EqnPair{\sigma}\)-isometries, they preserve the induced Euclidean structure \eqref{eq:redinner}. Since they also preserve \(\EqnResidual{\sigma}\), they preserve \(\RedMap{\sigma}\) as well.
+
+The shell realization and data compatibility in item (7) are exactly \eqref{eq:eqncompat}, because
+\[
+\RedBody{\sigma}\cap\RedZero{\sigma}\cap\bigl(\RedShell{\sigma}\bigr)^{-1}(0)
+=
+\EqnBody{\sigma}\cap\EqnZero{\sigma}\cap\bigl(\EqnShell{\sigma}\bigr)^{-1}(0).
+\]
+Fixed-data shell solvability \eqref{eq:redsolvability} is exactly \eqref{eq:eqnsolvability}. The inert zero-hidden kernel and orthogonal projector in item (9) are defined by the same formulas, since
+\[
+\RedData{\sigma}=\EqnData{\sigma},
+\qquad
+\RedShell{\sigma}=\EqnShell{\sigma},
+\qquad
+\RedZero{\sigma}=\EqnZero{\sigma}.
+\]
+
+For item (10), let
+\[
+w\in\ForSpace{\sigma},
+\qquad
+\delta u\in T_{\RedEmbed{\sigma}(w)}\RedSpace{\sigma}=\EqnSpace{\sigma}
+\]
+with \(D\RedData{\sigma}\,\delta u=0\). Then by \eqref{eq:redinner},
+\[
+\|\RedLin{\sigma}\delta u\|_{\RedTarget{\sigma}}^{2}
+=
+\EqnPair{\sigma}\bigl(\EqnLin{\sigma}\delta u,\EqnLin{\sigma}\delta u\bigr).
+\]
+Applying \eqref{eq:eqncoercive} therefore yields \eqref{eq:redcoercive} with \(\kappa_{\sigma}^{\mathrm{red}}=\kappa_{\sigma}^{\mathrm{eqn}}\). All requirements of Definition \ref{def:reduction} are satisfied.
+\end{proof}
+
+\section{Forced Constituents and Uniqueness}
+
+\begin{proposition}[All reduction constituents are forced by the stationary equation law]
+\label{prop:forced}
+Assume Definition \ref{def:equation}. Then the following reduction-level constituents are fixed by the stationary equation law itself.
+\begin{enumerate}
+    \item The reduction state body is necessarily the equation state body \(\RedBody{\sigma}=\EqnBody{\sigma}\).
+    \item The affine observer-data and shell-response readouts are necessarily \(\RedData{\sigma}=\EqnData{\sigma}\) and \(\RedShell{\sigma}=\EqnShell{\sigma}\).
+    \item The hidden reduction target is necessarily the hidden equation space equipped with the inner product induced by \(\EqnPair{\sigma}\), namely \eqref{eq:redinner}.
+    \item The stationary reduction map is necessarily the equation residual
+    \[
+    \RedMap{\sigma}=\EqnResidual{\sigma},
+    \]
+    so the exact zero-hidden reduction locus is necessarily
+    \[
+    \RedZero{\sigma}=\EqnZero{\sigma}.
+    \]
+    \item The common zero-locus linearization is necessarily
+    \[
+    \RedLin{\sigma}=\EqnLin{\sigma},
+    \]
+    and hence vanishes on zero directions and is coercively positive on hidden directions.
+    \item The zero/hidden splitting is necessarily the equation splitting
+    \[
+    \RedSpace{\sigma}
+    =
+    \RedZero{\sigma}\oplus\RedHidden{\sigma}
+    =
+    \EqnZero{\sigma}\oplus\EqnHidden{\sigma},
+    \]
+    the hidden body is necessarily \(\RedHiddenBody{\sigma}=\EqnHiddenBody{\sigma}\), and the orthogonal projector onto the hidden space is necessarily \(\RedProj{\sigma}=\EqnProj{\sigma}\).
+    \item The symmetry and time-reversal structure, the exact zero-response shell realization, fixed-data shell solvability on the zero locus, the inert zero-hidden kernel and projector, and the reduction coercivity inequality are all induced by the same equation law and are not additional reduction freedom.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Items (1) and (2) are immediate from Definition \ref{def:canonical}. Item (3) is \eqref{eq:redinner}. Item (4) is \eqref{eq:redfromeqn}. Item (5) is Lemma \ref{lem:reduction}: once the common zero-locus linearization \(\EqnLin{\sigma}\) is fixed, the reduction linearization is fixed and its vanishing on zero directions and hidden-sector coercivity are forced. Item (6) is part of Definition \ref{def:canonical}. Item (7) is exactly the content of Proposition \ref{prop:reduction}: every remaining reduction constituent descends directly from the same stationary equation package.
+\end{proof}
+
+\begin{theorem}[Zero-hidden stationary reduction law necessity / uniqueness from stationary equation law]
+\label{thm:necessity}
+Assume Definition \ref{def:equation}. Then:
+\begin{enumerate}
+    \item the canonical construction of Definition \ref{def:canonical} yields a zero-hidden stationary reduction law in the sense of Definition \ref{def:reduction};
+    \item every reduction-level object singled out by the previous stationary-Hessian theorem is forced by the equation law: the compact convex reduction-state body, the affine observer-data and shell-response readouts, the hidden reduction target, the smooth reduction map with exact zero-hidden locus, the common zero-locus linearization with hidden-direction coercivity, the induced zero/hidden splitting and hidden body, the symmetry and time-reversal structure, the exact zero-response shell realization on the zero locus, fixed-data shell solvability on that locus, the inert zero-hidden kernel and projector, and the reduction coercivity inequality;
+    \item any linear isometric identification of the paired hidden equation space \((\EqnTarget{\sigma},\EqnPair{\sigma})\) with a Euclidean space yields the same induced reduction law up to orthogonal reparameterization, and there is no further stationary-reduction freedom once the equation law is fixed;
+    \item consequently the stationary-reduction layer is not an independent remaining freedom once the stationary equation law is fixed.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Item (1) is Proposition \ref{prop:reduction}. Item (2) is Proposition \ref{prop:forced}. For item (3), let
+\[
+I:(\EqnTarget{\sigma},\EqnPair{\sigma})\to\widetilde F_{\sigma}
+\]
+be any linear isometry onto a Euclidean space \(\widetilde F_{\sigma}\). Then the induced reduction presentation
+\[
+\widetilde{\Gamma}_{\sigma}^{\mathrm{red}}\equiv I\circ\EqnResidual{\sigma},
+\qquad
+\widetilde{\mathcal M}_{\sigma}^{\mathrm{red}}\equiv I\circ\EqnLin{\sigma}
+\]
+satisfies the same reduction axioms as Definition \ref{def:reduction}. If \(I_{1}\) and \(I_{2}\) are two such isometries, then
+\[
+Q\equiv I_{2}\circ I_{1}^{-1}:\widetilde F_{\sigma}^{(1)}\to\widetilde F_{\sigma}^{(2)}
+\]
+is orthogonal, so the two induced presentations differ only by orthogonal reparameterization of the hidden reduction target. Conversely, \eqref{eq:redinner} and \eqref{eq:redfromeqn} show that once the equation law is fixed, the reduction target and reduction map are fixed up to exactly that harmless identification. Item (4) is the routing consequence of the previous items.
+\end{proof}
+
+\section{Benchmark Preservation}
+
+\begin{theorem}[The derived reduction law preserves the same one-metric benchmark package]
+\label{thm:outputs}
+Assume Definition \ref{def:equation}. Then the benchmark output statements of Definition \ref{def:fixed} remain unchanged:
+\[
+\MetricOut(\mathbf w)=\CompletedMetric,
+\qquad
+\MatterOut(\mathbf w,\psi)
+=
+T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
+\]
+for every \(\mathbf w\in\PrimShell\) and every matter configuration \(\psi\in\Psi\). Consequently the deeper stationary equation law and the induced stationary reduction law introduce neither a second operative metric nor an enlarged low-energy matter law.
+\end{theorem}
+
+\begin{proof}
+The present note changes only the upstream origin of the reduction data. It does not alter the primitive shell \(\PrimShell\), the recorded metric map \(\MetricOut\), or the recorded matter map \(\MatterOut\). Those remain the fixed continuation data of Definition \ref{def:fixed}, so \eqref{eq:fixedoutputs} continues to hold exactly.
+\end{proof}
+
+\section{Main Theorem}
+
+\begin{theorem}[The remaining burden moves below the stationary-reduction layer]
+\label{thm:main}
+Assume the fixed primitive continuation data of Definition \ref{def:fixed} and, for each sector \(\sigma\in\{\Car,\Cur,\Hom\}\), a zero-hidden stationary equation law in the sense of Definition \ref{def:equation}. Then:
+\begin{enumerate}
+    \item the zero-hidden stationary reduction law of Definition \ref{def:reduction} is canonically induced by the stationary equation law;
+    \item the compact convex reduction-state body, the affine observer-data and shell-response readouts, the hidden reduction target, the smooth reduction map with exact zero-hidden locus, the common zero-locus linearization with hidden-direction coercivity, the induced zero/hidden splitting and hidden body, the exact zero-response shell realization, fixed-data shell solvability on the zero locus, the inert zero-hidden kernel and projector, and the reduction coercivity inequality are all forced by that same stationary equation law;
+    \item the one operative metric remains exactly \(\CompletedMetric\), the ordinary matter route remains exactly the standard one through that metric, there is no second operative metric, and the low-energy matter law is not enlarged;
+    \item consequently the benchmark-facing burden after the previous stationary-Hessian theorem is discharged in the stronger form now available on the active line: the zero-hidden stationary reduction law is no longer an unexplained stopping point, but a necessary Euclidean realization of a smaller zero-hidden stationary equation law.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Item (1) is Theorem \ref{thm:necessity}(1). Item (2) is Theorem \ref{thm:necessity}(2). Item (3) is Theorem \ref{thm:outputs}. Item (4) is the combined routing consequence.
+\end{proof}
+
+\begin{corollary}[What remains open after this theorem]
+\label{cor:next}
+After Theorem \ref{thm:main}, the remaining honest burden is no longer to justify the zero-hidden stationary reduction law itself on the active primitive-observer-reduction line. The next honest burden is deeper again: derive or justify the zero-hidden stationary equation law from still more primitive substrate dynamics, or else prove a sharper inevitability theorem that removes even that remaining equation-law-level freedom while preserving the same benchmark one-metric package and claim boundary.
+\end{corollary}
+
+\begin{proof}
+Theorem \ref{thm:main} converts the stationary-reduction layer from a remaining benchmark-facing burden into a canonical realization of a deeper stationary equation law. What remains open is why that stationary equation law itself should hold, rather than becoming the new disciplined stopping point.
+\end{proof}
+
+\section{Conclusion}
+
+The positive result of this note is deliberately narrower than a completed final microphysical derivation and stronger than another deeper same-output relay. The previous theorem had already shown that the stationary-Hessian layer is a forced reduction of a stationary-reduction law. The present note goes one honest step further by showing that the stationary-reduction layer itself is not left hanging either. It is canonically induced by a smaller zero-hidden stationary equation law.
+
+That gain directly addresses the precise objects that had become the next burden: the compact convex reduction-state body, the affine observer-data and shell-response readouts, the hidden reduction target, the smooth reduction map with exact zero-hidden locus, the common zero-locus linearization with hidden-direction coercivity, the induced zero/hidden splitting and hidden body, the symmetry and time-reversal structure, the exact zero-response shell realization on the zero locus, fixed-data shell solvability on that locus, the inert zero-hidden kernel and projector, and the reduction coercivity inequality. Within the stationary-equation class those are no longer optional inserted ingredients. They are forced outputs, and the only harmless freedom left is the orthogonal identification of the paired hidden equation space with a Euclidean reduction target.
+
+The benchmark boundary remains fixed throughout. The same primitive shell remains the shell carrying the observer outputs, so the one operative metric is still exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, and the low-energy matter law is not enlarged. This is therefore a disciplined upstream derivational gain, not a final completion claim. The note still does not derive the stationary equation law from ultimate substrate microphysics. That is the next honest open burden, and stronger promotion language about completed first-principles derivation should remain paused until that deeper burden is discharged cleanly. But the stationary-reduction layer is no longer the stopping point on the active line.
+
+\end{document}
