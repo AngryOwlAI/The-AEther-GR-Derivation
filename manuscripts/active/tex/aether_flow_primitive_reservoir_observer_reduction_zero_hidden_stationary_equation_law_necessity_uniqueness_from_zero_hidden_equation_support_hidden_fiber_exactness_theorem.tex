@@ -1,0 +1,901 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+
+\newcommand{\CompletedMetric}{g^{\sharp}}
+
+\newcommand{\Car}{\mathrm{car}}
+\newcommand{\Cur}{\mathrm{cur}}
+\newcommand{\Hom}{\mathrm{hom}}
+
+\newcommand{\ForSpace}[1]{\mathcal I_{#1}^{\mathrm{for}}}
+\newcommand{\PrimShell}{\mathcal S_{\mathrm{prim}}}
+
+\newcommand{\Reduction}[1]{\mathcal R_{#1}}
+\newcommand{\CurrentCarrier}[1]{\mathfrak C_{#1}^{\mathrm{cur}}}
+\newcommand{\EqCarrier}[1]{\mathfrak C_{#1}^{\mathrm{eq}}}
+\newcommand{\CurrentExtract}[1]{\mathscr E_{#1}^{\mathrm{cur}}}
+\newcommand{\EqExtract}[1]{\mathscr E_{#1}^{\mathrm{eq}}}
+\newcommand{\PrimCurrent}[1]{\mathcal J_{#1}^{\mathrm{prim}}}
+\newcommand{\PrimTheta}[1]{\Theta_{#1}^{\mathrm{prim}}}
+
+\newcommand{\MetricOut}{\mathscr G_{\mathrm{out}}}
+\newcommand{\MatterOut}{\mathscr T_{\mathrm{out}}}
+
+\newcommand{\VisibleAffine}[1]{\widehat X_{#1}}
+\newcommand{\DataSpace}[1]{\mathcal Y_{#1}^{\mathrm{obs}}}
+\newcommand{\AmbientTarget}[1]{E_{#1}^{\mathrm{amb}}}
+
+\newcommand{\Kernel}[1]{K_{#1}^{0}}
+\newcommand{\StateComp}[1]{P_{#1}^{\mathrm{co}}}
+
+\newcommand{\EqnSpace}[1]{\mathcal U_{#1}^{\mathrm{eqn}}}
+\newcommand{\EqnBody}[1]{\mathcal B_{#1}^{\mathrm{eqn}}}
+\newcommand{\EqnData}[1]{\Lambda_{#1}^{\mathrm{eqn,dat}}}
+\newcommand{\EqnShell}[1]{\Lambda_{#1}^{\mathrm{eqn,sh}}}
+\newcommand{\EqnTarget}[1]{Q_{#1}^{\mathrm{eqn}}}
+\newcommand{\EqnPair}[1]{\mathfrak b_{#1}^{\mathrm{eqn}}}
+\newcommand{\EqnResidual}[1]{\mathcal E_{#1}^{\mathrm{eqn}}}
+\newcommand{\EqnResidualCan}[1]{\mathcal E_{#1}^{\mathrm{can}}}
+\newcommand{\EqnZero}[1]{V_{#1}^{\mathrm{eqn},0}}
+\newcommand{\EqnHidden}[1]{H_{#1}^{\mathrm{eqn}}}
+\newcommand{\EqnHiddenBody}[1]{D_{#1}^{\mathrm{eqn}}}
+\newcommand{\EqnProj}[1]{\Pi_{#1}^{\mathrm{eqn,hid}}}
+\newcommand{\EqnLin}[1]{\mathcal N_{#1}^{\mathrm{eqn}}}
+\newcommand{\EqnSym}[1]{\mathbb Q_{#1}}
+\newcommand{\EqnTime}[1]{\vartheta_{#1}^{\mathrm{eqn}}}
+\newcommand{\EqnEmbed}[1]{\zeta_{#1}^{\mathrm{eqn}}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Primitive-Reservoir Observer-Reduction\\
+\large Zero-Hidden Stationary Equation Law\\
+\large Necessity / Uniqueness from Zero-Hidden Equation Support and Hidden-Fiber Exactness}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The current benchmark-facing theorem on the active primitive-reservoir observer-reduction line already sharpened the burden once more: the zero-hidden stationary reduction law is no longer merely available, because it is canonically induced by a zero-hidden stationary equation law and is necessary there up to the harmless orthogonal identification of the hidden equation target. The remaining honest task is therefore no longer to justify the stationary-reduction layer. It is to justify why the stationary equation law itself should hold.
+
+The present note takes the second route explicitly left open by that theorem. It does not introduce another stationary-reduction, stationary-Hessian, spectral, or selector relay. Instead it proves a sharper inevitability theorem at the equation-law layer itself. For each sector it retains only a smaller zero-hidden equation-support package: a compact convex equation-state body, affine observer-data and shell-response readouts, a hidden equation target with a positive-definite pairing, a designated linear zero-hidden equation subspace together with its hidden complement and hidden body, a common zero-locus linearization that vanishes on zero directions and is coercively positive on hidden directions, symmetry and time-reversal actions preserving that support data, an exact zero-response shell realization, fixed-data shell solvability, the inert zero-hidden kernel and projector, and the equation coercivity inequality. To remove the last residual freedom it then imposes hidden-fiber exactness: the hidden equation defect is invariant under translations along the zero locus and additive in hidden directions.
+
+From that smaller support package and hidden-fiber exactness one derives a unique canonical residual,
+\[
+\EqnResidualCan{\sigma}(u)=\EqnLin{\sigma}\bigl(\EqnProj{\sigma}u\bigr),
+\]
+and therefore a unique zero-hidden stationary equation law in the sharpened class. Every constituent of the smaller package recorded in the previous theorem is thereby forced: the compact convex equation-state body, the affine observer-data and shell-response readouts, the hidden equation space with positive-definite pairing, the smooth stationary equation residual with exact zero-hidden locus, the common zero-locus linearization, the induced zero/hidden splitting and hidden body, the exact zero-response shell realization, fixed-data solvability, the inert kernel and projector, and the equation coercivity inequality. The benchmark package remains fixed throughout: the one operative metric is still exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, and the low-energy matter law is not enlarged.
+\end{abstract}
+
+\section{Introduction}
+
+The active derivational program of \TheoryName{} has again narrowed what counts as an honest next step. The primitive-observer-reduction datum theorem, the defect-fiber factorization theorem, the one-metric output theorem, the chain-forcing theorem, the selector theorem, the stationary-construction theorem, the explicit-package theorem, the primitive-normal-form theorem, the ambient-shell-law theorem, the combined-response theorem, the graph-collapse theorem, the completion-core theorem, the ambient-dynamics theorem, the selector-law theorem, the spectral-law theorem, the stationary-Hessian theorem, and the later stationary-reduction theorem each discharged what was honestly open at its own layer. The latest result matters because it removes another tempting stopping point. Once the stationary-reduction package is itself a canonical realization of a deeper stationary equation law, it is no longer enough to revisit the stationary-reduction layer under a different presentation.
+
+The remaining honest burden is therefore one layer deeper again. The task is now to explain why the zero-hidden stationary equation law should exist, rather than letting the compact convex equation-state body, the affine observer-data and shell-response readouts, the hidden equation target with positive-definite pairing, the smooth stationary equation residual with exact zero-hidden locus, the common zero-locus linearization, the zero/hidden splitting, the hidden body, the shell realization, the solvability statement, the inert kernel and projector, and the equation coercivity inequality stand as the new deepest disciplined assumptions. That is the burden addressed here.
+
+The present note chooses the sharper inevitability route rather than inventing another deeper same-output relay. Its point is not to claim final microscopic closure. Its point is narrower and more theorem-side. It asks whether the remaining freedom inside the stationary equation law can itself be removed while preserving the same benchmark package. The answer proved here is yes, once one descends one step further to a smaller equation-support package and requires hidden-fiber exactness.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not claim that final substrate microphysics has already been found. Its narrower theorem is only that, on the active primitive-observer-reduction line, the zero-hidden stationary equation law is itself forced in a sharpened class by a smaller zero-hidden equation-support package together with hidden-fiber exactness, and is unique there.
+
+\begin{remark}
+The forcing-principle primitive-reservoir / stationary-reduction origin note remains relevant on the origin side. The present theorem does not supersede that note and does not derive its support package from more primitive substrate dynamics. It isolates the theorem-side burden that the origin-side continuation must eventually explain: once the support package and hidden-fiber exactness are available, the full stationary equation law is no longer free.
+\end{remark}
+
+\section{Fixed Primitive Continuation Data}
+
+\begin{definition}[Recorded primitive continuation data]
+\label{def:fixed}
+Fix the following continuation data from the active primitive-reservoir observer-reduction line.
+\begin{enumerate}
+    \item For each sector label \(\sigma\in\{\Car,\Cur,\Hom\}\), a primitive forcing shell
+    \[
+    \ForSpace{\sigma},
+    \]
+    a visible reduction map
+    \[
+    \Reduction{\sigma}:\ForSpace{\sigma}\to X_{\sigma},
+    \]
+    and shell-level current and equilibrium carriers
+    \[
+    \CurrentCarrier{\sigma}:\ForSpace{\sigma}\to Z_{\sigma}^{\mathrm{cur}},
+    \qquad
+    \EqCarrier{\sigma}:\ForSpace{\sigma}\to Z_{\sigma}^{\mathrm{eq}}.
+    \]
+    \item The product shell
+    \[
+    \PrimShell
+    \equiv
+    \ForSpace{\Car}\times \ForSpace{\Cur}\times \ForSpace{\Hom}.
+    \]
+    \item Fixed shell extractors
+    \[
+    \CurrentExtract{\sigma}:Z_{\sigma}^{\mathrm{cur}}\to Y_{\sigma}^{\mathrm{cur}},
+    \qquad
+    \EqExtract{\sigma}:Z_{\sigma}^{\mathrm{eq}}\to Y_{\sigma}^{\mathrm{eq}},
+    \]
+    together with the recorded shell composites
+    \begin{equation}
+    \PrimCurrent{\sigma}
+    =
+    \CurrentExtract{\sigma}\circ \CurrentCarrier{\sigma},
+    \qquad
+    \PrimTheta{\sigma}
+    =
+    \EqExtract{\sigma}\circ \EqCarrier{\sigma}.
+    \label{eq:primcomposites}
+    \end{equation}
+    \item The recorded metric and ordinary-matter outputs
+    \[
+    \MetricOut:\PrimShell\to\{\text{observer metrics}\},
+    \qquad
+    \MatterOut:\PrimShell\times\Psi\to\{\text{observer stress tensors}\},
+    \]
+    satisfying
+    \begin{equation}
+    \MetricOut(\mathbf w)=\CompletedMetric,
+    \qquad
+    \MatterOut(\mathbf w,\psi)
+    =
+    T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
+    \label{eq:fixedoutputs}
+    \end{equation}
+    for every \(\mathbf w\in\PrimShell\) and every matter configuration \(\psi\in\Psi\).
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:fixed} is not reopened here. The primitive shell data and the benchmark one-metric / ordinary-matter outputs remain fixed continuation data. The work begins one layer deeper again: why the stationary equation law that now carries the active theorem line should itself be forced.
+\end{remark}
+
+\section{Target Stationary Equation Law}
+
+\begin{definition}[Zero-hidden stationary equation law]
+\label{def:equation}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). A \emph{zero-hidden stationary equation law} for sector \(\sigma\) consists of the following data.
+\begin{enumerate}
+    \item A finite-dimensional Euclidean equation state space
+    \[
+    \EqnSpace{\sigma},
+    \]
+    the observer-data space
+    \[
+    \DataSpace{\sigma}
+    \equiv
+    \VisibleAffine{\sigma}\times Z_{\sigma}^{\mathrm{cur}}\times Z_{\sigma}^{\mathrm{eq}},
+    \]
+    an ambient shell-response space
+    \[
+    \AmbientTarget{\sigma},
+    \]
+    a finite-dimensional real hidden equation space
+    \[
+    \EqnTarget{\sigma},
+    \]
+    and a compact convex equation state body
+    \[
+    \EqnBody{\sigma}\subset\EqnSpace{\sigma}
+    \]
+    with nonempty interior.
+    \item An affine observer-data readout
+    \[
+    \EqnData{\sigma}:\EqnSpace{\sigma}\to\DataSpace{\sigma}
+    \]
+    and an affine shell-response readout
+    \[
+    \EqnShell{\sigma}:\EqnSpace{\sigma}\to\AmbientTarget{\sigma}.
+    \]
+    \item A positive-definite symmetric hidden-equation pairing
+    \[
+    \EqnPair{\sigma}:
+    \EqnTarget{\sigma}\times\EqnTarget{\sigma}\to\mathbb R.
+    \]
+    \item A smooth stationary equation residual
+    \[
+    \EqnResidual{\sigma}:\EqnSpace{\sigma}\to\EqnTarget{\sigma}
+    \]
+    whose exact zero-hidden equation locus
+    \[
+    \left\{
+    u\in\EqnSpace{\sigma}:
+    \EqnResidual{\sigma}(u)=0
+    \right\}
+    \]
+    is a linear subspace. Define the exact zero-hidden equation locus
+    \[
+    \EqnZero{\sigma}
+    \equiv
+    \left\{
+    u\in\EqnSpace{\sigma}:
+    \EqnResidual{\sigma}(u)=0
+    \right\},
+    \]
+    the hidden equation space
+    \[
+    \EqnHidden{\sigma}
+    \equiv
+    \bigl(\EqnZero{\sigma}\bigr)^{\perp},
+    \]
+    and let
+    \[
+    \EqnProj{\sigma}:\EqnSpace{\sigma}\to\EqnHidden{\sigma}
+    \]
+    denote the orthogonal projector.
+    \item A compact convex hidden equation body
+    \[
+    \EqnHiddenBody{\sigma}\subset\EqnHidden{\sigma}
+    \]
+    with
+    \[
+    0\in\operatorname{int}\EqnHiddenBody{\sigma},
+    \]
+    such that the equation state body splits exactly as
+    \begin{equation}
+    \EqnBody{\sigma}
+    =
+    \left\{
+    z+\eta:
+    z\in\EqnBody{\sigma}\cap\EqnZero{\sigma},
+    \quad
+    \eta\in\EqnHiddenBody{\sigma}
+    \right\}.
+    \label{eq:eqnsplitting}
+    \end{equation}
+    \item A common zero-locus linearization
+    \[
+    \EqnLin{\sigma}:\EqnSpace{\sigma}\to\EqnTarget{\sigma}
+    \]
+    such that for every \(z\in\EqnZero{\sigma}\),
+    \begin{equation}
+    D\EqnResidual{\sigma}(z)=\EqnLin{\sigma}.
+    \label{eq:eqnlinearization}
+    \end{equation}
+    Assume moreover that
+    \begin{equation}
+    \EqnLin{\sigma}(\delta z)=0
+    \qquad
+    \text{for all }\delta z\in\EqnZero{\sigma},
+    \label{eq:eqnzero}
+    \end{equation}
+    and that there exists \(\lambda_{\sigma}^{\mathrm{eqn}}>0\) with
+    \begin{equation}
+    \EqnPair{\sigma}\bigl(\EqnLin{\sigma}\eta,\EqnLin{\sigma}\eta\bigr)
+    \ge
+    \lambda_{\sigma}^{\mathrm{eqn}}\,
+    \|\eta\|^{2}
+    \qquad
+    \text{for all }\eta\in\EqnHidden{\sigma}.
+    \label{eq:eqngap}
+    \end{equation}
+    \item A compact symmetry group
+    \[
+    \EqnSym{\sigma}
+    \]
+    and an involution
+    \[
+    \EqnTime{\sigma},
+    \]
+    acting linearly on \(\EqnSpace{\sigma}\), \(\DataSpace{\sigma}\), and \(\AmbientTarget{\sigma}\) by orthogonal maps and on \(\EqnTarget{\sigma}\) by \(\EqnPair{\sigma}\)-isometries, preserving \(\EqnBody{\sigma}\), \(\EqnData{\sigma}\), \(\EqnShell{\sigma}\), and \(\EqnResidual{\sigma}\).
+    \item A smooth embedding
+    \[
+    \jmath_{\sigma}:X_{\sigma}\hookrightarrow\VisibleAffine{\sigma}
+    \]
+    and a smooth zero-response shell realization
+    \[
+    \EqnEmbed{\sigma}:\ForSpace{\sigma}\hookrightarrow\EqnSpace{\sigma}
+    \]
+    whose image is exactly
+    \[
+    \EqnBody{\sigma}\cap
+    \EqnZero{\sigma}\cap
+    \bigl(\EqnShell{\sigma}\bigr)^{-1}(0),
+    \]
+    and such that
+    \begin{equation}
+    \EqnData{\sigma}\bigl(\EqnEmbed{\sigma}(w)\bigr)
+    =
+    \bigl(
+    \jmath_{\sigma}(\Reduction{\sigma}(w)),
+    \CurrentCarrier{\sigma}(w),
+    \EqCarrier{\sigma}(w)
+    \bigr)
+    \label{eq:eqncompat}
+    \end{equation}
+    for every \(w\in\ForSpace{\sigma}\).
+    \item Fixed-data shell solvability on the zero-hidden equation locus:
+    \begin{equation}
+    \EqnData{\sigma}\bigl(
+    \EqnBody{\sigma}\cap\EqnZero{\sigma}
+    \bigr)
+    =
+    \EqnData{\sigma}\Bigl(
+    \EqnBody{\sigma}\cap
+    \EqnZero{\sigma}\cap
+    \bigl(\EqnShell{\sigma}\bigr)^{-1}(0)
+    \Bigr).
+    \label{eq:eqnsolvability}
+    \end{equation}
+    \item The inert zero-hidden kernel
+    \[
+    \Kernel{\sigma}
+    \equiv
+    \ker\bigl(D\EqnData{\sigma}\big|_{\EqnZero{\sigma}}\bigr)
+    \cap
+    \ker\bigl(D\EqnShell{\sigma}\big|_{\EqnZero{\sigma}}\bigr)
+    \]
+    and the orthogonal projector
+    \[
+    \StateComp{\sigma}:
+    \EqnZero{\sigma}\to
+    {\Kernel{\sigma}}^{\perp}\cap\EqnZero{\sigma}.
+    \]
+    \item Equation coercivity on data-invisible directions: there exists \(\kappa_{\sigma}^{\mathrm{eqn}}>0\) such that for every
+    \[
+    w\in\ForSpace{\sigma},
+    \qquad
+    \delta u\in T_{\EqnEmbed{\sigma}(w)}\EqnSpace{\sigma}=\EqnSpace{\sigma}
+    \]
+    satisfying
+    \[
+    D\EqnData{\sigma}\,\delta u=0,
+    \]
+    one has
+    \begin{equation}
+    \|D\EqnShell{\sigma}\,\delta u\|^{2}
+    +
+    \EqnPair{\sigma}\bigl(\EqnLin{\sigma}\delta u,\EqnLin{\sigma}\delta u\bigr)
+    \ge
+    \kappa_{\sigma}^{\mathrm{eqn}}
+    \left(
+    \|\StateComp{\sigma}\bigl((I-\EqnProj{\sigma})\delta u\bigr)\|^{2}
+    +
+    \|\EqnProj{\sigma}\delta u\|^{2}
+    \right).
+    \label{eq:eqncoercive}
+    \end{equation}
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:equation} is exactly the smaller package isolated in the previous stationary-reduction theorem. The point of the present note is not to enlarge it, but to remove the only remaining theorem-side freedom inside it.
+\end{remark}
+
+\section{Zero-Hidden Equation Support Package}
+
+\begin{definition}[Zero-hidden stationary equation support package]
+\label{def:support}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). A \emph{zero-hidden stationary equation support package} for sector \(\sigma\) consists of the following data.
+\begin{enumerate}
+    \item A finite-dimensional Euclidean equation state space
+    \[
+    \EqnSpace{\sigma},
+    \]
+    the observer-data space
+    \[
+    \DataSpace{\sigma}
+    \equiv
+    \VisibleAffine{\sigma}\times Z_{\sigma}^{\mathrm{cur}}\times Z_{\sigma}^{\mathrm{eq}},
+    \]
+    an ambient shell-response space
+    \[
+    \AmbientTarget{\sigma},
+    \]
+    a finite-dimensional real hidden equation target
+    \[
+    \EqnTarget{\sigma},
+    \]
+    and a compact convex equation state body
+    \[
+    \EqnBody{\sigma}\subset\EqnSpace{\sigma}
+    \]
+    with nonempty interior.
+    \item An affine observer-data readout
+    \[
+    \EqnData{\sigma}:\EqnSpace{\sigma}\to\DataSpace{\sigma}
+    \]
+    and an affine shell-response readout
+    \[
+    \EqnShell{\sigma}:\EqnSpace{\sigma}\to\AmbientTarget{\sigma}.
+    \]
+    \item A positive-definite symmetric hidden-equation pairing
+    \[
+    \EqnPair{\sigma}:
+    \EqnTarget{\sigma}\times\EqnTarget{\sigma}\to\mathbb R.
+    \]
+    \item A distinguished linear zero-hidden equation subspace
+    \[
+    \EqnZero{\sigma}\subset\EqnSpace{\sigma},
+    \]
+    the hidden equation space
+    \[
+    \EqnHidden{\sigma}
+    \equiv
+    \bigl(\EqnZero{\sigma}\bigr)^{\perp},
+    \]
+    the orthogonal projector
+    \[
+    \EqnProj{\sigma}:\EqnSpace{\sigma}\to\EqnHidden{\sigma},
+    \]
+    and a compact convex hidden equation body
+    \[
+    \EqnHiddenBody{\sigma}\subset\EqnHidden{\sigma}
+    \]
+    with
+    \[
+    0\in\operatorname{int}\EqnHiddenBody{\sigma},
+    \]
+    such that the equation state body splits exactly as
+    \begin{equation}
+    \EqnBody{\sigma}
+    =
+    \left\{
+    z+\eta:
+    z\in\EqnBody{\sigma}\cap\EqnZero{\sigma},
+    \quad
+    \eta\in\EqnHiddenBody{\sigma}
+    \right\}.
+    \label{eq:supportsplitting}
+    \end{equation}
+    \item A linear common zero-locus defect map
+    \[
+    \EqnLin{\sigma}:\EqnSpace{\sigma}\to\EqnTarget{\sigma}
+    \]
+    satisfying
+    \begin{equation}
+    \EqnLin{\sigma}(\delta z)=0
+    \qquad
+    \text{for all }\delta z\in\EqnZero{\sigma},
+    \label{eq:supportzero}
+    \end{equation}
+    and such that there exists \(\lambda_{\sigma}^{\mathrm{eqn}}>0\) with
+    \begin{equation}
+    \EqnPair{\sigma}\bigl(\EqnLin{\sigma}\eta,\EqnLin{\sigma}\eta\bigr)
+    \ge
+    \lambda_{\sigma}^{\mathrm{eqn}}\,
+    \|\eta\|^{2}
+    \qquad
+    \text{for all }\eta\in\EqnHidden{\sigma}.
+    \label{eq:supportgap}
+    \end{equation}
+    \item A compact symmetry group
+    \[
+    \EqnSym{\sigma}
+    \]
+    and an involution
+    \[
+    \EqnTime{\sigma},
+    \]
+    acting linearly on \(\EqnSpace{\sigma}\), \(\DataSpace{\sigma}\), and \(\AmbientTarget{\sigma}\) by orthogonal maps and on \(\EqnTarget{\sigma}\) by \(\EqnPair{\sigma}\)-isometries, preserving \(\EqnBody{\sigma}\), \(\EqnZero{\sigma}\), \(\EqnHiddenBody{\sigma}\), \(\EqnData{\sigma}\), and \(\EqnShell{\sigma}\), and intertwining \(\EqnLin{\sigma}\).
+    \item A smooth embedding
+    \[
+    \jmath_{\sigma}:X_{\sigma}\hookrightarrow\VisibleAffine{\sigma}
+    \]
+    and a smooth zero-response shell realization
+    \[
+    \EqnEmbed{\sigma}:\ForSpace{\sigma}\hookrightarrow\EqnSpace{\sigma}
+    \]
+    whose image is exactly
+    \[
+    \EqnBody{\sigma}\cap
+    \EqnZero{\sigma}\cap
+    \bigl(\EqnShell{\sigma}\bigr)^{-1}(0),
+    \]
+    and such that
+    \begin{equation}
+    \EqnData{\sigma}\bigl(\EqnEmbed{\sigma}(w)\bigr)
+    =
+    \bigl(
+    \jmath_{\sigma}(\Reduction{\sigma}(w)),
+    \CurrentCarrier{\sigma}(w),
+    \EqCarrier{\sigma}(w)
+    \bigr)
+    \label{eq:supportcompat}
+    \end{equation}
+    for every \(w\in\ForSpace{\sigma}\).
+    \item Fixed-data shell solvability on the zero-hidden equation subspace:
+    \begin{equation}
+    \EqnData{\sigma}\bigl(
+    \EqnBody{\sigma}\cap\EqnZero{\sigma}
+    \bigr)
+    =
+    \EqnData{\sigma}\Bigl(
+    \EqnBody{\sigma}\cap
+    \EqnZero{\sigma}\cap
+    \bigl(\EqnShell{\sigma}\bigr)^{-1}(0)
+    \Bigr).
+    \label{eq:supportsolvability}
+    \end{equation}
+    \item The inert zero-hidden kernel
+    \[
+    \Kernel{\sigma}
+    \equiv
+    \ker\bigl(D\EqnData{\sigma}\big|_{\EqnZero{\sigma}}\bigr)
+    \cap
+    \ker\bigl(D\EqnShell{\sigma}\big|_{\EqnZero{\sigma}}\bigr)
+    \]
+    and the orthogonal projector
+    \[
+    \StateComp{\sigma}:
+    \EqnZero{\sigma}\to
+    {\Kernel{\sigma}}^{\perp}\cap\EqnZero{\sigma}.
+    \]
+    \item Equation coercivity on data-invisible directions: there exists \(\kappa_{\sigma}^{\mathrm{eqn}}>0\) such that for every
+    \[
+    w\in\ForSpace{\sigma},
+    \qquad
+    \delta u\in T_{\EqnEmbed{\sigma}(w)}\EqnSpace{\sigma}=\EqnSpace{\sigma}
+    \]
+    satisfying
+    \[
+    D\EqnData{\sigma}\,\delta u=0,
+    \]
+    one has
+    \begin{equation}
+    \|D\EqnShell{\sigma}\,\delta u\|^{2}
+    +
+    \EqnPair{\sigma}\bigl(\EqnLin{\sigma}\delta u,\EqnLin{\sigma}\delta u\bigr)
+    \ge
+    \kappa_{\sigma}^{\mathrm{eqn}}
+    \left(
+    \|\StateComp{\sigma}\bigl((I-\EqnProj{\sigma})\delta u\bigr)\|^{2}
+    +
+    \|\EqnProj{\sigma}\delta u\|^{2}
+    \right).
+    \label{eq:supportcoercive}
+    \end{equation}
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:support} is exactly Definition \ref{def:equation} with the residual itself removed and the zero-hidden subspace named directly. The only remaining equation-law-level freedom is how one extends the already fixed common zero-locus defect map away from the exact zero-hidden locus.
+\end{remark}
+
+\section{Hidden-Fiber Exactness}
+
+\begin{definition}[Hidden-fiber exact residual]
+\label{def:exact}
+Assume Definition \ref{def:support}. A smooth map
+\[
+R_{\sigma}:\EqnSpace{\sigma}\to\EqnTarget{\sigma}
+\]
+is called a \emph{hidden-fiber exact residual} over the support package if it satisfies the following properties.
+\begin{enumerate}
+    \item Zero-fiber invariance:
+    \begin{equation}
+    R_{\sigma}(u)
+    =
+    R_{\sigma}\bigl(\EqnProj{\sigma}u\bigr)
+    \qquad
+    \text{for all }u\in\EqnSpace{\sigma}.
+    \label{eq:exactinvariant}
+    \end{equation}
+    Equivalently, if \(u=z+\eta\) with \(z\in\EqnZero{\sigma}\) and \(\eta\in\EqnHidden{\sigma}\), then
+    \[
+    R_{\sigma}(z+\eta)=R_{\sigma}(\eta).
+    \]
+    \item Hidden additivity:
+    \begin{equation}
+    R_{\sigma}(\eta_{1}+\eta_{2})
+    =
+    R_{\sigma}(\eta_{1})
+    +
+    R_{\sigma}(\eta_{2})
+    \qquad
+    \text{for all }\eta_{1},\eta_{2}\in\EqnHidden{\sigma}.
+    \label{eq:exactadditive}
+    \end{equation}
+    \item Support-linearization compatibility: for every \(z\in\EqnZero{\sigma}\),
+    \begin{equation}
+    DR_{\sigma}(z)=\EqnLin{\sigma}.
+    \label{eq:exactlinearization}
+    \end{equation}
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:exact} is the sharpened class in which the last residual freedom is removed. Zero-fiber invariance says that translations along the exact zero-hidden locus are invisible to the hidden equation defect. Hidden additivity says that hidden defect increments combine without introducing a new nonlinear hidden self-interaction. Support-linearization compatibility anchors that unique hidden defect to the already fixed common zero-locus tangent data.
+\end{remark}
+
+\section{Canonical Equation Law Induced by the Support Package}
+
+\begin{definition}[Canonical stationary equation law induced by the support package]
+\label{def:canonical}
+Assume Definition \ref{def:support}. Define the canonical hidden-fiber exact residual by
+\begin{equation}
+\EqnResidualCan{\sigma}(u)
+\equiv
+\EqnLin{\sigma}\bigl(\EqnProj{\sigma}u\bigr).
+\label{eq:canresidual}
+\end{equation}
+The canonical stationary equation law is obtained by keeping all other support data fixed and setting
+\[
+\EqnResidual{\sigma}\equiv\EqnResidualCan{\sigma}.
+\]
+\end{definition}
+
+\begin{lemma}[Canonical residual properties]
+\label{lem:canonical}
+Assume Definition \ref{def:support}. Then:
+\begin{enumerate}
+    \item for every \(u\in\EqnSpace{\sigma}\),
+    \begin{equation}
+    \EqnResidualCan{\sigma}(u)=\EqnLin{\sigma}(u);
+    \label{eq:canlin}
+    \end{equation}
+    \item \(\EqnResidualCan{\sigma}\) is smooth and hidden-fiber exact in the sense of Definition \ref{def:exact};
+    \item its exact zero-hidden equation locus is precisely \(\EqnZero{\sigma}\);
+    \item for every \(z\in\EqnZero{\sigma}\),
+    \[
+    D\EqnResidualCan{\sigma}(z)=\EqnLin{\sigma}.
+    \]
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+Write \(u=z+\eta\) with \(z\in\EqnZero{\sigma}\) and \(\eta=\EqnProj{\sigma}u\in\EqnHidden{\sigma}\). Because \(\EqnLin{\sigma}\) vanishes on \(\EqnZero{\sigma}\) by \eqref{eq:supportzero},
+\[
+\EqnLin{\sigma}(u)
+=
+\EqnLin{\sigma}(z+\eta)
+=
+\EqnLin{\sigma}(z)+\EqnLin{\sigma}(\eta)
+=
+\EqnLin{\sigma}(\eta)
+=
+\EqnLin{\sigma}\bigl(\EqnProj{\sigma}u\bigr)
+=
+\EqnResidualCan{\sigma}(u),
+\]
+which proves item (1).
+
+Item (2) begins with smoothness, which is immediate because \(\EqnResidualCan{\sigma}\) is linear. Zero-fiber invariance follows from \(\EqnProj{\sigma}\circ\EqnProj{\sigma}=\EqnProj{\sigma}\):
+\[
+\EqnResidualCan{\sigma}\bigl(\EqnProj{\sigma}u\bigr)
+=
+\EqnLin{\sigma}\bigl(\EqnProj{\sigma}(\EqnProj{\sigma}u)\bigr)
+=
+\EqnLin{\sigma}\bigl(\EqnProj{\sigma}u\bigr)
+=
+\EqnResidualCan{\sigma}(u).
+\]
+If \(\eta_{1},\eta_{2}\in\EqnHidden{\sigma}\), then by linearity
+\[
+\EqnResidualCan{\sigma}(\eta_{1}+\eta_{2})
+=
+\EqnLin{\sigma}(\eta_{1}+\eta_{2})
+=
+\EqnLin{\sigma}(\eta_{1})+\EqnLin{\sigma}(\eta_{2})
+=
+\EqnResidualCan{\sigma}(\eta_{1})+\EqnResidualCan{\sigma}(\eta_{2}),
+\]
+so hidden additivity holds. Finally, since \(\EqnResidualCan{\sigma}=\EqnLin{\sigma}\) by item (1), \eqref{eq:exactlinearization} holds automatically.
+
+For item (3), if \(u\in\EqnZero{\sigma}\), then \(\EqnProj{\sigma}u=0\), so \(\EqnResidualCan{\sigma}(u)=0\). Conversely, if \(\EqnResidualCan{\sigma}(u)=0\), write \(u=z+\eta\) as above. Then \(\EqnLin{\sigma}(\eta)=0\), and \eqref{eq:supportgap} gives
+\[
+0
+=
+\EqnPair{\sigma}\bigl(\EqnLin{\sigma}\eta,\EqnLin{\sigma}\eta\bigr)
+\ge
+\lambda_{\sigma}^{\mathrm{eqn}}\|\eta\|^{2},
+\]
+hence \(\eta=0\). Thus \(u=z\in\EqnZero{\sigma}\).
+
+Item (4) follows because \(\EqnResidualCan{\sigma}\) is linear and equals \(\EqnLin{\sigma}\).
+\end{proof}
+
+\begin{proposition}[The support package induces a zero-hidden stationary equation law]
+\label{prop:equation}
+Assume Definitions \ref{def:support} and \ref{def:canonical}. Then the canonical data satisfy every requirement of Definition \ref{def:equation}.
+\end{proposition}
+
+\begin{proof}
+Items (1), (2), and (3) of Definition \ref{def:equation} are already part of Definition \ref{def:support}. By Lemma \ref{lem:canonical}, the exact zero-hidden equation locus of \(\EqnResidual{\sigma}=\EqnResidualCan{\sigma}\) is precisely \(\EqnZero{\sigma}\), so Definition \ref{def:equation}(4) holds with the already designated hidden space \(\EqnHidden{\sigma}=(\EqnZero{\sigma})^{\perp}\) and projector \(\EqnProj{\sigma}\).
+
+The compact convex hidden equation body and the exact splitting \eqref{eq:eqnsplitting} are precisely the support data \eqref{eq:supportsplitting}, so item (5) holds. Item (6) is Lemma \ref{lem:canonical}(4) together with \eqref{eq:supportzero} and \eqref{eq:supportgap}.
+
+For item (7), let \(g\) denote either an element of \(\EqnSym{\sigma}\) or the involution \(\EqnTime{\sigma}\). Because \(g\) acts orthogonally on \(\EqnSpace{\sigma}\) and preserves \(\EqnZero{\sigma}\), it also preserves \(\EqnHidden{\sigma}=(\EqnZero{\sigma})^{\perp}\), hence commutes with \(\EqnProj{\sigma}\). Since \(g\) intertwines \(\EqnLin{\sigma}\),
+\[
+\EqnResidualCan{\sigma}(g u)
+=
+\EqnLin{\sigma}\bigl(\EqnProj{\sigma}(g u)\bigr)
+=
+\EqnLin{\sigma}\bigl(g\,\EqnProj{\sigma}u\bigr)
+=
+g\cdot \EqnLin{\sigma}\bigl(\EqnProj{\sigma}u\bigr)
+=
+g\cdot \EqnResidualCan{\sigma}(u).
+\]
+Thus the symmetry and time-reversal structure preserve the canonical residual.
+
+The zero-response shell realization and data compatibility are exactly \eqref{eq:supportcompat}. Fixed-data shell solvability is exactly \eqref{eq:supportsolvability}. The inert zero-hidden kernel and projector are already recorded in Definition \ref{def:support}. Finally, the coercivity inequality of Definition \ref{def:equation}(11) is exactly \eqref{eq:supportcoercive}. Every requirement of Definition \ref{def:equation} is satisfied.
+\end{proof}
+
+\section{Forced Constituents and Uniqueness}
+
+\begin{proposition}[Hidden-fiber exact residuals are unique]
+\label{prop:unique}
+Assume Definition \ref{def:support}, and let
+\[
+R_{\sigma}:\EqnSpace{\sigma}\to\EqnTarget{\sigma}
+\]
+be a hidden-fiber exact residual in the sense of Definition \ref{def:exact}. Then
+\begin{equation}
+R_{\sigma}(u)
+=
+\EqnResidualCan{\sigma}(u)
+=
+\EqnLin{\sigma}\bigl(\EqnProj{\sigma}u\bigr)
+\qquad
+\text{for all }u\in\EqnSpace{\sigma}.
+\label{eq:unique}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+By \eqref{eq:exactinvariant}, the restriction
+\[
+r_{\sigma}\equiv R_{\sigma}\big|_{\EqnHidden{\sigma}}:\EqnHidden{\sigma}\to\EqnTarget{\sigma}
+\]
+determines \(R_{\sigma}\) completely, because
+\[
+R_{\sigma}(u)=r_{\sigma}\bigl(\EqnProj{\sigma}u\bigr).
+\]
+Equation \eqref{eq:exactadditive} says that \(r_{\sigma}\) is additive on the finite-dimensional space \(\EqnHidden{\sigma}\). Since \(R_{\sigma}\) is smooth, \(r_{\sigma}\) is continuous, hence linear.
+
+Therefore
+\[
+DR_{\sigma}(0)=r_{\sigma}\circ \EqnProj{\sigma}.
+\]
+But \(0\in\EqnZero{\sigma}\), so \eqref{eq:exactlinearization} gives
+\[
+r_{\sigma}\circ \EqnProj{\sigma}
+=
+DR_{\sigma}(0)
+=
+\EqnLin{\sigma}.
+\]
+Restricting to \(\EqnHidden{\sigma}\), where \(\EqnProj{\sigma}\) is the identity, yields
+\[
+r_{\sigma}=\EqnLin{\sigma}\big|_{\EqnHidden{\sigma}}.
+\]
+Hence, for any \(u\in\EqnSpace{\sigma}\),
+\[
+R_{\sigma}(u)
+=
+r_{\sigma}\bigl(\EqnProj{\sigma}u\bigr)
+=
+\EqnLin{\sigma}\bigl(\EqnProj{\sigma}u\bigr)
+=
+\EqnResidualCan{\sigma}(u).
+\]
+This proves \eqref{eq:unique}.
+\end{proof}
+
+\begin{proposition}[All equation constituents are forced by the support package and hidden-fiber exactness]
+\label{prop:forced}
+Assume Definition \ref{def:support}. Then the following constituents of Definition \ref{def:equation} are fixed by the support package itself, with the residual uniquely determined inside the hidden-fiber exact class:
+\begin{enumerate}
+    \item the compact convex equation-state body is necessarily \(\EqnBody{\sigma}\);
+    \item the affine observer-data and shell-response readouts are necessarily \(\EqnData{\sigma}\) and \(\EqnShell{\sigma}\);
+    \item the hidden equation target and pairing are necessarily the recorded pair \((\EqnTarget{\sigma},\EqnPair{\sigma})\);
+    \item the exact zero-hidden equation locus is necessarily \(\EqnZero{\sigma}\), the hidden space is necessarily \(\EqnHidden{\sigma}=(\EqnZero{\sigma})^{\perp}\), the hidden body is necessarily \(\EqnHiddenBody{\sigma}\), and the orthogonal projector is necessarily \(\EqnProj{\sigma}\);
+    \item the common zero-locus linearization is necessarily \(\EqnLin{\sigma}\), and therefore vanishes on zero directions and is coercively positive on hidden directions;
+    \item the smooth stationary equation residual is uniquely forced inside the hidden-fiber exact class and is necessarily
+    \[
+    \EqnResidualCan{\sigma}(u)=\EqnLin{\sigma}\bigl(\EqnProj{\sigma}u\bigr);
+    \]
+    \item the symmetry and time-reversal structure, the exact zero-response shell realization on the zero locus, fixed-data shell solvability, the inert zero-hidden kernel and projector, and the equation coercivity inequality are all already fixed by the same support package and are not additional equation-law freedom.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Items (1), (2), (3), (4), (5), and (7) are exactly the data recorded in Definition \ref{def:support}. Item (6) is Proposition \ref{prop:unique}. The exact zero-hidden locus statement in item (4) follows from Lemma \ref{lem:canonical}(3) once the canonical residual is installed.
+\end{proof}
+
+\begin{theorem}[Zero-hidden stationary equation law necessity / uniqueness from equation support and hidden-fiber exactness]
+\label{thm:necessity}
+Assume Definition \ref{def:support}. Then:
+\begin{enumerate}
+    \item the canonical construction of Definition \ref{def:canonical} yields a zero-hidden stationary equation law in the sense of Definition \ref{def:equation};
+    \item every equation-level object singled out by the previous stationary-reduction theorem is forced by the support package and hidden-fiber exactness: the compact convex equation-state body, the affine observer-data and shell-response readouts, the hidden equation space with positive-definite pairing, the smooth stationary equation residual with exact zero-hidden locus, the common zero-locus linearization, the induced zero/hidden splitting and hidden body, the symmetry and time-reversal structure, the exact zero-response shell realization, fixed-data shell solvability, the inert zero-hidden kernel and projector, and the equation coercivity inequality;
+    \item any hidden-fiber exact residual compatible with the same support package is necessarily the canonical residual \(\EqnResidualCan{\sigma}\), so there is no further equation-law-level freedom inside that sharpened class;
+    \item consequently the stationary-equation layer is not an independent remaining freedom once the smaller support package and hidden-fiber exactness are fixed.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Item (1) is Proposition \ref{prop:equation}. Item (2) is Proposition \ref{prop:forced}. Item (3) is Proposition \ref{prop:unique}. Item (4) is the routing consequence of the previous items.
+\end{proof}
+
+\section{Benchmark Preservation}
+
+\begin{theorem}[The forced equation law preserves the same one-metric benchmark package]
+\label{thm:outputs}
+Assume Definition \ref{def:support}. Then the benchmark output statements of Definition \ref{def:fixed} remain unchanged:
+\[
+\MetricOut(\mathbf w)=\CompletedMetric,
+\qquad
+\MatterOut(\mathbf w,\psi)
+=
+T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
+\]
+for every \(\mathbf w\in\PrimShell\) and every matter configuration \(\psi\in\Psi\). Consequently the smaller support package, the hidden-fiber exactness class, and the forced stationary equation law introduce neither a second operative metric nor an enlarged low-energy matter law.
+\end{theorem}
+
+\begin{proof}
+The present note changes only the upstream origin of the stationary equation residual. It does not alter the primitive shell \(\PrimShell\), the recorded metric map \(\MetricOut\), or the recorded matter map \(\MatterOut\). Those remain the fixed continuation data of Definition \ref{def:fixed}, so \eqref{eq:fixedoutputs} continues to hold exactly.
+\end{proof}
+
+\section{Main Theorem}
+
+\begin{theorem}[The remaining burden moves below the stationary-equation layer]
+\label{thm:main}
+Assume the fixed primitive continuation data of Definition \ref{def:fixed} and, for each sector \(\sigma\in\{\Car,\Cur,\Hom\}\), a zero-hidden stationary equation support package in the sense of Definition \ref{def:support}. Then:
+\begin{enumerate}
+    \item the zero-hidden stationary equation law of Definition \ref{def:equation} is canonically induced by the support package;
+    \item the compact convex equation-state body, the affine observer-data and shell-response readouts, the hidden equation target with positive-definite pairing, the smooth stationary equation residual with exact zero-hidden locus, the common zero-locus linearization, the induced zero/hidden splitting and hidden body, the exact zero-response shell realization, fixed-data shell solvability, the inert zero-hidden kernel and projector, and the equation coercivity inequality are all forced in the hidden-fiber exact class by that same support package;
+    \item the one operative metric remains exactly \(\CompletedMetric\), the ordinary matter route remains exactly the standard one through that metric, there is no second operative metric, and the low-energy matter law is not enlarged;
+    \item consequently the benchmark-facing burden after the previous stationary-reduction theorem is discharged in the stronger form now available on the active line: the zero-hidden stationary equation law is no longer an unexplained stopping point, but a canonical hidden-fiber exact realization of a smaller zero-hidden equation-support package.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Item (1) is Theorem \ref{thm:necessity}(1). Item (2) is Theorem \ref{thm:necessity}(2). Item (3) is Theorem \ref{thm:outputs}. Item (4) is the combined routing consequence.
+\end{proof}
+
+\begin{corollary}[What remains open after this theorem]
+\label{cor:next}
+After Theorem \ref{thm:main}, the remaining honest burden is no longer to justify the zero-hidden stationary equation law itself on the active primitive-observer-reduction line. The next honest burden is deeper again: derive or justify the zero-hidden equation-support package and hidden-fiber exactness from still more primitive substrate dynamics, or else prove a sharper inevitability theorem that removes even that remaining support-level freedom while preserving the same benchmark one-metric package and claim boundary.
+\end{corollary}
+
+\begin{proof}
+Theorem \ref{thm:main} converts the stationary-equation layer from a remaining benchmark-facing burden into a canonical realization of a smaller support package inside the hidden-fiber exact class. What remains open is why that support package and exactness class themselves should hold, rather than becoming the new disciplined stopping point.
+\end{proof}
+
+\section{Conclusion}
+
+The positive result of this note is deliberately narrower than a completed final microphysical derivation and stronger than another deeper same-output relay. The previous theorem had already shown that the stationary-reduction layer is a forced realization of a stationary equation law. The present note goes one honest step further by showing that the stationary equation law itself is not left hanging either, provided one descends to the smaller support package that already carries all of its benchmark-relevant structure and then imposes hidden-fiber exactness.
+
+That gain directly addresses the precise objects that had become the next burden: the compact convex equation-state body, the affine observer-data and shell-response readouts, the hidden equation target with positive-definite pairing, the smooth stationary equation residual with exact zero-hidden locus, the common zero-locus linearization, the induced zero/hidden splitting and hidden body, the exact zero-response shell realization, fixed-data solvability, the inert kernel and projector, and the equation coercivity inequality. Within the hidden-fiber exact class those are no longer optional inserted ingredients. They are forced outputs, and the residual itself collapses to the canonical hidden linear defect \(u\mapsto \EqnLin(\EqnProj u)\).
+
+The benchmark boundary remains fixed throughout. The same primitive shell remains the shell carrying the observer outputs, so the one operative metric is still exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, and the low-energy matter law is not enlarged. This is therefore a disciplined theorem-side derivational gain, not a final completion claim. The note still does not derive the support package or hidden-fiber exactness from ultimate substrate microphysics. That is the next honest open burden, and stronger promotion language about completed first-principles derivation should remain paused until that deeper burden is discharged cleanly. But the stationary-equation layer is no longer the stopping point on the active line.
+
+\end{document}
