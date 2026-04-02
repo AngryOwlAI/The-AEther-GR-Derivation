@@ -12,11 +12,12 @@ This checklist is intentionally compact. It tracks the active operational rules 
 
 ## Current Primary Research Step
 
-- [ ] Do not default to reopening the same same-package direct absorbability question or to another generic deeper-origin note.
-- [ ] Treat the branch-locked continuity-Hessian direct theorem as the resolved same-package observer-side closure result on the active one-metric line.
+- [ ] Do not default to reopening the same-package direct absorbability question, another same-package observer-side rewrite, or a generic deeper-origin note that leaves benchmark-facing status unchanged.
+- [ ] Treat the branch-locked continuity-Hessian direct theorem together with the post-bridge derivation-gate status note as the resolved same-package observer-side closure routing result on the active one-metric line.
+- [ ] Treat the upstream compression theorem and the primitive-reservoir continuity-Hessian / observer-reduction line as having shifted the main burden to deeper substrate derivation of the benchmark one-metric package.
 - [ ] The next primary manuscript must either:
-  - record benchmark-facing derivation-gate status after that closure result
-  - directly address a remaining benchmark derivation gate or an equivalent post-closure benchmark-facing burden
+  - go below the shell-generating substrate lift dynamics theorem by deriving or justifying the lift-generating substrate precursor dynamics themselves
+  - prove a sharper inevitability theorem at that same precursor level while preserving the same benchmark one-metric package and claim boundary
   - or produce an explicit same-package field-redefinition theorem only if a second exact reformulation is specifically needed
 - [ ] Treat the current fixed one-metric observer package as still maximal at current scope with respect to strict same-package observer-side closure on that fixed package itself; do not confuse that fixed-package maximality statement with the new sharpened-package closure theorem.
 - [ ] Keep stronger promotion language about first-principles derivation paused until the remaining derivation-gate burdens are met.
@@ -26,8 +27,11 @@ This checklist is intentionally compact. It tracks the active operational rules 
 - [x] Benchmark derivation gates are recorded.
 - [x] Observer-remainder classification and redesign gate screen are recorded.
 - [x] Candidate, infrared/universal-coupling gate, controlled-GR-limit, and residual-sector verdict notes are recorded on the charge-polarization line.
-- [x] Quartic-completion and exact-preservation continuation notes are recorded through the current deepest benchmark-facing origin note.
+- [x] Quartic-completion and exact-preservation continuation notes are recorded through the forcing-principle primitive-reservoir / stationary-reduction origin note.
 - [x] The fixed-package strict-closure necessity / maximality theorem is recorded on the one-metric observer-equation bottleneck.
+- [x] The post-bridge derivation-gate status note is recorded.
+- [x] The upstream compression and primitive-reservoir continuity-Hessian core theorems are recorded.
+- [x] The primitive-reservoir observer-reduction continuation is recorded through the shell-generating substrate lift dynamics from lift-generating substrate precursor dynamics theorem.
 - [ ] Side continuations remain non-primary unless they change the benchmark-facing burden.
 
 ## TeX / PDF Workflow
@@ -48,7 +52,7 @@ This checklist is intentionally compact. It tracks the active operational rules 
 Before treating a note as progress on the main line, confirm:
 
 - [ ] it preserves the exact benchmark package
-- [ ] it addresses the current deepest burden or provides an equivalent observer-equation gain
-- [ ] if it is a deeper-origin continuation, it directly supplies a stronger absorbability identity or an explicit same-package field-redefinition theorem
+- [ ] it addresses the current precursor-level burden or provides an equivalent benchmark-facing gain
+- [ ] if it is a deeper-origin continuation, it reduces the remaining precursor-level freedom or otherwise sharpens the derivation-gate burden rather than merely preserving the same observer package
 - [ ] it does not conflate adoption with derivation
 - [ ] it preserves the one operative metric and the recorded Phase D / E / F gains at the stated scope

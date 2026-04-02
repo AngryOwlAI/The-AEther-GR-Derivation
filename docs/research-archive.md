@@ -14,21 +14,21 @@ This page documents active foundational work downstream of a benchmark exact-clo
 
 ## Current Benchmark-Facing Line
 
-The active line currently consists of five benchmark-facing stages:
+The active benchmark-facing line currently has five compact stages:
 
-1. Benchmark target fixing in [aether_flow_exact_closure_derivation_gates_note.tex](../manuscripts/active/tex/aether_flow_exact_closure_derivation_gates_note.tex).
-2. Observer obstruction and redesign screening in [aether_flow_substrate_higher_derivative_observer_remainder_classification_note.tex](../manuscripts/active/tex/aether_flow_substrate_higher_derivative_observer_remainder_classification_note.tex) and [aether_flow_substrate_higher_derivative_substrate_response_self_response_bridge_redesign_gate_screen_note.tex](../manuscripts/active/tex/aether_flow_substrate_higher_derivative_substrate_response_self_response_bridge_redesign_gate_screen_note.tex).
-3. The one-metric charge-polarization candidate and gate sequence through [the candidate note](../manuscripts/active/tex/aether_flow_substrate_higher_derivative_substrate_response_self_response_charge_polarization_candidate_note.tex), [the infrared-spectrum / universal-coupling gate note](../manuscripts/active/tex/aether_flow_substrate_higher_derivative_substrate_response_self_response_charge_polarization_infrared_spectrum_universal_coupling_gate_note.tex), [the controlled GR-limit note](../manuscripts/active/tex/aether_flow_substrate_higher_derivative_substrate_response_self_response_charge_polarization_controlled_gr_limit_note.tex), and [the residual-sector verdict note](../manuscripts/active/tex/aether_flow_substrate_higher_derivative_substrate_response_self_response_charge_polarization_residual_sector_verdict_note.tex).
-4. The quartic-completion and exact-preservation continuation, including [the quartic-completion redesign note](../manuscripts/active/tex/aether_flow_substrate_higher_derivative_substrate_response_self_response_charge_polarization_quartic_completion_redesign_note.tex), [the pre-proto-subprimitive stationary-selection origin note](../manuscripts/active/tex/aether_flow_substrate_response_charge_polarization_exact_preservation_pre_proto_subprimitive_stationary_selection_origin_note.tex), and [the stationary-selection forcing-principle origin note](../manuscripts/active/tex/aether_flow_substrate_response_charge_polarization_exact_preservation_stationary_selection_forcing_principle_origin_note.tex).
-5. The current deepest benchmark-facing step: [the forcing-principle primitive-reservoir / stationary-reduction origin note](../manuscripts/active/tex/aether_flow_substrate_response_charge_polarization_exact_preservation_forcing_principle_primitive_reservoir_stationary_reduction_origin_note.tex).
+1. Benchmark target fixing in [aether_flow_exact_closure_derivation_gates_note.tex](../manuscripts/active/tex/aether_flow_exact_closure_derivation_gates_note.tex) together with the overview-first exact-closure package.
+2. Post-bridge rerouting in [aether_flow_exact_closure_post_bridge_derivation_gate_status_note.tex](../manuscripts/active/tex/aether_flow_exact_closure_post_bridge_derivation_gate_status_note.tex): on the active completed branch, the same-package observer-side remainder gate is no longer the live bottleneck, so the remaining honest burden shifts upstream to substrate derivation of the benchmark package itself.
+3. Benchmark-facing compression and minimal-core sharpening in [aether_flow_benchmark_one_metric_observer_package_upstream_compression_theorem.tex](../manuscripts/active/tex/aether_flow_benchmark_one_metric_observer_package_upstream_compression_theorem.tex), [aether_flow_primitive_reservoir_line_continuity_hessian_core_necessity_uniqueness_theorem.tex](../manuscripts/active/tex/aether_flow_primitive_reservoir_line_continuity_hessian_core_necessity_uniqueness_theorem.tex), and [aether_flow_primitive_reservoir_line_continuity_hessian_core_derivation_theorem.tex](../manuscripts/active/tex/aether_flow_primitive_reservoir_line_continuity_hessian_core_derivation_theorem.tex).
+4. Primitive-reservoir observer-reduction continuation through datum origin, defect-fiber factorization, one-metric and ordinary-matter output recovery, chain forcing, selector and stationary-substrate construction, explicit substrate package, and the deeper inevitability chain below that package.
+5. The current deepest benchmark-facing main-line gain: [the shell-generating substrate lift dynamics from lift-generating substrate precursor dynamics theorem](../manuscripts/active/tex/aether_flow_primitive_reservoir_observer_reduction_shell_generating_substrate_lift_dynamics_from_lift_generating_substrate_precursor_dynamics_theorem.tex).
 
 ## Current Primary Burden
 
-The next primary manuscript is not automatically another deeper-origin note. It must either:
+The next primary manuscript is now one layer below the shell-generating lift theorem. It should:
 
-- explain why the deeper primitive-reservoir layer recorded in the current deepest note exists at all
-- collapse several deeper layers into a sharper necessity or uniqueness result
-- or provide another comparably concrete observer-equation gain on the same one-metric charge-polarization line
+- derive or justify the lift-generating substrate precursor dynamics themselves
+- or prove a sharper inevitability theorem that removes the remaining precursor-level freedom while preserving the same benchmark one-metric package and claim boundary
+- and not default to another merely package-preserving same-output note, because that no longer changes benchmark-facing status after the post-bridge routing result
 
 Until that happens, stronger promotion language remains paused.
 
@@ -45,11 +45,10 @@ Representative side-line entry points:
 ## Fast Entry Points
 
 - [Benchmark derivation-gates PDF](../manuscripts/active/pdf/aether_flow_exact_closure_derivation_gates_note.pdf)
-- [Observer-remainder classification PDF](../manuscripts/active/pdf/aether_flow_substrate_higher_derivative_observer_remainder_classification_note.pdf)
-- [Bridge-redesign gate screen PDF](../manuscripts/active/pdf/aether_flow_substrate_higher_derivative_substrate_response_self_response_bridge_redesign_gate_screen_note.pdf)
-- [Charge-polarization candidate PDF](../manuscripts/active/pdf/aether_flow_substrate_higher_derivative_substrate_response_self_response_charge_polarization_candidate_note.pdf)
-- [Controlled GR-limit PDF](../manuscripts/active/pdf/aether_flow_substrate_higher_derivative_substrate_response_self_response_charge_polarization_controlled_gr_limit_note.pdf)
-- [Current deepest origin PDF](../manuscripts/active/pdf/aether_flow_substrate_response_charge_polarization_exact_preservation_forcing_principle_primitive_reservoir_stationary_reduction_origin_note.pdf)
+- [Post-bridge derivation-gate status PDF](../manuscripts/active/pdf/aether_flow_exact_closure_post_bridge_derivation_gate_status_note.pdf)
+- [Upstream compression theorem PDF](../manuscripts/active/pdf/aether_flow_benchmark_one_metric_observer_package_upstream_compression_theorem.pdf)
+- [Continuity-Hessian core derivation PDF](../manuscripts/active/pdf/aether_flow_primitive_reservoir_line_continuity_hessian_core_derivation_theorem.pdf)
+- [Current deepest main-line gain PDF](../manuscripts/active/pdf/aether_flow_primitive_reservoir_observer_reduction_shell_generating_substrate_lift_dynamics_from_lift_generating_substrate_precursor_dynamics_theorem.pdf)
 - [Research plan](../RESEARCH_PLAN.md)
 
 ## Archive Principle

@@ -37,10 +37,10 @@ It should not be described as a merely temporary placeholder awaiting legitimacy
 ## Active Open Burdens
 
 - Satisfy the benchmark derivation gates recorded in [aether_flow_exact_closure_derivation_gates_note.tex](../manuscripts/active/tex/aether_flow_exact_closure_derivation_gates_note.tex).
-- Respect the observer-side obstruction recorded in [aether_flow_substrate_higher_derivative_observer_remainder_classification_note.tex](../manuscripts/active/tex/aether_flow_substrate_higher_derivative_observer_remainder_classification_note.tex).
-- Treat [the forcing-principle primitive-reservoir / stationary-reduction origin note](../manuscripts/active/tex/aether_flow_substrate_response_charge_polarization_exact_preservation_forcing_principle_primitive_reservoir_stationary_reduction_origin_note.tex) as the current deepest benchmark-facing note.
-- The next primary gain must either explain why that deeper primitive-reservoir layer exists or deliver another comparably concrete observer-equation gain on the same one-metric charge-polarization line.
-- Stronger promotion language remains paused until that burden is met cleanly.
+- Treat [aether_flow_exact_closure_post_bridge_derivation_gate_status_note.tex](../manuscripts/active/tex/aether_flow_exact_closure_post_bridge_derivation_gate_status_note.tex) as the active benchmark-facing routing note: on the active completed branch, the same-package observer-side remainder gate is no longer the live bottleneck, and the remaining honest burden has moved upstream to substrate derivation of the benchmark package itself.
+- Treat [the shell-generating substrate lift dynamics from lift-generating substrate precursor dynamics theorem](../manuscripts/active/tex/aether_flow_primitive_reservoir_observer_reduction_shell_generating_substrate_lift_dynamics_from_lift_generating_substrate_precursor_dynamics_theorem.tex) as the current deepest benchmark-facing main-line gain.
+- The next primary gain should go below that theorem by deriving or justifying the lift-generating substrate precursor dynamics themselves, or by proving a sharper inevitability theorem at that same precursor level, while preserving the same benchmark one-metric package and claim boundary.
+- Stronger promotion language remains paused until the remaining derivation-gate burdens beyond same-package observer-side closure are met cleanly.
 
 ## Side-Line Status
 
@@ -57,7 +57,8 @@ Use formulations like:
 - GR is adopted exactly within `The Æther-Flow Interpretation of Relativity`.
 - The overview-first exact-closure package is the benchmark public theory statement.
 - The repository now has a benchmark exact-relativistic theory statement and an active derivational program.
-- The current bridge notes are candidate derivational steps rather than a completed first-principles derivation.
+- The post-bridge continuity-Hessian closure result settles the same-package observer-side remainder gate on the active completed branch, but a first-principles substrate derivation still remains open.
+- The current deepest benchmark-facing main-line gain is the shell-generating substrate lift dynamics from lift-generating substrate precursor dynamics theorem.
 - The active research goal is to derive that benchmark GR sector from explicit substrate structure without changing the benchmark claim boundary prematurely.
 
 ## Claims To Avoid
@@ -69,6 +70,7 @@ Do not write:
 - the current bridge line already closes exactly onto Einstein gravity
 - the existence of many deeper-origin notes is itself evidence of derivational success
 - the side continuation automatically sets the primary task
+- the forcing-principle primitive-reservoir / stationary-reduction origin note is still the current deepest benchmark-facing main-line step
 - a broader promotion claim before the current deepest burden has been handled
 
 ## Operational Rule

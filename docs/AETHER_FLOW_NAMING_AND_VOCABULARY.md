@@ -49,7 +49,9 @@ At current scope, describe the repository as follows:
 - GR is adopted exactly in the benchmark package.
 - The benchmark package does not claim an independent low-energy non-GR observable sector.
 - A first-principles substrate derivation remains open.
-- The current deepest benchmark-facing step is [the forcing-principle primitive-reservoir / stationary-reduction origin note](../manuscripts/active/tex/aether_flow_substrate_response_charge_polarization_exact_preservation_forcing_principle_primitive_reservoir_stationary_reduction_origin_note.tex).
+- After the post-bridge continuity-Hessian closure result, the remaining honest burden is upstream substrate derivation of the benchmark package rather than another same-package observer-side note.
+- The current deepest benchmark-facing main-line gain is [the shell-generating substrate lift dynamics from lift-generating substrate precursor dynamics theorem](../manuscripts/active/tex/aether_flow_primitive_reservoir_observer_reduction_shell_generating_substrate_lift_dynamics_from_lift_generating_substrate_precursor_dynamics_theorem.tex).
+- The next primary main-line burden is to derive or justify the lift-generating substrate precursor dynamics themselves, or prove a sharper inevitability theorem at that same precursor level, while preserving the same benchmark package and claim boundary.
 - The deeper positive-pair / orbit-shape continuation remains recorded side work unless it changes the primary burden.
 
 ## Preferred Phrasing
@@ -58,6 +60,7 @@ Use wording such as:
 
 - the benchmark exact-closure package
 - the active derivational program
+- the remaining honest burden is upstream substrate derivation of the benchmark package
 - observed three-dimensional space as a local experiential slice
 - exact relativistic adoption
 - first-principles derivation remains open
@@ -67,6 +70,7 @@ Avoid wording such as:
 - finished derivation
 - completed microphysical theory
 - replaced GR
+- the stationary-reduction note is still the live benchmark-facing frontier
 - retired repository labels in active prose
 
 ## Reusable Framework Paragraph
