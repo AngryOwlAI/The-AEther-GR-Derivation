@@ -20,8 +20,7 @@ The exact-closure package is therefore a positive scientific deliverable in its 
 - Claim boundary: GR is adopted exactly in the benchmark package; a first-principles substrate derivation remains open
 - The benchmark package is a completed exact-closure theory statement at the operational level, not a temporary placeholder
 - Post-bridge routing: the same-package observer-side closure burden is no longer the live bottleneck on the active one-metric line; the remaining honest burden is upstream substrate derivation of the benchmark package
-- Current deepest benchmark-facing main-line gain: [the shell-generating substrate lift dynamics from lift-generating substrate precursor dynamics theorem](manuscripts/active/tex/aether_flow_primitive_reservoir_observer_reduction_shell_generating_substrate_lift_dynamics_from_lift_generating_substrate_precursor_dynamics_theorem.tex)
-- Current primary research burden: go below that theorem by deriving or justifying the lift-generating substrate precursor dynamics themselves, or by proving a sharper inevitability theorem at that same precursor level, while preserving the same benchmark one-metric package and claim boundary
+- Current deepest benchmark-facing main-line gain: [the precursor-generating substrate origin dynamics from origin-generating substrate ground dynamics theorem](manuscripts/active/tex/aether_flow_primitive_reservoir_observer_reduction_precursor_generating_substrate_origin_dynamics_from_origin_generating_substrate_ground_dynamics_theorem.tex)
 - The deeper positive-pair / orbit-shape continuation remains recorded side work unless it changes that primary burden
 
 ## Primary Goal
