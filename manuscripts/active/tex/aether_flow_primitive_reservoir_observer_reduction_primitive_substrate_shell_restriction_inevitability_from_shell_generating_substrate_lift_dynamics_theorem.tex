@@ -1,0 +1,1257 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+
+\newcommand{\CompletedMetric}{g^{\sharp}}
+
+\newcommand{\Car}{\mathrm{car}}
+\newcommand{\Cur}{\mathrm{cur}}
+\newcommand{\Hom}{\mathrm{hom}}
+
+\newcommand{\ForSpace}[1]{\mathcal I_{#1}^{\mathrm{for}}}
+\newcommand{\PrimShell}{\mathcal S_{\mathrm{prim}}}
+
+\newcommand{\Reduction}[1]{\mathcal R_{#1}}
+\newcommand{\CurrentCarrier}[1]{\mathfrak C_{#1}^{\mathrm{cur}}}
+\newcommand{\EqCarrier}[1]{\mathfrak C_{#1}^{\mathrm{eq}}}
+\newcommand{\CurrentExtract}[1]{\mathscr E_{#1}^{\mathrm{cur}}}
+\newcommand{\EqExtract}[1]{\mathscr E_{#1}^{\mathrm{eq}}}
+\newcommand{\PrimCurrent}[1]{\mathcal J_{#1}^{\mathrm{prim}}}
+\newcommand{\PrimTheta}[1]{\Theta_{#1}^{\mathrm{prim}}}
+
+\newcommand{\MetricOut}{\mathscr G_{\mathrm{out}}}
+\newcommand{\MatterOut}{\mathscr T_{\mathrm{out}}}
+
+\newcommand{\VisibleAffine}[1]{\widehat X_{#1}}
+\newcommand{\DataSpace}[1]{\mathcal Y_{#1}^{\mathrm{obs}}}
+\newcommand{\AmbientTarget}[1]{E_{#1}^{\mathrm{amb}}}
+
+\newcommand{\EqnSpace}[1]{\mathcal U_{#1}^{\mathrm{eqn}}}
+\newcommand{\EqnBody}[1]{\mathcal B_{#1}^{\mathrm{eqn}}}
+\newcommand{\EqnData}[1]{\Lambda_{#1}^{\mathrm{eqn,dat}}}
+\newcommand{\EqnShell}[1]{\Lambda_{#1}^{\mathrm{eqn,sh}}}
+\newcommand{\EqnTarget}[1]{Q_{#1}^{\mathrm{eqn}}}
+\newcommand{\EqnPair}[1]{\mathfrak b_{#1}^{\mathrm{eqn}}}
+\newcommand{\EqnResidual}[1]{\mathcal E_{#1}^{\mathrm{eqn}}}
+\newcommand{\EqnZero}[1]{V_{#1}^{\mathrm{eqn},0}}
+\newcommand{\EqnHidden}[1]{H_{#1}^{\mathrm{eqn}}}
+\newcommand{\EqnProj}[1]{\Pi_{#1}^{\mathrm{eqn,hid}}}
+\newcommand{\EqnLin}[1]{\mathcal N_{#1}^{\mathrm{eqn}}}
+\newcommand{\EqnEmbed}[1]{\zeta_{#1}^{\mathrm{eqn}}}
+
+\newcommand{\ResSpace}[1]{\mathcal U_{#1}^{\mathrm{sup,res}}}
+\newcommand{\ResBody}[1]{\mathcal B_{#1}^{\mathrm{sup,res}}}
+\newcommand{\ResTarget}[1]{S_{#1}^{\mathrm{sup,res}}}
+\newcommand{\ResPair}[1]{\mathfrak m_{#1}^{\mathrm{sup,res}}}
+\newcommand{\ResSection}[1]{\Theta_{#1}^{\mathrm{sup,res}}}
+\newcommand{\ResData}[1]{\Lambda_{#1}^{\mathrm{sup,dat}}}
+\newcommand{\ResShellMap}[1]{\Lambda_{#1}^{\mathrm{sup,sh}}}
+\newcommand{\ResShellSet}[1]{\mathcal Z_{#1}^{\mathrm{sup,res}}}
+\newcommand{\SeedHidden}[1]{\mathcal H_{#1}^{\mathrm{sup}}}
+\newcommand{\SeedHiddenBody}[1]{D_{#1}^{\mathrm{sup}}}
+\newcommand{\ZeroBody}[1]{\mathcal B_{#1}^{0,\mathrm{sup}}}
+
+\newcommand{\SubSpace}[1]{\mathcal M_{#1}^{\mathrm{sub}}}
+\newcommand{\SubBody}[1]{\mathcal B_{#1}^{\mathrm{sub}}}
+\newcommand{\SubTarget}[1]{E_{#1}^{\mathrm{sub}}}
+\newcommand{\SubPair}[1]{\mathfrak s_{#1}^{\mathrm{sub}}}
+\newcommand{\SubSection}[1]{\Sigma_{#1}^{\mathrm{sub}}}
+\newcommand{\SubFunctional}[1]{\mathscr U_{#1}^{\mathrm{sub}}}
+\newcommand{\SubShellSet}[1]{\mathcal Z_{#1}^{\mathrm{sub}}}
+\newcommand{\SubData}[1]{\Lambda_{#1}^{\mathrm{sub,dat}}}
+\newcommand{\SubShellMap}[1]{\Lambda_{#1}^{\mathrm{sub,sh}}}
+\newcommand{\SubSym}[1]{\mathbb G_{#1}^{\mathrm{sub}}}
+\newcommand{\SubTime}[1]{\vartheta_{#1}^{\mathrm{sub}}}
+\newcommand{\SubChart}[1]{\Xi_{#1}^{\mathrm{sub}}}
+\newcommand{\SubSupport}[1]{\Theta_{#1}^{\mathrm{sub,sup}}}
+\newcommand{\SubSupportShell}[1]{\mathcal Z_{#1}^{\mathrm{sub,sup}}}
+\newcommand{\SubZeroCore}[1]{\mathcal Z_{#1}^{0,\mathrm{sub}}}
+\newcommand{\ShellChart}[1]{\Psi_{#1}^{\mathrm{sup}}}
+\newcommand{\SubZeroChart}[1]{\Psi_{#1}^{0,\mathrm{sub}}}
+\newcommand{\HiddenChart}[1]{\Psi_{#1}^{\mathrm{hid}}}
+\newcommand{\SubSplit}[1]{\Phi_{#1}^{\mathrm{sub}}}
+\newcommand{\SubCharge}[1]{\mathcal Q_{#1}^{\mathrm{sub}}}
+\newcommand{\SubResidual}[1]{\mathcal R_{#1}^{\mathrm{sub}}}
+\newcommand{\SubEmbed}[1]{\zeta_{#1}^{\mathrm{sub}}}
+\newcommand{\SubKernel}[1]{K_{#1}^{0,\mathrm{sub}}}
+\newcommand{\SubKernelCh}[1]{\widetilde K_{#1}^{0,\mathrm{sub}}}
+\newcommand{\SubStateComp}[1]{P_{#1}^{\mathrm{sub,co}}}
+
+\newcommand{\LiftSpace}[1]{\mathcal L_{#1}^{\mathrm{lift}}}
+\newcommand{\LiftBody}[1]{\mathcal B_{#1}^{\mathrm{lift}}}
+\newcommand{\LiftProj}[1]{\Pi_{#1}^{\mathrm{lift}}}
+\newcommand{\LiftSelect}[1]{\mathfrak s_{#1}^{\mathrm{lift}}}
+\newcommand{\LiftSection}[1]{\Gamma_{#1}^{\mathrm{lift}}}
+\newcommand{\LiftFunctional}[1]{\mathscr V_{#1}^{\mathrm{lift}}}
+\newcommand{\LiftData}[1]{\Lambda_{#1}^{\mathrm{lift,dat}}}
+\newcommand{\LiftShellMap}[1]{\Lambda_{#1}^{\mathrm{lift,sh}}}
+\newcommand{\LiftSym}[1]{\mathbb G_{#1}^{\mathrm{lift}}}
+\newcommand{\LiftTime}[1]{\vartheta_{#1}^{\mathrm{lift}}}
+\newcommand{\LiftShellSet}[1]{\mathcal Z_{#1}^{\mathrm{lift}}}
+\newcommand{\LiftChart}[1]{\Xi_{#1}^{\mathrm{lift}}}
+\newcommand{\LiftSupport}[1]{\Theta_{#1}^{\mathrm{lift,sup}}}
+\newcommand{\LiftSupportShell}[1]{\mathcal Z_{#1}^{\mathrm{lift,sup}}}
+\newcommand{\LiftZeroCore}[1]{\mathcal Z_{#1}^{0,\mathrm{lift}}}
+\newcommand{\LiftEqChart}[1]{\Psi_{#1}^{\mathrm{lift,sup}}}
+\newcommand{\LiftZeroChart}[1]{\Psi_{#1}^{0,\mathrm{lift}}}
+\newcommand{\LiftSplit}[1]{\Phi_{#1}^{\mathrm{lift}}}
+\newcommand{\LiftCharge}[1]{\mathcal Q_{#1}^{\mathrm{lift}}}
+\newcommand{\LiftResidual}[1]{\mathcal R_{#1}^{\mathrm{lift}}}
+\newcommand{\LiftEmbed}[1]{\zeta_{#1}^{\mathrm{lift}}}
+\newcommand{\LiftKernel}[1]{K_{#1}^{0,\mathrm{lift}}}
+\newcommand{\LiftKernelCh}[1]{\widetilde K_{#1}^{0,\mathrm{lift}}}
+\newcommand{\LiftStateComp}[1]{P_{#1}^{\mathrm{lift,co}}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Primitive-Reservoir Observer-Reduction\\
+\large Primitive Substrate Shell-Restriction Inevitability\\
+\large from Shell-Generating Substrate Lift Dynamics}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The new primitive substrate shell-restriction theorem on the active primitive-reservoir observer-reduction line moved the honest burden lower again. The hidden-translation support reservoir package is no longer the open insertion there; it is already a consequence of a recorded primitive substrate shell-restriction package. What therefore remains open is not another support-level restatement, not a reopening of the stationary-reduction / stationary-Hessian / spectral / selector layers, and not any change to the benchmark one-metric package. The remaining honest burden is to derive or justify the shell-restriction package itself, or else to prove that it is forced inside a sharper deeper class.
+
+The present note takes the sharper inevitability route. For each sector it introduces shell-generating substrate lift dynamics: a compact convex lifted body over substrate coordinates, a smooth exact lifted restriction section with a unique fiber-minimizing lift, affine lifted observer-data and shell-response readouts, symmetry and time reversal, a lifted exact shell whose projected image is the substrate shell, a lifted shell chart to the same reservoir body, a lifted shell-internal support recorder, a lifted support shell with zero-core / hidden-seed decomposition, a lifted support-shell chart to the same equation variables, a lifted hidden charge, an observer-compatible exact lifted zero-response realization, fixed-data solvability, and coercive control on lifted data-invisible directions. The primitive substrate shell-restriction package is then recovered canonically by projected shell transport from that deeper lift dynamics.
+
+Because every shell-restriction constituent is an explicit projected or transported image of the deeper lift data, the shell-restriction package is not merely available within this class; it is forced there. The same benchmark one-metric package remains fixed throughout: the operative metric is still exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, and the low-energy matter law is not enlarged. The scope remains disciplined. This note is an origin-side inevitability gain inside the active derivational program of \TheoryName{}, not a license for stronger promotion language. The next honest burden is deeper again: derive or justify the shell-generating lift dynamics themselves from still more primitive substrate structure, or else prove a sharper inevitability theorem at that still deeper lift level.
+\end{abstract}
+
+\section{Introduction}
+
+The active derivational program of \TheoryName{} now has a cleaner next burden than another same-output relay. The immediately preceding theorem already showed that the hidden-translation support reservoir package is no longer the right disciplined stopping point on the active primitive-reservoir observer-reduction line. Once the primitive substrate shell-restriction package is granted, the same reservoir package and the same downstream support-layer consequences follow unchanged. That result matters precisely because it moves the honest burden below the reservoir layer. The next manuscript therefore cannot honestly be another support-level reformulation, another reopening of stationary reduction, stationary Hessians, spectral generators, or selector mechanics, or any change to the one operative metric and the ordinary matter route. The next manuscript has to address the shell-restriction package itself.
+
+There are two disciplined ways to do that. One can descend by one more explicit origin layer and derive the shell-restriction package as the exact projected consequence of still deeper substrate data. Or one can prove that, inside a sharper deeper class, the shell-restriction package is forced and not a remaining choice. The present note takes the second route in a form that still carries deeper origin content: it introduces shell-generating substrate lift dynamics below the shell-restriction package, derives the full shell-restriction package by projected shell transport, and then records the sharper inevitability verdict that no shell-restriction-level freedom remains once that deeper lift data are fixed.
+
+That is the correct scope for the next main-line step. The point is not to change the benchmark exact-relativistic theory statement, and it is not to reopen already settled line-routing decisions. The point is to remove the shell-restriction package itself as the next unexplained insertion on the active line. The positive gain is therefore narrower than a completed first-principles substrate derivation and stronger than another same-output origin relay.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not alter the benchmark exact-closure package. It does not introduce a second operative metric or a new low-energy matter law. It only sharpens the deeper origin-side status of the primitive substrate shell-restriction package already used on the active one-metric line.
+
+\section{Fixed Primitive Continuation Data}
+
+\begin{definition}[Recorded primitive continuation data]
+\label{def:fixed}
+Fix the following continuation data from the active primitive-reservoir observer-reduction line.
+\begin{enumerate}
+    \item For each sector label \(\sigma\in\{\Car,\Cur,\Hom\}\), a primitive forcing shell
+    \[
+    \ForSpace{\sigma},
+    \]
+    a visible reduction map
+    \[
+    \Reduction{\sigma}:\ForSpace{\sigma}\to X_{\sigma},
+    \]
+    and shell-level current and equilibrium carriers
+    \[
+    \CurrentCarrier{\sigma}:\ForSpace{\sigma}\to Z_{\sigma}^{\mathrm{cur}},
+    \qquad
+    \EqCarrier{\sigma}:\ForSpace{\sigma}\to Z_{\sigma}^{\mathrm{eq}}.
+    \]
+    \item The product shell
+    \[
+    \PrimShell
+    \equiv
+    \ForSpace{\Car}\times \ForSpace{\Cur}\times \ForSpace{\Hom}.
+    \]
+    \item Fixed shell extractors
+    \[
+    \CurrentExtract{\sigma}:Z_{\sigma}^{\mathrm{cur}}\to Y_{\sigma}^{\mathrm{cur}},
+    \qquad
+    \EqExtract{\sigma}:Z_{\sigma}^{\mathrm{eq}}\to Y_{\sigma}^{\mathrm{eq}},
+    \]
+    together with the recorded shell composites
+    \begin{equation}
+    \PrimCurrent{\sigma}
+    =
+    \CurrentExtract{\sigma}\circ \CurrentCarrier{\sigma},
+    \qquad
+    \PrimTheta{\sigma}
+    =
+    \EqExtract{\sigma}\circ \EqCarrier{\sigma}.
+    \label{eq:primcomposites}
+    \end{equation}
+    \item The recorded metric and ordinary-matter outputs
+    \[
+    \MetricOut:\PrimShell\to\{\text{observer metrics}\},
+    \qquad
+    \MatterOut:\PrimShell\times\Psi\to\{\text{observer stress tensors}\},
+    \]
+    satisfying
+    \begin{equation}
+    \MetricOut(\mathbf w)=\CompletedMetric,
+    \qquad
+    \MatterOut(\mathbf w,\psi)
+    =
+    T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
+    \label{eq:fixedoutputs}
+    \end{equation}
+    for every \(\mathbf w\in\PrimShell\) and every matter configuration \(\psi\in\Psi\).
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:fixed} is not reopened here. The primitive continuation data, the one operative metric, and the ordinary matter route remain fixed. The present note only addresses the deeper origin-side status of the shell-restriction package previously serving as the input to the reservoir-origin theorem.
+\end{remark}
+
+\section{Recorded Shell-Restriction Target}
+
+\begin{definition}[Primitive substrate shell-restriction package]
+\label{def:target}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). A \emph{primitive substrate shell-restriction package} for sector \(\sigma\) consists of the following data.
+\begin{enumerate}
+    \item A finite-dimensional Euclidean substrate state space
+    \[
+    \SubSpace{\sigma},
+    \]
+    a compact convex substrate body
+    \[
+    \SubBody{\sigma}\subset\SubSpace{\sigma}
+    \]
+    with nonempty interior, a finite-dimensional Euclidean substrate restriction target
+    \[
+    \SubTarget{\sigma},
+    \]
+    a positive-definite symmetric substrate pairing
+    \[
+    \SubPair{\sigma}:
+    \SubTarget{\sigma}\times\SubTarget{\sigma}\to\mathbb R,
+    \]
+    and a smooth substrate restriction section
+    \[
+    \SubSection{\sigma}:\SubSpace{\sigma}\to\SubTarget{\sigma}.
+    \]
+    Define
+    \begin{equation}
+    \SubFunctional{\sigma}(m)
+    \equiv
+    \SubPair{\sigma}\bigl(\SubSection{\sigma}(m),\SubSection{\sigma}(m)\bigr),
+    \label{eq:subfunctional}
+    \end{equation}
+    together with the exact substrate shell
+    \begin{equation}
+    \SubShellSet{\sigma}
+    \equiv
+    \bigl(\SubSection{\sigma}\bigr)^{-1}(0)\cap\SubBody{\sigma}.
+    \label{eq:subshell}
+    \end{equation}
+    Assume \(\SubShellSet{\sigma}\) is a closed embedded submanifold of \(\SubSpace{\sigma}\) and there exists \(\mu_{\sigma}^{\mathrm{sub}}>0\) such that
+    \begin{equation}
+    \SubFunctional{\sigma}(m)
+    \ge
+    \mu_{\sigma}^{\mathrm{sub}}\,
+    \operatorname{dist}\bigl(m,\SubShellSet{\sigma}\bigr)^{2}
+    \qquad
+    \text{for all }m\in\SubBody{\sigma}.
+    \label{eq:subnormal}
+    \end{equation}
+    \item Affine substrate observer-data and shell-response readouts
+    \[
+    \SubData{\sigma}:\SubSpace{\sigma}\to\DataSpace{\sigma},
+    \qquad
+    \SubShellMap{\sigma}:\SubSpace{\sigma}\to\AmbientTarget{\sigma},
+    \]
+    a finite-dimensional Euclidean support target
+    \[
+    \ResTarget{\sigma},
+    \]
+    a positive-definite symmetric support pairing
+    \[
+    \ResPair{\sigma}:
+    \ResTarget{\sigma}\times\ResTarget{\sigma}\to\mathbb R,
+    \]
+    a finite-dimensional real hidden target
+    \[
+    \EqnTarget{\sigma},
+    \]
+    and a positive-definite symmetric hidden pairing
+    \[
+    \EqnPair{\sigma}:
+    \EqnTarget{\sigma}\times\EqnTarget{\sigma}\to\mathbb R.
+    \]
+    There is also a compact symmetry group
+    \[
+    \SubSym{\sigma}
+    \]
+    and an involution
+    \[
+    \SubTime{\sigma},
+    \]
+    acting orthogonally on \(\SubSpace{\sigma}\), \(\DataSpace{\sigma}\), \(\AmbientTarget{\sigma}\), and \(\ResTarget{\sigma}\), and by \(\EqnPair{\sigma}\)-isometries on \(\EqnTarget{\sigma}\), preserving \(\SubBody{\sigma}\), \(\SubShellSet{\sigma}\), \(\SubSection{\sigma}\), \(\SubData{\sigma}\), and \(\SubShellMap{\sigma}\).
+    \item A Euclidean shell chart
+    \[
+    \SubChart{\sigma}:\SubShellSet{\sigma}\to\ResSpace{\sigma}
+    \]
+    whose shell-body image
+    \[
+    \ResBody{\sigma}
+    \equiv
+    \SubChart{\sigma}\bigl(\SubShellSet{\sigma}\bigr)
+    \]
+    is compact convex with nonempty interior. There exist affine maps
+    \[
+    \ResData{\sigma}:\ResSpace{\sigma}\to\DataSpace{\sigma},
+    \qquad
+    \ResShellMap{\sigma}:\ResSpace{\sigma}\to\AmbientTarget{\sigma},
+    \]
+    and a smooth support section
+    \[
+    \ResSection{\sigma}:\ResSpace{\sigma}\to\ResTarget{\sigma}
+    \]
+    such that
+    \begin{equation}
+    \ResData{\sigma}\circ\SubChart{\sigma}
+    =
+    \SubData{\sigma}\big|_{\SubShellSet{\sigma}},
+    \qquad
+    \ResShellMap{\sigma}\circ\SubChart{\sigma}
+    =
+    \SubShellMap{\sigma}\big|_{\SubShellSet{\sigma}}.
+    \label{eq:subchartreadouts}
+    \end{equation}
+    There is a smooth shell-internal support recorder
+    \[
+    \SubSupport{\sigma}:\SubShellSet{\sigma}\to\ResTarget{\sigma}
+    \]
+    satisfying
+    \begin{equation}
+    \ResSection{\sigma}\circ\SubChart{\sigma}
+    =
+    \SubSupport{\sigma}.
+    \label{eq:supporttransport}
+    \end{equation}
+    Define
+    \begin{equation}
+    \SubSupportShell{\sigma}
+    \equiv
+    \bigl(\SubSupport{\sigma}\bigr)^{-1}(0)\cap\SubShellSet{\sigma},
+    \label{eq:subsupportshell}
+    \end{equation}
+    and assume
+    \begin{equation}
+    \ResShellSet{\sigma}
+    \equiv
+    \bigl(\ResSection{\sigma}\bigr)^{-1}(0)\cap\ResBody{\sigma}
+    =
+    \SubChart{\sigma}\bigl(\SubSupportShell{\sigma}\bigr).
+    \label{eq:transportedsupportshell}
+    \end{equation}
+    Assume there exists \(\nu_{\sigma}^{\mathrm{sup}}>0\) such that
+    \begin{equation}
+    \ResPair{\sigma}\bigl(\ResSection{\sigma}(u),\ResSection{\sigma}(u)\bigr)
+    \ge
+    \nu_{\sigma}^{\mathrm{sup}}\,
+    \operatorname{dist}\bigl(u,\ResShellSet{\sigma}\bigr)^{2}
+    \qquad
+    \text{for all }u\in\ResBody{\sigma}.
+    \label{eq:transportednormal}
+    \end{equation}
+    The transported symmetry and time-reversal actions act linearly on \(\ResSpace{\sigma}\), preserving \(\ResBody{\sigma}\), \(\ResShellSet{\sigma}\), \(\ResSection{\sigma}\), \(\ResData{\sigma}\), and \(\ResShellMap{\sigma}\).
+    \item A closed embedded support zero core
+    \[
+    \SubZeroCore{\sigma}\subset\SubSupportShell{\sigma},
+    \]
+    a finite-dimensional Euclidean hidden-seed space
+    \[
+    \SeedHidden{\sigma},
+    \]
+    and a compact convex hidden-seed body
+    \[
+    \SeedHiddenBody{\sigma}\subset\SeedHidden{\sigma}
+    \]
+    with
+    \[
+    0\in\operatorname{int}\SeedHiddenBody{\sigma}.
+    \]
+    There is a Euclidean support-shell chart
+    \[
+    \ShellChart{\sigma}:\SubSupportShell{\sigma}\to\EqnSpace{\sigma},
+    \]
+    an affine chart on the support zero core
+    \[
+    \SubZeroChart{\sigma}:\SubZeroCore{\sigma}\to\EqnZero{\sigma},
+    \]
+    and a linear isometric embedding
+    \[
+    \HiddenChart{\sigma}:\SeedHidden{\sigma}\to\EqnHidden{\sigma}
+    \]
+    such that
+    \[
+    \EqnSpace{\sigma}
+    =
+    \EqnZero{\sigma}\oplus\EqnHidden{\sigma}
+    \]
+    is an orthogonal direct sum, the set
+    \[
+    \ZeroBody{\sigma}
+    \equiv
+    \SubZeroChart{\sigma}\bigl(\SubZeroCore{\sigma}\bigr)
+    \]
+    is compact convex with nonempty interior in \(\EqnZero{\sigma}\), the shell image
+    \[
+    \EqnBody{\sigma}
+    \equiv
+    \ShellChart{\sigma}\bigl(\SubSupportShell{\sigma}\bigr)
+    \]
+    has nonempty interior in \(\EqnSpace{\sigma}\), and there is a diffeomorphism
+    \begin{equation}
+    \SubSplit{\sigma}:
+    \SubZeroCore{\sigma}\times \SeedHiddenBody{\sigma}
+    \xrightarrow{\cong}
+    \SubSupportShell{\sigma}
+    \label{eq:subsplit}
+    \end{equation}
+    satisfying
+    \begin{equation}
+    \ShellChart{\sigma}\bigl(\SubSplit{\sigma}(z,\eta)\bigr)
+    =
+    \SubZeroChart{\sigma}(z)+\HiddenChart{\sigma}(\eta).
+    \label{eq:subchartsplit}
+    \end{equation}
+    The shell readouts become affine in the support-shell chart: there exist affine maps
+    \[
+    \EqnData{\sigma}:\EqnSpace{\sigma}\to\DataSpace{\sigma},
+    \qquad
+    \EqnShell{\sigma}:\EqnSpace{\sigma}\to\AmbientTarget{\sigma},
+    \]
+    such that
+    \begin{equation}
+    \EqnData{\sigma}\circ\ShellChart{\sigma}
+    =
+    \SubData{\sigma}\big|_{\SubSupportShell{\sigma}},
+    \qquad
+    \EqnShell{\sigma}\circ\ShellChart{\sigma}
+    =
+    \SubShellMap{\sigma}\big|_{\SubSupportShell{\sigma}}.
+    \label{eq:eqnchartreadouts}
+    \end{equation}
+    The transported symmetry and time-reversal actions act linearly on \(\EqnSpace{\sigma}\), preserving \(\EqnZero{\sigma}\), \(\EqnHidden{\sigma}\), and \(\EqnBody{\sigma}\).
+    \item A linear hidden charge map
+    \[
+    \SubCharge{\sigma}:\SeedHidden{\sigma}\to\EqnTarget{\sigma}
+    \]
+    such that there exists \(\lambda_{\sigma}^{\mathrm{eqn}}>0\) with
+    \begin{equation}
+    \EqnPair{\sigma}\bigl(\SubCharge{\sigma}\eta,\SubCharge{\sigma}\eta\bigr)
+    \ge
+    \lambda_{\sigma}^{\mathrm{eqn}}\,
+    \|\eta\|^{2}
+    \qquad
+    \text{for all }\eta\in\SeedHidden{\sigma}.
+    \label{eq:subchargegap}
+    \end{equation}
+    Define the support-shell hidden recorder by
+    \begin{equation}
+    \SubResidual{\sigma}\bigl(\SubSplit{\sigma}(z,\eta)\bigr)
+    \equiv
+    \SubCharge{\sigma}(\eta).
+    \label{eq:subresidual}
+    \end{equation}
+    \item A smooth embedding
+    \[
+    \jmath_{\sigma}:X_{\sigma}\hookrightarrow\VisibleAffine{\sigma}
+    \]
+    and a smooth observer-compatible exact zero-response realization
+    \[
+    \SubEmbed{\sigma}:\ForSpace{\sigma}\hookrightarrow\SubZeroCore{\sigma}
+    \]
+    whose image is exactly
+    \[
+    \SubZeroCore{\sigma}
+    \cap
+    \bigl(\SubShellMap{\sigma}\bigr)^{-1}(0),
+    \]
+    and such that
+    \begin{equation}
+    \SubData{\sigma}\bigl(\SubEmbed{\sigma}(w)\bigr)
+    =
+    \bigl(
+    \jmath_{\sigma}(\Reduction{\sigma}(w)),
+    \CurrentCarrier{\sigma}(w),
+    \EqCarrier{\sigma}(w)
+    \bigr)
+    \label{eq:subcompat}
+    \end{equation}
+    for every \(w\in\ForSpace{\sigma}\).
+    \item Fixed-data solvability on the support zero core:
+    \begin{equation}
+    \SubData{\sigma}\bigl(\SubZeroCore{\sigma}\bigr)
+    =
+    \SubData{\sigma}\Bigl(
+    \SubZeroCore{\sigma}\cap
+    \bigl(\SubShellMap{\sigma}\bigr)^{-1}(0)
+    \Bigr).
+    \label{eq:subsolvability}
+    \end{equation}
+    \item The inert support-zero-core kernel
+    \[
+    \SubKernel{\sigma}
+    \equiv
+    \ker\bigl(D\SubData{\sigma}\big|_{\SubZeroCore{\sigma}}\bigr)
+    \cap
+    \ker\bigl(D\SubShellMap{\sigma}\big|_{\SubZeroCore{\sigma}}\bigr)
+    \]
+    and the orthogonal projector
+    \[
+    \SubStateComp{\sigma}:
+    \EqnZero{\sigma}\to
+    \bigl(\SubKernelCh{\sigma}\bigr)^{\perp}\cap\EqnZero{\sigma},
+    \qquad
+    \SubKernelCh{\sigma}
+    \equiv
+    D\SubZeroChart{\sigma}\bigl(\SubKernel{\sigma}\bigr).
+    \]
+    There exists \(\kappa_{\sigma}^{\mathrm{eqn}}>0\) such that for every
+    \[
+    w\in\ForSpace{\sigma},
+    \qquad
+    \delta m\in T_{\SubEmbed{\sigma}(w)}\SubSupportShell{\sigma}
+    \]
+    satisfying
+    \[
+    D\SubData{\sigma}\,\delta m=0,
+    \]
+    if
+    \[
+    D\ShellChart{\sigma}(\delta m)=\delta z+\delta\eta,
+    \qquad
+    \delta z\in\EqnZero{\sigma},
+    \quad
+    \delta\eta\in\EqnHidden{\sigma},
+    \]
+    then
+    \begin{equation}
+    \|D\SubShellMap{\sigma}\,\delta m\|^{2}
+    +
+    \EqnPair{\sigma}\bigl(
+    \SubCharge{\sigma}\bigl((\HiddenChart{\sigma})^{-1}\delta\eta\bigr),
+    \SubCharge{\sigma}\bigl((\HiddenChart{\sigma})^{-1}\delta\eta\bigr)
+    \bigr)
+    \ge
+    \kappa_{\sigma}^{\mathrm{eqn}}
+    \left(
+    \|\SubStateComp{\sigma}(\delta z)\|^{2}
+    +
+    \|\delta\eta\|^{2}
+    \right).
+    \label{eq:subcoercive}
+    \end{equation}
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:target} is the precise shell-restriction package that must now be derived or forced. The benchmark claim boundary says that this package may sharpen the origin-side derivational line, but it may not change the one operative metric, enlarge the low-energy matter law, or blur the distinction between exact relativistic adoption and first-principles derivation.
+\end{remark}
+
+\section{Shell-Generating Substrate Lift Dynamics}
+
+\begin{definition}[Shell-generating substrate lift dynamics]
+\label{def:lift}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). A \emph{shell-generating substrate lift dynamics package} for sector \(\sigma\) consists of the following data.
+\begin{enumerate}
+    \item A finite-dimensional Euclidean lifted state space
+    \[
+    \LiftSpace{\sigma},
+    \]
+    a compact convex lifted body
+    \[
+    \LiftBody{\sigma}\subset\LiftSpace{\sigma}
+    \]
+    with nonempty interior, an affine surjection
+    \[
+    \LiftProj{\sigma}:\LiftSpace{\sigma}\to\SubSpace{\sigma},
+    \]
+    and the projected substrate body
+    \[
+    \SubBody{\sigma}
+    \equiv
+    \LiftProj{\sigma}\bigl(\LiftBody{\sigma}\bigr)
+    \subset \SubSpace{\sigma},
+    \]
+    assumed compact convex with nonempty interior. There is a smooth selection
+    \[
+    \LiftSelect{\sigma}:\SubBody{\sigma}\to\LiftBody{\sigma}
+    \]
+    satisfying
+    \[
+    \LiftProj{\sigma}\circ\LiftSelect{\sigma}
+    =
+    \mathrm{id}_{\SubBody{\sigma}}.
+    \]
+    \item The same finite-dimensional Euclidean substrate restriction target
+    \[
+    \SubTarget{\sigma},
+    \]
+    the same positive-definite symmetric substrate pairing
+    \[
+    \SubPair{\sigma}:
+    \SubTarget{\sigma}\times\SubTarget{\sigma}\to\mathbb R,
+    \]
+    and a smooth lifted restriction section
+    \[
+    \LiftSection{\sigma}:\LiftSpace{\sigma}\to\SubTarget{\sigma}.
+    \]
+    Define the lifted restriction functional
+    \begin{equation}
+    \LiftFunctional{\sigma}(\ell)
+    \equiv
+    \SubPair{\sigma}\bigl(\LiftSection{\sigma}(\ell),\LiftSection{\sigma}(\ell)\bigr).
+    \label{eq:liftfunctional}
+    \end{equation}
+    Define the exact lifted shell
+    \begin{equation}
+    \LiftShellSet{\sigma}
+    \equiv
+    \bigl(\LiftSection{\sigma}\bigr)^{-1}(0)\cap\LiftBody{\sigma}.
+    \label{eq:liftshell}
+    \end{equation}
+    For each \(m\in\SubBody{\sigma}\), assume \(\LiftSelect{\sigma}(m)\) is the unique minimizer of \(\LiftFunctional{\sigma}\) on the fiber
+    \[
+    \bigl(\LiftProj{\sigma}\bigr)^{-1}(m)\cap\LiftBody{\sigma},
+    \]
+    and that there exists \(\mu_{\sigma}^{\mathrm{fib}}>0\) such that
+    \begin{equation}
+    \LiftFunctional{\sigma}(\ell)
+    \ge
+    \LiftFunctional{\sigma}\bigl(\LiftSelect{\sigma}(m)\bigr)
+    +
+    \mu_{\sigma}^{\mathrm{fib}}\,
+    \operatorname{dist}\bigl(\ell,\LiftSelect{\sigma}(m)\bigr)^{2}
+    \label{eq:fibergap}
+    \end{equation}
+    for every \(m\in\SubBody{\sigma}\) and every \(\ell\in\bigl(\LiftProj{\sigma}\bigr)^{-1}(m)\cap\LiftBody{\sigma}\). Assume there exists \(\mu_{\sigma}^{\mathrm{sub}}>0\) such that
+    \begin{equation}
+    \LiftFunctional{\sigma}\bigl(\LiftSelect{\sigma}(m)\bigr)
+    \ge
+    \mu_{\sigma}^{\mathrm{sub}}\,
+    \operatorname{dist}\bigl(m,\LiftProj{\sigma}(\LiftShellSet{\sigma})\bigr)^{2}
+    \qquad
+    \text{for all }m\in\SubBody{\sigma}.
+    \label{eq:projectedgap}
+    \end{equation}
+    \item Affine lifted observer-data and shell-response readouts
+    \[
+    \LiftData{\sigma}:\LiftSpace{\sigma}\to\DataSpace{\sigma},
+    \qquad
+    \LiftShellMap{\sigma}:\LiftSpace{\sigma}\to\AmbientTarget{\sigma},
+    \]
+    a finite-dimensional Euclidean support target
+    \[
+    \ResTarget{\sigma},
+    \]
+    a positive-definite symmetric support pairing
+    \[
+    \ResPair{\sigma}:
+    \ResTarget{\sigma}\times\ResTarget{\sigma}\to\mathbb R,
+    \]
+    a finite-dimensional real hidden target
+    \[
+    \EqnTarget{\sigma},
+    \]
+    and a positive-definite symmetric hidden pairing
+    \[
+    \EqnPair{\sigma}:
+    \EqnTarget{\sigma}\times\EqnTarget{\sigma}\to\mathbb R.
+    \]
+    There is also a compact symmetry group
+    \[
+    \LiftSym{\sigma}
+    \]
+    and an involution
+    \[
+    \LiftTime{\sigma},
+    \]
+    acting orthogonally on \(\LiftSpace{\sigma}\), \(\SubSpace{\sigma}\), \(\DataSpace{\sigma}\), \(\AmbientTarget{\sigma}\), and \(\ResTarget{\sigma}\), and by \(\EqnPair{\sigma}\)-isometries on \(\EqnTarget{\sigma}\), preserving \(\LiftBody{\sigma}\), \(\LiftProj{\sigma}\), \(\LiftSelect{\sigma}\), \(\LiftSection{\sigma}\), \(\LiftData{\sigma}\), and \(\LiftShellMap{\sigma}\).
+    \item The restriction of \(\LiftProj{\sigma}\) to \(\LiftShellSet{\sigma}\) is a diffeomorphism onto its image
+    \[
+    \SubShellSet{\sigma}
+    \equiv
+    \LiftProj{\sigma}\bigl(\LiftShellSet{\sigma}\bigr)
+    \subset \SubBody{\sigma}.
+    \]
+    There is a Euclidean lifted shell chart
+    \[
+    \LiftChart{\sigma}:\LiftShellSet{\sigma}\to\ResSpace{\sigma}
+    \]
+    whose shell-body image
+    \[
+    \ResBody{\sigma}
+    \equiv
+    \LiftChart{\sigma}\bigl(\LiftShellSet{\sigma}\bigr)
+    \]
+    is compact convex with nonempty interior. There exist affine maps
+    \[
+    \ResData{\sigma}:\ResSpace{\sigma}\to\DataSpace{\sigma},
+    \qquad
+    \ResShellMap{\sigma}:\ResSpace{\sigma}\to\AmbientTarget{\sigma},
+    \]
+    and a smooth support section
+    \[
+    \ResSection{\sigma}:\ResSpace{\sigma}\to\ResTarget{\sigma}
+    \]
+    such that
+    \begin{equation}
+    \ResData{\sigma}\circ\LiftChart{\sigma}
+    =
+    \LiftData{\sigma}\big|_{\LiftShellSet{\sigma}},
+    \qquad
+    \ResShellMap{\sigma}\circ\LiftChart{\sigma}
+    =
+    \LiftShellMap{\sigma}\big|_{\LiftShellSet{\sigma}}.
+    \label{eq:liftchartreadouts}
+    \end{equation}
+    There is a smooth lifted shell-internal support recorder
+    \[
+    \LiftSupport{\sigma}:\LiftShellSet{\sigma}\to\ResTarget{\sigma}
+    \]
+    satisfying
+    \begin{equation}
+    \ResSection{\sigma}\circ\LiftChart{\sigma}
+    =
+    \LiftSupport{\sigma}.
+    \label{eq:liftsupporttransport}
+    \end{equation}
+    Define the exact lifted support shell
+    \begin{equation}
+    \LiftSupportShell{\sigma}
+    \equiv
+    \bigl(\LiftSupport{\sigma}\bigr)^{-1}(0)\cap\LiftShellSet{\sigma},
+    \label{eq:liftsupportshell}
+    \end{equation}
+    and assume
+    \begin{equation}
+    \ResShellSet{\sigma}
+    \equiv
+    \bigl(\ResSection{\sigma}\bigr)^{-1}(0)\cap\ResBody{\sigma}
+    =
+    \LiftChart{\sigma}\bigl(\LiftSupportShell{\sigma}\bigr).
+    \label{eq:lifttransportedsupportshell}
+    \end{equation}
+    Assume there exists \(\nu_{\sigma}^{\mathrm{sup}}>0\) such that
+    \begin{equation}
+    \ResPair{\sigma}\bigl(\ResSection{\sigma}(u),\ResSection{\sigma}(u)\bigr)
+    \ge
+    \nu_{\sigma}^{\mathrm{sup}}\,
+    \operatorname{dist}\bigl(u,\ResShellSet{\sigma}\bigr)^{2}
+    \qquad
+    \text{for all }u\in\ResBody{\sigma}.
+    \label{eq:liftnormal}
+    \end{equation}
+    The transported symmetry and time-reversal actions act linearly on \(\ResSpace{\sigma}\), preserving \(\ResBody{\sigma}\), \(\ResShellSet{\sigma}\), \(\ResSection{\sigma}\), \(\ResData{\sigma}\), and \(\ResShellMap{\sigma}\).
+    \item A closed embedded lifted support zero core
+    \[
+    \LiftZeroCore{\sigma}\subset\LiftSupportShell{\sigma},
+    \]
+    a finite-dimensional Euclidean hidden-seed space
+    \[
+    \SeedHidden{\sigma},
+    \]
+    and a compact convex hidden-seed body
+    \[
+    \SeedHiddenBody{\sigma}\subset\SeedHidden{\sigma}
+    \]
+    with
+    \[
+    0\in\operatorname{int}\SeedHiddenBody{\sigma}.
+    \]
+    There is a Euclidean lifted support-shell chart
+    \[
+    \LiftEqChart{\sigma}:\LiftSupportShell{\sigma}\to\EqnSpace{\sigma},
+    \]
+    an affine chart on the lifted support zero core
+    \[
+    \LiftZeroChart{\sigma}:\LiftZeroCore{\sigma}\to\EqnZero{\sigma},
+    \]
+    and a linear isometric embedding
+    \[
+    \HiddenChart{\sigma}:\SeedHidden{\sigma}\to\EqnHidden{\sigma}
+    \]
+    such that
+    \[
+    \EqnSpace{\sigma}
+    =
+    \EqnZero{\sigma}\oplus\EqnHidden{\sigma}
+    \]
+    is an orthogonal direct sum, the set
+    \[
+    \ZeroBody{\sigma}
+    \equiv
+    \LiftZeroChart{\sigma}\bigl(\LiftZeroCore{\sigma}\bigr)
+    \]
+    is compact convex with nonempty interior in \(\EqnZero{\sigma}\), the shell image
+    \[
+    \EqnBody{\sigma}
+    \equiv
+    \LiftEqChart{\sigma}\bigl(\LiftSupportShell{\sigma}\bigr)
+    \]
+    has nonempty interior in \(\EqnSpace{\sigma}\), and there is a diffeomorphism
+    \begin{equation}
+    \LiftSplit{\sigma}:
+    \LiftZeroCore{\sigma}\times\SeedHiddenBody{\sigma}
+    \xrightarrow{\cong}
+    \LiftSupportShell{\sigma}
+    \label{eq:liftsplit}
+    \end{equation}
+    satisfying
+    \begin{equation}
+    \LiftEqChart{\sigma}\bigl(\LiftSplit{\sigma}(z,\eta)\bigr)
+    =
+    \LiftZeroChart{\sigma}(z)+\HiddenChart{\sigma}(\eta).
+    \label{eq:liftchartsplit}
+    \end{equation}
+    The lifted shell readouts become affine in the lifted support-shell chart: there exist affine maps
+    \[
+    \EqnData{\sigma}:\EqnSpace{\sigma}\to\DataSpace{\sigma},
+    \qquad
+    \EqnShell{\sigma}:\EqnSpace{\sigma}\to\AmbientTarget{\sigma},
+    \]
+    such that
+    \begin{equation}
+    \EqnData{\sigma}\circ\LiftEqChart{\sigma}
+    =
+    \LiftData{\sigma}\big|_{\LiftSupportShell{\sigma}},
+    \qquad
+    \EqnShell{\sigma}\circ\LiftEqChart{\sigma}
+    =
+    \LiftShellMap{\sigma}\big|_{\LiftSupportShell{\sigma}}.
+    \label{eq:lifteqnchartreadouts}
+    \end{equation}
+    The transported symmetry and time-reversal actions act linearly on \(\EqnSpace{\sigma}\), preserving \(\EqnZero{\sigma}\), \(\EqnHidden{\sigma}\), and \(\EqnBody{\sigma}\).
+    \item A linear hidden charge map
+    \[
+    \LiftCharge{\sigma}:\SeedHidden{\sigma}\to\EqnTarget{\sigma}
+    \]
+    such that there exists \(\lambda_{\sigma}^{\mathrm{eqn}}>0\) with
+    \begin{equation}
+    \EqnPair{\sigma}\bigl(\LiftCharge{\sigma}\eta,\LiftCharge{\sigma}\eta\bigr)
+    \ge
+    \lambda_{\sigma}^{\mathrm{eqn}}\,
+    \|\eta\|^{2}
+    \qquad
+    \text{for all }\eta\in\SeedHidden{\sigma}.
+    \label{eq:liftchargegap}
+    \end{equation}
+    Define the lifted support-shell hidden recorder by
+    \begin{equation}
+    \LiftResidual{\sigma}\bigl(\LiftSplit{\sigma}(z,\eta)\bigr)
+    \equiv
+    \LiftCharge{\sigma}(\eta).
+    \label{eq:liftresidual}
+    \end{equation}
+    \item A smooth embedding
+    \[
+    \jmath_{\sigma}:X_{\sigma}\hookrightarrow\VisibleAffine{\sigma}
+    \]
+    and a smooth observer-compatible exact lifted zero-response realization
+    \[
+    \LiftEmbed{\sigma}:\ForSpace{\sigma}\hookrightarrow\LiftZeroCore{\sigma}
+    \]
+    whose image is exactly
+    \[
+    \LiftZeroCore{\sigma}
+    \cap
+    \bigl(\LiftShellMap{\sigma}\bigr)^{-1}(0),
+    \]
+    and such that
+    \begin{equation}
+    \LiftData{\sigma}\bigl(\LiftEmbed{\sigma}(w)\bigr)
+    =
+    \bigl(
+    \jmath_{\sigma}(\Reduction{\sigma}(w)),
+    \CurrentCarrier{\sigma}(w),
+    \EqCarrier{\sigma}(w)
+    \bigr)
+    \label{eq:liftcompat}
+    \end{equation}
+    for every \(w\in\ForSpace{\sigma}\).
+    \item Fixed-data solvability on the lifted support zero core:
+    \begin{equation}
+    \LiftData{\sigma}\bigl(\LiftZeroCore{\sigma}\bigr)
+    =
+    \LiftData{\sigma}\Bigl(
+    \LiftZeroCore{\sigma}\cap
+    \bigl(\LiftShellMap{\sigma}\bigr)^{-1}(0)
+    \Bigr).
+    \label{eq:liftsolvability}
+    \end{equation}
+    \item The inert lifted support-zero-core kernel
+    \[
+    \LiftKernel{\sigma}
+    \equiv
+    \ker\bigl(D\LiftData{\sigma}\big|_{\LiftZeroCore{\sigma}}\bigr)
+    \cap
+    \ker\bigl(D\LiftShellMap{\sigma}\big|_{\LiftZeroCore{\sigma}}\bigr)
+    \]
+    and the orthogonal projector
+    \[
+    \LiftStateComp{\sigma}:
+    \EqnZero{\sigma}\to
+    \bigl(\LiftKernelCh{\sigma}\bigr)^{\perp}\cap\EqnZero{\sigma},
+    \qquad
+    \LiftKernelCh{\sigma}
+    \equiv
+    D\LiftZeroChart{\sigma}\bigl(\LiftKernel{\sigma}\bigr).
+    \]
+    There exists \(\kappa_{\sigma}^{\mathrm{eqn}}>0\) such that for every
+    \[
+    w\in\ForSpace{\sigma},
+    \qquad
+    \delta \ell\in T_{\LiftEmbed{\sigma}(w)}\LiftSupportShell{\sigma}
+    \]
+    satisfying
+    \[
+    D\LiftData{\sigma}\,\delta \ell=0,
+    \]
+    if
+    \[
+    D\LiftEqChart{\sigma}(\delta \ell)=\delta z+\delta\eta,
+    \qquad
+    \delta z\in\EqnZero{\sigma},
+    \quad
+    \delta\eta\in\EqnHidden{\sigma},
+    \]
+    then
+    \begin{equation}
+    \|D\LiftShellMap{\sigma}\,\delta \ell\|^{2}
+    +
+    \EqnPair{\sigma}\bigl(
+    \LiftCharge{\sigma}\bigl((\HiddenChart{\sigma})^{-1}\delta\eta\bigr),
+    \LiftCharge{\sigma}\bigl((\HiddenChart{\sigma})^{-1}\delta\eta\bigr)
+    \bigr)
+    \ge
+    \kappa_{\sigma}^{\mathrm{eqn}}
+    \left(
+    \|\LiftStateComp{\sigma}(\delta z)\|^{2}
+    +
+    \|\delta\eta\|^{2}
+    \right).
+    \label{eq:liftcoercive}
+    \end{equation}
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:lift} is deliberately deeper than the shell-restriction package but narrower than a claim of completed substrate microphysics. The new data live on a lifted state space over substrate coordinates. The shell-restriction section is no longer inserted directly; it is induced by a unique fiber-minimizing lift, while the exact shell, support shell, zero-core / hidden-seed split, compatibility realization, solvability statement, and coercive control all first live at the lifted level and only afterwards descend to substrate coordinates.
+\end{remark}
+
+\section{Canonical Primitive Substrate Shell-Restriction Package}
+
+\begin{proposition}[The primitive substrate shell-restriction package is produced canonically]
+\label{prop:target}
+Assume Definition \ref{def:lift}. Define, for each sector \(\sigma\in\{\Car,\Cur,\Hom\}\),
+\begin{equation}
+\SubSection{\sigma}
+\equiv
+\LiftSection{\sigma}\circ\LiftSelect{\sigma},
+\qquad
+\SubData{\sigma}
+\equiv
+\LiftData{\sigma}\circ\LiftSelect{\sigma},
+\qquad
+\SubShellMap{\sigma}
+\equiv
+\LiftShellMap{\sigma}\circ\LiftSelect{\sigma}.
+\label{eq:inducedsections}
+\end{equation}
+Define the shell chart
+\begin{equation}
+\SubChart{\sigma}
+\equiv
+\LiftChart{\sigma}\circ
+\bigl(\LiftProj{\sigma}\big|_{\LiftShellSet{\sigma}}\bigr)^{-1},
+\label{eq:inducedsubchart}
+\end{equation}
+the shell-internal support recorder
+\begin{equation}
+\SubSupport{\sigma}
+\equiv
+\LiftSupport{\sigma}\circ
+\bigl(\LiftProj{\sigma}\big|_{\LiftShellSet{\sigma}}\bigr)^{-1},
+\label{eq:inducedsupport}
+\end{equation}
+the projected support shell and projected support zero core
+\begin{equation}
+\SubSupportShell{\sigma}
+\equiv
+\LiftProj{\sigma}\bigl(\LiftSupportShell{\sigma}\bigr),
+\qquad
+\SubZeroCore{\sigma}
+\equiv
+\LiftProj{\sigma}\bigl(\LiftZeroCore{\sigma}\bigr),
+\label{eq:inducedshells}
+\end{equation}
+the support-shell and zero-core charts
+\begin{equation}
+\ShellChart{\sigma}
+\equiv
+\LiftEqChart{\sigma}\circ
+\bigl(\LiftProj{\sigma}\big|_{\LiftSupportShell{\sigma}}\bigr)^{-1},
+\qquad
+\SubZeroChart{\sigma}
+\equiv
+\LiftZeroChart{\sigma}\circ
+\bigl(\LiftProj{\sigma}\big|_{\LiftZeroCore{\sigma}}\bigr)^{-1},
+\label{eq:inducedcharts}
+\end{equation}
+the projected split map
+\begin{equation}
+\SubSplit{\sigma}(z,\eta)
+\equiv
+\LiftProj{\sigma}\Bigl(
+\LiftSplit{\sigma}\bigl(
+(\LiftProj{\sigma}\big|_{\LiftZeroCore{\sigma}})^{-1}(z),
+\eta
+\bigr)
+\Bigr),
+\label{eq:inducedsplit}
+\end{equation}
+the hidden charge and hidden recorder
+\begin{equation}
+\SubCharge{\sigma}
+\equiv
+\LiftCharge{\sigma},
+\qquad
+\SubResidual{\sigma}\bigl(\SubSplit{\sigma}(z,\eta)\bigr)
+\equiv
+\LiftCharge{\sigma}(\eta),
+\label{eq:inducedresidual}
+\end{equation}
+and the exact zero-response realization
+\begin{equation}
+\SubEmbed{\sigma}
+\equiv
+\LiftProj{\sigma}\circ\LiftEmbed{\sigma}.
+\label{eq:inducedembed}
+\end{equation}
+Then the resulting data satisfy exactly the primitive substrate shell-restriction package of Definition \ref{def:target}.
+\end{proposition}
+
+\begin{proof}
+We verify the items of Definition \ref{def:target} in order.
+
+For item (1), the substrate state space \(\SubSpace{\sigma}\), the compact convex body \(\SubBody{\sigma}\), the restriction target \(\SubTarget{\sigma}\), and the pairing \(\SubPair{\sigma}\) are already part of Definition \ref{def:lift}(1)--(2). Equation \eqref{eq:inducedsections} defines the substrate section. Its associated functional is
+\[
+\SubFunctional{\sigma}(m)
+=
+\LiftFunctional{\sigma}\bigl(\LiftSelect{\sigma}(m)\bigr).
+\]
+If \(m\in\LiftProj{\sigma}(\LiftShellSet{\sigma})\), choose \(\ell\in\LiftShellSet{\sigma}\) with \(\LiftProj{\sigma}(\ell)=m\). Then \(\LiftFunctional{\sigma}(\ell)=0\), so by fiberwise minimality,
+\[
+\SubFunctional{\sigma}(m)
+=
+\LiftFunctional{\sigma}\bigl(\LiftSelect{\sigma}(m)\bigr)
+=0.
+\]
+Conversely, if \(\SubFunctional{\sigma}(m)=0\), then \(\LiftSection{\sigma}(\LiftSelect{\sigma}(m))=0\), so \(\LiftSelect{\sigma}(m)\in\LiftShellSet{\sigma}\) and therefore \(m\in\LiftProj{\sigma}(\LiftShellSet{\sigma})\). Hence
+\[
+\SubShellSet{\sigma}
+=
+\bigl(\SubSection{\sigma}\bigr)^{-1}(0)\cap\SubBody{\sigma}
+=
+\LiftProj{\sigma}\bigl(\LiftShellSet{\sigma}\bigr).
+\]
+Because \(\LiftProj{\sigma}\big|_{\LiftShellSet{\sigma}}\) is a diffeomorphism by Definition \ref{def:lift}(4), \(\SubShellSet{\sigma}\) is a closed embedded submanifold of \(\SubSpace{\sigma}\). The normal inequality \eqref{eq:subnormal} is exactly \eqref{eq:projectedgap}.
+
+For item (2), the readouts \(\SubData{\sigma}\) and \(\SubShellMap{\sigma}\) are affine by \eqref{eq:inducedsections}. The support target, support pairing, hidden target, hidden pairing, and lifted symmetry / time-reversal actions are part of Definition \ref{def:lift}(3). Because \(\LiftProj{\sigma}\), \(\LiftSelect{\sigma}\), \(\LiftSection{\sigma}\), \(\LiftData{\sigma}\), and \(\LiftShellMap{\sigma}\) are all preserved by those actions, the induced actions on \(\SubSpace{\sigma}\) preserve \(\SubBody{\sigma}\), \(\SubShellSet{\sigma}\), \(\SubSection{\sigma}\), \(\SubData{\sigma}\), and \(\SubShellMap{\sigma}\).
+
+For item (3), equation \eqref{eq:inducedsubchart} defines the shell chart, whose image is exactly
+\[
+\ResBody{\sigma}
+=
+\LiftChart{\sigma}\bigl(\LiftShellSet{\sigma}\bigr).
+\]
+The chart transport identities follow from \eqref{eq:liftchartreadouts}:
+\[
+\ResData{\sigma}\circ\SubChart{\sigma}
+=
+\LiftData{\sigma}\circ
+\bigl(\LiftProj{\sigma}\big|_{\LiftShellSet{\sigma}}\bigr)^{-1}
+=
+\SubData{\sigma}\big|_{\SubShellSet{\sigma}},
+\]
+and similarly for \(\ResShellMap{\sigma}\). Equation \eqref{eq:inducedsupport} defines the shell-internal support recorder, and \eqref{eq:liftsupporttransport} becomes exactly \eqref{eq:supporttransport}. Because \(\LiftProj{\sigma}\big|_{\LiftShellSet{\sigma}}\) is a diffeomorphism, its restriction to \(\LiftSupportShell{\sigma}\) is a diffeomorphism onto \(\SubSupportShell{\sigma}\), so
+\[
+\ResShellSet{\sigma}
+=
+\LiftChart{\sigma}\bigl(\LiftSupportShell{\sigma}\bigr)
+=
+\SubChart{\sigma}\bigl(\SubSupportShell{\sigma}\bigr).
+\]
+The normal shell stability \eqref{eq:transportednormal} is exactly \eqref{eq:liftnormal}. The transported symmetry and time-reversal actions on \(\ResSpace{\sigma}\) are the same ones already recorded in Definition \ref{def:lift}(4).
+
+For item (4), the projected support zero core is \(\SubZeroCore{\sigma}\), and the restrictions of \(\LiftProj{\sigma}\big|_{\LiftShellSet{\sigma}}\) to \(\LiftSupportShell{\sigma}\) and \(\LiftZeroCore{\sigma}\) are diffeomorphisms onto \(\SubSupportShell{\sigma}\) and \(\SubZeroCore{\sigma}\), respectively. Therefore \eqref{eq:inducedcharts} defines the required charts. The orthogonal splitting
+\[
+\EqnSpace{\sigma}=\EqnZero{\sigma}\oplus\EqnHidden{\sigma},
+\]
+the compact convex bodies \(\ZeroBody{\sigma}\) and \(\EqnBody{\sigma}\), and the linear isometric hidden chart \(\HiddenChart{\sigma}\) are already part of Definition \ref{def:lift}(5). The projected split map \eqref{eq:inducedsplit} is a diffeomorphism because \(\LiftSplit{\sigma}\) is one and \(\LiftProj{\sigma}\big|_{\LiftSupportShell{\sigma}}\) is a diffeomorphism. Moreover,
+\[
+\ell_{z}
+\equiv
+\bigl(\LiftProj{\sigma}\big|_{\LiftZeroCore{\sigma}}\bigr)^{-1}(z)
+\in
+\LiftZeroCore{\sigma}
+\]
+for \(z\in\SubZeroCore{\sigma}\), so
+\[
+\ShellChart{\sigma}\bigl(\SubSplit{\sigma}(z,\eta)\bigr)
+=
+\LiftEqChart{\sigma}\bigl(\LiftSplit{\sigma}(\ell_{z},\eta)\bigr)
+=
+\LiftZeroChart{\sigma}(\ell_{z})+\HiddenChart{\sigma}(\eta)
+=
+\SubZeroChart{\sigma}(z)+\HiddenChart{\sigma}(\eta),
+\]
+which is exactly \eqref{eq:subchartsplit} after identifying the zero-core chart through \eqref{eq:inducedcharts}. The equation-space readouts \(\EqnData{\sigma}\) and \(\EqnShell{\sigma}\) are exactly the affine maps already supplied in Definition \ref{def:lift}(5), and \eqref{eq:eqnchartreadouts} is the charted form of \eqref{eq:lifteqnchartreadouts}.
+
+For item (5), \eqref{eq:inducedresidual} defines the hidden charge and the hidden recorder, and the positive hidden gap \eqref{eq:subchargegap} is exactly \eqref{eq:liftchargegap}.
+
+For item (6), \eqref{eq:inducedembed} defines the exact zero-response realization. Since \(\LiftEmbed{\sigma}\) lands in \(\LiftZeroCore{\sigma}\cap(\LiftShellMap{\sigma})^{-1}(0)\), its projected image lands in \(\SubZeroCore{\sigma}\cap(\SubShellMap{\sigma})^{-1}(0)\). Because \(\LiftProj{\sigma}\big|_{\LiftZeroCore{\sigma}}\) is a diffeomorphism onto \(\SubZeroCore{\sigma}\), the image is exactly that locus. Equation \eqref{eq:subcompat} follows immediately from \eqref{eq:liftcompat} and \eqref{eq:inducedsections}.
+
+For item (7), fixed-data solvability \eqref{eq:subsolvability} is the projection of \eqref{eq:liftsolvability} through the zero-core diffeomorphism \(\LiftProj{\sigma}\big|_{\LiftZeroCore{\sigma}}\).
+
+For item (8), define
+\[
+\SubKernel{\sigma}
+\equiv
+\ker\bigl(D\SubData{\sigma}\big|_{\SubZeroCore{\sigma}}\bigr)
+\cap
+\ker\bigl(D\SubShellMap{\sigma}\big|_{\SubZeroCore{\sigma}}\bigr),
+\qquad
+\SubKernelCh{\sigma}
+\equiv
+D\SubZeroChart{\sigma}\bigl(\SubKernel{\sigma}\bigr),
+\]
+and let \(\SubStateComp{\sigma}\) be the orthogonal projector onto \((\SubKernelCh{\sigma})^{\perp}\cap\EqnZero{\sigma}\). Take \(w\in\ForSpace{\sigma}\) and \(\delta m\in T_{\SubEmbed{\sigma}(w)}\SubSupportShell{\sigma}\) satisfying \(D\SubData{\sigma}\,\delta m=0\). Set
+\[
+\delta \ell
+\equiv
+D\bigl(\LiftProj{\sigma}\big|_{\LiftSupportShell{\sigma}}\bigr)^{-1}(\delta m)
+\in
+T_{\LiftEmbed{\sigma}(w)}\LiftSupportShell{\sigma}.
+\]
+Then \(D\LiftData{\sigma}\,\delta \ell=0\). Writing
+\[
+D\ShellChart{\sigma}(\delta m)=\delta z+\delta\eta
+\]
+with \(\delta z\in\EqnZero{\sigma}\) and \(\delta\eta\in\EqnHidden{\sigma}\), equation \eqref{eq:liftcoercive} becomes exactly \eqref{eq:subcoercive}. This completes the verification of Definition \ref{def:target}.
+\end{proof}
+
+\begin{remark}
+Proposition \ref{prop:target} gives more than another existence relay. Every constituent of the primitive substrate shell-restriction package is now an explicit projected or transported image of deeper shell-generating lift data. The shell-restriction layer has therefore lost its status as a free insertion on the active line.
+\end{remark}
+
+\section{Inevitability Theorem}
+
+\begin{theorem}[The shell-restriction package is forced within the lift class]
+\label{thm:inevitability}
+Fix the shell-generating substrate lift dynamics of Definition \ref{def:lift}. Then the primitive substrate shell-restriction package of Definition \ref{def:target} is forced by that deeper lift data in the following sense.
+\begin{enumerate}
+    \item The substrate body \(\SubBody{\sigma}\), substrate restriction section \(\SubSection{\sigma}\), exact shell \(\SubShellSet{\sigma}\), observer-data readout \(\SubData{\sigma}\), shell-response readout \(\SubShellMap{\sigma}\), shell chart \(\SubChart{\sigma}\), shell-internal support recorder \(\SubSupport{\sigma}\), projected support shell \(\SubSupportShell{\sigma}\), projected support zero core \(\SubZeroCore{\sigma}\), support-shell charts, split map, hidden charge, exact zero-response realization, fixed-data solvability statement, inert kernel/projector, and coercivity inequality are all canonical formulas in the lifted data.
+    \item Consequently no residual shell-restriction-level freedom survives inside the shell-generating lift class once the lifted projection, the fiber-minimizing lift, the lifted shell/support charts, and the lifted hidden charge are fixed.
+    \item In particular, any benchmark-faithful shell-restriction package compatible with the same lift dynamics must coincide with the canonical projected package on every benchmark-facing constituent listed in item (1).
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Item (1) is exactly Proposition \ref{prop:target}: every shell-restriction constituent is defined there by an explicit projection or chart-transport formula. Item (2) follows because those formulas leave no further benchmark-facing choices once the lift data are fixed. Item (3) is just the compatibility restatement of item (2): a package compatible with the same defining formulas cannot differ from the canonical projected one on the listed constituents.
+\end{proof}
+
+\begin{remark}
+The present theorem is the sharper verdict the project needed at this stage. The shell-restriction package is no longer merely derived from one deeper example; it is inevitable inside a sharper deeper class. That is a stronger gain than another same-output relay and still a narrower claim than final microphysical closure.
+\end{remark}
+
+\section{Benchmark Preservation}
+
+\begin{theorem}[The same benchmark one-metric package is preserved]
+\label{thm:outputs}
+Assume Definition \ref{def:fixed} and, for each sector \(\sigma\in\{\Car,\Cur,\Hom\}\), shell-generating substrate lift dynamics in the sense of Definition \ref{def:lift}. Then the benchmark output statements of \eqref{eq:fixedoutputs} remain unchanged:
+\[
+\MetricOut(\mathbf w)=\CompletedMetric,
+\qquad
+\MatterOut(\mathbf w,\psi)
+=
+T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
+\]
+for every \(\mathbf w\in\PrimShell\) and every matter configuration \(\psi\in\Psi\). Consequently the deeper lift theorem introduces neither a second operative metric nor an enlarged low-energy matter law.
+\end{theorem}
+
+\begin{proof}
+The present note changes only the deeper origin-side status of the shell-restriction package. It does not alter the fixed primitive shell \(\PrimShell\), the recorded metric map \(\MetricOut\), or the recorded matter map \(\MatterOut\). Those remain the continuation data of Definition \ref{def:fixed}, so \eqref{eq:fixedoutputs} continues to hold exactly.
+\end{proof}
+
+\section{Main Theorem}
+
+\begin{theorem}[The shell-restriction burden moves below the recorded shell-restriction package]
+\label{thm:main}
+Assume the fixed primitive continuation data of Definition \ref{def:fixed} and, for each sector \(\sigma\in\{\Car,\Cur,\Hom\}\), shell-generating substrate lift dynamics in the sense of Definition \ref{def:lift}. Then:
+\begin{enumerate}
+    \item the primitive substrate shell-restriction package is produced unchanged by projected exact-shell transport from the deeper lift dynamics;
+    \item within that deeper lift class, the shell-restriction package is forced rather than remaining a free shell-level insertion;
+    \item because the induced shell-restriction package is exactly the one already used on the active one-metric line, the previously recorded hidden-translation support reservoir and downstream support-layer consequences remain available unchanged;
+    \item the same benchmark one-metric package remains fixed: the operative metric is still exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, and the low-energy matter law is not enlarged;
+    \item consequently the remaining honest burden on the active line is deeper again: derive or justify the shell-generating substrate lift dynamics themselves from still more primitive substrate structure, or else prove a sharper inevitability theorem at that still deeper lift level.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Item (1) is Proposition \ref{prop:target}. Item (2) is Theorem \ref{thm:inevitability}. Item (3) is the routing consequence of item (1): the present note reproduces exactly the shell-restriction package that the preceding reservoir-origin theorem already uses as its input, so its downstream consequences are preserved unchanged. Item (4) is Theorem \ref{thm:outputs}. Item (5) is the project-level consequence of the previous items.
+\end{proof}
+
+\begin{corollary}[What remains open after this theorem]
+\label{cor:next}
+After Theorem \ref{thm:main}, the remaining honest burden is no longer to justify the primitive substrate shell-restriction package itself. That package is now the canonical projected exact-shell output of a sharper shell-generating lift class, and it is forced within that class rather than merely assumed there. What remains open is why the shell-generating lift dynamics should hold, or whether an even sharper inevitability theorem can remove that still deeper lift-level freedom while preserving the same benchmark one-metric package and claim boundary.
+\end{corollary}
+
+\begin{proof}
+Theorem \ref{thm:main} removes the shell-restriction package as the current unexplained stopping point. The next honest burden therefore lies strictly below it.
+\end{proof}
+
+\section{Conclusion}
+
+The positive result of this note is narrower than a completed first-principles derivation and stronger than another shell-restriction-level restatement. The primitive substrate shell-restriction package is no longer left on the active line as a merely recorded deeper assumption. Starting from shell-generating substrate lift dynamics, the note derives the substrate restriction section from a unique fiber-minimizing lift, derives the exact substrate shell as the projected lifted shell, transports the same reservoir body and support section, transports the same support-shell zero-core / hidden-seed decomposition and chart structure, and preserves the same hidden charge, compatibility realization, solvability statement, inert kernel/projector, and coercive control.
+
+Because those shell-restriction constituents are all canonical projected or transported images of the same deeper lift data, the gain is sharper than a new existence relay. Inside the shell-generating lift class, the shell-restriction package is forced on every benchmark-facing constituent. No residual shell-restriction-level freedom remains there once the lifted projection, fiber-minimizing lift, lifted shell/support charts, and hidden charge are fixed.
+
+The scope remains disciplined. The benchmark package is unchanged: the one operative metric is still exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, and the low-energy matter law is not enlarged. This is therefore an origin-side inevitability gain inside the active derivational program of \TheoryName{}, not a basis for stronger promotion language. The next honest burden is deeper again: derive or justify the shell-generating substrate lift dynamics themselves from still more primitive substrate structure, or else prove a sharper inevitability theorem there. Until then, adoption and derivation should continue to be kept sharply separated.
+
+\end{document}
