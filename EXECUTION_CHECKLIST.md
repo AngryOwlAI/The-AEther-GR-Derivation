@@ -1,6 +1,6 @@
 # Æther-Flow Interpretation Execution Checklist
 
-Last updated: April 1, 2026
+Last updated: April 2, 2026
 
 This checklist is intentionally compact. It tracks the active operational rules for the manuscript line rather than serving as a narrative archive.
 
@@ -15,11 +15,14 @@ This checklist is intentionally compact. It tracks the active operational rules 
 - [ ] Do not default to reopening the same-package direct absorbability question, another same-package observer-side rewrite, or a generic deeper-origin note that leaves benchmark-facing status unchanged.
 - [ ] Treat the branch-locked continuity-Hessian direct theorem together with the post-bridge derivation-gate status note as the resolved same-package observer-side closure routing result on the active one-metric line.
 - [ ] Treat the upstream compression theorem and the primitive-reservoir continuity-Hessian / observer-reduction line as having shifted the main burden to deeper substrate derivation of the benchmark one-metric package.
+- [ ] Treat the ground-generating substrate foundation dynamics from foundation-generating substrate root dynamics theorem as the recorded root-side continuation supporting the current frontier rather than as the current frontier itself.
+- [ ] Treat the foundation-generating substrate root dynamics necessity / uniqueness theorem as the current deepest benchmark-facing main-line gain.
 - [ ] The next primary manuscript must either:
-  - go below the shell-generating substrate lift dynamics theorem by deriving or justifying the lift-generating substrate precursor dynamics themselves
-  - prove a sharper inevitability theorem at that same precursor level while preserving the same benchmark one-metric package and claim boundary
-  - or produce an explicit same-package field-redefinition theorem only if a second exact reformulation is specifically needed
+  - derive or justify the foundation-generating substrate root dynamics from still more primitive substrate structure in a way that changes benchmark-facing status
+  - prove a genuinely smaller theorem-level collapse strictly inside the current root core while preserving the same benchmark one-metric package and claim boundary
 - [ ] Treat the current fixed one-metric observer package as still maximal at current scope with respect to strict same-package observer-side closure on that fixed package itself; do not confuse that fixed-package maximality statement with the new sharpened-package closure theorem.
+- [ ] Do not spend the move on another same-output root/foundation/ground restatement or on reopening stationary-reduction, stationary-Hessian, spectral, or selector layers.
+- [ ] Do not change the one-metric claim boundary with a second operative metric, an enlarged matter law, or stronger promotion language.
 - [ ] Keep stronger promotion language about first-principles derivation paused until the remaining derivation-gate burdens are met.
 
 ## Current Supporting Context
@@ -31,7 +34,9 @@ This checklist is intentionally compact. It tracks the active operational rules 
 - [x] The fixed-package strict-closure necessity / maximality theorem is recorded on the one-metric observer-equation bottleneck.
 - [x] The post-bridge derivation-gate status note is recorded.
 - [x] The upstream compression and primitive-reservoir continuity-Hessian core theorems are recorded.
-- [x] The primitive-reservoir observer-reduction continuation is recorded through the shell-generating substrate lift dynamics from lift-generating substrate precursor dynamics theorem.
+- [x] The primitive-reservoir observer-reduction continuation is recorded through the ground-generating substrate foundation dynamics from foundation-generating substrate root dynamics theorem.
+- [x] The foundation-generating substrate root dynamics necessity / uniqueness theorem is recorded as the current deepest benchmark-facing gain.
+- [x] The root frontier next benchmark criterion is recorded.
 - [ ] Side continuations remain non-primary unless they change the benchmark-facing burden.
 
 ## TeX / PDF Workflow
@@ -55,7 +60,7 @@ This checklist is intentionally compact. It tracks the active operational rules 
 Before treating a note as progress on the main line, confirm:
 
 - [ ] it preserves the exact benchmark package
-- [ ] it addresses the current precursor-level burden or provides an equivalent benchmark-facing gain
-- [ ] if it is a deeper-origin continuation, it reduces the remaining precursor-level freedom or otherwise sharpens the derivation-gate burden rather than merely preserving the same observer package
+- [ ] it addresses the current root-level burden or provides an equivalent benchmark-facing gain
+- [ ] if it is a deeper-origin continuation, it reduces the remaining root-level freedom or otherwise sharpens the derivation-gate burden rather than merely preserving the same observer package
 - [ ] it does not conflate adoption with derivation
 - [ ] it preserves the one operative metric and the recorded Phase D / E / F gains at the stated scope
