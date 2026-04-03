@@ -15,13 +15,13 @@ This checklist is intentionally compact. It tracks the active operational rules 
 - [ ] Do not default to reopening the same-package direct absorbability question, another same-package observer-side rewrite, or a generic deeper-origin note that leaves benchmark-facing status unchanged.
 - [ ] Treat the branch-locked continuity-Hessian direct theorem together with the post-bridge derivation-gate status note as the resolved same-package observer-side closure routing result on the active one-metric line.
 - [ ] Treat the upstream compression theorem and the primitive-reservoir continuity-Hessian / observer-reduction line as having shifted the main burden to deeper substrate derivation of the benchmark one-metric package.
-- [ ] Treat the ground-generating substrate foundation dynamics from foundation-generating substrate root dynamics theorem as the recorded root-side continuation supporting the current frontier rather than as the current frontier itself.
-- [ ] Treat the foundation-generating substrate root dynamics necessity / uniqueness theorem as the current deepest benchmark-facing main-line gain.
+- [ ] Treat the seed-generating substrate germ dynamics from germ-generating substrate proto-germ dynamics theorem as the recorded proto-germ-frontier handoff supporting the current frontier rather than as the current frontier itself.
+- [ ] Treat the germ-generating substrate proto-germ dynamics from proto-germ-generating substrate pre-proto-germ dynamics theorem as the current deepest benchmark-facing main-line gain.
 - [ ] The next primary manuscript must either:
-  - derive or justify the foundation-generating substrate root dynamics from still more primitive substrate structure in a way that changes benchmark-facing status
-  - prove a genuinely smaller theorem-level collapse strictly inside the current root core while preserving the same benchmark one-metric package and claim boundary
+  - derive or justify the proto-germ-generating substrate pre-proto-germ dynamics from still more primitive substrate structure in a way that changes benchmark-facing status
+  - prove a genuinely smaller theorem-level collapse strictly inside the observer-relevant pre-proto-germ package while preserving the same benchmark one-metric package and claim boundary
 - [ ] Treat the current fixed one-metric observer package as still maximal at current scope with respect to strict same-package observer-side closure on that fixed package itself; do not confuse that fixed-package maximality statement with the new sharpened-package closure theorem.
-- [ ] Do not spend the move on another same-output root/foundation/ground restatement or on reopening stationary-reduction, stationary-Hessian, spectral, or selector layers.
+- [ ] Do not spend the move on another same-output proto-germ/germ/seed/root/foundation/ground restatement or on reopening stationary-reduction, stationary-Hessian, spectral, or selector layers.
 - [ ] Do not change the one-metric claim boundary with a second operative metric, an enlarged matter law, or stronger promotion language.
 - [ ] Keep stronger promotion language about first-principles derivation paused until the remaining derivation-gate burdens are met.
 
@@ -34,9 +34,9 @@ This checklist is intentionally compact. It tracks the active operational rules 
 - [x] The fixed-package strict-closure necessity / maximality theorem is recorded on the one-metric observer-equation bottleneck.
 - [x] The post-bridge derivation-gate status note is recorded.
 - [x] The upstream compression and primitive-reservoir continuity-Hessian core theorems are recorded.
-- [x] The primitive-reservoir observer-reduction continuation is recorded through the ground-generating substrate foundation dynamics from foundation-generating substrate root dynamics theorem.
-- [x] The foundation-generating substrate root dynamics necessity / uniqueness theorem is recorded as the current deepest benchmark-facing gain.
-- [x] The root frontier next benchmark criterion is recorded.
+- [x] The primitive-reservoir observer-reduction continuation is recorded through the germ-generating substrate proto-germ dynamics from proto-germ-generating substrate pre-proto-germ dynamics theorem.
+- [x] The germ-generating substrate proto-germ dynamics from proto-germ-generating substrate pre-proto-germ dynamics theorem is recorded as the current deepest benchmark-facing gain.
+- [x] The current pre-proto-germ frontier burden is recorded in the active routing summaries.
 - [ ] Side continuations remain non-primary unless they change the benchmark-facing burden.
 
 ## TeX / PDF Workflow

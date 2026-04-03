@@ -38,8 +38,8 @@ It should not be described as a merely temporary placeholder awaiting legitimacy
 
 - Satisfy the benchmark derivation gates recorded in [aether_flow_exact_closure_derivation_gates_note.tex](../manuscripts/active/tex/aether_flow_exact_closure_derivation_gates_note.tex).
 - Treat [aether_flow_exact_closure_post_bridge_derivation_gate_status_note.tex](../manuscripts/active/tex/aether_flow_exact_closure_post_bridge_derivation_gate_status_note.tex) as the active benchmark-facing routing note: on the active completed branch, the same-package observer-side remainder gate is no longer the live bottleneck, and the remaining honest burden has moved upstream to substrate derivation of the benchmark package itself.
-- Treat [the shell-generating substrate lift dynamics from lift-generating substrate precursor dynamics theorem](../manuscripts/active/tex/aether_flow_primitive_reservoir_observer_reduction_shell_generating_substrate_lift_dynamics_from_lift_generating_substrate_precursor_dynamics_theorem.tex) as the current deepest benchmark-facing main-line gain.
-- The next primary gain should go below that theorem by deriving or justifying the lift-generating substrate precursor dynamics themselves, or by proving a sharper inevitability theorem at that same precursor level, while preserving the same benchmark one-metric package and claim boundary.
+- Treat [the germ-generating substrate proto-germ dynamics from proto-germ-generating substrate pre-proto-germ dynamics theorem](../manuscripts/active/tex/aether_flow_primitive_reservoir_observer_reduction_germ_generating_substrate_proto_germ_dynamics_from_proto_germ_generating_substrate_pre_proto_germ_dynamics_theorem.tex) as the current deepest benchmark-facing main-line gain.
+- The next primary gain should go below that theorem by deriving or justifying the proto-germ-generating substrate pre-proto-germ dynamics themselves, or by proving a genuinely smaller theorem-level collapse inside the observer-relevant pre-proto-germ package, while preserving the same benchmark one-metric package and claim boundary.
 - Stronger promotion language remains paused until the remaining derivation-gate burdens beyond same-package observer-side closure are met cleanly.
 
 ## Side-Line Status
@@ -58,7 +58,7 @@ Use formulations like:
 - The overview-first exact-closure package is the benchmark public theory statement.
 - The repository now has a benchmark exact-relativistic theory statement and an active derivational program.
 - The post-bridge continuity-Hessian closure result settles the same-package observer-side remainder gate on the active completed branch, but a first-principles substrate derivation still remains open.
-- The current deepest benchmark-facing main-line gain is the shell-generating substrate lift dynamics from lift-generating substrate precursor dynamics theorem.
+- The current deepest benchmark-facing main-line gain is the germ-generating substrate proto-germ dynamics from proto-germ-generating substrate pre-proto-germ dynamics theorem.
 - The active research goal is to derive that benchmark GR sector from explicit substrate structure without changing the benchmark claim boundary prematurely.
 
 ## Claims To Avoid
