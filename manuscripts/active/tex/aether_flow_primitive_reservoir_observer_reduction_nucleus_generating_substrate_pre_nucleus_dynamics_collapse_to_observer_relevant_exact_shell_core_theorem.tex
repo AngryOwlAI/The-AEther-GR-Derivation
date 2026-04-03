@@ -1,0 +1,529 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+
+\newcommand{\CompletedMetric}{g^{\sharp}}
+\newcommand{\MatterSpace}{\Psi}
+
+\newcommand{\Car}{\mathrm{car}}
+\newcommand{\Cur}{\mathrm{cur}}
+\newcommand{\Hom}{\mathrm{hom}}
+
+\newcommand{\ForSpace}[1]{\mathcal I_{#1}^{\mathrm{for}}}
+\newcommand{\PrimShell}{\mathcal S_{\mathrm{prim}}}
+\newcommand{\Reduction}[1]{\mathcal R_{#1}}
+\newcommand{\CurrentCarrier}[1]{\mathfrak C_{#1}^{\mathrm{cur}}}
+\newcommand{\EqCarrier}[1]{\mathfrak C_{#1}^{\mathrm{eq}}}
+\newcommand{\MetricOut}{\mathscr G_{\mathrm{out}}}
+\newcommand{\MatterOut}{\mathscr T_{\mathrm{out}}}
+
+\newcommand{\SubTarget}[1]{E_{#1}^{\mathrm{sub}}}
+\newcommand{\SubPair}[1]{\mathfrak s_{#1}^{\mathrm{sub}}}
+\newcommand{\EqnTarget}[1]{Q_{#1}^{\mathrm{eqn}}}
+\newcommand{\HiddenSpace}[1]{\mathcal H_{#1}^{\mathrm{hid}}}
+\newcommand{\HiddenBody}[1]{D_{#1}^{\mathrm{hid}}}
+
+\newcommand{\ProtoSpace}[1]{\mathcal U_{#1}^{\mathrm{proto}}}
+\newcommand{\ProtoBody}[1]{\mathcal B_{#1}^{\mathrm{proto}}}
+\newcommand{\ProtoSection}[1]{\Gamma_{#1}^{\mathrm{proto}}}
+\newcommand{\ProtoShellSet}[1]{\mathcal Z_{#1}^{\mathrm{proto}}}
+\newcommand{\ProtoZeroCore}[1]{\mathcal Z_{#1}^{0,\mathrm{proto}}}
+\newcommand{\ProtoSplit}[1]{\Phi_{#1}^{\mathrm{proto}}}
+\newcommand{\ProtoCharge}[1]{\mathcal Q_{#1}^{\mathrm{proto}}}
+\newcommand{\ProtoEmbed}[1]{\zeta_{#1}^{\mathrm{proto}}}
+\newcommand{\ProtoKernelCh}[1]{\widetilde K_{#1}^{0,\mathrm{proto}}}
+\newcommand{\ProtoStateComp}[1]{P_{#1}^{\mathrm{proto,co}}}
+
+\newcommand{\PreProtoNucleus}{\mathfrak Q^{\mathrm{nuc}}}
+\newcommand{\PreProtoSpace}[1]{\mathcal V_{#1}^{\mathrm{preproto}}}
+\newcommand{\PreProtoBody}[1]{\mathcal B_{#1}^{\mathrm{preproto}}}
+\newcommand{\PreProtoProj}[1]{\Pi_{#1}^{\mathrm{preproto}}}
+\newcommand{\PreProtoProtoMin}[1]{\mathfrak f_{#1}^{\mathrm{preproto,proto}}}
+\newcommand{\PreProtoSection}[1]{\Gamma_{#1}^{\mathrm{preproto}}}
+\newcommand{\PreProtoFunctional}[1]{\mathscr W_{#1}^{\mathrm{preproto}}}
+\newcommand{\PreProtoShellSet}[1]{\mathcal Z_{#1}^{\mathrm{preproto}}}
+
+\newcommand{\PreNucPackage}{\mathfrak R^{\mathrm{prenuc}}}
+\newcommand{\PreNucCore}{\mathfrak R^{\mathrm{core}}}
+\newcommand{\PreNucSpace}[1]{\mathcal W_{#1}^{\mathrm{prenuc}}}
+\newcommand{\PreNucBody}[1]{\mathcal B_{#1}^{\mathrm{prenuc}}}
+\newcommand{\PreNucProj}[1]{\Pi_{#1}^{\mathrm{prenuc}}}
+\newcommand{\PreNucNucleusMin}[1]{\mathfrak f_{#1}^{\mathrm{prenuc,nuc}}}
+\newcommand{\PreNucSection}[1]{\Gamma_{#1}^{\mathrm{prenuc}}}
+\newcommand{\PreNucFunctional}[1]{\mathscr W_{#1}^{\mathrm{prenuc}}}
+\newcommand{\PreNucShellSet}[1]{\mathcal Z_{#1}^{\mathrm{prenuc}}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Primitive-Reservoir Observer-Reduction\\
+\large Nucleus-Generating Substrate Pre-Nucleus Dynamics\\
+\large Collapse to an Observer-Relevant Exact-Shell Core}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The active primitive-reservoir observer-reduction frontier already moved the live benchmark-facing burden below the proto-anchored exact-shell transport nucleus by deriving that nucleus from nucleus-generating substrate pre-nucleus dynamics. After that step, another same-output deeper-origin relay is no longer the honest default move. The next admissible benchmark-facing gain must either derive the pre-nucleus package from still more primitive substrate structure in a way that changes project status, or identify a genuinely smaller theorem-level observer-relevant core strictly inside the pre-nucleus package and prove a sharper collapse to it.
+
+The present note takes the second route. It proves that the current full pre-nucleus package still contains benchmark-neutral presentation data. What remains observer relevant at this frontier is a smaller \emph{pre-nucleus exact-shell core}: the pre-nucleus state space and compact body, the projection to the fixed transport-nucleus state space, the fiber minimizer over the recorded nucleus body, the exact pre-nucleus shell projecting diffeomorphically to the recorded current shell, and benchmark faithfulness. The ambient pre-nucleus restriction section and the induced quadratic functional do not add independent benchmark-facing freedom once that exact-shell core is fixed.
+
+The benchmark boundary remains fixed throughout. The one operative metric is still exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, the low-energy matter law is not enlarged, and no stronger promotion language is licensed. The positive result is therefore narrow but benchmark facing: the live burden below the current pre-nucleus frontier collapses from the full pre-nucleus package \(\PreNucPackage\) to the smaller observer-relevant exact-shell core \(\PreNucCore\). What remains open is to derive or justify that sharper core from still more primitive substrate structure, or to prove an even smaller collapse strictly inside it.
+\end{abstract}
+
+\section{Introduction}
+
+The active derivational program of \TheoryName{} is now disciplined enough that not every deeper manuscript counts as new benchmark-facing progress. The current active-primary theorem already removed the proto-anchored exact-shell transport nucleus as the primitive stopping point by showing that nucleus to be the projected exact-shell transport image of a deeper pre-nucleus package. That theorem also stated the next honest alternatives: derive or justify the pre-nucleus package from still more primitive substrate structure, or prove a sharper internal collapse strictly inside it.
+
+The present note takes the second route. That is the cleaner benchmark-facing move when the goal is to change the live burden rather than merely push the unexplained layer deeper again. The question is whether every constituent of the current pre-nucleus package is still observer relevant once the fixed transport-nucleus target and the benchmark boundary are held in place.
+
+The theorem proved here answers yes in only a narrower sense than the full package suggests. The current pre-nucleus package contains two kinds of data. One kind controls the exact-shell transport that matters for the active line: the pre-nucleus body, its projection to the recorded transport-nucleus body, the fiber minimizer over that body, the exact pre-nucleus shell, and benchmark faithfulness. The other kind is a way of presenting that shell inside the ambient pre-nucleus state space: the ambient restriction section and the induced quadratic functional. The present note shows that the latter do not constitute additional independent benchmark-facing freedom once the former are fixed.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not alter the benchmark exact-closure package. It does not introduce a second operative metric or a new low-energy matter law. It only sharpens what now counts as the observer-relevant burden inside the current pre-nucleus frontier.
+
+\section{Fixed Inputs}
+
+\begin{definition}[Recorded primitive continuation data]
+\label{def:fixed}
+Fix the following continuation data from the active primitive-reservoir observer-reduction line.
+\begin{enumerate}
+    \item For each sector label \(\sigma\in\{\Car,\Cur,\Hom\}\), a primitive forcing shell
+    \[
+    \ForSpace{\sigma},
+    \]
+    a visible reduction map
+    \[
+    \Reduction{\sigma}:\ForSpace{\sigma}\to X_{\sigma},
+    \]
+    and shell-level current and equilibrium carriers
+    \[
+    \CurrentCarrier{\sigma}:\ForSpace{\sigma}\to Z_{\sigma}^{\mathrm{cur}},
+    \qquad
+    \EqCarrier{\sigma}:\ForSpace{\sigma}\to Z_{\sigma}^{\mathrm{eq}}.
+    \]
+    \item The product shell
+    \[
+    \PrimShell
+    \equiv
+    \ForSpace{\Car}\times \ForSpace{\Cur}\times \ForSpace{\Hom}.
+    \]
+    \item The recorded metric and ordinary-matter outputs
+    \[
+    \MetricOut:\PrimShell\to\{\text{observer metrics}\},
+    \qquad
+    \MatterOut:\PrimShell\times\MatterSpace\to\{\text{observer stress tensors}\},
+    \]
+    satisfying
+    \begin{equation}
+    \MetricOut(\mathbf w)=\CompletedMetric,
+    \qquad
+    \MatterOut(\mathbf w,\psi)
+    =
+    T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
+    \label{eq:fixedoutputs}
+    \end{equation}
+    for every \(\mathbf w\in\PrimShell\) and every matter configuration \(\psi\in\MatterSpace\).
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Recorded proto-germ exact-shell target]
+\label{def:proto}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). The active line already fixes:
+\begin{enumerate}
+    \item the same substrate target and pairing
+    \[
+    \SubTarget{\sigma},
+    \qquad
+    \SubPair{\sigma}:
+    \SubTarget{\sigma}\times\SubTarget{\sigma}\to\mathbb R;
+    \]
+    \item a hidden fiber space \(\HiddenSpace{\sigma}\) with compact hidden body \(\HiddenBody{\sigma}\subset\HiddenSpace{\sigma}\);
+    \item a finite-dimensional proto-germ state space \(\ProtoSpace{\sigma}\), a compact convex proto-germ body \(\ProtoBody{\sigma}\subset\ProtoSpace{\sigma}\), a smooth proto-germ restriction section
+    \[
+    \ProtoSection{\sigma}:\ProtoSpace{\sigma}\to\SubTarget{\sigma},
+    \]
+    and the exact proto-germ shell
+    \[
+    \ProtoShellSet{\sigma}
+    \equiv
+    \bigl(\ProtoSection{\sigma}\bigr)^{-1}(0)\cap\ProtoBody{\sigma};
+    \]
+    \item a closed embedded proto zero core \(\ProtoZeroCore{\sigma}\subset\ProtoShellSet{\sigma}\) and a split diffeomorphism
+    \[
+    \ProtoSplit{\sigma}:
+    \ProtoZeroCore{\sigma}\times\HiddenBody{\sigma}
+    \xrightarrow{\cong}
+    \ProtoShellSet{\sigma};
+    \]
+    \item a hidden charge
+    \[
+    \ProtoCharge{\sigma}:\HiddenSpace{\sigma}\to\EqnTarget{\sigma},
+    \]
+    a smooth observer-compatible exact proto-germ zero-response realization
+    \[
+    \ProtoEmbed{\sigma}:\ForSpace{\sigma}\hookrightarrow\ProtoZeroCore{\sigma},
+    \]
+    and a fixed-data solvability / coercive package on \(\ProtoZeroCore{\sigma}\), recorded through \(\ProtoKernelCh{\sigma}\) and \(\ProtoStateComp{\sigma}\).
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Recorded current transport nucleus]
+\label{def:nucleus}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). The recorded current transport nucleus \(\PreProtoNucleus\) for sector \(\sigma\) consists of:
+\begin{enumerate}
+    \item the pre-proto-germ state space \(\PreProtoSpace{\sigma}\), compact convex body \(\PreProtoBody{\sigma}\subset\PreProtoSpace{\sigma}\), projection
+    \[
+    \PreProtoProj{\sigma}:\PreProtoSpace{\sigma}\to\ProtoSpace{\sigma},
+    \]
+    and proto section
+    \[
+    \PreProtoProtoMin{\sigma}:\ProtoBody{\sigma}\to\PreProtoBody{\sigma}
+    \]
+    satisfying
+    \[
+    \PreProtoProj{\sigma}\bigl(\PreProtoBody{\sigma}\bigr)=\ProtoBody{\sigma},
+    \qquad
+    \PreProtoProj{\sigma}\circ\PreProtoProtoMin{\sigma}
+    =
+    \mathrm{id}_{\ProtoBody{\sigma}};
+    \]
+    \item the restriction section
+    \[
+    \PreProtoSection{\sigma}:\PreProtoSpace{\sigma}\to\SubTarget{\sigma},
+    \]
+    the induced functional
+    \[
+    \PreProtoFunctional{\sigma}(q)
+    \equiv
+    \SubPair{\sigma}\bigl(\PreProtoSection{\sigma}(q),\PreProtoSection{\sigma}(q)\bigr),
+    \]
+    and the exact shell
+    \[
+    \PreProtoShellSet{\sigma}
+    \equiv
+    \bigl(\PreProtoSection{\sigma}\bigr)^{-1}(0)\cap\PreProtoBody{\sigma},
+    \]
+    with
+    \[
+    \PreProtoSection{\sigma}\circ\PreProtoProtoMin{\sigma}
+    =
+    \ProtoSection{\sigma},
+    \qquad
+    \PreProtoProj{\sigma}\big|_{\PreProtoShellSet{\sigma}}
+    :
+    \PreProtoShellSet{\sigma}
+    \xrightarrow{\cong}
+    \ProtoShellSet{\sigma};
+    \]
+    \item benchmark faithfulness, meaning preservation of the benchmark outputs \eqref{eq:fixedoutputs}, no second operative metric, no enlarged low-energy matter law, and no premature promotion from adoption to completed derivation.
+\end{enumerate}
+By the already-recorded current frontier theorem, the zero core, split, hidden charge, exact zero-response realization, and fixed-data solvability / coercive package are then canonically induced downstream from this nucleus and the fixed proto-germ target rather than taken as additional independent benchmark-facing data.
+\end{definition}
+
+\begin{remark}
+Definitions \ref{def:fixed}--\ref{def:nucleus} are fixed inputs. The one operative metric, the ordinary matter route, the fixed proto-germ exact-shell target, and the current transport nucleus are not reopened here. The present note asks only whether the full pre-nucleus package is already minimal once those downstream targets are held fixed.
+\end{remark}
+
+\section{Current Pre-Nucleus Package}
+
+\begin{definition}[Nucleus-generating substrate pre-nucleus dynamics]
+\label{def:prenuc}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). A nucleus-generating substrate pre-nucleus dynamics package \(\PreNucPackage\) for sector \(\sigma\) consists of the following data.
+\begin{enumerate}
+    \item A finite-dimensional Euclidean pre-nucleus state space \(\PreNucSpace{\sigma}\), a compact convex pre-nucleus body
+    \[
+    \PreNucBody{\sigma}\subset\PreNucSpace{\sigma}
+    \]
+    with nonempty interior, an affine surjection
+    \[
+    \PreNucProj{\sigma}:\PreNucSpace{\sigma}\to\PreProtoSpace{\sigma},
+    \]
+    and a smooth pre-nucleus fiber minimizer
+    \[
+    \PreNucNucleusMin{\sigma}:\PreProtoBody{\sigma}\to\PreNucBody{\sigma}
+    \]
+    satisfying
+    \[
+    \PreNucProj{\sigma}\bigl(\PreNucBody{\sigma}\bigr)=\PreProtoBody{\sigma},
+    \qquad
+    \PreNucProj{\sigma}\circ\PreNucNucleusMin{\sigma}
+    =
+    \mathrm{id}_{\PreProtoBody{\sigma}}.
+    \]
+    \item A smooth pre-nucleus restriction section
+    \[
+    \PreNucSection{\sigma}:\PreNucSpace{\sigma}\to\SubTarget{\sigma},
+    \]
+    the pre-nucleus functional
+    \[
+    \PreNucFunctional{\sigma}(w)
+    \equiv
+    \SubPair{\sigma}\bigl(\PreNucSection{\sigma}(w),\PreNucSection{\sigma}(w)\bigr),
+    \]
+    and the exact pre-nucleus shell
+    \[
+    \PreNucShellSet{\sigma}
+    \equiv
+    \bigl(\PreNucSection{\sigma}\bigr)^{-1}(0)\cap\PreNucBody{\sigma},
+    \]
+    satisfying
+    \[
+    \PreNucSection{\sigma}\circ\PreNucNucleusMin{\sigma}
+    =
+    \PreProtoSection{\sigma},
+    \qquad
+    \PreNucProj{\sigma}\big|_{\PreNucShellSet{\sigma}}
+    :
+    \PreNucShellSet{\sigma}
+    \xrightarrow{\cong}
+    \PreProtoShellSet{\sigma}.
+    \]
+\end{enumerate}
+The package is \emph{benchmark faithful} if it preserves the benchmark outputs \eqref{eq:fixedoutputs}, introduces no second operative metric, introduces no enlarged low-energy matter law, and is presented as a deeper substrate-side source for the current proto-anchored exact-shell transport nucleus rather than as a replacement benchmark theory.
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:prenuc} is the current active-primary frontier before the present theorem is applied. The question now is whether the ambient pre-nucleus section and its induced functional still carry independent benchmark-facing freedom once the exact-shell transport data in item (1) and the exact pre-nucleus shell in item (2) are held fixed against the recorded transport-nucleus target.
+\end{remark}
+
+\section{Observer-Relevant Exact-Shell Core}
+
+\begin{definition}[Observer-relevant pre-nucleus exact-shell core]
+\label{def:core}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). The \emph{observer-relevant pre-nucleus exact-shell core} \(\PreNucCore\) for sector \(\sigma\) consists of:
+\begin{enumerate}
+    \item the pre-nucleus state space \(\PreNucSpace{\sigma}\), compact convex body \(\PreNucBody{\sigma}\subset\PreNucSpace{\sigma}\), affine surjection
+    \[
+    \PreNucProj{\sigma}:\PreNucSpace{\sigma}\to\PreProtoSpace{\sigma},
+    \]
+    and fiber minimizer
+    \[
+    \PreNucNucleusMin{\sigma}:\PreProtoBody{\sigma}\to\PreNucBody{\sigma}
+    \]
+    satisfying
+    \[
+    \PreNucProj{\sigma}\bigl(\PreNucBody{\sigma}\bigr)=\PreProtoBody{\sigma},
+    \qquad
+    \PreNucProj{\sigma}\circ\PreNucNucleusMin{\sigma}
+    =
+    \mathrm{id}_{\PreProtoBody{\sigma}};
+    \]
+    \item a closed embedded exact pre-nucleus shell
+    \[
+    \PreNucShellSet{\sigma}\subset\PreNucBody{\sigma}
+    \]
+    satisfying
+    \[
+    \PreNucNucleusMin{\sigma}\bigl(\PreProtoShellSet{\sigma}\bigr)
+    \subset
+    \PreNucShellSet{\sigma},
+    \qquad
+    \PreNucProj{\sigma}\big|_{\PreNucShellSet{\sigma}}
+    :
+    \PreNucShellSet{\sigma}
+    \xrightarrow{\cong}
+    \PreProtoShellSet{\sigma};
+    \]
+    \item benchmark faithfulness in the sense of Definition \ref{def:prenuc}.
+\end{enumerate}
+The ambient pre-nucleus restriction section \(\PreNucSection{\sigma}\) and the induced quadratic functional \(\PreNucFunctional{\sigma}\) are \emph{not} taken as independent core data.
+\end{definition}
+
+\begin{definition}[Exact-shell-core equivalence]
+\label{def:eq}
+Two benchmark-faithful pre-nucleus packages are \emph{exact-shell-core equivalent} if they induce the same observer-relevant pre-nucleus exact-shell core in the sense of Definition \ref{def:core}.
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:core} keeps exactly the data that control body-level transport to the recorded transport nucleus and exact-shell transport to the recorded current shell. It forgets only the particular ambient section presentation used to cut out that shell inside the pre-nucleus state space.
+\end{remark}
+
+\section{Why the Core Is the Live Burden}
+
+\begin{proposition}[Every full pre-nucleus package canonically determines an exact-shell core]
+\label{prop:extract}
+Every benchmark-faithful pre-nucleus package in the sense of Definition \ref{def:prenuc} canonically determines an observer-relevant exact-shell core in the sense of Definition \ref{def:core} by forgetting only the ambient pre-nucleus restriction section and the induced quadratic functional while retaining the exact shell they define.
+\end{proposition}
+
+\begin{proof}
+Definition \ref{def:prenuc}(1) already supplies the state space, compact body, affine projection, and fiber minimizer required by Definition \ref{def:core}(1). Definition \ref{def:prenuc}(2) already supplies the exact shell \(\PreNucShellSet{\sigma}\subset\PreNucBody{\sigma}\), the inclusion
+\[
+\PreNucNucleusMin{\sigma}\bigl(\PreProtoShellSet{\sigma}\bigr)
+\subset
+\PreNucShellSet{\sigma},
+\]
+and the shell-level diffeomorphism
+\[
+\PreNucProj{\sigma}\big|_{\PreNucShellSet{\sigma}}
+:
+\PreNucShellSet{\sigma}
+\xrightarrow{\cong}
+\PreProtoShellSet{\sigma}.
+\]
+Benchmark faithfulness is also already part of Definition \ref{def:prenuc}. Therefore the displayed data canonically determine Definition \ref{def:core}. The only discarded items are the ambient section \(\PreNucSection{\sigma}\) and the induced functional \(\PreNucFunctional{\sigma}\).
+\end{proof}
+
+\begin{proposition}[Proto anchor and exact-shell transport persist from the core]
+\label{prop:anchor}
+Fix an observer-relevant exact-shell core \(\PreNucCore\). Then
+\[
+(\PreProtoProj{\sigma}\circ\PreNucProj{\sigma})\bigl(\PreNucBody{\sigma}\bigr)
+=
+\ProtoBody{\sigma},
+\]
+\[
+(\PreProtoProj{\sigma}\circ\PreNucProj{\sigma})\circ
+\PreNucNucleusMin{\sigma}\circ\PreProtoProtoMin{\sigma}
+=
+\mathrm{id}_{\ProtoBody{\sigma}},
+\]
+and the composite shell transport
+\[
+(\PreProtoProj{\sigma}\circ\PreNucProj{\sigma})\big|_{\PreNucShellSet{\sigma}}
+:
+\PreNucShellSet{\sigma}
+\xrightarrow{\cong}
+\ProtoShellSet{\sigma}
+\]
+is a diffeomorphism.
+\end{proposition}
+
+\begin{proof}
+Definition \ref{def:core}(1) gives
+\[
+\PreNucProj{\sigma}\bigl(\PreNucBody{\sigma}\bigr)=\PreProtoBody{\sigma}
+\]
+and
+\[
+\PreNucProj{\sigma}\circ\PreNucNucleusMin{\sigma}
+=
+\mathrm{id}_{\PreProtoBody{\sigma}}.
+\]
+Applying Definition \ref{def:nucleus}(1) yields the first two displayed formulas after composition with \(\PreProtoProj{\sigma}\) and \(\PreProtoProtoMin{\sigma}\).
+
+For the shell transport, Definition \ref{def:core}(2) gives a diffeomorphism
+\[
+\PreNucProj{\sigma}\big|_{\PreNucShellSet{\sigma}}
+:
+\PreNucShellSet{\sigma}
+\xrightarrow{\cong}
+\PreProtoShellSet{\sigma},
+\]
+while Definition \ref{def:nucleus}(2) gives a diffeomorphism
+\[
+\PreProtoProj{\sigma}\big|_{\PreProtoShellSet{\sigma}}
+:
+\PreProtoShellSet{\sigma}
+\xrightarrow{\cong}
+\ProtoShellSet{\sigma}.
+\]
+Their composition is therefore a diffeomorphism from \(\PreNucShellSet{\sigma}\) to \(\ProtoShellSet{\sigma}\).
+\end{proof}
+
+\begin{proposition}[Exact-shell-core-equivalent packages induce the same current transport nucleus]
+\label{prop:eq}
+Any two exact-shell-core-equivalent benchmark-faithful pre-nucleus packages induce the same recorded current transport nucleus of Definition \ref{def:nucleus} and therefore the same downstream observer-relevant pre-proto-germ consequences on the active line.
+\end{proposition}
+
+\begin{proof}
+If two packages are exact-shell-core equivalent, then by definition they agree on the pre-nucleus state space, compact body, affine projection, fiber minimizer, exact pre-nucleus shell, and benchmark-faithfulness data. Their common body, projection, and minimizer therefore induce the same body-level transport to the recorded current nucleus. Their common exact shell and common shell projection
+\[
+\PreNucProj{\sigma}\big|_{\PreNucShellSet{\sigma}}
+:
+\PreNucShellSet{\sigma}
+\xrightarrow{\cong}
+\PreProtoShellSet{\sigma}
+\]
+induce the same exact current shell.
+
+The ambient sections and induced quadratic functionals may differ away from the common exact shell or away from the common minimizer image, but those differences do not alter the recorded current nucleus, whose target section \(\PreProtoSection{\sigma}\), shell \(\PreProtoShellSet{\sigma}\), and benchmark-faithful body-level transport are already fixed by Definition \ref{def:nucleus}. By Proposition \ref{prop:anchor}, the same exact-shell core also induces the same composite shell transport to the fixed proto-germ shell. The already-recorded downstream transport-nucleus theorem then canonically recovers the same larger observer-relevant pre-proto-germ data from that same current nucleus. Therefore exact-shell-core-equivalent pre-nucleus packages induce the same downstream benchmark-facing consequences.
+\end{proof}
+
+\begin{proposition}[The benchmark package remains fixed]
+\label{prop:benchmark}
+Every observer-relevant pre-nucleus exact-shell core preserves the same benchmark one-metric package \eqref{eq:fixedoutputs}. In particular, the operative metric remains exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, and the low-energy matter law is not enlarged.
+\end{proposition}
+
+\begin{proof}
+This is part of benchmark faithfulness in Definition \ref{def:core}(3). The present note removes only internal presentation freedom inside the pre-nucleus frontier. It does not alter the benchmark exact-closure package.
+\end{proof}
+
+\section{Main Theorem}
+
+\begin{theorem}[Nucleus-generating substrate pre-nucleus dynamics collapse to an observer-relevant exact-shell core]
+\label{thm:main}
+Fix the primitive continuation data of Definition \ref{def:fixed}, the recorded proto-germ exact-shell target of Definition \ref{def:proto}, the recorded current transport nucleus of Definition \ref{def:nucleus}, and a benchmark-faithful pre-nucleus package in the sense of Definition \ref{def:prenuc}. Then, for each sector \(\sigma\in\{\Car,\Cur,\Hom\}\), the live benchmark-facing burden inside the current pre-nucleus package collapses to the smaller observer-relevant exact-shell core \(\PreNucCore\) of Definition \ref{def:core}. More precisely:
+\begin{enumerate}
+    \item every full pre-nucleus package canonically determines an observer-relevant exact-shell core by Proposition \ref{prop:extract};
+    \item the exact-shell transport to the fixed transport-nucleus and proto-germ targets is already controlled by that core through Proposition \ref{prop:anchor};
+    \item the ambient pre-nucleus restriction section and the induced quadratic functional do not constitute additional independent benchmark-facing freedom, because any two benchmark-faithful pre-nucleus packages with the same exact-shell core induce the same current transport nucleus and the same downstream benchmark-facing consequences by Proposition \ref{prop:eq};
+    \item the benchmark boundary remains fixed by Proposition \ref{prop:benchmark};
+    \item consequently the remaining honest burden below the previous pre-nucleus frontier is no longer the full pre-nucleus package \(\PreNucPackage\) as such. What remains is to derive or justify the sharper observer-relevant exact-shell core \(\PreNucCore\) from still more primitive substrate structure, or else prove a still sharper collapse strictly inside that core.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Item (1) is Proposition \ref{prop:extract}. Item (2) is Proposition \ref{prop:anchor}. Item (3) is Proposition \ref{prop:eq}. Item (4) is Proposition \ref{prop:benchmark}. Item (5) is the routing consequence of the previous items together with the active safeguard against counting same-output deeper relays as new front-line progress once the live observer-relevant datum is unchanged.
+\end{proof}
+
+\begin{corollary}[What must be done next]
+\label{cor:next}
+After Theorem \ref{thm:main}, the next honest benchmark-facing manuscript must either:
+\begin{enumerate}
+    \item derive or justify the observer-relevant pre-nucleus exact-shell core \(\PreNucCore\) from still more primitive substrate structure in a way that changes benchmark-facing status;
+    \item identify a genuinely smaller theorem-level observer-relevant core strictly inside \(\PreNucCore\) and prove a sharper collapse to it;
+    \item do either of the previous two while preserving the same benchmark one-metric package and the same claim boundary.
+\end{enumerate}
+Another same-output deeper-origin relay that preserves the same exact-shell core, another restatement of the full pre-nucleus package as if its discarded ambient section data were still live, another reopening of the former transport nucleus or larger pre-proto-germ packages as if they were still the frontier, or any move that introduces a second operative metric, enlarges the ordinary matter law, or uses stronger promotion language does not satisfy the present burden. If a quantum continuation is pursued, it matters benchmark-facingly only insofar as it derives this same exact-shell core, collapses it further, or closes a benchmark derivation gate in a genuinely new way.
+\end{corollary}
+
+\begin{proof}
+Theorem \ref{thm:main} shows that the live observer-relevant burden inside the pre-nucleus frontier is already smaller than the full pre-nucleus package. Therefore a manuscript that merely restates that fuller package, or merely relocates the same exact-shell core deeper without changing the benchmark-facing burden, does not advance project status. What remains open is either to derive or justify the sharper core itself from still more primitive structure, or to discover a smaller theorem-level observer-relevant core inside it.
+\end{proof}
+
+\section{Conclusion}
+
+The positive result of this note is a sharper benchmark-facing collapse at the current pre-nucleus frontier. The previous active-primary theorem already removed the proto-anchored exact-shell transport nucleus as the unexplained stopping point by deriving that nucleus from a deeper pre-nucleus package. The present theorem then spends the honest internal compression move available there: the live burden inside that pre-nucleus package is not the full ambient presentation, but the smaller observer-relevant exact-shell core that controls body-level transport, exact-shell transport, and benchmark faithfulness.
+
+The scope remains disciplined. The benchmark package is unchanged: the one operative metric is still exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, and the low-energy matter law is not enlarged. Nothing here upgrades adoption to completed derivation or licenses stronger promotion language.
+
+The open burden therefore moves one honest step further again. The next benchmark-facing manuscript should derive or justify the sharper pre-nucleus exact-shell core from still more primitive substrate structure, unless the sharper honest gain available instead is a still smaller theorem-level collapse strictly inside that core. Until then, the present result should be read for what it is: a disciplined internal collapse theorem at the pre-nucleus frontier of \TheoryName{}, not a claim that the full first-principles program is finished.
+
+\end{document}
