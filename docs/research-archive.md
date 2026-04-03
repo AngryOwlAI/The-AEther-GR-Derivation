@@ -19,16 +19,16 @@ The active benchmark-facing line currently has five compact stages:
 1. Benchmark target fixing in [aether_flow_exact_closure_derivation_gates_note.tex](../manuscripts/active/tex/aether_flow_exact_closure_derivation_gates_note.tex) together with the overview-first exact-closure package.
 2. Post-bridge rerouting in [aether_flow_exact_closure_post_bridge_derivation_gate_status_note.tex](../manuscripts/active/tex/aether_flow_exact_closure_post_bridge_derivation_gate_status_note.tex): on the active completed branch, the same-package observer-side remainder gate is no longer the live bottleneck, so the remaining honest burden shifts upstream to substrate derivation of the benchmark package itself.
 3. Benchmark-facing compression and minimal-core sharpening in [aether_flow_benchmark_one_metric_observer_package_upstream_compression_theorem.tex](../manuscripts/active/tex/aether_flow_benchmark_one_metric_observer_package_upstream_compression_theorem.tex), [aether_flow_primitive_reservoir_line_continuity_hessian_core_necessity_uniqueness_theorem.tex](../manuscripts/active/tex/aether_flow_primitive_reservoir_line_continuity_hessian_core_necessity_uniqueness_theorem.tex), and [aether_flow_primitive_reservoir_line_continuity_hessian_core_derivation_theorem.tex](../manuscripts/active/tex/aether_flow_primitive_reservoir_line_continuity_hessian_core_derivation_theorem.tex).
-4. Primitive-reservoir observer-reduction continuation through datum origin, defect-fiber factorization, one-metric and ordinary-matter output recovery, chain forcing, selector and stationary-substrate construction, explicit substrate package, and the deeper inevitability chain below that package.
-5. The current deepest benchmark-facing main-line gain: [the shell-generating substrate lift dynamics from lift-generating substrate precursor dynamics theorem](../manuscripts/active/tex/aether_flow_primitive_reservoir_observer_reduction_shell_generating_substrate_lift_dynamics_from_lift_generating_substrate_precursor_dynamics_theorem.tex).
+4. Primitive-reservoir observer-reduction continuation through datum origin, defect-fiber factorization, one-metric and ordinary-matter output recovery, chain forcing, selector and stationary-substrate construction, explicit substrate package, the deeper inevitability chain below that package, and the later proto-germ / pre-proto-germ handoff.
+5. The current deepest benchmark-facing main-line gain: [the proto-germ-generating substrate pre-proto-germ observer-relevant core collapse theorem](../manuscripts/active/tex/aether_flow_primitive_reservoir_observer_reduction_proto_germ_generating_substrate_pre_proto_germ_observer_relevant_core_collapse_theorem.tex).
 
 ## Current Primary Burden
 
-The next primary manuscript is now one layer below the shell-generating lift theorem. It should:
+The next primary manuscript is now below the compressed observer-relevant pre-proto-germ core frontier. It should:
 
-- derive or justify the lift-generating substrate precursor dynamics themselves
-- or prove a sharper inevitability theorem that removes the remaining precursor-level freedom while preserving the same benchmark one-metric package and claim boundary
-- and not default to another merely package-preserving same-output note, because that no longer changes benchmark-facing status after the post-bridge routing result
+- derive or justify the observer-relevant pre-proto-germ core itself from still more primitive substrate structure
+- or prove a still sharper theorem-level collapse strictly inside that core while preserving the same benchmark one-metric package and claim boundary
+- and not default to another same-output deeper-origin relay that leaves that core unchanged, or to a reopening of older screened layers, because that no longer changes benchmark-facing status
 
 Until that happens, stronger promotion language remains paused.
 
@@ -48,7 +48,7 @@ Representative side-line entry points:
 - [Post-bridge derivation-gate status PDF](../manuscripts/active/pdf/aether_flow_exact_closure_post_bridge_derivation_gate_status_note.pdf)
 - [Upstream compression theorem PDF](../manuscripts/active/pdf/aether_flow_benchmark_one_metric_observer_package_upstream_compression_theorem.pdf)
 - [Continuity-Hessian core derivation PDF](../manuscripts/active/pdf/aether_flow_primitive_reservoir_line_continuity_hessian_core_derivation_theorem.pdf)
-- [Current deepest main-line gain PDF](../manuscripts/active/pdf/aether_flow_primitive_reservoir_observer_reduction_shell_generating_substrate_lift_dynamics_from_lift_generating_substrate_precursor_dynamics_theorem.pdf)
+- [Current deepest main-line gain PDF](../manuscripts/active/pdf/aether_flow_primitive_reservoir_observer_reduction_proto_germ_generating_substrate_pre_proto_germ_observer_relevant_core_collapse_theorem.pdf)
 - [Research plan](../RESEARCH_PLAN.md)
 
 ## Archive Principle

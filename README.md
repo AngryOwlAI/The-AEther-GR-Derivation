@@ -20,7 +20,8 @@ The exact-closure package is therefore a positive scientific deliverable in its 
 - Claim boundary: GR is adopted exactly in the benchmark package; a first-principles substrate derivation remains open
 - The benchmark package is a completed exact-closure theory statement at the operational level, not a temporary placeholder
 - Post-bridge routing: the same-package observer-side closure burden is no longer the live bottleneck on the active one-metric line; the remaining honest burden is upstream substrate derivation of the benchmark package
-- Current deepest benchmark-facing main-line gain: [the germ-generating substrate proto-germ dynamics from proto-germ-generating substrate pre-proto-germ dynamics theorem](manuscripts/active/tex/aether_flow_primitive_reservoir_observer_reduction_germ_generating_substrate_proto_germ_dynamics_from_proto_germ_generating_substrate_pre_proto_germ_dynamics_theorem.tex)
+- Current deepest benchmark-facing main-line gain: [the proto-germ-generating substrate pre-proto-germ observer-relevant core collapse theorem](manuscripts/active/tex/aether_flow_primitive_reservoir_observer_reduction_proto_germ_generating_substrate_pre_proto_germ_observer_relevant_core_collapse_theorem.tex)
+- Current honest next move: derive or justify the observer-relevant pre-proto-germ core from still more primitive substrate structure, or prove a still sharper collapse inside that core; another same-output deeper relay that leaves that core unchanged is not primary
 - The deeper positive-pair / orbit-shape continuation remains recorded side work unless it changes that primary burden
 
 ## Primary Goal

@@ -38,8 +38,9 @@ It should not be described as a merely temporary placeholder awaiting legitimacy
 
 - Satisfy the benchmark derivation gates recorded in [aether_flow_exact_closure_derivation_gates_note.tex](../manuscripts/active/tex/aether_flow_exact_closure_derivation_gates_note.tex).
 - Treat [aether_flow_exact_closure_post_bridge_derivation_gate_status_note.tex](../manuscripts/active/tex/aether_flow_exact_closure_post_bridge_derivation_gate_status_note.tex) as the active benchmark-facing routing note: on the active completed branch, the same-package observer-side remainder gate is no longer the live bottleneck, and the remaining honest burden has moved upstream to substrate derivation of the benchmark package itself.
-- Treat [the germ-generating substrate proto-germ dynamics from proto-germ-generating substrate pre-proto-germ dynamics theorem](../manuscripts/active/tex/aether_flow_primitive_reservoir_observer_reduction_germ_generating_substrate_proto_germ_dynamics_from_proto_germ_generating_substrate_pre_proto_germ_dynamics_theorem.tex) as the current deepest benchmark-facing main-line gain.
-- The next primary gain should go below that theorem by deriving or justifying the proto-germ-generating substrate pre-proto-germ dynamics themselves, or by proving a genuinely smaller theorem-level collapse inside the observer-relevant pre-proto-germ package, while preserving the same benchmark one-metric package and claim boundary.
+- Treat [the proto-germ-generating substrate pre-proto-germ observer-relevant core collapse theorem](../manuscripts/active/tex/aether_flow_primitive_reservoir_observer_reduction_proto_germ_generating_substrate_pre_proto_germ_observer_relevant_core_collapse_theorem.tex) as the current deepest benchmark-facing main-line gain.
+- The next primary gain should go below that theorem by deriving or justifying the observer-relevant pre-proto-germ core itself, or by proving a still sharper theorem-level collapse strictly inside that core, while preserving the same benchmark one-metric package and claim boundary.
+- Another same-output deeper-origin relay that leaves that core unchanged, or a reopening of older screened layers, is not the honest default next move.
 - Stronger promotion language remains paused until the remaining derivation-gate burdens beyond same-package observer-side closure are met cleanly.
 
 ## Side-Line Status
@@ -58,8 +59,8 @@ Use formulations like:
 - The overview-first exact-closure package is the benchmark public theory statement.
 - The repository now has a benchmark exact-relativistic theory statement and an active derivational program.
 - The post-bridge continuity-Hessian closure result settles the same-package observer-side remainder gate on the active completed branch, but a first-principles substrate derivation still remains open.
-- The current deepest benchmark-facing main-line gain is the germ-generating substrate proto-germ dynamics from proto-germ-generating substrate pre-proto-germ dynamics theorem.
-- The active research goal is to derive that benchmark GR sector from explicit substrate structure without changing the benchmark claim boundary prematurely.
+- The current deepest benchmark-facing main-line gain is the proto-germ-generating substrate pre-proto-germ observer-relevant core collapse theorem.
+- The active research goal is to derive or justify that observer-relevant pre-proto-germ core from explicit substrate structure, or to collapse it further, without changing the benchmark claim boundary prematurely.
 
 ## Claims To Avoid
 
@@ -70,6 +71,7 @@ Do not write:
 - the current bridge line already closes exactly onto Einstein gravity
 - the existence of many deeper-origin notes is itself evidence of derivational success
 - the side continuation automatically sets the primary task
+- the germ-generating substrate proto-germ dynamics from proto-germ-generating substrate pre-proto-germ dynamics theorem is still the current deepest benchmark-facing main-line step
 - the forcing-principle primitive-reservoir / stationary-reduction origin note is still the current deepest benchmark-facing main-line step
 - a broader promotion claim before the current deepest burden has been handled
 
