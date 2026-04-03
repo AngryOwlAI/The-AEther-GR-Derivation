@@ -63,5 +63,6 @@ Before treating a note as progress on the main line, confirm:
 - [ ] it preserves the exact benchmark package
 - [ ] it addresses the current compressed pre-proto-germ-core burden or provides an equivalent benchmark-facing gain
 - [ ] if it is a deeper-origin continuation, it changes the observer-relevant pre-proto-germ core or otherwise sharpens the derivation-gate burden rather than merely preserving the same benchmark-facing core
+- [ ] if it proposes an explicitly quantum bridge, it derives or sharpens the current live benchmark-facing burden, proves a smaller theorem-level benchmark-relevant collapse, or discharges a benchmark derivation gate rather than merely renaming a deeper unexplained layer
 - [ ] it does not conflate adoption with derivation
 - [ ] it preserves the one operative metric and the recorded Phase D / E / F gains at the stated scope
