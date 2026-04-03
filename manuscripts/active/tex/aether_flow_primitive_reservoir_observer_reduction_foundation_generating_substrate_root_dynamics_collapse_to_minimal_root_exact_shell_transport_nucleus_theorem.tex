@@ -1,0 +1,651 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+
+\newcommand{\CompletedMetric}{g^{\sharp}}
+\newcommand{\MatterSpace}{\Psi}
+
+\newcommand{\Car}{\mathrm{car}}
+\newcommand{\Cur}{\mathrm{cur}}
+\newcommand{\Hom}{\mathrm{hom}}
+
+\newcommand{\ForSpace}[1]{\mathcal I_{#1}^{\mathrm{for}}}
+\newcommand{\PrimShell}{\mathcal S_{\mathrm{prim}}}
+
+\newcommand{\Reduction}[1]{\mathcal R_{#1}}
+\newcommand{\CurrentCarrier}[1]{\mathfrak C_{#1}^{\mathrm{cur}}}
+\newcommand{\EqCarrier}[1]{\mathfrak C_{#1}^{\mathrm{eq}}}
+
+\newcommand{\MetricOut}{\mathscr G_{\mathrm{out}}}
+\newcommand{\MatterOut}{\mathscr T_{\mathrm{out}}}
+
+\newcommand{\DataSpace}[1]{\mathcal Y_{#1}^{\mathrm{obs}}}
+\newcommand{\AmbientTarget}[1]{E_{#1}^{\mathrm{amb}}}
+
+\newcommand{\SubTarget}[1]{E_{#1}^{\mathrm{sub}}}
+\newcommand{\SubPair}[1]{\mathfrak s_{#1}^{\mathrm{sub}}}
+
+\newcommand{\GroundSpace}[1]{\mathcal G_{#1}^{\mathrm{grd}}}
+\newcommand{\GroundBody}[1]{\mathcal B_{#1}^{\mathrm{grd}}}
+
+\newcommand{\FoundSpace}[1]{\mathcal F_{#1}^{\mathrm{fdn}}}
+\newcommand{\FoundBody}[1]{\mathcal B_{#1}^{\mathrm{fdn}}}
+\newcommand{\FoundProj}[1]{\Pi_{#1}^{\mathrm{fdn}}}
+\newcommand{\FoundGroundMin}[1]{\mathfrak f_{#1}^{\mathrm{fdn,grd}}}
+\newcommand{\FoundOrigMin}[1]{\mathfrak f_{#1}^{\mathrm{fdn,orig}}}
+\newcommand{\FoundPrecMin}[1]{\mathfrak f_{#1}^{\mathrm{fdn,prec}}}
+\newcommand{\FoundLiftMin}[1]{\mathfrak f_{#1}^{\mathrm{fdn,lift}}}
+\newcommand{\FoundSubMin}[1]{\mathfrak m_{#1}^{\mathrm{fdn}}}
+\newcommand{\FoundSection}[1]{\Gamma_{#1}^{\mathrm{fdn}}}
+\newcommand{\FoundFunctional}[1]{\mathscr W_{#1}^{\mathrm{fdn}}}
+\newcommand{\FoundData}[1]{\Lambda_{#1}^{\mathrm{fdn,dat}}}
+\newcommand{\FoundShellMap}[1]{\Lambda_{#1}^{\mathrm{fdn,sh}}}
+\newcommand{\FoundShellSet}[1]{\mathcal Z_{#1}^{\mathrm{fdn}}}
+\newcommand{\FoundSym}[1]{\mathbb G_{#1}^{\mathrm{fdn}}}
+\newcommand{\FoundTime}[1]{\vartheta_{#1}^{\mathrm{fdn}}}
+\newcommand{\FoundChart}[1]{\Xi_{#1}^{\mathrm{fdn}}}
+\newcommand{\FoundSupport}[1]{\Theta_{#1}^{\mathrm{fdn,sup}}}
+\newcommand{\FoundSupportShell}[1]{\mathcal Z_{#1}^{\mathrm{fdn,sup}}}
+\newcommand{\FoundZeroCore}[1]{\mathcal Z_{#1}^{0,\mathrm{fdn}}}
+\newcommand{\FoundEqChart}[1]{\Psi_{#1}^{\mathrm{fdn,sup}}}
+\newcommand{\FoundZeroChart}[1]{\Psi_{#1}^{0,\mathrm{fdn}}}
+\newcommand{\FoundSplit}[1]{\Phi_{#1}^{\mathrm{fdn}}}
+\newcommand{\FoundCharge}[1]{\mathcal Q_{#1}^{\mathrm{fdn}}}
+\newcommand{\FoundResidual}[1]{\mathcal R_{#1}^{\mathrm{fdn}}}
+\newcommand{\FoundEmbed}[1]{\zeta_{#1}^{\mathrm{fdn}}}
+\newcommand{\FoundKernelCh}[1]{\widetilde K_{#1}^{0,\mathrm{fdn}}}
+\newcommand{\FoundStateComp}[1]{P_{#1}^{\mathrm{fdn,co}}}
+
+\newcommand{\RootSpace}[1]{\mathcal R_{#1}^{\mathrm{rt}}}
+\newcommand{\RootBody}[1]{\mathcal B_{#1}^{\mathrm{rt}}}
+\newcommand{\RootProj}[1]{\Pi_{#1}^{\mathrm{rt}}}
+\newcommand{\RootFoundMin}[1]{\mathfrak f_{#1}^{\mathrm{rt,fdn}}}
+\newcommand{\RootGroundMin}[1]{\mathfrak f_{#1}^{\mathrm{rt,grd}}}
+\newcommand{\RootOrigMin}[1]{\mathfrak f_{#1}^{\mathrm{rt,orig}}}
+\newcommand{\RootPrecMin}[1]{\mathfrak f_{#1}^{\mathrm{rt,prec}}}
+\newcommand{\RootLiftMin}[1]{\mathfrak f_{#1}^{\mathrm{rt,lift}}}
+\newcommand{\RootSubMin}[1]{\mathfrak m_{#1}^{\mathrm{rt}}}
+\newcommand{\RootSection}[1]{\Gamma_{#1}^{\mathrm{rt}}}
+\newcommand{\RootFunctional}[1]{\mathscr W_{#1}^{\mathrm{rt}}}
+\newcommand{\RootData}[1]{\Lambda_{#1}^{\mathrm{rt,dat}}}
+\newcommand{\RootShellMap}[1]{\Lambda_{#1}^{\mathrm{rt,sh}}}
+\newcommand{\RootShellSet}[1]{\mathcal Z_{#1}^{\mathrm{rt}}}
+\newcommand{\RootChart}[1]{\Xi_{#1}^{\mathrm{rt}}}
+\newcommand{\RootSupport}[1]{\Theta_{#1}^{\mathrm{rt,sup}}}
+\newcommand{\RootSupportShell}[1]{\mathcal Z_{#1}^{\mathrm{rt,sup}}}
+\newcommand{\RootZeroCore}[1]{\mathcal Z_{#1}^{0,\mathrm{rt}}}
+\newcommand{\RootEqChart}[1]{\Psi_{#1}^{\mathrm{rt,sup}}}
+\newcommand{\RootZeroChart}[1]{\Psi_{#1}^{0,\mathrm{rt}}}
+\newcommand{\RootSplit}[1]{\Phi_{#1}^{\mathrm{rt}}}
+\newcommand{\RootCharge}[1]{\mathcal Q_{#1}^{\mathrm{rt}}}
+\newcommand{\RootResidual}[1]{\mathcal R_{#1}^{\mathrm{rt}}}
+\newcommand{\RootEmbed}[1]{\zeta_{#1}^{\mathrm{rt}}}
+\newcommand{\RootKernelCh}[1]{\widetilde K_{#1}^{0,\mathrm{rt}}}
+\newcommand{\RootStateComp}[1]{P_{#1}^{\mathrm{rt,co}}}
+
+\newcommand{\ResSpace}[1]{\mathcal U_{#1}^{\mathrm{sup,res}}}
+\newcommand{\ResTarget}[1]{S_{#1}^{\mathrm{sup,res}}}
+\newcommand{\SeedHidden}[1]{\mathcal H_{#1}^{\mathrm{sup}}}
+\newcommand{\SeedHiddenBody}[1]{D_{#1}^{\mathrm{sup}}}
+
+\newcommand{\EqnSpace}[1]{\mathcal U_{#1}^{\mathrm{eqn}}}
+\newcommand{\EqnTarget}[1]{Q_{#1}^{\mathrm{eqn}}}
+\newcommand{\EqnZero}[1]{V_{#1}^{\mathrm{eqn},0}}
+
+\newcommand{\RootCore}[1]{\mathfrak F_{#1}^{\mathrm{rt,core}}}
+\newcommand{\RootNucleus}[1]{\mathfrak N_{#1}^{\mathrm{rt}}}
+\newcommand{\RootMapFound}[1]{\mathcal E_{#1}^{\mathrm{fdn}}}
+\newcommand{\RootMapGround}[1]{\mathcal E_{#1}^{\mathrm{grd}}}
+\newcommand{\RootMapOrig}[1]{\mathcal E_{#1}^{\mathrm{orig}}}
+\newcommand{\RootMapPrec}[1]{\mathcal E_{#1}^{\mathrm{prec}}}
+\newcommand{\RootMapLift}[1]{\mathcal E_{#1}^{\mathrm{lift}}}
+\newcommand{\RootMapSub}[1]{\mathcal E_{#1}^{\mathrm{sub}}}
+\newcommand{\RootMapShell}[1]{\mathcal E_{#1}^{\mathrm{sh}}}
+\newcommand{\RootMapZero}[1]{\mathcal E_{#1}^{0}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Primitive-Reservoir Observer-Reduction\\
+\large Foundation-Generating Substrate Root Dynamics\\
+\large Collapse to a Minimal Root Exact-Shell Transport Nucleus}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The foundation-generating substrate root dynamics necessity / uniqueness theorem already removed the benchmark-relevant freedom visible at full root-core scope: once the fixed foundation package is required, the benchmark-facing root core is forced up to root-faithful equivalence. The routing consequence of that theorem then made the next honest options explicit. One could either derive or justify the root dynamics from still more primitive substrate structure, or else prove a genuinely smaller theorem-level collapse strictly inside the current root core. The present note takes the second route.
+
+For each sector it isolates a smaller \emph{root exact-shell transport nucleus}. The nucleus keeps the root-to-foundation projection and the six recorded root fiber-minimizer images, the exact root shell and embedded root zero core, the zero/hidden split, the hidden charge, the exact zero-response realization, and the fixed-data solvability / coercive package. It omits the shell-restricted readouts, shell chart, support recorder, support shell as an independent datum, support-shell chart, zero chart, and hidden recorder. The point of the theorem is that those omitted constituents are not extra benchmark-relevant freedom: they are canonically induced from the fixed foundation package together with the smaller nucleus.
+
+The benchmark boundary remains unchanged throughout. The one operative metric is still exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, and the low-energy matter law is not enlarged. The positive result is therefore narrow and benchmark facing. The current root frontier collapses to a genuinely smaller theorem-level nucleus strictly inside the former root core. The next honest burden is deeper again: derive or justify that nucleus from still more primitive substrate structure, or prove a still smaller collapse inside it while preserving the same benchmark one-metric package and the same claim boundary.
+\end{abstract}
+
+\section{Introduction}
+
+The active derivational program of \TheoryName{} has reached a sharper root-stage question than another same-output relay. The current root necessity / uniqueness theorem already did the honest root-level compression move available there: once the fixed foundation package is demanded, the benchmark-facing root core is no longer a free choice. The recorded routing consequence then excluded another same-output root, foundation, or ground restatement as the next benchmark-facing move. That much is already fixed on the active line.
+
+What was still open was whether the present root core itself remains the smallest honest benchmark-facing datum at root scope. If every constituent of that core were independently needed, then the only remaining honest move would be to descend to still more primitive substrate structure. But if some root-core constituents are merely induced by others together with the fixed foundation package, then a stronger internal theorem remains available before any deeper-origin relay is attempted.
+
+The present note proves exactly that smaller theorem. Its gain is narrower than a completed first-principles derivation and stronger than another same-output root restatement. The key observation is simple. Once the foundation package is fixed, several shell-side constituents of the benchmark-facing root core are already determined by pullback along the root-to-foundation projection, while the hidden recorder is already determined by the split and hidden charge. Those pieces therefore carry no additional benchmark-relevant freedom beyond a smaller nucleus.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not alter the benchmark exact-closure package. It does not introduce a second operative metric or a new low-energy matter law. It only proves that the current benchmark-facing root core collapses further to a smaller exact-shell transport nucleus.
+
+\section{Fixed Inputs}
+
+\begin{definition}[Recorded primitive continuation data]
+\label{def:fixed}
+Fix the following continuation data from the active primitive-reservoir observer-reduction line.
+\begin{enumerate}
+    \item For each sector label \(\sigma\in\{\Car,\Cur,\Hom\}\), a primitive forcing shell
+    \[
+    \ForSpace{\sigma},
+    \]
+    a visible reduction map
+    \[
+    \Reduction{\sigma}:\ForSpace{\sigma}\to X_{\sigma},
+    \]
+    and shell-level current and equilibrium carriers
+    \[
+    \CurrentCarrier{\sigma}:\ForSpace{\sigma}\to Z_{\sigma}^{\mathrm{cur}},
+    \qquad
+    \EqCarrier{\sigma}:\ForSpace{\sigma}\to Z_{\sigma}^{\mathrm{eq}}.
+    \]
+    \item The product shell
+    \[
+    \PrimShell
+    \equiv
+    \ForSpace{\Car}\times \ForSpace{\Cur}\times \ForSpace{\Hom}.
+    \]
+    \item The recorded metric and ordinary-matter outputs
+    \[
+    \MetricOut:\PrimShell\to\{\text{observer metrics}\},
+    \qquad
+    \MatterOut:\PrimShell\times\MatterSpace\to\{\text{observer stress tensors}\},
+    \]
+    satisfying
+    \begin{equation}
+    \MetricOut(\mathbf w)=\CompletedMetric,
+    \qquad
+    \MatterOut(\mathbf w,\psi)
+    =
+    T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
+    \label{eq:fixedoutputs}
+    \end{equation}
+    for every \(\mathbf w\in\PrimShell\) and every matter configuration \(\psi\in\MatterSpace\).
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Recorded foundation target]
+\label{def:foundation}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). The fixed ground-generating substrate foundation package on the active line consists of the following data.
+\begin{enumerate}
+    \item A finite-dimensional Euclidean foundation state space \(\FoundSpace{\sigma}\), a compact convex foundation body \(\FoundBody{\sigma}\subset\FoundSpace{\sigma}\) with nonempty interior, an affine surjection
+    \[
+    \FoundProj{\sigma}:\FoundSpace{\sigma}\to\GroundSpace{\sigma},
+    \]
+    and smooth foundation fiber minimizers
+    \[
+    \FoundGroundMin{\sigma},\quad
+    \FoundOrigMin{\sigma},\quad
+    \FoundPrecMin{\sigma},\quad
+    \FoundLiftMin{\sigma},\quad
+    \FoundSubMin{\sigma}
+    \]
+    on the fixed ground, origin, precursor, lift, and substrate fibers of the active line.
+    \item The same substrate target \(\SubTarget{\sigma}\), the same pairing \(\SubPair{\sigma}\), a smooth foundation section
+    \[
+    \FoundSection{\sigma}:\FoundSpace{\sigma}\to\SubTarget{\sigma},
+    \]
+    the foundation functional
+    \[
+    \FoundFunctional{\sigma}(f)
+    \equiv
+    \SubPair{\sigma}\bigl(\FoundSection{\sigma}(f),\FoundSection{\sigma}(f)\bigr),
+    \]
+    and the exact foundation shell
+    \[
+    \FoundShellSet{\sigma}
+    \equiv
+    \bigl(\FoundSection{\sigma}\bigr)^{-1}(0)\cap\FoundBody{\sigma}.
+    \]
+    \item Affine foundation observer-data and shell-response readouts
+    \[
+    \FoundData{\sigma}:\FoundSpace{\sigma}\to\DataSpace{\sigma},
+    \qquad
+    \FoundShellMap{\sigma}:\FoundSpace{\sigma}\to\AmbientTarget{\sigma},
+    \]
+    together with a compact symmetry group \(\FoundSym{\sigma}\) and an involution \(\FoundTime{\sigma}\) preserving all displayed foundation data.
+    \item A Euclidean foundation shell chart
+    \[
+    \FoundChart{\sigma}:\FoundShellSet{\sigma}\to\ResSpace{\sigma},
+    \]
+    a shell-internal support recorder
+    \[
+    \FoundSupport{\sigma}:\FoundShellSet{\sigma}\to\ResTarget{\sigma},
+    \]
+    the exact foundation support shell
+    \[
+    \FoundSupportShell{\sigma}
+    \equiv
+    \bigl(\FoundSupport{\sigma}\bigr)^{-1}(0)\cap\FoundShellSet{\sigma},
+    \]
+    a closed embedded foundation zero core
+    \[
+    \FoundZeroCore{\sigma}\subset\FoundSupportShell{\sigma},
+    \]
+    a support-shell chart
+    \[
+    \FoundEqChart{\sigma}:\FoundSupportShell{\sigma}\to\EqnSpace{\sigma},
+    \]
+    a zero chart
+    \[
+    \FoundZeroChart{\sigma}:\FoundZeroCore{\sigma}\to\EqnZero{\sigma},
+    \]
+    and a diffeomorphism
+    \[
+    \FoundSplit{\sigma}:
+    \FoundZeroCore{\sigma}\times\SeedHiddenBody{\sigma}
+    \xrightarrow{\cong}
+    \FoundSupportShell{\sigma}
+    \]
+    obeying the same zero/hidden split in the same equation variables.
+    \item A hidden charge
+    \[
+    \FoundCharge{\sigma}:\SeedHidden{\sigma}\to\EqnTarget{\sigma}
+    \]
+    with positive hidden gap, the hidden recorder
+    \[
+    \FoundResidual{\sigma}\bigl(\FoundSplit{\sigma}(z,\eta)\bigr)
+    \equiv
+    \FoundCharge{\sigma}(\eta),
+    \]
+    and a smooth observer-compatible exact foundation zero-response realization
+    \[
+    \FoundEmbed{\sigma}:\ForSpace{\sigma}\hookrightarrow\FoundZeroCore{\sigma}
+    \]
+    recovering the fixed visible, current, and equilibrium shell data.
+    \item Fixed-data solvability on \(\FoundZeroCore{\sigma}\) and coercive control on foundation data-invisible directions, recorded through the charted kernel \(\FoundKernelCh{\sigma}\) and orthogonal projector \(\FoundStateComp{\sigma}\).
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definitions \ref{def:fixed} and \ref{def:foundation} are not reopened here. The primitive continuation data, the one operative metric, the ordinary matter route, and the recorded foundation package remain fixed inputs. The present note addresses only whether the current benchmark-facing root core still contains redundant presentation data.
+\end{remark}
+
+\section{Root-Faithful Presentations and the Smaller Nucleus}
+
+\begin{definition}[Root-faithful presentation]
+\label{def:faithful}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). A \emph{root-faithful presentation} of the fixed foundation package consists of:
+\begin{enumerate}
+    \item a finite-dimensional Euclidean root state space \(\RootSpace{\sigma}\), a compact convex root body \(\RootBody{\sigma}\subset\RootSpace{\sigma}\) with nonempty interior, an affine surjection
+    \[
+    \RootProj{\sigma}:\RootSpace{\sigma}\to\FoundSpace{\sigma},
+    \]
+    and smooth root fiber minimizers
+    \[
+    \RootFoundMin{\sigma},\quad
+    \RootGroundMin{\sigma},\quad
+    \RootOrigMin{\sigma},\quad
+    \RootPrecMin{\sigma},\quad
+    \RootLiftMin{\sigma},\quad
+    \RootSubMin{\sigma};
+    \]
+    \item a smooth root section
+    \[
+    \RootSection{\sigma}:\RootSpace{\sigma}\to\SubTarget{\sigma},
+    \]
+    the root functional
+    \[
+    \RootFunctional{\sigma}(r)
+    \equiv
+    \SubPair{\sigma}\bigl(\RootSection{\sigma}(r),\RootSection{\sigma}(r)\bigr),
+    \]
+    and the exact root shell
+    \[
+    \RootShellSet{\sigma}
+    \equiv
+    \bigl(\RootSection{\sigma}\bigr)^{-1}(0)\cap\RootBody{\sigma};
+    \]
+    \item affine root observer-data and shell-response readouts
+    \[
+    \RootData{\sigma}:\RootSpace{\sigma}\to\DataSpace{\sigma},
+    \qquad
+    \RootShellMap{\sigma}:\RootSpace{\sigma}\to\AmbientTarget{\sigma},
+    \]
+    both constant on fibers of \(\RootProj{\sigma}\);
+    \item a Euclidean root shell chart
+    \[
+    \RootChart{\sigma}:\RootShellSet{\sigma}\to\ResSpace{\sigma},
+    \]
+    a shell-internal support recorder
+    \[
+    \RootSupport{\sigma}:\RootShellSet{\sigma}\to\ResTarget{\sigma},
+    \]
+    the exact root support shell
+    \[
+    \RootSupportShell{\sigma}
+    \equiv
+    \bigl(\RootSupport{\sigma}\bigr)^{-1}(0)\cap\RootShellSet{\sigma},
+    \]
+    a closed embedded root zero core
+    \[
+    \RootZeroCore{\sigma}\subset\RootSupportShell{\sigma},
+    \]
+    a support-shell chart
+    \[
+    \RootEqChart{\sigma}:\RootSupportShell{\sigma}\to\EqnSpace{\sigma},
+    \]
+    a zero chart
+    \[
+    \RootZeroChart{\sigma}:\RootZeroCore{\sigma}\to\EqnZero{\sigma},
+    \]
+    and a diffeomorphism
+    \[
+    \RootSplit{\sigma}:
+    \RootZeroCore{\sigma}\times\SeedHiddenBody{\sigma}
+    \xrightarrow{\cong}
+    \RootSupportShell{\sigma};
+    \]
+    \item a hidden charge
+    \[
+    \RootCharge{\sigma}:\SeedHidden{\sigma}\to\EqnTarget{\sigma},
+    \]
+    the hidden recorder
+    \[
+    \RootResidual{\sigma}\bigl(\RootSplit{\sigma}(z,\eta)\bigr)
+    \equiv
+    \RootCharge{\sigma}(\eta),
+    \]
+    and a smooth observer-compatible exact root zero-response realization
+    \[
+    \RootEmbed{\sigma}:\ForSpace{\sigma}\hookrightarrow\RootZeroCore{\sigma};
+    \]
+    \item fixed-data solvability on \(\RootZeroCore{\sigma}\) and coercive control on root data-invisible directions, recorded through the charted kernel \(\RootKernelCh{\sigma}\) and orthogonal projector \(\RootStateComp{\sigma}\).
+\end{enumerate}
+The presentation is \emph{root faithful} if its projected exact-shell transport recovers the fixed foundation package of Definition \ref{def:foundation} exactly, sector by sector, while preserving the benchmark outputs \eqref{eq:fixedoutputs}. Equivalently, the root presentation is required to induce precisely the recorded foundation shell and support transport, the same zero/hidden split in the same equation variables, the same hidden charge data, the same exact zero-response realization, the same solvability / coercive statements, and the same benchmark one-metric package, with no second operative metric and no enlarged low-energy matter law.
+\end{definition}
+
+\begin{definition}[Benchmark-facing exact-shell root core]
+\label{def:core}
+For a root-faithful presentation, the \emph{benchmark-facing exact-shell root core} \(\RootCore{\sigma}\) is the tuple consisting of:
+\begin{enumerate}
+    \item the projection \(\RootProj{\sigma}\) together with the images of the six fiber minimizers \(\RootFoundMin{\sigma}\), \(\RootGroundMin{\sigma}\), \(\RootOrigMin{\sigma}\), \(\RootPrecMin{\sigma}\), \(\RootLiftMin{\sigma}\), and \(\RootSubMin{\sigma}\);
+    \item the exact root shell \(\RootShellSet{\sigma}\), the shell-restricted readouts \(\RootData{\sigma}\big|_{\RootShellSet{\sigma}}\) and \(\RootShellMap{\sigma}\big|_{\RootShellSet{\sigma}}\), the shell chart \(\RootChart{\sigma}\), and the support recorder \(\RootSupport{\sigma}\);
+    \item the support shell \(\RootSupportShell{\sigma}\), the zero core \(\RootZeroCore{\sigma}\), the support-shell chart \(\RootEqChart{\sigma}\), the zero chart \(\RootZeroChart{\sigma}\), and the split diffeomorphism \(\RootSplit{\sigma}\);
+    \item the hidden charge \(\RootCharge{\sigma}\), the hidden recorder \(\RootResidual{\sigma}\), the exact zero-response realization \(\RootEmbed{\sigma}\), and the solvability / coercive statements carried by \(\RootKernelCh{\sigma}\) and \(\RootStateComp{\sigma}\).
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Root exact-shell transport nucleus]
+\label{def:nucleus}
+For a root-faithful presentation, the \emph{root exact-shell transport nucleus} \(\RootNucleus{\sigma}\) is the smaller tuple consisting of:
+\begin{enumerate}
+    \item the projection \(\RootProj{\sigma}\) together with the images of the six fiber minimizers \(\RootFoundMin{\sigma}\), \(\RootGroundMin{\sigma}\), \(\RootOrigMin{\sigma}\), \(\RootPrecMin{\sigma}\), \(\RootLiftMin{\sigma}\), and \(\RootSubMin{\sigma}\);
+    \item the exact root shell \(\RootShellSet{\sigma}\) and the embedded root zero core \(\RootZeroCore{\sigma}\subset\RootShellSet{\sigma}\);
+    \item the split diffeomorphism
+    \[
+    \RootSplit{\sigma}:
+    \RootZeroCore{\sigma}\times\SeedHiddenBody{\sigma}
+    \xrightarrow{\cong}
+    \operatorname{im}\RootSplit{\sigma}\subset\RootShellSet{\sigma};
+    \]
+    \item the hidden charge \(\RootCharge{\sigma}\), the exact zero-response realization \(\RootEmbed{\sigma}\), and the solvability / coercive package encoded by \(\RootKernelCh{\sigma}\) and \(\RootStateComp{\sigma}\).
+\end{enumerate}
+The nucleus intentionally omits the shell-restricted readouts, the shell chart, the support recorder, the support shell as an independent datum, the support-shell chart, the zero chart, and the hidden recorder.
+\end{definition}
+
+\begin{definition}[Canonical comparison maps]
+\label{def:equiv}
+Let \({}^{(1)}\!\RootNucleus{\sigma}\) and \({}^{(2)}\!\RootNucleus{\sigma}\) be the nuclei of two root-faithful presentations of the same fixed foundation package. Their canonical comparison maps are defined by the common lower data they induce:
+\begin{align}
+\RootMapFound{\sigma}\bigl({}^{(1)}\!\RootFoundMin{\sigma}(f)\bigr)
+&\equiv
+{}^{(2)}\!\RootFoundMin{\sigma}(f),
+\\
+\RootMapGround{\sigma}\bigl({}^{(1)}\!\RootGroundMin{\sigma}(g)\bigr)
+&\equiv
+{}^{(2)}\!\RootGroundMin{\sigma}(g),
+\\
+\RootMapOrig{\sigma}\bigl({}^{(1)}\!\RootOrigMin{\sigma}(o)\bigr)
+&\equiv
+{}^{(2)}\!\RootOrigMin{\sigma}(o),
+\\
+\RootMapPrec{\sigma}\bigl({}^{(1)}\!\RootPrecMin{\sigma}(p)\bigr)
+&\equiv
+{}^{(2)}\!\RootPrecMin{\sigma}(p),
+\\
+\RootMapLift{\sigma}\bigl({}^{(1)}\!\RootLiftMin{\sigma}(\ell)\bigr)
+&\equiv
+{}^{(2)}\!\RootLiftMin{\sigma}(\ell),
+\\
+\RootMapSub{\sigma}\bigl({}^{(1)}\!\RootSubMin{\sigma}(m)\bigr)
+&\equiv
+{}^{(2)}\!\RootSubMin{\sigma}(m),
+\\
+\RootMapShell{\sigma}
+&\equiv
+\bigl({}^{(2)}\!\RootProj{\sigma}\big|_{{}^{(2)}\!\RootShellSet{\sigma}}\bigr)^{-1}
+\circ
+{}^{(1)}\!\RootProj{\sigma}\big|_{{}^{(1)}\!\RootShellSet{\sigma}},
+\\
+\RootMapZero{\sigma}
+&\equiv
+\bigl({}^{(2)}\!\RootProj{\sigma}\big|_{{}^{(2)}\!\RootZeroCore{\sigma}}\bigr)^{-1}
+\circ
+{}^{(1)}\!\RootProj{\sigma}\big|_{{}^{(1)}\!\RootZeroCore{\sigma}}.
+\end{align}
+The two nuclei are \emph{root-nuclearly equivalent} if these comparison maps transport every displayed structure in Definition \ref{def:nucleus} identically and intertwine the split maps via
+\[
+\RootMapShell{\sigma}\circ{}^{(1)}\!\RootSplit{\sigma}
+=
+{}^{(2)}\!\RootSplit{\sigma}\circ
+\bigl(\RootMapZero{\sigma}\times\mathrm{id}_{\SeedHiddenBody{\sigma}}\bigr).
+\]
+\end{definition}
+
+\section{Canonical Data Induced by the Nucleus}
+
+\begin{proposition}[Shell-side readouts and charts are induced]
+\label{prop:induced-shell}
+Fix a root-faithful presentation. From the fixed foundation package of Definition \ref{def:foundation} together with the nucleus \(\RootNucleus{\sigma}\), the following shell-side data are canonically induced:
+\begin{align}
+\bigl(\RootData{\sigma}\bigr)^{\mathrm{ind}}
+&\equiv
+\FoundData{\sigma}\circ\RootProj{\sigma}\big|_{\RootShellSet{\sigma}},
+\label{eq:ind-data}
+\\
+\bigl(\RootShellMap{\sigma}\bigr)^{\mathrm{ind}}
+&\equiv
+\FoundShellMap{\sigma}\circ\RootProj{\sigma}\big|_{\RootShellSet{\sigma}},
+\label{eq:ind-shell}
+\\
+\bigl(\RootChart{\sigma}\bigr)^{\mathrm{ind}}
+&\equiv
+\FoundChart{\sigma}\circ\RootProj{\sigma}\big|_{\RootShellSet{\sigma}},
+\label{eq:ind-chart}
+\\
+\bigl(\RootSupport{\sigma}\bigr)^{\mathrm{ind}}
+&\equiv
+\FoundSupport{\sigma}\circ\RootProj{\sigma}\big|_{\RootShellSet{\sigma}},
+\label{eq:ind-support}
+\\
+\bigl(\RootSupportShell{\sigma}\bigr)^{\mathrm{ind}}
+&\equiv
+\bigl(\bigl(\RootSupport{\sigma}\bigr)^{\mathrm{ind}}\bigr)^{-1}(0)\cap\RootShellSet{\sigma},
+\label{eq:ind-support-shell}
+\\
+\bigl(\RootEqChart{\sigma}\bigr)^{\mathrm{ind}}
+&\equiv
+\FoundEqChart{\sigma}\circ\RootProj{\sigma}\big|_{\bigl(\RootSupportShell{\sigma}\bigr)^{\mathrm{ind}}},
+\label{eq:ind-eq}
+\\
+\bigl(\RootZeroChart{\sigma}\bigr)^{\mathrm{ind}}
+&\equiv
+\FoundZeroChart{\sigma}\circ\RootProj{\sigma}\big|_{\RootZeroCore{\sigma}}.
+\label{eq:ind-zero}
+\end{align}
+Moreover,
+\begin{equation}
+\bigl(\RootSupportShell{\sigma}\bigr)^{\mathrm{ind}}
+=
+\operatorname{im}\RootSplit{\sigma}.
+\label{eq:ind-image}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Because the presentation is root faithful, the projection \(\RootProj{\sigma}\) restricts diffeomorphically from the root shell onto the fixed foundation shell and transports the fixed foundation shell data exactly. Therefore the shell-restricted readouts, the shell chart, and the support recorder cannot differ from the pullbacks \eqref{eq:ind-data}--\eqref{eq:ind-support} without changing the induced foundation shell transport. This proves that the recorded shell-restricted readouts and shell-side charts are exactly the induced ones.
+
+Applying the same faithfulness statement to the support recorder shows that the zero-support locus inside \(\RootShellSet{\sigma}\) must project diffeomorphically to the fixed foundation support shell. Hence \(\bigl(\RootSupportShell{\sigma}\bigr)^{\mathrm{ind}}\) is exactly the recorded root support shell. On the other hand, the split diffeomorphism in Definition \ref{def:faithful} has image equal to that same recorded support shell, which yields \eqref{eq:ind-image}. Finally, once the support shell and zero core are fixed, their equation charts are likewise forced as pullbacks of the fixed foundation charts, giving \eqref{eq:ind-eq} and \eqref{eq:ind-zero}.
+\end{proof}
+
+\begin{proposition}[The hidden recorder is induced]
+\label{prop:induced-hidden}
+Fix a root-faithful presentation. From the nucleus \(\RootNucleus{\sigma}\), the hidden recorder is canonically induced by
+\begin{equation}
+\bigl(\RootResidual{\sigma}\bigr)^{\mathrm{ind}}\bigl(\RootSplit{\sigma}(z,\eta)\bigr)
+\equiv
+\RootCharge{\sigma}(\eta).
+\label{eq:ind-hidden}
+\end{equation}
+This induced recorder agrees with the recorded root hidden recorder.
+\end{proposition}
+
+\begin{proof}
+Equation \eqref{eq:ind-hidden} is exactly the defining relation required in Definition \ref{def:faithful}. Once the split and hidden charge are fixed, there is no remaining freedom in the hidden recorder on the support shell image of the split. Hence the recorded hidden recorder is the induced one.
+\end{proof}
+
+\begin{proposition}[The full benchmark-facing root core is recovered from the nucleus]
+\label{prop:recover}
+Fix a root-faithful presentation. The benchmark-facing exact-shell root core \(\RootCore{\sigma}\) of Definition \ref{def:core} is completely determined by the fixed foundation package together with the nucleus \(\RootNucleus{\sigma}\).
+\end{proposition}
+
+\begin{proof}
+The nucleus already contains the projection, the six root minimizer images, the exact root shell, the root zero core, the split, the hidden charge, the exact zero-response realization, and the solvability / coercive package. Proposition \ref{prop:induced-shell} recovers from this data the shell-restricted readouts, the shell chart, the support recorder, the support shell, the support-shell chart, and the zero chart. Proposition \ref{prop:induced-hidden} recovers the hidden recorder. Those are precisely the omitted constituents of Definition \ref{def:core}. No additional benchmark-facing datum remains outside the nucleus.
+\end{proof}
+
+\section{Minimality of the Nucleus}
+
+\begin{proposition}[Every nucleus constituent is benchmark-facing]
+\label{prop:necessary}
+No proper subtuple of the nucleus \(\RootNucleus{\sigma}\) still determines the full benchmark-facing root core up to root-faithful equivalence. More precisely:
+\begin{enumerate}
+    \item if the projection \(\RootProj{\sigma}\) or any one of the six minimizer images is omitted, the lower-fiber minimizer hierarchy inside the root layer is no longer fixed;
+    \item if the exact root shell \(\RootShellSet{\sigma}\) is omitted, the shell-restricted readouts, shell chart, and support recorder are no longer determined;
+    \item if the root zero core \(\RootZeroCore{\sigma}\) is omitted, the zero chart and the exact zero-response locus of the presentation are no longer fixed;
+    \item if the split \(\RootSplit{\sigma}\) is omitted, the support shell and the zero/hidden decomposition are no longer determined;
+    \item if the hidden charge \(\RootCharge{\sigma}\) is omitted, the hidden recorder is no longer fixed;
+    \item if the exact zero-response realization \(\RootEmbed{\sigma}\) is omitted, the observer-compatible realization of the fixed visible, current, and equilibrium shell data is no longer fixed;
+    \item if \(\RootKernelCh{\sigma}\) or \(\RootStateComp{\sigma}\) is omitted, the fixed-data solvability / coercive package is no longer fixed.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Each item is immediate from Proposition \ref{prop:recover}. The omitted shell-side constituents are induced from the nucleus, but they are induced only because the listed nucleus data are already present. Removing any item listed here destroys a distinct component of the recovered root core.
+
+For item (1), the comparison maps on the six recorded fibers are keyed precisely by the projection and corresponding minimizer images. For item (2), the shell pullbacks \eqref{eq:ind-data}--\eqref{eq:ind-support} are defined on \(\RootShellSet{\sigma}\) itself, so no shell-side transport can be recovered if that locus is forgotten. For item (3), the induced zero chart \eqref{eq:ind-zero} and the image of \(\RootEmbed{\sigma}\) both live on the zero core. For item (4), the support shell is the image of the split and the zero/hidden decomposition is exactly the content of that split. For item (5), the hidden recorder is defined from the hidden charge via \eqref{eq:ind-hidden}. For item (6), the exact zero-response realization is its own benchmark-facing constituent. For item (7), the solvability / coercive package is recorded through the charted kernel and orthogonal projector themselves. Hence no proper subtuple of \(\RootNucleus{\sigma}\) still determines the full benchmark-facing root core.
+\end{proof}
+
+\begin{proposition}[The benchmark package remains fixed]
+\label{prop:benchmark}
+Every root-faithful presentation preserves the same benchmark one-metric package \eqref{eq:fixedoutputs}. In particular, the operative metric remains exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, and the low-energy matter law is not enlarged.
+\end{proposition}
+
+\begin{proof}
+This is part of Definition \ref{def:faithful}. The present note removes only redundant benchmark-facing root-core presentation data. It does not alter the fixed primitive outputs.
+\end{proof}
+
+\section{Main Theorem}
+
+\begin{theorem}[Foundation-generating substrate root dynamics collapse to a minimal root exact-shell transport nucleus]
+\label{thm:main}
+Fix the primitive continuation data of Definition \ref{def:fixed} and the recorded foundation package of Definition \ref{def:foundation}. Then, for each sector \(\sigma\in\{\Car,\Cur,\Hom\}\), the benchmark-facing exact-shell root core \(\RootCore{\sigma}\) collapses strictly inside itself to the smaller root exact-shell transport nucleus \(\RootNucleus{\sigma}\). More precisely:
+\begin{enumerate}
+    \item every root-faithful presentation canonically determines a nucleus \(\RootNucleus{\sigma}\) in the sense of Definition \ref{def:nucleus};
+    \item the full benchmark-facing root core \(\RootCore{\sigma}\) is completely determined by the fixed foundation package together with \(\RootNucleus{\sigma}\);
+    \item any two root-faithful presentations with root-nuclearly equivalent nuclei induce root-faithfully equivalent full benchmark-facing root cores;
+    \item no proper subtuple of \(\RootNucleus{\sigma}\) still determines \(\RootCore{\sigma}\) up to root-faithful equivalence.
+\end{enumerate}
+Hence the current root frontier is no longer the larger full root core as an independently benchmark-facing datum. What remains at current scope is the smaller minimal root exact-shell transport nucleus.
+\end{theorem}
+
+\begin{proof}
+Item (1) is only the observation that every root-faithful presentation already contains the constituents listed in Definition \ref{def:nucleus}. Item (2) is Proposition \ref{prop:recover}. For item (3), if two nuclei are root-nuclearly equivalent, then the projection, minimizer images, shell, zero core, split, hidden charge, exact zero-response realization, and solvability / coercive package transport identically under the canonical comparison maps of Definition \ref{def:equiv}. Proposition \ref{prop:recover} then transports the induced shell-restricted readouts, shell chart, support recorder, support shell, support-shell chart, zero chart, and hidden recorder identically as well. Therefore the full benchmark-facing root cores are root-faithfully equivalent.
+
+Item (4) is Proposition \ref{prop:necessary}. Together these items show that the larger root core still contains redundant presentation data at benchmark scope, but the nucleus does not. The collapse is strict because Definition \ref{def:nucleus} omits independent shell-side constituents that Definition \ref{def:core} still lists explicitly, and those omitted constituents are recovered canonically rather than postulated anew.
+\end{proof}
+
+\begin{corollary}[No extra benchmark-relevant root-core freedom beyond the nucleus]
+\label{cor:nofreedom}
+At current scope there is no second benchmark-relevant benchmark-facing exact-shell root core other than one induced by the same minimal root exact-shell transport nucleus up to root-nuclear equivalence.
+\end{corollary}
+
+\begin{proof}
+If a second benchmark-relevant root core existed, it would either change some constituent of the nucleus, contradicting Theorem \ref{thm:main}(4), or else leave the nucleus unchanged and therefore induce the same full root core by Theorem \ref{thm:main}(2).
+\end{proof}
+
+\section{Routing Consequence}
+
+\begin{corollary}[What must be done next]
+\label{cor:next}
+After Theorem \ref{thm:main}, the next honest primary manuscript below the current frontier must do at least one of the following:
+\begin{enumerate}
+    \item derive or justify the minimal root exact-shell transport nucleus from still more primitive substrate structure in a way that changes benchmark-facing status rather than merely relocating the unexplained layer deeper;
+    \item identify a genuinely smaller theorem-level core strictly inside \(\RootNucleus{\sigma}\) and prove a sharper collapse to it;
+    \item do either of the previous two while preserving the same benchmark one-metric package, the same ordinary matter route, and the same claim boundary.
+\end{enumerate}
+It is no longer enough merely to restate the former larger root core, to restate the same root / foundation / ground package at a deeper level, or to reopen screened lower layers as if they were still the live burden.
+\end{corollary}
+
+\begin{proof}
+Theorem \ref{thm:main} spends the second honest option recorded by the prior root-frontier routing note: a genuine smaller theorem-level collapse strictly inside the current root core. Once that collapse is proved, the remaining honest burden must either go deeper than the new nucleus or compress it further. A manuscript that only rewrites the larger root-core presentation, or that inserts another same-output relay above this nucleus, does not change project status.
+\end{proof}
+
+\section{Conclusion}
+
+The positive result of this note is narrower than a completed first-principles derivation and stronger than another same-output root restatement. The previous root necessity / uniqueness theorem had already shown that the benchmark-facing root core is forced once the fixed foundation package is required. The present theorem then sharpens that result by showing that the larger root core still contains redundant shell-side presentation data. At benchmark scope, the current root frontier collapses further to a smaller minimal root exact-shell transport nucleus.
+
+That gain is exact and disciplined. The shell-restricted readouts, shell chart, support recorder, support shell, support-shell chart, zero chart, and hidden recorder are not new independent root freedom once the fixed foundation package, the root shell, the root zero core, the split, the hidden charge, the exact zero-response realization, and the solvability / coercive package are fixed. They are induced. The benchmark package remains unchanged throughout: the one operative metric is still exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, and the low-energy matter law is not enlarged.
+
+The open burden therefore moves one honest step further again. The next benchmark-facing manuscript should derive or justify the minimal root exact-shell transport nucleus from still more primitive substrate structure, unless the sharper honest gain available instead is a still smaller collapse strictly inside that nucleus. Until then, adoption and derivation should continue to be kept sharply separated.
+
+\end{document}
