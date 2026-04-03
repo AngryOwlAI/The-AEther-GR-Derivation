@@ -1,0 +1,562 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+
+\newcommand{\CompletedMetric}{g^{\sharp}}
+\newcommand{\MatterSpace}{\Psi}
+
+\newcommand{\Car}{\mathrm{car}}
+\newcommand{\Cur}{\mathrm{cur}}
+\newcommand{\Hom}{\mathrm{hom}}
+
+\newcommand{\ForSpace}[1]{\mathcal I_{#1}^{\mathrm{for}}}
+\newcommand{\PrimShell}{\mathcal S_{\mathrm{prim}}}
+\newcommand{\MetricOut}{\mathscr G_{\mathrm{out}}}
+\newcommand{\MatterOut}{\mathscr T_{\mathrm{out}}}
+
+\newcommand{\SubSectionPackage}{\mathfrak V^{\mathrm{subsec}}}
+\newcommand{\MicroSectionPackage}{\mathfrak W^{\mathrm{microsec}}}
+\newcommand{\MicroSectionSpace}[1]{\mathcal N_{#1}^{\mathrm{microsec}}}
+\newcommand{\MicroSectionBody}[1]{\mathcal B_{#1}^{\mathrm{microsec}}}
+\newcommand{\MicroSectionFunctional}[1]{\mathscr E_{#1}^{\mathrm{microsec}}}
+\newcommand{\MicroSectionShell}[1]{\mathcal Z_{#1}^{\mathrm{microsec}}}
+\newcommand{\SubPreSectionCore}{\mathfrak U^{\mathrm{sec}}}
+
+\newcommand{\NanoSectionPackage}{\mathfrak X^{\mathrm{nanosec}}}
+\newcommand{\NanoSectionSpace}[1]{\mathcal P_{#1}^{\mathrm{nanosec}}}
+\newcommand{\NanoSectionBody}[1]{\mathcal B_{#1}^{\mathrm{nanosec}}}
+\newcommand{\NanoSectionProj}[1]{\Pi_{#1}^{\mathrm{nanosec}}}
+\newcommand{\NanoSectionFiber}[2]{\mathcal F_{#1}^{\mathrm{nanosec}}(#2)}
+\newcommand{\NanoSectionMicroMin}[1]{\mathfrak n_{#1}^{\mathrm{nanosec}}}
+\newcommand{\NanoSectionFunctional}[1]{\mathscr N_{#1}^{\mathrm{nanosec}}}
+\newcommand{\NanoSectionShell}[1]{\mathcal Z_{#1}^{\mathrm{nanosec}}}
+
+\newcommand{\PicoSectionPackage}{\mathfrak Y^{\mathrm{picosec}}}
+\newcommand{\PicoSectionSpace}[1]{\mathcal Q_{#1}^{\mathrm{picosec}}}
+\newcommand{\PicoSectionBody}[1]{\mathcal B_{#1}^{\mathrm{picosec}}}
+\newcommand{\PicoSectionProj}[1]{\Pi_{#1}^{\mathrm{picosec}}}
+\newcommand{\PicoSectionFiber}[2]{\mathcal F_{#1}^{\mathrm{picosec}}(#2)}
+\newcommand{\PicoSectionNanoMin}[1]{\mathfrak p_{#1}^{\mathrm{picosec}}}
+\newcommand{\PicoSectionFunctional}[1]{\mathscr P_{#1}^{\mathrm{picosec}}}
+\newcommand{\PicoSectionShell}[1]{\mathcal Z_{#1}^{\mathrm{picosec}}}
+
+\newcommand{\PicoImageCore}{\mathfrak Y^{\mathrm{pic,img}}}
+\newcommand{\PicoImgBody}[1]{\mathcal B_{#1}^{\mathrm{pic,img}}}
+\newcommand{\PicoImgProj}[1]{\Pi_{#1}^{\mathrm{pic,img}}}
+\newcommand{\PicoImgFunctional}[1]{\mathscr P_{#1}^{\mathrm{pic,img}}}
+\newcommand{\PicoImgShell}[1]{\mathcal Z_{#1}^{\mathrm{pic,img}}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Primitive-Reservoir Observer-Reduction\\
+\large Nano-Section-Generating Substrate Pico-Section Dynamics\\
+\large Collapse to an Observer-Relevant Pico-Section Minimizer-Image Core}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The current primitive-reservoir observer-reduction frontier already moved the live burden below the micro-section-generating substrate nano-section dynamics package itself: the active pico-section theorem derived the current nano-section package \(\NanoSectionPackage\) canonically from a deeper nano-section-generating substrate pico-section dynamics package \(\PicoSectionPackage\). Under the recorded routing safeguard, however, the next honest move at that level is not another same-output deeper-origin relay that leaves \(\PicoSectionPackage\) unchanged. The sharper benchmark-facing gain is to prove a genuinely smaller theorem-level collapse strictly inside that current pico package.
+
+The present note takes that route. It isolates the \emph{observer-relevant pico-section minimizer-image core}: the minimizer-image compact body over the recorded nano-section body, the restricted projection back to that body, the restricted pico-section functional on that image, the exact-shell image of the recorded nano-section shell, and benchmark faithfulness. The full exact pico-section shell is then shown to be forced by that minimizer image, and ambient pico-section state-space directions outside the minimizer image do not add independent benchmark-facing freedom once the induced nano-section package is held fixed.
+
+The benchmark boundary remains fixed throughout. The one operative metric is still exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, the low-energy matter law is not enlarged, and no stronger promotion language is licensed. The positive result is therefore narrower than another deeper relay and sharper than the full pico-section package: the live burden now collapses to a smaller observer-relevant pico-section minimizer-image core. What remains open is to derive or justify that smaller core from still more primitive substrate structure, or else prove a still sharper collapse strictly inside it.
+\end{abstract}
+
+\section{Introduction}
+
+The active derivational program of \TheoryName{} is again constrained by two routing facts. First, the current active-primary theorem already removed the current nano-section package as the primitive stopping point by deriving it from a more primitive pico-section package. Second, the repository has already fixed a safeguard against recursive depth drift: once a benchmark-relevant datum is in hand, another deeper-origin relay that preserves that same datum is no longer honest front-line progress merely by being deeper.
+
+That safeguard matters here. The accompanying pico-frontier routing note records that the next honest move below the current pico-section frontier is either to derive or justify the current pico-section package from still more primitive substrate structure, or else to prove a genuinely smaller theorem-level collapse strictly inside it. The present note takes that second route.
+
+Inside the recorded pico-section package, the ambient state-space presentation and the off-image body directions are not an independent observer-relevant burden. Once attention is restricted to the minimizer image over the recorded nano-section body and to the exact-shell image of the recorded nano-section shell, the omitted ambient directions are forced or benchmark-neutral.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not introduce a second operative metric, it does not enlarge the low-energy matter law, and it does not reopen older screened layers as if they were again the live burden. Its positive role is narrower and benchmark facing: compress the live pico-section burden to the part of the package that still matters observer-relevantly.
+
+\section{Fixed Inputs}
+
+\begin{definition}[Recorded primitive continuation data]
+\label{def:fixed}
+Fix the following continuation data from the active primitive-reservoir observer-reduction line.
+\begin{enumerate}
+    \item For each sector label \(\sigma\in\{\Car,\Cur,\Hom\}\), a primitive forcing shell
+    \[
+    \ForSpace{\sigma}.
+    \]
+    \item The product shell
+    \[
+    \PrimShell
+    \equiv
+    \ForSpace{\Car}\times \ForSpace{\Cur}\times \ForSpace{\Hom}.
+    \]
+    \item The recorded metric and ordinary-matter outputs
+    \[
+    \MetricOut:\PrimShell\to\{\text{observer metrics}\},
+    \qquad
+    \MatterOut:\PrimShell\times\MatterSpace\to\{\text{observer stress tensors}\},
+    \]
+    satisfying
+    \begin{equation}
+    \MetricOut(\mathbf w)=\CompletedMetric,
+    \qquad
+    \MatterOut(\mathbf w,\psi)
+    =
+    T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
+    \label{eq:fixedoutputs}
+    \end{equation}
+    for every \(\mathbf w\in\PrimShell\) and every matter configuration \(\psi\in\MatterSpace\).
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Recorded nano-section downstream chain]
+\label{def:downstream}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). The active line already fixes the following downstream data and consequences:
+\begin{enumerate}
+    \item the recorded micro-section target data
+    \[
+    \MicroSectionSpace{\sigma},\qquad
+    \MicroSectionBody{\sigma},\qquad
+    \MicroSectionFunctional{\sigma},\qquad
+    \MicroSectionShell{\sigma};
+    \]
+    \item the current exact-shell-transport-section-generating substrate sub-section dynamics package \(\SubSectionPackage\), the current micro-section package \(\MicroSectionPackage\), and the observer-relevant sub-pre-core exact-shell transport-section core \(\SubPreSectionCore\);
+    \item the previously recorded fact that, once the recorded nano-section package is available, the current micro-section package, the current sub-section package, the observer-relevant section core, and the downstream shell-transport consequences used on the active line follow unchanged.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Recorded micro-section-generating substrate nano-section dynamics]
+\label{def:nanosec}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). The recorded current nano-section dynamics package \(\NanoSectionPackage\) for sector \(\sigma\) consists of the following data.
+\begin{enumerate}
+    \item A finite-dimensional Euclidean nano-section state space \(\NanoSectionSpace{\sigma}\), a compact convex nano-section body
+    \[
+    \NanoSectionBody{\sigma}\subset\NanoSectionSpace{\sigma}
+    \]
+    with nonempty interior, and an affine surjection
+    \[
+    \NanoSectionProj{\sigma}:\NanoSectionSpace{\sigma}\to\MicroSectionSpace{\sigma}
+    \]
+    satisfying
+    \[
+    \NanoSectionProj{\sigma}\bigl(\NanoSectionBody{\sigma}\bigr)=\MicroSectionBody{\sigma}.
+    \]
+    For each \(u\in\MicroSectionBody{\sigma}\), write
+    \[
+    \NanoSectionFiber{\sigma}{u}
+    \equiv
+    \bigl(\NanoSectionProj{\sigma}\bigr)^{-1}(u)\cap\NanoSectionBody{\sigma}.
+    \]
+    Each such fiber is required to be nonempty, compact, and convex.
+    \item A nonnegative smooth nano-section functional
+    \[
+    \NanoSectionFunctional{\sigma}:\NanoSectionSpace{\sigma}\to[0,\infty)
+    \]
+    such that, for every \(u\in\MicroSectionBody{\sigma}\), the restriction of \(\NanoSectionFunctional{\sigma}\) to \(\NanoSectionFiber{\sigma}{u}\) is strictly convex and attains a unique minimizer. The resulting minimizer depends smoothly on \(u\); write it as
+    \[
+    \NanoSectionMicroMin{\sigma}:\MicroSectionBody{\sigma}\to\NanoSectionBody{\sigma}.
+    \]
+    These data satisfy
+    \[
+    \NanoSectionProj{\sigma}\circ\NanoSectionMicroMin{\sigma}
+    =
+    \mathrm{id}_{\MicroSectionBody{\sigma}},
+    \]
+    and the effective minimum-value map recovers the recorded micro-section functional:
+    \[
+    \MicroSectionFunctional{\sigma}(u)
+    =
+    \NanoSectionFunctional{\sigma}\bigl(\NanoSectionMicroMin{\sigma}(u)\bigr)
+    =
+    \min_{p\in\NanoSectionFiber{\sigma}{u}}
+    \NanoSectionFunctional{\sigma}(p)
+    \qquad
+    \text{for every }
+    u\in\MicroSectionBody{\sigma}.
+    \]
+    \item A closed embedded exact nano-section shell
+    \[
+    \NanoSectionShell{\sigma}\subset\NanoSectionBody{\sigma}
+    \]
+    satisfying
+    \[
+    \NanoSectionShell{\sigma}
+    =
+    \left\{
+    p\in\NanoSectionBody{\sigma}:
+    \begin{array}{l}
+    \NanoSectionProj{\sigma}(p)\in\MicroSectionShell{\sigma},\\[0.2em]
+    \NanoSectionFunctional{\sigma}(p)
+    =
+    \displaystyle\min_{q\in\NanoSectionFiber{\sigma}{\NanoSectionProj{\sigma}(p)}}
+    \NanoSectionFunctional{\sigma}(q)
+    \end{array}
+    \right\},
+    \]
+    and
+    \[
+    \NanoSectionProj{\sigma}\big|_{\NanoSectionShell{\sigma}}
+    :
+    \NanoSectionShell{\sigma}
+    \xrightarrow{\cong}
+    \MicroSectionShell{\sigma}
+    \]
+    is a diffeomorphism.
+    \item Benchmark faithfulness, meaning preservation of the benchmark outputs \eqref{eq:fixedoutputs}, no second operative metric, no enlarged low-energy matter law, and presentation as the fixed benchmark-relevant input for the current downstream chain.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Recorded pico-section dynamics]
+\label{def:picosec}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). The recorded current pico-section dynamics package \(\PicoSectionPackage\) for sector \(\sigma\) consists of the following data.
+\begin{enumerate}
+    \item A finite-dimensional Euclidean pico-section state space \(\PicoSectionSpace{\sigma}\), a compact convex pico-section body
+    \[
+    \PicoSectionBody{\sigma}\subset\PicoSectionSpace{\sigma}
+    \]
+    with nonempty interior, and an affine surjection
+    \[
+    \PicoSectionProj{\sigma}:\PicoSectionSpace{\sigma}\to\NanoSectionSpace{\sigma}
+    \]
+    satisfying
+    \[
+    \PicoSectionProj{\sigma}\bigl(\PicoSectionBody{\sigma}\bigr)=\NanoSectionBody{\sigma}.
+    \]
+    For each \(p\in\NanoSectionBody{\sigma}\), write
+    \[
+    \PicoSectionFiber{\sigma}{p}
+    \equiv
+    \bigl(\PicoSectionProj{\sigma}\bigr)^{-1}(p)\cap\PicoSectionBody{\sigma}.
+    \]
+    Each such fiber is required to be nonempty, compact, and convex.
+    \item A nonnegative smooth pico-section functional
+    \[
+    \PicoSectionFunctional{\sigma}:\PicoSectionSpace{\sigma}\to[0,\infty)
+    \]
+    such that, for every \(p\in\NanoSectionBody{\sigma}\), the restriction of \(\PicoSectionFunctional{\sigma}\) to \(\PicoSectionFiber{\sigma}{p}\) is strictly convex and attains a unique minimizer. The resulting minimizer depends smoothly on \(p\); write it as
+    \[
+    \PicoSectionNanoMin{\sigma}:\NanoSectionBody{\sigma}\to\PicoSectionBody{\sigma}.
+    \]
+    These data satisfy
+    \[
+    \PicoSectionProj{\sigma}\circ\PicoSectionNanoMin{\sigma}
+    =
+    \mathrm{id}_{\NanoSectionBody{\sigma}},
+    \]
+    and the effective minimum value recovers the recorded nano-section functional:
+    \[
+    \NanoSectionFunctional{\sigma}(p)
+    =
+    \PicoSectionFunctional{\sigma}\bigl(\PicoSectionNanoMin{\sigma}(p)\bigr)
+    =
+    \min_{r\in\PicoSectionFiber{\sigma}{p}}
+    \PicoSectionFunctional{\sigma}(r)
+    \qquad
+    \text{for every }
+    p\in\NanoSectionBody{\sigma}.
+    \]
+    \item A closed embedded exact pico-section shell
+    \[
+    \PicoSectionShell{\sigma}\subset\PicoSectionBody{\sigma}
+    \]
+    satisfying
+    \[
+    \PicoSectionShell{\sigma}
+    =
+    \left\{
+    r\in\PicoSectionBody{\sigma}:
+    \begin{array}{l}
+    \PicoSectionProj{\sigma}(r)\in\NanoSectionShell{\sigma},\\[0.2em]
+    \PicoSectionFunctional{\sigma}(r)
+    =
+    \displaystyle\min_{s\in\PicoSectionFiber{\sigma}{\PicoSectionProj{\sigma}(r)}}
+    \PicoSectionFunctional{\sigma}(s)
+    \end{array}
+    \right\},
+    \]
+    and
+    \[
+    \PicoSectionProj{\sigma}\big|_{\PicoSectionShell{\sigma}}
+    :
+    \PicoSectionShell{\sigma}
+    \xrightarrow{\cong}
+    \NanoSectionShell{\sigma}
+    \]
+    is a diffeomorphism.
+    \item Benchmark faithfulness, meaning preservation of the benchmark outputs \eqref{eq:fixedoutputs}, no second operative metric, no enlarged low-energy matter law, and presentation as a deeper substrate-side source for the current nano-section package rather than as a replacement benchmark theory.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definitions \ref{def:nanosec} and \ref{def:picosec} fix the current frontier package. The present note does not spend its move on another deeper derivation below that frontier. It asks instead whether the full recorded pico-section package carries benchmark-neutral ambient freedom that can be removed without changing the induced nano-section package or the downstream chain that depends on it.
+\end{remark}
+
+\section{Observer-Relevant Pico-Section Minimizer-Image Core}
+
+\begin{definition}[Observer-relevant pico-section minimizer-image core]
+\label{def:imagecore}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\) and a benchmark-faithful pico-section package in the sense of Definition \ref{def:picosec}. The \emph{observer-relevant pico-section minimizer-image core} \(\PicoImageCore\) for sector \(\sigma\) consists of:
+\begin{enumerate}
+    \item the compact minimizer-image body
+    \[
+    \PicoImgBody{\sigma}
+    \equiv
+    \PicoSectionNanoMin{\sigma}\bigl(\NanoSectionBody{\sigma}\bigr)
+    \subset
+    \PicoSectionBody{\sigma},
+    \]
+    together with the restricted projection
+    \[
+    \PicoImgProj{\sigma}
+    \equiv
+    \PicoSectionProj{\sigma}\big|_{\PicoImgBody{\sigma}}
+    :
+    \PicoImgBody{\sigma}\to\NanoSectionBody{\sigma};
+    \]
+    \item the restricted functional
+    \[
+    \PicoImgFunctional{\sigma}
+    \equiv
+    \PicoSectionFunctional{\sigma}\big|_{\PicoImgBody{\sigma}};
+    \]
+    \item the exact-shell image
+    \[
+    \PicoImgShell{\sigma}
+    \equiv
+    \PicoSectionNanoMin{\sigma}\bigl(\NanoSectionShell{\sigma}\bigr)
+    \subset
+    \PicoSectionShell{\sigma};
+    \]
+    \item benchmark faithfulness in the sense of Definition \ref{def:picosec}(4).
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:imagecore} is intentionally smaller than Definition \ref{def:picosec}. It keeps only the minimizer image over the recorded nano-section body together with the restricted functional and the exact-shell image it already determines. The ambient pico-section state space and off-image body directions are not taken as independent core data.
+\end{remark}
+
+\section{Collapse of the Full Pico-Section Package}
+
+\begin{proposition}[The minimizer-image body carries the body-level content]
+\label{prop:body}
+For every benchmark-faithful pico-section package, \(\PicoImgBody{\sigma}\) is compact and the restricted projection
+\[
+\PicoImgProj{\sigma}:\PicoImgBody{\sigma}\to\NanoSectionBody{\sigma}
+\]
+is a homeomorphism with inverse \(\PicoSectionNanoMin{\sigma}\).
+\end{proposition}
+
+\begin{proof}
+The body \(\NanoSectionBody{\sigma}\) is compact by Definition \ref{def:nanosec}, and \(\PicoSectionNanoMin{\sigma}\) is continuous by Definition \ref{def:picosec}(2). Therefore
+\[
+\PicoImgBody{\sigma}
+=
+\PicoSectionNanoMin{\sigma}\bigl(\NanoSectionBody{\sigma}\bigr)
+\]
+is compact. The identity
+\[
+\PicoSectionProj{\sigma}\circ\PicoSectionNanoMin{\sigma}
+=
+\mathrm{id}_{\NanoSectionBody{\sigma}}
+\]
+shows that \(\PicoImgProj{\sigma}\) is surjective and that \(\PicoSectionNanoMin{\sigma}\) is a right inverse for it. If \(r_{1},r_{2}\in\PicoImgBody{\sigma}\) satisfy
+\[
+\PicoImgProj{\sigma}(r_{1})=\PicoImgProj{\sigma}(r_{2})=p,
+\]
+then each \(r_{i}\) lies in the fiber \(\PicoSectionFiber{\sigma}{p}\) and is the unique minimizer there, so \(r_{1}=r_{2}=\PicoSectionNanoMin{\sigma}(p)\). Thus \(\PicoImgProj{\sigma}\) is bijective with inverse \(\PicoSectionNanoMin{\sigma}\). Since \(\PicoImgBody{\sigma}\) is compact and \(\NanoSectionBody{\sigma}\) is Hausdorff, the continuous bijection \(\PicoImgProj{\sigma}\) is a homeomorphism.
+\end{proof}
+
+\begin{proposition}[The recorded nano-section functional is carried by the image core]
+\label{prop:functional}
+For every benchmark-faithful pico-section package, the recorded nano-section functional is recovered entirely from the restricted image-core functional:
+\[
+\NanoSectionFunctional{\sigma}(p)
+=
+\PicoImgFunctional{\sigma}\bigl(\PicoSectionNanoMin{\sigma}(p)\bigr)
+\qquad
+\text{for every }p\in\NanoSectionBody{\sigma}.
+\]
+\end{proposition}
+
+\begin{proof}
+By Definition \ref{def:imagecore}(2),
+\[
+\PicoImgFunctional{\sigma}\bigl(\PicoSectionNanoMin{\sigma}(p)\bigr)
+=
+\PicoSectionFunctional{\sigma}\bigl(\PicoSectionNanoMin{\sigma}(p)\bigr).
+\]
+Definition \ref{def:picosec}(2) then gives
+\[
+\PicoSectionFunctional{\sigma}\bigl(\PicoSectionNanoMin{\sigma}(p)\bigr)
+=
+\NanoSectionFunctional{\sigma}(p)
+\]
+for every \(p\in\NanoSectionBody{\sigma}\).
+\end{proof}
+
+\begin{proposition}[The full exact pico-section shell is forced by the image core]
+\label{prop:shell}
+For every benchmark-faithful pico-section package,
+\[
+\PicoSectionShell{\sigma}
+=
+\PicoImgShell{\sigma}
+=
+\PicoSectionNanoMin{\sigma}\bigl(\NanoSectionShell{\sigma}\bigr),
+\]
+and the restricted projection
+\[
+\PicoImgProj{\sigma}\big|_{\PicoImgShell{\sigma}}
+:
+\PicoImgShell{\sigma}\xrightarrow{\cong}\NanoSectionShell{\sigma}
+\]
+is a diffeomorphism.
+\end{proposition}
+
+\begin{proof}
+If \(r\in\PicoSectionShell{\sigma}\), then Definition \ref{def:picosec}(3) gives
+\[
+p\equiv \PicoSectionProj{\sigma}(r)\in\NanoSectionShell{\sigma},
+\]
+and \(r\) minimizes \(\PicoSectionFunctional{\sigma}\) on the fiber \(\PicoSectionFiber{\sigma}{p}\). By Definition \ref{def:picosec}(2), that minimizer is unique and equals \(\PicoSectionNanoMin{\sigma}(p)\). Hence
+\[
+r=\PicoSectionNanoMin{\sigma}(p)\in\PicoImgShell{\sigma},
+\]
+so \(\PicoSectionShell{\sigma}\subset\PicoImgShell{\sigma}\).
+
+Conversely, if \(p\in\NanoSectionShell{\sigma}\), then \(\PicoSectionNanoMin{\sigma}(p)\) is by definition the unique minimizer of \(\PicoSectionFunctional{\sigma}\) on the fiber over \(p\). Therefore \(\PicoSectionNanoMin{\sigma}(p)\in\PicoSectionShell{\sigma}\), so \(\PicoImgShell{\sigma}\subset\PicoSectionShell{\sigma}\). This proves the equality of shells.
+
+Finally,
+\[
+\PicoImgProj{\sigma}\big|_{\PicoImgShell{\sigma}}
+=
+\PicoSectionProj{\sigma}\big|_{\PicoSectionShell{\sigma}},
+\]
+and the latter is a diffeomorphism onto \(\NanoSectionShell{\sigma}\) by Definition \ref{def:picosec}(3).
+\end{proof}
+
+\begin{proposition}[The image core canonically reproduces the current nano-section package]
+\label{prop:package}
+Fix a benchmark-faithful pico-section package. Then the current nano-section package of Definition \ref{def:nanosec} is exactly the benchmark-relevant package induced by the smaller image core. In particular:
+\begin{enumerate}
+    \item the recorded nano-section body and projection are recovered by Proposition \ref{prop:body};
+    \item the recorded nano-section functional on \(\NanoSectionBody{\sigma}\) is recovered by Proposition \ref{prop:functional};
+    \item the recorded exact nano-section shell is recovered by Proposition \ref{prop:shell}.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Item (1) is Proposition \ref{prop:body}. Item (2) is Proposition \ref{prop:functional}. Item (3) is Proposition \ref{prop:shell}. These statements are exactly the benchmark-relevant constituents of the current nano-section package.
+\end{proof}
+
+\begin{proposition}[All downstream recovery factors through the image core]
+\label{prop:downstream}
+Fix a benchmark-faithful pico-section package. Then all downstream recovery of the current micro-section package \(\MicroSectionPackage\), the current sub-section package \(\SubSectionPackage\), the observer-relevant sub-pre-core exact-shell transport-section core \(\SubPreSectionCore\), and the previously recorded shell-transport consequences on the active line factors through \(\PicoImageCore\).
+\end{proposition}
+
+\begin{proof}
+Definition \ref{def:downstream}(3) records that the active downstream chain depends on the recorded nano-section package. Proposition \ref{prop:package} shows that this entire nano-section package is already determined by the smaller image core. Therefore the downstream chain does not require the full ambient pico-section package as additional independent data; it factors through \(\PicoImageCore\).
+\end{proof}
+
+\begin{proposition}[Ambient pico-section directions are benchmark neutral at current scope]
+\label{prop:neutral}
+For every benchmark-faithful pico-section package, the ambient pico-section state space \(\PicoSectionSpace{\sigma}\) and the off-image body directions
+\[
+\PicoSectionBody{\sigma}\setminus\PicoImgBody{\sigma}
+\]
+do not add independent benchmark-facing freedom beyond \(\PicoImageCore\).
+\end{proposition}
+
+\begin{proof}
+By Proposition \ref{prop:body}, the full body-level content relevant to the recorded nano-section package is already fixed by the minimizer-image body \(\PicoImgBody{\sigma}\) and the restricted projection \(\PicoImgProj{\sigma}\). By Proposition \ref{prop:functional}, the current nano-section functional is already fixed by the restricted image-core functional \(\PicoImgFunctional{\sigma}\). By Proposition \ref{prop:shell}, the full exact pico-section shell is not additional data beyond the shell image; it is exactly that image. By Proposition \ref{prop:downstream}, all downstream recovery of the current micro-section package, the current sub-section package, the observer-relevant section core, and the previously recorded shell-transport consequences factors through this smaller core. Finally, benchmark faithfulness is already part of Definition \ref{def:imagecore}(4) and preserves the fixed outputs \eqref{eq:fixedoutputs}. Therefore nothing benchmark-facing at the present frontier requires the ambient pico-section state-space presentation or body points outside the minimizer image as additional independent data.
+\end{proof}
+
+\begin{proposition}[The benchmark package remains fixed]
+\label{prop:benchmark}
+Every observer-relevant pico-section minimizer-image core preserves the same benchmark one-metric package \eqref{eq:fixedoutputs}. In particular, the operative metric remains exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, and the low-energy matter law is not enlarged.
+\end{proposition}
+
+\begin{proof}
+This is part of benchmark faithfulness in Definition \ref{def:imagecore}(4). The present note only removes benchmark-neutral ambient pico-section freedom from the live burden. It does not alter the benchmark exact-closure package.
+\end{proof}
+
+\section{Main Theorem}
+
+\begin{theorem}[Nano-section-generating substrate pico-section dynamics collapse to an observer-relevant pico-section minimizer-image core]
+\label{thm:main}
+Fix the primitive continuation data of Definition \ref{def:fixed}, the recorded nano-section downstream chain of Definition \ref{def:downstream}, the recorded nano-section package of Definition \ref{def:nanosec}, and a benchmark-faithful pico-section package in the sense of Definition \ref{def:picosec}. Then, for each sector \(\sigma\in\{\Car,\Cur,\Hom\}\), the live benchmark-facing burden inside the current pico-section frontier collapses from the full pico-section package \(\PicoSectionPackage\) to the smaller observer-relevant pico-section minimizer-image core \(\PicoImageCore\). More precisely:
+\begin{enumerate}
+    \item the body-level content of the full pico-section package is already carried by the minimizer-image body \(\PicoImgBody{\sigma}\), the restricted projection \(\PicoImgProj{\sigma}\), and the restricted image-core functional \(\PicoImgFunctional{\sigma}\) by Propositions \ref{prop:body} and \ref{prop:functional};
+    \item the full exact pico-section shell is forced to equal the minimizer image of the recorded nano-section shell by Proposition \ref{prop:shell};
+    \item the current nano-section package and therefore the current micro-section package \(\MicroSectionPackage\), the current sub-section package \(\SubSectionPackage\), the observer-relevant section core \(\SubPreSectionCore\), and the previously recorded downstream consequences all factor through \(\PicoImageCore\) by Propositions \ref{prop:package} and \ref{prop:downstream};
+    \item ambient pico-section directions outside that image core are benchmark neutral at current scope by Proposition \ref{prop:neutral};
+    \item the benchmark boundary remains fixed by Proposition \ref{prop:benchmark};
+    \item consequently the remaining honest burden below the previous pico-section frontier is no longer the full nano-section-generating substrate pico-section dynamics package \(\PicoSectionPackage\) as such. What remains is to derive or justify the sharper image core \(\PicoImageCore\) from still more primitive substrate structure, or else prove a still smaller theorem-level collapse strictly inside that image core.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Item (1) is Propositions \ref{prop:body} and \ref{prop:functional}. Item (2) is Proposition \ref{prop:shell}. Item (3) is Propositions \ref{prop:package} and \ref{prop:downstream}. Item (4) is Proposition \ref{prop:neutral}. Item (5) is Proposition \ref{prop:benchmark}. Item (6) is the routing consequence of the previous items together with the active safeguard against counting another same-output deeper-origin relay as new front-line progress when the live benchmark-relevant datum is unchanged.
+\end{proof}
+
+\begin{corollary}[What must be done next]
+\label{cor:next}
+After Theorem \ref{thm:main}, the next honest benchmark-facing manuscript must either:
+\begin{enumerate}
+    \item derive or justify the observer-relevant pico-section minimizer-image core \(\PicoImageCore\) from still more primitive substrate structure in a way that changes benchmark-facing status;
+    \item identify a genuinely smaller theorem-level observer-relevant datum strictly inside \(\PicoImageCore\) and prove a sharper collapse to it;
+    \item do either of the previous two while preserving the same benchmark one-metric package and the same claim boundary.
+\end{enumerate}
+Another same-output deeper-origin relay that preserves this image core, another re-expansion back to the full pico-section package as if its screened ambient directions were still live, another reopening of the already-screened transport-image, sub-pre-core, or pre-core packages as if they were again the active burden, or any move that introduces a second operative metric, enlarges the ordinary matter law, or uses stronger promotion language does not satisfy the present burden. If a quantum continuation is pursued, it matters benchmark-facingly only insofar as it derives this same image core, collapses it further, or closes a benchmark derivation gate in a genuinely new way.
+\end{corollary}
+
+\begin{proof}
+Theorem \ref{thm:main} shows that the full pico-section package is no longer the minimal benchmark-facing datum at this stage. Therefore a subsequent manuscript must improve on the smaller image core rather than merely restating the larger package.
+\end{proof}
+
+\section{Conclusion}
+
+The positive result of this note is a disciplined compression step inside the current pico-section frontier. The previous active-primary theorem already removed the current nano-section package as the primitive stopping point by deriving it from a deeper pico-section package. The present theorem then takes the remaining honest internal route available there: it shows that the full pico-section package is itself not the minimal benchmark-facing datum.
+
+What survives as the live burden is the observer-relevant pico-section minimizer-image core. That sharper datum consists of the minimizer-image compact body over the recorded nano-section body, the restricted projection back to that body, the restricted pico-section functional on that image, the exact-shell image of the recorded nano-section shell, and benchmark faithfulness. The full exact pico-section shell is forced to equal that image shell, and ambient pico-section directions outside the minimizer image do not add independent benchmark-facing freedom once the induced nano-section package is fixed.
+
+This is the honest next burden after the present theorem. A new primary manuscript must derive or justify that sharper image core from still more primitive substrate structure, or else collapse it further, while preserving the same benchmark one-metric package and the same claim boundary. The current result does not yet complete a first-principles derivation of GR from substrate microphysics, but it does narrow the live derivational burden one level further on the active line.
+
+\end{document}
