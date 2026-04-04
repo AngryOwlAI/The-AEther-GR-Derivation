@@ -19,16 +19,16 @@ The active benchmark-facing line currently has five compact stages:
 1. Benchmark target fixing in [aether_flow_exact_closure_derivation_gates_note.tex](../manuscripts/active/tex/aether_flow_exact_closure_derivation_gates_note.tex) together with the overview-first exact-closure package.
 2. Post-bridge rerouting in [aether_flow_exact_closure_post_bridge_derivation_gate_status_note.tex](../manuscripts/active/tex/aether_flow_exact_closure_post_bridge_derivation_gate_status_note.tex): on the active completed branch, the same-package observer-side remainder gate is no longer the live bottleneck, so the remaining honest burden shifts upstream to substrate derivation of the benchmark package itself.
 3. Benchmark-facing compression and minimal-core sharpening in [aether_flow_benchmark_one_metric_observer_package_upstream_compression_theorem.tex](../manuscripts/active/tex/aether_flow_benchmark_one_metric_observer_package_upstream_compression_theorem.tex), [aether_flow_primitive_reservoir_line_continuity_hessian_core_necessity_uniqueness_theorem.tex](../manuscripts/active/tex/aether_flow_primitive_reservoir_line_continuity_hessian_core_necessity_uniqueness_theorem.tex), and [aether_flow_primitive_reservoir_line_continuity_hessian_core_derivation_theorem.tex](../manuscripts/active/tex/aether_flow_primitive_reservoir_line_continuity_hessian_core_derivation_theorem.tex).
-4. Primitive-reservoir observer-reduction continuation through datum origin, defect-fiber factorization, one-metric and ordinary-matter output recovery, chain forcing, selector and stationary-substrate construction, explicit substrate package, the deeper inevitability chain below that package, the later proto-germ / pre-proto-germ / pre-nucleus handoff, and the pre-core transport-core collapse that screens out benchmark-neutral ambient pre-core directions.
-5. The current deepest benchmark-facing main-line gain: [the observer-relevant pre-core exact-shell transport core from exact-shell-transport-core-generating substrate sub-pre-core dynamics theorem](../manuscripts/active/tex/aether_flow_primitive_reservoir_observer_reduction_observer_relevant_pre_core_exact_shell_transport_core_from_exact_shell_transport_core_generating_substrate_sub_pre_core_dynamics_theorem.tex).
+4. Primitive-reservoir observer-reduction continuation through datum origin, defect-fiber factorization, one-metric and ordinary-matter output recovery, chain forcing, selector and stationary-substrate construction, the deeper inevitability chain below that package, the later proto-germ / pre-proto-germ / pre-nucleus / pre-core handoffs, the transport-section and section-dynamics continuation, the pico-section minimizer-image and minimizer-section-core sharpenings, and the later femto-section handoff that keeps screening out benchmark-neutral same-output relays.
+5. The current deepest benchmark-facing main-line gain: [the pico-section-generating substrate femto-section dynamics from femto-section-generating substrate atto-section dynamics theorem](../manuscripts/active/tex/aether_flow_primitive_reservoir_observer_reduction_pico_section_generating_substrate_femto_section_dynamics_from_femto_section_generating_substrate_atto_section_dynamics_theorem.tex).
 
 ## Current Primary Burden
 
-The next primary manuscript is now below the current sub-pre-core frontier. It should:
+The next primary manuscript is now below the current atto-section frontier. It should:
 
-- derive or justify the exact-shell-transport-core-generating substrate sub-pre-core dynamics themselves from still more primitive substrate structure
-- or prove a still sharper theorem-level collapse strictly inside that package while preserving the same benchmark one-metric package and claim boundary
-- and not default to another same-output deeper-origin relay that leaves that deeper package unchanged, or to a reopening of older screened layers, because that no longer changes benchmark-facing status
+- derive or justify the femto-section-generating substrate atto-section dynamics themselves from still more primitive substrate structure
+- or prove a still sharper theorem-level collapse strictly inside that deeper package while preserving the same benchmark one-metric package and claim boundary
+- and not default to another same-output deeper-origin relay that merely preserves the current atto-section package and therefore merely reproduces the same downstream femto-, pico-, minimizer-section-core, nano-, micro-, and sub-section packages, because that no longer changes benchmark-facing status
 
 Until that happens, stronger promotion language remains paused.
 
@@ -48,7 +48,7 @@ Representative side-line entry points:
 - [Post-bridge derivation-gate status PDF](../manuscripts/active/pdf/aether_flow_exact_closure_post_bridge_derivation_gate_status_note.pdf)
 - [Upstream compression theorem PDF](../manuscripts/active/pdf/aether_flow_benchmark_one_metric_observer_package_upstream_compression_theorem.pdf)
 - [Continuity-Hessian core derivation PDF](../manuscripts/active/pdf/aether_flow_primitive_reservoir_line_continuity_hessian_core_derivation_theorem.pdf)
-- [Current deepest main-line gain PDF](../manuscripts/active/pdf/aether_flow_primitive_reservoir_observer_reduction_observer_relevant_pre_core_exact_shell_transport_core_from_exact_shell_transport_core_generating_substrate_sub_pre_core_dynamics_theorem.pdf)
+- [Current deepest main-line gain PDF](../manuscripts/active/pdf/aether_flow_primitive_reservoir_observer_reduction_pico_section_generating_substrate_femto_section_dynamics_from_femto_section_generating_substrate_atto_section_dynamics_theorem.pdf)
 - [Research plan](../RESEARCH_PLAN.md)
 
 ## Archive Principle
