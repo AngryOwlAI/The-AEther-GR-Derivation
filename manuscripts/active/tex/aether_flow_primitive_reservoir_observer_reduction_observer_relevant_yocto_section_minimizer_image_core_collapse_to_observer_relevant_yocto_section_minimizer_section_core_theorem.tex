@@ -1,0 +1,631 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+
+\newcommand{\CompletedMetric}{g^{\sharp}}
+\newcommand{\MatterSpace}{\Psi}
+
+\newcommand{\Car}{\mathrm{car}}
+\newcommand{\Cur}{\mathrm{cur}}
+\newcommand{\Hom}{\mathrm{hom}}
+
+\newcommand{\ForSpace}[1]{\mathcal I_{#1}^{\mathrm{for}}}
+\newcommand{\PrimShell}{\mathcal S_{\mathrm{prim}}}
+\newcommand{\MetricOut}{\mathscr G_{\mathrm{out}}}
+\newcommand{\MatterOut}{\mathscr T_{\mathrm{out}}}
+
+\newcommand{\SubSectionPackage}{\mathfrak V^{\mathrm{subsec}}}
+\newcommand{\MicroSectionPackage}{\mathfrak W^{\mathrm{microsec}}}
+\newcommand{\NanoSectionPackage}{\mathfrak X^{\mathrm{nanosec}}}
+\newcommand{\PicoSectionPackage}{\mathfrak Y^{\mathrm{picosec}}}
+\newcommand{\PicoMinSectionCore}{\mathfrak Y^{\mathrm{pic,sec}}}
+\newcommand{\FemtoSectionPackage}{\mathfrak Z^{\mathrm{femtosec}}}
+\newcommand{\AttoSectionPackage}{\mathfrak A^{\mathrm{attosec}}}
+\newcommand{\AttoSectionSpace}[1]{\mathcal A_{#1}^{\mathrm{attosec}}}
+\newcommand{\AttoSectionBody}[1]{\mathcal B_{#1}^{\mathrm{attosec}}}
+\newcommand{\AttoSectionFunctional}[1]{\mathscr A_{#1}^{\mathrm{attosec}}}
+\newcommand{\AttoSectionShell}[1]{\mathcal Z_{#1}^{\mathrm{attosec}}}
+
+\newcommand{\ZeptoSectionPackage}{\mathfrak B^{\mathrm{zeptosec}}}
+\newcommand{\ZeptoSectionSpace}[1]{\mathcal U_{#1}^{\mathrm{zeptosec}}}
+\newcommand{\ZeptoSectionBody}[1]{\mathcal B_{#1}^{\mathrm{zeptosec}}}
+\newcommand{\ZeptoSectionProj}[1]{\Pi_{#1}^{\mathrm{zeptosec}}}
+\newcommand{\ZeptoSectionFiber}[2]{\mathcal F_{#1}^{\mathrm{zeptosec}}(#2)}
+\newcommand{\ZeptoSectionAttoMin}[1]{\mathfrak z_{#1}^{\mathrm{zeptosec}}}
+\newcommand{\ZeptoSectionFunctional}[1]{\mathscr U_{#1}^{\mathrm{zeptosec}}}
+\newcommand{\ZeptoSectionShell}[1]{\mathcal Z_{#1}^{\mathrm{zeptosec}}}
+
+\newcommand{\ZeptoImageCore}{\mathfrak B^{\mathrm{zep,img}}}
+\newcommand{\ZeptoMinSectionCore}{\mathfrak B^{\mathrm{zep,sec}}}
+
+\newcommand{\YoctoSectionPackage}{\mathfrak C^{\mathrm{yoctosec}}}
+\newcommand{\YoctoSectionSpace}[1]{\mathcal C_{#1}^{\mathrm{yoctosec}}}
+\newcommand{\YoctoSectionBody}[1]{\mathcal B_{#1}^{\mathrm{yoctosec}}}
+\newcommand{\YoctoSectionProj}[1]{\Pi_{#1}^{\mathrm{yoctosec}}}
+\newcommand{\YoctoSectionFiber}[2]{\mathcal F_{#1}^{\mathrm{yoctosec}}(#2)}
+\newcommand{\YoctoSectionZeptoMin}[1]{\mathfrak y_{#1}^{\mathrm{yoctosec}}}
+\newcommand{\YoctoSectionFunctional}[1]{\mathscr C_{#1}^{\mathrm{yoctosec}}}
+\newcommand{\YoctoSectionShell}[1]{\mathcal Z_{#1}^{\mathrm{yoctosec}}}
+
+\newcommand{\YoctoImageCore}{\mathfrak C^{\mathrm{yoc,img}}}
+\newcommand{\YoctoImgBody}[1]{\mathcal B_{#1}^{\mathrm{yoc,img}}}
+\newcommand{\YoctoImgProj}[1]{\Pi_{#1}^{\mathrm{yoc,img}}}
+\newcommand{\YoctoImgFunctional}[1]{\mathscr K_{#1}^{\mathrm{yoc,img}}}
+\newcommand{\YoctoImgShell}[1]{\mathcal Z_{#1}^{\mathrm{yoc,img}}}
+
+\newcommand{\YoctoMinSectionCore}{\mathfrak C^{\mathrm{yoc,sec}}}
+\newcommand{\YoctoMinSection}[1]{\mathfrak t_{#1}^{\mathrm{yoc,sec}}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Primitive-Reservoir Observer-Reduction\\
+\large Observer-Relevant Yocto-Section Minimizer-Image Core\\
+\large Collapse to an Observer-Relevant Yocto-Section Minimizer-Section Core}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The current primitive-reservoir observer-reduction frontier already compressed the live yocto-section burden from the full zepto-section-generating substrate yocto-section dynamics package \(\YoctoSectionPackage\) to the smaller observer-relevant yocto-section minimizer-image core \(\YoctoImageCore\). Under the recorded safeguard against recursive depth drift, the next honest move below that frontier is therefore not another deeper-origin relay that preserves the same image core. The sharper benchmark-facing question is whether the image core itself still contains presentational redundancy once the recorded zepto-section package is already fixed.
+
+The present note proves that it does. Relative to the already fixed zepto-section body, zepto-section functional, and exact zepto-section shell, the only independent yocto-section datum still carried by the current image core is the canonical minimizer section over the recorded zepto-section body. The minimizer-image body is exactly the image of that section, the restricted projection is its inverse, the exact-shell image is its shell restriction, and the restricted image-core functional is canonically induced from the recorded zepto-section functional along the same section. Separate listing of those image-core constituents therefore does not add independent benchmark-facing freedom.
+
+The benchmark boundary remains fixed throughout. The one operative metric is still exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, the low-energy matter law is not enlarged, and no stronger promotion language is licensed. The positive result is therefore a genuine smaller theorem-level collapse strictly inside the current image core: the live burden now contracts to an observer-relevant yocto-section minimizer-section core \(\YoctoMinSectionCore\). What remains open is to derive or justify that section core from still more primitive substrate structure, or else prove a still sharper collapse strictly inside it.
+\end{abstract}
+
+\section{Introduction}
+
+The active derivational program of \TheoryName{} again reaches a stage where depth alone is not enough. The current active-primary theorem already showed that the full zepto-section-generating substrate yocto-section dynamics package \(\YoctoSectionPackage\) is not the minimal benchmark-facing datum at present scope, because the live burden there collapses to the smaller observer-relevant yocto-section minimizer-image core \(\YoctoImageCore\). After that step, another deeper-origin relay that merely preserves \(\YoctoImageCore\) is no longer the honest default move.
+
+That theorem also exposes the next honest question. Inside the image core itself, what is genuinely independent observer-relevant data, and what is merely presentational bookkeeping once the recorded zepto-section package is already fixed? The present note takes the sharper internal-collapse route rather than a same-output deeper relay. It shows that the image-core body, the restricted projection, the shell image, and the restricted image-core functional are not independent pieces at current scope. They are all recovered from a single canonical minimizer section over the recorded zepto-section body.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not introduce a second operative metric, it does not enlarge the low-energy matter law, and it does not reopen the already-screened full yocto-section package or other larger reconstructed presentations as if they were again the live burden. Its narrower benchmark-facing role is to isolate the only remaining independent datum still carried by the current yocto-section minimizer-image core.
+
+\section{Fixed Inputs}
+
+\begin{definition}[Recorded primitive continuation data]
+\label{def:fixed}
+Fix the following continuation data from the active primitive-reservoir observer-reduction line.
+\begin{enumerate}
+    \item For each sector label \(\sigma\in\{\Car,\Cur,\Hom\}\), a primitive forcing shell
+    \[
+    \ForSpace{\sigma}.
+    \]
+    \item The product shell
+    \[
+    \PrimShell
+    \equiv
+    \ForSpace{\Car}\times \ForSpace{\Cur}\times \ForSpace{\Hom}.
+    \]
+    \item The recorded metric and ordinary-matter outputs
+    \[
+    \MetricOut:\PrimShell\to\{\text{observer metrics}\},
+    \qquad
+    \MatterOut:\PrimShell\times\MatterSpace\to\{\text{observer stress tensors}\},
+    \]
+    satisfying
+    \begin{equation}
+    \MetricOut(\mathbf w)=\CompletedMetric,
+    \qquad
+    \MatterOut(\mathbf w,\psi)
+    =
+    T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
+    \label{eq:fixedoutputs}
+    \end{equation}
+    for every \(\mathbf w\in\PrimShell\) and every matter configuration \(\psi\in\MatterSpace\).
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Recorded zepto-section downstream chain]
+\label{def:downstream}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). The active line already fixes the following downstream data and consequences:
+\begin{enumerate}
+    \item the recorded atto-section target data
+    \[
+    \AttoSectionSpace{\sigma},\qquad
+    \AttoSectionBody{\sigma},\qquad
+    \AttoSectionFunctional{\sigma},\qquad
+    \AttoSectionShell{\sigma};
+    \]
+    \item the current observer-relevant zepto-section minimizer-section core \(\ZeptoMinSectionCore\), the current observer-relevant zepto-section minimizer-image core \(\ZeptoImageCore\), the current atto-section package \(\AttoSectionPackage\), the current femto-section package \(\FemtoSectionPackage\), the current pico-section package \(\PicoSectionPackage\), the current observer-relevant pico-section minimizer-section core \(\PicoMinSectionCore\), the current nano-section package \(\NanoSectionPackage\), the current micro-section package \(\MicroSectionPackage\), the current sub-section package \(\SubSectionPackage\), and the previously recorded shell-transport consequences used on the active line;
+    \item the previously recorded fact that, once the recorded zepto-section package is available, the current observer-relevant zepto-section minimizer-section core, the current observer-relevant zepto-section minimizer-image core, the current atto-section package, the current femto-section package, the current pico-section package, the current observer-relevant pico-section minimizer-section core, the current nano-section package, the current micro-section package, the current sub-section package, and the downstream shell-transport consequences used on the active line follow unchanged.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Recorded atto-section-generating substrate zepto-section dynamics]
+\label{def:zeptosec}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). The recorded current zepto-section dynamics package \(\ZeptoSectionPackage\) for sector \(\sigma\) consists of the following data.
+\begin{enumerate}
+    \item A finite-dimensional Euclidean zepto-section state space \(\ZeptoSectionSpace{\sigma}\), a compact convex zepto-section body
+    \[
+    \ZeptoSectionBody{\sigma}\subset\ZeptoSectionSpace{\sigma}
+    \]
+    with nonempty interior, and an affine surjection
+    \[
+    \ZeptoSectionProj{\sigma}:\ZeptoSectionSpace{\sigma}\to\AttoSectionSpace{\sigma}
+    \]
+    satisfying
+    \[
+    \ZeptoSectionProj{\sigma}\bigl(\ZeptoSectionBody{\sigma}\bigr)=\AttoSectionBody{\sigma}.
+    \]
+    For each \(v\in\AttoSectionBody{\sigma}\), write
+    \[
+    \ZeptoSectionFiber{\sigma}{v}
+    \equiv
+    \bigl(\ZeptoSectionProj{\sigma}\bigr)^{-1}(v)\cap\ZeptoSectionBody{\sigma}.
+    \]
+    Each such fiber is required to be nonempty, compact, and convex.
+    \item A nonnegative smooth zepto-section functional
+    \[
+    \ZeptoSectionFunctional{\sigma}:\ZeptoSectionSpace{\sigma}\to[0,\infty)
+    \]
+    such that, for every \(v\in\AttoSectionBody{\sigma}\), the restriction of \(\ZeptoSectionFunctional{\sigma}\) to \(\ZeptoSectionFiber{\sigma}{v}\) is strictly convex and attains a unique minimizer. The resulting minimizer depends smoothly on \(v\); write it as
+    \[
+    \ZeptoSectionAttoMin{\sigma}:\AttoSectionBody{\sigma}\to\ZeptoSectionBody{\sigma}.
+    \]
+    These data satisfy
+    \[
+    \ZeptoSectionProj{\sigma}\circ\ZeptoSectionAttoMin{\sigma}
+    =
+    \mathrm{id}_{\AttoSectionBody{\sigma}},
+    \]
+    and the effective minimum value recovers the recorded atto-section functional:
+    \[
+    \AttoSectionFunctional{\sigma}(v)
+    =
+    \ZeptoSectionFunctional{\sigma}\bigl(\ZeptoSectionAttoMin{\sigma}(v)\bigr)
+    =
+    \min_{q\in\ZeptoSectionFiber{\sigma}{v}}
+    \ZeptoSectionFunctional{\sigma}(q).
+    \]
+    \item A closed embedded exact zepto-section shell
+    \[
+    \ZeptoSectionShell{\sigma}\subset\ZeptoSectionBody{\sigma}
+    \]
+    satisfying
+    \[
+    \ZeptoSectionShell{\sigma}
+    =
+    \left\{
+    q\in\ZeptoSectionBody{\sigma}:
+    \begin{array}{l}
+    \ZeptoSectionProj{\sigma}(q)\in\AttoSectionShell{\sigma},\\[0.2em]
+    \ZeptoSectionFunctional{\sigma}(q)
+    =
+    \displaystyle\min_{r\in\ZeptoSectionFiber{\sigma}{\ZeptoSectionProj{\sigma}(q)}}
+    \ZeptoSectionFunctional{\sigma}(r)
+    \end{array}
+    \right\},
+    \]
+    and
+    \[
+    \ZeptoSectionProj{\sigma}\big|_{\ZeptoSectionShell{\sigma}}
+    :
+    \ZeptoSectionShell{\sigma}\xrightarrow{\cong}\AttoSectionShell{\sigma}
+    \]
+    is a diffeomorphism.
+    \item Benchmark faithfulness, meaning preservation of the benchmark outputs \eqref{eq:fixedoutputs}, no second operative metric, no enlarged low-energy matter law, and presentation as the fixed benchmark-relevant zepto-section package used on the active line.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Recorded zepto-section-generating substrate yocto-section dynamics]
+\label{def:yoctosec}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). The recorded current yocto-section dynamics package \(\YoctoSectionPackage\) for sector \(\sigma\) consists of the following data.
+\begin{enumerate}
+    \item A finite-dimensional Euclidean yocto-section state space \(\YoctoSectionSpace{\sigma}\), a compact convex yocto-section body
+    \[
+    \YoctoSectionBody{\sigma}\subset\YoctoSectionSpace{\sigma}
+    \]
+    with nonempty interior, and an affine surjection
+    \[
+    \YoctoSectionProj{\sigma}:\YoctoSectionSpace{\sigma}\to\ZeptoSectionSpace{\sigma}
+    \]
+    satisfying
+    \[
+    \YoctoSectionProj{\sigma}\bigl(\YoctoSectionBody{\sigma}\bigr)=\ZeptoSectionBody{\sigma}.
+    \]
+    For each \(q\in\ZeptoSectionBody{\sigma}\), write
+    \[
+    \YoctoSectionFiber{\sigma}{q}
+    \equiv
+    \bigl(\YoctoSectionProj{\sigma}\bigr)^{-1}(q)\cap\YoctoSectionBody{\sigma}.
+    \]
+    Each such fiber is required to be nonempty, compact, and convex.
+    \item A nonnegative smooth yocto-section functional
+    \[
+    \YoctoSectionFunctional{\sigma}:\YoctoSectionSpace{\sigma}\to[0,\infty)
+    \]
+    such that, for every \(q\in\ZeptoSectionBody{\sigma}\), the restriction of \(\YoctoSectionFunctional{\sigma}\) to \(\YoctoSectionFiber{\sigma}{q}\) is strictly convex and attains a unique minimizer. The resulting minimizer depends smoothly on \(q\); write it as
+    \[
+    \YoctoSectionZeptoMin{\sigma}:\ZeptoSectionBody{\sigma}\to\YoctoSectionBody{\sigma}.
+    \]
+    These data satisfy
+    \[
+    \YoctoSectionProj{\sigma}\circ\YoctoSectionZeptoMin{\sigma}
+    =
+    \mathrm{id}_{\ZeptoSectionBody{\sigma}},
+    \]
+    and the effective minimum value recovers the recorded zepto-section functional:
+    \[
+    \ZeptoSectionFunctional{\sigma}(q)
+    =
+    \YoctoSectionFunctional{\sigma}\bigl(\YoctoSectionZeptoMin{\sigma}(q)\bigr)
+    =
+    \min_{y\in\YoctoSectionFiber{\sigma}{q}}
+    \YoctoSectionFunctional{\sigma}(y)
+    \qquad
+    \text{for every }
+    q\in\ZeptoSectionBody{\sigma}.
+    \]
+    \item A closed embedded exact yocto-section shell
+    \[
+    \YoctoSectionShell{\sigma}\subset\YoctoSectionBody{\sigma}
+    \]
+    satisfying
+    \[
+    \YoctoSectionShell{\sigma}
+    =
+    \left\{
+    y\in\YoctoSectionBody{\sigma}:
+    \begin{array}{l}
+    \YoctoSectionProj{\sigma}(y)\in\ZeptoSectionShell{\sigma},\\[0.2em]
+    \YoctoSectionFunctional{\sigma}(y)
+    =
+    \displaystyle\min_{x\in\YoctoSectionFiber{\sigma}{\YoctoSectionProj{\sigma}(y)}}
+    \YoctoSectionFunctional{\sigma}(x)
+    \end{array}
+    \right\},
+    \]
+    and
+    \[
+    \YoctoSectionProj{\sigma}\big|_{\YoctoSectionShell{\sigma}}
+    :
+    \YoctoSectionShell{\sigma}
+    \xrightarrow{\cong}
+    \ZeptoSectionShell{\sigma}
+    \]
+    is a diffeomorphism.
+    \item Benchmark faithfulness, meaning preservation of the benchmark outputs \eqref{eq:fixedoutputs}, no second operative metric, no enlarged low-energy matter law, and presentation as a deeper substrate-side source for the current zepto-section package rather than as a replacement benchmark theory.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Observer-relevant yocto-section minimizer-image core]
+\label{def:imagecore}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\) and a benchmark-faithful yocto-section package in the sense of Definition \ref{def:yoctosec}. The \emph{observer-relevant yocto-section minimizer-image core} \(\YoctoImageCore\) for sector \(\sigma\) consists of:
+\begin{enumerate}
+    \item the compact minimizer-image body
+    \[
+    \YoctoImgBody{\sigma}
+    \equiv
+    \YoctoSectionZeptoMin{\sigma}\bigl(\ZeptoSectionBody{\sigma}\bigr)
+    \subset
+    \YoctoSectionBody{\sigma},
+    \]
+    together with the restricted projection
+    \[
+    \YoctoImgProj{\sigma}
+    \equiv
+    \YoctoSectionProj{\sigma}\big|_{\YoctoImgBody{\sigma}}
+    :
+    \YoctoImgBody{\sigma}\to\ZeptoSectionBody{\sigma};
+    \]
+    \item the restricted functional
+    \[
+    \YoctoImgFunctional{\sigma}
+    \equiv
+    \YoctoSectionFunctional{\sigma}\big|_{\YoctoImgBody{\sigma}};
+    \]
+    \item the exact-shell image
+    \[
+    \YoctoImgShell{\sigma}
+    \equiv
+    \YoctoSectionZeptoMin{\sigma}\bigl(\ZeptoSectionShell{\sigma}\bigr)
+    \subset
+    \YoctoSectionShell{\sigma};
+    \]
+    \item benchmark faithfulness in the sense of Definition \ref{def:yoctosec}(4).
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definitions \ref{def:yoctosec} and \ref{def:imagecore} fix the current sharper frontier. The previous active-primary theorem already showed that benchmark-facingly relevant yocto-section data factor through the smaller minimizer-image core.
+\end{remark}
+
+\section{Observer-Relevant Yocto-Section Minimizer-Section Core}
+
+\begin{definition}[Observer-relevant yocto-section minimizer-section core]
+\label{def:sectioncore}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\) and a benchmark-faithful yocto-section package in the sense of Definition \ref{def:yoctosec}. The \emph{observer-relevant yocto-section minimizer-section core} \(\YoctoMinSectionCore\) for sector \(\sigma\) consists of:
+\begin{enumerate}
+    \item the canonical minimizer section
+    \[
+    \YoctoMinSection{\sigma}
+    \equiv
+    \YoctoSectionZeptoMin{\sigma}
+    :
+    \ZeptoSectionBody{\sigma}\to\YoctoSectionBody{\sigma};
+    \]
+    \item benchmark faithfulness in the sense of Definition \ref{def:yoctosec}(4).
+\end{enumerate}
+The image body \(\YoctoMinSection{\sigma}\bigl(\ZeptoSectionBody{\sigma}\bigr)\), the shell restriction
+\[
+\YoctoMinSection{\sigma}\big|_{\ZeptoSectionShell{\sigma}}
+:
+\ZeptoSectionShell{\sigma}\to\YoctoSectionShell{\sigma},
+\]
+the inverse projection on that image, and the image-core functional induced from \(\ZeptoSectionFunctional{\sigma}\) are understood as derived data rather than separately listed core data.
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:sectioncore} is strictly smaller than Definition \ref{def:imagecore} at current scope. Once the recorded zepto-section body, zepto-section functional, and exact zepto-section shell are fixed, the image body, restricted projection, shell image, and restricted image-core functional are all recovered from the single canonical minimizer section.
+\end{remark}
+
+\section{Collapse of the Image Core}
+
+\begin{proposition}[The canonical minimizer section reconstructs the image body and projection]
+\label{prop:reconstructbody}
+For every benchmark-faithful yocto-section package,
+\[
+\YoctoImgBody{\sigma}
+=
+\YoctoMinSection{\sigma}\bigl(\ZeptoSectionBody{\sigma}\bigr),
+\]
+and the restricted projection
+\[
+\YoctoImgProj{\sigma}:\YoctoImgBody{\sigma}\to\ZeptoSectionBody{\sigma}
+\]
+is a homeomorphism with inverse \(\YoctoMinSection{\sigma}\).
+\end{proposition}
+
+\begin{proof}
+The displayed identity is Definition \ref{def:imagecore}(1) together with Definition \ref{def:sectioncore}(1). By Definition \ref{def:yoctosec}(2),
+\[
+\YoctoSectionProj{\sigma}\circ\YoctoMinSection{\sigma}
+=
+\mathrm{id}_{\ZeptoSectionBody{\sigma}}.
+\]
+Restricting \(\YoctoSectionProj{\sigma}\) to \(\YoctoImgBody{\sigma}\) yields
+\[
+\YoctoImgProj{\sigma}\circ\YoctoMinSection{\sigma}
+=
+\mathrm{id}_{\ZeptoSectionBody{\sigma}}.
+\]
+Conversely, every \(y\in\YoctoImgBody{\sigma}\) has the form
+\[
+y=\YoctoMinSection{\sigma}(q)
+\qquad
+\text{for some }
+q\in\ZeptoSectionBody{\sigma}.
+\]
+Hence
+\[
+\YoctoMinSection{\sigma}\bigl(\YoctoImgProj{\sigma}(y)\bigr)
+=
+\YoctoMinSection{\sigma}\bigl(\YoctoSectionProj{\sigma}(y)\bigr)
+=
+\YoctoMinSection{\sigma}\bigl(\YoctoSectionProj{\sigma}(\YoctoMinSection{\sigma}(q))\bigr)
+=
+\YoctoMinSection{\sigma}(q)
+=
+y.
+\]
+Therefore \(\YoctoImgProj{\sigma}\) and \(\YoctoMinSection{\sigma}\) are mutually inverse continuous maps, so the restricted projection is a homeomorphism with inverse \(\YoctoMinSection{\sigma}\).
+\end{proof}
+
+\begin{proposition}[The canonical minimizer section reconstructs the image-core functional]
+\label{prop:reconstructfunctional}
+For every benchmark-faithful yocto-section package, the restricted image-core functional is recovered from the canonical minimizer section and the fixed zepto-section functional by
+\[
+\YoctoImgFunctional{\sigma}\bigl(\YoctoMinSection{\sigma}(q)\bigr)
+=
+\ZeptoSectionFunctional{\sigma}(q)
+\qquad
+\text{for every }q\in\ZeptoSectionBody{\sigma}.
+\]
+Equivalently,
+\[
+\YoctoImgFunctional{\sigma}(y)
+=
+\ZeptoSectionFunctional{\sigma}\bigl((\YoctoMinSection{\sigma})^{-1}(y)\bigr)
+\qquad
+\text{for every }y\in\YoctoImgBody{\sigma}.
+\]
+\end{proposition}
+
+\begin{proof}
+By Definition \ref{def:imagecore}(2),
+\[
+\YoctoImgFunctional{\sigma}\bigl(\YoctoMinSection{\sigma}(q)\bigr)
+=
+\YoctoSectionFunctional{\sigma}\bigl(\YoctoSectionZeptoMin{\sigma}(q)\bigr).
+\]
+Definition \ref{def:yoctosec}(2) then gives
+\[
+\YoctoSectionFunctional{\sigma}\bigl(\YoctoSectionZeptoMin{\sigma}(q)\bigr)
+=
+\ZeptoSectionFunctional{\sigma}(q)
+\]
+for every \(q\in\ZeptoSectionBody{\sigma}\). This proves the first displayed identity. The equivalent formula on \(\YoctoImgBody{\sigma}\) follows from Proposition \ref{prop:reconstructbody}, which shows that every \(y\in\YoctoImgBody{\sigma}\) has the unique form \(y=\YoctoMinSection{\sigma}(q)\).
+\end{proof}
+
+\begin{proposition}[The shell image is exactly the shell restriction of the canonical minimizer section]
+\label{prop:reconstructshell}
+For every benchmark-faithful yocto-section package,
+\[
+\YoctoImgShell{\sigma}
+=
+\YoctoMinSection{\sigma}\bigl(\ZeptoSectionShell{\sigma}\bigr),
+\]
+and the shell restriction
+\[
+\YoctoMinSection{\sigma}\big|_{\ZeptoSectionShell{\sigma}}
+:
+\ZeptoSectionShell{\sigma}\xrightarrow{\cong}\YoctoImgShell{\sigma}
+\]
+is a diffeomorphism with inverse
+\[
+\YoctoImgProj{\sigma}\big|_{\YoctoImgShell{\sigma}}
+:
+\YoctoImgShell{\sigma}\xrightarrow{\cong}\ZeptoSectionShell{\sigma}.
+\]
+\end{proposition}
+
+\begin{proof}
+The displayed equality is Definition \ref{def:imagecore}(3) together with Definition \ref{def:sectioncore}(1). By Definition \ref{def:yoctosec}(3),
+\[
+\YoctoSectionProj{\sigma}\big|_{\YoctoSectionShell{\sigma}}
+:
+\YoctoSectionShell{\sigma}\xrightarrow{\cong}\ZeptoSectionShell{\sigma}
+\]
+is a diffeomorphism, and
+\[
+\YoctoMinSection{\sigma}\bigl(\ZeptoSectionShell{\sigma}\bigr)
+\subset
+\YoctoSectionShell{\sigma}.
+\]
+Restricting the shell diffeomorphism to \(\YoctoImgShell{\sigma}\) gives
+\[
+\YoctoImgProj{\sigma}\big|_{\YoctoImgShell{\sigma}}
+\circ
+\YoctoMinSection{\sigma}\big|_{\ZeptoSectionShell{\sigma}}
+=
+\mathrm{id}_{\ZeptoSectionShell{\sigma}}.
+\]
+Conversely, if \(z\in\YoctoImgShell{\sigma}\), then \(z=\YoctoMinSection{\sigma}(q)\) for some \(q\in\ZeptoSectionShell{\sigma}\), so
+\[
+\YoctoMinSection{\sigma}\bigl(\YoctoImgProj{\sigma}(z)\bigr)
+=
+z.
+\]
+Thus the shell restriction of the canonical minimizer section and the restricted shell projection are inverse diffeomorphisms.
+\end{proof}
+
+\begin{proposition}[The full image core is reconstructed from the section core]
+\label{prop:reconstructimage}
+For every benchmark-faithful yocto-section package, the full observer-relevant yocto-section minimizer-image core \(\YoctoImageCore\) is reconstructed from the smaller minimizer-section core \(\YoctoMinSectionCore\) together with the fixed zepto-section body \(\ZeptoSectionBody{\sigma}\), zepto-section functional \(\ZeptoSectionFunctional{\sigma}\), and exact zepto-section shell \(\ZeptoSectionShell{\sigma}\).
+\end{proposition}
+
+\begin{proof}
+By Proposition \ref{prop:reconstructbody}, the image body is the image of the canonical minimizer section and the restricted projection is its inverse. By Proposition \ref{prop:reconstructfunctional}, the restricted image-core functional is uniquely determined by the canonical minimizer section together with the fixed zepto-section functional. By Proposition \ref{prop:reconstructshell}, the shell image is exactly the shell restriction of that same section. Benchmark faithfulness is already part of Definition \ref{def:sectioncore}(2). Therefore each constituent of Definition \ref{def:imagecore} is recovered from Definition \ref{def:sectioncore} plus the fixed zepto-section data.
+\end{proof}
+
+\begin{proposition}[All current image-core uses factor through the section core]
+\label{prop:downstream}
+For every benchmark-faithful yocto-section package, all current benchmark-facing uses of the minimizer-image core \(\YoctoImageCore\) on the active line factor through the minimizer-section core \(\YoctoMinSectionCore\) together with the fixed zepto-section data. In particular, the downstream recovery of the current observer-relevant zepto-section minimizer-section core \(\ZeptoMinSectionCore\), the current observer-relevant zepto-section minimizer-image core \(\ZeptoImageCore\), the current atto-section package \(\AttoSectionPackage\), the current femto-section package \(\FemtoSectionPackage\), the current pico-section package \(\PicoSectionPackage\), the current observer-relevant pico-section minimizer-section core \(\PicoMinSectionCore\), the current nano-section package \(\NanoSectionPackage\), the current micro-section package \(\MicroSectionPackage\), the current sub-section package \(\SubSectionPackage\), and the previously recorded shell-transport consequences does not require the separate image-core presentation once the section core is fixed.
+\end{proposition}
+
+\begin{proof}
+Proposition \ref{prop:reconstructimage} reconstructs the full image core from the section core and the fixed zepto-section body, functional, and shell. The active line uses the current image core only through those constituents together with the fixed downstream chain recorded in Definition \ref{def:downstream}(3). Therefore every current benchmark-facing use of \(\YoctoImageCore\) factors through \(\YoctoMinSectionCore\) together with the fixed zepto-section data, and the separate image-core presentation is not needed to recover the recorded downstream consequences.
+\end{proof}
+
+\begin{proposition}[Separate image-core presentation is benchmark neutral at current scope]
+\label{prop:neutral}
+For every benchmark-faithful yocto-section package, the separate presentation of
+\[
+\YoctoImgBody{\sigma},
+\qquad
+\YoctoImgProj{\sigma},
+\qquad
+\YoctoImgFunctional{\sigma},
+\qquad
+\YoctoImgShell{\sigma}
+\]
+does not add independent benchmark-facing freedom beyond the minimizer-section core \(\YoctoMinSectionCore\).
+\end{proposition}
+
+\begin{proof}
+By Proposition \ref{prop:reconstructimage}, each listed image-core constituent is reconstructed from the canonical minimizer section together with the fixed zepto-section data. By Proposition \ref{prop:downstream}, all current benchmark-facing uses of the image core already factor through that reconstructed data. Therefore the separate image-core presentation is not additional benchmark-facing information beyond the smaller minimizer-section core.
+\end{proof}
+
+\begin{proposition}[The benchmark package remains fixed]
+\label{prop:benchmark}
+Every observer-relevant yocto-section minimizer-section core preserves the same benchmark one-metric package \eqref{eq:fixedoutputs}. In particular, the operative metric remains exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, and the low-energy matter law is not enlarged.
+\end{proposition}
+
+\begin{proof}
+This is part of benchmark faithfulness in Definition \ref{def:sectioncore}(2). The present note only removes presentational redundancy inside the current yocto-section image core. It does not alter the benchmark exact-closure package.
+\end{proof}
+
+\section{Main Theorem}
+
+\begin{theorem}[Observer-relevant yocto-section minimizer-image core collapse to an observer-relevant yocto-section minimizer-section core]
+\label{thm:main}
+Fix the primitive continuation data of Definition \ref{def:fixed}, the recorded zepto-section downstream chain of Definition \ref{def:downstream}, the recorded zepto-section package of Definition \ref{def:zeptosec}, and a benchmark-faithful yocto-section package in the sense of Definition \ref{def:yoctosec}. Then, for each sector \(\sigma\in\{\Car,\Cur,\Hom\}\), the live benchmark-facing burden inside the current yocto-section minimizer-image-core frontier collapses from the observer-relevant yocto-section minimizer-image core \(\YoctoImageCore\) to the smaller observer-relevant yocto-section minimizer-section core \(\YoctoMinSectionCore\). More precisely:
+\begin{enumerate}
+    \item the image body and restricted projection are reconstructed from the canonical minimizer section by Proposition \ref{prop:reconstructbody};
+    \item the restricted image-core functional is reconstructed from the same section together with the fixed zepto-section functional by Proposition \ref{prop:reconstructfunctional};
+    \item the exact-shell image is exactly the shell restriction of that section by Proposition \ref{prop:reconstructshell};
+    \item the full image core is therefore recovered from the section core and the fixed zepto-section data by Proposition \ref{prop:reconstructimage};
+    \item all current benchmark-facing uses of the image core factor through the section core by Proposition \ref{prop:downstream};
+    \item the separate image-core presentation adds no independent benchmark-facing freedom beyond the section core by Proposition \ref{prop:neutral};
+    \item the benchmark boundary remains fixed by Proposition \ref{prop:benchmark};
+    \item consequently the remaining honest burden below the previous image-core frontier is no longer the full observer-relevant yocto-section minimizer-image core \(\YoctoImageCore\) as such. What remains is to derive or justify the sharper minimizer-section core \(\YoctoMinSectionCore\) from still more primitive substrate structure, or else prove a still smaller theorem-level collapse strictly inside that section core.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Item (1) is Proposition \ref{prop:reconstructbody}. Item (2) is Proposition \ref{prop:reconstructfunctional}. Item (3) is Proposition \ref{prop:reconstructshell}. Item (4) is Proposition \ref{prop:reconstructimage}. Item (5) is Proposition \ref{prop:downstream}. Item (6) is Proposition \ref{prop:neutral}. Item (7) is Proposition \ref{prop:benchmark}. Item (8) is the routing consequence of the previous items together with the active safeguard against counting another same-output deeper-origin relay as new front-line progress when the live benchmark-relevant datum is unchanged.
+\end{proof}
+
+\begin{corollary}[What must be done next]
+\label{cor:next}
+After Theorem \ref{thm:main}, the next honest benchmark-facing manuscript must either:
+\begin{enumerate}
+    \item derive or justify the observer-relevant yocto-section minimizer-section core \(\YoctoMinSectionCore\) from still more primitive substrate structure in a way that changes benchmark-facing status;
+    \item identify a genuinely smaller theorem-level observer-relevant datum strictly inside \(\YoctoMinSectionCore\) and prove a sharper collapse to it;
+    \item do either of the previous two while preserving the same benchmark one-metric package and the same claim boundary.
+\end{enumerate}
+Another same-output deeper-origin relay that preserves this section core, another re-expansion back to the larger minimizer-image-core presentation as if its recovered constituents were still independently live, another reopening of the already-screened full yocto-section package or other larger reconstructed presentations as if they were again the active burden, or any move that introduces a second operative metric, enlarges the ordinary matter law, or uses stronger promotion language does not satisfy the present burden. If a quantum continuation is pursued, it matters benchmark-facingly only insofar as it derives this same section core, collapses it further, or closes a benchmark derivation gate in a genuinely new way.
+\end{corollary}
+
+\begin{proof}
+Theorem \ref{thm:main} shows that the image-core presentation is no longer the minimal benchmark-facing datum at this stage. Therefore a subsequent manuscript must improve on the smaller section core rather than merely restating the larger image core.
+\end{proof}
+
+\section{Conclusion}
+
+The positive result of this note is a disciplined second compression step inside the current yocto-section frontier. The previous active-primary theorem already showed that the full yocto-section package is not the minimal benchmark-facing datum, because its benchmark-relevant content collapses to an observer-relevant minimizer-image core. The present theorem then takes the honest next internal route available there: it shows that even that image-core presentation is still larger than necessary.
+
+What survives as the live burden is the observer-relevant yocto-section minimizer-section core \(\YoctoMinSectionCore\). Relative to the already fixed zepto-section body, zepto-section functional, and exact zepto-section shell, that sharper datum is just the canonical minimizer section over the recorded zepto-section body. The image body is its image, the exact-shell image is its shell restriction, the restricted projection is its inverse, and the restricted image-core functional is transported from the recorded zepto-section functional along the same section. Those separately listed image-core constituents therefore do not add independent benchmark-facing freedom.
+
+This is the honest next burden after the present theorem. A new primary manuscript must derive or justify that sharper section core from still more primitive substrate structure, or else collapse it further, while preserving the same benchmark one-metric package and the same claim boundary. The current result does not yet complete a first-principles derivation of GR from substrate microphysics, but it does narrow the live derivational burden one level further on the active line.
+
+\end{document}
