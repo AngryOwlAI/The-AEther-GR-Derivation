@@ -50,9 +50,9 @@ At current scope, describe the repository as follows:
 - The benchmark package does not claim an independent low-energy non-GR observable sector.
 - A first-principles substrate derivation remains open.
 - After the post-bridge continuity-Hessian closure result, the remaining honest burden is upstream substrate derivation of the benchmark package rather than another same-package observer-side note.
-- The current deepest benchmark-facing main-line gain is [the observer-relevant zepto-section minimizer-section core from atto-section-generating substrate zepto-section dynamics theorem](../manuscripts/active/tex/aether_flow_primitive_reservoir_observer_reduction_observer_relevant_zepto_section_minimizer_section_core_from_atto_section_generating_substrate_zepto_section_dynamics_theorem.tex).
-- The next primary main-line burden is to derive or justify the atto-section-generating substrate zepto-section dynamics themselves from still more primitive substrate structure, or prove a still sharper theorem-level collapse inside that deeper package, while preserving the same benchmark package and claim boundary.
-- Another same-output deeper-origin relay that leaves that deeper zepto-section dynamics package unchanged is benchmark-neutral at current scope.
+- The current deepest benchmark-facing main-line gain is [the zepto-section-generating substrate yocto-section dynamics collapse to an observer-relevant yocto-section minimizer-image core theorem](../manuscripts/active/tex/aether_flow_primitive_reservoir_observer_reduction_zepto_section_generating_substrate_yocto_section_dynamics_collapse_to_observer_relevant_yocto_section_minimizer_image_core_theorem.tex).
+- The next primary main-line burden is to derive or justify the observer-relevant yocto-section minimizer-image core itself from still more primitive substrate structure, or prove a still sharper theorem-level collapse inside that image core, while preserving the same benchmark package and claim boundary.
+- Another same-output deeper-origin relay that leaves that sharper yocto-section minimizer-image core unchanged is benchmark-neutral at current scope.
 - The deeper positive-pair / orbit-shape continuation remains recorded side work unless it changes the primary burden.
 
 ## Preferred Phrasing
