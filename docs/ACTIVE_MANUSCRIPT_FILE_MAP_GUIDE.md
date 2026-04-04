@@ -178,7 +178,7 @@ At the current audit:
 
 - the benchmark exact-closure package is the front door
 - the benchmark-gatekeeping layer must be consulted before any main-line claim
-- the current main-line frontier is the primitive-reservoir observer-reduction line at `primitive_reduction_current_zepto_section_minimizer_section_core_frontier`
+- the current main-line frontier is the primitive-reservoir observer-reduction line at `primitive_reduction_current_renewed_zepto_section_package_frontier`
 - the same-package exact-preservation line is preserved as supporting or historical routing context
 - screened higher-derivative branches remain screened
 - nonlocal self-response / orbit-shape continuations remain side work unless explicitly promoted
