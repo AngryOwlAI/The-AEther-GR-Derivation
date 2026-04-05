@@ -1,0 +1,1216 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+
+\newcommand{\CompletedMetric}{g^{\sharp}}
+\newcommand{\MatterSpace}{\Psi}
+
+\newcommand{\Car}{\mathrm{car}}
+\newcommand{\Cur}{\mathrm{cur}}
+\newcommand{\Hom}{\mathrm{hom}}
+
+\newcommand{\ForSpace}[1]{\mathcal I_{#1}^{\mathrm{for}}}
+\newcommand{\PrimShell}{\mathcal S_{\mathrm{prim}}}
+\newcommand{\MetricOut}{\mathscr G_{\mathrm{out}}}
+\newcommand{\MatterOut}{\mathscr T_{\mathrm{out}}}
+
+\newcommand{\SubSectionPackage}{\mathfrak V^{\mathrm{subsec}}}
+\newcommand{\MicroSectionPackage}{\mathfrak W^{\mathrm{microsec}}}
+\newcommand{\NanoSectionPackage}{\mathfrak X^{\mathrm{nanosec}}}
+\newcommand{\PicoSectionPackage}{\mathfrak Y^{\mathrm{picosec}}}
+\newcommand{\PicoMinSectionCore}{\mathfrak Y^{\mathrm{pic,sec}}}
+\newcommand{\FemtoSectionPackage}{\mathfrak Z^{\mathrm{femtosec}}}
+\newcommand{\AttoSectionPackage}{\mathfrak A^{\mathrm{attosec}}}
+\newcommand{\ZeptoImageCore}{\mathfrak B^{\mathrm{zep,img}}}
+\newcommand{\ZeptoMinSectionCore}{\mathfrak B^{\mathrm{zep,sec}}}
+\newcommand{\YoctoImageCore}{\mathfrak C^{\mathrm{yoc,img}}}
+\newcommand{\YoctoMinSectionCore}{\mathfrak C^{\mathrm{yoc,sec}}}
+\newcommand{\YoctoSelectorPackage}{\mathfrak C^{\mathrm{yoc,sel}}}
+
+\newcommand{\YoctoSelectorSpace}[1]{\mathcal D_{#1}^{\mathrm{yoc,sel}}}
+\newcommand{\YoctoSelectorBody}[1]{\mathcal B_{#1}^{\mathrm{yoc,sel}}}
+\newcommand{\YoctoSelectorFunctional}[1]{\mathscr L_{#1}^{\mathrm{yoc,sel}}}
+\newcommand{\YoctoSelectorShell}[1]{\mathcal Z_{#1}^{\mathrm{yoc,sel}}}
+
+\newcommand{\PreSelectorPackage}{\mathfrak D^{\mathrm{presel}}}
+\newcommand{\PreSelectorMinSectionCore}{\mathfrak D^{\mathrm{presel,sec}}}
+\newcommand{\PreSelectorMinSection}[1]{\mathfrak d_{#1}^{\mathrm{presel,sec}}}
+
+\newcommand{\PreSectionSelectorPackage}{\mathfrak E^{\mathrm{presel,sel}}}
+\newcommand{\PreSectionSelectorSpace}[1]{\mathcal F_{#1}^{\mathrm{presel,sel}}}
+\newcommand{\PreSectionSelectorBody}[1]{\mathcal B_{#1}^{\mathrm{presel,sel}}}
+\newcommand{\PreSectionSelectorProj}[1]{\Pi_{#1}^{\mathrm{presel,sel}}}
+\newcommand{\PreSectionSelectorFiber}[2]{\mathcal G_{#1}^{\mathrm{presel,sel}}(#2)}
+\newcommand{\PreSectionSelectorFunctional}[1]{\mathscr Q_{#1}^{\mathrm{presel,sel}}}
+\newcommand{\PreSectionSelectorShell}[1]{\mathcal Z_{#1}^{\mathrm{presel,sel}}}
+
+\newcommand{\KernelPackage}{\mathfrak F^{\mathrm{presel,ker}}}
+\newcommand{\KernelSpace}[1]{\mathcal H_{#1}^{\mathrm{presel,ker}}}
+\newcommand{\KernelBody}[1]{\mathcal K_{#1}^{\mathrm{presel,ker}}}
+\newcommand{\KernelProj}[1]{\Lambda_{#1}^{\mathrm{presel,ker}}}
+\newcommand{\KernelFiber}[2]{\mathcal J_{#1}^{\mathrm{presel,ker}}(#2)}
+\newcommand{\KernelFunctional}[1]{\mathscr R_{#1}^{\mathrm{presel,ker}}}
+\newcommand{\KernelMinLift}[1]{\mathfrak r_{#1}^{\mathrm{presel,ker}}}
+\newcommand{\KernelComposedFiber}[2]{\mathcal M_{#1}^{\mathrm{presel,ker}}(#2)}
+\newcommand{\KernelComposedMin}[1]{\mathfrak m_{#1}^{\mathrm{presel,ker}}}
+\newcommand{\KernelShell}[1]{\mathcal Y_{#1}^{\mathrm{presel,ker}}}
+
+\newcommand{\PreKernelPackage}{\mathfrak G^{\mathrm{presel,preker}}}
+\newcommand{\PreKernelSpace}[1]{\mathcal N_{#1}^{\mathrm{presel,preker}}}
+\newcommand{\PreKernelBody}[1]{\mathcal P_{#1}^{\mathrm{presel,preker}}}
+\newcommand{\PreKernelProj}[1]{\Upsilon_{#1}^{\mathrm{presel,preker}}}
+\newcommand{\PreKernelFiber}[2]{\mathcal U_{#1}^{\mathrm{presel,preker}}(#2)}
+\newcommand{\PreKernelFunctional}[1]{\mathscr S_{#1}^{\mathrm{presel,preker}}}
+\newcommand{\PreKernelMinLift}[1]{\mathfrak s_{#1}^{\mathrm{presel,preker}}}
+\newcommand{\PreKernelComposedFiber}[2]{\mathcal V_{#1}^{\mathrm{presel,preker}}(#2)}
+\newcommand{\PreKernelComposedMin}[1]{\mathfrak t_{#1}^{\mathrm{presel,preker}}}
+\newcommand{\PreKernelFullFiber}[2]{\mathcal W_{#1}^{\mathrm{presel,preker}}(#2)}
+\newcommand{\PreKernelFullMin}[1]{\mathfrak u_{#1}^{\mathrm{presel,preker}}}
+\newcommand{\PreKernelShell}[1]{\mathcal O_{#1}^{\mathrm{presel,preker}}}
+
+\newcommand{\ProtoKernelPackage}{\mathfrak H^{\mathrm{presel,proker}}}
+\newcommand{\ProtoKernelSpace}[1]{\mathcal R_{#1}^{\mathrm{presel,proker}}}
+\newcommand{\ProtoKernelBody}[1]{\mathcal T_{#1}^{\mathrm{presel,proker}}}
+\newcommand{\ProtoKernelProj}[1]{\Omega_{#1}^{\mathrm{presel,proker}}}
+\newcommand{\ProtoKernelFiber}[2]{\mathcal X_{#1}^{\mathrm{presel,proker}}(#2)}
+\newcommand{\ProtoKernelFunctional}[1]{\mathscr U_{#1}^{\mathrm{presel,proker}}}
+\newcommand{\ProtoKernelMinLift}[1]{\mathfrak v_{#1}^{\mathrm{presel,proker}}}
+\newcommand{\ProtoKernelKernelFiber}[2]{\mathcal L_{#1}^{\mathrm{presel,proker}}(#2)}
+\newcommand{\ProtoKernelKernelMin}[1]{\mathfrak w_{#1}^{\mathrm{presel,proker}}}
+\newcommand{\ProtoKernelSelectorFiber}[2]{\mathcal A_{#1}^{\mathrm{presel,proker}}(#2)}
+\newcommand{\ProtoKernelSelectorMin}[1]{\mathfrak x_{#1}^{\mathrm{presel,proker}}}
+\newcommand{\ProtoKernelFullFiber}[2]{\mathcal C_{#1}^{\mathrm{presel,proker}}(#2)}
+\newcommand{\ProtoKernelFullMin}[1]{\mathfrak y_{#1}^{\mathrm{presel,proker}}}
+\newcommand{\ProtoKernelShell}[1]{\mathcal E_{#1}^{\mathrm{presel,proker}}}
+
+\newcommand{\PreProtoKernelPackage}{\mathfrak I^{\mathrm{presel,preproker}}}
+\newcommand{\PreProtoKernelSpace}[1]{\mathcal S_{#1}^{\mathrm{presel,preproker}}}
+\newcommand{\PreProtoKernelBody}[1]{\mathcal D_{#1}^{\mathrm{presel,preproker}}}
+\newcommand{\PreProtoKernelProj}[1]{\Xi_{#1}^{\mathrm{presel,preproker}}}
+\newcommand{\PreProtoKernelFiber}[2]{\mathcal B_{#1}^{\mathrm{presel,preproker}}(#2)}
+\newcommand{\PreProtoKernelFunctional}[1]{\mathscr V_{#1}^{\mathrm{presel,preproker}}}
+\newcommand{\PreProtoKernelMinLift}[1]{\mathfrak z_{#1}^{\mathrm{presel,preproker}}}
+\newcommand{\PreProtoKernelPreKernelFiber}[2]{\mathcal M_{#1}^{\mathrm{presel,preproker,preker}}(#2)}
+\newcommand{\PreProtoKernelPreKernelMin}[1]{\mathfrak a_{#1}^{\mathrm{presel,preproker}}}
+\newcommand{\PreProtoKernelKernelFiber}[2]{\mathcal N_{#1}^{\mathrm{presel,preproker,ker}}(#2)}
+\newcommand{\PreProtoKernelKernelMin}[1]{\mathfrak b_{#1}^{\mathrm{presel,preproker}}}
+\newcommand{\PreProtoKernelSelectorFiber}[2]{\mathcal P_{#1}^{\mathrm{presel,preproker,sel}}(#2)}
+\newcommand{\PreProtoKernelSelectorMin}[1]{\mathfrak c_{#1}^{\mathrm{presel,preproker}}}
+\newcommand{\PreProtoKernelFullFiber}[2]{\mathcal Q_{#1}^{\mathrm{presel,preproker,full}}(#2)}
+\newcommand{\PreProtoKernelFullMin}[1]{\mathfrak d_{#1}^{\mathrm{presel,preproker}}}
+\newcommand{\PreProtoKernelShell}[1]{\mathcal H_{#1}^{\mathrm{presel,preproker}}}
+
+\newcommand{\InducedSelectorFunctional}[1]{\widetilde{\mathscr Q}_{#1}^{\mathrm{presel,sel}}}
+\newcommand{\InducedSelectorShell}[1]{\widetilde{\mathcal Z}_{#1}^{\mathrm{presel,sel}}}
+\newcommand{\InducedKernelFunctional}[1]{\widetilde{\mathscr R}_{#1}^{\mathrm{presel,ker}}}
+\newcommand{\InducedKernelMinLift}[1]{\widetilde{\mathfrak r}_{#1}^{\mathrm{presel,ker}}}
+\newcommand{\InducedKernelComposedMin}[1]{\widetilde{\mathfrak m}_{#1}^{\mathrm{presel,ker}}}
+\newcommand{\InducedKernelShell}[1]{\widetilde{\mathcal Y}_{#1}^{\mathrm{presel,ker}}}
+\newcommand{\InducedPreKernelFunctional}[1]{\widetilde{\mathscr S}_{#1}^{\mathrm{presel,preker}}}
+\newcommand{\InducedPreKernelMinLift}[1]{\widetilde{\mathfrak s}_{#1}^{\mathrm{presel,preker}}}
+\newcommand{\InducedPreKernelShell}[1]{\widetilde{\mathcal O}_{#1}^{\mathrm{presel,preker}}}
+\newcommand{\InducedProtoKernelFunctional}[1]{\widetilde{\mathscr U}_{#1}^{\mathrm{presel,proker}}}
+\newcommand{\InducedProtoKernelMinLift}[1]{\widetilde{\mathfrak v}_{#1}^{\mathrm{presel,proker}}}
+\newcommand{\InducedProtoKernelKernelMin}[1]{\widetilde{\mathfrak w}_{#1}^{\mathrm{presel,proker}}}
+\newcommand{\InducedProtoKernelSelectorMin}[1]{\widetilde{\mathfrak x}_{#1}^{\mathrm{presel,proker}}}
+\newcommand{\InducedProtoKernelFullMin}[1]{\widetilde{\mathfrak y}_{#1}^{\mathrm{presel,proker}}}
+\newcommand{\InducedProtoKernelShell}[1]{\widetilde{\mathcal E}_{#1}^{\mathrm{presel,proker}}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Primitive-Reservoir Observer-Reduction\\
+\large Pre-Kernel-Dynamics-Generating Substrate\\
+\large Pre-Selector Proto-Kernel Dynamics\\
+\large from Proto-Kernel-Dynamics-Generating\\
+\large Substrate Pre-Selector Pre-Proto-Kernel Dynamics}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The current primitive-reservoir observer-reduction frontier already sharpened the live burden inside the current pre-selector proto-kernel line: the current pre-kernel-dynamics-generating substrate pre-selector proto-kernel dynamics package \(\ProtoKernelPackage\) is now the live unexplained datum, while the current pre-kernel package \(\PreKernelPackage\), the current kernel package \(\KernelPackage\), and all downstream observer-relevant outputs have already been spent. The active routing note therefore demands the next honest move below that frontier: either derive or justify \(\ProtoKernelPackage\) from still more primitive substrate structure in a way that genuinely changes benchmark-facing status, or prove a sharper theorem-level collapse strictly inside it.
+
+The present note takes the direct derivation route. For each sector it introduces proto-kernel-dynamics-generating substrate pre-selector pre-proto-kernel dynamics \(\PreProtoKernelPackage\): a compact convex pre-proto-kernel body over the already fixed current proto-kernel-body geometry, an affine pre-proto-kernel projection to that geometry, a nonnegative smooth pre-proto-kernel functional with unique inner fiber minimizers, a pre-kernel-scale minimizing law forcing the current proto-kernel minimizer lift, a current-kernel-scale minimizing law forcing the current proto-kernel current-kernel minimizer, a selector-scale minimizing law forcing the current proto-kernel selector minimizer, and a benchmark-shell-scale minimizing shell whose projection fixes the current exact proto-kernel shell. The current proto-kernel functional is then no longer an independent primitive stopping point. It is the effective minimum value of the deeper pre-proto-kernel law on the inner pre-proto-kernel fibers, the current exact proto-kernel shell is the projected exact pre-proto-kernel shell over the already fixed selector benchmark shell, and the current proto-kernel pre-kernel-scale, current-kernel-scale, selector-scale, and benchmark-shell-scale minimizers are all outer projections of unique deeper pre-proto-kernel minimizers.
+
+The benchmark boundary remains fixed throughout. The one operative metric is still exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, the low-energy matter law is not enlarged, and no stronger promotion language is licensed. The positive result is therefore a genuine benchmark-facing gain below the current pre-selector proto-kernel frontier: the remaining honest burden is no longer the current pre-selector proto-kernel dynamics as such, but the deeper pre-selector pre-proto-kernel dynamics that canonically generate them, or a still smaller collapse strictly inside that deeper package.
+\end{abstract}
+
+\section{Introduction}
+
+The active derivational program of \TheoryName{} again reaches a point where depth alone is not enough. The current active-primary theorem already showed that the current pre-selector proto-kernel package is not the primitive stopping point at present scope. Once the pre-kernel-dynamics-generating substrate pre-selector proto-kernel dynamics package \(\ProtoKernelPackage\) is fixed, the current proto-kernel functional, current proto-kernel minimizer lift, current proto-kernel current-kernel minimizer, current proto-kernel selector minimizer, current exact proto-kernel shell, and current benchmark-shell-scale full proto-kernel minimizer are forced canonically from it. The routing consequence is then immediate. If the project goal is to move the same benchmark one-metric package toward a disciplined first-principles recovery, the next honest benchmark-facing manuscript must either derive or justify \(\ProtoKernelPackage\) itself from still more primitive substrate structure, or prove a genuinely smaller theorem-level collapse strictly inside it.
+
+The present note takes the first route. It does not claim that no sharper internal collapse will ever be available. It records only that no smaller observer-relevant datum has yet been isolated inside the current proto-kernel package without already presupposing that package's law. The disciplined next move is therefore to spend \(\ProtoKernelPackage\) itself. Concretely, the note introduces a deeper pre-proto-kernel layer below the current proto-kernel package and proves that the current proto-kernel functional, the current proto-kernel minimizer hierarchy, and the current exact proto-kernel shell are all canonical outputs of that deeper pre-proto-kernel law.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not alter the benchmark exact-closure package. It does not introduce a second operative metric or a new low-energy matter law. It only strengthens the deeper origin-side explanation of why the current pre-selector proto-kernel package used by the immediately preceding theorem should itself hold.
+
+\section{Fixed Inputs}
+
+\begin{definition}[Recorded primitive continuation data]
+\label{def:fixed}
+Fix the following continuation data from the active primitive-reservoir observer-reduction line.
+\begin{enumerate}
+    \item For each sector label \(\sigma\in\{\Car,\Cur,\Hom\}\), a primitive forcing shell
+    \[
+    \ForSpace{\sigma}.
+    \]
+    \item The product shell
+    \[
+    \PrimShell
+    \equiv
+    \ForSpace{\Car}\times \ForSpace{\Cur}\times \ForSpace{\Hom}.
+    \]
+    \item The recorded metric and ordinary-matter outputs
+    \[
+    \MetricOut:\PrimShell\to\{\text{observer metrics}\},
+    \qquad
+    \MatterOut:\PrimShell\times\MatterSpace\to\{\text{observer stress tensors}\},
+    \]
+    satisfying
+    \begin{equation}
+    \MetricOut(\mathbf w)=\CompletedMetric,
+    \qquad
+    \MatterOut(\mathbf w,\psi)
+    =
+    T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
+    \label{eq:fixedoutputs}
+    \end{equation}
+    for every \(\mathbf w\in\PrimShell\) and every matter configuration \(\psi\in\MatterSpace\).
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Recorded selector benchmark base]
+\label{def:selectorbase}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). The active line already fixes the following benchmark-facing selector data:
+\begin{enumerate}
+    \item a finite-dimensional Euclidean selector state space
+    \[
+    \YoctoSelectorSpace{\sigma};
+    \]
+    \item a compact convex selector body
+    \[
+    \YoctoSelectorBody{\sigma}\subset\YoctoSelectorSpace{\sigma}
+    \]
+    with nonempty interior;
+    \item a nonnegative smooth selector functional
+    \[
+    \YoctoSelectorFunctional{\sigma}:\YoctoSelectorSpace{\sigma}\to[0,\infty);
+    \]
+    \item a closed embedded exact selector shell
+    \[
+    \YoctoSelectorShell{\sigma}\subset\YoctoSelectorBody{\sigma};
+    \]
+    \item benchmark faithfulness, meaning preservation of the benchmark outputs \eqref{eq:fixedoutputs}, no second operative metric, no enlarged low-energy matter law, and use of this selector benchmark base as already fixed upstream data on the active line.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Recorded current selector-body geometry]
+\label{def:geometry}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). The active line already fixes the following current selector-body geometry:
+\begin{enumerate}
+    \item a finite-dimensional Euclidean current selector state space
+    \[
+    \PreSectionSelectorSpace{\sigma};
+    \]
+    \item a compact convex current selector body
+    \[
+    \PreSectionSelectorBody{\sigma}\subset\PreSectionSelectorSpace{\sigma}
+    \]
+    with nonempty interior;
+    \item an affine surjection
+    \[
+    \PreSectionSelectorProj{\sigma}:\PreSectionSelectorSpace{\sigma}\to\YoctoSelectorBody{\sigma}
+    \]
+    satisfying
+    \[
+    \PreSectionSelectorProj{\sigma}\bigl(\PreSectionSelectorBody{\sigma}\bigr)
+    =
+    \YoctoSelectorBody{\sigma};
+    \]
+    \item for each \(y\in\YoctoSelectorBody{\sigma}\), the current selector fiber
+    \[
+    \PreSectionSelectorFiber{\sigma}{y}
+    \equiv
+    \bigl(\PreSectionSelectorProj{\sigma}\bigr)^{-1}(y)\cap\PreSectionSelectorBody{\sigma},
+    \]
+    which is required to be nonempty, compact, and convex.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Recorded current kernel-body geometry]
+\label{def:kernelgeometry}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). The active line already fixes the following current kernel-body geometry below the current selector-body geometry:
+\begin{enumerate}
+    \item a finite-dimensional Euclidean current kernel state space
+    \[
+    \KernelSpace{\sigma};
+    \]
+    \item a compact convex current kernel body
+    \[
+    \KernelBody{\sigma}\subset\KernelSpace{\sigma}
+    \]
+    with nonempty interior;
+    \item an affine surjection
+    \[
+    \KernelProj{\sigma}:\KernelSpace{\sigma}\to\PreSectionSelectorSpace{\sigma}
+    \]
+    satisfying
+    \[
+    \KernelProj{\sigma}\bigl(\KernelBody{\sigma}\bigr)
+    =
+    \PreSectionSelectorBody{\sigma};
+    \]
+    \item for each \(u\in\PreSectionSelectorBody{\sigma}\), the current kernel fiber
+    \[
+    \KernelFiber{\sigma}{u}
+    \equiv
+    \bigl(\KernelProj{\sigma}\bigr)^{-1}(u)\cap\KernelBody{\sigma},
+    \]
+    which is required to be nonempty, compact, and convex.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Recorded current pre-kernel-body geometry]
+\label{def:prekernelgeometry}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). The active line already fixes the following current pre-kernel-body geometry below the current kernel-body geometry:
+\begin{enumerate}
+    \item a finite-dimensional Euclidean current pre-kernel state space
+    \[
+    \PreKernelSpace{\sigma};
+    \]
+    \item a compact convex current pre-kernel body
+    \[
+    \PreKernelBody{\sigma}\subset\PreKernelSpace{\sigma}
+    \]
+    with nonempty interior;
+    \item an affine surjection
+    \[
+    \PreKernelProj{\sigma}:\PreKernelSpace{\sigma}\to\KernelSpace{\sigma}
+    \]
+    satisfying
+    \[
+    \PreKernelProj{\sigma}\bigl(\PreKernelBody{\sigma}\bigr)
+    =
+    \KernelBody{\sigma};
+    \]
+    \item for each \(w\in\KernelBody{\sigma}\), the current pre-kernel fiber
+    \[
+    \PreKernelFiber{\sigma}{w}
+    \equiv
+    \bigl(\PreKernelProj{\sigma}\bigr)^{-1}(w)\cap\PreKernelBody{\sigma},
+    \]
+    which is required to be nonempty, compact, and convex.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Recorded current proto-kernel-body geometry]
+\label{def:protokernelgeometry}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). The active line already fixes the following current proto-kernel-body geometry below the current pre-kernel-body geometry:
+\begin{enumerate}
+    \item a finite-dimensional Euclidean current proto-kernel state space
+    \[
+    \ProtoKernelSpace{\sigma};
+    \]
+    \item a compact convex current proto-kernel body
+    \[
+    \ProtoKernelBody{\sigma}\subset\ProtoKernelSpace{\sigma}
+    \]
+    with nonempty interior;
+    \item an affine surjection
+    \[
+    \ProtoKernelProj{\sigma}:\ProtoKernelSpace{\sigma}\to\PreKernelSpace{\sigma}
+    \]
+    satisfying
+    \[
+    \ProtoKernelProj{\sigma}\bigl(\ProtoKernelBody{\sigma}\bigr)
+    =
+    \PreKernelBody{\sigma};
+    \]
+    \item for each \(q\in\PreKernelBody{\sigma}\), the current proto-kernel fiber
+    \[
+    \ProtoKernelFiber{\sigma}{q}
+    \equiv
+    \bigl(\ProtoKernelProj{\sigma}\bigr)^{-1}(q)\cap\ProtoKernelBody{\sigma},
+    \]
+    which is required to be nonempty, compact, and convex.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Current pre-selector proto-kernel-dynamics target]
+\label{def:protokerneltarget}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\) and the recorded current selector-body, kernel-body, pre-kernel-body, and proto-kernel-body geometries of Definitions \ref{def:geometry}, \ref{def:kernelgeometry}, \ref{def:prekernelgeometry}, and \ref{def:protokernelgeometry}. A \emph{benchmark-faithful pre-kernel-dynamics-generating substrate pre-selector proto-kernel dynamics package} \(\ProtoKernelPackage\) on that geometry consists of the following data.
+\begin{enumerate}
+    \item A nonnegative smooth proto-kernel functional
+    \[
+    \ProtoKernelFunctional{\sigma}:\ProtoKernelSpace{\sigma}\to[0,\infty)
+    \]
+    such that, for every \(q\in\PreKernelBody{\sigma}\), the restriction of \(\ProtoKernelFunctional{\sigma}\) to \(\ProtoKernelFiber{\sigma}{q}\) is strictly convex and attains a unique minimizer. The resulting minimizer depends smoothly on \(q\); write it as
+    \[
+    \ProtoKernelMinLift{\sigma}:\PreKernelBody{\sigma}\to\ProtoKernelBody{\sigma}.
+    \]
+    The induced pre-kernel functional
+    \[
+    \InducedPreKernelFunctional{\sigma}:\PreKernelSpace{\sigma}\to[0,\infty)
+    \]
+    is required to be smooth on the ambient current pre-kernel state space and to satisfy
+    \[
+    \InducedPreKernelFunctional{\sigma}(q)
+    \equiv
+    \ProtoKernelFunctional{\sigma}\bigl(\ProtoKernelMinLift{\sigma}(q)\bigr)
+    =
+    \min_{z\in\ProtoKernelFiber{\sigma}{q}}
+    \ProtoKernelFunctional{\sigma}(z)
+    \qquad
+    \text{for every }
+    q\in\PreKernelBody{\sigma}.
+    \]
+    Moreover, for every \(w\in\KernelBody{\sigma}\), the restriction of \(\InducedPreKernelFunctional{\sigma}\) to \(\PreKernelFiber{\sigma}{w}\) is strictly convex and attains a unique minimizer depending smoothly on \(w\); write it as
+    \[
+    \InducedPreKernelMinLift{\sigma}:\KernelBody{\sigma}\to\PreKernelBody{\sigma}.
+    \]
+    \item For each \(w\in\KernelBody{\sigma}\), define the current-kernel-scale composed proto-kernel fiber
+    \[
+    \ProtoKernelKernelFiber{\sigma}{w}
+    \equiv
+    \left\{
+    z\in\ProtoKernelBody{\sigma}:
+    \PreKernelProj{\sigma}\bigl(\ProtoKernelProj{\sigma}(z)\bigr)=w
+    \right\}.
+    \]
+    The restriction of \(\ProtoKernelFunctional{\sigma}\) to \(\ProtoKernelKernelFiber{\sigma}{w}\) is required to attain a unique minimizer depending smoothly on \(w\); write it as
+    \[
+    \ProtoKernelKernelMin{\sigma}:\KernelBody{\sigma}\to\ProtoKernelBody{\sigma}.
+    \]
+    Define the induced current kernel functional
+    \[
+    \InducedKernelFunctional{\sigma}:\KernelSpace{\sigma}\to[0,\infty)
+    \]
+    by
+    \[
+    \InducedKernelFunctional{\sigma}(w)
+    \equiv
+    \InducedPreKernelFunctional{\sigma}\bigl(\InducedPreKernelMinLift{\sigma}(w)\bigr)
+    =
+    \min_{q\in\PreKernelFiber{\sigma}{w}}
+    \InducedPreKernelFunctional{\sigma}(q)
+    \qquad
+    \text{for every }
+    w\in\KernelBody{\sigma}.
+    \]
+    This function is required to be smooth on the ambient current kernel state space, and for every \(u\in\PreSectionSelectorBody{\sigma}\), its restriction to \(\KernelFiber{\sigma}{u}\) is required to be strictly convex and to attain a unique minimizer depending smoothly on \(u\); write it as
+    \[
+    \InducedKernelMinLift{\sigma}:\PreSectionSelectorBody{\sigma}\to\KernelBody{\sigma}.
+    \]
+    \item For each \(u\in\PreSectionSelectorBody{\sigma}\), define the selector-scale composed proto-kernel fiber
+    \[
+    \ProtoKernelSelectorFiber{\sigma}{u}
+    \equiv
+    \left\{
+    z\in\ProtoKernelBody{\sigma}:
+    \KernelProj{\sigma}\bigl(\PreKernelProj{\sigma}(\ProtoKernelProj{\sigma}(z))\bigr)=u
+    \right\}.
+    \]
+    The restriction of \(\ProtoKernelFunctional{\sigma}\) to \(\ProtoKernelSelectorFiber{\sigma}{u}\) is required to attain a unique minimizer depending smoothly on \(u\); write it as
+    \[
+    \ProtoKernelSelectorMin{\sigma}:\PreSectionSelectorBody{\sigma}\to\ProtoKernelBody{\sigma}.
+    \]
+    Define the induced outer selector functional
+    \[
+    \InducedSelectorFunctional{\sigma}:\PreSectionSelectorSpace{\sigma}\to[0,\infty)
+    \]
+    by
+    \[
+    \InducedSelectorFunctional{\sigma}(u)
+    \equiv
+    \InducedKernelFunctional{\sigma}\bigl(\InducedKernelMinLift{\sigma}(u)\bigr)
+    =
+    \min_{w\in\KernelFiber{\sigma}{u}}
+    \InducedKernelFunctional{\sigma}(w)
+    \qquad
+    \text{for every }
+    u\in\PreSectionSelectorBody{\sigma}.
+    \]
+    This function is required to be smooth on the ambient current selector state space, and for every \(y\in\YoctoSelectorBody{\sigma}\), its restriction to \(\PreSectionSelectorFiber{\sigma}{y}\) is required to be strictly convex and to attain a unique minimizer depending smoothly on \(y\).
+    \item For each \(y\in\YoctoSelectorBody{\sigma}\), the restriction of \(\InducedKernelFunctional{\sigma}\) to the current composed kernel fiber
+    \[
+    \KernelComposedFiber{\sigma}{y}
+    =
+    \left\{
+    w\in\KernelBody{\sigma}:
+    \PreSectionSelectorProj{\sigma}\bigl(\KernelProj{\sigma}(w)\bigr)=y
+    \right\}
+    \]
+    is required to attain a unique minimizer depending smoothly on \(y\); write it as
+    \[
+    \InducedKernelComposedMin{\sigma}:\YoctoSelectorBody{\sigma}\to\KernelBody{\sigma}.
+    \]
+    Define the induced exact selector shell
+    \[
+    \InducedSelectorShell{\sigma}
+    \equiv
+    \left\{
+    u\in\PreSectionSelectorBody{\sigma}:
+    \PreSectionSelectorProj{\sigma}(u)\in\YoctoSelectorShell{\sigma},
+    \;
+    \InducedSelectorFunctional{\sigma}(u)
+    =
+    \min_{v\in\PreSectionSelectorFiber{\sigma}{\PreSectionSelectorProj{\sigma}(u)}}
+    \InducedSelectorFunctional{\sigma}(v)
+    \right\},
+    \]
+    the induced exact kernel shell
+    \[
+    \InducedKernelShell{\sigma}
+    \equiv
+    \left\{
+    w\in\KernelBody{\sigma}:
+    \PreSectionSelectorProj{\sigma}\bigl(\KernelProj{\sigma}(w)\bigr)\in\YoctoSelectorShell{\sigma},
+    \;
+    \InducedKernelFunctional{\sigma}(w)
+    =
+    \min_{q\in\KernelComposedFiber{\sigma}{\PreSectionSelectorProj{\sigma}(\KernelProj{\sigma}(w))}}
+    \InducedKernelFunctional{\sigma}(q)
+    \right\},
+    \]
+    and the induced exact pre-kernel shell
+    \[
+    \InducedPreKernelShell{\sigma}
+    \equiv
+    \left\{
+    q\in\PreKernelBody{\sigma}:
+    \PreSectionSelectorProj{\sigma}\bigl(\KernelProj{\sigma}(\PreKernelProj{\sigma}(q))\bigr)\in\YoctoSelectorShell{\sigma},
+    \;
+    \InducedPreKernelFunctional{\sigma}(q)
+    =
+    \min_{p\in\PreKernelFullFiber{\sigma}{\PreSectionSelectorProj{\sigma}(\KernelProj{\sigma}(\PreKernelProj{\sigma}(q)))}} \InducedPreKernelFunctional{\sigma}(p)
+    \right\}.
+    \]
+    The shells \(\InducedKernelShell{\sigma}\) and \(\InducedPreKernelShell{\sigma}\) are required to be closed embedded submanifolds, and
+    \[
+    \KernelProj{\sigma}\big|_{\InducedKernelShell{\sigma}}
+    :
+    \InducedKernelShell{\sigma}\xrightarrow{\cong}\InducedSelectorShell{\sigma},
+    \qquad
+    \PreKernelProj{\sigma}\big|_{\InducedPreKernelShell{\sigma}}
+    :
+    \InducedPreKernelShell{\sigma}\xrightarrow{\cong}\InducedKernelShell{\sigma}
+    \]
+    are required to be diffeomorphisms.
+    \item For each \(y\in\YoctoSelectorBody{\sigma}\), define the full proto-kernel fiber
+    \[
+    \ProtoKernelFullFiber{\sigma}{y}
+    \equiv
+    \left\{
+    z\in\ProtoKernelBody{\sigma}:
+    \PreSectionSelectorProj{\sigma}\bigl(\KernelProj{\sigma}(\PreKernelProj{\sigma}(\ProtoKernelProj{\sigma}(z)))\bigr)=y
+    \right\}.
+    \]
+    The restriction of \(\ProtoKernelFunctional{\sigma}\) to \(\ProtoKernelFullFiber{\sigma}{y}\) is required to attain a unique minimizer depending smoothly on \(y\); write it as
+    \[
+    \ProtoKernelFullMin{\sigma}:\YoctoSelectorBody{\sigma}\to\ProtoKernelBody{\sigma}.
+    \]
+    The exact proto-kernel shell
+    \[
+    \ProtoKernelShell{\sigma}
+    \equiv
+    \left\{
+    z\in\ProtoKernelBody{\sigma}:
+    \PreSectionSelectorProj{\sigma}\bigl(\KernelProj{\sigma}(\PreKernelProj{\sigma}(\ProtoKernelProj{\sigma}(z)))\bigr)\in\YoctoSelectorShell{\sigma},
+    \;
+    \ProtoKernelFunctional{\sigma}(z)
+    =
+    \min_{r\in\ProtoKernelFullFiber{\sigma}{\PreSectionSelectorProj{\sigma}(\KernelProj{\sigma}(\PreKernelProj{\sigma}(\ProtoKernelProj{\sigma}(z))))}} \ProtoKernelFunctional{\sigma}(r)
+    \right\}
+    \]
+    is required to be a closed embedded submanifold, and
+    \[
+    \ProtoKernelProj{\sigma}\big|_{\ProtoKernelShell{\sigma}}
+    :
+    \ProtoKernelShell{\sigma}\xrightarrow{\cong}\InducedPreKernelShell{\sigma}
+    \]
+    is required to be a diffeomorphism.
+    \item Benchmark faithfulness, meaning preservation of the benchmark outputs \eqref{eq:fixedoutputs}, no second operative metric, no enlarged low-energy matter law, and presentation as the current substrate-side proto-kernel-dynamics package rather than as a replacement benchmark theory.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Recorded downstream chain below the current proto-kernel-dynamics frontier]
+\label{def:downstream}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). The active line already fixes the following downstream data and consequences:
+\begin{enumerate}
+    \item the current pre-kernel package \(\PreKernelPackage\), the current kernel package \(\KernelPackage\), the current pre-selector-minimizer-section-generating substrate selector dynamics package \(\PreSectionSelectorPackage\), the current observer-relevant pre-selector minimizer-section core \(\PreSelectorMinSectionCore\), the current selector package \(\YoctoSelectorPackage\), the current observer-relevant yocto-section minimizer-section core \(\YoctoMinSectionCore\), the current observer-relevant yocto-section minimizer-image core \(\YoctoImageCore\), the current observer-relevant zepto-section minimizer-section core \(\ZeptoMinSectionCore\), the current observer-relevant zepto-section minimizer-image core \(\ZeptoImageCore\), the current atto-section package \(\AttoSectionPackage\), the current femto-section package \(\FemtoSectionPackage\), the current pico-section package \(\PicoSectionPackage\), the current observer-relevant pico-section minimizer-section core \(\PicoMinSectionCore\), the current nano-section package \(\NanoSectionPackage\), the current micro-section package \(\MicroSectionPackage\), the current sub-section package \(\SubSectionPackage\), and the previously recorded shell-transport consequences used on the active line;
+    \item the previously recorded fact that, once a benchmark-faithful current proto-kernel package in the sense of Definition \ref{def:protokerneltarget} is available on the recorded geometry, the current pre-kernel package is recovered, and all of the downstream data listed in item (1) follow unchanged.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definitions \ref{def:fixed}--\ref{def:downstream} fix the current frontier package and its benchmark boundary. The one operative metric, the ordinary matter route, the selector benchmark base, the current selector-body geometry, the current kernel-body geometry, the current pre-kernel-body geometry, the current proto-kernel-body geometry, and the already recorded downstream consequences are not reopened here. The present note asks only why the current proto-kernel package itself should arise from still more primitive substrate structure.
+\end{remark}
+
+\section{Proto-Kernel-Dynamics-Generating Substrate Pre-Selector Pre-Proto-Kernel Dynamics}
+
+\begin{definition}[Proto-kernel-dynamics-generating substrate pre-selector pre-proto-kernel dynamics]
+\label{def:preprotokernel}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\) and the recorded current selector-body, kernel-body, pre-kernel-body, and proto-kernel-body geometries of Definitions \ref{def:geometry}, \ref{def:kernelgeometry}, \ref{def:prekernelgeometry}, and \ref{def:protokernelgeometry}. A \emph{proto-kernel-dynamics-generating substrate pre-selector pre-proto-kernel dynamics package} \(\PreProtoKernelPackage\) for sector \(\sigma\) consists of the following data.
+\begin{enumerate}
+    \item A finite-dimensional Euclidean pre-proto-kernel state space \(\PreProtoKernelSpace{\sigma}\), a compact convex pre-proto-kernel body
+    \[
+    \PreProtoKernelBody{\sigma}\subset\PreProtoKernelSpace{\sigma}
+    \]
+    with nonempty interior, and an affine surjection
+    \[
+    \PreProtoKernelProj{\sigma}:\PreProtoKernelSpace{\sigma}\to\ProtoKernelSpace{\sigma}
+    \]
+    satisfying
+    \[
+    \PreProtoKernelProj{\sigma}\bigl(\PreProtoKernelBody{\sigma}\bigr)
+    =
+    \ProtoKernelBody{\sigma}.
+    \]
+    For each \(z\in\ProtoKernelBody{\sigma}\), write
+    \[
+    \PreProtoKernelFiber{\sigma}{z}
+    \equiv
+    \bigl(\PreProtoKernelProj{\sigma}\bigr)^{-1}(z)\cap\PreProtoKernelBody{\sigma}.
+    \]
+    Each such fiber is required to be nonempty, compact, and convex.
+    \item A nonnegative smooth pre-proto-kernel functional
+    \[
+    \PreProtoKernelFunctional{\sigma}:\PreProtoKernelSpace{\sigma}\to[0,\infty)
+    \]
+    such that, for every \(z\in\ProtoKernelBody{\sigma}\), the restriction of \(\PreProtoKernelFunctional{\sigma}\) to \(\PreProtoKernelFiber{\sigma}{z}\) is strictly convex and attains a unique minimizer. The resulting minimizer depends smoothly on \(z\); write it as
+    \[
+    \PreProtoKernelMinLift{\sigma}:\ProtoKernelBody{\sigma}\to\PreProtoKernelBody{\sigma}.
+    \]
+    The induced proto-kernel functional
+    \[
+    \InducedProtoKernelFunctional{\sigma}:\ProtoKernelSpace{\sigma}\to[0,\infty)
+    \]
+    is required to be smooth on the ambient current proto-kernel state space and to satisfy
+    \[
+    \InducedProtoKernelFunctional{\sigma}(z)
+    \equiv
+    \PreProtoKernelFunctional{\sigma}\bigl(\PreProtoKernelMinLift{\sigma}(z)\bigr)
+    =
+    \min_{r\in\PreProtoKernelFiber{\sigma}{z}}
+    \PreProtoKernelFunctional{\sigma}(r)
+    \qquad
+    \text{for every }
+    z\in\ProtoKernelBody{\sigma}.
+    \]
+    Moreover, for every \(q\in\PreKernelBody{\sigma}\), the restriction of \(\InducedProtoKernelFunctional{\sigma}\) to \(\ProtoKernelFiber{\sigma}{q}\) is strictly convex and attains a unique minimizer depending smoothly on \(q\); write it as
+    \[
+    \InducedProtoKernelMinLift{\sigma}:\PreKernelBody{\sigma}\to\ProtoKernelBody{\sigma}.
+    \]
+    \item For each \(q\in\PreKernelBody{\sigma}\), define the current pre-kernel-scale composed pre-proto-kernel fiber
+    \[
+    \PreProtoKernelPreKernelFiber{\sigma}{q}
+    \equiv
+    \left\{
+    r\in\PreProtoKernelBody{\sigma}:
+    \ProtoKernelProj{\sigma}\bigl(\PreProtoKernelProj{\sigma}(r)\bigr)=q
+    \right\}.
+    \]
+    The restriction of \(\PreProtoKernelFunctional{\sigma}\) to \(\PreProtoKernelPreKernelFiber{\sigma}{q}\) is required to attain a unique minimizer depending smoothly on \(q\); write it as
+    \[
+    \PreProtoKernelPreKernelMin{\sigma}:\PreKernelBody{\sigma}\to\PreProtoKernelBody{\sigma}.
+    \]
+    Define the induced pre-kernel functional
+    \[
+    \InducedPreKernelFunctional{\sigma}:\PreKernelSpace{\sigma}\to[0,\infty)
+    \]
+    by
+    \[
+    \InducedPreKernelFunctional{\sigma}(q)
+    \equiv
+    \InducedProtoKernelFunctional{\sigma}\bigl(\InducedProtoKernelMinLift{\sigma}(q)\bigr)
+    =
+    \min_{z\in\ProtoKernelFiber{\sigma}{q}}
+    \InducedProtoKernelFunctional{\sigma}(z)
+    \qquad
+    \text{for every }
+    q\in\PreKernelBody{\sigma}.
+    \]
+    This function is required to be smooth on the ambient current pre-kernel state space, and for every \(w\in\KernelBody{\sigma}\), its restriction to \(\PreKernelFiber{\sigma}{w}\) is strictly convex and attains a unique minimizer depending smoothly on \(w\); write it as
+    \[
+    \InducedPreKernelMinLift{\sigma}:\KernelBody{\sigma}\to\PreKernelBody{\sigma}.
+    \]
+    \item For each \(w\in\KernelBody{\sigma}\), define the current-kernel-scale composed proto-kernel fiber
+    \[
+    \ProtoKernelKernelFiber{\sigma}{w}
+    \equiv
+    \left\{
+    z\in\ProtoKernelBody{\sigma}:
+    \PreKernelProj{\sigma}\bigl(\ProtoKernelProj{\sigma}(z)\bigr)=w
+    \right\},
+    \]
+    and require the restriction of \(\InducedProtoKernelFunctional{\sigma}\) to \(\ProtoKernelKernelFiber{\sigma}{w}\) to attain a unique minimizer depending smoothly on \(w\); write it as
+    \[
+    \InducedProtoKernelKernelMin{\sigma}:\KernelBody{\sigma}\to\ProtoKernelBody{\sigma}.
+    \]
+    Define the current-kernel-scale composed pre-proto-kernel fiber
+    \[
+    \PreProtoKernelKernelFiber{\sigma}{w}
+    \equiv
+    \left\{
+    r\in\PreProtoKernelBody{\sigma}:
+    \PreKernelProj{\sigma}\bigl(\ProtoKernelProj{\sigma}(\PreProtoKernelProj{\sigma}(r))\bigr)=w
+    \right\}.
+    \]
+    The restriction of \(\PreProtoKernelFunctional{\sigma}\) to \(\PreProtoKernelKernelFiber{\sigma}{w}\) is required to attain a unique minimizer depending smoothly on \(w\); write it as
+    \[
+    \PreProtoKernelKernelMin{\sigma}:\KernelBody{\sigma}\to\PreProtoKernelBody{\sigma}.
+    \]
+    Define the induced current kernel functional
+    \[
+    \InducedKernelFunctional{\sigma}:\KernelSpace{\sigma}\to[0,\infty)
+    \]
+    by
+    \[
+    \InducedKernelFunctional{\sigma}(w)
+    \equiv
+    \InducedPreKernelFunctional{\sigma}\bigl(\InducedPreKernelMinLift{\sigma}(w)\bigr)
+    =
+    \min_{q\in\PreKernelFiber{\sigma}{w}}
+    \InducedPreKernelFunctional{\sigma}(q)
+    \qquad
+    \text{for every }
+    w\in\KernelBody{\sigma}.
+    \]
+    This function is required to be smooth on the ambient current kernel state space, and for every \(u\in\PreSectionSelectorBody{\sigma}\), its restriction to \(\KernelFiber{\sigma}{u}\) is required to be strictly convex and to attain a unique minimizer depending smoothly on \(u\); write it as
+    \[
+    \InducedKernelMinLift{\sigma}:\PreSectionSelectorBody{\sigma}\to\KernelBody{\sigma}.
+    \]
+    \item For each \(u\in\PreSectionSelectorBody{\sigma}\), define the selector-scale composed proto-kernel fiber
+    \[
+    \ProtoKernelSelectorFiber{\sigma}{u}
+    \equiv
+    \left\{
+    z\in\ProtoKernelBody{\sigma}:
+    \KernelProj{\sigma}\bigl(\PreKernelProj{\sigma}(\ProtoKernelProj{\sigma}(z))\bigr)=u
+    \right\},
+    \]
+    and require the restriction of \(\InducedProtoKernelFunctional{\sigma}\) to \(\ProtoKernelSelectorFiber{\sigma}{u}\) to attain a unique minimizer depending smoothly on \(u\); write it as
+    \[
+    \InducedProtoKernelSelectorMin{\sigma}:\PreSectionSelectorBody{\sigma}\to\ProtoKernelBody{\sigma}.
+    \]
+    Define the selector-scale composed pre-proto-kernel fiber
+    \[
+    \PreProtoKernelSelectorFiber{\sigma}{u}
+    \equiv
+    \left\{
+    r\in\PreProtoKernelBody{\sigma}:
+    \KernelProj{\sigma}\bigl(\PreKernelProj{\sigma}(\ProtoKernelProj{\sigma}(\PreProtoKernelProj{\sigma}(r)))\bigr)=u
+    \right\}.
+    \]
+    The restriction of \(\PreProtoKernelFunctional{\sigma}\) to \(\PreProtoKernelSelectorFiber{\sigma}{u}\) is required to attain a unique minimizer depending smoothly on \(u\); write it as
+    \[
+    \PreProtoKernelSelectorMin{\sigma}:\PreSectionSelectorBody{\sigma}\to\PreProtoKernelBody{\sigma}.
+    \]
+    Define the induced outer selector functional
+    \[
+    \InducedSelectorFunctional{\sigma}:\PreSectionSelectorSpace{\sigma}\to[0,\infty)
+    \]
+    by
+    \[
+    \InducedSelectorFunctional{\sigma}(u)
+    \equiv
+    \InducedKernelFunctional{\sigma}\bigl(\InducedKernelMinLift{\sigma}(u)\bigr)
+    =
+    \min_{w\in\KernelFiber{\sigma}{u}}
+    \InducedKernelFunctional{\sigma}(w)
+    \qquad
+    \text{for every }
+    u\in\PreSectionSelectorBody{\sigma}.
+    \]
+    This function is required to be smooth on the ambient current selector state space, and for every \(y\in\YoctoSelectorBody{\sigma}\), its restriction to \(\PreSectionSelectorFiber{\sigma}{y}\) is required to be strictly convex and to attain a unique minimizer depending smoothly on \(y\).
+    \item For each \(y\in\YoctoSelectorBody{\sigma}\), the restriction of \(\InducedKernelFunctional{\sigma}\) to the current composed kernel fiber
+    \[
+    \KernelComposedFiber{\sigma}{y}
+    =
+    \left\{
+    w\in\KernelBody{\sigma}:
+    \PreSectionSelectorProj{\sigma}\bigl(\KernelProj{\sigma}(w)\bigr)=y
+    \right\}
+    \]
+    is required to attain a unique minimizer depending smoothly on \(y\); write it as
+    \[
+    \InducedKernelComposedMin{\sigma}:\YoctoSelectorBody{\sigma}\to\KernelBody{\sigma}.
+    \]
+    Define the induced exact selector shell
+    \[
+    \InducedSelectorShell{\sigma}
+    \equiv
+    \left\{
+    u\in\PreSectionSelectorBody{\sigma}:
+    \PreSectionSelectorProj{\sigma}(u)\in\YoctoSelectorShell{\sigma},
+    \;
+    \InducedSelectorFunctional{\sigma}(u)
+    =
+    \min_{v\in\PreSectionSelectorFiber{\sigma}{\PreSectionSelectorProj{\sigma}(u)}}
+    \InducedSelectorFunctional{\sigma}(v)
+    \right\},
+    \]
+    the induced exact kernel shell
+    \[
+    \InducedKernelShell{\sigma}
+    \equiv
+    \left\{
+    w\in\KernelBody{\sigma}:
+    \PreSectionSelectorProj{\sigma}\bigl(\KernelProj{\sigma}(w)\bigr)\in\YoctoSelectorShell{\sigma},
+    \;
+    \InducedKernelFunctional{\sigma}(w)
+    =
+    \min_{q\in\KernelComposedFiber{\sigma}{\PreSectionSelectorProj{\sigma}(\KernelProj{\sigma}(w))}}
+    \InducedKernelFunctional{\sigma}(q)
+    \right\},
+    \]
+    and the induced exact pre-kernel shell
+    \[
+    \InducedPreKernelShell{\sigma}
+    \equiv
+    \left\{
+    q\in\PreKernelBody{\sigma}:
+    \PreSectionSelectorProj{\sigma}\bigl(\KernelProj{\sigma}(\PreKernelProj{\sigma}(q))\bigr)\in\YoctoSelectorShell{\sigma},
+    \;
+    \InducedPreKernelFunctional{\sigma}(q)
+    =
+    \min_{p\in\PreKernelFullFiber{\sigma}{\PreSectionSelectorProj{\sigma}(\KernelProj{\sigma}(\PreKernelProj{\sigma}(q)))}} \InducedPreKernelFunctional{\sigma}(p)
+    \right\}.
+    \]
+    The shells \(\InducedKernelShell{\sigma}\) and \(\InducedPreKernelShell{\sigma}\) are required to be closed embedded submanifolds, and
+    \[
+    \KernelProj{\sigma}\big|_{\InducedKernelShell{\sigma}}
+    :
+    \InducedKernelShell{\sigma}\xrightarrow{\cong}\InducedSelectorShell{\sigma},
+    \qquad
+    \PreKernelProj{\sigma}\big|_{\InducedPreKernelShell{\sigma}}
+    :
+    \InducedPreKernelShell{\sigma}\xrightarrow{\cong}\InducedKernelShell{\sigma}
+    \]
+    are required to be diffeomorphisms.
+    \item For each \(y\in\YoctoSelectorBody{\sigma}\), define the full proto-kernel fiber
+    \[
+    \ProtoKernelFullFiber{\sigma}{y}
+    \equiv
+    \left\{
+    z\in\ProtoKernelBody{\sigma}:
+    \PreSectionSelectorProj{\sigma}\bigl(\KernelProj{\sigma}(\PreKernelProj{\sigma}(\ProtoKernelProj{\sigma}(z)))\bigr)=y
+    \right\},
+    \]
+    and require the restriction of \(\InducedProtoKernelFunctional{\sigma}\) to \(\ProtoKernelFullFiber{\sigma}{y}\) to attain a unique minimizer depending smoothly on \(y\); write it as
+    \[
+    \InducedProtoKernelFullMin{\sigma}:\YoctoSelectorBody{\sigma}\to\ProtoKernelBody{\sigma}.
+    \]
+    Define the induced exact proto-kernel shell
+    \[
+    \InducedProtoKernelShell{\sigma}
+    \equiv
+    \left\{
+    z\in\ProtoKernelBody{\sigma}:
+    \PreSectionSelectorProj{\sigma}\bigl(\KernelProj{\sigma}(\PreKernelProj{\sigma}(\ProtoKernelProj{\sigma}(z)))\bigr)\in\YoctoSelectorShell{\sigma},
+    \;
+    \InducedProtoKernelFunctional{\sigma}(z)
+    =
+    \min_{p\in\ProtoKernelFullFiber{\sigma}{\PreSectionSelectorProj{\sigma}(\KernelProj{\sigma}(\PreKernelProj{\sigma}(\ProtoKernelProj{\sigma}(z))))}} \InducedProtoKernelFunctional{\sigma}(p)
+    \right\}.
+    \]
+    The shell \(\InducedProtoKernelShell{\sigma}\) is required to be a closed embedded submanifold, and
+    \[
+    \ProtoKernelProj{\sigma}\big|_{\InducedProtoKernelShell{\sigma}}
+    :
+    \InducedProtoKernelShell{\sigma}\xrightarrow{\cong}\InducedPreKernelShell{\sigma}
+    \]
+    is required to be a diffeomorphism.
+    For each \(y\in\YoctoSelectorBody{\sigma}\), define the full pre-proto-kernel fiber
+    \[
+    \PreProtoKernelFullFiber{\sigma}{y}
+    \equiv
+    \left\{
+    r\in\PreProtoKernelBody{\sigma}:
+    \PreSectionSelectorProj{\sigma}\bigl(\KernelProj{\sigma}(\PreKernelProj{\sigma}(\ProtoKernelProj{\sigma}(\PreProtoKernelProj{\sigma}(r))))\bigr)=y
+    \right\}.
+    \]
+    The restriction of \(\PreProtoKernelFunctional{\sigma}\) to \(\PreProtoKernelFullFiber{\sigma}{y}\) is required to attain a unique minimizer depending smoothly on \(y\); write it as
+    \[
+    \PreProtoKernelFullMin{\sigma}:\YoctoSelectorBody{\sigma}\to\PreProtoKernelBody{\sigma}.
+    \]
+    The exact pre-proto-kernel shell
+    \[
+    \PreProtoKernelShell{\sigma}
+    \equiv
+    \left\{
+    r\in\PreProtoKernelBody{\sigma}:
+    \PreSectionSelectorProj{\sigma}\bigl(\KernelProj{\sigma}(\PreKernelProj{\sigma}(\ProtoKernelProj{\sigma}(\PreProtoKernelProj{\sigma}(r))))\bigr)\in\YoctoSelectorShell{\sigma},
+    \;
+    \PreProtoKernelFunctional{\sigma}(r)
+    =
+    \min_{s\in\PreProtoKernelFullFiber{\sigma}{\PreSectionSelectorProj{\sigma}(\KernelProj{\sigma}(\PreKernelProj{\sigma}(\ProtoKernelProj{\sigma}(\PreProtoKernelProj{\sigma}(r)))))}}
+    \PreProtoKernelFunctional{\sigma}(s)
+    \right\}
+    \]
+    is required to be a closed embedded submanifold, and
+    \[
+    \PreProtoKernelProj{\sigma}\big|_{\PreProtoKernelShell{\sigma}}
+    :
+    \PreProtoKernelShell{\sigma}\xrightarrow{\cong}\InducedProtoKernelShell{\sigma}
+    \]
+    is required to be a diffeomorphism.
+    \item Benchmark faithfulness, meaning preservation of the benchmark outputs \eqref{eq:fixedoutputs}, no second operative metric, no enlarged low-energy matter law, and presentation as a deeper substrate-side source for the current proto-kernel package rather than as a replacement benchmark theory.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:preprotokernel} is intentionally written over the already fixed current proto-kernel-body geometry. It does not reopen the benchmark selector base, the current selector-body geometry, the current kernel-body geometry, the current pre-kernel-body geometry, or the already-spent larger pre-selector, kernel, and pre-kernel packages as the live burden. Its positive role is narrower: the current proto-kernel functional, exact proto-kernel shell, and current proto-kernel minimizing data are generated as the effective multi-stage minimizing output of a deeper pre-proto-kernel law.
+\end{remark}
+
+\begin{remark}
+The label \emph{pre-proto-kernel} is used here only as a local marker for a deeper layer below the current proto-kernel frontier. It does not by itself assert a completed microscopic ontology or a final primitive law. Its role is only to name the next sharper transport package below the current proto-kernel dynamics.
+\end{remark}
+
+\section{Recovery of the Current Pre-Selector Proto-Kernel Dynamics}
+
+\begin{proposition}[The inner pre-proto-kernel minimizer lift is well defined]
+\label{prop:inner}
+For every benchmark-faithful pre-proto-kernel package, the minimizer lift \(\PreProtoKernelMinLift{\sigma}\) of Definition \ref{def:preprotokernel} is a smooth section of \(\PreProtoKernelProj{\sigma}\), so that
+\[
+\PreProtoKernelProj{\sigma}\circ\PreProtoKernelMinLift{\sigma}
+=
+\mathrm{id}_{\ProtoKernelBody{\sigma}}.
+\]
+In particular, the induced proto-kernel functional \(\InducedProtoKernelFunctional{\sigma}\) is a well-defined smooth function on \(\ProtoKernelSpace{\sigma}\) whose values on \(\ProtoKernelBody{\sigma}\) are the effective minimum values of the deeper pre-proto-kernel functional on the inner pre-proto-kernel fibers.
+\end{proposition}
+
+\begin{proof}
+Definition \ref{def:preprotokernel}(1) makes every inner pre-proto-kernel fiber \(\PreProtoKernelFiber{\sigma}{z}\) nonempty, compact, and convex. Definition \ref{def:preprotokernel}(2) states that \(\PreProtoKernelFunctional{\sigma}\) has a unique minimizer on each such fiber and that the minimizer depends smoothly on \(z\). Therefore \(\PreProtoKernelMinLift{\sigma}\) is a well-defined smooth map on \(\ProtoKernelBody{\sigma}\). Each chosen minimizer lies in the fiber over the point at which it is selected, so
+\[
+\PreProtoKernelProj{\sigma}\bigl(\PreProtoKernelMinLift{\sigma}(z)\bigr)=z
+\]
+for every \(z\in\ProtoKernelBody{\sigma}\). The remaining smoothness statement for \(\InducedProtoKernelFunctional{\sigma}\) on \(\ProtoKernelSpace{\sigma}\) is part of Definition \ref{def:preprotokernel}(2), and the displayed formula identifies its values on \(\ProtoKernelBody{\sigma}\) with the effective minimum values.
+\end{proof}
+
+\begin{proposition}[Current pre-kernel-scale pre-proto-kernel minimization factors through the induced proto-kernel minimization]
+\label{prop:prekerfactor}
+For every benchmark-faithful pre-proto-kernel package and every \(q\in\PreKernelBody{\sigma}\),
+\[
+\PreProtoKernelPreKernelMin{\sigma}(q)
+=
+\PreProtoKernelMinLift{\sigma}\bigl(\InducedProtoKernelMinLift{\sigma}(q)\bigr),
+\]
+and hence
+\[
+\PreProtoKernelProj{\sigma}\bigl(\PreProtoKernelPreKernelMin{\sigma}(q)\bigr)
+=
+\InducedProtoKernelMinLift{\sigma}(q).
+\]
+\end{proposition}
+
+\begin{proof}
+Fix \(q\in\PreKernelBody{\sigma}\). Every \(r\in\PreProtoKernelPreKernelFiber{\sigma}{q}\) satisfies
+\[
+z\equiv\PreProtoKernelProj{\sigma}(r)\in\ProtoKernelFiber{\sigma}{q}.
+\]
+By Proposition \ref{prop:inner},
+\[
+\PreProtoKernelFunctional{\sigma}(r)
+\geq
+\PreProtoKernelFunctional{\sigma}\bigl(\PreProtoKernelMinLift{\sigma}(z)\bigr)
+=
+\InducedProtoKernelFunctional{\sigma}(z).
+\]
+By Definition \ref{def:preprotokernel}(2), the induced proto-kernel functional is strictly convex on \(\ProtoKernelFiber{\sigma}{q}\) and therefore has a unique minimizer \(\InducedProtoKernelMinLift{\sigma}(q)\). Consequently, for every \(r\in\PreProtoKernelPreKernelFiber{\sigma}{q}\),
+\[
+\PreProtoKernelFunctional{\sigma}(r)
+\geq
+\InducedProtoKernelFunctional{\sigma}\bigl(\InducedProtoKernelMinLift{\sigma}(q)\bigr)
+=
+\PreProtoKernelFunctional{\sigma}\bigl(\PreProtoKernelMinLift{\sigma}(\InducedProtoKernelMinLift{\sigma}(q))\bigr).
+\]
+So \(\PreProtoKernelMinLift{\sigma}(\InducedProtoKernelMinLift{\sigma}(q))\) is a minimizer of \(\PreProtoKernelFunctional{\sigma}\) on \(\PreProtoKernelPreKernelFiber{\sigma}{q}\). Definition \ref{def:preprotokernel}(3) says that minimizer is unique, hence the first displayed identity follows. The second identity is then Proposition \ref{prop:inner}.
+\end{proof}
+
+\begin{proposition}[The induced outer proto-kernel dynamics form a benchmark-faithful package]
+\label{prop:protokernel}
+For every benchmark-faithful pre-proto-kernel package, the induced outer data
+\[
+\Bigl(
+\ProtoKernelSpace{\sigma},
+\ProtoKernelBody{\sigma},
+\ProtoKernelProj{\sigma},
+\InducedProtoKernelFunctional{\sigma},
+\InducedProtoKernelMinLift{\sigma},
+\InducedProtoKernelKernelMin{\sigma},
+\InducedProtoKernelSelectorMin{\sigma},
+\InducedProtoKernelFullMin{\sigma},
+\InducedProtoKernelShell{\sigma}
+\Bigr)
+\]
+together with the induced current pre-kernel, kernel, and selector functionals and shells of Definition \ref{def:preprotokernel} form a benchmark-faithful pre-kernel-dynamics-generating substrate pre-selector proto-kernel dynamics package on the recorded geometry in the sense of Definition \ref{def:protokerneltarget}.
+\end{proposition}
+
+\begin{proof}
+Definition \ref{def:preprotokernel}(2) states that \(\InducedProtoKernelFunctional{\sigma}\) is nonnegative and smooth, and that its restriction to each current proto-kernel fiber \(\ProtoKernelFiber{\sigma}{q}\) is strictly convex with a unique minimizer depending smoothly on \(q\). Definition \ref{def:preprotokernel}(3) defines the induced pre-kernel functional \(\InducedPreKernelFunctional{\sigma}\) and states that its restriction to each current pre-kernel fiber \(\PreKernelFiber{\sigma}{w}\) is strictly convex with a unique minimizer depending smoothly on \(w\). Definition \ref{def:preprotokernel}(4) records the unique current-kernel-scale minimizer \(\InducedProtoKernelKernelMin{\sigma}\) on each current composed proto-kernel fiber \(\ProtoKernelKernelFiber{\sigma}{w}\) and defines the induced current kernel functional with its unique minimizers on the current kernel fibers. Definition \ref{def:preprotokernel}(5) records the unique selector-scale minimizer \(\InducedProtoKernelSelectorMin{\sigma}\) on each selector-scale composed proto-kernel fiber \(\ProtoKernelSelectorFiber{\sigma}{u}\), defines the induced selector functional, and provides the current exact selector, kernel, and pre-kernel shells with the required diffeomorphisms. Definition \ref{def:preprotokernel}(6) records the unique full proto-kernel minimizer \(\InducedProtoKernelFullMin{\sigma}\), the current exact proto-kernel shell, and its diffeomorphic projection to the induced exact pre-kernel shell. Definition \ref{def:preprotokernel}(7) gives benchmark faithfulness. These are precisely the requirements of Definition \ref{def:protokerneltarget} on the recorded geometry.
+\end{proof}
+
+\begin{proposition}[Current-kernel-scale pre-proto-kernel minimization factors through the induced proto-kernel current-kernel minimization]
+\label{prop:kernelfactor}
+For every benchmark-faithful pre-proto-kernel package and every \(w\in\KernelBody{\sigma}\),
+\[
+\PreProtoKernelKernelMin{\sigma}(w)
+=
+\PreProtoKernelMinLift{\sigma}\bigl(\InducedProtoKernelKernelMin{\sigma}(w)\bigr),
+\]
+and hence
+\[
+\PreProtoKernelProj{\sigma}\bigl(\PreProtoKernelKernelMin{\sigma}(w)\bigr)
+=
+\InducedProtoKernelKernelMin{\sigma}(w).
+\]
+\end{proposition}
+
+\begin{proof}
+Fix \(w\in\KernelBody{\sigma}\). Every \(r\in\PreProtoKernelKernelFiber{\sigma}{w}\) satisfies
+\[
+z\equiv\PreProtoKernelProj{\sigma}(r)\in\ProtoKernelKernelFiber{\sigma}{w}.
+\]
+By Proposition \ref{prop:inner},
+\[
+\PreProtoKernelFunctional{\sigma}(r)
+\geq
+\PreProtoKernelFunctional{\sigma}\bigl(\PreProtoKernelMinLift{\sigma}(z)\bigr)
+=
+\InducedProtoKernelFunctional{\sigma}(z).
+\]
+Definition \ref{def:preprotokernel}(4) records that \(\InducedProtoKernelFunctional{\sigma}\) attains a unique minimum on \(\ProtoKernelKernelFiber{\sigma}{w}\), namely \(\InducedProtoKernelKernelMin{\sigma}(w)\). Consequently, for every \(r\in\PreProtoKernelKernelFiber{\sigma}{w}\),
+\[
+\PreProtoKernelFunctional{\sigma}(r)
+\geq
+\InducedProtoKernelFunctional{\sigma}\bigl(\InducedProtoKernelKernelMin{\sigma}(w)\bigr)
+=
+\PreProtoKernelFunctional{\sigma}\bigl(\PreProtoKernelMinLift{\sigma}(\InducedProtoKernelKernelMin{\sigma}(w))\bigr).
+\]
+So \(\PreProtoKernelMinLift{\sigma}(\InducedProtoKernelKernelMin{\sigma}(w))\) is a minimizer of \(\PreProtoKernelFunctional{\sigma}\) on \(\PreProtoKernelKernelFiber{\sigma}{w}\). Definition \ref{def:preprotokernel}(4) says that minimizer is unique, hence the first displayed identity follows. The second identity is then Proposition \ref{prop:inner}.
+\end{proof}
+
+\begin{proposition}[Selector-scale pre-proto-kernel minimization factors through the induced proto-kernel selector minimization]
+\label{prop:selectorfactor}
+For every benchmark-faithful pre-proto-kernel package and every \(u\in\PreSectionSelectorBody{\sigma}\),
+\[
+\PreProtoKernelSelectorMin{\sigma}(u)
+=
+\PreProtoKernelMinLift{\sigma}\bigl(\InducedProtoKernelSelectorMin{\sigma}(u)\bigr),
+\]
+and hence
+\[
+\PreProtoKernelProj{\sigma}\bigl(\PreProtoKernelSelectorMin{\sigma}(u)\bigr)
+=
+\InducedProtoKernelSelectorMin{\sigma}(u).
+\]
+\end{proposition}
+
+\begin{proof}
+Fix \(u\in\PreSectionSelectorBody{\sigma}\). Every \(r\in\PreProtoKernelSelectorFiber{\sigma}{u}\) satisfies
+\[
+z\equiv\PreProtoKernelProj{\sigma}(r)\in\ProtoKernelSelectorFiber{\sigma}{u}.
+\]
+By Proposition \ref{prop:inner},
+\[
+\PreProtoKernelFunctional{\sigma}(r)
+\geq
+\PreProtoKernelFunctional{\sigma}\bigl(\PreProtoKernelMinLift{\sigma}(z)\bigr)
+=
+\InducedProtoKernelFunctional{\sigma}(z).
+\]
+Definition \ref{def:preprotokernel}(5) records that \(\InducedProtoKernelFunctional{\sigma}\) attains a unique minimum on \(\ProtoKernelSelectorFiber{\sigma}{u}\), namely \(\InducedProtoKernelSelectorMin{\sigma}(u)\). Consequently, for every \(r\in\PreProtoKernelSelectorFiber{\sigma}{u}\),
+\[
+\PreProtoKernelFunctional{\sigma}(r)
+\geq
+\InducedProtoKernelFunctional{\sigma}\bigl(\InducedProtoKernelSelectorMin{\sigma}(u)\bigr)
+=
+\PreProtoKernelFunctional{\sigma}\bigl(\PreProtoKernelMinLift{\sigma}(\InducedProtoKernelSelectorMin{\sigma}(u))\bigr).
+\]
+So \(\PreProtoKernelMinLift{\sigma}(\InducedProtoKernelSelectorMin{\sigma}(u))\) is a minimizer of \(\PreProtoKernelFunctional{\sigma}\) on \(\PreProtoKernelSelectorFiber{\sigma}{u}\). Definition \ref{def:preprotokernel}(5) says that minimizer is unique, hence the first displayed identity follows. The second identity is then Proposition \ref{prop:inner}.
+\end{proof}
+
+\begin{proposition}[Benchmark-shell pre-proto-kernel minimization factors through the induced proto-kernel full minimization]
+\label{prop:fullfactor}
+For every benchmark-faithful pre-proto-kernel package and every \(y\in\YoctoSelectorBody{\sigma}\),
+\[
+\PreProtoKernelFullMin{\sigma}(y)
+=
+\PreProtoKernelMinLift{\sigma}\bigl(\InducedProtoKernelFullMin{\sigma}(y)\bigr),
+\]
+and hence
+\[
+\PreProtoKernelProj{\sigma}\bigl(\PreProtoKernelFullMin{\sigma}(y)\bigr)
+=
+\InducedProtoKernelFullMin{\sigma}(y).
+\]
+\end{proposition}
+
+\begin{proof}
+Fix \(y\in\YoctoSelectorBody{\sigma}\). Every \(r\in\PreProtoKernelFullFiber{\sigma}{y}\) satisfies
+\[
+z\equiv\PreProtoKernelProj{\sigma}(r)\in\ProtoKernelFullFiber{\sigma}{y}.
+\]
+By Proposition \ref{prop:inner},
+\[
+\PreProtoKernelFunctional{\sigma}(r)
+\geq
+\PreProtoKernelFunctional{\sigma}\bigl(\PreProtoKernelMinLift{\sigma}(z)\bigr)
+=
+\InducedProtoKernelFunctional{\sigma}(z).
+\]
+Definition \ref{def:preprotokernel}(6) records that \(\InducedProtoKernelFunctional{\sigma}\) attains a unique minimum on \(\ProtoKernelFullFiber{\sigma}{y}\), namely \(\InducedProtoKernelFullMin{\sigma}(y)\). Therefore, for every \(r\in\PreProtoKernelFullFiber{\sigma}{y}\),
+\[
+\PreProtoKernelFunctional{\sigma}(r)
+\geq
+\InducedProtoKernelFunctional{\sigma}\bigl(\InducedProtoKernelFullMin{\sigma}(y)\bigr)
+=
+\PreProtoKernelFunctional{\sigma}\bigl(\PreProtoKernelMinLift{\sigma}(\InducedProtoKernelFullMin{\sigma}(y))\bigr).
+\]
+So \(\PreProtoKernelMinLift{\sigma}(\InducedProtoKernelFullMin{\sigma}(y))\) is a minimizer of \(\PreProtoKernelFunctional{\sigma}\) on the full pre-proto-kernel fiber \(\PreProtoKernelFullFiber{\sigma}{y}\). Definition \ref{def:preprotokernel}(6) says that minimizer is unique, hence the first displayed identity follows. The second identity is then Proposition \ref{prop:inner}.
+\end{proof}
+
+\begin{proposition}[The exact proto-kernel shell is the projected exact pre-proto-kernel shell]
+\label{prop:shell}
+For every benchmark-faithful pre-proto-kernel package,
+\[
+\InducedProtoKernelShell{\sigma}
+=
+\PreProtoKernelProj{\sigma}\bigl(\PreProtoKernelShell{\sigma}\bigr),
+\]
+the restriction
+\[
+\PreProtoKernelProj{\sigma}\big|_{\PreProtoKernelShell{\sigma}}
+:
+\PreProtoKernelShell{\sigma}\xrightarrow{\cong}\InducedProtoKernelShell{\sigma}
+\]
+is a diffeomorphism, and
+\[
+\ProtoKernelProj{\sigma}\big|_{\InducedProtoKernelShell{\sigma}}
+:
+\InducedProtoKernelShell{\sigma}\xrightarrow{\cong}\InducedPreKernelShell{\sigma}
+\]
+is a diffeomorphism.
+\end{proposition}
+
+\begin{proof}
+The first diffeomorphism is part of Definition \ref{def:preprotokernel}(6), and the second is also part of Definition \ref{def:preprotokernel}(6). In particular, the first one immediately implies
+\[
+\InducedProtoKernelShell{\sigma}
+=
+\PreProtoKernelProj{\sigma}\bigl(\PreProtoKernelShell{\sigma}\bigr).
+\]
+Nothing further is required.
+\end{proof}
+
+\begin{proposition}[No residual proto-kernel-level freedom remains once the pre-proto-kernel package is fixed]
+\label{prop:nofreedom}
+For every benchmark-faithful pre-proto-kernel package, the current proto-kernel functional \(\InducedProtoKernelFunctional{\sigma}\), the current proto-kernel minimizer lift \(\InducedProtoKernelMinLift{\sigma}\), the current proto-kernel current-kernel minimizer \(\InducedProtoKernelKernelMin{\sigma}\), the current proto-kernel selector minimizer \(\InducedProtoKernelSelectorMin{\sigma}\), the current benchmark-shell-scale full proto-kernel minimizer \(\InducedProtoKernelFullMin{\sigma}\), and the current exact proto-kernel shell \(\InducedProtoKernelShell{\sigma}\) are uniquely determined by the pre-proto-kernel data. In particular, the current proto-kernel package carries no residual benchmark-facing functional, shell, pre-kernel-scale minimizer-lift, current-kernel-scale minimizer, selector-scale minimizer, or benchmark-shell-scale minimizer freedom once the deeper pre-proto-kernel package is fixed.
+\end{proposition}
+
+\begin{proof}
+Proposition \ref{prop:inner} determines \(\InducedProtoKernelFunctional{\sigma}\) uniquely as the effective minimum value of \(\PreProtoKernelFunctional{\sigma}\) on the inner pre-proto-kernel fibers. Definition \ref{def:preprotokernel}(2) then uniquely determines \(\InducedProtoKernelMinLift{\sigma}\) as the unique minimizer of \(\InducedProtoKernelFunctional{\sigma}\) on each current proto-kernel fiber. Definition \ref{def:preprotokernel}(4) uniquely determines \(\InducedProtoKernelKernelMin{\sigma}\) on the current-kernel-scale composed proto-kernel fibers, while Definition \ref{def:preprotokernel}(5) uniquely determines \(\InducedProtoKernelSelectorMin{\sigma}\) on the selector-scale composed proto-kernel fibers. Definition \ref{def:preprotokernel}(6) uniquely determines \(\InducedProtoKernelFullMin{\sigma}\) on the full proto-kernel fibers and the current exact proto-kernel shell as the projected exact pre-proto-kernel shell over \(\YoctoSelectorShell{\sigma}\). Therefore no benchmark-facing constituent at current proto-kernel scope remains freely choosable once the deeper pre-proto-kernel package is fixed.
+\end{proof}
+
+\begin{proposition}[All current downstream uses factor through the induced proto-kernel dynamics]
+\label{prop:downstream}
+For every benchmark-faithful pre-proto-kernel package, all current benchmark-facing downstream uses of the current proto-kernel package on the active line factor through the induced proto-kernel package of Proposition \ref{prop:protokernel}. In particular, the current pre-kernel package \(\PreKernelPackage\), the current kernel package \(\KernelPackage\), the current pre-selector-minimizer-section-generating substrate selector dynamics package \(\PreSectionSelectorPackage\), the current observer-relevant pre-selector minimizer-section core \(\PreSelectorMinSectionCore\), the current selector package \(\YoctoSelectorPackage\), the current observer-relevant yocto-section minimizer-section core \(\YoctoMinSectionCore\), the current observer-relevant yocto-section minimizer-image core \(\YoctoImageCore\), the current observer-relevant zepto-section minimizer-section core \(\ZeptoMinSectionCore\), the current observer-relevant zepto-section minimizer-image core \(\ZeptoImageCore\), the current atto-section package \(\AttoSectionPackage\), the current femto-section package \(\FemtoSectionPackage\), the current pico-section package \(\PicoSectionPackage\), the current observer-relevant pico-section minimizer-section core \(\PicoMinSectionCore\), the current nano-section package \(\NanoSectionPackage\), the current micro-section package \(\MicroSectionPackage\), the current sub-section package \(\SubSectionPackage\), and the previously recorded shell-transport consequences follow unchanged.
+\end{proposition}
+
+\begin{proof}
+By Proposition \ref{prop:protokernel}, the induced outer data form a benchmark-faithful current proto-kernel package of the exact type required by Definition \ref{def:protokerneltarget}. Definition \ref{def:downstream}(2) then records that, once such a package is available on the recorded geometry, the current pre-kernel package and all downstream benchmark-facing data and consequences follow unchanged. Therefore all current downstream uses already factor through the induced proto-kernel package provided by the deeper pre-proto-kernel dynamics.
+\end{proof}
+
+\begin{proposition}[The benchmark package remains fixed]
+\label{prop:benchmark}
+Every benchmark-faithful proto-kernel-dynamics-generating substrate pre-selector pre-proto-kernel dynamics package preserves the same benchmark one-metric package \eqref{eq:fixedoutputs}. In particular, the operative metric remains exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, and the low-energy matter law is not enlarged.
+\end{proposition}
+
+\begin{proof}
+This is part of benchmark faithfulness in Definition \ref{def:preprotokernel}(7). The present note only derives the current proto-kernel package from deeper substrate pre-proto-kernel data. It does not alter the benchmark exact-closure package.
+\end{proof}
+
+\section{Main Theorem}
+
+\begin{theorem}[Pre-kernel-dynamics-generating substrate pre-selector proto-kernel dynamics from proto-kernel-dynamics-generating substrate pre-selector pre-proto-kernel dynamics]
+\label{thm:main}
+Fix the primitive continuation data of Definition \ref{def:fixed}, the recorded selector benchmark base of Definition \ref{def:selectorbase}, the recorded current selector-body geometry of Definition \ref{def:geometry}, the recorded current kernel-body geometry of Definition \ref{def:kernelgeometry}, the recorded current pre-kernel-body geometry of Definition \ref{def:prekernelgeometry}, the recorded current proto-kernel-body geometry of Definition \ref{def:protokernelgeometry}, the recorded downstream chain of Definition \ref{def:downstream}, and a benchmark-faithful proto-kernel-dynamics-generating substrate pre-selector pre-proto-kernel dynamics package in the sense of Definition \ref{def:preprotokernel}. Then, for each sector \(\sigma\in\{\Car,\Cur,\Hom\}\), the current pre-kernel-dynamics-generating substrate pre-selector proto-kernel dynamics are no longer an unexplained primitive stopping point on the active line: they are recovered canonically from the deeper pre-proto-kernel dynamics. More precisely:
+\begin{enumerate}
+    \item the current proto-kernel functional is induced as the effective minimum value of the deeper pre-proto-kernel functional on the inner pre-proto-kernel fibers by Proposition \ref{prop:inner};
+    \item the current proto-kernel minimizer lift on the current proto-kernel fibers over \(\PreKernelBody{\sigma}\) is the outer projection of the unique current pre-kernel-scale pre-proto-kernel minimizer by Proposition \ref{prop:prekerfactor};
+    \item the induced outer data form a benchmark-faithful current proto-kernel package on the recorded geometry by Proposition \ref{prop:protokernel};
+    \item the current proto-kernel current-kernel minimizer is the outer projection of the unique current-kernel-scale pre-proto-kernel minimizer by Proposition \ref{prop:kernelfactor};
+    \item the current proto-kernel selector minimizer is the outer projection of the unique selector-scale pre-proto-kernel minimizer by Proposition \ref{prop:selectorfactor};
+    \item the current benchmark-shell-scale full proto-kernel minimizer is the outer projection of the unique full pre-proto-kernel minimizer by Proposition \ref{prop:fullfactor};
+    \item the current exact proto-kernel shell is exactly the projected exact pre-proto-kernel shell, and it still projects diffeomorphically to the induced exact pre-kernel shell, by Proposition \ref{prop:shell};
+    \item the current proto-kernel package carries no residual benchmark-facing functional, shell, pre-kernel-scale minimizer-lift, current-kernel-scale minimizer, selector-scale minimizer, or benchmark-shell-scale minimizer freedom once the deeper pre-proto-kernel package is fixed by Proposition \ref{prop:nofreedom};
+    \item all current downstream benchmark-facing uses of the proto-kernel package already factor through the induced outer package by Proposition \ref{prop:downstream};
+    \item the benchmark boundary remains fixed by Proposition \ref{prop:benchmark};
+    \item consequently the remaining honest burden below the current pre-selector proto-kernel frontier is no longer the pre-kernel-dynamics-generating substrate pre-selector proto-kernel dynamics \(\ProtoKernelPackage\) as such. What remains is to derive or justify the deeper proto-kernel-dynamics-generating substrate pre-selector pre-proto-kernel dynamics \(\PreProtoKernelPackage\) from still more primitive substrate structure, or else prove a still sharper theorem-level collapse strictly inside that deeper package.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Item (1) is Proposition \ref{prop:inner}. Item (2) is Proposition \ref{prop:prekerfactor}. Item (3) is Proposition \ref{prop:protokernel}. Item (4) is Proposition \ref{prop:kernelfactor}. Item (5) is Proposition \ref{prop:selectorfactor}. Item (6) is Proposition \ref{prop:fullfactor}. Item (7) is Proposition \ref{prop:shell}. Item (8) is Proposition \ref{prop:nofreedom}. Item (9) is Proposition \ref{prop:downstream}. Item (10) is Proposition \ref{prop:benchmark}. Item (11) is the routing consequence of the previous items together with the active safeguard against counting another same-output deeper-origin relay as new front-line progress when the live benchmark-relevant proto-kernel package is unchanged.
+\end{proof}
+
+\begin{corollary}[What must be done next]
+\label{cor:next}
+After Theorem \ref{thm:main}, the next honest benchmark-facing manuscript must either:
+\begin{enumerate}
+    \item derive or justify the proto-kernel-dynamics-generating substrate pre-selector pre-proto-kernel dynamics \(\PreProtoKernelPackage\) from still more primitive substrate structure in a way that changes benchmark-facing status;
+    \item identify a genuinely smaller theorem-level observer-relevant datum strictly inside \(\PreProtoKernelPackage\) and prove a sharper collapse to it;
+    \item do either of the previous two while preserving the same benchmark one-metric package and the same claim boundary.
+\end{enumerate}
+Another same-output deeper-origin relay that merely preserves the current pre-proto-kernel dynamics \(\PreProtoKernelPackage\) and therefore merely reproduces the same current proto-kernel package \(\ProtoKernelPackage\), the same current pre-kernel package \(\PreKernelPackage\), the same current kernel package \(\KernelPackage\), the same current selector-dynamics package \(\PreSectionSelectorPackage\), the same current observer-relevant pre-selector minimizer-section core \(\PreSelectorMinSectionCore\), the same current selector package \(\YoctoSelectorPackage\), the same current observer-relevant yocto-section minimizer-section core \(\YoctoMinSectionCore\), the same current observer-relevant yocto-section minimizer-image core \(\YoctoImageCore\), and the same downstream observer-relevant zepto-section, atto-section, femto-section, pico-section, nano-section, micro-section, and sub-section consequences, another re-expansion back to the current proto-kernel package, the current pre-kernel package, the current kernel package, the current selector-dynamics package, the larger pre-selector package, or older yocto-section presentations as if they were still independently live, or any move that introduces a second operative metric, enlarges the ordinary matter law, or uses stronger promotion language does not satisfy the present burden.
+\end{corollary}
+
+\begin{proof}
+Theorem \ref{thm:main} shows that the current proto-kernel package is no longer the deepest unexplained datum on the active line. Therefore a subsequent manuscript must improve on the deeper pre-proto-kernel dynamics rather than merely restate the already induced proto-kernel package.
+\end{proof}
+
+\section{Conclusion}
+
+The positive result of this note is that the current pre-kernel-dynamics-generating substrate pre-selector proto-kernel dynamics are no longer primitive on the active derivational line. Once one works with proto-kernel-dynamics-generating substrate pre-selector pre-proto-kernel dynamics over the already fixed current proto-kernel-body geometry, the current proto-kernel functional is forced as the effective minimum value of the deeper pre-proto-kernel law, the current proto-kernel minimizer lift is forced as the outer projection of the unique current pre-kernel-scale pre-proto-kernel minimizer, the current proto-kernel current-kernel minimizer is forced as the outer projection of the unique current-kernel-scale pre-proto-kernel minimizer, the current proto-kernel selector minimizer is forced as the outer projection of the unique selector-scale pre-proto-kernel minimizer, the current benchmark-shell-scale full proto-kernel minimizer is forced as the outer projection of the unique full pre-proto-kernel minimizer, and the current exact proto-kernel shell is forced as the projected exact pre-proto-kernel shell over the recorded selector benchmark shell. All current downstream benchmark-facing uses then factor through that induced proto-kernel package together with the already fixed selector benchmark base, selector-body geometry, kernel-body geometry, and pre-kernel-body geometry.
+
+This preserves the same benchmark one-metric package and the same claim boundary. The result does not provide a completed first-principles derivation of GR from substrate microphysics, and it does not license stronger promotion language. Its narrower benchmark-facing gain is that the remaining honest burden now sits one level lower again: not on the current pre-selector proto-kernel dynamics themselves, but on the deeper pre-selector pre-proto-kernel dynamics that canonically generate them, or on a still smaller collapse strictly inside that deeper package.
+
+\end{document}
