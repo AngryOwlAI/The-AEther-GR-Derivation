@@ -1,0 +1,569 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+
+\newcommand{\CompletedMetric}{g^{\sharp}}
+\newcommand{\MatterSpace}{\Psi}
+
+\newcommand{\Car}{\mathrm{car}}
+\newcommand{\Cur}{\mathrm{cur}}
+\newcommand{\Hom}{\mathrm{hom}}
+
+\newcommand{\ForSpace}[1]{\mathcal I_{#1}^{\mathrm{for}}}
+\newcommand{\PrimShell}{\mathcal S_{\mathrm{prim}}}
+\newcommand{\MetricOut}{\mathscr G_{\mathrm{out}}}
+\newcommand{\MatterOut}{\mathscr T_{\mathrm{out}}}
+
+\newcommand{\SubSectionPackage}{\mathfrak V^{\mathrm{subsec}}}
+\newcommand{\MicroSectionPackage}{\mathfrak W^{\mathrm{microsec}}}
+\newcommand{\NanoSectionPackage}{\mathfrak X^{\mathrm{nanosec}}}
+\newcommand{\PicoSectionPackage}{\mathfrak Y^{\mathrm{picosec}}}
+\newcommand{\PicoMinSectionCore}{\mathfrak Y^{\mathrm{pic,sec}}}
+\newcommand{\FemtoSectionPackage}{\mathfrak Z^{\mathrm{femtosec}}}
+\newcommand{\AttoSectionPackage}{\mathfrak A^{\mathrm{attosec}}}
+\newcommand{\ZeptoSectionPackage}{\mathfrak B^{\mathrm{zeptosec}}}
+\newcommand{\ZeptoImageCore}{\mathfrak B^{\mathrm{zep,img}}}
+\newcommand{\ZeptoMinSectionCore}{\mathfrak B^{\mathrm{zep,sec}}}
+
+\newcommand{\ZeptoSectionSpace}[1]{\mathcal U_{#1}^{\mathrm{zeptosec}}}
+\newcommand{\ZeptoSectionBody}[1]{\mathcal B_{#1}^{\mathrm{zeptosec}}}
+\newcommand{\ZeptoSectionFunctional}[1]{\mathscr U_{#1}^{\mathrm{zeptosec}}}
+\newcommand{\ZeptoSectionShell}[1]{\mathcal Z_{#1}^{\mathrm{zeptosec}}}
+
+\newcommand{\YoctoImageCore}{\mathfrak C^{\mathrm{yoc,img}}}
+\newcommand{\YoctoMinSectionCore}{\mathfrak C^{\mathrm{yoc,sec}}}
+
+\newcommand{\YoctoSelectorPackage}{\mathfrak C^{\mathrm{yoc,sel}}}
+\newcommand{\YoctoSelectorSpace}[1]{\mathcal D_{#1}^{\mathrm{yoc,sel}}}
+\newcommand{\YoctoSelectorBody}[1]{\mathcal B_{#1}^{\mathrm{yoc,sel}}}
+\newcommand{\YoctoSelectorFunctional}[1]{\mathscr L_{#1}^{\mathrm{yoc,sel}}}
+\newcommand{\YoctoSelectorShell}[1]{\mathcal Z_{#1}^{\mathrm{yoc,sel}}}
+
+\newcommand{\PreSelectorPackage}{\mathfrak D^{\mathrm{presel}}}
+\newcommand{\PreSelectorSpace}[1]{\mathcal E_{#1}^{\mathrm{presel}}}
+\newcommand{\PreSelectorBody}[1]{\mathcal B_{#1}^{\mathrm{presel}}}
+\newcommand{\PreSelectorProj}[1]{\Pi_{#1}^{\mathrm{presel}}}
+\newcommand{\PreSelectorFiber}[2]{\mathcal F_{#1}^{\mathrm{presel}}(#2)}
+\newcommand{\PreSelectorFunctional}[1]{\mathscr P_{#1}^{\mathrm{presel}}}
+\newcommand{\PreSelectorSelectorMin}[1]{\mathfrak p_{#1}^{\mathrm{presel,sel}}}
+\newcommand{\PreSelectorShell}[1]{\mathcal Z_{#1}^{\mathrm{presel}}}
+
+\newcommand{\PreSelectorMinSectionCore}{\mathfrak D^{\mathrm{presel,sec}}}
+\newcommand{\PreSelectorMinSection}[1]{\mathfrak d_{#1}^{\mathrm{presel,sec}}}
+\newcommand{\PreSelectorImgBody}[1]{\mathcal B_{#1}^{\mathrm{presel,img}}}
+\newcommand{\PreSelectorImgProj}[1]{\Pi_{#1}^{\mathrm{presel,img}}}
+\newcommand{\PreSelectorImgFunctional}[1]{\mathscr I_{#1}^{\mathrm{presel,img}}}
+\newcommand{\PreSelectorImgShell}[1]{\mathcal Z_{#1}^{\mathrm{presel,img}}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Primitive-Reservoir Observer-Reduction\\
+\large Selector-Generating Substrate Pre-Selector Dynamics\\
+\large Collapse to an Observer-Relevant Pre-Selector Minimizer-Section Core}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The current primitive-reservoir observer-reduction frontier already moved the live burden below the current yocto-section-minimizer-section-generating substrate selector dynamics package \(\YoctoSelectorPackage\): the active theorem derived that selector package canonically from a deeper selector-generating substrate pre-selector dynamics package \(\PreSelectorPackage\). Under the recorded safeguard against recursive depth drift, however, the next honest move at that level is not another same-output deeper-origin relay that merely preserves the same pre-selector package. The sharper benchmark-facing question is whether the full recorded pre-selector package still carries benchmark-neutral presentational freedom once the induced selector package is treated as fixed.
+
+The present note proves that it does. Relative to the already fixed selector body, selector functional, and exact selector shell, the only independent pre-selector datum still carried by the current package is the canonical minimizer section over the recorded selector body. The minimizer-image body is exactly the image of that section, the restricted projection is its inverse, the exact-shell image is its shell restriction, and the restricted pre-selector functional on that image is canonically induced from the recorded selector functional along the same section. Separate listing of those image-level constituents therefore does not add independent benchmark-facing freedom.
+
+The benchmark boundary remains fixed throughout. The one operative metric is still exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, the low-energy matter law is not enlarged, and no stronger promotion language is licensed. The positive result is therefore a genuinely smaller theorem-level collapse strictly inside the current pre-selector package: the live burden now contracts to an observer-relevant pre-selector minimizer-section core \(\PreSelectorMinSectionCore\). What remains open is to derive or justify that sharper core from still more primitive substrate structure, or else prove a still smaller collapse strictly inside it.
+\end{abstract}
+
+\section{Introduction}
+
+The active derivational program of \TheoryName{} again reaches a stage where depth alone is not enough. The current active-primary theorem already showed that the full selector-generating substrate pre-selector dynamics package \(\PreSelectorPackage\) is not the primitive stopping point at present scope, because the live selector package \(\YoctoSelectorPackage\) is recovered there canonically from it. After that step, another deeper-origin relay that merely preserves the same pre-selector package is no longer the honest default move.
+
+That theorem also exposes the next honest question. Inside the pre-selector package itself, what is genuinely independent observer-relevant data, and what is merely presentational bookkeeping once the recorded selector body, selector functional, and exact selector shell are already fixed? The present note takes the sharper internal-collapse route rather than another same-output deeper relay. It shows that the pre-selector image body, the restricted projection, the shell image, and the restricted pre-selector functional on that image are not independent pieces at current scope. They are all recovered from a single canonical minimizer section over the recorded selector body.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not introduce a second operative metric, it does not enlarge the low-energy matter law, and it does not reopen the already-spent yocto-section minimizer-section-core, yocto-section minimizer-image-core, or full yocto-section presentations as if they were again the live burden. Its narrower benchmark-facing role is to isolate the only remaining independent datum still carried by the current pre-selector package itself.
+
+\section{Fixed Inputs}
+
+\begin{definition}[Recorded primitive continuation data]
+\label{def:fixed}
+Fix the following continuation data from the active primitive-reservoir observer-reduction line.
+\begin{enumerate}
+    \item For each sector label \(\sigma\in\{\Car,\Cur,\Hom\}\), a primitive forcing shell
+    \[
+    \ForSpace{\sigma}.
+    \]
+    \item The product shell
+    \[
+    \PrimShell
+    \equiv
+    \ForSpace{\Car}\times \ForSpace{\Cur}\times \ForSpace{\Hom}.
+    \]
+    \item The recorded metric and ordinary-matter outputs
+    \[
+    \MetricOut:\PrimShell\to\{\text{observer metrics}\},
+    \qquad
+    \MatterOut:\PrimShell\times\MatterSpace\to\{\text{observer stress tensors}\},
+    \]
+    satisfying
+    \begin{equation}
+    \MetricOut(\mathbf w)=\CompletedMetric,
+    \qquad
+    \MatterOut(\mathbf w,\psi)
+    =
+    T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
+    \label{eq:fixedoutputs}
+    \end{equation}
+    for every \(\mathbf w\in\PrimShell\) and every matter configuration \(\psi\in\MatterSpace\).
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Recorded selector benchmark base]
+\label{def:selectorbase}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). The active line already fixes the following benchmark-facing selector data:
+\begin{enumerate}
+    \item a finite-dimensional Euclidean selector state space
+    \[
+    \YoctoSelectorSpace{\sigma};
+    \]
+    \item a compact convex selector body
+    \[
+    \YoctoSelectorBody{\sigma}\subset\YoctoSelectorSpace{\sigma}
+    \]
+    with nonempty interior;
+    \item a nonnegative smooth selector functional
+    \[
+    \YoctoSelectorFunctional{\sigma}:\YoctoSelectorSpace{\sigma}\to[0,\infty);
+    \]
+    \item a closed embedded exact selector shell
+    \[
+    \YoctoSelectorShell{\sigma}\subset\YoctoSelectorBody{\sigma};
+    \]
+    \item benchmark faithfulness, meaning preservation of the benchmark outputs \eqref{eq:fixedoutputs}, no second operative metric, no enlarged low-energy matter law, and use of this selector base as already fixed upstream data on the active line.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Recorded downstream chain below the pre-selector frontier]
+\label{def:downstream}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). The active line already fixes the following downstream data and consequences:
+\begin{enumerate}
+    \item the current observer-relevant yocto-section minimizer-section core \(\YoctoMinSectionCore\), the current observer-relevant yocto-section minimizer-image core \(\YoctoImageCore\), the current observer-relevant zepto-section minimizer-section core \(\ZeptoMinSectionCore\), the current observer-relevant zepto-section minimizer-image core \(\ZeptoImageCore\), the current atto-section package \(\AttoSectionPackage\), the current femto-section package \(\FemtoSectionPackage\), the current pico-section package \(\PicoSectionPackage\), the current observer-relevant pico-section minimizer-section core \(\PicoMinSectionCore\), the current nano-section package \(\NanoSectionPackage\), the current micro-section package \(\MicroSectionPackage\), the current sub-section package \(\SubSectionPackage\), and the previously recorded shell-transport consequences used on the active line;
+    \item the previously recorded fact that, once the current selector package \(\YoctoSelectorPackage\) is available, the current observer-relevant yocto-section minimizer-section core \(\YoctoMinSectionCore\), the current observer-relevant yocto-section minimizer-image core \(\YoctoImageCore\), and all of the downstream data listed in item (1) follow unchanged.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Recorded selector-generating substrate pre-selector dynamics]
+\label{def:presel}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). The recorded current pre-selector dynamics package \(\PreSelectorPackage\) for sector \(\sigma\) consists of the following data.
+\begin{enumerate}
+    \item A finite-dimensional Euclidean pre-selector state space \(\PreSelectorSpace{\sigma}\), a compact convex pre-selector body
+    \[
+    \PreSelectorBody{\sigma}\subset\PreSelectorSpace{\sigma}
+    \]
+    with nonempty interior, and an affine surjection
+    \[
+    \PreSelectorProj{\sigma}:\PreSelectorSpace{\sigma}\to\YoctoSelectorSpace{\sigma}
+    \]
+    satisfying
+    \[
+    \PreSelectorProj{\sigma}\bigl(\PreSelectorBody{\sigma}\bigr)=\YoctoSelectorBody{\sigma}.
+    \]
+    For each \(y\in\YoctoSelectorBody{\sigma}\), write
+    \[
+    \PreSelectorFiber{\sigma}{y}
+    \equiv
+    \bigl(\PreSelectorProj{\sigma}\bigr)^{-1}(y)\cap\PreSelectorBody{\sigma}.
+    \]
+    Each such fiber is required to be nonempty, compact, and convex.
+    \item A nonnegative smooth pre-selector functional
+    \[
+    \PreSelectorFunctional{\sigma}:\PreSelectorSpace{\sigma}\to[0,\infty)
+    \]
+    such that, for every \(y\in\YoctoSelectorBody{\sigma}\), the restriction of \(\PreSelectorFunctional{\sigma}\) to \(\PreSelectorFiber{\sigma}{y}\) is strictly convex and attains a unique minimizer. The resulting minimizer depends smoothly on \(y\); write it as
+    \[
+    \PreSelectorSelectorMin{\sigma}:\YoctoSelectorBody{\sigma}\to\PreSelectorBody{\sigma}.
+    \]
+    These data satisfy
+    \[
+    \PreSelectorProj{\sigma}\circ\PreSelectorSelectorMin{\sigma}
+    =
+    \mathrm{id}_{\YoctoSelectorBody{\sigma}},
+    \]
+    and the effective minimum value recovers the recorded selector functional:
+    \[
+    \YoctoSelectorFunctional{\sigma}(y)
+    =
+    \PreSelectorFunctional{\sigma}\bigl(\PreSelectorSelectorMin{\sigma}(y)\bigr)
+    =
+    \min_{u\in\PreSelectorFiber{\sigma}{y}}
+    \PreSelectorFunctional{\sigma}(u)
+    \qquad
+    \text{for every }
+    y\in\YoctoSelectorBody{\sigma}.
+    \]
+    \item A closed embedded exact pre-selector shell
+    \[
+    \PreSelectorShell{\sigma}\subset\PreSelectorBody{\sigma}
+    \]
+    satisfying
+    \[
+    \PreSelectorShell{\sigma}
+    =
+    \left\{
+    u\in\PreSelectorBody{\sigma}:
+    \begin{array}{l}
+    \PreSelectorProj{\sigma}(u)\in\YoctoSelectorShell{\sigma},\\[0.2em]
+    \PreSelectorFunctional{\sigma}(u)
+    =
+    \displaystyle\min_{v\in\PreSelectorFiber{\sigma}{\PreSelectorProj{\sigma}(u)}}
+    \PreSelectorFunctional{\sigma}(v)
+    \end{array}
+    \right\},
+    \]
+    and
+    \[
+    \PreSelectorProj{\sigma}\big|_{\PreSelectorShell{\sigma}}
+    :
+    \PreSelectorShell{\sigma}\xrightarrow{\cong}\YoctoSelectorShell{\sigma}
+    \]
+    is a diffeomorphism.
+    \item Benchmark faithfulness, meaning preservation of the benchmark outputs \eqref{eq:fixedoutputs}, no second operative metric, no enlarged low-energy matter law, and presentation as a deeper substrate-side source for the current selector package rather than as a replacement benchmark theory.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definitions \ref{def:selectorbase} and \ref{def:presel} fix the current frontier package. The previous active-primary theorem already showed that benchmark-facingly relevant selector data factor through the deeper pre-selector package. The present note asks the sharper next question: once the selector benchmark base is already fixed, what still survives as independent benchmark-facing pre-selector data?
+\end{remark}
+
+\section{Observer-Relevant Pre-Selector Minimizer-Section Core}
+
+\begin{definition}[Observer-relevant pre-selector minimizer-section core]
+\label{def:sectioncore}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\) and a benchmark-faithful pre-selector package in the sense of Definition \ref{def:presel}. The \emph{observer-relevant pre-selector minimizer-section core} \(\PreSelectorMinSectionCore\) for sector \(\sigma\) consists of:
+\begin{enumerate}
+    \item the canonical minimizer section
+    \[
+    \PreSelectorMinSection{\sigma}
+    \equiv
+    \PreSelectorSelectorMin{\sigma}
+    :
+    \YoctoSelectorBody{\sigma}\to\PreSelectorBody{\sigma};
+    \]
+    \item benchmark faithfulness in the sense of Definition \ref{def:presel}(4).
+\end{enumerate}
+The image body
+\[
+\PreSelectorImgBody{\sigma}
+\equiv
+\PreSelectorMinSection{\sigma}\bigl(\YoctoSelectorBody{\sigma}\bigr),
+\]
+the shell restriction
+\[
+\PreSelectorMinSection{\sigma}\big|_{\YoctoSelectorShell{\sigma}}
+:
+\YoctoSelectorShell{\sigma}\to\PreSelectorShell{\sigma},
+\]
+the inverse projection on that image, and the restricted pre-selector functional induced there are understood as derived data rather than separately listed core data.
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:sectioncore} is strictly smaller than Definition \ref{def:presel} at current scope. Once the recorded selector body, selector functional, and exact selector shell are fixed, the pre-selector image body, restricted projection, shell image, and restricted functional on that image are all recovered from the single canonical minimizer section.
+\end{remark}
+
+\section{Collapse of the Current Pre-Selector Package}
+
+\begin{proposition}[The canonical minimizer section is well defined]
+\label{prop:section}
+For every benchmark-faithful pre-selector package, the map \(\PreSelectorMinSection{\sigma}\) of Definition \ref{def:sectioncore} is a smooth section of \(\PreSelectorProj{\sigma}\), so that
+\[
+\PreSelectorProj{\sigma}\circ\PreSelectorMinSection{\sigma}
+=
+\mathrm{id}_{\YoctoSelectorBody{\sigma}}.
+\]
+\end{proposition}
+
+\begin{proof}
+Definition \ref{def:presel}(1) makes each fiber \(\PreSelectorFiber{\sigma}{y}\) nonempty, compact, and convex. Definition \ref{def:presel}(2) states that \(\PreSelectorFunctional{\sigma}\) has a unique minimizer on each such fiber and that the minimizer depends smoothly on \(y\). Definition \ref{def:presel}(2) therefore gives a well-defined smooth map
+\[
+\PreSelectorMinSection{\sigma}:\YoctoSelectorBody{\sigma}\to\PreSelectorBody{\sigma}.
+\]
+Because every minimizer lies in the fiber over the point at which it is selected, we have
+\[
+\PreSelectorProj{\sigma}\bigl(\PreSelectorMinSection{\sigma}(y)\bigr)=y
+\]
+for every \(y\in\YoctoSelectorBody{\sigma}\), which is the displayed identity.
+\end{proof}
+
+\begin{proposition}[The canonical minimizer section reconstructs the image body and projection]
+\label{prop:reconstructbody}
+For every benchmark-faithful pre-selector package,
+\[
+\PreSelectorImgBody{\sigma}
+=
+\PreSelectorMinSection{\sigma}\bigl(\YoctoSelectorBody{\sigma}\bigr),
+\]
+and the restricted projection
+\[
+\PreSelectorImgProj{\sigma}
+\equiv
+\PreSelectorProj{\sigma}\big|_{\PreSelectorImgBody{\sigma}}
+:
+\PreSelectorImgBody{\sigma}\to\YoctoSelectorBody{\sigma}
+\]
+is a homeomorphism with inverse \(\PreSelectorMinSection{\sigma}\).
+\end{proposition}
+
+\begin{proof}
+The displayed identity is Definition \ref{def:sectioncore}. By Proposition \ref{prop:section},
+\[
+\PreSelectorProj{\sigma}\circ\PreSelectorMinSection{\sigma}
+=
+\mathrm{id}_{\YoctoSelectorBody{\sigma}}.
+\]
+Restricting \(\PreSelectorProj{\sigma}\) to \(\PreSelectorImgBody{\sigma}\) yields
+\[
+\PreSelectorImgProj{\sigma}\circ\PreSelectorMinSection{\sigma}
+=
+\mathrm{id}_{\YoctoSelectorBody{\sigma}}.
+\]
+Conversely, every \(u\in\PreSelectorImgBody{\sigma}\) has the form
+\[
+u=\PreSelectorMinSection{\sigma}(y)
+\qquad
+\text{for some }
+y\in\YoctoSelectorBody{\sigma}.
+\]
+Hence
+\[
+\PreSelectorMinSection{\sigma}\bigl(\PreSelectorImgProj{\sigma}(u)\bigr)
+=
+\PreSelectorMinSection{\sigma}\bigl(\PreSelectorProj{\sigma}(u)\bigr)
+=
+\PreSelectorMinSection{\sigma}\bigl(\PreSelectorProj{\sigma}(\PreSelectorMinSection{\sigma}(y))\bigr)
+=
+\PreSelectorMinSection{\sigma}(y)
+=
+u.
+\]
+Therefore \(\PreSelectorImgProj{\sigma}\) and \(\PreSelectorMinSection{\sigma}\) are mutually inverse continuous maps, so the restricted projection is a homeomorphism with inverse \(\PreSelectorMinSection{\sigma}\).
+\end{proof}
+
+\begin{proposition}[The canonical minimizer section reconstructs the restricted functional]
+\label{prop:reconstructfunctional}
+For every benchmark-faithful pre-selector package, the restricted pre-selector functional on the minimizer image is recovered from the canonical minimizer section and the fixed selector functional by
+\[
+\PreSelectorImgFunctional{\sigma}\bigl(\PreSelectorMinSection{\sigma}(y)\bigr)
+=
+\YoctoSelectorFunctional{\sigma}(y)
+\qquad
+\text{for every }y\in\YoctoSelectorBody{\sigma},
+\]
+where
+\[
+\PreSelectorImgFunctional{\sigma}
+\equiv
+\PreSelectorFunctional{\sigma}\big|_{\PreSelectorImgBody{\sigma}}.
+\]
+Equivalently,
+\[
+\PreSelectorImgFunctional{\sigma}(u)
+=
+\YoctoSelectorFunctional{\sigma}\bigl((\PreSelectorMinSection{\sigma})^{-1}(u)\bigr)
+\qquad
+\text{for every }u\in\PreSelectorImgBody{\sigma}.
+\]
+\end{proposition}
+
+\begin{proof}
+By definition of \(\PreSelectorImgFunctional{\sigma}\),
+\[
+\PreSelectorImgFunctional{\sigma}\bigl(\PreSelectorMinSection{\sigma}(y)\bigr)
+=
+\PreSelectorFunctional{\sigma}\bigl(\PreSelectorSelectorMin{\sigma}(y)\bigr).
+\]
+Definition \ref{def:presel}(2) then gives
+\[
+\PreSelectorFunctional{\sigma}\bigl(\PreSelectorSelectorMin{\sigma}(y)\bigr)
+=
+\YoctoSelectorFunctional{\sigma}(y)
+\]
+for every \(y\in\YoctoSelectorBody{\sigma}\). This proves the first displayed identity. The equivalent formula on \(\PreSelectorImgBody{\sigma}\) follows from Proposition \ref{prop:reconstructbody}, which shows that every \(u\in\PreSelectorImgBody{\sigma}\) has the unique form \(u=\PreSelectorMinSection{\sigma}(y)\).
+\end{proof}
+
+\begin{proposition}[The shell image is exactly the shell restriction of the canonical minimizer section]
+\label{prop:reconstructshell}
+For every benchmark-faithful pre-selector package, if
+\[
+\PreSelectorImgShell{\sigma}
+\equiv
+\PreSelectorMinSection{\sigma}\bigl(\YoctoSelectorShell{\sigma}\bigr),
+\]
+then
+\[
+\PreSelectorImgShell{\sigma}
+\subset
+\PreSelectorShell{\sigma},
+\]
+and the shell restriction
+\[
+\PreSelectorMinSection{\sigma}\big|_{\YoctoSelectorShell{\sigma}}
+:
+\YoctoSelectorShell{\sigma}\xrightarrow{\cong}\PreSelectorImgShell{\sigma}
+\]
+is a diffeomorphism with inverse
+\[
+\PreSelectorImgProj{\sigma}\big|_{\PreSelectorImgShell{\sigma}}
+:
+\PreSelectorImgShell{\sigma}\xrightarrow{\cong}\YoctoSelectorShell{\sigma}.
+\]
+\end{proposition}
+
+\begin{proof}
+By Definition \ref{def:presel}(3),
+\[
+\PreSelectorProj{\sigma}\big|_{\PreSelectorShell{\sigma}}
+:
+\PreSelectorShell{\sigma}\xrightarrow{\cong}\YoctoSelectorShell{\sigma}
+\]
+is a diffeomorphism, and
+\[
+\PreSelectorMinSection{\sigma}\bigl(\YoctoSelectorShell{\sigma}\bigr)
+\subset
+\PreSelectorShell{\sigma}.
+\]
+Restricting the shell diffeomorphism to \(\PreSelectorImgShell{\sigma}\) gives
+\[
+\PreSelectorImgProj{\sigma}\big|_{\PreSelectorImgShell{\sigma}}
+\circ
+\PreSelectorMinSection{\sigma}\big|_{\YoctoSelectorShell{\sigma}}
+=
+\mathrm{id}_{\YoctoSelectorShell{\sigma}}.
+\]
+Conversely, if \(u\in\PreSelectorImgShell{\sigma}\), then \(u=\PreSelectorMinSection{\sigma}(y)\) for some \(y\in\YoctoSelectorShell{\sigma}\), so
+\[
+\PreSelectorMinSection{\sigma}\bigl(\PreSelectorImgProj{\sigma}(u)\bigr)
+=
+u.
+\]
+Thus the shell restriction of the canonical minimizer section and the restricted shell projection are inverse diffeomorphisms.
+\end{proof}
+
+\begin{proposition}[The pre-selector image-level presentation is reconstructed from the section core]
+\label{prop:reconstructimage}
+For every benchmark-faithful pre-selector package, the pre-selector image-level presentation consisting of the image body \(\PreSelectorImgBody{\sigma}\), the restricted projection \(\PreSelectorImgProj{\sigma}\), the restricted functional \(\PreSelectorImgFunctional{\sigma}\), and the shell image \(\PreSelectorImgShell{\sigma}\) is reconstructed from the smaller minimizer-section core \(\PreSelectorMinSectionCore\) together with the fixed selector body \(\YoctoSelectorBody{\sigma}\), selector functional \(\YoctoSelectorFunctional{\sigma}\), and exact selector shell \(\YoctoSelectorShell{\sigma}\).
+\end{proposition}
+
+\begin{proof}
+By Proposition \ref{prop:reconstructbody}, the image body is the image of the canonical minimizer section and the restricted projection is its inverse. By Proposition \ref{prop:reconstructfunctional}, the restricted pre-selector functional on that image is uniquely determined by the canonical minimizer section together with the fixed selector functional. By Proposition \ref{prop:reconstructshell}, the shell image is exactly the shell restriction of that same section. Benchmark faithfulness is already part of Definition \ref{def:sectioncore}(2). Therefore each listed image-level constituent is recovered from Definition \ref{def:sectioncore} plus the fixed selector data.
+\end{proof}
+
+\begin{proposition}[All current benchmark-facing uses factor through the section core]
+\label{prop:downstream}
+For every benchmark-faithful pre-selector package, all current benchmark-facing uses of the pre-selector package \(\PreSelectorPackage\) on the active line factor through the minimizer-section core \(\PreSelectorMinSectionCore\) together with the fixed selector data. In particular, the recovery of the current selector package \(\YoctoSelectorPackage\), the current observer-relevant yocto-section minimizer-section core \(\YoctoMinSectionCore\), the current observer-relevant yocto-section minimizer-image core \(\YoctoImageCore\), the current observer-relevant zepto-section minimizer-section core \(\ZeptoMinSectionCore\), the current observer-relevant zepto-section minimizer-image core \(\ZeptoImageCore\), the current atto-section package \(\AttoSectionPackage\), the current femto-section package \(\FemtoSectionPackage\), the current pico-section package \(\PicoSectionPackage\), the current observer-relevant pico-section minimizer-section core \(\PicoMinSectionCore\), the current nano-section package \(\NanoSectionPackage\), the current micro-section package \(\MicroSectionPackage\), the current sub-section package \(\SubSectionPackage\), and the previously recorded shell-transport consequences does not require the separate ambient pre-selector presentation once the section core is fixed.
+\end{proposition}
+
+\begin{proof}
+Proposition \ref{prop:reconstructimage} reconstructs the entire image-level pre-selector presentation from the section core and the fixed selector body, functional, and shell. Definition \ref{def:presel}(2)--(3) records that the current selector package is recovered from precisely that minimizer image, its induced restricted functional, and its exact shell transport over the fixed selector body. Definition \ref{def:downstream}(2) then records that, once the current selector package is available, the current observer-relevant yocto-section minimizer-section core \(\YoctoMinSectionCore\), the current observer-relevant yocto-section minimizer-image core \(\YoctoImageCore\), and all downstream data listed in Definition \ref{def:downstream}(1) follow unchanged. Therefore every current benchmark-facing use of \(\PreSelectorPackage\) factors through \(\PreSelectorMinSectionCore\) together with the fixed selector data, and the separate ambient pre-selector presentation is not needed to recover the recorded downstream consequences.
+\end{proof}
+
+\begin{proposition}[Separate full pre-selector presentation is benchmark neutral at current scope]
+\label{prop:neutral}
+For every benchmark-faithful pre-selector package, the separate presentation of the ambient pre-selector state space \(\PreSelectorSpace{\sigma}\), the off-image body directions
+\[
+\PreSelectorBody{\sigma}\setminus\PreSelectorImgBody{\sigma},
+\]
+the full pre-selector shell outside the image shell, and the unrestricted pre-selector functional away from the minimizer image does not add independent benchmark-facing freedom beyond the minimizer-section core \(\PreSelectorMinSectionCore\).
+\end{proposition}
+
+\begin{proof}
+By Proposition \ref{prop:reconstructimage}, the image body, restricted projection, restricted functional, and shell image are reconstructed from the canonical minimizer section together with the fixed selector data. By Proposition \ref{prop:downstream}, all current benchmark-facing uses of the pre-selector package already factor through that reconstructed data. Therefore the larger ambient pre-selector presentation does not supply additional benchmark-facing information beyond the smaller minimizer-section core.
+\end{proof}
+
+\begin{proposition}[The benchmark package remains fixed]
+\label{prop:benchmark}
+Every observer-relevant pre-selector minimizer-section core preserves the same benchmark one-metric package \eqref{eq:fixedoutputs}. In particular, the operative metric remains exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, and the low-energy matter law is not enlarged.
+\end{proposition}
+
+\begin{proof}
+This is part of benchmark faithfulness in Definition \ref{def:sectioncore}(2). The present note only removes presentational redundancy inside the current pre-selector package. It does not alter the benchmark exact-closure package.
+\end{proof}
+
+\section{Main Theorem}
+
+\begin{theorem}[Selector-generating substrate pre-selector dynamics collapse to an observer-relevant pre-selector minimizer-section core]
+\label{thm:main}
+Fix the primitive continuation data of Definition \ref{def:fixed}, the recorded selector benchmark base of Definition \ref{def:selectorbase}, the recorded downstream chain of Definition \ref{def:downstream}, and a benchmark-faithful pre-selector package in the sense of Definition \ref{def:presel}. Then, for each sector \(\sigma\in\{\Car,\Cur,\Hom\}\), the live benchmark-facing burden inside the current pre-selector frontier collapses from the full selector-generating substrate pre-selector dynamics package \(\PreSelectorPackage\) to the smaller observer-relevant pre-selector minimizer-section core \(\PreSelectorMinSectionCore\). More precisely:
+\begin{enumerate}
+    \item the canonical minimizer section over the fixed selector body is well defined by Proposition \ref{prop:section};
+    \item the image body and restricted projection are reconstructed from that section by Proposition \ref{prop:reconstructbody};
+    \item the restricted pre-selector functional on the minimizer image is reconstructed from the same section together with the fixed selector functional by Proposition \ref{prop:reconstructfunctional};
+    \item the exact shell image is exactly the shell restriction of that section by Proposition \ref{prop:reconstructshell};
+    \item the full pre-selector image-level presentation is therefore recovered from the section core and the fixed selector data by Proposition \ref{prop:reconstructimage};
+    \item all current benchmark-facing uses of the pre-selector package factor through the section core by Proposition \ref{prop:downstream};
+    \item the separate full pre-selector presentation adds no independent benchmark-facing freedom beyond the section core by Proposition \ref{prop:neutral};
+    \item the benchmark boundary remains fixed by Proposition \ref{prop:benchmark};
+    \item consequently the remaining honest burden below the previous pre-selector frontier is no longer the full selector-generating substrate pre-selector dynamics package \(\PreSelectorPackage\) as such. What remains is to derive or justify the sharper minimizer-section core \(\PreSelectorMinSectionCore\) from still more primitive substrate structure, or else prove a still smaller theorem-level collapse strictly inside that section core.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Item (1) is Proposition \ref{prop:section}. Item (2) is Proposition \ref{prop:reconstructbody}. Item (3) is Proposition \ref{prop:reconstructfunctional}. Item (4) is Proposition \ref{prop:reconstructshell}. Item (5) is Proposition \ref{prop:reconstructimage}. Item (6) is Proposition \ref{prop:downstream}. Item (7) is Proposition \ref{prop:neutral}. Item (8) is Proposition \ref{prop:benchmark}. Item (9) is the routing consequence of the previous items together with the active safeguard against counting another same-output deeper-origin relay as new front-line progress when the live benchmark-relevant datum is unchanged.
+\end{proof}
+
+\begin{corollary}[What must be done next]
+\label{cor:next}
+After Theorem \ref{thm:main}, the next honest benchmark-facing manuscript must either:
+\begin{enumerate}
+    \item derive or justify the observer-relevant pre-selector minimizer-section core \(\PreSelectorMinSectionCore\) from still more primitive substrate structure in a way that changes benchmark-facing status;
+    \item identify a genuinely smaller theorem-level observer-relevant datum strictly inside \(\PreSelectorMinSectionCore\) and prove a sharper collapse to it;
+    \item do either of the previous two while preserving the same benchmark one-metric package and the same claim boundary.
+\end{enumerate}
+Another same-output deeper-origin relay that preserves this section core and therefore merely reproduces the same current pre-selector package \(\PreSelectorPackage\), the same current selector package \(\YoctoSelectorPackage\), the same current observer-relevant yocto-section minimizer-section core \(\YoctoMinSectionCore\), the same current observer-relevant yocto-section minimizer-image core \(\YoctoImageCore\), the same current observer-relevant zepto-section minimizer-section core \(\ZeptoMinSectionCore\), the same current observer-relevant zepto-section minimizer-image core \(\ZeptoImageCore\), and the same downstream observer-relevant atto-section, femto-section, pico-section, nano-section, micro-section, and sub-section consequences, another re-expansion back to the larger pre-selector image-level presentation or full pre-selector presentation as if those recovered constituents were still independently live, another reopening of the already-spent yocto-section core layers as if they were again the active burden, or any move that introduces a second operative metric, enlarges the ordinary matter law, or uses stronger promotion language does not satisfy the present burden. If a quantum continuation is pursued, it matters benchmark-facingly only insofar as it derives this same section core, collapses it further, or closes a benchmark derivation gate in a genuinely new way.
+\end{corollary}
+
+\begin{proof}
+Theorem \ref{thm:main} shows that the separate full pre-selector package is no longer the minimal benchmark-facing datum at this stage. Therefore a subsequent manuscript must improve on the smaller section core rather than merely restating the larger pre-selector presentation.
+\end{proof}
+
+\section{Conclusion}
+
+The positive result of this note is that the current selector-generating substrate pre-selector dynamics are not the minimal live datum on the active derivational line. Once one keeps the selector benchmark base fixed, the only independent pre-selector datum still required at benchmark-facing scope is the canonical minimizer section over the recorded selector body. The minimizer-image body is its image, the restricted projection is its inverse, the exact-shell image is its shell restriction, and the restricted pre-selector functional on that image is transported from the recorded selector functional along the same section. The larger ambient pre-selector presentation therefore does not add independent benchmark-facing freedom.
+
+This preserves the same benchmark one-metric package and the same claim boundary. The result does not provide a completed first-principles derivation of GR from substrate microphysics, and it does not license stronger promotion language. Its narrower benchmark-facing gain is that the remaining honest burden now contracts again: not to the full pre-selector package, but to the smaller observer-relevant pre-selector minimizer-section core that still must be derived or justified from deeper substrate structure, or collapsed further if an even sharper honest datum can be isolated.
+
+\end{document}
