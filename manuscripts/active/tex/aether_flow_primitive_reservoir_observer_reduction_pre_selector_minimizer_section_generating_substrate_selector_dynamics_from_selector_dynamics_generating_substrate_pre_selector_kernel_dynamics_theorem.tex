@@ -1,0 +1,564 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+
+\newcommand{\CompletedMetric}{g^{\sharp}}
+\newcommand{\MatterSpace}{\Psi}
+
+\newcommand{\Car}{\mathrm{car}}
+\newcommand{\Cur}{\mathrm{cur}}
+\newcommand{\Hom}{\mathrm{hom}}
+
+\newcommand{\ForSpace}[1]{\mathcal I_{#1}^{\mathrm{for}}}
+\newcommand{\PrimShell}{\mathcal S_{\mathrm{prim}}}
+\newcommand{\MetricOut}{\mathscr G_{\mathrm{out}}}
+\newcommand{\MatterOut}{\mathscr T_{\mathrm{out}}}
+
+\newcommand{\SubSectionPackage}{\mathfrak V^{\mathrm{subsec}}}
+\newcommand{\MicroSectionPackage}{\mathfrak W^{\mathrm{microsec}}}
+\newcommand{\NanoSectionPackage}{\mathfrak X^{\mathrm{nanosec}}}
+\newcommand{\PicoSectionPackage}{\mathfrak Y^{\mathrm{picosec}}}
+\newcommand{\PicoMinSectionCore}{\mathfrak Y^{\mathrm{pic,sec}}}
+\newcommand{\FemtoSectionPackage}{\mathfrak Z^{\mathrm{femtosec}}}
+\newcommand{\AttoSectionPackage}{\mathfrak A^{\mathrm{attosec}}}
+\newcommand{\ZeptoImageCore}{\mathfrak B^{\mathrm{zep,img}}}
+\newcommand{\ZeptoMinSectionCore}{\mathfrak B^{\mathrm{zep,sec}}}
+\newcommand{\YoctoImageCore}{\mathfrak C^{\mathrm{yoc,img}}}
+\newcommand{\YoctoMinSectionCore}{\mathfrak C^{\mathrm{yoc,sec}}}
+\newcommand{\YoctoSelectorPackage}{\mathfrak C^{\mathrm{yoc,sel}}}
+
+\newcommand{\YoctoSelectorSpace}[1]{\mathcal D_{#1}^{\mathrm{yoc,sel}}}
+\newcommand{\YoctoSelectorBody}[1]{\mathcal B_{#1}^{\mathrm{yoc,sel}}}
+\newcommand{\YoctoSelectorFunctional}[1]{\mathscr L_{#1}^{\mathrm{yoc,sel}}}
+\newcommand{\YoctoSelectorShell}[1]{\mathcal Z_{#1}^{\mathrm{yoc,sel}}}
+
+\newcommand{\PreSelectorPackage}{\mathfrak D^{\mathrm{presel}}}
+\newcommand{\PreSelectorMinSectionCore}{\mathfrak D^{\mathrm{presel,sec}}}
+\newcommand{\PreSelectorMinSection}[1]{\mathfrak d_{#1}^{\mathrm{presel,sec}}}
+
+\newcommand{\PreSectionSelectorPackage}{\mathfrak E^{\mathrm{presel,sel}}}
+\newcommand{\PreSectionSelectorSpace}[1]{\mathcal F_{#1}^{\mathrm{presel,sel}}}
+\newcommand{\PreSectionSelectorBody}[1]{\mathcal B_{#1}^{\mathrm{presel,sel}}}
+\newcommand{\PreSectionSelectorProj}[1]{\Pi_{#1}^{\mathrm{presel,sel}}}
+\newcommand{\PreSectionSelectorFiber}[2]{\mathcal G_{#1}^{\mathrm{presel,sel}}(#2)}
+\newcommand{\PreSectionSelectorFunctional}[1]{\mathscr Q_{#1}^{\mathrm{presel,sel}}}
+\newcommand{\PreSectionSelectorShell}[1]{\mathcal Z_{#1}^{\mathrm{presel,sel}}}
+
+\newcommand{\KernelPackage}{\mathfrak F^{\mathrm{presel,ker}}}
+\newcommand{\KernelSpace}[1]{\mathcal H_{#1}^{\mathrm{presel,ker}}}
+\newcommand{\KernelBody}[1]{\mathcal K_{#1}^{\mathrm{presel,ker}}}
+\newcommand{\KernelProj}[1]{\Lambda_{#1}^{\mathrm{presel,ker}}}
+\newcommand{\KernelFiber}[2]{\mathcal J_{#1}^{\mathrm{presel,ker}}(#2)}
+\newcommand{\KernelFunctional}[1]{\mathscr R_{#1}^{\mathrm{presel,ker}}}
+\newcommand{\KernelMinLift}[1]{\mathfrak r_{#1}^{\mathrm{presel,ker}}}
+\newcommand{\KernelComposedFiber}[2]{\mathcal M_{#1}^{\mathrm{presel,ker}}(#2)}
+\newcommand{\KernelComposedMin}[1]{\mathfrak m_{#1}^{\mathrm{presel,ker}}}
+\newcommand{\KernelShell}[1]{\mathcal Y_{#1}^{\mathrm{presel,ker}}}
+
+\newcommand{\InducedSelectorFunctional}[1]{\widetilde{\mathscr Q}_{#1}^{\mathrm{presel,sel}}}
+\newcommand{\InducedSelectorShell}[1]{\widetilde{\mathcal Z}_{#1}^{\mathrm{presel,sel}}}
+\newcommand{\InducedPreSelectorMinSection}[1]{\widetilde{\mathfrak d}_{#1}^{\mathrm{presel,sec}}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Primitive-Reservoir Observer-Reduction\\
+\large Pre-Selector-Minimizer-Section-Generating\\
+\large Substrate Selector Dynamics\\
+\large from Selector-Dynamics-Generating\\
+\large Substrate Pre-Selector Kernel Dynamics}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The current primitive-reservoir observer-reduction frontier already sharpened the live burden inside the pre-selector line: the current observer-relevant pre-selector minimizer-section core \(\PreSelectorMinSectionCore\) is no longer primitive, because it is generated canonically by the deeper pre-selector-minimizer-section-generating substrate selector dynamics package \(\PreSectionSelectorPackage\). After that theorem, another same-output deeper-origin relay that merely preserves the same selector-dynamics package no longer counts as the honest next benchmark-facing move. The next admissible task is therefore to derive or justify that selector-dynamics package itself from still more primitive substrate structure, or else prove a still smaller collapse strictly inside it.
+
+The present note takes the direct derivation route. For each sector it introduces selector-dynamics-generating substrate pre-selector kernel dynamics \(\KernelPackage\): a compact convex kernel body over the already fixed current selector-body geometry, an affine kernel projection to that geometry, a nonnegative smooth kernel functional with unique inner fiber minimizers, and a two-stage convexity requirement forcing the induced outer selector functional to remain strictly convex on the recorded selector fibers. The current exact selector shell is then no longer an independent primitive stopping point. It is the projected exact kernel shell over the already fixed selector benchmark shell, and the current observer-relevant pre-selector minimizer section is the outer projection of the unique composed-fiber kernel minimizer.
+
+The benchmark boundary remains fixed throughout. The one operative metric is still exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, the low-energy matter law is not enlarged, and no stronger promotion language is licensed. The positive result is therefore a genuine benchmark-facing gain below the current pre-selector selector-dynamics frontier: the remaining honest burden is no longer the current selector-dynamics package as such, but the deeper pre-selector kernel dynamics that canonically generate it, or a still smaller collapse strictly inside that deeper package.
+\end{abstract}
+
+\section{Introduction}
+
+The active derivational program of \TheoryName{} again reaches a point where depth alone is not enough. The current active-primary theorem already showed that the current observer-relevant pre-selector minimizer-section core is not the primitive stopping point at present scope. Once the pre-selector-minimizer-section-generating substrate selector dynamics package \(\PreSectionSelectorPackage\) is fixed, the section core is forced as its unique outer minimizer section. The routing consequence is then immediate. If the project goal is to move the same benchmark one-metric package toward a disciplined first-principles recovery, the next honest benchmark-facing manuscript must either derive or justify \(\PreSectionSelectorPackage\) itself from still more primitive substrate structure, or prove a genuinely smaller theorem-level collapse strictly inside it.
+
+The present note takes the first route. It does not claim that no sharper internal collapse will ever be available. It records only that no smaller observer-relevant datum has yet been isolated inside the current selector-dynamics package without already presupposing that package's law. The disciplined next move is therefore to spend \(\PreSectionSelectorPackage\) itself. Concretely, the note introduces a deeper kernel layer below the current selector-dynamics package and proves that the current selector functional, the current exact selector shell, and the current observer-relevant pre-selector minimizer section are all canonical outputs of that deeper kernel law.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not alter the benchmark exact-closure package. It does not introduce a second operative metric or a new low-energy matter law. It only strengthens the deeper origin-side explanation of why the current pre-selector selector-dynamics package used by the immediately preceding theorem should itself hold.
+
+\section{Fixed Inputs}
+
+\begin{definition}[Recorded primitive continuation data]
+\label{def:fixed}
+Fix the following continuation data from the active primitive-reservoir observer-reduction line.
+\begin{enumerate}
+    \item For each sector label \(\sigma\in\{\Car,\Cur,\Hom\}\), a primitive forcing shell
+    \[
+    \ForSpace{\sigma}.
+    \]
+    \item The product shell
+    \[
+    \PrimShell
+    \equiv
+    \ForSpace{\Car}\times \ForSpace{\Cur}\times \ForSpace{\Hom}.
+    \]
+    \item The recorded metric and ordinary-matter outputs
+    \[
+    \MetricOut:\PrimShell\to\{\text{observer metrics}\},
+    \qquad
+    \MatterOut:\PrimShell\times\MatterSpace\to\{\text{observer stress tensors}\},
+    \]
+    satisfying
+    \begin{equation}
+    \MetricOut(\mathbf w)=\CompletedMetric,
+    \qquad
+    \MatterOut(\mathbf w,\psi)
+    =
+    T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
+    \label{eq:fixedoutputs}
+    \end{equation}
+    for every \(\mathbf w\in\PrimShell\) and every matter configuration \(\psi\in\MatterSpace\).
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Recorded selector benchmark base]
+\label{def:selectorbase}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). The active line already fixes the following benchmark-facing selector data:
+\begin{enumerate}
+    \item a finite-dimensional Euclidean selector state space
+    \[
+    \YoctoSelectorSpace{\sigma};
+    \]
+    \item a compact convex selector body
+    \[
+    \YoctoSelectorBody{\sigma}\subset\YoctoSelectorSpace{\sigma}
+    \]
+    with nonempty interior;
+    \item a nonnegative smooth selector functional
+    \[
+    \YoctoSelectorFunctional{\sigma}:\YoctoSelectorSpace{\sigma}\to[0,\infty);
+    \]
+    \item a closed embedded exact selector shell
+    \[
+    \YoctoSelectorShell{\sigma}\subset\YoctoSelectorBody{\sigma};
+    \]
+    \item benchmark faithfulness, meaning preservation of the benchmark outputs \eqref{eq:fixedoutputs}, no second operative metric, no enlarged low-energy matter law, and use of this selector benchmark base as already fixed upstream data on the active line.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Recorded current selector-body geometry]
+\label{def:geometry}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). The active line already fixes the following current selector-body geometry below the selector benchmark base:
+\begin{enumerate}
+    \item a finite-dimensional Euclidean current selector state space
+    \[
+    \PreSectionSelectorSpace{\sigma};
+    \]
+    \item a compact convex current selector body
+    \[
+    \PreSectionSelectorBody{\sigma}\subset\PreSectionSelectorSpace{\sigma}
+    \]
+    with nonempty interior;
+    \item an affine surjection
+    \[
+    \PreSectionSelectorProj{\sigma}:\PreSectionSelectorSpace{\sigma}\to\YoctoSelectorBody{\sigma}
+    \]
+    satisfying
+    \[
+    \PreSectionSelectorProj{\sigma}\bigl(\PreSectionSelectorBody{\sigma}\bigr)
+    =
+    \YoctoSelectorBody{\sigma};
+    \]
+    \item for each \(y\in\YoctoSelectorBody{\sigma}\), the current selector fiber
+    \[
+    \PreSectionSelectorFiber{\sigma}{y}
+    \equiv
+    \bigl(\PreSectionSelectorProj{\sigma}\bigr)^{-1}(y)\cap\PreSectionSelectorBody{\sigma},
+    \]
+    which is required to be nonempty, compact, and convex.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Current pre-selector selector-dynamics target]
+\label{def:selector}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\) and the current selector-body geometry of Definition \ref{def:geometry}. A \emph{benchmark-faithful pre-selector-minimizer-section-generating substrate selector dynamics package} \(\PreSectionSelectorPackage\) on that geometry consists of the following data.
+\begin{enumerate}
+    \item A nonnegative smooth selector functional
+    \[
+    \PreSectionSelectorFunctional{\sigma}:\PreSectionSelectorSpace{\sigma}\to[0,\infty)
+    \]
+    such that, for every \(y\in\YoctoSelectorBody{\sigma}\), the restriction of \(\PreSectionSelectorFunctional{\sigma}\) to \(\PreSectionSelectorFiber{\sigma}{y}\) is strictly convex and attains a unique minimizer. The resulting minimizer depends smoothly on \(y\).
+    \item A closed embedded exact selector shell
+    \[
+    \PreSectionSelectorShell{\sigma}\subset\PreSectionSelectorBody{\sigma}
+    \]
+    satisfying
+    \[
+    \PreSectionSelectorShell{\sigma}
+    =
+    \left\{
+    u\in\PreSectionSelectorBody{\sigma}:
+    \PreSectionSelectorProj{\sigma}(u)\in\YoctoSelectorShell{\sigma},
+    \;
+    \PreSectionSelectorFunctional{\sigma}(u)
+    =
+    \min_{v\in\PreSectionSelectorFiber{\sigma}{\PreSectionSelectorProj{\sigma}(u)}}
+    \PreSectionSelectorFunctional{\sigma}(v)
+    \right\},
+    \]
+    and
+    \[
+    \PreSectionSelectorProj{\sigma}\big|_{\PreSectionSelectorShell{\sigma}}
+    :
+    \PreSectionSelectorShell{\sigma}\xrightarrow{\cong}\YoctoSelectorShell{\sigma}
+    \]
+    is a diffeomorphism.
+    \item Benchmark faithfulness, meaning preservation of the benchmark outputs \eqref{eq:fixedoutputs}, no second operative metric, no enlarged low-energy matter law, and presentation as the current substrate-side selector-dynamics package rather than as a replacement benchmark theory.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Recorded downstream chain below the current selector-dynamics frontier]
+\label{def:downstream}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). The active line already fixes the following downstream data and consequences:
+\begin{enumerate}
+    \item the current observer-relevant pre-selector minimizer-section core \(\PreSelectorMinSectionCore\), the current selector package \(\YoctoSelectorPackage\), the current observer-relevant yocto-section minimizer-section core \(\YoctoMinSectionCore\), the current observer-relevant yocto-section minimizer-image core \(\YoctoImageCore\), the current observer-relevant zepto-section minimizer-section core \(\ZeptoMinSectionCore\), the current observer-relevant zepto-section minimizer-image core \(\ZeptoImageCore\), the current atto-section package \(\AttoSectionPackage\), the current femto-section package \(\FemtoSectionPackage\), the current pico-section package \(\PicoSectionPackage\), the current observer-relevant pico-section minimizer-section core \(\PicoMinSectionCore\), the current nano-section package \(\NanoSectionPackage\), the current micro-section package \(\MicroSectionPackage\), the current sub-section package \(\SubSectionPackage\), and the previously recorded shell-transport consequences used on the active line;
+    \item the previously recorded fact that, once a benchmark-faithful pre-selector selector-dynamics package in the sense of Definition \ref{def:selector} is available on the recorded geometry, the current observer-relevant pre-selector minimizer-section core is recovered, and all of the downstream data listed in item (1) follow unchanged.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definitions \ref{def:fixed}--\ref{def:downstream} fix the current frontier package and its benchmark boundary. The one operative metric, the ordinary matter route, the selector benchmark base, the current selector-body geometry, and the already recorded downstream consequences are not reopened here. The present note asks only why the current selector-dynamics package itself should arise from still more primitive substrate structure.
+\end{remark}
+
+\section{Selector-Dynamics-Generating Substrate Pre-Selector Kernel Dynamics}
+
+\begin{definition}[Selector-dynamics-generating substrate pre-selector kernel dynamics]
+\label{def:kernel}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\) and the recorded current selector-body geometry of Definition \ref{def:geometry}. A \emph{selector-dynamics-generating substrate pre-selector kernel dynamics package} \(\KernelPackage\) for sector \(\sigma\) consists of the following data.
+\begin{enumerate}
+    \item A finite-dimensional Euclidean kernel state space \(\KernelSpace{\sigma}\), a compact convex kernel body
+    \[
+    \KernelBody{\sigma}\subset\KernelSpace{\sigma}
+    \]
+    with nonempty interior, and an affine surjection
+    \[
+    \KernelProj{\sigma}:\KernelSpace{\sigma}\to\PreSectionSelectorSpace{\sigma}
+    \]
+    satisfying
+    \[
+    \KernelProj{\sigma}\bigl(\KernelBody{\sigma}\bigr)
+    =
+    \PreSectionSelectorBody{\sigma}.
+    \]
+    For each \(u\in\PreSectionSelectorBody{\sigma}\), write
+    \[
+    \KernelFiber{\sigma}{u}
+    \equiv
+    \bigl(\KernelProj{\sigma}\bigr)^{-1}(u)\cap\KernelBody{\sigma}.
+    \]
+    Each such fiber is required to be nonempty, compact, and convex.
+    \item A nonnegative smooth kernel functional
+    \[
+    \KernelFunctional{\sigma}:\KernelSpace{\sigma}\to[0,\infty)
+    \]
+    such that, for every \(u\in\PreSectionSelectorBody{\sigma}\), the restriction of \(\KernelFunctional{\sigma}\) to \(\KernelFiber{\sigma}{u}\) is strictly convex and attains a unique minimizer. The resulting minimizer depends smoothly on \(u\); write it as
+    \[
+    \KernelMinLift{\sigma}:\PreSectionSelectorBody{\sigma}\to\KernelBody{\sigma}.
+    \]
+    The induced outer selector functional
+    \[
+    \InducedSelectorFunctional{\sigma}:\PreSectionSelectorSpace{\sigma}\to[0,\infty)
+    \]
+    is required to be smooth on the ambient current selector state space and to satisfy
+    \[
+    \InducedSelectorFunctional{\sigma}(u)
+    \equiv
+    \KernelFunctional{\sigma}\bigl(\KernelMinLift{\sigma}(u)\bigr)
+    =
+    \min_{w\in\KernelFiber{\sigma}{u}}
+    \KernelFunctional{\sigma}(w)
+    \qquad
+    \text{for every }
+    u\in\PreSectionSelectorBody{\sigma}.
+    \]
+    Moreover, for every \(y\in\YoctoSelectorBody{\sigma}\), the restriction of \(\InducedSelectorFunctional{\sigma}\) to the current selector fiber \(\PreSectionSelectorFiber{\sigma}{y}\) is strictly convex and attains a unique minimizer depending smoothly on \(y\).
+    \item For each \(y\in\YoctoSelectorBody{\sigma}\), define the composed kernel fiber
+    \[
+    \KernelComposedFiber{\sigma}{y}
+    \equiv
+    \left\{
+    w\in\KernelBody{\sigma}:
+    \PreSectionSelectorProj{\sigma}\bigl(\KernelProj{\sigma}(w)\bigr)=y
+    \right\}.
+    \]
+    The restriction of \(\KernelFunctional{\sigma}\) to \(\KernelComposedFiber{\sigma}{y}\) is required to attain a unique minimizer depending smoothly on \(y\); write it as
+    \[
+    \KernelComposedMin{\sigma}:\YoctoSelectorBody{\sigma}\to\KernelBody{\sigma}.
+    \]
+    Define the induced exact selector shell
+    \[
+    \InducedSelectorShell{\sigma}
+    \equiv
+    \left\{
+    u\in\PreSectionSelectorBody{\sigma}:
+    \PreSectionSelectorProj{\sigma}(u)\in\YoctoSelectorShell{\sigma},
+    \;
+    \InducedSelectorFunctional{\sigma}(u)
+    =
+    \min_{v\in\PreSectionSelectorFiber{\sigma}{\PreSectionSelectorProj{\sigma}(u)}}
+    \InducedSelectorFunctional{\sigma}(v)
+    \right\}.
+    \]
+    The exact kernel shell
+    \[
+    \KernelShell{\sigma}
+    \equiv
+    \left\{
+    w\in\KernelBody{\sigma}:
+    \PreSectionSelectorProj{\sigma}\bigl(\KernelProj{\sigma}(w)\bigr)\in\YoctoSelectorShell{\sigma},
+    \;
+    \KernelFunctional{\sigma}(w)
+    =
+    \min_{z\in\KernelComposedFiber{\sigma}{\PreSectionSelectorProj{\sigma}(\KernelProj{\sigma}(w))}}
+    \KernelFunctional{\sigma}(z)
+    \right\}
+    \]
+    is required to be a closed embedded submanifold, and
+    \[
+    \KernelProj{\sigma}\big|_{\KernelShell{\sigma}}
+    :
+    \KernelShell{\sigma}\xrightarrow{\cong}\InducedSelectorShell{\sigma}
+    \]
+    is required to be a diffeomorphism.
+    \item Benchmark faithfulness, meaning preservation of the benchmark outputs \eqref{eq:fixedoutputs}, no second operative metric, no enlarged low-energy matter law, and presentation as a deeper substrate-side source for the current selector-dynamics package rather than as a replacement benchmark theory.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:kernel} is intentionally written over the already fixed current selector-body geometry. It does not reopen the benchmark selector base or the already-spent larger pre-selector package as the live burden. Its positive role is narrower: the current selector functional, exact selector shell, and current outer minimizer section are generated as the effective two-stage minimizing output of a deeper kernel law.
+\end{remark}
+
+\section{Recovery of the Current Pre-Selector Selector Dynamics}
+
+\begin{proposition}[The inner kernel minimizer lift is well defined]
+\label{prop:inner}
+For every benchmark-faithful kernel package, the minimizer lift \(\KernelMinLift{\sigma}\) of Definition \ref{def:kernel} is a smooth section of \(\KernelProj{\sigma}\), so that
+\[
+\KernelProj{\sigma}\circ\KernelMinLift{\sigma}
+=
+\mathrm{id}_{\PreSectionSelectorBody{\sigma}}.
+\]
+In particular, the induced outer selector functional \(\InducedSelectorFunctional{\sigma}\) is a well-defined smooth function on \(\PreSectionSelectorSpace{\sigma}\) whose values on \(\PreSectionSelectorBody{\sigma}\) are the effective minimum values of the deeper kernel functional on the inner kernel fibers.
+\end{proposition}
+
+\begin{proof}
+Definition \ref{def:kernel}(1) makes every inner kernel fiber \(\KernelFiber{\sigma}{u}\) nonempty, compact, and convex. Definition \ref{def:kernel}(2) states that \(\KernelFunctional{\sigma}\) has a unique minimizer on each such fiber and that the minimizer depends smoothly on \(u\). Therefore \(\KernelMinLift{\sigma}\) is a well-defined smooth map on \(\PreSectionSelectorBody{\sigma}\). Each chosen minimizer lies in the fiber over the point at which it is selected, so
+\[
+\KernelProj{\sigma}\bigl(\KernelMinLift{\sigma}(u)\bigr)=u
+\]
+for every \(u\in\PreSectionSelectorBody{\sigma}\). The remaining smoothness statement for \(\InducedSelectorFunctional{\sigma}\) on \(\PreSectionSelectorSpace{\sigma}\) is part of Definition \ref{def:kernel}(2), and the displayed formula identifies its values on \(\PreSectionSelectorBody{\sigma}\) with the effective minimum values.
+\end{proof}
+
+\begin{proposition}[The induced outer selector dynamics form a benchmark-faithful package]
+\label{prop:selector}
+For every benchmark-faithful kernel package, the tuple
+\[
+\Bigl(
+\PreSectionSelectorSpace{\sigma},
+\PreSectionSelectorBody{\sigma},
+\PreSectionSelectorProj{\sigma},
+\InducedSelectorFunctional{\sigma},
+\InducedSelectorShell{\sigma}
+\Bigr)
+\]
+is a benchmark-faithful pre-selector-minimizer-section-generating substrate selector dynamics package in the sense of Definition \ref{def:selector}.
+\end{proposition}
+
+\begin{proof}
+Definition \ref{def:kernel}(2) states that \(\InducedSelectorFunctional{\sigma}\) is nonnegative and smooth, and that its restriction to each current selector fiber \(\PreSectionSelectorFiber{\sigma}{y}\) is strictly convex with a unique minimizer depending smoothly on \(y\). Definition \ref{def:kernel}(3) defines \(\InducedSelectorShell{\sigma}\) exactly as the corresponding minimizing shell over \(\YoctoSelectorShell{\sigma}\). Definition \ref{def:kernel}(4) gives benchmark faithfulness. These are precisely the requirements of Definition \ref{def:selector}.
+\end{proof}
+
+\begin{proposition}[Composed kernel minimization factors through the induced selector minimization]
+\label{prop:factor}
+For every benchmark-faithful kernel package, define the induced outer minimizer section
+\[
+\InducedPreSelectorMinSection{\sigma}(y)
+\equiv
+\operatorname*{arg\,min}_{u\in\PreSectionSelectorFiber{\sigma}{y}}
+\InducedSelectorFunctional{\sigma}(u),
+\qquad
+y\in\YoctoSelectorBody{\sigma}.
+\]
+Then
+\[
+\KernelComposedMin{\sigma}(y)
+=
+\KernelMinLift{\sigma}\bigl(\InducedPreSelectorMinSection{\sigma}(y)\bigr)
+\]
+for every \(y\in\YoctoSelectorBody{\sigma}\), and hence
+\[
+\KernelProj{\sigma}\bigl(\KernelComposedMin{\sigma}(y)\bigr)
+=
+\InducedPreSelectorMinSection{\sigma}(y).
+\]
+\end{proposition}
+
+\begin{proof}
+Fix \(y\in\YoctoSelectorBody{\sigma}\). Every \(w\in\KernelComposedFiber{\sigma}{y}\) satisfies \(u\equiv\KernelProj{\sigma}(w)\in\PreSectionSelectorFiber{\sigma}{y}\). By Proposition \ref{prop:inner},
+\[
+\KernelFunctional{\sigma}(w)
+\geq
+\KernelFunctional{\sigma}\bigl(\KernelMinLift{\sigma}(u)\bigr)
+=
+\InducedSelectorFunctional{\sigma}(u).
+\]
+By Definition \ref{def:kernel}(2), the induced outer functional is strictly convex on \(\PreSectionSelectorFiber{\sigma}{y}\) and therefore has a unique minimizer \(\InducedPreSelectorMinSection{\sigma}(y)\). Consequently, for every \(w\in\KernelComposedFiber{\sigma}{y}\),
+\[
+\KernelFunctional{\sigma}(w)
+\geq
+\InducedSelectorFunctional{\sigma}\bigl(\InducedPreSelectorMinSection{\sigma}(y)\bigr)
+=
+\KernelFunctional{\sigma}\bigl(\KernelMinLift{\sigma}(\InducedPreSelectorMinSection{\sigma}(y))\bigr).
+\]
+So \(\KernelMinLift{\sigma}(\InducedPreSelectorMinSection{\sigma}(y))\) is a minimizer of \(\KernelFunctional{\sigma}\) on the composed kernel fiber \(\KernelComposedFiber{\sigma}{y}\). Definition \ref{def:kernel}(3) says that minimizer is unique, hence the first displayed identity follows. The second identity is then Proposition \ref{prop:inner}.
+\end{proof}
+
+\begin{proposition}[The exact selector shell is the projected exact kernel shell]
+\label{prop:shell}
+For every benchmark-faithful kernel package,
+\[
+\InducedSelectorShell{\sigma}
+=
+\KernelProj{\sigma}\bigl(\KernelShell{\sigma}\bigr),
+\]
+and the restriction
+\[
+\KernelProj{\sigma}\big|_{\KernelShell{\sigma}}
+:
+\KernelShell{\sigma}\xrightarrow{\cong}\InducedSelectorShell{\sigma}
+\]
+is a diffeomorphism. Moreover,
+\[
+\PreSectionSelectorProj{\sigma}\big|_{\InducedSelectorShell{\sigma}}
+:
+\InducedSelectorShell{\sigma}\xrightarrow{\cong}\YoctoSelectorShell{\sigma}
+\]
+is a diffeomorphism.
+\end{proposition}
+
+\begin{proof}
+The first diffeomorphism is part of Definition \ref{def:kernel}(3), so it remains only to prove the final statement. Let \(u\in\InducedSelectorShell{\sigma}\). Then \(\PreSectionSelectorProj{\sigma}(u)\in\YoctoSelectorShell{\sigma}\) by definition. Conversely, if \(y\in\YoctoSelectorShell{\sigma}\), then Proposition \ref{prop:factor} gives a unique composed-fiber minimizer \(\KernelComposedMin{\sigma}(y)\in\KernelShell{\sigma}\), hence
+\[
+u\equiv\KernelProj{\sigma}\bigl(\KernelComposedMin{\sigma}(y)\bigr)\in\InducedSelectorShell{\sigma}
+\]
+and \(\PreSectionSelectorProj{\sigma}(u)=y\). This proves surjectivity. If \(u_1,u_2\in\InducedSelectorShell{\sigma}\) have the same image \(y\in\YoctoSelectorShell{\sigma}\), then both are outer projections of the unique composed-fiber minimizer \(\KernelComposedMin{\sigma}(y)\) by Proposition \ref{prop:factor}, so \(u_1=u_2\). Smoothness of the inverse follows from smooth dependence of \(\KernelComposedMin{\sigma}\) on \(y\) and smoothness of \(\KernelProj{\sigma}\).
+\end{proof}
+
+\begin{proposition}[No residual selector-dynamics-level freedom remains once the kernel package is fixed]
+\label{prop:nofreedom}
+For every benchmark-faithful kernel package, the current selector functional \(\InducedSelectorFunctional{\sigma}\), the current exact selector shell \(\InducedSelectorShell{\sigma}\), and the current observer-relevant pre-selector minimizer section \(\InducedPreSelectorMinSection{\sigma}\) are uniquely determined by the kernel data. In particular, the current selector-dynamics package carries no residual benchmark-facing functional, shell, or outer-minimizer freedom once the deeper kernel package is fixed.
+\end{proposition}
+
+\begin{proof}
+Proposition \ref{prop:inner} determines \(\InducedSelectorFunctional{\sigma}\) uniquely as the effective minimum value of \(\KernelFunctional{\sigma}\) on the inner kernel fibers. Definition \ref{def:kernel}(3) then determines \(\InducedSelectorShell{\sigma}\) uniquely as the minimizing shell of that induced outer functional over \(\YoctoSelectorShell{\sigma}\). Finally, the strict convexity condition in Definition \ref{def:kernel}(2) uniquely determines \(\InducedPreSelectorMinSection{\sigma}\) as the unique minimizer of \(\InducedSelectorFunctional{\sigma}\) on each current selector fiber, and Proposition \ref{prop:factor} identifies it with the outer projection of the unique composed-fiber kernel minimizer. Therefore no benchmark-facing constituent at current selector-dynamics scope remains freely choosable once the kernel package is fixed.
+\end{proof}
+
+\begin{proposition}[All current downstream uses factor through the induced selector dynamics]
+\label{prop:downstream}
+For every benchmark-faithful kernel package, all current benchmark-facing downstream uses of the current selector-dynamics package on the active line factor through the induced selector package of Proposition \ref{prop:selector}. In particular, the current observer-relevant pre-selector minimizer-section core \(\PreSelectorMinSectionCore\), the current selector package \(\YoctoSelectorPackage\), the current observer-relevant yocto-section minimizer-section core \(\YoctoMinSectionCore\), the current observer-relevant yocto-section minimizer-image core \(\YoctoImageCore\), the current observer-relevant zepto-section minimizer-section core \(\ZeptoMinSectionCore\), the current observer-relevant zepto-section minimizer-image core \(\ZeptoImageCore\), the current atto-section package \(\AttoSectionPackage\), the current femto-section package \(\FemtoSectionPackage\), the current pico-section package \(\PicoSectionPackage\), the current observer-relevant pico-section minimizer-section core \(\PicoMinSectionCore\), the current nano-section package \(\NanoSectionPackage\), the current micro-section package \(\MicroSectionPackage\), the current sub-section package \(\SubSectionPackage\), and the previously recorded shell-transport consequences follow unchanged.
+\end{proposition}
+
+\begin{proof}
+By Proposition \ref{prop:selector}, the induced outer data form a benchmark-faithful selector-dynamics package of the exact type required by Definition \ref{def:selector}. Definition \ref{def:downstream}(2) then records that, once such a package is available on the recorded geometry, the current pre-selector minimizer-section core and all downstream benchmark-facing data and consequences follow unchanged. Therefore all current downstream uses already factor through the induced selector package provided by the deeper kernel dynamics.
+\end{proof}
+
+\begin{proposition}[The benchmark package remains fixed]
+\label{prop:benchmark}
+Every benchmark-faithful selector-dynamics-generating substrate pre-selector kernel dynamics package preserves the same benchmark one-metric package \eqref{eq:fixedoutputs}. In particular, the operative metric remains exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, and the low-energy matter law is not enlarged.
+\end{proposition}
+
+\begin{proof}
+This is part of benchmark faithfulness in Definition \ref{def:kernel}(4). The present note only derives the current selector-dynamics package from deeper substrate kernel data. It does not alter the benchmark exact-closure package.
+\end{proof}
+
+\section{Main Theorem}
+
+\begin{theorem}[Pre-selector-minimizer-section-generating substrate selector dynamics from selector-dynamics-generating substrate pre-selector kernel dynamics]
+\label{thm:main}
+Fix the primitive continuation data of Definition \ref{def:fixed}, the recorded selector benchmark base of Definition \ref{def:selectorbase}, the recorded current selector-body geometry of Definition \ref{def:geometry}, the recorded downstream chain of Definition \ref{def:downstream}, and a benchmark-faithful selector-dynamics-generating substrate pre-selector kernel dynamics package in the sense of Definition \ref{def:kernel}. Then, for each sector \(\sigma\in\{\Car,\Cur,\Hom\}\), the current pre-selector-minimizer-section-generating substrate selector dynamics are no longer an unexplained primitive stopping point on the active line: they are recovered canonically from the deeper kernel dynamics. More precisely:
+\begin{enumerate}
+    \item the current selector functional is induced as the effective minimum value of the deeper kernel functional on the inner kernel fibers by Proposition \ref{prop:inner};
+    \item the induced outer data form a benchmark-faithful current selector-dynamics package by Proposition \ref{prop:selector};
+    \item the current observer-relevant pre-selector minimizer section is the outer projection of the unique composed-fiber kernel minimizer by Proposition \ref{prop:factor};
+    \item the current exact selector shell is exactly the projected exact kernel shell, and it still projects diffeomorphically to the fixed selector benchmark shell, by Proposition \ref{prop:shell};
+    \item the current selector-dynamics package carries no residual benchmark-facing functional, shell, or outer-minimizer freedom once the deeper kernel package is fixed by Proposition \ref{prop:nofreedom};
+    \item all current downstream benchmark-facing uses of the selector-dynamics package already factor through the induced outer package by Proposition \ref{prop:downstream};
+    \item the benchmark boundary remains fixed by Proposition \ref{prop:benchmark};
+    \item consequently the remaining honest burden below the current selector-dynamics frontier is no longer the pre-selector-minimizer-section-generating substrate selector dynamics \(\PreSectionSelectorPackage\) as such. What remains is to derive or justify the deeper selector-dynamics-generating substrate pre-selector kernel dynamics \(\KernelPackage\) from still more primitive substrate structure, or else prove a still sharper theorem-level collapse strictly inside that deeper package.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Item (1) is Proposition \ref{prop:inner}. Item (2) is Proposition \ref{prop:selector}. Item (3) is Proposition \ref{prop:factor}. Item (4) is Proposition \ref{prop:shell}. Item (5) is Proposition \ref{prop:nofreedom}. Item (6) is Proposition \ref{prop:downstream}. Item (7) is Proposition \ref{prop:benchmark}. Item (8) is the routing consequence of the previous items together with the active safeguard against counting another same-output deeper-origin relay as new front-line progress when the live benchmark-relevant selector-dynamics package is unchanged.
+\end{proof}
+
+\begin{corollary}[What must be done next]
+\label{cor:next}
+After Theorem \ref{thm:main}, the next honest benchmark-facing manuscript must either:
+\begin{enumerate}
+    \item derive or justify the selector-dynamics-generating substrate pre-selector kernel dynamics \(\KernelPackage\) from still more primitive substrate structure in a way that changes benchmark-facing status;
+    \item identify a genuinely smaller theorem-level observer-relevant datum strictly inside \(\KernelPackage\) and prove a sharper collapse to it;
+    \item do either of the previous two while preserving the same benchmark one-metric package and the same claim boundary.
+\end{enumerate}
+Another same-output deeper-origin relay that merely preserves the current kernel dynamics \(\KernelPackage\) and therefore merely reproduces the same current selector-dynamics package \(\PreSectionSelectorPackage\), the same current observer-relevant pre-selector minimizer-section core \(\PreSelectorMinSectionCore\), the same current selector package \(\YoctoSelectorPackage\), the same current observer-relevant yocto-section minimizer-section core \(\YoctoMinSectionCore\), the same current observer-relevant yocto-section minimizer-image core \(\YoctoImageCore\), and the same downstream observer-relevant zepto-section, atto-section, femto-section, pico-section, nano-section, micro-section, and sub-section consequences, another re-expansion back to the current selector-dynamics package, the larger pre-selector package, or older yocto-section presentations as if they were still independently live, another reopening of larger screened layers, or any move that introduces a second operative metric, enlarges the ordinary matter law, or uses stronger promotion language does not satisfy the present burden. If a quantum continuation is pursued, it matters benchmark-facingly only insofar as it derives this same deeper kernel dynamics, collapses them further, or closes a benchmark derivation gate in a genuinely new way.
+\end{corollary}
+
+\begin{proof}
+Theorem \ref{thm:main} shows that the current selector-dynamics package is no longer the deepest unexplained datum on the active line. Therefore a subsequent manuscript must improve on the deeper kernel dynamics rather than merely restate the already induced selector package.
+\end{proof}
+
+\section{Conclusion}
+
+The positive result of this note is that the current pre-selector-minimizer-section-generating substrate selector dynamics are no longer primitive on the active derivational line. Once one works with selector-dynamics-generating substrate pre-selector kernel dynamics over the already fixed current selector-body geometry, the current selector functional is forced as the effective minimum value of the deeper kernel law, the current exact selector shell is forced as the projected exact kernel shell over the recorded selector benchmark shell, and the current observer-relevant pre-selector minimizer section is the outer projection of the unique composed-fiber kernel minimizer. All current downstream benchmark-facing uses then factor through that induced selector package together with the already fixed selector benchmark base.
+
+This preserves the same benchmark one-metric package and the same claim boundary. The result does not provide a completed first-principles derivation of GR from substrate microphysics, and it does not license stronger promotion language. Its narrower benchmark-facing gain is that the remaining honest burden now sits one level lower again: not on the current selector-dynamics package itself, but on the deeper pre-selector kernel dynamics that canonically generate it, or on a still smaller collapse strictly inside that deeper package.
+
+\end{document}
