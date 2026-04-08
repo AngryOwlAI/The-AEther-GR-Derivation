@@ -31,6 +31,7 @@ FILE_RELOCATION_PLAN.md
 FILE_RELOCATION_MANIFEST.csv
 AGENTS.md
 DEPLOYMENT_PLAN.md
+.local/obsidian/
 docs/_archived_plans/
 File Format Convertor to docx.bat
 scripts/clean_aether_pdflatex_artifacts.sh
@@ -39,3 +40,6 @@ scripts/clean_aether_pdflatex_artifacts.sh
 *.aux
 *.log
 *.out
+
+# Python build artifacts
+__pycache__/

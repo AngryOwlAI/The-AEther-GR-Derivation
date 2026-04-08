@@ -1,0 +1,8 @@
+{
+  "attachmentFolderPath": "01_raw/attachments",
+  "alwaysUpdateLinks": true,
+  "newLinkFormat": "relative",
+  "promptDelete": true,
+  "showUnsupportedFiles": true,
+  "useMarkdownLinks": false
+}
