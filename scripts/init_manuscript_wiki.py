@@ -31,10 +31,18 @@ def parse_args() -> argparse.Namespace:
             ".local/obsidian/aether-manuscripts-wiki inside the repository."
         ),
     )
+    parser.set_defaults(write_obsidian_stubs=True)
     parser.add_argument(
         "--write-obsidian-stubs",
+        dest="write_obsidian_stubs",
         action="store_true",
-        help="Copy the tracked Obsidian config stubs into .obsidian/.",
+        help="Copy the tracked Obsidian config stubs into .obsidian/ (default).",
+    )
+    parser.add_argument(
+        "--no-obsidian-stubs",
+        dest="write_obsidian_stubs",
+        action="store_false",
+        help="Skip copying the tracked Obsidian config stubs into .obsidian/.",
     )
     parser.add_argument(
         "--force",
@@ -96,21 +104,20 @@ def main() -> int:
         print("No tracked template files needed updating")
 
     if not args.no_next_steps:
+        steps = ["Open the vault in Obsidian."]
+        if args.write_obsidian_stubs:
+            steps.append("Verify that the seeded core-plugin and Files & Links settings are present.")
+        steps.extend(
+            [
+                f"Run `python3 scripts/install_obsidian_pdf_plus.py --vault {vault} --enable`.",
+                f"Run `python3 scripts/sync_manuscript_wiki_pdfs.py --all --vault {vault}`.",
+                f"Run `python3 scripts/generate_manuscript_wiki_notes.py --vault {vault}`.",
+                f"Run `python3 scripts/lint_manuscript_wiki.py --vault {vault}`.",
+            ]
+        )
         print("\nNext steps:")
-        print("1. Open the vault in Obsidian.")
-        print("2. Install the PDF++ community plugin.")
-        print(
-            "3. Run `python3 scripts/sync_manuscript_wiki_pdfs.py --all"
-            f" --vault {vault}`."
-        )
-        print(
-            "4. Run `python3 scripts/generate_manuscript_wiki_notes.py"
-            f" --vault {vault}`."
-        )
-        print(
-            "5. Run `python3 scripts/lint_manuscript_wiki.py"
-            f" --vault {vault}`."
-        )
+        for index, step in enumerate(steps, start=1):
+            print(f"{index}. {step}")
 
     return 0
 

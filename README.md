@@ -43,6 +43,7 @@ The primary goal is to keep the benchmark exact-closure theory statement scienti
 - `docs/`: compact public and policy documentation
 - `RESEARCH_PLAN.md`: current live research board
 - `EXECUTION_CHECKLIST.md`: operational checklist for manuscript work
+- `docs/manuscript-wiki-workflow.md`: local Obsidian Manuscript Wiki workflow
 
 ## Working Rules
 
@@ -53,7 +54,12 @@ The primary goal is to keep the benchmark exact-closure theory statement scienti
 - Keep [RESEARCH_PLAN.md](RESEARCH_PLAN.md) active and tracked as a live control document.
 - Retire completed one-off implementation-planning Markdown into the local ignored archive at `docs/_archived_plans/` instead of leaving it in the active tracked docs surface.
 - After adding, removing, or renaming an active manuscript, keep [docs/ACTIVE_MANUSCRIPT_FILE_MAP.csv](docs/ACTIVE_MANUSCRIPT_FILE_MAP.csv) in sync and run `python3 scripts/validate_active_manuscript_file_map.py`.
-- `scripts/build_aether_pdf.sh` now runs the active manuscript file-map validation automatically after builds from `manuscripts/active/tex/`.
+- `scripts/build_aether_pdf.sh` now runs the active manuscript file-map validation automatically after builds from `manuscripts/active/tex/`, and it can sync rebuilt PDFs into the local Manuscript Wiki.
+
+## Manuscript Wiki
+
+The local Obsidian Manuscript Wiki is now part of the supported day-to-day workflow. Use [docs/manuscript-wiki-workflow.md](docs/manuscript-wiki-workflow.md) for the build, sync, lint, and authority-order commands.
+Phase 6 also supports a separate supplemental external-reference library under the local vault without mixing that literature into the project-routing surfaces.
 
 ## Context Economy
 

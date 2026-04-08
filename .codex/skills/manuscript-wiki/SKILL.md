@@ -26,6 +26,8 @@ If the local vault does not exist yet, fall back to the repository files and the
 - `scripts/sync_manuscript_wiki_pdfs.py`
 - `scripts/generate_manuscript_wiki_notes.py`
 - `scripts/lint_manuscript_wiki.py`
+- `scripts/build_aether_pdf.sh`
+- `scripts/check_manuscript_wiki.sh`
 
 ## Core Rules
 
@@ -36,6 +38,7 @@ If the local vault does not exist yet, fall back to the repository files and the
 - Do not promote `historical_but_kept_active`, `screened_out`, or `side_work` material from backlinks alone.
 - Do not let wiki summaries overrule the active `.tex` language.
 - Verify substantive scientific claims in the active `.tex`, not only in the copied PDF or source note.
+- Treat `02_sources/references/` and `01_raw/references/external/` as supplemental literature only; they do not determine project routing or benchmark status.
 
 ## Working Procedure
 
@@ -45,6 +48,20 @@ If the local vault does not exist yet, fall back to the repository files and the
 4. Open the manuscript source note to gather links, summary metadata, and local PDF paths.
 5. Open the copied local PDF only when page-level verification or annotation context is needed.
 6. Open the active `.tex` before making any scientific statement or repository-state claim.
+
+## Build-Integrated Workflow
+
+- After editing one active manuscript, prefer `scripts/build_aether_pdf.sh --sync-wiki path/to/file.tex`.
+- Use `--no-sync-wiki` only when you intentionally want to leave the local wiki stale for that run.
+- Use `MANUSCRIPT_WIKI_VAULT=/abs/path/...` or `--wiki-vault /abs/path/...` when the vault is not in the default local path.
+- After wider changes or before relying on the generated layer heavily, run `scripts/check_manuscript_wiki.sh`.
+- The integrated build flow appends local records to `07_logs/build_sync_events.tsv` inside the vault; use that log only as an operational trace, not as routing authority.
+
+## External Literature Workflow
+
+- Add outside literature with `python3 scripts/add_manuscript_wiki_reference.py --pdf /path/to/paper.pdf --title "Reference Title" ...`.
+- Keep those PDFs under `01_raw/references/external/` and their notes under `02_sources/references/`.
+- Use the generated `external_reference_library.md` page as a literature inventory, not as a routing or benchmark-status source.
 
 ## Output Rules
 
@@ -59,8 +76,9 @@ When the wiki is used in an answer:
 
 Before trusting the wiki after manuscript changes:
 
-1. run `python3 scripts/sync_manuscript_wiki_pdfs.py --changed`
-2. run `python3 scripts/generate_manuscript_wiki_notes.py`
-3. run `python3 scripts/lint_manuscript_wiki.py`
+1. if you built through `scripts/build_aether_pdf.sh --sync-wiki`, confirm that the build completed and the wiki sync step ran
+2. otherwise run `python3 scripts/sync_manuscript_wiki_pdfs.py --changed`
+3. run `python3 scripts/generate_manuscript_wiki_notes.py`
+4. run `scripts/check_manuscript_wiki.sh`
 
 If the lint step fails, use the repository files directly until the wiki is refreshed.

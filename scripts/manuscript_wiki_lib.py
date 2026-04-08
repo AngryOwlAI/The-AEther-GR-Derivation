@@ -17,6 +17,10 @@ DEFAULT_VAULT_RELATIVE = Path(".local/obsidian/aether-manuscripts-wiki")
 TEMPLATE_ROOT_RELATIVE = Path("tools/manuscript_wiki_template")
 MANIFEST_RELATIVE = Path("07_logs/pdf_sync_manifest.json")
 SOURCE_NOTE_RELATIVE = Path("02_sources/manuscripts")
+REFERENCE_SOURCE_RELATIVE = Path("02_sources/references")
+REFERENCE_RAW_RELATIVE = Path("01_raw/references/external")
+REFERENCE_MANIFEST_RELATIVE = Path("07_logs/external_references_manifest.json")
+REFERENCE_LIBRARY_RELATIVE = REFERENCE_SOURCE_RELATIVE / "external_reference_library.md"
 ROUTING_INDEX_RELATIVE = Path("03_indexes/routing")
 FAMILY_INDEX_RELATIVE = Path("03_indexes/families")
 PRIORITY_INDEX_RELATIVE = Path("03_indexes/priorities")
@@ -334,6 +338,10 @@ def source_note_relative_path(file_name: str) -> Path:
     return SOURCE_NOTE_RELATIVE / f"{Path(file_name).stem}.md"
 
 
+def reference_note_relative_path(reference_id: str) -> Path:
+    return REFERENCE_SOURCE_RELATIVE / f"{reference_id}.md"
+
+
 def line_relative_path(line_name: str) -> Path:
     return LINES_RELATIVE / f"{line_name}.md"
 
@@ -465,3 +473,17 @@ def read_text_if_exists(path: Path) -> str:
         return ""
     return path.read_text(encoding="utf-8")
 
+
+def slugify(value: str) -> str:
+    slug_chars: list[str] = []
+    previous_dash = False
+    for char in value.lower():
+        if char.isalnum():
+            slug_chars.append(char)
+            previous_dash = False
+            continue
+        if slug_chars and not previous_dash:
+            slug_chars.append("-")
+            previous_dash = True
+    slug = "".join(slug_chars).strip("-")
+    return slug or "reference"

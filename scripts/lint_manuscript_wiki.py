@@ -5,6 +5,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 import re
 from pathlib import Path
 
@@ -12,6 +13,8 @@ from manuscript_wiki_lib import (
     CONCEPT_DEFINITIONS,
     FAMILY_NAMES,
     PROJECT_ROLES,
+    REFERENCE_LIBRARY_RELATIVE,
+    REFERENCE_MANIFEST_RELATIVE,
     ROUTING_STATUSES,
     concept_relative_path,
     deterministic_vault_pdf_relative_path,
@@ -25,6 +28,7 @@ from manuscript_wiki_lib import (
     parse_frontmatter,
     priority_relative_path,
     read_text_if_exists,
+    reference_note_relative_path,
     repo_root,
     resolve_vault_path,
     routing_relative_path,
@@ -69,6 +73,13 @@ def resolve_wiki_link(current_file: Path, vault_root: Path, raw_target: str) -> 
     return any(candidate.exists() for candidate in candidates)
 
 
+def load_reference_manifest(vault_root: Path) -> dict[str, object]:
+    manifest_path = vault_root / REFERENCE_MANIFEST_RELATIVE
+    if not manifest_path.exists():
+        return {"updated_at": "", "entries": []}
+    return json.loads(manifest_path.read_text(encoding="utf-8"))
+
+
 def main() -> int:
     args = parse_args()
     root = repo_root()
@@ -78,6 +89,7 @@ def main() -> int:
 
     rows = load_file_map_rows(root)
     manifest_lookup = manifest_index(load_manifest(vault))
+    reference_manifest = load_reference_manifest(vault)
     issues: list[str] = []
 
     note_texts: dict[str, str] = {}
@@ -226,6 +238,80 @@ def main() -> int:
                 f"Concept page {concept['title']} has no backlinks from generated manuscript notes"
             )
 
+    reference_library_path = vault / REFERENCE_LIBRARY_RELATIVE
+    if not reference_library_path.exists():
+        issues.append(f"Missing external reference library page: {reference_library_path.relative_to(vault)}")
+
+    reference_entries = reference_manifest.get("entries", [])
+    if not isinstance(reference_entries, list):
+        issues.append("External reference manifest entries payload is not a list")
+        reference_entries = []
+
+    for raw_entry in reference_entries:
+        if not isinstance(raw_entry, dict):
+            issues.append("External reference manifest contains a non-object entry")
+            continue
+        entry = {str(key): str(value) for key, value in raw_entry.items()}
+        reference_id = entry.get("reference_id", "")
+        relative_pdf_path = entry.get("relative_vault_pdf_path", "")
+        if not reference_id:
+            issues.append("External reference manifest entry is missing reference_id")
+            continue
+        if not relative_pdf_path:
+            issues.append(f"{reference_id}: external reference manifest entry is missing relative_vault_pdf_path")
+            continue
+
+        reference_note_path = vault / reference_note_relative_path(reference_id)
+        if not reference_note_path.exists():
+            issues.append(f"Missing external reference note for {reference_id}")
+            continue
+
+        reference_pdf_path = vault / relative_pdf_path
+        if not reference_pdf_path.exists():
+            issues.append(f"{reference_id}: missing external reference PDF copy: {relative_pdf_path}")
+            continue
+
+        if not relative_pdf_path.startswith("01_raw/references/external/"):
+            issues.append(
+                f"{reference_id}: external reference PDF escaped the external-reference area: {relative_pdf_path}"
+            )
+
+        note_text = read_text_if_exists(reference_note_path)
+        frontmatter = parse_frontmatter(note_text)
+        for key in (
+            "reference_id",
+            "title",
+            "authors",
+            "year",
+            "literature_kind",
+            "source_file_name",
+            "relative_vault_pdf_path",
+            "source_url",
+            "doi",
+            "citation_key",
+            "project_relevance",
+            "summary",
+            "tags",
+            "sha256",
+            "added_at",
+            "last_synced",
+        ):
+            if frontmatter.get(key, "") != entry.get(key, ""):
+                issues.append(
+                    f"{reference_id}: external reference frontmatter mismatch for {key}: "
+                    f"expected {entry.get(key, '')!r}, found {frontmatter.get(key, '')!r}"
+                )
+
+        actual_hash = file_sha256(reference_pdf_path)
+        if actual_hash != entry.get("sha256", ""):
+            issues.append(f"{reference_id}: external reference manifest hash does not match the vault PDF copy")
+
+        if reference_library_path.exists():
+            library_text = read_text_if_exists(reference_library_path)
+            note_reference = reference_note_relative_path(reference_id).as_posix()
+            if note_reference not in library_text:
+                issues.append(f"{reference_id}: external reference library is missing the current note link")
+
     if issues:
         print("Manuscript Wiki lint failed.")
         for issue in issues:
@@ -234,8 +320,8 @@ def main() -> int:
 
     print(
         "Manuscript Wiki lint passed: "
-        f"{len(rows)} manuscript notes, {len(CONCEPT_DEFINITIONS)} concept pages, "
-        "and the routing/index pages are in sync."
+        f"{len(rows)} manuscript notes, {len(reference_entries)} external reference entries, "
+        f"{len(CONCEPT_DEFINITIONS)} concept pages, and the routing/index pages are in sync."
     )
     return 0
 

@@ -5,7 +5,10 @@ This tracked template tree seeds the local Obsidian Manuscript Wiki described in
 Tracked here:
 
 - vault README and schema notes copied by `scripts/init_manuscript_wiki.py`
+- phase-2 Obsidian bootstrap notes copied into `09_schema/`
+- the PDF++ installer helper at `scripts/install_obsidian_pdf_plus.py`
 - note-template reference material
+- external-reference note and library templates for Phase 6
 - optional `.obsidian/` config stubs
 
 Not tracked here:
