@@ -1,0 +1,1026 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+
+\newcommand{\CompletedMetric}{g^{\sharp}}
+\newcommand{\CompletionCore}{\mathfrak C^{\mathrm{zr,aff}}}
+\newcommand{\TraceCore}{\mathfrak C^{\mathrm{tr}}}
+\newcommand{\AffineNucleus}{\mathfrak N^{\mathrm{aff}}}
+
+\newcommand{\Car}{\mathrm{car}}
+\newcommand{\Cur}{\mathrm{cur}}
+\newcommand{\Hom}{\mathrm{hom}}
+
+\newcommand{\ForSpace}[1]{\mathcal I_{#1}^{\mathrm{for}}}
+\newcommand{\PrimShell}{\mathcal S_{\mathrm{prim}}}
+\newcommand{\Reduction}[1]{\mathcal R_{#1}}
+\newcommand{\CurrentCarrier}[1]{\mathfrak C_{#1}^{\mathrm{cur}}}
+\newcommand{\EqCarrier}[1]{\mathfrak C_{#1}^{\mathrm{eq}}}
+\newcommand{\MetricOut}{\mathscr G_{\mathrm{out}}}
+\newcommand{\MatterOut}{\mathscr T_{\mathrm{out}}}
+
+\newcommand{\VisibleAffine}[1]{\widehat X_{#1}}
+\newcommand{\DataSpace}[1]{\mathcal Y_{#1}^{\mathrm{obs}}}
+\newcommand{\AmbientTarget}[1]{E_{#1}^{\mathrm{amb}}}
+
+\newcommand{\CoreState}[1]{\mathcal C_{#1}}
+\newcommand{\CoreSpace}[1]{\mathcal Q_{#1}}
+\newcommand{\CoreAffine}[1]{\mathcal F_{#1}^{\mathrm{co}}}
+\newcommand{\CoreBody}[1]{Q_{#1}^{\mathrm{co}}}
+\newcommand{\CoreStateProj}[1]{\Pi_{#1}^{\mathrm{co,st}}}
+\newcommand{\CoreDataProj}[1]{\Pi_{#1}^{\mathrm{co,dat}}}
+\newcommand{\CoreShellProj}[1]{\Pi_{#1}^{\mathrm{co,sh}}}
+\newcommand{\CoreSym}[1]{\mathbb K_{#1}^{\mathrm{co}}}
+\newcommand{\CoreTime}[1]{\tau_{#1}^{\mathrm{co}}}
+\newcommand{\CoreEmbed}[1]{\eta_{#1}}
+
+\newcommand{\GapSpace}[1]{H_{#1}}
+\newcommand{\GapBody}[1]{D_{#1}}
+\newcommand{\HiddenOperator}[1]{K_{#1}^{\mathrm{hid}}}
+
+\newcommand{\TraceBody}[1]{P_{#1}^{\mathrm{tr}}}
+\newcommand{\TraceDataMap}[1]{\Omega_{#1}^{\mathrm{tr,dat}}}
+\newcommand{\TraceShellMap}[1]{\Omega_{#1}^{\mathrm{tr,sh}}}
+\newcommand{\TraceSym}[1]{\mathbb K_{#1}^{\mathrm{tr}}}
+\newcommand{\TraceTime}[1]{\tau_{#1}^{\mathrm{tr}}}
+\newcommand{\TraceEmbed}[1]{\zeta_{#1}}
+
+\newcommand{\RecAffine}[1]{\mathcal F_{#1}^{\mathrm{rec}}}
+\newcommand{\RecBody}[1]{Q_{#1}^{\mathrm{rec}}}
+\newcommand{\RecEmbed}[1]{\eta_{#1}^{\mathrm{rec}}}
+
+\newcommand{\TraceShellLin}[1]{L_{#1}^{\mathrm{tr,sh}}}
+\newcommand{\ShellKer}[1]{V_{#1}^{\mathrm{ker}}}
+\newcommand{\ShellNormal}[1]{E_{#1}^{\mathrm{sh}}}
+\newcommand{\ShellOffset}[1]{\lambda_{#1}^{\mathrm{sh}}}
+\newcommand{\DirProj}[1]{\Pi_{#1}^{\parallel}}
+\newcommand{\CoordSpace}[1]{\mathcal K_{#1}}
+\newcommand{\CoordBody}[1]{P_{#1}}
+\newcommand{\CoordIso}[1]{T_{#1}}
+\newcommand{\AffineData}[1]{\widehat D_{#1}}
+\newcommand{\ShellAffine}[1]{\mathcal A_{#1}^{\mathrm{sh}}}
+\newcommand{\ShellEmbed}[1]{\chi_{#1}}
+\newcommand{\SymGroup}[1]{\mathbb G_{#1}}
+\newcommand{\TimeRev}[1]{\vartheta_{#1}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Primitive-Reservoir Observer-Reduction\\
+\large Minimal Zero-Response Affine Completion Core\\
+\large Collapse to a Minimal Completion-State Shell-Trace Core}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The current active theorem on the primitive-reservoir observer-reduction line already removed the exact-shell affine nucleus \(\AffineNucleus\) as the live unexplained stopping point: the nucleus is forced by the explicit minimal zero-response affine completion core \(\CompletionCore\). The next admissible benchmark-facing move recorded by the routing layer was therefore either to force \(\CompletionCore\) from still more primitive explicit substrate structure, or to prove a genuinely smaller collapse strictly inside \(\CompletionCore\).
+
+The present note takes the second route. Rather than reopen a preserved deeper ambient-style relay and reargue its benchmark status, it proves that the full completion-core graph presentation carries no extra benchmark-facing freedom beyond a smaller completion-state shell-trace core \(\TraceCore\). For each sector, that smaller datum keeps only the completion-state body, the affine observer-data map, the affine shell-response map, the hidden body with positive gap operator, the induced symmetry and time-reversal structure, the exact zero-response shell realization in completion-state coordinates, fixed-data solvability, and the data-kernel coercive control. The affine completion plane and the completion body are then recovered canonically as the graph of those same trace maps over that same state body.
+
+This is a genuine smaller theorem-level collapse strictly inside the current completion-core frontier. The shell-coordinate construction yielding the same exact-shell affine nucleus now factors through \(\TraceCore\), so the remaining honest burden is no longer the full completion-core graph presentation as such. The benchmark boundary remains fixed throughout: the one operative metric is still exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, the low-energy matter law is not enlarged, and stronger first-principles promotion language remains paused.
+\end{abstract}
+
+\section{Introduction}
+
+The active derivational program of \TheoryName{} has reached another point where depth alone does not count as progress. The direct completion-core forcing theorem already discharged the honest shell-facing move that was still open at the previous frontier: the exact-shell affine nucleus \(\AffineNucleus\) is a canonical output of the explicit minimal zero-response affine completion core \(\CompletionCore\). Once that is on record, another note that merely restates the nucleus or re-expands the larger primitive reversible constrained dynamics package no longer changes benchmark-facing status.
+
+The current routing criterion left two admissible routes below that frontier. The first would be a theorem that forces \(\CompletionCore\) from still more primitive explicit substrate structure in a way that genuinely changes benchmark-facing status. The second would be a smaller theorem-level collapse strictly inside \(\CompletionCore\). The present note takes the second route explicitly. It does not promote an older deeper relay back to live-frontier status. Instead it asks a more precise internal question: inside the current completion-core package, what is genuinely independent benchmark-facing data, and what is merely affine-graph presentation once the completion-state trace has been fixed?
+
+The answer is that the full completion plane and completion body are not independently live at current scope. They are reconstructed from a smaller completion-state shell-trace core consisting only of the completion-state body, the descended affine observer-data and shell-response maps, the hidden body with positive gap operator, the induced symmetry / time-reversal structure, the exact zero-response shell realization in completion-state coordinates, fixed-data solvability, and the same coercive control on data-invisible variations. The benchmark-relevant shell-coordinate construction of the current nucleus theorem already depends only on those smaller data.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not introduce a second operative metric, it does not enlarge the low-energy matter law, and it does not upgrade adoption to completed first-principles derivation. Its narrower benchmark-facing role is only to compress the current completion-core burden to a smaller internal datum.
+
+\section{Fixed Primitive Continuation Data}
+
+\begin{definition}[Recorded primitive continuation data]
+\label{def:fixed}
+Fix the following continuation data from the active primitive-reservoir observer-reduction line.
+\begin{enumerate}
+    \item For each sector label \(\sigma\in\{\Car,\Cur,\Hom\}\), a primitive forcing shell
+    \[
+    \ForSpace{\sigma},
+    \]
+    a visible reduction map
+    \[
+    \Reduction{\sigma}:\ForSpace{\sigma}\to X_{\sigma},
+    \]
+    and shell-level current and equilibrium carriers
+    \[
+    \CurrentCarrier{\sigma}:\ForSpace{\sigma}\to Z_{\sigma}^{\mathrm{cur}},
+    \qquad
+    \EqCarrier{\sigma}:\ForSpace{\sigma}\to Z_{\sigma}^{\mathrm{eq}}.
+    \]
+    \item The product shell
+    \[
+    \PrimShell
+    \equiv
+    \ForSpace{\Car}\times \ForSpace{\Cur}\times \ForSpace{\Hom}.
+    \]
+    \item The recorded metric and ordinary-matter outputs
+    \[
+    \MetricOut:\PrimShell\to\{\text{observer metrics}\},
+    \qquad
+    \MatterOut:\PrimShell\times\Psi\to\{\text{observer stress tensors}\},
+    \]
+    satisfying
+    \begin{equation}
+    \MetricOut(\mathbf w)=\CompletedMetric,
+    \qquad
+    \MatterOut(\mathbf w,\psi)
+    =
+    T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
+    \label{eq:fixedoutputs}
+    \end{equation}
+    for every \(\mathbf w\in\PrimShell\) and every matter configuration \(\psi\in\Psi\).
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:fixed} is not reopened here. The primitive shell data, the one operative metric, and the ordinary matter route remain fixed continuation data. The present note only sharpens the internal benchmark-facing burden below the current completion-core frontier.
+\end{remark}
+
+\section{Current Frontier Package: Minimal Zero-Response Affine Completion Core}
+
+\begin{definition}[Minimal zero-response affine completion core with hidden-sector gap]
+\label{def:core}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). A \emph{minimal zero-response affine completion core with hidden-sector gap} for sector \(\sigma\) consists of the following data.
+\begin{enumerate}
+    \item A finite-dimensional Euclidean completion-state space
+    \[
+    \CoreState{\sigma},
+    \]
+    an observer-data space
+    \[
+    \DataSpace{\sigma}
+    \equiv
+    \VisibleAffine{\sigma}\times Z_{\sigma}^{\mathrm{cur}}\times Z_{\sigma}^{\mathrm{eq}},
+    \]
+    an ambient shell-response space
+    \[
+    \AmbientTarget{\sigma},
+    \]
+    a hidden space
+    \[
+    \GapSpace{\sigma},
+    \]
+    and the zero-hidden completion space
+    \[
+    \CoreSpace{\sigma}
+    \equiv
+    \CoreState{\sigma}\oplus\DataSpace{\sigma}\oplus\AmbientTarget{\sigma}.
+    \]
+    Let
+    \[
+    \CoreStateProj{\sigma}:\CoreSpace{\sigma}\to\CoreState{\sigma},
+    \qquad
+    \CoreDataProj{\sigma}:\CoreSpace{\sigma}\to\DataSpace{\sigma},
+    \qquad
+    \CoreShellProj{\sigma}:\CoreSpace{\sigma}\to\AmbientTarget{\sigma}
+    \]
+    denote the coordinate projections.
+    \item An affine completion plane
+    \[
+    \CoreAffine{\sigma}\subset\CoreSpace{\sigma}
+    \]
+    such that
+    \[
+    \CoreStateProj{\sigma}\big|_{\CoreAffine{\sigma}}:
+    \CoreAffine{\sigma}\to\CoreState{\sigma}
+    \]
+    is an affine isomorphism.
+    \item A compact convex completion body
+    \[
+    \CoreBody{\sigma}\subset\CoreAffine{\sigma}
+    \]
+    with nonempty relative interior in \(\CoreAffine{\sigma}\).
+    \item A compact convex hidden body
+    \[
+    \GapBody{\sigma}\subset\GapSpace{\sigma}
+    \]
+    with \(0\in\operatorname{int}\GapBody{\sigma}\), together with a positive self-adjoint hidden-sector operator
+    \[
+    \HiddenOperator{\sigma}:\GapSpace{\sigma}\to\GapSpace{\sigma}
+    \]
+    satisfying
+    \begin{equation}
+    \ev{\eta,\HiddenOperator{\sigma}\eta}
+    \ge
+    \kappa_{\sigma}^{\mathrm{hid}}\|\eta\|^{2}
+    \qquad
+    \text{for all }\eta\in\GapSpace{\sigma}
+    \label{eq:coregap}
+    \end{equation}
+    for some \(\kappa_{\sigma}^{\mathrm{hid}}>0\).
+    \item A compact symmetry group
+    \[
+    \CoreSym{\sigma}\subset
+    O(\CoreState{\sigma})\times
+    O(\DataSpace{\sigma})\times
+    O(\AmbientTarget{\sigma})\times
+    O(\GapSpace{\sigma})
+    \]
+    and an orthogonal involution
+    \[
+    \CoreTime{\sigma}\in
+    O(\CoreState{\sigma})\times
+    O(\DataSpace{\sigma})\times
+    O(\AmbientTarget{\sigma})\times
+    O(\GapSpace{\sigma})
+    \]
+    preserving \(\CoreAffine{\sigma}\), \(\CoreBody{\sigma}\), the zero-response slice
+    \[
+    \CoreState{\sigma}\oplus\DataSpace{\sigma}\oplus\{0\},
+    \]
+    the hidden body \(\GapBody{\sigma}\), and \(\HiddenOperator{\sigma}\).
+    \item A smooth embedding
+    \[
+    \jmath_{\sigma}:X_{\sigma}\hookrightarrow \VisibleAffine{\sigma}
+    \]
+    and a smooth zero-response shell realization
+    \[
+    \CoreEmbed{\sigma}:\ForSpace{\sigma}\hookrightarrow\CoreSpace{\sigma}
+    \]
+    whose image is exactly
+    \[
+    \CoreBody{\sigma}\cap
+    \bigl(\CoreShellProj{\sigma}\bigr)^{-1}(0),
+    \]
+    and such that
+    \begin{equation}
+    \CoreDataProj{\sigma}\bigl(\CoreEmbed{\sigma}(w)\bigr)
+    =
+    \bigl(
+    \jmath_{\sigma}(\Reduction{\sigma}(w)),
+    \CurrentCarrier{\sigma}(w),
+    \EqCarrier{\sigma}(w)
+    \bigr)
+    \label{eq:corecompat}
+    \end{equation}
+    for every \(w\in\ForSpace{\sigma}\).
+    \item Fixed-data solvability on the zero-response slice:
+    \begin{equation}
+    \CoreDataProj{\sigma}\bigl(\CoreBody{\sigma}\bigr)
+    =
+    \CoreDataProj{\sigma}
+    \Bigl(
+    \CoreBody{\sigma}\cap
+    \bigl(\CoreShellProj{\sigma}\bigr)^{-1}(0)
+    \Bigr).
+    \label{eq:coresolvability}
+    \end{equation}
+    \item Core-kernel coercivity on the zero-response shell: there exists \(\kappa_{\sigma}^{\mathrm{co}}>0\) such that for every
+    \[
+    w\in\ForSpace{\sigma},
+    \qquad
+    \delta c\in T_{\CoreEmbed{\sigma}(w)}\CoreAffine{\sigma}
+    \]
+    satisfying
+    \[
+    \CoreDataProj{\sigma}(\delta c)=0,
+    \]
+    one has
+    \begin{equation}
+    \bigl\|
+    \CoreShellProj{\sigma}(\delta c)
+    \bigr\|^{2}
+    \ge
+    \kappa_{\sigma}^{\mathrm{co}}
+    \bigl\|
+    \CoreStateProj{\sigma}(\delta c)
+    \bigr\|^{2}.
+    \label{eq:corecoercive}
+    \end{equation}
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:core} is the current internal burden below the direct exact-shell-affine-nucleus forcing theorem. The question addressed here is whether the full affine completion-plane presentation is itself larger than necessary once one asks only for the benchmark-relevant completion-state trace.
+\end{remark}
+
+\section{Smaller Internal Datum: Minimal Completion-State Shell-Trace Core}
+
+\begin{definition}[Completion-state shell-trace core]
+\label{def:trace}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). A \emph{minimal completion-state shell-trace core with hidden-sector gap} for sector \(\sigma\) consists of the following data.
+\begin{enumerate}
+    \item A finite-dimensional Euclidean completion-state space
+    \[
+    \CoreState{\sigma},
+    \]
+    the same observer-data space \(\DataSpace{\sigma}\), shell-response space \(\AmbientTarget{\sigma}\), and hidden space \(\GapSpace{\sigma}\).
+    \item A compact convex completion-state body
+    \[
+    \TraceBody{\sigma}\subset\CoreState{\sigma}
+    \]
+    with nonempty interior in \(\CoreState{\sigma}\).
+    \item A compact convex hidden body
+    \[
+    \GapBody{\sigma}\subset\GapSpace{\sigma}
+    \]
+    with \(0\in\operatorname{int}\GapBody{\sigma}\), together with a positive self-adjoint hidden-sector operator
+    \[
+    \HiddenOperator{\sigma}:\GapSpace{\sigma}\to\GapSpace{\sigma}
+    \]
+    satisfying
+    \begin{equation}
+    \ev{\eta,\HiddenOperator{\sigma}\eta}
+    \ge
+    \kappa_{\sigma}^{\mathrm{hid}}\|\eta\|^{2}
+    \qquad
+    \text{for all }\eta\in\GapSpace{\sigma}.
+    \label{eq:tracegap}
+    \end{equation}
+    \item Affine observer-data and shell-response maps
+    \[
+    \TraceDataMap{\sigma}:\CoreState{\sigma}\to\DataSpace{\sigma},
+    \qquad
+    \TraceShellMap{\sigma}:\CoreState{\sigma}\to\AmbientTarget{\sigma}.
+    \]
+    \item A compact symmetry group
+    \[
+    \TraceSym{\sigma}\subset
+    O(\CoreState{\sigma})\times
+    O(\DataSpace{\sigma})\times
+    O(\AmbientTarget{\sigma})\times
+    O(\GapSpace{\sigma})
+    \]
+    and an orthogonal involution
+    \[
+    \TraceTime{\sigma}\in
+    O(\CoreState{\sigma})\times
+    O(\DataSpace{\sigma})\times
+    O(\AmbientTarget{\sigma})\times
+    O(\GapSpace{\sigma})
+    \]
+    preserving \(\TraceBody{\sigma}\), the exact zero-response trace slice
+    \[
+    \TraceBody{\sigma}\cap\bigl(\TraceShellMap{\sigma}\bigr)^{-1}(0),
+    \]
+    the hidden body \(\GapBody{\sigma}\), and \(\HiddenOperator{\sigma}\), and satisfying
+    \[
+    \TraceDataMap{\sigma}(g_{\mathrm{st}}m)
+    =
+    g_{\mathrm{dat}}\TraceDataMap{\sigma}(m),
+    \qquad
+    \TraceShellMap{\sigma}(g_{\mathrm{st}}m)
+    =
+    g_{\mathrm{sh}}\TraceShellMap{\sigma}(m)
+    \]
+    for every \(m\in\CoreState{\sigma}\) and every
+    \[
+    (g_{\mathrm{st}},g_{\mathrm{dat}},g_{\mathrm{sh}},g_{\mathrm{hid}})
+    \in\TraceSym{\sigma},
+    \]
+    with the analogous intertwining equalities for the components of \(\TraceTime{\sigma}\).
+    \item A smooth embedding
+    \[
+    \jmath_{\sigma}:X_{\sigma}\hookrightarrow\VisibleAffine{\sigma}
+    \]
+    and a smooth exact zero-response trace realization
+    \[
+    \TraceEmbed{\sigma}:\ForSpace{\sigma}\hookrightarrow\CoreState{\sigma}
+    \]
+    whose image is exactly
+    \[
+    \TraceBody{\sigma}\cap
+    \bigl(\TraceShellMap{\sigma}\bigr)^{-1}(0),
+    \]
+    and such that
+    \begin{equation}
+    \TraceDataMap{\sigma}\bigl(\TraceEmbed{\sigma}(w)\bigr)
+    =
+    \bigl(
+    \jmath_{\sigma}(\Reduction{\sigma}(w)),
+    \CurrentCarrier{\sigma}(w),
+    \EqCarrier{\sigma}(w)
+    \bigr)
+    \label{eq:tracecompat}
+    \end{equation}
+    for every \(w\in\ForSpace{\sigma}\).
+    \item Fixed-data solvability on the trace body:
+    \begin{equation}
+    \TraceDataMap{\sigma}\bigl(\TraceBody{\sigma}\bigr)
+    =
+    \TraceDataMap{\sigma}
+    \Bigl(
+    \TraceBody{\sigma}\cap
+    \bigl(\TraceShellMap{\sigma}\bigr)^{-1}(0)
+    \Bigr).
+    \label{eq:tracesolvability}
+    \end{equation}
+    \item Trace-kernel coercivity: there exists \(\kappa_{\sigma}^{\mathrm{tr}}>0\) such that for every
+    \[
+    \delta m\in\CoreState{\sigma}
+    \]
+    satisfying
+    \[
+    D\TraceDataMap{\sigma}\,\delta m=0,
+    \]
+    one has
+    \begin{equation}
+    \bigl\|
+    D\TraceShellMap{\sigma}\,\delta m
+    \bigr\|^{2}
+    \ge
+    \kappa_{\sigma}^{\mathrm{tr}}\|\delta m\|^{2}.
+    \label{eq:tracecoercive}
+    \end{equation}
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:trace} is strictly smaller than Definition \ref{def:core} in the precise sense relevant here. It does not retain a separate affine completion plane or a separate completion body inside a larger graph space. It retains only the completion-state body together with the descended affine data and shell maps and the hidden gap package.
+\end{remark}
+
+\section{Canonical Trace Extraction from the Completion Core}
+
+\begin{definition}[Canonical trace core extracted from a completion core]
+\label{def:extract}
+Assume Definition \ref{def:core}. Define the associated completion-state shell-trace core as follows.
+\begin{enumerate}
+    \item The completion-state body is
+    \begin{equation}
+    \TraceBody{\sigma}
+    \equiv
+    \CoreStateProj{\sigma}\bigl(\CoreBody{\sigma}\bigr).
+    \label{eq:tracebody}
+    \end{equation}
+    \item The affine observer-data and shell-response trace maps are
+    \begin{equation}
+    \TraceDataMap{\sigma}
+    \equiv
+    \CoreDataProj{\sigma}\circ
+    \bigl(
+    \CoreStateProj{\sigma}\big|_{\CoreAffine{\sigma}}
+    \bigr)^{-1},
+    \qquad
+    \TraceShellMap{\sigma}
+    \equiv
+    \CoreShellProj{\sigma}\circ
+    \bigl(
+    \CoreStateProj{\sigma}\big|_{\CoreAffine{\sigma}}
+    \bigr)^{-1}.
+    \label{eq:tracemaps}
+    \end{equation}
+    \item The symmetry group, time reversal, hidden body, and hidden operator are retained unchanged:
+    \[
+    \TraceSym{\sigma}\equiv\CoreSym{\sigma},
+    \qquad
+    \TraceTime{\sigma}\equiv\CoreTime{\sigma}.
+    \]
+    \item The exact zero-response trace realization is
+    \begin{equation}
+    \TraceEmbed{\sigma}
+    \equiv
+    \CoreStateProj{\sigma}\circ\CoreEmbed{\sigma}.
+    \label{eq:traceembed}
+    \end{equation}
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}[Every completion core canonically yields a trace core]
+\label{prop:trace}
+Assume Definitions \ref{def:core} and \ref{def:extract}. Then the extracted data satisfy every requirement of Definition \ref{def:trace}.
+\end{proposition}
+
+\begin{proof}
+Because \(\CoreStateProj{\sigma}\big|_{\CoreAffine{\sigma}}\) is an affine isomorphism and \(\CoreBody{\sigma}\subset\CoreAffine{\sigma}\) is compact and convex with nonempty relative interior, the projected state body \(\TraceBody{\sigma}\) is compact and convex with nonempty interior in \(\CoreState{\sigma}\). The hidden body and hidden operator are unchanged, so \eqref{eq:tracegap} is exactly \eqref{eq:coregap}.
+
+The maps \(\TraceDataMap{\sigma}\) and \(\TraceShellMap{\sigma}\) are affine by construction. If
+\[
+(g_{\mathrm{st}},g_{\mathrm{dat}},g_{\mathrm{sh}},g_{\mathrm{hid}})
+\in\CoreSym{\sigma},
+\qquad
+m\in\CoreState{\sigma},
+\]
+then the point
+\[
+\bigl(
+m,\TraceDataMap{\sigma}(m),\TraceShellMap{\sigma}(m)
+\bigr)
+\in\CoreAffine{\sigma}
+\]
+is carried by the symmetry to
+\[
+\bigl(
+g_{\mathrm{st}}m,\,
+g_{\mathrm{dat}}\TraceDataMap{\sigma}(m),\,
+g_{\mathrm{sh}}\TraceShellMap{\sigma}(m)
+\bigr)\in\CoreAffine{\sigma},
+\]
+so the defining graph property of \eqref{eq:tracemaps} yields the required intertwining equalities. The same argument applies to \(\TraceTime{\sigma}\). Because the completion-core symmetries preserve \(\CoreBody{\sigma}\), the shell-zero slice, \(\GapBody{\sigma}\), and \(\HiddenOperator{\sigma}\), the extracted trace symmetries preserve the corresponding trace-core data as well.
+
+For the exact zero-response trace realization, the image of \(\TraceEmbed{\sigma}\) is contained in
+\[
+\TraceBody{\sigma}\cap
+\bigl(\TraceShellMap{\sigma}\bigr)^{-1}(0)
+\]
+because \(\CoreEmbed{\sigma}(\ForSpace{\sigma})\subset\CoreBody{\sigma}\cap(\CoreShellProj{\sigma})^{-1}(0)\). Conversely, if
+\[
+m\in\TraceBody{\sigma}\cap
+\bigl(\TraceShellMap{\sigma}\bigr)^{-1}(0),
+\]
+then
+\[
+c\equiv
+\bigl(
+\CoreStateProj{\sigma}\big|_{\CoreAffine{\sigma}}
+\bigr)^{-1}(m)
+\in\CoreBody{\sigma}
+\]
+and \(\CoreShellProj{\sigma}(c)=0\). Hence \(c\in\CoreBody{\sigma}\cap(\CoreShellProj{\sigma})^{-1}(0)\), so by Definition \ref{def:core} there is a unique \(w\in\ForSpace{\sigma}\) with \(c=\CoreEmbed{\sigma}(w)\). Therefore \(m=\TraceEmbed{\sigma}(w)\). Equation \eqref{eq:tracecompat} follows directly from \eqref{eq:corecompat}.
+
+For trace solvability, let \(u\in\TraceDataMap{\sigma}(\TraceBody{\sigma})\). Choose \(c\in\CoreBody{\sigma}\) with
+\[
+u=\CoreDataProj{\sigma}(c).
+\]
+By \eqref{eq:coresolvability}, there exists
+\[
+c_{0}\in\CoreBody{\sigma}\cap
+\bigl(\CoreShellProj{\sigma}\bigr)^{-1}(0)
+\]
+with \(\CoreDataProj{\sigma}(c_{0})=u\). Set
+\[
+m_{0}\equiv\CoreStateProj{\sigma}(c_{0}).
+\]
+Then \(m_{0}\in\TraceBody{\sigma}\cap(\TraceShellMap{\sigma})^{-1}(0)\) and \(\TraceDataMap{\sigma}(m_{0})=u\), proving \eqref{eq:tracesolvability}.
+
+Finally, let \(\delta m\in\CoreState{\sigma}\) satisfy \(D\TraceDataMap{\sigma}\,\delta m=0\). Define the corresponding tangent vector to the completion graph by
+\[
+\delta c
+\equiv
+\bigl(
+\delta m,\,
+D\TraceDataMap{\sigma}\,\delta m,\,
+D\TraceShellMap{\sigma}\,\delta m
+\bigr)
+\in T\CoreAffine{\sigma}.
+\]
+Because \(\CoreAffine{\sigma}\) is affine, this tangent space is the same at every shell point, so \(\delta c\in T_{\CoreEmbed{\sigma}(w)}\CoreAffine{\sigma}\) for any \(w\in\ForSpace{\sigma}\). The data-kernel assumption gives \(\CoreDataProj{\sigma}(\delta c)=0\). Applying \eqref{eq:corecoercive} yields
+\[
+\bigl\|D\TraceShellMap{\sigma}\,\delta m\bigr\|^{2}
+=
+\bigl\|\CoreShellProj{\sigma}(\delta c)\bigr\|^{2}
+\ge
+\kappa_{\sigma}^{\mathrm{co}}
+\bigl\|\CoreStateProj{\sigma}(\delta c)\bigr\|^{2}
+=
+\kappa_{\sigma}^{\mathrm{co}}\|\delta m\|^{2}.
+\]
+This is \eqref{eq:tracecoercive} with \(\kappa_{\sigma}^{\mathrm{tr}}=\kappa_{\sigma}^{\mathrm{co}}\).
+\end{proof}
+
+\section{Reconstruction of the Full Completion Core from the Trace Core}
+
+\begin{definition}[Canonical completion-core reconstruction from a trace core]
+\label{def:reconstruct}
+Assume Definition \ref{def:trace}. Define the reconstructed completion-core data by
+\begin{align}
+\CoreSpace{\sigma}
+&\equiv
+\CoreState{\sigma}\oplus\DataSpace{\sigma}\oplus\AmbientTarget{\sigma},
+\nonumber\\
+\RecAffine{\sigma}
+&\equiv
+\left\{
+\bigl(
+m,\TraceDataMap{\sigma}(m),\TraceShellMap{\sigma}(m)
+\bigr):
+m\in\CoreState{\sigma}
+\right\},
+\label{eq:recaffine}\\
+\RecBody{\sigma}
+&\equiv
+\left\{
+\bigl(
+m,\TraceDataMap{\sigma}(m),\TraceShellMap{\sigma}(m)
+\bigr):
+m\in\TraceBody{\sigma}
+\right\},
+\label{eq:recbody}
+\end{align}
+and
+\begin{equation}
+\RecEmbed{\sigma}(w)
+\equiv
+\bigl(
+\TraceEmbed{\sigma}(w),
+\TraceDataMap{\sigma}(\TraceEmbed{\sigma}(w)),
+0
+\bigr).
+\label{eq:recembed}
+\end{equation}
+Use the standard coordinate projections on \(\CoreSpace{\sigma}\), and keep the same hidden body, hidden operator, symmetry group, and time reversal.
+\end{definition}
+
+\begin{proposition}[A trace core reconstructs a completion core]
+\label{prop:reconstruct}
+Assume Definitions \ref{def:trace} and \ref{def:reconstruct}. Then the reconstructed data satisfy every requirement of Definition \ref{def:core}.
+\end{proposition}
+
+\begin{proof}
+By \eqref{eq:recaffine}, the reconstructed affine plane is the graph of the affine pair \((\TraceDataMap{\sigma},\TraceShellMap{\sigma})\), so the state projection is an affine isomorphism from \(\RecAffine{\sigma}\) onto \(\CoreState{\sigma}\). Because \(\TraceBody{\sigma}\) is compact and convex with nonempty interior, its graph image \(\RecBody{\sigma}\) is compact and convex with nonempty relative interior in \(\RecAffine{\sigma}\). The hidden body and hidden operator already satisfy \eqref{eq:coregap} by \eqref{eq:tracegap}.
+
+The symmetry and time-reversal data preserve the reconstructed graph because the trace-core intertwining equalities imply
+\[
+\bigl(
+g_{\mathrm{st}}m,\,
+g_{\mathrm{dat}}\TraceDataMap{\sigma}(m),\,
+g_{\mathrm{sh}}\TraceShellMap{\sigma}(m)
+\bigr)
+\in\RecAffine{\sigma}
+\]
+whenever \(m\in\CoreState{\sigma}\) and
+\[
+(g_{\mathrm{st}},g_{\mathrm{dat}},g_{\mathrm{sh}},g_{\mathrm{hid}})
+\in\TraceSym{\sigma}.
+\]
+They preserve \(\RecBody{\sigma}\), the zero-response slice, \(\GapBody{\sigma}\), and \(\HiddenOperator{\sigma}\) for the same reason.
+
+For the shell realization, \(\RecEmbed{\sigma}(\ForSpace{\sigma})\) is contained in
+\[
+\RecBody{\sigma}\cap
+\bigl(\CoreShellProj{\sigma}\bigr)^{-1}(0)
+\]
+because \(\TraceEmbed{\sigma}(\ForSpace{\sigma})\subset\TraceBody{\sigma}\cap(\TraceShellMap{\sigma})^{-1}(0)\). Conversely, if
+\[
+(m,u,0)\in
+\RecBody{\sigma}\cap
+\bigl(\CoreShellProj{\sigma}\bigr)^{-1}(0),
+\]
+then \(m\in\TraceBody{\sigma}\), \(u=\TraceDataMap{\sigma}(m)\), and \(\TraceShellMap{\sigma}(m)=0\). Hence \(m=\TraceEmbed{\sigma}(w)\) for a unique \(w\in\ForSpace{\sigma}\), and therefore
+\[
+(m,u,0)=\RecEmbed{\sigma}(w).
+\]
+Equation \eqref{eq:corecompat} follows from \eqref{eq:tracecompat}.
+
+For fixed-data solvability, let \(u\in\CoreDataProj{\sigma}(\RecBody{\sigma})\). Then \(u=\TraceDataMap{\sigma}(m)\) for some \(m\in\TraceBody{\sigma}\). By \eqref{eq:tracesolvability}, there exists
+\[
+m_{0}\in\TraceBody{\sigma}\cap
+\bigl(\TraceShellMap{\sigma}\bigr)^{-1}(0)
+\]
+with \(\TraceDataMap{\sigma}(m_{0})=u\). Then
+\[
+\bigl(
+m_{0},u,0
+\bigr)
+\in
+\RecBody{\sigma}\cap
+\bigl(\CoreShellProj{\sigma}\bigr)^{-1}(0),
+\]
+which proves \eqref{eq:coresolvability}.
+
+Finally, let
+\[
+\delta c\in T_{\RecEmbed{\sigma}(w)}\RecAffine{\sigma}
+\]
+with \(\CoreDataProj{\sigma}(\delta c)=0\). Because \(\RecAffine{\sigma}\) is the graph of the affine trace maps, there exists a unique \(\delta m\in\CoreState{\sigma}\) such that
+\[
+\delta c=
+\bigl(
+\delta m,\,
+D\TraceDataMap{\sigma}\,\delta m,\,
+D\TraceShellMap{\sigma}\,\delta m
+\bigr).
+\]
+The data-kernel condition is \(D\TraceDataMap{\sigma}\,\delta m=0\). Hence \eqref{eq:tracecoercive} gives
+\[
+\bigl\|
+\CoreShellProj{\sigma}(\delta c)
+\bigr\|^{2}
+=
+\bigl\|
+D\TraceShellMap{\sigma}\,\delta m
+\bigr\|^{2}
+\ge
+\kappa_{\sigma}^{\mathrm{tr}}\|\delta m\|^{2}
+=
+\kappa_{\sigma}^{\mathrm{tr}}
+\bigl\|
+\CoreStateProj{\sigma}(\delta c)
+\bigr\|^{2}.
+\]
+This is \eqref{eq:corecoercive}.
+\end{proof}
+
+\begin{proposition}[The extracted trace core reconstructs the original completion core exactly]
+\label{prop:exact}
+Assume Definitions \ref{def:core}, \ref{def:extract}, and \ref{def:reconstruct}. Then the reconstructed completion-core data are exactly the original ones:
+\[
+\RecAffine{\sigma}=\CoreAffine{\sigma},
+\qquad
+\RecBody{\sigma}=\CoreBody{\sigma},
+\qquad
+\RecEmbed{\sigma}=\CoreEmbed{\sigma}.
+\]
+\end{proposition}
+
+\begin{proof}
+By definition of \(\TraceDataMap{\sigma}\) and \(\TraceShellMap{\sigma}\), every point \(c\in\CoreAffine{\sigma}\) with
+\[
+m=\CoreStateProj{\sigma}(c)
+\]
+satisfies
+\[
+c=
+\bigl(
+m,\TraceDataMap{\sigma}(m),\TraceShellMap{\sigma}(m)
+\bigr),
+\]
+so \(c\in\RecAffine{\sigma}\). Conversely, every point of \(\RecAffine{\sigma}\) is obtained by applying
+\[
+\bigl(
+\CoreStateProj{\sigma}\big|_{\CoreAffine{\sigma}}
+\bigr)^{-1}
+\]
+to some \(m\in\CoreState{\sigma}\), hence lies in \(\CoreAffine{\sigma}\). Therefore \(\RecAffine{\sigma}=\CoreAffine{\sigma}\).
+
+If \(c\in\CoreBody{\sigma}\), then with \(m=\CoreStateProj{\sigma}(c)\in\TraceBody{\sigma}\) the previous identity shows \(c\in\RecBody{\sigma}\). Conversely, let
+\[
+\bigl(
+m,\TraceDataMap{\sigma}(m),\TraceShellMap{\sigma}(m)
+\bigr)\in\RecBody{\sigma}.
+\]
+Because \(m\in\TraceBody{\sigma}=\CoreStateProj{\sigma}(\CoreBody{\sigma})\), there exists \(c\in\CoreBody{\sigma}\) with \(\CoreStateProj{\sigma}(c)=m\). Since \(c\in\CoreAffine{\sigma}\) and \(\CoreAffine{\sigma}\) is exactly the graph of the extracted trace maps, \(c\) must equal the displayed graph point. Hence \(\RecBody{\sigma}=\CoreBody{\sigma}\).
+
+Finally,
+\[
+\RecEmbed{\sigma}(w)
+=
+\bigl(
+\CoreStateProj{\sigma}(\CoreEmbed{\sigma}(w)),
+\CoreDataProj{\sigma}(\CoreEmbed{\sigma}(w)),
+0
+\bigr)
+=
+\CoreEmbed{\sigma}(w)
+\]
+because \(\CoreEmbed{\sigma}(w)\) already lies in the shell-zero slice.
+\end{proof}
+
+\section{Downstream Exact-Shell Affine Structure Factors Through the Trace Core}
+
+\begin{definition}[Canonical shell coordinates from the trace core]
+\label{def:shell}
+Assume Definition \ref{def:trace}. Define the shell coordinates induced by the trace core as follows.
+\begin{enumerate}
+    \item Let
+    \[
+    \TraceShellLin{\sigma}:\CoreState{\sigma}\to\AmbientTarget{\sigma}
+    \]
+    denote the linear part of the affine map \(\TraceShellMap{\sigma}\). Define
+    \[
+    \ShellKer{\sigma}\equiv\ker\TraceShellLin{\sigma},
+    \qquad
+    \ShellNormal{\sigma}\equiv\operatorname{im}\TraceShellLin{\sigma}.
+    \]
+    Let
+    \[
+    \DirProj{\sigma}:\CoreState{\sigma}\to\ShellKer{\sigma}
+    \]
+    be the orthogonal projection onto \(\ShellKer{\sigma}\), and equip \(\ShellNormal{\sigma}\) with the Euclidean structure transported from \((\ShellKer{\sigma})^{\perp}\) by
+    \[
+    \TraceShellLin{\sigma}\big|_{(\ShellKer{\sigma})^{\perp}}
+    :
+    (\ShellKer{\sigma})^{\perp}\xrightarrow{\cong}\ShellNormal{\sigma}.
+    \]
+    \item Choose the shell offset \(\ShellOffset{\sigma}\in\ShellNormal{\sigma}\) by the affine decomposition
+    \begin{equation}
+    \TraceShellMap{\sigma}(m)
+    =
+    \TraceShellLin{\sigma}(m)-\ShellOffset{\sigma}.
+    \label{eq:traceshelldecomp}
+    \end{equation}
+    \item The shell-coordinate space is
+    \[
+    \CoordSpace{\sigma}\equiv
+    \ShellKer{\sigma}\oplus\ShellNormal{\sigma},
+    \]
+    with product Euclidean structure, and the shell-coordinate isomorphism is
+    \begin{equation}
+    \CoordIso{\sigma}(m)
+    \equiv
+    \bigl(
+    \DirProj{\sigma}m,\,
+    \TraceShellLin{\sigma}(m)
+    \bigr).
+    \label{eq:tracecoordiso}
+    \end{equation}
+    \item The shell-coordinate body and shell-data readout are
+    \begin{equation}
+    \CoordBody{\sigma}
+    \equiv
+    \CoordIso{\sigma}\bigl(\TraceBody{\sigma}\bigr),
+    \qquad
+    \AffineData{\sigma}
+    \equiv
+    \TraceDataMap{\sigma}\circ\CoordIso{\sigma}^{-1}.
+    \label{eq:tracecoordbody}
+    \end{equation}
+    \item The exact shell affine plane is
+    \begin{equation}
+    \ShellAffine{\sigma}
+    \equiv
+    \left\{
+    (v,e)\in\CoordSpace{\sigma}:
+    e=\ShellOffset{\sigma}
+    \right\},
+    \label{eq:traceshellplane}
+    \end{equation}
+    and the exact shell realization is
+    \begin{equation}
+    \ShellEmbed{\sigma}(w)
+    \equiv
+    \CoordIso{\sigma}\bigl(\TraceEmbed{\sigma}(w)\bigr).
+    \label{eq:traceshellembed}
+    \end{equation}
+    \item The induced symmetry group and time reversal are
+    \[
+    \SymGroup{\sigma}
+    \equiv
+    \left\{
+    \bigl(
+    (g_{\mathrm{st}}|_{\ShellKer{\sigma}},\,g_{\mathrm{sh}}|_{\ShellNormal{\sigma}}),
+    g_{\mathrm{hid}}
+    \bigr):
+    (g_{\mathrm{st}},g_{\mathrm{dat}},g_{\mathrm{sh}},g_{\mathrm{hid}})
+    \in\TraceSym{\sigma}
+    \right\},
+    \]
+    \[
+    \TimeRev{\sigma}
+    \equiv
+    \bigl(
+    (\TraceTime{\sigma}|_{\ShellKer{\sigma}},
+    \TraceTime{\sigma}|_{\ShellNormal{\sigma}}),
+    \TraceTime{\sigma}|_{\GapSpace{\sigma}}
+    \bigr).
+    \]
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}[The current exact-shell affine nucleus is already carried by the trace core]
+\label{prop:nucleus}
+Assume Definitions \ref{def:trace} and \ref{def:shell}. Then the shell-coordinate body \(\CoordBody{\sigma}\), affine shell-data readout \(\AffineData{\sigma}\), exact shell affine plane \(\ShellAffine{\sigma}\), exact shell realization \(\ShellEmbed{\sigma}\), hidden body \(\GapBody{\sigma}\), hidden operator \(\HiddenOperator{\sigma}\), induced symmetry / time-reversal structure, fixed-data shell solvability, and affine-kernel coercive control are all determined by the trace core itself. In particular, the shell-coordinate construction yielding the current exact-shell affine nucleus \(\AffineNucleus\) factors through the trace core.
+\end{proposition}
+
+\begin{proof}
+Because \(\TraceShellLin{\sigma}\big|_{(\ShellKer{\sigma})^{\perp}}\) is a linear isomorphism onto \(\ShellNormal{\sigma}\), the map \(\CoordIso{\sigma}\) is a linear isomorphism; with the chosen Euclidean structures it is an isometry. Hence \(\CoordBody{\sigma}\) is compact and convex with nonempty interior whenever \(\TraceBody{\sigma}\) is.
+
+If \(w\in\ForSpace{\sigma}\), then \(\TraceEmbed{\sigma}(w)\in\TraceBody{\sigma}\) and \(\TraceShellMap{\sigma}(\TraceEmbed{\sigma}(w))=0\). By \eqref{eq:traceshelldecomp},
+\[
+\TraceShellLin{\sigma}(\TraceEmbed{\sigma}(w))
+=
+\ShellOffset{\sigma},
+\]
+so \(\ShellEmbed{\sigma}(w)\in\CoordBody{\sigma}\cap\ShellAffine{\sigma}\). Conversely, if \(q=\CoordIso{\sigma}(m)\in\CoordBody{\sigma}\cap\ShellAffine{\sigma}\), then \(m\in\TraceBody{\sigma}\) and the second coordinate condition forces \(\TraceShellLin{\sigma}(m)=\ShellOffset{\sigma}\), hence \(\TraceShellMap{\sigma}(m)=0\). Therefore \(m=\TraceEmbed{\sigma}(w)\) for a unique \(w\in\ForSpace{\sigma}\), and so \(q=\ShellEmbed{\sigma}(w)\). Thus \(\ShellEmbed{\sigma}\) is a diffeomorphism onto the full exact shell slice of \(\CoordBody{\sigma}\).
+
+Equation \eqref{eq:tracecompat} immediately gives
+\[
+\AffineData{\sigma}\bigl(\ShellEmbed{\sigma}(w)\bigr)
+=
+\TraceDataMap{\sigma}\bigl(\TraceEmbed{\sigma}(w)\bigr)
+=
+\bigl(
+\jmath_{\sigma}(\Reduction{\sigma}(w)),
+\CurrentCarrier{\sigma}(w),
+\EqCarrier{\sigma}(w)
+\bigr).
+\]
+The hidden body, hidden operator, and induced symmetry / time-reversal structure are already part of the trace core.
+
+For shell solvability, let \(u\in\AffineData{\sigma}(\CoordBody{\sigma})\). Then \(u=\TraceDataMap{\sigma}(m)\) for some \(m\in\TraceBody{\sigma}\). By \eqref{eq:tracesolvability}, there exists
+\[
+m_{0}\in\TraceBody{\sigma}\cap
+\bigl(\TraceShellMap{\sigma}\bigr)^{-1}(0)
+\]
+with \(\TraceDataMap{\sigma}(m_{0})=u\). Hence
+\[
+\CoordIso{\sigma}(m_{0})\in\CoordBody{\sigma}\cap\ShellAffine{\sigma}
+\]
+and \(\AffineData{\sigma}(\CoordIso{\sigma}(m_{0}))=u\).
+
+Finally, let
+\[
+\delta q\in\CoordSpace{\sigma}
+\]
+satisfy \(D\AffineData{\sigma}\,\delta q=0\), and let \(\delta m\equiv\CoordIso{\sigma}^{-1}(\delta q)\). Since \(\CoordIso{\sigma}\) is an isometry,
+\[
+\|\delta q\|=\|\delta m\|.
+\]
+Moreover,
+\[
+D\AffineData{\sigma}\,\delta q
+=
+D\TraceDataMap{\sigma}\,\delta m,
+\]
+so the trace-kernel condition gives
+\[
+\bigl\|
+D\TraceShellMap{\sigma}\,\delta m
+\bigr\|^{2}
+\ge
+\kappa_{\sigma}^{\mathrm{tr}}\|\delta m\|^{2}.
+\]
+But the second component of \(\delta q\) is exactly \(D\TraceShellMap{\sigma}\,\delta m\). Therefore the shell-normal part of \(\delta q\) obeys the same coercive lower bound, and adjoining any hidden variation \(\delta n\in\GapSpace{\sigma}\) gives the same affine-kernel coercive control as in the current nucleus theorem. Thus every downstream shell-coordinate constituent relevant to \(\AffineNucleus\) is already carried by the trace core.
+\end{proof}
+
+\begin{proposition}[Separate completion-plane presentation is benchmark neutral at current scope]
+\label{prop:neutral}
+Assume Definition \ref{def:core}. Then the separate presentation of the full affine completion plane \(\CoreAffine{\sigma}\), the full completion body \(\CoreBody{\sigma}\), and the ambient graph coordinates of the completion core adds no independent benchmark-facing freedom beyond the smaller trace core extracted in Definition \ref{def:extract}.
+\end{proposition}
+
+\begin{proof}
+By Proposition \ref{prop:exact}, the full completion-core graph presentation is reconstructed exactly from the trace core. By Proposition \ref{prop:nucleus}, all downstream shell-coordinate data relevant to the current exact-shell affine nucleus are already determined by that same trace core. Therefore the separate completion-plane and completion-body presentation does not contribute new benchmark-facing information beyond the trace-core datum.
+\end{proof}
+
+\begin{proposition}[The benchmark package remains fixed]
+\label{prop:benchmark}
+Every completion-state shell-trace core obtained here preserves the same benchmark one-metric package \eqref{eq:fixedoutputs}. In particular, the operative metric remains exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, and the low-energy matter law is not enlarged.
+\end{proposition}
+
+\begin{proof}
+The present note removes only internal presentational redundancy inside the current completion-core frontier. It does not alter the primitive shell \(\PrimShell\), the recorded metric map \(\MetricOut\), or the recorded matter map \(\MatterOut\). Therefore \eqref{eq:fixedoutputs} remains exactly in force.
+\end{proof}
+
+\section{Main Theorem}
+
+\begin{theorem}[Minimal zero-response affine completion core collapses to a minimal completion-state shell-trace core]
+\label{thm:main}
+Assume the fixed primitive continuation data of Definition \ref{def:fixed} and, for each sector \(\sigma\in\{\Car,\Cur,\Hom\}\), a minimal zero-response affine completion core in the sense of Definition \ref{def:core}. Then:
+\begin{enumerate}
+    \item the completion core canonically yields a smaller completion-state shell-trace core by Proposition \ref{prop:trace};
+    \item the full affine completion-plane presentation is reconstructed exactly from that smaller trace core by Propositions \ref{prop:reconstruct} and \ref{prop:exact};
+    \item the shell-coordinate construction yielding the current exact-shell affine nucleus \(\AffineNucleus\) already factors through that smaller trace core by Proposition \ref{prop:nucleus};
+    \item the separate completion-plane and completion-body presentation therefore adds no independent benchmark-facing freedom beyond the trace core by Proposition \ref{prop:neutral};
+    \item the benchmark one-metric package remains exactly the same by Proposition \ref{prop:benchmark};
+    \item consequently the live internal burden below the direct completion-core frontier collapses from the full minimal zero-response affine completion core \(\CompletionCore\) to the smaller completion-state shell-trace core \(\TraceCore\). The remaining honest burden is therefore no longer the full completion-core graph presentation as such. What remains is to derive or uniquely force \(\TraceCore\) from still more primitive explicit substrate structure, or else prove a still smaller theorem-level collapse strictly inside \(\TraceCore\), while preserving the same benchmark package and claim boundary.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Item (1) is Proposition \ref{prop:trace}. Item (2) is Propositions \ref{prop:reconstruct} and \ref{prop:exact}. Item (3) is Proposition \ref{prop:nucleus}. Item (4) is Proposition \ref{prop:neutral}. Item (5) is Proposition \ref{prop:benchmark}. Item (6) is the routing consequence of the previous items together with the current safeguard against counting another same-output deeper-origin relay as benchmark-facing progress when the benchmark-relevant internal datum has already been sharpened.
+\end{proof}
+
+\begin{corollary}[What must be done next]
+\label{cor:next}
+After Theorem \ref{thm:main}, the next honest benchmark-facing manuscript must either:
+\begin{enumerate}
+    \item derive or uniquely force the completion-state shell-trace core \(\TraceCore\) from still more primitive explicit substrate structure in a way that changes benchmark-facing status;
+    \item identify a genuinely smaller theorem-level datum strictly inside \(\TraceCore\) and prove a sharper collapse to it;
+    \item do either of the previous two while preserving the same benchmark one-metric package and the same claim boundary.
+\end{enumerate}
+Another restatement of the full completion-core graph presentation, another restatement of the exact-shell affine nucleus, another same-output deeper-origin relay that merely preserves the same trace core, another reopening of preserved deeper ambient-style relays as if they again defined the live burden, or any move that introduces a second operative metric, enlarges the ordinary matter law, or uses stronger promotion language does not satisfy the present burden.
+\end{corollary}
+
+\begin{proof}
+Theorem \ref{thm:main} shows that the full completion-core presentation is no longer the minimal benchmark-facing datum at current scope. Therefore a subsequent manuscript must improve on the smaller trace core rather than merely restating the larger completion-core graph presentation or replaying the already-forced nucleus.
+\end{proof}
+
+\section{Conclusion}
+
+The positive result of this note is a genuine internal compression below the current completion-core frontier. The previous active theorem already showed that the exact-shell affine nucleus is no longer independently unexplained once the minimal zero-response affine completion core is fixed. The present theorem then takes the second admissible step left open there: it shows that even the full completion-core graph presentation is still larger than necessary.
+
+What survives as the live burden is the smaller completion-state shell-trace core \(\TraceCore\). At this sharpened level, the operative data are only the completion-state body, the affine observer-data and shell-response maps, the hidden body with positive gap operator, the induced symmetry and time-reversal structure, the exact zero-response shell realization in completion-state coordinates, fixed-data solvability, and the same data-kernel coercive control. The affine completion plane and the full completion body are the graph reconstruction of those same trace data, not additional benchmark-facing freedom.
+
+The claim boundary remains fixed throughout. The one operative metric is still exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, and the low-energy matter law is not enlarged. This note therefore does not complete a first-principles derivation of GR from substrate microphysics. It does something narrower and honest: it moves the live burden one level further inside the current completion-core frontier. The next benchmark-facing step must now derive or uniquely force that sharper trace core from still more primitive explicit substrate structure, or else collapse it further.
+
+\end{document}
