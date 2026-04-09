@@ -117,6 +117,7 @@ A manuscript should no longer count as front-line progress if it:
 - preserves the same observer-equation closure verdict
 - preserves the same benchmark-facing output
 - and only relocates the unexplained substrate layer deeper without proving a new gate, compression, necessity, or uniqueness result that changes project status
+- or merely moves below a benchmark-stable bridge object already identified by the routing layer without sharpening that bridge object or discharging a benchmark derivation gate
 
 This is the repository safeguard against recursive depth drift.
 
@@ -178,7 +179,7 @@ At the current audit:
 
 - the benchmark exact-closure package is the front door
 - the benchmark-gatekeeping layer must be consulted before any main-line claim
-- the current file map carries a single `active_primary` row at `primitive_reduction_current_pre_selector_pre_pre_pre_proto_kernel_frontier`
+- the current file map carries a single `active_primary` row at `primitive_reduction_current_bridge_object_forcing_frontier`, anchored on the primitive reversible constrained substrate dynamics normal form rather than on the deeper pre-pre-pre-proto-kernel relay
 - benchmark-facing status after the post-bridge routing correction is governed by the continuity-Hessian compressed core and the bridge-entry derivations that force it; later same-output relays should be treated conservatively unless they derive, uniquely force, or further compress that bridge object
 - the same-package exact-preservation line is preserved as supporting or historical routing context
 - screened higher-derivative branches remain screened
