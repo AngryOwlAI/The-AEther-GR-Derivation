@@ -38,9 +38,11 @@ It should not be described as a merely temporary placeholder awaiting legitimacy
 
 - Satisfy the benchmark derivation gates recorded in [aether_flow_exact_closure_derivation_gates_note.tex](../manuscripts/active/tex/aether_flow_exact_closure_derivation_gates_note.tex).
 - Treat [aether_flow_exact_closure_post_bridge_derivation_gate_status_note.tex](../manuscripts/active/tex/aether_flow_exact_closure_post_bridge_derivation_gate_status_note.tex) as the active benchmark-facing routing note: on the active completed branch, the same-package observer-side remainder gate is no longer the live bottleneck, and the remaining honest burden has moved upstream to substrate derivation of the benchmark package itself.
-- Treat [the zepto-section-generating substrate yocto-section dynamics collapse to an observer-relevant yocto-section minimizer-image core theorem](../manuscripts/active/tex/aether_flow_primitive_reservoir_observer_reduction_zepto_section_generating_substrate_yocto_section_dynamics_collapse_to_observer_relevant_yocto_section_minimizer_image_core_theorem.tex) as the current deepest benchmark-facing main-line gain.
-- The next primary gain should go below that theorem by deriving or justifying the observer-relevant yocto-section minimizer-image core itself, or by proving a still sharper theorem-level collapse strictly inside that image core, while preserving the same benchmark one-metric package and claim boundary.
-- Another same-output deeper-origin relay that leaves that sharper yocto-section minimizer-image core unchanged, or a reopening of older screened layers, is not the honest default next move.
+- Treat [aether_flow_benchmark_one_metric_observer_package_upstream_compression_theorem.tex](../manuscripts/active/tex/aether_flow_benchmark_one_metric_observer_package_upstream_compression_theorem.tex) as the benchmark-facing safeguard: another deeper-origin relay that preserves the same continuity-Hessian compressed core does not change derivational status.
+- Treat the bridge-entry primitive-reservoir derivations already on record, especially [aether_flow_primitive_reservoir_line_continuity_hessian_core_derivation_theorem.tex](../manuscripts/active/tex/aether_flow_primitive_reservoir_line_continuity_hessian_core_derivation_theorem.tex), [aether_flow_primitive_reservoir_observer_reduction_datum_origin_theorem.tex](../manuscripts/active/tex/aether_flow_primitive_reservoir_observer_reduction_datum_origin_theorem.tex), [aether_flow_primitive_reservoir_observer_sector_defect_fiber_factorization_theorem.tex](../manuscripts/active/tex/aether_flow_primitive_reservoir_observer_sector_defect_fiber_factorization_theorem.tex), [aether_flow_primitive_reservoir_one_metric_ordinary_matter_output_map_theorem.tex](../manuscripts/active/tex/aether_flow_primitive_reservoir_one_metric_ordinary_matter_output_map_theorem.tex), and [aether_flow_primitive_reservoir_observer_reduction_explicit_substrate_package_necessity_uniqueness_from_primitive_dynamics_theorem.tex](../manuscripts/active/tex/aether_flow_primitive_reservoir_observer_reduction_explicit_substrate_package_necessity_uniqueness_from_primitive_dynamics_theorem.tex), as the real bridge-entry gains already in hand.
+- Treat the single current `active_primary` row in [ACTIVE_MANUSCRIPT_FILE_MAP.csv](ACTIVE_MANUSCRIPT_FILE_MAP.csv) as the live exploratory frontier of the primitive-reservoir observer-reduction line, not by itself as a completed GR derivation.
+- The next primary gain should derive or force the bridge object identified in [GR_DERIVATION_AUDIT_PACKAGE.md](GR_DERIVATION_AUDIT_PACKAGE.md): the substrate law that forces the primitive observer-reduction chain yielding the continuity-Hessian compressed core and the benchmark one-metric observer package.
+- Another same-output deeper-origin relay that merely renames a deeper package while preserving that compressed core, or a reopening of older screened layers, is not the honest default next move.
 - Stronger promotion language remains paused until the remaining derivation-gate burdens beyond same-package observer-side closure are met cleanly.
 
 ## Side-Line Status
@@ -59,8 +61,8 @@ Use formulations like:
 - The overview-first exact-closure package is the benchmark public theory statement.
 - The repository now has a benchmark exact-relativistic theory statement and an active derivational program.
 - The post-bridge continuity-Hessian closure result settles the same-package observer-side remainder gate on the active completed branch, but a first-principles substrate derivation still remains open.
-- The current deepest benchmark-facing main-line gain is the zepto-section-generating substrate yocto-section dynamics collapse to an observer-relevant yocto-section minimizer-image core theorem.
-- The active research goal is to derive or justify the observer-relevant yocto-section minimizer-image core from explicit substrate structure, or to collapse that sharper image core further, without changing the benchmark claim boundary prematurely.
+- The file map currently carries one live `active_primary` theorem on the primitive-reservoir observer-reduction line, but benchmark-facing status is governed by the derivation-gates note, the post-bridge status note, and the upstream compression theorem.
+- The current missing bridge burden is the substrate law that forces the primitive observer-reduction chain yielding the continuity-Hessian compressed core and the benchmark one-metric observer package.
 
 ## Claims To Avoid
 
@@ -69,10 +71,11 @@ Do not write:
 - the active theory has already derived GR from first principles
 - ontology alone establishes new low-energy dynamics
 - the current bridge line already closes exactly onto Einstein gravity
+- the current `active_primary` relay by itself is already a completed derivation of GR
 - the existence of many deeper-origin notes is itself evidence of derivational success
+- the latest package label automatically identifies the real missing bridge object
+- repeated same-output deeper-origin relays count as benchmark-facing progress merely because they go deeper
 - the side continuation automatically sets the primary task
-- the atto-section-generating substrate zepto-section dynamics collapse to observer-relevant zepto-section minimizer-image core theorem is still the current deepest benchmark-facing main-line step
-- the forcing-principle primitive-reservoir / stationary-reduction origin note is still the current deepest benchmark-facing main-line step
 - a broader promotion claim before the current deepest burden has been handled
 
 ## Operational Rule

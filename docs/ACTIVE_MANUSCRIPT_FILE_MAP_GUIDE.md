@@ -178,7 +178,8 @@ At the current audit:
 
 - the benchmark exact-closure package is the front door
 - the benchmark-gatekeeping layer must be consulted before any main-line claim
-- the current main-line frontier is the primitive-reservoir observer-reduction line at `primitive_reduction_current_pre_selector_selector_dynamics_frontier`
+- the current file map carries a single `active_primary` row at `primitive_reduction_current_pre_selector_pre_pre_pre_proto_kernel_frontier`
+- benchmark-facing status after the post-bridge routing correction is governed by the continuity-Hessian compressed core and the bridge-entry derivations that force it; later same-output relays should be treated conservatively unless they derive, uniquely force, or further compress that bridge object
 - the same-package exact-preservation line is preserved as supporting or historical routing context
 - screened higher-derivative branches remain screened
 - nonlocal self-response / orbit-shape continuations remain side work unless explicitly promoted
