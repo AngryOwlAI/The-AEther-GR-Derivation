@@ -35,6 +35,7 @@ This checklist is intentionally compact. It tracks the active operational rules 
 - [x] The primitive-reservoir datum-origin, defect-fiber factorization, and one-metric / ordinary-matter output-map theorems are recorded.
 - [x] The primitive-reservoir chain-forcing, selector-existence / uniqueness, stationary-construction, explicit-package necessity / uniqueness, and primitive reversible constrained dynamics necessity / uniqueness theorems are recorded.
 - [x] The file map currently carries one live `active_primary` row for the direct exact-shell-affine-nucleus forcing frontier rather than for the older same-output relay chain.
+- [x] The live completion-core frontier routing note is recorded and screens out nucleus restatements, larger primitive-dynamics re-expansions, and same-output deeper relays that preserve the same completion-core consequence.
 - [x] The higher-derivative screened branch remains screened out rather than promoted.
 - [ ] Side continuations remain non-primary unless they change the benchmark-facing burden.
 
