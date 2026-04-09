@@ -15,14 +15,14 @@ This checklist is intentionally compact. It tracks the active operational rules 
 - [ ] Do not default to reopening the same-package direct absorbability question, another same-package observer-side rewrite, or a generic deeper-origin note that leaves benchmark-facing status unchanged.
 - [ ] Treat the branch-locked continuity-Hessian direct theorem together with the post-bridge derivation-gate status note as the resolved same-package observer-side closure routing result on the active one-metric line.
 - [ ] Treat the upstream compression theorem as the benchmark-facing safeguard: another deeper-origin relay that preserves the same continuity-Hessian compressed core does not change derivational status.
-- [ ] Treat the bridge-entry and bridge-object derivations already on record, especially the continuity-Hessian core derivation theorem, datum-origin theorem, defect-fiber factorization theorem, one-metric / ordinary-matter output-map theorem, chain-forcing theorem, selector-existence theorem, stationary-construction theorem, explicit-package necessity / uniqueness theorem, and primitive reversible constrained dynamics necessity / uniqueness from ambient-shell law theorem, as the real benchmark-facing gains already in hand.
-- [ ] Treat the single current `active_primary` row in `docs/ACTIVE_MANUSCRIPT_FILE_MAP.csv` as the live bridge-object forcing frontier of the primitive-reservoir observer-reduction line, not as a completed GR derivation.
-- [ ] Treat the live bridge object as the primitive reversible constrained substrate dynamics normal form that forces the primitive observer-reduction chain yielding the continuity-Hessian compressed core and the benchmark one-metric observer package.
+- [ ] Treat the bridge-entry and bridge-object derivations already on record, especially the continuity-Hessian core derivation theorem, datum-origin theorem, defect-fiber factorization theorem, one-metric / ordinary-matter output-map theorem, chain-forcing theorem, selector-existence theorem, stationary-construction theorem, explicit-package necessity / uniqueness theorem, primitive reversible constrained dynamics necessity / uniqueness from ambient-shell law theorem, the exact-shell affine nucleus collapse theorem, and the direct exact-shell affine nucleus forcing theorem from minimal zero-response affine completion core, as the real benchmark-facing gains already in hand.
+- [ ] Treat the single current `active_primary` row in `docs/ACTIVE_MANUSCRIPT_FILE_MAP.csv` as the live direct exact-shell-affine-nucleus forcing frontier of the primitive-reservoir observer-reduction line, not as a completed GR derivation.
+- [ ] Treat the current bridge-object gain as the theorem that the minimal zero-response affine completion core forces the minimal exact-shell affine nucleus yielding the continuity-Hessian compressed core and the benchmark one-metric observer package.
 - [ ] The next primary manuscript must either:
-  - derive or uniquely force that bridge object from explicit substrate structure in a way that changes benchmark-facing status
-  - prove a genuinely smaller theorem-level collapse, sharper necessity result, or sharper uniqueness result inside that bridge object while preserving the same benchmark one-metric package and claim boundary
+  - derive or uniquely force that completion core from still more primitive substrate structure in a way that changes benchmark-facing status
+  - prove a genuinely smaller theorem-level collapse, sharper necessity result, or sharper uniqueness result inside that completion core while preserving the same benchmark one-metric package and claim boundary
 - [ ] Treat the current fixed one-metric observer package as already benchmark-stable at same-package scope; do not confuse preservation of that package with first-principles derivation.
-- [ ] Do not spend the move on another same-output deeper-origin relay that merely renames a deeper package while preserving the same compressed core, or on reopening older screened layers.
+- [ ] Do not spend the move on restating the exact-shell affine nucleus, re-expanding the larger primitive reversible constrained dynamics package, inserting another same-output deeper-origin relay that preserves the same completion-core consequence, or reopening older screened layers.
 - [ ] Do not change the one-metric claim boundary with a second operative metric, an enlarged matter law, or stronger promotion language.
 - [ ] Keep stronger promotion language about first-principles derivation paused until the remaining derivation-gate burdens are met.
 
@@ -34,7 +34,7 @@ This checklist is intentionally compact. It tracks the active operational rules 
 - [x] The primitive-reservoir continuity-Hessian core necessity / uniqueness and derivation theorems are recorded.
 - [x] The primitive-reservoir datum-origin, defect-fiber factorization, and one-metric / ordinary-matter output-map theorems are recorded.
 - [x] The primitive-reservoir chain-forcing, selector-existence / uniqueness, stationary-construction, explicit-package necessity / uniqueness, and primitive reversible constrained dynamics necessity / uniqueness theorems are recorded.
-- [x] The file map currently carries one live `active_primary` row for the bridge-object forcing frontier rather than for the deeper same-output relay chain.
+- [x] The file map currently carries one live `active_primary` row for the direct exact-shell-affine-nucleus forcing frontier rather than for the older same-output relay chain.
 - [x] The higher-derivative screened branch remains screened out rather than promoted.
 - [ ] Side continuations remain non-primary unless they change the benchmark-facing burden.
 

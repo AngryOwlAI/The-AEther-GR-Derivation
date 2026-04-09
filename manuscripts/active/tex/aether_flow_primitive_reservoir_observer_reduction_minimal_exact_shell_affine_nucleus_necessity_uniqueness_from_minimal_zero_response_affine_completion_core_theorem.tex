@@ -1,0 +1,829 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+
+\newcommand{\CompletedMetric}{g^{\sharp}}
+
+\newcommand{\Car}{\mathrm{car}}
+\newcommand{\Cur}{\mathrm{cur}}
+\newcommand{\Hom}{\mathrm{hom}}
+
+\newcommand{\ForSpace}[1]{\mathcal I_{#1}^{\mathrm{for}}}
+\newcommand{\PrimShell}{\mathcal S_{\mathrm{prim}}}
+
+\newcommand{\Reduction}[1]{\mathcal R_{#1}}
+\newcommand{\CurrentCarrier}[1]{\mathfrak C_{#1}^{\mathrm{cur}}}
+\newcommand{\EqCarrier}[1]{\mathfrak C_{#1}^{\mathrm{eq}}}
+\newcommand{\CurrentExtract}[1]{\mathscr E_{#1}^{\mathrm{cur}}}
+\newcommand{\EqExtract}[1]{\mathscr E_{#1}^{\mathrm{eq}}}
+\newcommand{\PrimCurrent}[1]{\mathcal J_{#1}^{\mathrm{prim}}}
+\newcommand{\PrimTheta}[1]{\Theta_{#1}^{\mathrm{prim}}}
+
+\newcommand{\MetricOut}{\mathscr G_{\mathrm{out}}}
+\newcommand{\MatterOut}{\mathscr T_{\mathrm{out}}}
+
+\newcommand{\VisibleAffine}[1]{\widehat X_{#1}}
+\newcommand{\DataSpace}[1]{\mathcal Y_{#1}^{\mathrm{obs}}}
+\newcommand{\AmbientTarget}[1]{E_{#1}^{\mathrm{amb}}}
+
+\newcommand{\CoreState}[1]{\mathcal C_{#1}}
+\newcommand{\CoreSpace}[1]{\mathcal Q_{#1}}
+\newcommand{\CoreAffine}[1]{\mathcal F_{#1}^{\mathrm{co}}}
+\newcommand{\CoreBody}[1]{Q_{#1}^{\mathrm{co}}}
+\newcommand{\CoreStateBody}[1]{P_{#1}^{\mathrm{co}}}
+\newcommand{\CoreStateProj}[1]{\Pi_{#1}^{\mathrm{co,st}}}
+\newcommand{\CoreDataProj}[1]{\Pi_{#1}^{\mathrm{co,dat}}}
+\newcommand{\CoreShellProj}[1]{\Pi_{#1}^{\mathrm{co,sh}}}
+\newcommand{\CoreDataMap}[1]{\Omega_{#1}^{\mathrm{co,dat}}}
+\newcommand{\CoreShellMap}[1]{\Omega_{#1}^{\mathrm{co,sh}}}
+\newcommand{\CoreSym}[1]{\mathbb K_{#1}^{\mathrm{co}}}
+\newcommand{\CoreTime}[1]{\tau_{#1}^{\mathrm{co}}}
+\newcommand{\CoreEmbed}[1]{\eta_{#1}}
+
+\newcommand{\GapSpace}[1]{H_{#1}}
+\newcommand{\GapBody}[1]{D_{#1}}
+\newcommand{\HiddenOperator}[1]{K_{#1}^{\mathrm{hid}}}
+
+\newcommand{\CoordSpace}[1]{\mathcal K_{#1}}
+\newcommand{\CoordBody}[1]{P_{#1}}
+\newcommand{\NormalSpace}[1]{N_{#1}}
+\newcommand{\NormalBody}[1]{B_{#1}}
+\newcommand{\AffineData}[1]{\widehat D_{#1}}
+\newcommand{\ShellAffine}[1]{\mathcal A_{#1}^{\mathrm{sh}}}
+\newcommand{\ShellDir}[1]{V_{#1}^{\mathrm{sh}}}
+\newcommand{\ShellNormal}[1]{E_{#1}^{\mathrm{sh}}}
+\newcommand{\ShellProj}[1]{\Pi_{#1}^{\mathrm{sh}}}
+\newcommand{\ShellEmbed}[1]{\chi_{#1}}
+\newcommand{\SymGroup}[1]{\mathbb G_{#1}}
+\newcommand{\TimeRev}[1]{\vartheta_{#1}}
+\newcommand{\AffineNucleus}[1]{\mathcal N_{#1}^{\mathrm{aff}}}
+
+\newcommand{\CoreShellLin}[1]{L_{#1}^{\mathrm{co,sh}}}
+\newcommand{\ShellOffset}[1]{\lambda_{#1}^{\mathrm{sh}}}
+\newcommand{\ShellKer}[1]{V_{#1}^{\mathrm{ker}}}
+\newcommand{\DirProj}[1]{\Pi_{#1}^{\parallel}}
+\newcommand{\CoordIso}[1]{T_{#1}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Primitive-Reservoir Observer-Reduction\\
+\large Minimal Exact-Shell Affine Nucleus\\
+\large Necessity / Uniqueness from Minimal Zero-Response Affine Completion Core}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The current deepest benchmark-facing note on the active primitive-reservoir observer-reduction line sharpened the live bridge object once more: the larger primitive reversible constrained substrate dynamics normal form carries no extra benchmark-facing freedom beyond a smaller minimal exact-shell affine nucleus. The remaining honest burden is therefore no longer to compress that larger normal form again. It is to explain why the exact-shell affine nucleus itself should be forced by explicit substrate structure rather than becoming a new stopping point on the active line.
+
+The present note makes that benchmark-facing move in the narrower form now honestly available. It derives the minimal exact-shell affine nucleus canonically from the already explicit minimal zero-response affine completion core with hidden-sector gap. For each sector, that completion core supplies one completion-state space, one affine completion plane in completion-state, observer-data, and shell-response coordinates, one compact convex completion body, one compact convex hidden body with positive gap operator, symmetry and time-reversal structure, an exact zero-response shell realization, fixed-data solvability on the zero-response slice, and a coercive control on data-invisible variations. From those data one recovers canonically the shell-coordinate body, shell-data readout, exact shell affine plane, exact shell realization, off-shell gap package, reversible structure, and solvability / coercive package that define the exact-shell affine nucleus.
+
+The theorem is stronger than another deeper same-output relay and narrower than a completed first-principles derivation. On the completion-core line the exact-shell affine nucleus is necessary up to the obvious shell-direction, shell-response-image, and hidden-coordinate identifications. The benchmark one-metric package remains exactly the same: the operative metric is still \(\CompletedMetric\), the ordinary matter route is unchanged, no second operative metric is introduced, and the low-energy matter law is not enlarged.
+\end{abstract}
+
+\section{Introduction}
+
+The active derivational program of \TheoryName{} has again narrowed the honest frontier. The observer-reduction datum line, the defect-fiber factorization theorem, the one-metric output theorem, the chain-forcing theorem, the selector-existence theorem, the stationary-construction theorem, the explicit-package necessity / uniqueness theorem, the ambient-shell-law theorem, the combined-response theorem, the completion-core compression theorem, the primitive reversible constrained dynamics forcing theorem, and the later exact-shell affine nucleus collapse theorem have each discharged what was honestly open at their respective layers. The most recent of those notes matters because it changes what now counts as a benchmark-facing next move. Once the larger primitive reversible constrained substrate dynamics normal form is itself known to collapse to a smaller exact-shell affine nucleus, another note that merely re-expands the larger primitive-dynamics presentation no longer counts as the live primary step.
+
+The remaining honest burden is correspondingly cleaner. There are only two serious possibilities left at this shell-facing bridge scale: derive or justify the exact-shell affine nucleus from explicit substrate structure, or prove a genuinely smaller theorem-level collapse strictly inside that nucleus. The present note takes the first route. It does not reopen the larger normal form, and it does not insert another same-output deeper relay below it. Instead it shows that the exact-shell affine nucleus is already a canonical and necessary output of a smaller explicit substrate package that is already on record: the minimal zero-response affine completion core with hidden-sector gap.
+
+This is exactly the right scale for a disciplined gain. The note does not claim a completed ultimate microphysical theory, and it does not promote the repository to a finished first-principles derivation of GR. Its narrower result is only that the current live bridge object is no longer independently unexplained once the explicit completion-core data are fixed. The bridge object that the routing layer had to keep live after the previous collapse theorem is now itself forced on that explicit line.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not claim a completed ultimate microphysical theory. Its narrower theorem is only that, on the active primitive-observer-reduction line, the minimal exact-shell affine nucleus is itself a canonical and necessary output of the explicit minimal zero-response affine completion core.
+
+\section{Fixed Primitive Continuation Data}
+
+\begin{definition}[Recorded primitive continuation data]
+\label{def:fixed}
+Fix the following continuation data from the active primitive-reservoir observer-reduction line.
+\begin{enumerate}
+    \item For each sector label \(\sigma\in\{\Car,\Cur,\Hom\}\), a primitive forcing shell
+    \[
+    \ForSpace{\sigma},
+    \]
+    a visible reduction map
+    \[
+    \Reduction{\sigma}:\ForSpace{\sigma}\to X_{\sigma},
+    \]
+    and shell-level current and equilibrium carriers
+    \[
+    \CurrentCarrier{\sigma}:\ForSpace{\sigma}\to Z_{\sigma}^{\mathrm{cur}},
+    \qquad
+    \EqCarrier{\sigma}:\ForSpace{\sigma}\to Z_{\sigma}^{\mathrm{eq}}.
+    \]
+    \item The product shell
+    \[
+    \PrimShell
+    \equiv
+    \ForSpace{\Car}\times \ForSpace{\Cur}\times \ForSpace{\Hom}.
+    \]
+    \item Fixed shell extractors
+    \[
+    \CurrentExtract{\sigma}:Z_{\sigma}^{\mathrm{cur}}\to Y_{\sigma}^{\mathrm{cur}},
+    \qquad
+    \EqExtract{\sigma}:Z_{\sigma}^{\mathrm{eq}}\to Y_{\sigma}^{\mathrm{eq}},
+    \]
+    together with the recorded shell composites
+    \begin{equation}
+    \PrimCurrent{\sigma}
+    =
+    \CurrentExtract{\sigma}\circ \CurrentCarrier{\sigma},
+    \qquad
+    \PrimTheta{\sigma}
+    =
+    \EqExtract{\sigma}\circ \EqCarrier{\sigma}.
+    \label{eq:primcomposites}
+    \end{equation}
+    \item The recorded metric and ordinary-matter outputs
+    \[
+    \MetricOut:\PrimShell\to\{\text{observer metrics}\},
+    \qquad
+    \MatterOut:\PrimShell\times\Psi\to\{\text{observer stress tensors}\},
+    \]
+    satisfying
+    \begin{equation}
+    \MetricOut(\mathbf w)=\CompletedMetric,
+    \qquad
+    \MatterOut(\mathbf w,\psi)
+    =
+    T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
+    \label{eq:fixedoutputs}
+    \end{equation}
+    for every \(\mathbf w\in\PrimShell\) and every matter configuration \(\psi\in\Psi\).
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:fixed} is not reopened here. The primitive shell data, the one operative metric, and the ordinary-matter route remain fixed continuation data. The present note addresses only the benchmark-facing derivation of the current live bridge object from a smaller explicit substrate package.
+\end{remark}
+
+\section{Target Package: Minimal Exact-Shell Affine Nucleus}
+
+\begin{definition}[Exact-shell affine nucleus]
+\label{def:nucleus}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). An \emph{exact-shell affine nucleus} \(\AffineNucleus{\sigma}\) for sector \(\sigma\) consists of the following data.
+\begin{enumerate}
+    \item Finite-dimensional Euclidean spaces
+    \[
+    \CoordSpace{\sigma},
+    \qquad
+    \NormalSpace{\sigma},
+    \qquad
+    \VisibleAffine{\sigma},
+    \]
+    together with compact convex bodies
+    \[
+    \CoordBody{\sigma}\subset\CoordSpace{\sigma},
+    \qquad
+    \NormalBody{\sigma}\subset\NormalSpace{\sigma},
+    \]
+    each with nonempty interior, and with \(0\in\operatorname{int}\NormalBody{\sigma}\).
+    \item A smooth embedding
+    \[
+    \jmath_{\sigma}:X_{\sigma}\hookrightarrow \VisibleAffine{\sigma}.
+    \]
+    \item An affine shell-data readout
+    \[
+    \AffineData{\sigma}:\CoordSpace{\sigma}\to
+    \VisibleAffine{\sigma}\times Z_{\sigma}^{\mathrm{cur}}\times Z_{\sigma}^{\mathrm{eq}}
+    \]
+    whose image on \(\CoordBody{\sigma}\) lies in
+    \[
+    \jmath_{\sigma}(X_{\sigma})\times Z_{\sigma}^{\mathrm{cur}}\times Z_{\sigma}^{\mathrm{eq}}.
+    \]
+    \item An affine shell plane
+    \[
+    \ShellAffine{\sigma}\subset\CoordSpace{\sigma}
+    \]
+    with translation space
+    \[
+    \ShellDir{\sigma}\equiv T\ShellAffine{\sigma}
+    \]
+    and shell-normal complement
+    \[
+    \ShellNormal{\sigma}\equiv\bigl(\ShellDir{\sigma}\bigr)^{\perp}.
+    \]
+    Let
+    \[
+    \ShellProj{\sigma}:\CoordSpace{\sigma}\to\ShellNormal{\sigma}
+    \]
+    denote the orthogonal projection.
+    \item An exact shell realization
+    \[
+    \ShellEmbed{\sigma}:\ForSpace{\sigma}\to
+    \CoordBody{\sigma}\cap \ShellAffine{\sigma}
+    \]
+    that is a diffeomorphism onto the full affine shell slice and satisfies
+    \begin{equation}
+    \AffineData{\sigma}\bigl(\ShellEmbed{\sigma}(w)\bigr)
+    =
+    \bigl(
+    \jmath_{\sigma}(\Reduction{\sigma}(w)),
+    \CurrentCarrier{\sigma}(w),
+    \EqCarrier{\sigma}(w)
+    \bigr)
+    \label{eq:nucleuscompat}
+    \end{equation}
+    for every \(w\in\ForSpace{\sigma}\).
+    \item A positive self-adjoint operator
+    \[
+    \HiddenOperator{\sigma}:\NormalSpace{\sigma}\to\NormalSpace{\sigma}
+    \]
+    with lower bound
+    \begin{equation}
+    \ev{\eta,\HiddenOperator{\sigma}\eta}
+    \ge
+    \mu_{\sigma}\,\|\eta\|^{2}
+    \qquad
+    \text{for all }\eta\in\NormalSpace{\sigma}
+    \label{eq:nucleusgap}
+    \end{equation}
+    for some \(\mu_{\sigma}>0\).
+    \item A compact symmetry group
+    \[
+    \SymGroup{\sigma}\subset O(\CoordSpace{\sigma})\times O(\NormalSpace{\sigma})
+    \]
+    and an orthogonal involution
+    \[
+    \TimeRev{\sigma}\in O(\CoordSpace{\sigma})\times O(\NormalSpace{\sigma})
+    \]
+    preserving \(\CoordBody{\sigma}\), \(\NormalBody{\sigma}\), \(\AffineData{\sigma}\), \(\ShellAffine{\sigma}\), and \(\HiddenOperator{\sigma}\).
+    \item Data-preserving shell solvability:
+    \begin{equation}
+    \AffineData{\sigma}(\CoordBody{\sigma})
+    =
+    \AffineData{\sigma}
+    \bigl(
+    \CoordBody{\sigma}\cap\ShellAffine{\sigma}
+    \bigr).
+    \label{eq:nucleussolvability}
+    \end{equation}
+    \item Affine-kernel coercivity: there exists \(\kappa_{\sigma}>0\) such that for every
+    \[
+    \delta q\in \ker D\AffineData{\sigma},
+    \qquad
+    \delta n\in \NormalSpace{\sigma},
+    \]
+    one has
+    \begin{equation}
+    \|\ShellProj{\sigma}\delta q\|^{2}
+    +
+    \ev{\delta n,\HiddenOperator{\sigma}\delta n}
+    \ge
+    \kappa_{\sigma}\,
+    \bigl(
+    \|\delta q\|^{2}+\|\delta n\|^{2}
+    \bigr).
+    \label{eq:nucleuscoercive}
+    \end{equation}
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:nucleus} is the target bridge object currently carried as the live frontier by the routing layer. The purpose here is not to reopen the larger primitive reversible constrained dynamics normal form, but to show that the smaller nucleus is already forced by explicit completion-core structure.
+\end{remark}
+
+\section{Deeper Explicit Package: Minimal Zero-Response Affine Completion Core}
+
+\begin{definition}[Minimal zero-response affine completion core with hidden-sector gap]
+\label{def:core}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). A \emph{minimal zero-response affine completion core with hidden-sector gap} for sector \(\sigma\) consists of the following data.
+\begin{enumerate}
+    \item A finite-dimensional Euclidean completion-state space
+    \[
+    \CoreState{\sigma},
+    \]
+    an observer-data space
+    \[
+    \DataSpace{\sigma}
+    \equiv
+    \VisibleAffine{\sigma}\times Z_{\sigma}^{\mathrm{cur}}\times Z_{\sigma}^{\mathrm{eq}},
+    \]
+    an ambient shell-response space
+    \[
+    \AmbientTarget{\sigma},
+    \]
+    a hidden space
+    \[
+    \GapSpace{\sigma},
+    \]
+    and the zero-hidden completion space
+    \[
+    \CoreSpace{\sigma}
+    \equiv
+    \CoreState{\sigma}\oplus\DataSpace{\sigma}\oplus\AmbientTarget{\sigma}.
+    \]
+    Let
+    \[
+    \CoreStateProj{\sigma}:\CoreSpace{\sigma}\to \CoreState{\sigma},
+    \qquad
+    \CoreDataProj{\sigma}:\CoreSpace{\sigma}\to \DataSpace{\sigma},
+    \qquad
+    \CoreShellProj{\sigma}:\CoreSpace{\sigma}\to \AmbientTarget{\sigma}
+    \]
+    denote the coordinate projections.
+    \item An affine completion plane
+    \[
+    \CoreAffine{\sigma}\subset\CoreSpace{\sigma}
+    \]
+    such that the restriction
+    \[
+    \CoreStateProj{\sigma}\big|_{\CoreAffine{\sigma}}:
+    \CoreAffine{\sigma}\to\CoreState{\sigma}
+    \]
+    is an affine isomorphism.
+    \item A compact convex completion body
+    \[
+    \CoreBody{\sigma}\subset\CoreAffine{\sigma}
+    \]
+    with nonempty relative interior in \(\CoreAffine{\sigma}\).
+    \item A compact convex hidden body
+    \[
+    \GapBody{\sigma}\subset\GapSpace{\sigma}
+    \]
+    with \(0\in\operatorname{int}\GapBody{\sigma}\), together with a positive self-adjoint hidden-sector operator
+    \[
+    \HiddenOperator{\sigma}:\GapSpace{\sigma}\to\GapSpace{\sigma}
+    \]
+    satisfying
+    \begin{equation}
+    \ev{\eta,\HiddenOperator{\sigma}\eta}
+    \ge
+    \kappa_{\sigma}^{\mathrm{hid}}\,
+    \|\eta\|^{2}
+    \qquad
+    \text{for all }\eta\in\GapSpace{\sigma}
+    \label{eq:coregap}
+    \end{equation}
+    for some \(\kappa_{\sigma}^{\mathrm{hid}}>0\).
+    \item A compact symmetry group
+    \[
+    \CoreSym{\sigma}\subset
+    O(\CoreState{\sigma})\times
+    O(\DataSpace{\sigma})\times
+    O(\AmbientTarget{\sigma})\times
+    O(\GapSpace{\sigma})
+    \]
+    and an orthogonal involution
+    \[
+    \CoreTime{\sigma}\in
+    O(\CoreState{\sigma})\times
+    O(\DataSpace{\sigma})\times
+    O(\AmbientTarget{\sigma})\times
+    O(\GapSpace{\sigma})
+    \]
+    preserving \(\CoreAffine{\sigma}\), \(\CoreBody{\sigma}\), the zero-response slice
+    \[
+    \CoreState{\sigma}\oplus\DataSpace{\sigma}\oplus\{0\},
+    \]
+    the hidden body \(\GapBody{\sigma}\), and \(\HiddenOperator{\sigma}\).
+    \item A smooth embedding
+    \[
+    \jmath_{\sigma}:X_{\sigma}\hookrightarrow \VisibleAffine{\sigma}
+    \]
+    and a smooth zero-response shell realization
+    \[
+    \CoreEmbed{\sigma}:\ForSpace{\sigma}\hookrightarrow \CoreSpace{\sigma}
+    \]
+    whose image is exactly
+    \[
+    \CoreBody{\sigma}\cap
+    \bigl(\CoreShellProj{\sigma}\bigr)^{-1}(0),
+    \]
+    and such that
+    \begin{equation}
+    \CoreDataProj{\sigma}\bigl(\CoreEmbed{\sigma}(w)\bigr)
+    =
+    \bigl(
+    \jmath_{\sigma}(\Reduction{\sigma}(w)),
+    \CurrentCarrier{\sigma}(w),
+    \EqCarrier{\sigma}(w)
+    \bigr)
+    \label{eq:corecompat}
+    \end{equation}
+    for every \(w\in\ForSpace{\sigma}\).
+    \item Fixed-data solvability on the zero-response slice:
+    \begin{equation}
+    \CoreDataProj{\sigma}\bigl(\CoreBody{\sigma}\bigr)
+    =
+    \CoreDataProj{\sigma}
+    \Bigl(
+    \CoreBody{\sigma}\cap
+    \bigl(\CoreShellProj{\sigma}\bigr)^{-1}(0)
+    \Bigr).
+    \label{eq:coresolvability}
+    \end{equation}
+    \item Core-kernel coercivity on the zero-response shell: there exists \(\kappa_{\sigma}^{\mathrm{co}}>0\) such that for every
+    \[
+    w\in\ForSpace{\sigma},
+    \qquad
+    \delta c\in T_{\CoreEmbed{\sigma}(w)}\CoreAffine{\sigma}
+    \]
+    satisfying
+    \[
+    \CoreDataProj{\sigma}(\delta c)=0,
+    \]
+    one has
+    \begin{equation}
+    \bigl\|
+    \CoreShellProj{\sigma}(\delta c)
+    \bigr\|^{2}
+    \ge
+    \kappa_{\sigma}^{\mathrm{co}}\,
+    \bigl\|
+    \CoreStateProj{\sigma}(\delta c)
+    \bigr\|^{2}.
+    \label{eq:corecoercive}
+    \end{equation}
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:core} is already an explicit substrate package on the active line. The point of the present note is not to treat it as a new routing authority, but to show that once this package is fixed the exact-shell affine nucleus is no longer independently free.
+\end{remark}
+
+\section{Canonical Exact-Shell Affine Nucleus from the Completion Core}
+
+\begin{definition}[Canonical completion-core shell coordinates]
+\label{def:canonical}
+Assume Definition \ref{def:core}. Define the completion-core shell coordinates in sector \(\sigma\) as follows.
+\begin{enumerate}
+    \item The completion-state body is
+    \begin{equation}
+    \CoreStateBody{\sigma}
+    \equiv
+    \CoreStateProj{\sigma}\bigl(\CoreBody{\sigma}\bigr).
+    \label{eq:corestatebody}
+    \end{equation}
+    \item The unique affine zero-hidden completion maps are
+    \begin{equation}
+    \CoreDataMap{\sigma}
+    \equiv
+    \CoreDataProj{\sigma}\circ
+    \bigl(
+    \CoreStateProj{\sigma}\big|_{\CoreAffine{\sigma}}
+    \bigr)^{-1},
+    \qquad
+    \CoreShellMap{\sigma}
+    \equiv
+    \CoreShellProj{\sigma}\circ
+    \bigl(
+    \CoreStateProj{\sigma}\big|_{\CoreAffine{\sigma}}
+    \bigr)^{-1}.
+    \label{eq:coremaps}
+    \end{equation}
+    \item Let
+    \[
+    \CoreShellLin{\sigma}:\CoreState{\sigma}\to\AmbientTarget{\sigma}
+    \]
+    denote the linear part of the affine map \(\CoreShellMap{\sigma}\). Define the shell-direction space
+    \[
+    \ShellKer{\sigma}\equiv\ker \CoreShellLin{\sigma},
+    \]
+    its orthogonal projection
+    \[
+    \DirProj{\sigma}:\CoreState{\sigma}\to\ShellKer{\sigma},
+    \]
+    and the shell-response-image space
+    \[
+    \ShellNormal{\sigma}\equiv\operatorname{im}\CoreShellLin{\sigma}\subset\AmbientTarget{\sigma}.
+    \]
+    Choose the shell offset \(\ShellOffset{\sigma}\in\ShellNormal{\sigma}\) by the affine decomposition
+    \begin{equation}
+    \CoreShellMap{\sigma}(m)
+    =
+    \CoreShellLin{\sigma}(m)-\ShellOffset{\sigma}.
+    \label{eq:shelldecomp}
+    \end{equation}
+    \item The shell-coordinate space is
+    \[
+    \CoordSpace{\sigma}\equiv
+    \ShellKer{\sigma}\oplus\ShellNormal{\sigma},
+    \]
+    the shell-coordinate chart is the linear isomorphism
+    \begin{equation}
+    \CoordIso{\sigma}(m)
+    \equiv
+    \bigl(
+    \DirProj{\sigma}m,
+    \CoreShellLin{\sigma}(m)
+    \bigr),
+    \label{eq:coordiso}
+    \end{equation}
+    and the shell-coordinate body is
+    \begin{equation}
+    \CoordBody{\sigma}
+    \equiv
+    \CoordIso{\sigma}\bigl(\CoreStateBody{\sigma}\bigr).
+    \label{eq:coordbody}
+    \end{equation}
+    \item The affine shell-data readout is
+    \begin{equation}
+    \AffineData{\sigma}
+    \equiv
+    \CoreDataMap{\sigma}\circ\CoordIso{\sigma}^{-1}.
+    \label{eq:affinedata}
+    \end{equation}
+    \item The exact shell affine plane is
+    \begin{equation}
+    \ShellAffine{\sigma}
+    \equiv
+    \left\{
+    (v,e)\in\CoordSpace{\sigma}:
+    e=\ShellOffset{\sigma}
+    \right\},
+    \label{eq:shellplane}
+    \end{equation}
+    with orthogonal shell projection
+    \begin{equation}
+    \ShellProj{\sigma}(v,e)
+    \equiv
+    e-\ShellOffset{\sigma}.
+    \label{eq:shellproj}
+    \end{equation}
+    \item The exact shell realization is
+    \begin{equation}
+    \ShellEmbed{\sigma}(w)
+    \equiv
+    \CoordIso{\sigma}
+    \bigl(
+    \CoreStateProj{\sigma}(\CoreEmbed{\sigma}(w))
+    \bigr).
+    \label{eq:shellembed}
+    \end{equation}
+    \item The off-shell space and off-shell body are
+    \[
+    \NormalSpace{\sigma}\equiv\GapSpace{\sigma},
+    \qquad
+    \NormalBody{\sigma}\equiv\GapBody{\sigma},
+    \]
+    and the positive operator on \(\NormalSpace{\sigma}\) is the carried-over hidden-sector gap operator \(\HiddenOperator{\sigma}\).
+    \item The induced symmetry group and time reversal are the product restrictions
+    \[
+    \SymGroup{\sigma}
+    \equiv
+    \left\{
+    \bigl(
+    (g_{\mathrm{st}}|_{\ShellKer{\sigma}},\,g_{\mathrm{sh}}|_{\ShellNormal{\sigma}}),
+    g_{\mathrm{hid}}
+    \bigr):
+    (g_{\mathrm{st}},g_{\mathrm{dat}},g_{\mathrm{sh}},g_{\mathrm{hid}})
+    \in\CoreSym{\sigma}
+    \right\},
+    \]
+    \[
+    \TimeRev{\sigma}
+    \equiv
+    \bigl(
+    (\CoreTime{\sigma}|_{\ShellKer{\sigma}},
+    \CoreTime{\sigma}|_{\ShellNormal{\sigma}}),
+    \CoreTime{\sigma}|_{\GapSpace{\sigma}}
+    \bigr).
+    \]
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:canonical} does not insert a new deeper relay. It simply rewrites the completion-core shell-response geometry directly as the shell affine geometry of the exact-shell affine nucleus. The larger primitive reversible constrained dynamics package is not needed as an intermediate primitive assumption there.
+\end{remark}
+
+\section{Derivation of the Exact-Shell Affine Nucleus}
+
+\begin{lemma}[The completion-core shell chart is well defined]
+\label{lem:chart}
+Assume Definition \ref{def:core}. Then the map \(\CoordIso{\sigma}\) of \eqref{eq:coordiso} is a linear isomorphism, and
+\begin{equation}
+\CoordIso{\sigma}
+\Bigl(
+\left\{
+m\in\CoreState{\sigma}:
+\CoreShellMap{\sigma}(m)=0
+\right\}
+\Bigr)
+=
+\ShellAffine{\sigma}.
+\label{eq:isoplane}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+The kernel of \(\CoreShellLin{\sigma}\) is \(\ShellKer{\sigma}\), and the image of \(\CoreShellLin{\sigma}\) is \(\ShellNormal{\sigma}\). Hence the quotient of \(\CoreState{\sigma}\) by \(\ShellKer{\sigma}\) is canonically represented by \(\ShellNormal{\sigma}\), so the linear map \(\CoordIso{\sigma}\) is bijective.
+
+If \(\CoreShellMap{\sigma}(m)=0\), then \eqref{eq:shelldecomp} gives \(\CoreShellLin{\sigma}(m)=\ShellOffset{\sigma}\), so \(\CoordIso{\sigma}(m)\in\ShellAffine{\sigma}\). Conversely, if \(\CoordIso{\sigma}(m)=(v,\ShellOffset{\sigma})\), then \eqref{eq:shelldecomp} gives \(\CoreShellMap{\sigma}(m)=0\). This is exactly \eqref{eq:isoplane}.
+\end{proof}
+
+\begin{proposition}[The completion core induces an exact-shell affine nucleus]
+\label{prop:derive}
+Assume Definitions \ref{def:core} and \ref{def:canonical}. Then the canonical data of Definition \ref{def:canonical} satisfy every requirement of Definition \ref{def:nucleus}.
+\end{proposition}
+
+\begin{proof}
+Because \(\CoreStateProj{\sigma}\big|_{\CoreAffine{\sigma}}\) is an affine isomorphism and \(\CoreBody{\sigma}\subset\CoreAffine{\sigma}\) is compact and convex with nonempty relative interior, the state body \(\CoreStateBody{\sigma}\) is compact and convex with nonempty interior in \(\CoreState{\sigma}\). Therefore \(\CoordBody{\sigma}\) is compact and convex with nonempty interior in \(\CoordSpace{\sigma}\), because \(\CoordIso{\sigma}\) is a linear isomorphism. The off-shell body \(\NormalBody{\sigma}=\GapBody{\sigma}\) is compact and convex with \(0\in\operatorname{int}\NormalBody{\sigma}\) by Definition \ref{def:core}.
+
+Equation \eqref{eq:affinedata} defines an affine map. Its image on \(\CoordBody{\sigma}\) lies in
+\[
+\jmath_{\sigma}(X_{\sigma})\times Z_{\sigma}^{\mathrm{cur}}\times Z_{\sigma}^{\mathrm{eq}}
+\]
+because \(\CoreDataMap{\sigma}\) has that property on \(\CoreStateBody{\sigma}\). By \eqref{eq:shellplane}, the shell affine plane is an affine plane in \(\CoordSpace{\sigma}\) with translation space \(\ShellKer{\sigma}\oplus\{0\}\). The shell-normal complement is canonically the second factor \(\{0\}\oplus\ShellNormal{\sigma}\), so \eqref{eq:shellproj} is the orthogonal shell projection in these product coordinates.
+
+For the shell realization, Definition \ref{def:core} gives
+\[
+\CoreEmbed{\sigma}(\ForSpace{\sigma})
+=
+\CoreBody{\sigma}\cap
+\bigl(\CoreShellProj{\sigma}\bigr)^{-1}(0).
+\]
+Applying \(\CoreStateProj{\sigma}\) and then \(\CoordIso{\sigma}\), Lemma \ref{lem:chart} shows that \(\ShellEmbed{\sigma}\) lands in \(\CoordBody{\sigma}\cap\ShellAffine{\sigma}\) and is a diffeomorphism onto that slice. Using \eqref{eq:corecompat},
+\[
+\AffineData{\sigma}\bigl(\ShellEmbed{\sigma}(w)\bigr)
+=
+\CoreDataMap{\sigma}
+\bigl(
+\CoreStateProj{\sigma}(\CoreEmbed{\sigma}(w))
+\bigr)
+=
+\bigl(
+\jmath_{\sigma}(\Reduction{\sigma}(w)),
+\CurrentCarrier{\sigma}(w),
+\EqCarrier{\sigma}(w)
+\bigr),
+\]
+which is exactly \eqref{eq:nucleuscompat}.
+
+Equation \eqref{eq:nucleusgap} is just \eqref{eq:coregap} with \(\mu_{\sigma}=\kappa_{\sigma}^{\mathrm{hid}}\). The induced symmetry and time-reversal structure are inherited from the completion core, which preserves the completion body, the zero-response shell slice, the hidden body, and the hidden operator.
+
+For shell solvability, let \(u\in\AffineData{\sigma}(\CoordBody{\sigma})\). Then \(u=\CoreDataMap{\sigma}(m)\) for some \(m\in\CoreStateBody{\sigma}\). Choose
+\[
+c\equiv
+\bigl(
+\CoreStateProj{\sigma}\big|_{\CoreAffine{\sigma}}
+\bigr)^{-1}(m)
+\in\CoreBody{\sigma}.
+\]
+By \eqref{eq:coresolvability}, there exists \(c_{0}\in\CoreBody{\sigma}\cap(\CoreShellProj{\sigma})^{-1}(0)\) with
+\[
+\CoreDataProj{\sigma}(c_{0})=\CoreDataProj{\sigma}(c).
+\]
+Set \(m_{0}\equiv\CoreStateProj{\sigma}(c_{0})\). Then \(m_{0}\in\CoreStateBody{\sigma}\), \(\CoreShellMap{\sigma}(m_{0})=0\), and \(\CoreDataMap{\sigma}(m_{0})=u\). Therefore \(\CoordIso{\sigma}(m_{0})\in\CoordBody{\sigma}\cap\ShellAffine{\sigma}\) and \(\AffineData{\sigma}(\CoordIso{\sigma}(m_{0}))=u\), proving \eqref{eq:nucleussolvability}.
+
+Finally, let \(\delta q\in\ker D\AffineData{\sigma}\) and \(\delta n\in\NormalSpace{\sigma}\). Because \(\CoordIso{\sigma}\) is a linear isomorphism, there exists a unique \(\delta m\in\CoreState{\sigma}\) with
+\[
+\delta q=\CoordIso{\sigma}(\delta m).
+\]
+Choose the unique \(\delta c\in T\CoreAffine{\sigma}\) satisfying
+\[
+\CoreStateProj{\sigma}(\delta c)=\delta m.
+\]
+Then
+\[
+\CoreDataProj{\sigma}(\delta c)
+=
+D\CoreDataMap{\sigma}\,\delta m
+=
+D\AffineData{\sigma}\,\delta q
+=
+0.
+\]
+Applying \eqref{eq:corecoercive} gives
+\[
+\bigl\|
+\CoreShellProj{\sigma}(\delta c)
+\bigr\|^{2}
+\ge
+\kappa_{\sigma}^{\mathrm{co}}\,
+\|\delta m\|^{2}.
+\]
+But
+\[
+\CoreShellProj{\sigma}(\delta c)
+=
+D\CoreShellMap{\sigma}\,\delta m
+=
+\operatorname{pr}_{\ShellNormal{\sigma}}(\delta q),
+\]
+which differs from the orthogonal shell projection \(\ShellProj{\sigma}\delta q\) only by the fixed coordinate identification built into \(\CoordIso{\sigma}\). Since all norms on the finite-dimensional shell-coordinate space are equivalent, there exists \(c_{\sigma}>0\) such that
+\[
+\|\ShellProj{\sigma}\delta q\|^{2}
+\ge
+c_{\sigma}\,
+\bigl\|
+\CoreShellProj{\sigma}(\delta c)
+\bigr\|^{2}.
+\]
+Combining this with \eqref{eq:coregap} yields
+\[
+\|\ShellProj{\sigma}\delta q\|^{2}
++
+\ev{\delta n,\HiddenOperator{\sigma}\delta n}
+\ge
+\kappa_{\sigma}\,
+\bigl(
+\|\delta q\|^{2}+\|\delta n\|^{2}
+\bigr)
+\]
+for some \(\kappa_{\sigma}>0\), which is \eqref{eq:nucleuscoercive}.
+\end{proof}
+
+\section{Forced Constituents of the Nucleus}
+
+\begin{proposition}[Every constituent of the induced nucleus is fixed by the completion core]
+\label{prop:forced}
+Assume Definition \ref{def:core}. Then:
+\begin{enumerate}
+    \item the shell-coordinate space is necessarily the shell-direction / shell-response-image coordinate space \(\CoordSpace{\sigma}=\ShellKer{\sigma}\oplus\ShellNormal{\sigma}\) determined by the linear part of the completion-core shell-response map;
+    \item the shell-coordinate body is necessarily the image \eqref{eq:coordbody} of the completion-state body under the coordinate chart \(\CoordIso{\sigma}\);
+    \item the shell-data readout is necessarily the completion-core data map written in those shell coordinates, namely \eqref{eq:affinedata};
+    \item the exact shell affine plane is necessarily the level set \eqref{eq:shellplane}, and the exact shell realization is necessarily \eqref{eq:shellembed};
+    \item the off-shell body and positive operator are necessarily the hidden body \(\GapBody{\sigma}\) and hidden-sector gap operator \(\HiddenOperator{\sigma}\);
+    \item the reversible symmetry package, shell solvability statement, and affine-kernel coercive control are all fixed by the same completion core.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Items (1)--(4) are the definitions of the canonical shell coordinates. Once the affine completion plane and its zero-response shell map are fixed, the shell-direction space is forced as the kernel of the linear shell-response part and the shell-response-image space is forced as its image. The shell-coordinate body, shell-data readout, exact shell affine plane, and exact shell realization are then exactly the coordinate expressions of the completion-core body, data map, and zero-response shell slice.
+
+Item (5) is immediate from Definition \ref{def:core}: the hidden factor and its positive operator are already explicit data there and are carried over unchanged. Item (6) follows from Proposition \ref{prop:derive}; once the completion-core symmetry / time-reversal structure, zero-response solvability, and core-kernel coercivity are fixed, the corresponding nucleus-level symmetry discipline, solvability statement, and affine-kernel coercive control are fixed as well.
+\end{proof}
+
+\begin{proposition}[The induced nucleus preserves the same benchmark package]
+\label{prop:benchmark}
+Every completion-core-induced exact-shell affine nucleus preserves the same benchmark one-metric package \eqref{eq:fixedoutputs}. In particular, the operative metric remains exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, and the low-energy matter law is not enlarged.
+\end{proposition}
+
+\begin{proof}
+The exact shell realization \(\ShellEmbed{\sigma}\) still parameterizes the same primitive forcing shell \(\ForSpace{\sigma}\), and \eqref{eq:nucleuscompat} records exactly the same visible reduction, current carriers, and equilibrium carriers as before. The fixed primitive outputs \eqref{eq:fixedoutputs} are therefore unchanged, so the benchmark one-metric package remains exactly the same.
+\end{proof}
+
+\begin{theorem}[Minimal exact-shell affine nucleus is necessary and unique from the completion core]
+\label{thm:main}
+Assume the fixed primitive continuation data of Definition \ref{def:fixed} and, for each sector \(\sigma\in\{\Car,\Cur,\Hom\}\), a minimal zero-response affine completion core with hidden-sector gap in the sense of Definition \ref{def:core}. Then:
+\begin{enumerate}
+    \item the minimal exact-shell affine nucleus of Definition \ref{def:nucleus} is canonically induced by the completion core through Definition \ref{def:canonical};
+    \item every operative constituent of that nucleus is fixed by the same completion core: the shell-coordinate body, shell-data readout, exact shell affine plane, exact shell realization, off-shell gap package, reversible symmetry structure, shell solvability statement, and affine-kernel coercive control;
+    \item any other compatible nucleus presentation differs from the canonical one only by the obvious shell-direction, shell-response-image, and hidden-coordinate identifications forced by the same completion-core shell geometry;
+    \item the benchmark one-metric package remains exactly the same: the operative metric is still \(\CompletedMetric\), the ordinary matter route is unchanged, no second operative metric is introduced, and the low-energy matter law is not enlarged;
+    \item consequently the current live bridge object is no longer an independently unexplained stopping point on this explicit substrate line: the minimal exact-shell affine nucleus is a canonical and necessary output of the minimal zero-response affine completion core.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Item (1) is Proposition \ref{prop:derive}. Item (2) is Proposition \ref{prop:forced}. Item (3) is the coordinate-presentation consequence of the same construction: once the shell-direction space, shell-response image, shell offset, completion-state body, shell-data readout, exact shell slice, and hidden factor are fixed, no further benchmark-facing nucleus freedom remains except the obvious coordinate identifications of those same data. Item (4) is Proposition \ref{prop:benchmark}. Item (5) is the routing consequence of the previous items.
+\end{proof}
+
+\begin{corollary}[What remains open after this theorem]
+\label{cor:next}
+After Theorem \ref{thm:main}, the remaining honest burden is no longer to justify the minimal exact-shell affine nucleus itself on the active primitive-observer-reduction line. On the explicit completion-core line, that nucleus is now forced. What remains at current scope is either to derive or justify the minimal zero-response affine completion core from still more primitive substrate structure, or to prove a genuinely sharper theorem-level collapse strictly inside that completion core while preserving the same benchmark one-metric package, the same ordinary matter route, and the same claim boundary.
+\end{corollary}
+
+\begin{proof}
+Theorem \ref{thm:main} converts the exact-shell affine nucleus from the live unexplained bridge object into a canonical output of the already explicit completion-core package. Once that happens, another note that merely restates the nucleus or merely re-expands the larger primitive reversible constrained dynamics package no longer changes benchmark-facing status. The honest open burden moves below the nucleus.
+\end{proof}
+
+\section{Conclusion}
+
+The positive result of this note is narrower than a completed first-principles substrate derivation and stronger than another deeper same-output relay. The previous bridge-object compression theorem had already shown that the larger primitive reversible constrained substrate dynamics normal form carries no extra benchmark-facing freedom beyond a smaller minimal exact-shell affine nucleus. The present note now settles the next honest bridge-facing question by showing that this smaller nucleus is itself a canonical and necessary output of the explicit minimal zero-response affine completion core.
+
+That gain is exact and benchmark-facingly useful. Once the completion-core affine shell-response geometry, completion body, hidden factor with positive gap, exact zero-response shell realization, solvability statement, and data-kernel coercive control are fixed, the shell-coordinate body, shell-data readout, exact shell affine plane, exact shell realization, off-shell gap package, and reversible nucleus structure are no longer separately free. They are the induced shell-coordinate presentation of the same completion-core data. The benchmark boundary remains unchanged throughout: the operative metric is still exactly \(\CompletedMetric\), the ordinary matter route is unchanged, no second operative metric is introduced, and the low-energy matter law is not enlarged.
+
+The remaining burden is therefore cleaner again. The next honest primary manuscript should no longer spend the move on restating the exact-shell affine nucleus or re-expanding the larger primitive reversible constrained dynamics presentation. If the active line continues below this point, it should now target the minimal zero-response affine completion core itself, or else compress that core further, while keeping adoption and derivation sharply separated. This note should be read for what it is: a disciplined direct derivation of the current live bridge object from explicit substrate structure within the active derivational program of \TheoryName{}, not a claim that the full first-principles program is finished.
+
+\end{document}

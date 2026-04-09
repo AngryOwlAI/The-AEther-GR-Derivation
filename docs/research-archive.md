@@ -14,21 +14,22 @@ This page documents active foundational work downstream of a benchmark exact-clo
 
 ## Current Benchmark-Facing Line
 
-The active benchmark-facing line currently has five compact stages:
+The active benchmark-facing line currently has six compact stages:
 
 1. Benchmark target fixing in [aether_flow_exact_closure_derivation_gates_note.tex](../manuscripts/active/tex/aether_flow_exact_closure_derivation_gates_note.tex) together with the overview-first exact-closure package.
 2. Post-bridge rerouting in [aether_flow_exact_closure_post_bridge_derivation_gate_status_note.tex](../manuscripts/active/tex/aether_flow_exact_closure_post_bridge_derivation_gate_status_note.tex): on the active completed branch, the same-package observer-side remainder gate is no longer the live bottleneck, so the remaining honest burden shifts upstream to substrate derivation of the benchmark package itself.
 3. Benchmark-facing compression and minimal-core sharpening in [aether_flow_benchmark_one_metric_observer_package_upstream_compression_theorem.tex](../manuscripts/active/tex/aether_flow_benchmark_one_metric_observer_package_upstream_compression_theorem.tex), [aether_flow_primitive_reservoir_line_continuity_hessian_core_necessity_uniqueness_theorem.tex](../manuscripts/active/tex/aether_flow_primitive_reservoir_line_continuity_hessian_core_necessity_uniqueness_theorem.tex), and [aether_flow_primitive_reservoir_line_continuity_hessian_core_derivation_theorem.tex](../manuscripts/active/tex/aether_flow_primitive_reservoir_line_continuity_hessian_core_derivation_theorem.tex).
 4. Primitive-reservoir bridge-entry derivations through datum origin, defect-fiber factorization, one-metric and ordinary-matter output recovery, chain forcing, selector existence / uniqueness, stationary-substrate construction, and the explicit substrate package forcing result in [aether_flow_primitive_reservoir_observer_reduction_explicit_substrate_package_necessity_uniqueness_from_primitive_dynamics_theorem.tex](../manuscripts/active/tex/aether_flow_primitive_reservoir_observer_reduction_explicit_substrate_package_necessity_uniqueness_from_primitive_dynamics_theorem.tex).
-5. The current bridge-object focus: the primitive reversible constrained substrate-dynamics normal form recorded in [aether_flow_primitive_reservoir_observer_reduction_primitive_reversible_constrained_dynamics_necessity_uniqueness_from_ambient_shell_law_theorem.tex](../manuscripts/active/tex/aether_flow_primitive_reservoir_observer_reduction_primitive_reversible_constrained_dynamics_necessity_uniqueness_from_ambient_shell_law_theorem.tex). At current scope, later same-output relay chains are exploratory continuity history unless they change that bridge object or discharge a benchmark derivation gate.
+5. Bridge-object sharpening below the explicit substrate package: the primitive reversible constrained substrate-dynamics normal form is forced in [aether_flow_primitive_reservoir_observer_reduction_primitive_reversible_constrained_dynamics_necessity_uniqueness_from_ambient_shell_law_theorem.tex](../manuscripts/active/tex/aether_flow_primitive_reservoir_observer_reduction_primitive_reversible_constrained_dynamics_necessity_uniqueness_from_ambient_shell_law_theorem.tex), later same-output graph/combined-response layers collapse to the minimal zero-response affine completion core, and the larger primitive-dynamics presentation is compressed further to a smaller exact-shell affine nucleus in [aether_flow_primitive_reservoir_observer_reduction_primitive_reversible_constrained_dynamics_collapse_to_minimal_exact_shell_affine_nucleus_theorem.tex](../manuscripts/active/tex/aether_flow_primitive_reservoir_observer_reduction_primitive_reversible_constrained_dynamics_collapse_to_minimal_exact_shell_affine_nucleus_theorem.tex).
+6. The current live frontier: the exact-shell affine nucleus is now itself forced directly by the explicit completion-core package in [aether_flow_primitive_reservoir_observer_reduction_minimal_exact_shell_affine_nucleus_necessity_uniqueness_from_minimal_zero_response_affine_completion_core_theorem.tex](../manuscripts/active/tex/aether_flow_primitive_reservoir_observer_reduction_minimal_exact_shell_affine_nucleus_necessity_uniqueness_from_minimal_zero_response_affine_completion_core_theorem.tex). At current scope, restating the nucleus, re-expanding the larger primitive-dynamics package, or adding another same-output deeper-origin relay no longer counts as the honest next benchmark-facing move.
 
 ## Current Primary Burden
 
-The next primary manuscript should now act on the bridge object itself. It should:
+The next primary manuscript should now act below the direct exact-shell-affine-nucleus forcing result. It should:
 
-- derive or justify the substrate law that forces the primitive reversible constrained substrate-dynamics normal form yielding the continuity-Hessian compressed core and the benchmark one-metric observer package
-- or prove a sharper necessity, uniqueness, compression, or inevitability theorem strictly inside that bridge object while preserving the same benchmark one-metric package and claim boundary
-- and not default to another same-output deeper-origin relay that merely renames a deeper package while preserving that compressed bridge object, because that no longer changes benchmark-facing status
+- derive or justify the minimal zero-response affine completion core from still more primitive substrate structure in a way that changes benchmark-facing status
+- or prove a sharper necessity, uniqueness, compression, or inevitability theorem strictly inside that completion core while preserving the same benchmark one-metric package and claim boundary
+- and not default to restating the exact-shell affine nucleus, re-expanding the larger primitive reversible constrained dynamics package, or inserting another same-output deeper-origin relay that merely preserves that same completion-core consequence, because none of those now changes benchmark-facing status
 
 Until that happens, stronger promotion language remains paused.
 
@@ -49,7 +50,7 @@ Representative side-line entry points:
 - [Upstream compression theorem PDF](../manuscripts/active/pdf/aether_flow_benchmark_one_metric_observer_package_upstream_compression_theorem.pdf)
 - [Continuity-Hessian core derivation PDF](../manuscripts/active/pdf/aether_flow_primitive_reservoir_line_continuity_hessian_core_derivation_theorem.pdf)
 - [Explicit substrate package forcing PDF](../manuscripts/active/pdf/aether_flow_primitive_reservoir_observer_reduction_explicit_substrate_package_necessity_uniqueness_from_primitive_dynamics_theorem.pdf)
-- [Primitive reversible constrained dynamics PDF](../manuscripts/active/pdf/aether_flow_primitive_reservoir_observer_reduction_primitive_reversible_constrained_dynamics_necessity_uniqueness_from_ambient_shell_law_theorem.pdf)
+- [Direct exact-shell affine nucleus forcing PDF](../manuscripts/active/pdf/aether_flow_primitive_reservoir_observer_reduction_minimal_exact_shell_affine_nucleus_necessity_uniqueness_from_minimal_zero_response_affine_completion_core_theorem.pdf)
 - [Research plan](../RESEARCH_PLAN.md)
 
 ## Archive Principle
