@@ -1,0 +1,464 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+
+\newcommand{\CompletedMetric}{g^{\sharp}}
+\newcommand{\MatterSpace}{\Psi}
+
+\newcommand{\Car}{\mathrm{car}}
+\newcommand{\Cur}{\mathrm{cur}}
+\newcommand{\Hom}{\mathrm{hom}}
+
+\newcommand{\ForSpace}[1]{\mathcal I_{#1}^{\mathrm{for}}}
+\newcommand{\PrimShell}{\mathcal S_{\mathrm{prim}}}
+\newcommand{\Reduction}[1]{\mathcal R_{#1}}
+\newcommand{\CurrentCarrier}[1]{\mathfrak C_{#1}^{\mathrm{cur}}}
+\newcommand{\EqCarrier}[1]{\mathfrak C_{#1}^{\mathrm{eq}}}
+\newcommand{\MetricOut}{\mathscr G_{\mathrm{out}}}
+\newcommand{\MatterOut}{\mathscr T_{\mathrm{out}}}
+
+\newcommand{\RootBody}[1]{\mathcal B_{#1}^{\mathrm{rt}}}
+\newcommand{\FoundationBody}[1]{\mathcal B_{#1}^{\mathrm{fdn}}}
+\newcommand{\GroundBody}[1]{\mathcal B_{#1}^{\mathrm{grd}}}
+\newcommand{\OriginBody}[1]{\mathcal B_{#1}^{\mathrm{orig}}}
+\newcommand{\PrecursorBody}[1]{\mathcal B_{#1}^{\mathrm{prec}}}
+\newcommand{\LiftBody}[1]{\mathcal B_{#1}^{\mathrm{lift}}}
+\newcommand{\SubstrateBody}[1]{\mathcal B_{#1}^{\mathrm{sub}}}
+
+\newcommand{\HiddenSpace}[1]{\mathcal H_{#1}^{\mathrm{hid}}}
+\newcommand{\HiddenBody}[1]{D_{#1}^{\mathrm{hid}}}
+
+\newcommand{\SeedPackage}{\mathfrak S^{\mathrm{sub,seed}}}
+\newcommand{\SeedState}[1]{\mathcal S_{#1}^{\mathrm{seed}}}
+\newcommand{\SeedBody}[1]{\mathcal B_{#1}^{\mathrm{seed}}}
+\newcommand{\SeedShell}[1]{\mathcal Z_{#1}^{\mathrm{seed}}}
+\newcommand{\SeedSupportShell}[1]{\mathcal U_{#1}^{\mathrm{seed,sup}}}
+\newcommand{\SeedZeroCore}[1]{\mathcal Z_{#1}^{0,\mathrm{seed}}}
+\newcommand{\SeedSplit}[1]{\Phi_{#1}^{\mathrm{seed}}}
+\newcommand{\SeedRootMin}[1]{\mathfrak m_{#1}^{\mathrm{seed,rt}}}
+\newcommand{\SeedFoundMin}[1]{\mathfrak m_{#1}^{\mathrm{seed,fdn}}}
+\newcommand{\SeedGroundMin}[1]{\mathfrak m_{#1}^{\mathrm{seed,grd}}}
+\newcommand{\SeedOrigMin}[1]{\mathfrak m_{#1}^{\mathrm{seed,orig}}}
+\newcommand{\SeedPrecMin}[1]{\mathfrak m_{#1}^{\mathrm{seed,prec}}}
+\newcommand{\SeedLiftMin}[1]{\mathfrak m_{#1}^{\mathrm{seed,lift}}}
+\newcommand{\SeedSubMin}[1]{\mathfrak m_{#1}^{\mathrm{seed,sub}}}
+\newcommand{\SeedCharge}[1]{\mathcal Q_{#1}^{\mathrm{seed}}}
+\newcommand{\SeedKernel}[1]{\widetilde K_{#1}^{0,\mathrm{seed}}}
+\newcommand{\SeedCoercive}[1]{P_{#1}^{\mathrm{seed,co}}}
+
+\newcommand{\GermPackage}{\mathfrak G^{\mathrm{sub,germ}}}
+\newcommand{\GermTransportCore}{\mathfrak G^{\mathrm{sub,germ,stc}}}
+\newcommand{\GermState}[1]{\mathcal G_{#1}^{\mathrm{germ}}}
+\newcommand{\GermBody}[1]{\mathcal B_{#1}^{\mathrm{germ}}}
+\newcommand{\GermProj}[1]{\Pi_{#1}^{\mathrm{germ}}}
+\newcommand{\GermSeedSec}[1]{\sigma_{#1}^{\mathrm{germ\leftarrow seed}}}
+\newcommand{\GermShell}[1]{\mathcal Z_{#1}^{\mathrm{germ}}}
+\newcommand{\GermSupportShell}[1]{\mathcal U_{#1}^{\mathrm{germ,sup}}}
+\newcommand{\GermZeroCore}[1]{\mathcal Z_{#1}^{0,\mathrm{germ}}}
+\newcommand{\GermSplit}[1]{\Phi_{#1}^{\mathrm{germ}}}
+\newcommand{\GermRootMin}[1]{\mathfrak m_{#1}^{\mathrm{germ,rt}}}
+\newcommand{\GermFoundMin}[1]{\mathfrak m_{#1}^{\mathrm{germ,fdn}}}
+\newcommand{\GermGroundMin}[1]{\mathfrak m_{#1}^{\mathrm{germ,grd}}}
+\newcommand{\GermOrigMin}[1]{\mathfrak m_{#1}^{\mathrm{germ,orig}}}
+\newcommand{\GermPrecMin}[1]{\mathfrak m_{#1}^{\mathrm{germ,prec}}}
+\newcommand{\GermLiftMin}[1]{\mathfrak m_{#1}^{\mathrm{germ,lift}}}
+\newcommand{\GermSubMin}[1]{\mathfrak m_{#1}^{\mathrm{germ,sub}}}
+\newcommand{\GermSection}[1]{\Gamma_{#1}^{\mathrm{germ}}}
+\newcommand{\GermCharge}[1]{\mathcal Q_{#1}^{\mathrm{germ}}}
+\newcommand{\GermEmbed}[1]{\zeta_{#1}^{\mathrm{germ}}}
+\newcommand{\GermKernel}[1]{\widetilde K_{#1}^{0,\mathrm{germ}}}
+\newcommand{\GermCoercive}[1]{P_{#1}^{\mathrm{germ,co}}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Primitive-Reservoir Observer-Reduction\\
+\large Seed-Generating Substrate Germ Dynamics\\
+\large Collapse to an Observer-Relevant\\
+\large Germ Seed-Transport Core}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The current live benchmark-facing gain on the active primitive-reservoir observer-reduction line is the theorem forcing the root-generating substrate seed package \(\SeedPackage\) from seed-generating substrate germ dynamics \(\GermPackage\). Under the current seed-frontier criterion, the next honest move had to be either a still more primitive explicit derivation of \(\GermPackage\) or a genuinely smaller theorem-level collapse, sharper necessity result, or sharper uniqueness result strictly inside \(\GermPackage\). The present note takes that admissible fallback route.
+
+For each sector it isolates a smaller \emph{observer-relevant germ seed-transport core} \(\GermTransportCore\). The core keeps the finite-dimensional germ state space and compact germ body, the projection to the fixed seed body together with its seed section, the germ restriction section and exact germ shell, the support-shell / zero-core / hidden-split data, the hidden charge, the observer-compatible exact germ zero-response realization, and the fixed-data solvability / coercive package. It omits, as independent benchmark-facing data, the separate germ-to-root, germ-to-foundation, germ-to-ground, germ-to-origin, germ-to-precursor, germ-to-lift, and germ-to-substrate minimizer ladder.
+
+The main theorem shows that the omitted lower ladder is canonically induced once the core is fixed: each omitted germ minimizer is just the composition of the core seed section with the already fixed downstream seed minimizer on the corresponding lower body. Hence the current full germ package carries no extra benchmark-facing freedom beyond the smaller core. The benchmark boundary remains fixed throughout: the one operative metric is still exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, and the low-energy matter law is not enlarged. The positive result is therefore narrow but real: the live stopping point shrinks from the full germ package to a smaller observer-relevant germ seed-transport core.
+\end{abstract}
+
+\section{Introduction}
+
+The active derivational program of \TheoryName{} is no longer at a stage where another same-output deeper-origin relay below the seed frontier can count by depth alone. The current seed-from-germ forcing theorem already removed the root-generating substrate seed package \(\SeedPackage\) as the live unexplained stopping point by proving that it is a canonical and unique output of seed-generating substrate germ dynamics \(\GermPackage\). The remaining honest burden therefore lies inside germ scope unless germ scope itself can now be cleanly forced from still more primitive explicit substrate structure.
+
+The present note takes the honest fallback authorized by the current seed-frontier criterion. It does not reopen the seed theorem, and it does not claim a completed first-principles substrate derivation of gravity. Its narrower claim is that the current full germ package is not yet the smallest benchmark-facing datum at germ scope. Once one asks which parts of the recorded germ package actually matter for preserving the fixed seed package and the same benchmark one-metric observer outputs, the separate lower minimizer ladder below seed scope is seen to be canonically induced rather than independently live.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not alter the benchmark exact-closure package. It does not introduce a second operative metric or a new low-energy matter law. It only proves that, inside the present germ layer, the benchmark-facing burden already compresses to a smaller seed-anchored core.
+
+\section{Fixed Inputs}
+
+\begin{definition}[Recorded primitive continuation data]
+\label{def:fixed}
+Fix the following continuation data from the active primitive-reservoir observer-reduction line.
+\begin{enumerate}
+    \item For each sector label \(\sigma\in\{\Car,\Cur,\Hom\}\), a primitive forcing shell
+    \[
+    \ForSpace{\sigma},
+    \]
+    a visible reduction map
+    \[
+    \Reduction{\sigma}:\ForSpace{\sigma}\to X_{\sigma},
+    \]
+    and shell-level current and equilibrium carriers
+    \[
+    \CurrentCarrier{\sigma}:\ForSpace{\sigma}\to Z_{\sigma}^{\mathrm{cur}},
+    \qquad
+    \EqCarrier{\sigma}:\ForSpace{\sigma}\to Z_{\sigma}^{\mathrm{eq}}.
+    \]
+    \item The product shell
+    \[
+    \PrimShell
+    \equiv
+    \ForSpace{\Car}\times \ForSpace{\Cur}\times \ForSpace{\Hom}.
+    \]
+    \item The recorded metric and ordinary-matter outputs
+    \[
+    \MetricOut:\PrimShell\to\{\text{observer metrics}\},
+    \qquad
+    \MatterOut:\PrimShell\times\MatterSpace\to\{\text{observer stress tensors}\},
+    \]
+    satisfying
+    \begin{equation}
+    \MetricOut(\mathbf w)=\CompletedMetric,
+    \qquad
+    \MatterOut(\mathbf w,\psi)
+    =
+    T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
+    \label{eq:fixedoutputs}
+    \end{equation}
+    for every \(\mathbf w\in\PrimShell\) and every matter configuration \(\psi\in\MatterSpace\).
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Recorded downstream seed package]
+\label{def:seed}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). The active line already fixes the sectorwise seed package \(\SeedPackage\) at benchmark scope:
+\begin{enumerate}
+    \item a finite-dimensional seed state space \(\SeedState{\sigma}\), a compact convex seed body \(\SeedBody{\sigma}\subset\SeedState{\sigma}\), and lower-body minimizers
+    \[
+    \SeedRootMin{\sigma}:\RootBody{\sigma}\to\SeedBody{\sigma},
+    \quad
+    \SeedFoundMin{\sigma}:\FoundationBody{\sigma}\to\SeedBody{\sigma},
+    \]
+    \[
+    \SeedGroundMin{\sigma}:\GroundBody{\sigma}\to\SeedBody{\sigma},
+    \quad
+    \SeedOrigMin{\sigma}:\OriginBody{\sigma}\to\SeedBody{\sigma},
+    \]
+    \[
+    \SeedPrecMin{\sigma}:\PrecursorBody{\sigma}\to\SeedBody{\sigma},
+    \quad
+    \SeedLiftMin{\sigma}:\LiftBody{\sigma}\to\SeedBody{\sigma},
+    \quad
+    \SeedSubMin{\sigma}:\SubstrateBody{\sigma}\to\SeedBody{\sigma};
+    \]
+    \item the exact seed shell \(\SeedShell{\sigma}\), the seed support shell \(\SeedSupportShell{\sigma}\), the seed zero core \(\SeedZeroCore{\sigma}\), and the seed hidden split
+    \[
+    \SeedSplit{\sigma}:
+    \SeedZeroCore{\sigma}\times\HiddenBody{\sigma}
+    \xrightarrow{\cong}
+    \SeedShell{\sigma};
+    \]
+    \item the seed hidden charge \(\SeedCharge{\sigma}\), the fixed-data solvability chart \(\SeedKernel{\sigma}\), and the coercive control package \(\SeedCoercive{\sigma}\);
+    \item benchmark faithfulness, meaning preservation of \eqref{eq:fixedoutputs}, no second operative metric, no enlarged low-energy matter law, and no stronger first-principles promotion language.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definitions \ref{def:fixed} and \ref{def:seed} are not reopened here. The benchmark exact-closure package, the recorded one-metric observer outputs, and the full downstream seed package remain fixed. The present note asks only whether the current full germ package is already minimal at benchmark-facing scope once those fixed seed data are held in hand.
+\end{remark}
+
+\section{The Full Germ Package}
+
+\begin{definition}[Recorded seed-generating substrate germ dynamics]
+\label{def:germ}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). A sectorwise full germ package \(\GermPackage\) consists of:
+\begin{enumerate}
+    \item a finite-dimensional germ state space \(\GermState{\sigma}\), a compact convex germ body \(\GermBody{\sigma}\subset\GermState{\sigma}\), an affine surjection
+    \[
+    \GermProj{\sigma}:\GermState{\sigma}\to\SeedState{\sigma},
+    \]
+    a smooth seed section
+    \[
+    \GermSeedSec{\sigma}:\SeedBody{\sigma}\to\GermBody{\sigma},
+    \qquad
+    \GermProj{\sigma}\circ\GermSeedSec{\sigma}
+    =
+    \mathrm{id}_{\SeedBody{\sigma}},
+    \]
+    and lower-body minimizers
+    \[
+    \GermRootMin{\sigma},\;
+    \GermFoundMin{\sigma},\;
+    \GermGroundMin{\sigma},\;
+    \GermOrigMin{\sigma},\;
+    \GermPrecMin{\sigma},\;
+    \GermLiftMin{\sigma},\;
+    \GermSubMin{\sigma}
+    \]
+    with transport identities
+    \[
+    \GermProj{\sigma}\circ\GermRootMin{\sigma}
+    =
+    \SeedRootMin{\sigma},
+    \qquad
+    \GermProj{\sigma}\circ\GermFoundMin{\sigma}
+    =
+    \SeedFoundMin{\sigma},
+    \]
+    \[
+    \GermProj{\sigma}\circ\GermGroundMin{\sigma}
+    =
+    \SeedGroundMin{\sigma},
+    \qquad
+    \GermProj{\sigma}\circ\GermOrigMin{\sigma}
+    =
+    \SeedOrigMin{\sigma},
+    \]
+    \begin{align*}
+    \GermProj{\sigma}\circ\GermPrecMin{\sigma}
+    &=
+    \SeedPrecMin{\sigma},
+    &
+    \GermProj{\sigma}\circ\GermLiftMin{\sigma}
+    &=
+    \SeedLiftMin{\sigma},
+    \\
+    \GermProj{\sigma}\circ\GermSubMin{\sigma}
+    &=
+    \SeedSubMin{\sigma}.
+    \end{align*}
+    \item a smooth germ restriction section
+    \[
+    \GermSection{\sigma}:\GermState{\sigma}\to E_{\sigma}^{\mathrm{sub}}
+    \]
+    whose zero set on \(\GermBody{\sigma}\) is the exact germ shell \(\GermShell{\sigma}\), with projected exact-shell transport recovering the fixed seed shell \(\SeedShell{\sigma}\);
+    \item a germ support shell \(\GermSupportShell{\sigma}\), a germ zero core \(\GermZeroCore{\sigma}\subset\GermSupportShell{\sigma}\), and a germ hidden split
+    \[
+    \GermSplit{\sigma}:
+    \GermZeroCore{\sigma}\times\HiddenBody{\sigma}
+    \xrightarrow{\cong}
+    \GermShell{\sigma}
+    \]
+    whose projected exact-shell transport recovers the fixed seed support shell, zero core, and split;
+    \item the germ hidden charge \(\GermCharge{\sigma}\), an observer-compatible exact germ zero-response realization
+    \[
+    \GermEmbed{\sigma}:\ForSpace{\sigma}\hookrightarrow\GermZeroCore{\sigma},
+    \]
+    and fixed-data solvability / coercive data \(\GermKernel{\sigma}\), \(\GermCoercive{\sigma}\) projecting to the seed-side package;
+    \item benchmark faithfulness in the sense of Definition \ref{def:seed}.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:germ} records the full germ package presently in hand on the active line. The current question is whether every part of that package is still an independent benchmark-facing burden once the exact seed target has already been fixed.
+\end{remark}
+
+\section{Observer-Relevant Germ Seed-Transport Core}
+
+\begin{definition}[Observer-relevant germ seed-transport core]
+\label{def:core}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). The \emph{observer-relevant germ seed-transport core} \(\GermTransportCore\) for sector \(\sigma\) consists of:
+\begin{enumerate}
+    \item the germ state space \(\GermState{\sigma}\), compact convex germ body \(\GermBody{\sigma}\subset\GermState{\sigma}\), projection \(\GermProj{\sigma}\), and seed section \(\GermSeedSec{\sigma}\);
+    \item the restriction section \(\GermSection{\sigma}\) and the exact germ shell \(\GermShell{\sigma}\) with projected exact-shell transport to the fixed seed shell \(\SeedShell{\sigma}\);
+    \item the germ support shell \(\GermSupportShell{\sigma}\), germ zero core \(\GermZeroCore{\sigma}\), and the split \(\GermSplit{\sigma}\) projecting to the fixed seed support shell, seed zero core, and seed split;
+    \item the hidden charge \(\GermCharge{\sigma}\), exact germ zero-response realization \(\GermEmbed{\sigma}\), and the fixed-data solvability / coercive package \(\GermKernel{\sigma},\GermCoercive{\sigma}\);
+    \item benchmark faithfulness.
+\end{enumerate}
+The core omits, as separate data, the full lower minimizer ladder
+\[
+\GermRootMin{\sigma},\;
+\GermFoundMin{\sigma},\;
+\GermGroundMin{\sigma},\;
+\GermOrigMin{\sigma},\;
+\GermPrecMin{\sigma},\;
+\GermLiftMin{\sigma},\;
+\GermSubMin{\sigma}.
+\]
+\end{definition}
+
+\begin{definition}[Core-faithful completion]
+\label{def:completion}
+A \emph{core-faithful completion} of \(\GermTransportCore\) is a full germ package in the sense of Definition \ref{def:germ} that extends the fixed data of Definition \ref{def:core} by specifying the omitted lower minimizer ladder in a way compatible with the fixed downstream seed package of Definition \ref{def:seed}.
+\end{definition}
+
+\begin{definition}[Core-faithful equivalence]
+\label{def:equiv}
+Two core-faithful completions are \emph{core-faithfully equivalent} if they agree on the entire seed-transport core of Definition \ref{def:core} and induce the same fixed seed package and benchmark outputs \eqref{eq:fixedoutputs}.
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:core} deliberately keeps the seed-anchored exact-shell transport data and the hidden / solvability package in the live benchmark-facing core. The claim here is only that the additional lower minimizer ladder below seed scope is no longer an independent burden once that core is fixed.
+\end{remark}
+
+\section{Canonical Recovery of the Omitted Lower Ladder}
+
+\begin{proposition}[Canonical lower-ladder completion]
+\label{prop:canonical}
+Fix a sector \(\sigma\in\{\Car,\Cur,\Hom\}\) and an observer-relevant germ seed-transport core \(\GermTransportCore\). Then the omitted lower minimizer ladder of Definition \ref{def:germ} is canonically recovered by composition with the fixed downstream seed minimizers:
+\begin{align*}
+\bigl(\GermRootMin{\sigma}\bigr)^{\mathrm{can}}
+&\equiv
+\GermSeedSec{\sigma}\circ\SeedRootMin{\sigma},
+&
+\bigl(\GermFoundMin{\sigma}\bigr)^{\mathrm{can}}
+&\equiv
+\GermSeedSec{\sigma}\circ\SeedFoundMin{\sigma},
+\\
+\bigl(\GermGroundMin{\sigma}\bigr)^{\mathrm{can}}
+&\equiv
+\GermSeedSec{\sigma}\circ\SeedGroundMin{\sigma},
+&
+\bigl(\GermOrigMin{\sigma}\bigr)^{\mathrm{can}}
+&\equiv
+\GermSeedSec{\sigma}\circ\SeedOrigMin{\sigma},
+\\
+\bigl(\GermPrecMin{\sigma}\bigr)^{\mathrm{can}}
+&\equiv
+\GermSeedSec{\sigma}\circ\SeedPrecMin{\sigma},
+&
+\bigl(\GermLiftMin{\sigma}\bigr)^{\mathrm{can}}
+&\equiv
+\GermSeedSec{\sigma}\circ\SeedLiftMin{\sigma},
+\\
+\bigl(\GermSubMin{\sigma}\bigr)^{\mathrm{can}}
+&\equiv
+\GermSeedSec{\sigma}\circ\SeedSubMin{\sigma}.
+\end{align*}
+\end{proposition}
+
+\begin{proof}
+The downstream seed package is fixed by Definition \ref{def:seed}. The core of Definition \ref{def:core} already fixes the projection \(\GermProj{\sigma}\) and its seed section \(\GermSeedSec{\sigma}\), so every point of the fixed seed body has a canonical germ lift. Applying that canonical lift to the already fixed seed minimizer on any lower body produces a germ representative above the same lower datum. By construction,
+\[
+\GermProj{\sigma}\circ\bigl(\GermRootMin{\sigma}\bigr)^{\mathrm{can}}
+=
+\SeedRootMin{\sigma},
+\qquad
+\ldots,
+\qquad
+\GermProj{\sigma}\circ\bigl(\GermSubMin{\sigma}\bigr)^{\mathrm{can}}
+=
+\SeedSubMin{\sigma}.
+\]
+Hence the omitted lower ladder is canonically supplied once the seed-transport core is fixed.
+\end{proof}
+
+\begin{proposition}[The omitted lower ladder is benchmark neutral]
+\label{prop:neutral}
+Any core-faithful completion of \(\GermTransportCore\) is core-faithfully equivalent to the canonical completion of Proposition \ref{prop:canonical}. In particular, the omitted lower ladder carries no additional benchmark-facing freedom once the seed-transport core is fixed.
+\end{proposition}
+
+\begin{proof}
+Every core-faithful completion must agree on the projection \(\GermProj{\sigma}\), the seed section \(\GermSeedSec{\sigma}\), the exact-shell transport data, the hidden package, and the benchmark outputs. Compatibility with the fixed seed package then forces each completed lower minimizer to project to the corresponding fixed seed minimizer. But Proposition \ref{prop:canonical} already gives a canonical such lift by composition with \(\GermSeedSec{\sigma}\). Replacing any compatible lower minimizer by the canonical one does not change the fixed seed package, the exact-shell transport data, the hidden package, or the benchmark outputs. Therefore every completion is core-faithfully equivalent to the canonical completion, and the omitted ladder is benchmark neutral.
+\end{proof}
+
+\begin{proposition}[The benchmark package remains fixed]
+\label{prop:benchmark}
+Every core-faithful completion preserves the same benchmark one-metric package \eqref{eq:fixedoutputs}. In particular, the operative metric remains exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, and the low-energy matter law is not enlarged.
+\end{proposition}
+
+\begin{proof}
+Benchmark faithfulness is part of Definitions \ref{def:seed}, \ref{def:germ}, and \ref{def:core}. The present note changes only which substrate-side datum remains live at current germ scope. It does not alter the fixed observer outputs.
+\end{proof}
+
+\section{Main Theorem}
+
+\begin{theorem}[Seed-generating substrate germ dynamics collapse to an observer-relevant germ seed-transport core]
+\label{thm:main}
+Fix the primitive continuation data of Definition \ref{def:fixed} and the recorded downstream seed package of Definition \ref{def:seed}. Then, for each sector \(\sigma\in\{\Car,\Cur,\Hom\}\), the full germ package \(\GermPackage\) of Definition \ref{def:germ} is benchmark-facingly equivalent to the smaller observer-relevant germ seed-transport core \(\GermTransportCore\) of Definition \ref{def:core}. More precisely:
+\begin{enumerate}
+    \item every full germ package canonically induces a unique seed-transport core;
+    \item every seed-transport core admits a canonical core-faithful completion by Proposition \ref{prop:canonical};
+    \item any two core-faithful completions of the same seed-transport core are core-faithfully equivalent by Proposition \ref{prop:neutral};
+    \item consequently the separate germ-to-root, germ-to-foundation, germ-to-ground, germ-to-origin, germ-to-precursor, germ-to-lift, and germ-to-substrate lower minimizer ladder carries no additional benchmark-facing freedom beyond the seed-transport core itself.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Item (1) is immediate: a full germ package already contains all the data listed in Definition \ref{def:core}, so it determines a unique seed-transport core by forgetting the omitted lower ladder. Item (2) is Proposition \ref{prop:canonical}. Item (3) is Proposition \ref{prop:neutral}. Item (4) is the benchmark-facing consequence of those first three items. Once the seed-transport core is fixed, every admissible completion of the omitted lower ladder is equivalent to the canonical one and preserves the same downstream seed package together with the same observer outputs \eqref{eq:fixedoutputs}. Therefore the live germ burden no longer sits on the full package of Definition \ref{def:germ}; it has already compressed to the smaller seed-transport core of Definition \ref{def:core}.
+\end{proof}
+
+\begin{corollary}[No remaining independent lower-ladder burden at germ scope]
+\label{cor:nofreedom}
+At current scope there is no second benchmark-relevant full germ presentation differing only in its separate lower minimizer ladder below seed scope. Any such presentation is core-faithfully equivalent to the canonical completion of the same observer-relevant germ seed-transport core.
+\end{corollary}
+
+\begin{proof}
+This is exactly Item (3) and Item (4) of Theorem \ref{thm:main}.
+\end{proof}
+
+\section{Routing Consequence}
+
+\begin{corollary}[What must be done next]
+\label{cor:next}
+After Theorem \ref{thm:main}, the next honest primary manuscript below the current frontier must do at least one of the following:
+\begin{enumerate}
+    \item derive or uniquely force the observer-relevant germ seed-transport core \(\GermTransportCore\) from still more primitive explicit substrate structure in a way that changes benchmark-facing status;
+    \item identify a genuinely smaller theorem-level collapse, sharper necessity result, or sharper uniqueness result strictly inside \(\GermTransportCore\);
+    \item do either of the previous two while preserving the same benchmark one-metric package, the same ordinary matter route, and the same claim boundary.
+\end{enumerate}
+It is no longer enough merely to restate the full germ package \(\GermPackage\), the full seed package \(\SeedPackage\), the root package, the foundation package, the ground package, the origin package, the precursor package, the lift package, the shell-restriction package, the split selector-shell core, the selector law, the combined response law, the ambient package, the trace core, the completion-core presentation, the exact-shell affine nucleus, or to insert another same-output deeper-origin relay that preserves the same germ seed-transport core without shrinking or forcing it further.
+\end{corollary}
+
+\begin{proof}
+Theorem \ref{thm:main} removes the separate lower-ladder burden from the current germ frontier. The next honest burden therefore lies either below the smaller core \(\GermTransportCore\) or in a stricter internal compression of that same core. Another manuscript that merely preserves the same core while replaying the same full germ package or a larger downstream package does not change project status.
+\end{proof}
+
+\section{Conclusion}
+
+The positive result of this note is narrow and genuine. The current seed-from-germ forcing theorem had already shown that the root-generating substrate seed package is a canonical and unique output of a deeper germ package. The present theorem then sharpens the live burden inside that germ package itself. At current benchmark-facing scope, the separate germ-to-root, germ-to-foundation, germ-to-ground, germ-to-origin, germ-to-precursor, germ-to-lift, and germ-to-substrate lower minimizer ladder is no longer an independent frontier datum. Once the seed-anchored germ transport data are fixed, that omitted lower ladder is canonically induced.
+
+That is the honest fallback gain the current seed-frontier criterion allowed. The live stopping point therefore shrinks from the full recorded germ package to the smaller observer-relevant germ seed-transport core \(\GermTransportCore\). The benchmark boundary remains unchanged: the one operative metric is still exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, and the low-energy matter law is not enlarged. This remains a theorem inside the active derivational program of \TheoryName{}, not a license for stronger first-principles promotion language.
+
+The next open burden is correspondingly sharper. The next benchmark-facing manuscript should either derive or uniquely force the observer-relevant germ seed-transport core from still more primitive explicit substrate structure, or else prove a still smaller theorem-level collapse, sharper necessity result, or sharper uniqueness result strictly inside that core. Another full-germ restatement, same-seed relay, same-germ relay, or higher-package replay that preserves the same current core does not count as the honest next step.
+
+\end{document}

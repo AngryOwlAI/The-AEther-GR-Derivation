@@ -179,7 +179,7 @@ At the current audit:
 
 - the benchmark exact-closure package is the front door
 - the benchmark-gatekeeping layer must be consulted before any main-line claim
-- the current file map carries a single `active_primary` row at `primitive_reduction_current_seed_germ_forcing_frontier`, anchored on the theorem forcing root-generating substrate seed dynamics from seed-generating substrate germ dynamics rather than on another same-output seed relay
+- the current file map carries a single `active_primary` row at `primitive_reduction_current_germ_seed_transport_core_frontier`, anchored on the theorem collapsing the full seed-generating substrate germ package to a smaller observer-relevant germ seed-transport core rather than on another same-output seed relay or full-germ restatement
 - benchmark-facing status after the post-bridge routing correction is governed by the derivation-gates note, the post-bridge status note, the upstream compression theorem, and the current seed-frontier criterion; later same-output relays should be treated conservatively unless they derive, uniquely force, or further compress the bridge object that yields the benchmark one-metric observer package
 - the same-package exact-preservation line is preserved as supporting or historical routing context
 - screened higher-derivative branches remain screened
