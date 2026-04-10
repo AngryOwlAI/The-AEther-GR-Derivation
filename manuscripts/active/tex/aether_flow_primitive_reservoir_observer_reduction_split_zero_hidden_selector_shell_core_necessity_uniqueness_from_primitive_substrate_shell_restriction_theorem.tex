@@ -1,0 +1,660 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\CompletedMetric}{g^{\sharp}}
+\newcommand{\SelectorCore}{\mathfrak C^{\mathrm{sel,split}}}
+
+\newcommand{\Car}{\mathrm{car}}
+\newcommand{\Cur}{\mathrm{cur}}
+\newcommand{\Hom}{\mathrm{hom}}
+
+\newcommand{\ForSpace}[1]{\mathcal I_{#1}^{\mathrm{for}}}
+\newcommand{\PrimShell}{\mathcal S_{\mathrm{prim}}}
+
+\newcommand{\Reduction}[1]{\mathcal R_{#1}}
+\newcommand{\CurrentCarrier}[1]{\mathfrak C_{#1}^{\mathrm{cur}}}
+\newcommand{\EqCarrier}[1]{\mathfrak C_{#1}^{\mathrm{eq}}}
+\newcommand{\MetricOut}{\mathscr G_{\mathrm{out}}}
+\newcommand{\MatterOut}{\mathscr T_{\mathrm{out}}}
+
+\newcommand{\VisibleAffine}[1]{\widehat X_{#1}}
+\newcommand{\DataSpace}[1]{\mathcal Y_{#1}^{\mathrm{obs}}}
+\newcommand{\AmbientTarget}[1]{E_{#1}^{\mathrm{amb}}}
+
+\newcommand{\EqnSpace}[1]{\mathcal U_{#1}^{\mathrm{eqn}}}
+\newcommand{\EqnBody}[1]{\mathcal B_{#1}^{\mathrm{eqn}}}
+\newcommand{\EqnZero}[1]{V_{#1}^{\mathrm{eqn},0}}
+\newcommand{\EqnHidden}[1]{H_{#1}^{\mathrm{eqn}}}
+\newcommand{\EqnData}[1]{\Lambda_{#1}^{\mathrm{eqn,dat}}}
+\newcommand{\EqnShell}[1]{\Lambda_{#1}^{\mathrm{eqn,sh}}}
+\newcommand{\EqnTarget}[1]{Q_{#1}^{\mathrm{eqn}}}
+\newcommand{\EqnPair}[1]{\mathfrak b_{#1}^{\mathrm{eqn}}}
+\newcommand{\EqnSym}[1]{\mathbb Q_{#1}}
+\newcommand{\EqnTime}[1]{\vartheta_{#1}^{\mathrm{eqn}}}
+
+\newcommand{\SubZeroCore}[1]{\mathcal Z_{#1}^{0,\mathrm{sub}}}
+\newcommand{\SeedHidden}[1]{\mathcal H_{#1}^{\mathrm{sub}}}
+\newcommand{\SeedHiddenBody}[1]{D_{#1}^{\mathrm{sub}}}
+\newcommand{\SubZeroChart}[1]{\Psi_{#1}^{0,\mathrm{sub}}}
+\newcommand{\HiddenChart}[1]{\Psi_{#1}^{\mathrm{hid}}}
+\newcommand{\SubSplit}[1]{\Phi_{#1}^{\mathrm{sub}}}
+\newcommand{\SubCharge}[1]{\mathcal Q_{#1}^{\mathrm{sub}}}
+\newcommand{\SubEmbed}[1]{\zeta_{#1}^{\mathrm{sub}}}
+\newcommand{\SubKernelCh}[1]{\widetilde K_{#1}^{0,\mathrm{sub}}}
+\newcommand{\SubStateComp}[1]{P_{#1}^{\mathrm{sub,co}}}
+\newcommand{\ZeroBody}[1]{\mathcal B_{#1}^{0,\mathrm{sub}}}
+
+\newcommand{\SelCoreSpace}[1]{\mathcal U_{#1}^{\mathrm{sel,co}}}
+\newcommand{\SelCoreBody}[1]{\mathcal B_{#1}^{\mathrm{sel,co}}}
+\newcommand{\SelCoreData}[1]{\Lambda_{#1}^{\mathrm{sel,co,dat}}}
+\newcommand{\SelCoreShell}[1]{\Lambda_{#1}^{\mathrm{sel,co,sh}}}
+\newcommand{\GapSpace}[1]{H_{#1}^{\mathrm{sel}}}
+\newcommand{\GapBody}[1]{D_{#1}^{\mathrm{sel}}}
+\newcommand{\SelHiddenData}[1]{\Gamma_{#1}^{\mathrm{sel,hid,dat}}}
+\newcommand{\SelHiddenShell}[1]{\Gamma_{#1}^{\mathrm{sel,hid,sh}}}
+\newcommand{\HiddenOperator}[1]{K_{#1}^{\mathrm{sel,hid}}}
+\newcommand{\SelCoreSym}[1]{\mathbb T_{#1}}
+\newcommand{\SelCoreTime}[1]{\vartheta_{#1}^{\mathrm{sel,co}}}
+\newcommand{\SelCoreEmbed}[1]{\xi_{#1}}
+\newcommand{\Kernel}[1]{K_{#1}^{0}}
+\newcommand{\SelCoreProj}[1]{P_{#1}^{\mathrm{sel,co}}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Primitive-Reservoir Observer-Reduction\\
+\large Split Zero-Hidden Selector-Shell Core\\
+\large Necessity / Uniqueness from Primitive Substrate Shell Restriction}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The current benchmark-facing theorem on the active primitive-reservoir observer-reduction line already spent the admissible internal-collapse move inside the full zero-hidden selector law: the live stopping point is now the smaller split zero-hidden selector-shell core \(\SelectorCore\). The remaining honest burden is therefore no longer to restate the selector law, the combined response law, the ambient package, the trace core, the completion core, or the exact-shell affine nucleus. It is to derive or uniquely force \(\SelectorCore\) itself from still more primitive explicit substrate structure in a way that genuinely changes benchmark-facing status.
+
+The present note takes that first admissible route. It starts from the already recorded primitive substrate shell-restriction package at split-core scope: a charted support-shell decomposition into a zero core and a hidden seed, affine observer-data and shell-response readouts on the charted shell, a hidden charge with positive hidden gap, transported symmetry and time reversal, an exact zero-response realization of the primitive forcing shell on the charted zero core, fixed-data solvability there, and a charted coercive control on data-invisible zero/hidden variations. From that explicit substrate structure one derives canonically the whole split zero-hidden selector-shell core. The zero-hidden state space and body are exactly the charted support zero core, the hidden factor is exactly the charted hidden seed image, the hidden-to-data and hidden-to-shell couplings are the affine hidden-direction increments of the charted shell readouts, and the positive hidden-sector operator is induced canonically by the hidden charge and its positive pairing.
+
+Within this primitive substrate shell-restriction class the split core is not merely available. It is necessary and unique up to the obvious orthogonal identification preserving the same charted zero/hidden splitting, the same hidden quadratic form, and the same benchmark shell data. The benchmark boundary remains fixed throughout: the one operative metric is still exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, the low-energy matter law is not enlarged, and stronger first-principles promotion language remains paused. The honest burden therefore moves below split-core scope to the shell-restriction layer itself.
+\end{abstract}
+
+\section{Introduction}
+
+The active derivational program of \TheoryName{} has now reached a cleaner upstream burden than another selector-side replay. The split-core collapse theorem already showed that the full zero-hidden selector generator law carries no extra benchmark-facing freedom beyond the smaller split zero-hidden selector-shell core \(\SelectorCore\). That theorem matters precisely because it removed the full selector-law presentation as the live disciplined stopping point. The next honest step is therefore not another selector-law restatement, not another combined-response restatement, not another ambient-package restatement, and not another split-core relay that preserves the same \(\SelectorCore\) without forcing it from more primitive explicit structure.
+
+The present note takes the first admissible route below that frontier. It does not attempt a final microphysical derivation. Its narrower and benchmark-facing claim is that the split selector-shell core is already a canonical output of the explicit primitive substrate shell-restriction package that is on record as direct support for the active line. In that sense the theorem is stronger than a same split-core relay and weaker than a completed first-principles closure.
+
+The gain is disciplined. The present note does not alter the benchmark exact-closure package. It does not introduce a second operative metric or a new low-energy matter law. It only shows that once the charted shell-restriction data are fixed, the current split selector-shell core is forced and unique at benchmark-facing scope.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not claim that final substrate microphysics has already been identified. Its narrower theorem is only that, on the active primitive-reservoir observer-reduction line, the split zero-hidden selector-shell core is itself a forced and unique output of the recorded primitive substrate shell-restriction package.
+
+\section{Fixed Primitive Continuation Data}
+
+\begin{definition}[Recorded primitive continuation data]
+\label{def:fixed}
+Fix the following continuation data from the active primitive-reservoir observer-reduction line.
+\begin{enumerate}
+    \item For each sector label \(\sigma\in\{\Car,\Cur,\Hom\}\), a primitive forcing shell
+    \[
+    \ForSpace{\sigma},
+    \]
+    a visible reduction map
+    \[
+    \Reduction{\sigma}:\ForSpace{\sigma}\to X_{\sigma},
+    \]
+    and shell-level current and equilibrium carriers
+    \[
+    \CurrentCarrier{\sigma}:\ForSpace{\sigma}\to Z_{\sigma}^{\mathrm{cur}},
+    \qquad
+    \EqCarrier{\sigma}:\ForSpace{\sigma}\to Z_{\sigma}^{\mathrm{eq}}.
+    \]
+    \item The product shell
+    \[
+    \PrimShell
+    \equiv
+    \ForSpace{\Car}\times \ForSpace{\Cur}\times \ForSpace{\Hom}.
+    \]
+    \item The recorded metric and ordinary-matter outputs
+    \[
+    \MetricOut:\PrimShell\to\{\text{observer metrics}\},
+    \qquad
+    \MatterOut:\PrimShell\times\Psi\to\{\text{observer stress tensors}\},
+    \]
+    satisfying
+    \begin{equation}
+    \MetricOut(\mathbf w)=\CompletedMetric,
+    \qquad
+    \MatterOut(\mathbf w,\psi)
+    =
+    T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
+    \label{eq:fixedoutputs}
+    \end{equation}
+    for every \(\mathbf w\in\PrimShell\) and every matter configuration \(\psi\in\Psi\).
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:fixed} is not reopened here. The primitive shell data, the one operative metric, and the ordinary matter route remain fixed continuation data. The present note only removes the split selector-shell core itself as the live unexplained stopping point.
+\end{remark}
+
+\section{Primitive Substrate Shell-Restriction Input at Split-Core Scope}
+
+\begin{definition}[Charted primitive substrate shell-restriction package]
+\label{def:input}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). A \emph{charted primitive substrate shell-restriction package} for sector \(\sigma\) consists of the following data.
+\begin{enumerate}
+    \item A finite-dimensional Euclidean equation state space
+    \[
+    \EqnSpace{\sigma},
+    \]
+    the observer-data space
+    \[
+    \DataSpace{\sigma}
+    \equiv
+    \VisibleAffine{\sigma}\times Z_{\sigma}^{\mathrm{cur}}\times Z_{\sigma}^{\mathrm{eq}},
+    \]
+    an ambient shell-response space
+    \[
+    \AmbientTarget{\sigma},
+    \]
+    a finite-dimensional hidden target
+    \[
+    \EqnTarget{\sigma},
+    \]
+    and an orthogonal direct sum
+    \[
+    \EqnSpace{\sigma}
+    =
+    \EqnZero{\sigma}\oplus\EqnHidden{\sigma}.
+    \]
+    \item A closed embedded support zero core
+    \[
+    \SubZeroCore{\sigma},
+    \]
+    a finite-dimensional Euclidean hidden-seed space
+    \[
+    \SeedHidden{\sigma},
+    \]
+    a compact convex hidden-seed body
+    \[
+    \SeedHiddenBody{\sigma}\subset\SeedHidden{\sigma}
+    \]
+    with
+    \[
+    0\in\operatorname{int}\SeedHiddenBody{\sigma},
+    \]
+    an affine chart
+    \[
+    \SubZeroChart{\sigma}:\SubZeroCore{\sigma}\to\EqnZero{\sigma},
+    \]
+    and a linear isometric embedding
+    \[
+    \HiddenChart{\sigma}:\SeedHidden{\sigma}\to\EqnHidden{\sigma}.
+    \]
+    Define
+    \[
+    \ZeroBody{\sigma}
+    \equiv
+    \SubZeroChart{\sigma}\bigl(\SubZeroCore{\sigma}\bigr),
+    \qquad
+    \GapBody{\sigma}
+    \equiv
+    \HiddenChart{\sigma}\bigl(\SeedHiddenBody{\sigma}\bigr).
+    \]
+    Assume \(\ZeroBody{\sigma}\) is compact and convex with nonempty interior in \(\EqnZero{\sigma}\). There is also a compact convex shell body
+    \[
+    \EqnBody{\sigma}\subset\EqnSpace{\sigma}
+    \]
+    with nonempty interior and a diffeomorphism
+    \begin{equation}
+    \SubSplit{\sigma}:
+    \SubZeroCore{\sigma}\times \SeedHiddenBody{\sigma}
+    \xrightarrow{\cong}
+    \EqnBody{\sigma}
+    \label{eq:split}
+    \end{equation}
+    satisfying
+    \begin{equation}
+    \SubSplit{\sigma}(z,\eta)
+    =
+    \SubZeroChart{\sigma}(z)+\HiddenChart{\sigma}(\eta).
+    \label{eq:chartsplit}
+    \end{equation}
+    \item Affine observer-data and shell-response readouts
+    \[
+    \EqnData{\sigma}:\EqnSpace{\sigma}\to\DataSpace{\sigma},
+    \qquad
+    \EqnShell{\sigma}:\EqnSpace{\sigma}\to\AmbientTarget{\sigma}.
+    \]
+    \item A positive-definite symmetric hidden pairing
+    \[
+    \EqnPair{\sigma}:
+    \EqnTarget{\sigma}\times\EqnTarget{\sigma}\to\mathbb R
+    \]
+    and a linear hidden charge
+    \[
+    \SubCharge{\sigma}:\SeedHidden{\sigma}\to\EqnTarget{\sigma}
+    \]
+    such that there exists \(\lambda_{\sigma}^{\mathrm{split}}>0\) with
+    \begin{equation}
+    \EqnPair{\sigma}\bigl(\SubCharge{\sigma}\eta,\SubCharge{\sigma}\eta\bigr)
+    \ge
+    \lambda_{\sigma}^{\mathrm{split}}\,
+    \|\eta\|^{2}
+    \qquad
+    \text{for all }\eta\in\SeedHidden{\sigma}.
+    \label{eq:hiddengap}
+    \end{equation}
+    \item A compact symmetry group
+    \[
+    \EqnSym{\sigma}
+    \]
+    and an orthogonal involution
+    \[
+    \EqnTime{\sigma},
+    \]
+    acting orthogonally on \(\EqnSpace{\sigma}\), \(\DataSpace{\sigma}\), and \(\AmbientTarget{\sigma}\), and by \(\EqnPair{\sigma}\)-isometries on \(\EqnTarget{\sigma}\), preserving \(\EqnBody{\sigma}\), \(\EqnZero{\sigma}\), \(\EqnHidden{\sigma}\), \(\ZeroBody{\sigma}\), \(\GapBody{\sigma}\), \(\EqnData{\sigma}\), \(\EqnShell{\sigma}\), and intertwining \(\SubCharge{\sigma}\circ(\HiddenChart{\sigma})^{-1}\) on \(\GapSpace{\sigma}\).
+    \item A smooth embedding
+    \[
+    \jmath_{\sigma}:X_{\sigma}\hookrightarrow\VisibleAffine{\sigma}
+    \]
+    and a smooth zero-response shell realization
+    \[
+    \SubEmbed{\sigma}:\ForSpace{\sigma}\hookrightarrow\SubZeroCore{\sigma}
+    \]
+    whose charted image is exactly
+    \[
+    \ZeroBody{\sigma}\cap
+    \bigl(\EqnShell{\sigma}\big|_{\EqnZero{\sigma}}\bigr)^{-1}(0),
+    \]
+    and such that
+    \begin{equation}
+    \EqnData{\sigma}\bigl(\SubZeroChart{\sigma}(\SubEmbed{\sigma}(w))\bigr)
+    =
+    \bigl(
+    \jmath_{\sigma}(\Reduction{\sigma}(w)),
+    \CurrentCarrier{\sigma}(w),
+    \EqCarrier{\sigma}(w)
+    \bigr)
+    \label{eq:compat}
+    \end{equation}
+    for every \(w\in\ForSpace{\sigma}\).
+    \item Fixed-data shell solvability on the charted zero core:
+    \begin{equation}
+    \EqnData{\sigma}\bigl(\ZeroBody{\sigma}\bigr)
+    =
+    \EqnData{\sigma}\Bigl(
+    \ZeroBody{\sigma}\cap
+    \bigl(\EqnShell{\sigma}\big|_{\EqnZero{\sigma}}\bigr)^{-1}(0)
+    \Bigr).
+    \label{eq:solvability}
+    \end{equation}
+    \item The inert charted zero-hidden kernel
+    \[
+    \SubKernelCh{\sigma}
+    \equiv
+    \ker\bigl(D\EqnData{\sigma}\big|_{\EqnZero{\sigma}}\bigr)
+    \cap
+    \ker\bigl(D\EqnShell{\sigma}\big|_{\EqnZero{\sigma}}\bigr)
+    \]
+    and the orthogonal projector
+    \[
+    \SubStateComp{\sigma}:
+    \EqnZero{\sigma}\to
+    \bigl(\SubKernelCh{\sigma}\bigr)^{\perp}\cap\EqnZero{\sigma}.
+    \]
+    \item Charted coercivity on data-invisible zero-hidden and hidden variations: there exists \(\kappa_{\sigma}^{\mathrm{split}}>0\) such that for every
+    \[
+    w\in\ForSpace{\sigma},
+    \qquad
+    \delta z\in \EqnZero{\sigma},
+    \qquad
+    \eta\in\EqnHidden{\sigma}
+    \]
+    satisfying
+    \[
+    D\EqnData{\sigma}\big|_{\EqnZero{\sigma}}\,\delta z
+    +
+    \bigl(\EqnData{\sigma}(\eta)-\EqnData{\sigma}(0)\bigr)
+    =0,
+    \]
+    one has
+    \begin{equation}
+    \begin{aligned}
+    &
+    \bigl\|
+    D\EqnShell{\sigma}\big|_{\EqnZero{\sigma}}\,\delta z
+    +
+    \bigl(\EqnShell{\sigma}(\eta)-\EqnShell{\sigma}(0)\bigr)
+    \bigr\|^{2}
+    \\
+    &\qquad
+    +
+    \EqnPair{\sigma}\Bigl(
+    \SubCharge{\sigma}\bigl((\HiddenChart{\sigma})^{-1}\eta\bigr),
+    \SubCharge{\sigma}\bigl((\HiddenChart{\sigma})^{-1}\eta\bigr)
+    \Bigr)
+    \\
+    &\ge
+    \kappa_{\sigma}^{\mathrm{split}}
+    \left(
+    \|\SubStateComp{\sigma}\delta z\|^{2}
+    +
+    \|\eta\|^{2}
+    \right).
+    \end{aligned}
+    \label{eq:coercive}
+    \end{equation}
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:input} is the exact charted shell-restriction input used here. It is not a new primitive assumption inserted beside the shell-restriction line. It is the split-core-relevant part of the already recorded primitive substrate shell-restriction package, viewed at the benchmark-facing shell chart.
+\end{remark}
+
+\section{Canonical Split Core Induced by Shell Restriction}
+
+\begin{definition}[Canonical split selector-shell core]
+\label{def:core}
+Assume Definition \ref{def:input}. Define the canonical split zero-hidden selector-shell core by:
+\begin{enumerate}
+    \item
+    \[
+    \SelCoreSpace{\sigma}\equiv\EqnZero{\sigma},
+    \qquad
+    \SelCoreBody{\sigma}\equiv\ZeroBody{\sigma},
+    \qquad
+    \GapSpace{\sigma}\equiv\EqnHidden{\sigma}.
+    \]
+    \item
+    \[
+    \SelCoreData{\sigma}
+    \equiv
+    \EqnData{\sigma}\big|_{\EqnZero{\sigma}},
+    \qquad
+    \SelCoreShell{\sigma}
+    \equiv
+    \EqnShell{\sigma}\big|_{\EqnZero{\sigma}}.
+    \]
+    \item The hidden coupling maps are
+    \begin{equation}
+    \SelHiddenData{\sigma}(\eta)
+    \equiv
+    \EqnData{\sigma}(\eta)-\EqnData{\sigma}(0),
+    \qquad
+    \SelHiddenShell{\sigma}(\eta)
+    \equiv
+    \EqnShell{\sigma}(\eta)-\EqnShell{\sigma}(0)
+    \label{eq:couplings}
+    \end{equation}
+    for \(\eta\in\GapSpace{\sigma}\).
+    \item The hidden body is \(\GapBody{\sigma}\), and the hidden-sector operator
+    \[
+    \HiddenOperator{\sigma}:\GapSpace{\sigma}\to\GapSpace{\sigma}
+    \]
+    is the unique self-adjoint operator satisfying
+    \begin{equation}
+    \ev{\eta_{1},\HiddenOperator{\sigma}\eta_{2}}
+    =
+    \EqnPair{\sigma}\Bigl(
+    \SubCharge{\sigma}\bigl((\HiddenChart{\sigma})^{-1}\eta_{1}\bigr),
+    \SubCharge{\sigma}\bigl((\HiddenChart{\sigma})^{-1}\eta_{2}\bigr)
+    \Bigr)
+    \label{eq:hiddenoperator}
+    \end{equation}
+    for all \(\eta_{1},\eta_{2}\in\GapSpace{\sigma}\).
+    \item The symmetry and time-reversal data are the restricted charted shell-restriction symmetries:
+    \[
+    \SelCoreSym{\sigma}
+    \equiv
+    \left\{
+    \bigl(
+    g_{0},g_{\mathrm{dat}},g_{\mathrm{sh}},g_{\mathrm{hid}}
+    \bigr):
+    g\in\EqnSym{\sigma}
+    \right\},
+    \]
+    where \(g_{0}=g|_{\EqnZero{\sigma}}\) and \(g_{\mathrm{hid}}=g|_{\EqnHidden{\sigma}}\), and
+    \[
+    \SelCoreTime{\sigma}
+    \equiv
+    \bigl(
+    \EqnTime{\sigma}\big|_{\EqnZero{\sigma}},
+    \EqnTime{\sigma}\big|_{\DataSpace{\sigma}},
+    \EqnTime{\sigma}\big|_{\AmbientTarget{\sigma}},
+    \EqnTime{\sigma}\big|_{\EqnHidden{\sigma}}
+    \bigr).
+    \]
+    \item The exact shell realization is
+    \[
+    \SelCoreEmbed{\sigma}
+    \equiv
+    \SubZeroChart{\sigma}\circ\SubEmbed{\sigma}.
+    \]
+    \item The inert kernel and projector are
+    \[
+    \Kernel{\sigma}\equiv\SubKernelCh{\sigma},
+    \qquad
+    \SelCoreProj{\sigma}\equiv\SubStateComp{\sigma}.
+    \]
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}[The shell-restriction package induces a split selector-shell core]
+\label{prop:induced}
+Assume Definitions \ref{def:input} and \ref{def:core}. Then the canonical data of Definition \ref{def:core} satisfy the following split-core statements for sector \(\sigma\):
+\begin{enumerate}
+    \item \(\SelCoreSpace{\sigma}\) is a finite-dimensional Euclidean zero-hidden state space, \(\SelCoreBody{\sigma}\subset\SelCoreSpace{\sigma}\) is compact and convex with nonempty interior, \(\GapSpace{\sigma}\) is a finite-dimensional Euclidean hidden space, and \(\GapBody{\sigma}\subset\GapSpace{\sigma}\) is compact and convex with \(0\in\operatorname{int}\GapBody{\sigma}\).
+    \item \(\SelCoreData{\sigma}\) and \(\SelCoreShell{\sigma}\) are affine, \(\SelHiddenData{\sigma}\) and \(\SelHiddenShell{\sigma}\) are linear, and \(\HiddenOperator{\sigma}\) is positive and self-adjoint.
+    \item \(\SelCoreSym{\sigma}\) and \(\SelCoreTime{\sigma}\) preserve the split-core constituents.
+    \item \(\SelCoreEmbed{\sigma}(\ForSpace{\sigma})\) is exactly
+    \[
+    \SelCoreBody{\sigma}\cap
+    \bigl(\SelCoreShell{\sigma}\bigr)^{-1}(0),
+    \]
+    and
+    \begin{equation}
+    \SelCoreData{\sigma}\bigl(\SelCoreEmbed{\sigma}(w)\bigr)
+    =
+    \bigl(
+    \jmath_{\sigma}(\Reduction{\sigma}(w)),
+    \CurrentCarrier{\sigma}(w),
+    \EqCarrier{\sigma}(w)
+    \bigr)
+    \label{eq:splitcompat}
+    \end{equation}
+    for every \(w\in\ForSpace{\sigma}\).
+    \item Fixed-data shell solvability holds:
+    \begin{equation}
+    \SelCoreData{\sigma}\bigl(\SelCoreBody{\sigma}\bigr)
+    =
+    \SelCoreData{\sigma}\Bigl(
+    \SelCoreBody{\sigma}\cap
+    \bigl(\SelCoreShell{\sigma}\bigr)^{-1}(0)
+    \Bigr).
+    \label{eq:splitsolvability}
+    \end{equation}
+    \item The inert kernel is \(\Kernel{\sigma}\) and the orthogonal projector is \(\SelCoreProj{\sigma}\).
+    \item Split-core coercivity holds: for every
+    \[
+    w\in\ForSpace{\sigma},
+    \qquad
+    \delta u\in\SelCoreSpace{\sigma},
+    \qquad
+    \eta\in\GapSpace{\sigma}
+    \]
+    satisfying
+    \[
+    D\SelCoreData{\sigma}\,\delta u+\SelHiddenData{\sigma}\eta=0,
+    \]
+    one has
+    \begin{equation}
+    \bigl\|
+    D\SelCoreShell{\sigma}\,\delta u+\SelHiddenShell{\sigma}\eta
+    \bigr\|^{2}
+    +
+    \ev{\eta,\HiddenOperator{\sigma}\eta}
+    \ge
+    \kappa_{\sigma}^{\mathrm{split}}
+    \left(
+    \|\SelCoreProj{\sigma}\delta u\|^{2}
+    +
+    \|\eta\|^{2}
+    \right).
+    \label{eq:splitcoercive}
+    \end{equation}
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Item (1) is immediate from Definition \ref{def:input}. The map \(\HiddenChart{\sigma}\) is an isometric embedding, so \(\GapBody{\sigma}\) is compact and convex with interior containing \(0\). The maps in item (2) are affine or linear by construction, while \(\HiddenOperator{\sigma}\) exists uniquely by the Riesz representation theorem and is self-adjoint by \eqref{eq:hiddenoperator}. Positivity follows from \eqref{eq:hiddengap}: for \(\eta\in\GapSpace{\sigma}\),
+\[
+\ev{\eta,\HiddenOperator{\sigma}\eta}
+=
+\EqnPair{\sigma}\Bigl(
+\SubCharge{\sigma}\bigl((\HiddenChart{\sigma})^{-1}\eta\bigr),
+\SubCharge{\sigma}\bigl((\HiddenChart{\sigma})^{-1}\eta\bigr)
+\Bigr)
+\ge
+\lambda_{\sigma}^{\mathrm{split}}\,
+\|\eta\|^{2}.
+\]
+
+Item (3) follows because the charted shell-restriction symmetries preserve the zero/hidden splitting, the charted bodies, the readouts, and the hidden charge. For item (4), the image condition is the realization statement in Definition \ref{def:input}, written in the chart \(\SubZeroChart{\sigma}\), and \eqref{eq:splitcompat} is just \eqref{eq:compat}. Item (5) is exactly \eqref{eq:solvability}. Item (6) is definitional.
+
+For item (7), note that the hidden coupling maps \eqref{eq:couplings} are the hidden-direction increments of the affine readouts, so
+\[
+D\SelCoreData{\sigma}\,\delta u+\SelHiddenData{\sigma}\eta
+=
+D\EqnData{\sigma}\big|_{\EqnZero{\sigma}}\,\delta u
++
+\bigl(\EqnData{\sigma}(\eta)-\EqnData{\sigma}(0)\bigr),
+\]
+and similarly
+\[
+D\SelCoreShell{\sigma}\,\delta u+\SelHiddenShell{\sigma}\eta
+=
+D\EqnShell{\sigma}\big|_{\EqnZero{\sigma}}\,\delta u
++
+\bigl(\EqnShell{\sigma}(\eta)-\EqnShell{\sigma}(0)\bigr).
+\]
+Substituting these into \eqref{eq:coercive} and using \eqref{eq:hiddenoperator} gives exactly \eqref{eq:splitcoercive}.
+\end{proof}
+
+\section{Necessity and Uniqueness at Split-Core Scope}
+
+\begin{proposition}[No extra benchmark-facing freedom remains at split-core scope]
+\label{prop:unique}
+Assume the charted primitive substrate shell-restriction package of Definition \ref{def:input}. Then for each sector \(\sigma\):
+\begin{enumerate}
+    \item the zero-hidden state space and body, the hidden factor and hidden body, the affine zero-hidden data and shell readouts, the hidden-to-data and hidden-to-shell coupling maps, the positive hidden-sector operator, the symmetry and time-reversal structure, the exact shell realization, the solvability statement, the inert kernel/projector, and the split coercive package are all canonically induced by the shell-restriction input;
+    \item any other split selector-shell-core presentation compatible with that same shell-restriction input differs from the canonical one only by the obvious orthogonal identification preserving the same charted zero-hidden sector, hidden factor, hidden quadratic form, and benchmark shell data.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Item (1) is Proposition \ref{prop:induced}. For item (2), the shell-restriction input already fixes the orthogonal decomposition \(\EqnSpace{\sigma}=\EqnZero{\sigma}\oplus\EqnHidden{\sigma}\), the charted zero body, the hidden body as the image of \(\SeedHiddenBody{\sigma}\), the affine readouts on the chart, and the hidden quadratic form through \eqref{eq:hiddenoperator}. Any compatible split-core presentation must therefore preserve those same zero-hidden and hidden sectors together with the same shell realization and benchmark shell data. That leaves only the obvious orthogonal identification respecting the recorded zero/hidden splitting and the same hidden quadratic form.
+\end{proof}
+
+\begin{corollary}[The split core is forced by primitive substrate shell restriction]
+\label{cor:forced}
+Within the class of charted primitive substrate shell-restriction packages, the split zero-hidden selector-shell core \(\SelectorCore\) is necessary and unique at benchmark-facing scope.
+\end{corollary}
+
+\begin{proof}
+This is the combined content of Proposition \ref{prop:induced} and Proposition \ref{prop:unique}.
+\end{proof}
+
+\section{Benchmark Preservation}
+
+\begin{theorem}[The one-metric benchmark package is unchanged]
+\label{thm:outputs}
+Assume Definition \ref{def:input}. Then the benchmark output statements of Definition \ref{def:fixed} remain unchanged:
+\[
+\MetricOut(\mathbf w)=\CompletedMetric,
+\qquad
+\MatterOut(\mathbf w,\psi)
+=
+T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
+\]
+for every \(\mathbf w\in\PrimShell\) and every matter configuration \(\psi\in\Psi\). Consequently the split-core forcing result introduces neither a second operative metric nor an enlarged low-energy matter law.
+\end{theorem}
+
+\begin{proof}
+The present note changes only the upstream benchmark-facing status of the split selector-shell core. It does not alter the primitive shell \(\PrimShell\), the recorded metric map \(\MetricOut\), or the recorded matter map \(\MatterOut\). Hence \eqref{eq:fixedoutputs} continues to hold exactly.
+\end{proof}
+
+\section{Main Theorem}
+
+\begin{theorem}[The remaining burden moves below split-core scope]
+\label{thm:main}
+Assume the fixed primitive continuation data of Definition \ref{def:fixed} and, for each sector \(\sigma\in\{\Car,\Cur,\Hom\}\), a charted primitive substrate shell-restriction package in the sense of Definition \ref{def:input}. Then:
+\begin{enumerate}
+    \item the split zero-hidden selector-shell core \(\SelectorCore\) is canonically induced by that shell-restriction package;
+    \item \(\SelectorCore\) is necessary and unique there up to the obvious orthogonal identification preserving the same charted zero/hidden shell decomposition, hidden quadratic form, and benchmark shell data;
+    \item the one operative metric remains exactly \(\CompletedMetric\), the ordinary matter route remains exactly the standard one through that metric, there is no second operative metric, and the low-energy matter law is not enlarged;
+    \item consequently the benchmark-facing burden after the selector-law split-core collapse theorem sharpens once more: the split zero-hidden selector-shell core is no longer left as an independently inserted stopping point, and the honest burden now lies below split-core scope at the primitive substrate shell-restriction layer itself.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Item (1) is Proposition \ref{prop:induced}. Item (2) is Corollary \ref{cor:forced}. Item (3) is Theorem \ref{thm:outputs}. Item (4) is the routing consequence of the previous items.
+\end{proof}
+
+\begin{corollary}[What remains open after this theorem]
+\label{cor:next}
+After Theorem \ref{thm:main}, the remaining honest burden is no longer to justify the split zero-hidden selector-shell core \(\SelectorCore\) itself on the active primitive-reservoir observer-reduction line. The next honest burden is sharper again: first try to derive or uniquely force the primitive substrate shell-restriction layer itself from still more primitive explicit substrate structure in a way that actually changes benchmark-facing status, or else prove a genuinely smaller theorem-level collapse, sharper necessity result, or sharper uniqueness result strictly inside that shell-restriction layer while preserving the same benchmark one-metric package and claim boundary.
+\end{corollary}
+
+\begin{proof}
+Theorem \ref{thm:main} converts \(\SelectorCore\) from the remaining benchmark-facing stopping point into a canonical output of the charted primitive substrate shell-restriction package. What remains open is therefore the shell-restriction layer itself, not the split core it now forces.
+\end{proof}
+
+\section{Conclusion}
+
+The positive result of this note is deliberately narrower than a completed final microphysical derivation and stronger than another split-core relay. The current split-core collapse theorem had already shown that the full selector-law presentation carries no extra benchmark-facing freedom beyond the smaller split zero-hidden selector-shell core \(\SelectorCore\). The present note now makes the first admissible upstream forcing move below that frontier: it shows that \(\SelectorCore\) is itself a canonical and unique output of the charted primitive substrate shell-restriction package.
+
+That gain is exactly what the routing layer required. The split core is no longer left as an independently inserted stopping point. Its zero-hidden sector, hidden factor, affine coupling data, hidden quadratic form, exact shell realization, solvability statement, inert-kernel projector, and coercive control are all already fixed once the shell-restriction input is fixed. At current scope, any compatible split-core presentation differs only by the obvious orthogonal identification preserving those same benchmark-facing data.
+
+The benchmark boundary remains unchanged. The same primitive shell remains the shell carrying the observer outputs, so the one operative metric is still exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, and the low-energy matter law is not enlarged. Nothing here upgrades adoption to derivation or licenses stronger first-principles promotion language.
+
+The open burden therefore moves below split-core scope. The next benchmark-facing move should not spend itself on another selector-law restatement, another combined-response restatement, another ambient-package restatement, another same split-core relay, or any change to the claim boundary. The honest next step is to go one level lower and address the primitive substrate shell-restriction layer itself, or a genuinely smaller theorem strictly inside it.
+
+\end{document}
