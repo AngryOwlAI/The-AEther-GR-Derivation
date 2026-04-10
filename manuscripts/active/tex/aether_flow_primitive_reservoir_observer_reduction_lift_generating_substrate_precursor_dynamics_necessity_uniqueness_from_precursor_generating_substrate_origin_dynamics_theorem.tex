@@ -1,0 +1,1628 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+
+\newcommand{\CompletedMetric}{g^{\sharp}}
+
+\newcommand{\Car}{\mathrm{car}}
+\newcommand{\Cur}{\mathrm{cur}}
+\newcommand{\Hom}{\mathrm{hom}}
+
+\newcommand{\ForSpace}[1]{\mathcal I_{#1}^{\mathrm{for}}}
+\newcommand{\PrimShell}{\mathcal S_{\mathrm{prim}}}
+
+\newcommand{\Reduction}[1]{\mathcal R_{#1}}
+\newcommand{\CurrentCarrier}[1]{\mathfrak C_{#1}^{\mathrm{cur}}}
+\newcommand{\EqCarrier}[1]{\mathfrak C_{#1}^{\mathrm{eq}}}
+\newcommand{\CurrentExtract}[1]{\mathscr E_{#1}^{\mathrm{cur}}}
+\newcommand{\EqExtract}[1]{\mathscr E_{#1}^{\mathrm{eq}}}
+\newcommand{\PrimCurrent}[1]{\mathcal J_{#1}^{\mathrm{prim}}}
+\newcommand{\PrimTheta}[1]{\Theta_{#1}^{\mathrm{prim}}}
+
+\newcommand{\MetricOut}{\mathscr G_{\mathrm{out}}}
+\newcommand{\MatterOut}{\mathscr T_{\mathrm{out}}}
+
+\newcommand{\VisibleAffine}[1]{\widehat X_{#1}}
+\newcommand{\DataSpace}[1]{\mathcal Y_{#1}^{\mathrm{obs}}}
+\newcommand{\AmbientTarget}[1]{E_{#1}^{\mathrm{amb}}}
+
+\newcommand{\EqnSpace}[1]{\mathcal U_{#1}^{\mathrm{eqn}}}
+\newcommand{\EqnBody}[1]{\mathcal B_{#1}^{\mathrm{eqn}}}
+\newcommand{\EqnData}[1]{\Lambda_{#1}^{\mathrm{eqn,dat}}}
+\newcommand{\EqnShell}[1]{\Lambda_{#1}^{\mathrm{eqn,sh}}}
+\newcommand{\EqnTarget}[1]{Q_{#1}^{\mathrm{eqn}}}
+\newcommand{\EqnPair}[1]{\mathfrak b_{#1}^{\mathrm{eqn}}}
+\newcommand{\EqnHidden}[1]{H_{#1}^{\mathrm{eqn}}}
+\newcommand{\EqnZero}[1]{V_{#1}^{\mathrm{eqn},0}}
+
+\newcommand{\ResSpace}[1]{\mathcal U_{#1}^{\mathrm{sup,res}}}
+\newcommand{\ResBody}[1]{\mathcal B_{#1}^{\mathrm{sup,res}}}
+\newcommand{\ResTarget}[1]{S_{#1}^{\mathrm{sup,res}}}
+\newcommand{\ResPair}[1]{\mathfrak m_{#1}^{\mathrm{sup,res}}}
+\newcommand{\ResSection}[1]{\Theta_{#1}^{\mathrm{sup,res}}}
+\newcommand{\ResData}[1]{\Lambda_{#1}^{\mathrm{sup,dat}}}
+\newcommand{\ResShellMap}[1]{\Lambda_{#1}^{\mathrm{sup,sh}}}
+\newcommand{\ResShellSet}[1]{\mathcal Z_{#1}^{\mathrm{sup,res}}}
+\newcommand{\SeedHidden}[1]{\mathcal H_{#1}^{\mathrm{sup}}}
+\newcommand{\SeedHiddenBody}[1]{D_{#1}^{\mathrm{sup}}}
+\newcommand{\HiddenChart}[1]{\Psi_{#1}^{\mathrm{hid}}}
+\newcommand{\ZeroBody}[1]{\mathcal B_{#1}^{0,\mathrm{sup}}}
+
+\newcommand{\SubSpace}[1]{\mathcal M_{#1}^{\mathrm{sub}}}
+\newcommand{\SubBody}[1]{\mathcal B_{#1}^{\mathrm{sub}}}
+\newcommand{\SubTarget}[1]{E_{#1}^{\mathrm{sub}}}
+\newcommand{\SubPair}[1]{\mathfrak s_{#1}^{\mathrm{sub}}}
+\newcommand{\SubShellSet}[1]{\mathcal Z_{#1}^{\mathrm{sub}}}
+
+\newcommand{\LiftSpace}[1]{\mathcal L_{#1}^{\mathrm{lift}}}
+\newcommand{\LiftBody}[1]{\mathcal B_{#1}^{\mathrm{lift}}}
+\newcommand{\LiftProj}[1]{\Pi_{#1}^{\mathrm{lift}}}
+\newcommand{\LiftSelect}[1]{\mathfrak s_{#1}^{\mathrm{lift}}}
+\newcommand{\LiftSection}[1]{\Gamma_{#1}^{\mathrm{lift}}}
+\newcommand{\LiftFunctional}[1]{\mathscr V_{#1}^{\mathrm{lift}}}
+\newcommand{\LiftData}[1]{\Lambda_{#1}^{\mathrm{lift,dat}}}
+\newcommand{\LiftShellMap}[1]{\Lambda_{#1}^{\mathrm{lift,sh}}}
+\newcommand{\LiftSym}[1]{\mathbb G_{#1}^{\mathrm{lift}}}
+\newcommand{\LiftTime}[1]{\vartheta_{#1}^{\mathrm{lift}}}
+\newcommand{\LiftShellSet}[1]{\mathcal Z_{#1}^{\mathrm{lift}}}
+\newcommand{\LiftChart}[1]{\Xi_{#1}^{\mathrm{lift}}}
+\newcommand{\LiftSupport}[1]{\Theta_{#1}^{\mathrm{lift,sup}}}
+\newcommand{\LiftSupportShell}[1]{\mathcal Z_{#1}^{\mathrm{lift,sup}}}
+\newcommand{\LiftZeroCore}[1]{\mathcal Z_{#1}^{0,\mathrm{lift}}}
+\newcommand{\LiftEqChart}[1]{\Psi_{#1}^{\mathrm{lift,sup}}}
+\newcommand{\LiftZeroChart}[1]{\Psi_{#1}^{0,\mathrm{lift}}}
+\newcommand{\LiftSplit}[1]{\Phi_{#1}^{\mathrm{lift}}}
+\newcommand{\LiftCharge}[1]{\mathcal Q_{#1}^{\mathrm{lift}}}
+\newcommand{\LiftResidual}[1]{\mathcal R_{#1}^{\mathrm{lift}}}
+\newcommand{\LiftEmbed}[1]{\zeta_{#1}^{\mathrm{lift}}}
+\newcommand{\LiftKernel}[1]{K_{#1}^{0,\mathrm{lift}}}
+\newcommand{\LiftKernelCh}[1]{\widetilde K_{#1}^{0,\mathrm{lift}}}
+\newcommand{\LiftStateComp}[1]{P_{#1}^{\mathrm{lift,co}}}
+
+\newcommand{\PrecSpace}[1]{\mathcal P_{#1}^{\mathrm{prec}}}
+\newcommand{\PrecBody}[1]{\mathcal B_{#1}^{\mathrm{prec}}}
+\newcommand{\PrecProj}[1]{\Pi_{#1}^{\mathrm{prec}}}
+\newcommand{\PrecLiftMin}[1]{\mathfrak f_{#1}^{\mathrm{prec}}}
+\newcommand{\PrecSubMin}[1]{\mathfrak m_{#1}^{\mathrm{prec}}}
+\newcommand{\PrecSection}[1]{\Gamma_{#1}^{\mathrm{prec}}}
+\newcommand{\PrecFunctional}[1]{\mathscr W_{#1}^{\mathrm{prec}}}
+\newcommand{\PrecData}[1]{\Lambda_{#1}^{\mathrm{prec,dat}}}
+\newcommand{\PrecShellMap}[1]{\Lambda_{#1}^{\mathrm{prec,sh}}}
+\newcommand{\PrecSym}[1]{\mathbb G_{#1}^{\mathrm{prec}}}
+\newcommand{\PrecTime}[1]{\vartheta_{#1}^{\mathrm{prec}}}
+\newcommand{\PrecShellSet}[1]{\mathcal Z_{#1}^{\mathrm{prec}}}
+\newcommand{\PrecChart}[1]{\Xi_{#1}^{\mathrm{prec}}}
+\newcommand{\PrecSupport}[1]{\Theta_{#1}^{\mathrm{prec,sup}}}
+\newcommand{\PrecSupportShell}[1]{\mathcal Z_{#1}^{\mathrm{prec,sup}}}
+\newcommand{\PrecZeroCore}[1]{\mathcal Z_{#1}^{0,\mathrm{prec}}}
+\newcommand{\PrecEqChart}[1]{\Psi_{#1}^{\mathrm{prec,sup}}}
+\newcommand{\PrecZeroChart}[1]{\Psi_{#1}^{0,\mathrm{prec}}}
+\newcommand{\PrecSplit}[1]{\Phi_{#1}^{\mathrm{prec}}}
+\newcommand{\PrecCharge}[1]{\mathcal Q_{#1}^{\mathrm{prec}}}
+\newcommand{\PrecResidual}[1]{\mathcal R_{#1}^{\mathrm{prec}}}
+\newcommand{\PrecEmbed}[1]{\zeta_{#1}^{\mathrm{prec}}}
+\newcommand{\PrecKernel}[1]{K_{#1}^{0,\mathrm{prec}}}
+\newcommand{\PrecKernelCh}[1]{\widetilde K_{#1}^{0,\mathrm{prec}}}
+\newcommand{\PrecStateComp}[1]{P_{#1}^{\mathrm{prec,co}}}
+
+\newcommand{\OrigSpace}[1]{\mathcal O_{#1}^{\mathrm{orig}}}
+\newcommand{\OrigBody}[1]{\mathcal B_{#1}^{\mathrm{orig}}}
+\newcommand{\OrigProj}[1]{\Pi_{#1}^{\mathrm{orig}}}
+\newcommand{\OrigPrecMin}[1]{\mathfrak f_{#1}^{\mathrm{orig,prec}}}
+\newcommand{\OrigLiftMin}[1]{\mathfrak f_{#1}^{\mathrm{orig,lift}}}
+\newcommand{\OrigSubMin}[1]{\mathfrak m_{#1}^{\mathrm{orig}}}
+\newcommand{\OrigSection}[1]{\Gamma_{#1}^{\mathrm{orig}}}
+\newcommand{\OrigFunctional}[1]{\mathscr W_{#1}^{\mathrm{orig}}}
+\newcommand{\OrigData}[1]{\Lambda_{#1}^{\mathrm{orig,dat}}}
+\newcommand{\OrigShellMap}[1]{\Lambda_{#1}^{\mathrm{orig,sh}}}
+\newcommand{\OrigSym}[1]{\mathbb G_{#1}^{\mathrm{orig}}}
+\newcommand{\OrigTime}[1]{\vartheta_{#1}^{\mathrm{orig}}}
+\newcommand{\OrigShellSet}[1]{\mathcal Z_{#1}^{\mathrm{orig}}}
+\newcommand{\OrigChart}[1]{\Xi_{#1}^{\mathrm{orig}}}
+\newcommand{\OrigSupport}[1]{\Theta_{#1}^{\mathrm{orig,sup}}}
+\newcommand{\OrigSupportShell}[1]{\mathcal Z_{#1}^{\mathrm{orig,sup}}}
+\newcommand{\OrigZeroCore}[1]{\mathcal Z_{#1}^{0,\mathrm{orig}}}
+\newcommand{\OrigEqChart}[1]{\Psi_{#1}^{\mathrm{orig,sup}}}
+\newcommand{\OrigZeroChart}[1]{\Psi_{#1}^{0,\mathrm{orig}}}
+\newcommand{\OrigSplit}[1]{\Phi_{#1}^{\mathrm{orig}}}
+\newcommand{\OrigCharge}[1]{\mathcal Q_{#1}^{\mathrm{orig}}}
+\newcommand{\OrigResidual}[1]{\mathcal R_{#1}^{\mathrm{orig}}}
+\newcommand{\OrigEmbed}[1]{\zeta_{#1}^{\mathrm{orig}}}
+\newcommand{\OrigKernel}[1]{K_{#1}^{0,\mathrm{orig}}}
+\newcommand{\OrigKernelCh}[1]{\widetilde K_{#1}^{0,\mathrm{orig}}}
+\newcommand{\OrigStateComp}[1]{P_{#1}^{\mathrm{orig,co}}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Primitive-Reservoir Observer-Reduction\\
+\large Lift-Generating Substrate Precursor Dynamics\\
+\large Necessity / Uniqueness from\\
+\large Precursor-Generating Substrate Origin Dynamics}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The current benchmark-facing frontier on the active primitive-reservoir observer-reduction line is no longer the shell-generating substrate lift package itself. The lift-forcing theorem has already spent that move: once lift-generating substrate precursor dynamics are fixed, the shell-generating lift package is canonical and unique. The next honest benchmark-facing target is therefore the precursor package that supports lift scope.
+
+The recorded precursor-origin theorem already showed that this precursor package can be produced canonically from a deeper precursor-generating substrate origin class. The present note sharpens that existence statement to the forcing verdict that the routing layer now requires. Starting from precursor-generating substrate origin dynamics, one recovers canonically the precursor lift-fiber minimizer, the precursor substrate-fiber minimizer, the precursor restriction section, the exact precursor shell, the precursor shell/support charts, the precursor support zero core, the zero-core / hidden-seed split, the hidden charge and hidden recorder, the observer-compatible exact zero-response realization, the fixed-data solvability statement, and the coercive control on precursor data-invisible directions. Within that origin class the lift-generating substrate precursor package is not merely available. It is necessary and unique up to the obvious origin-faithful identification preserving the same precursor fibers, the same charted support shell and support zero core, the same zero-hidden split and hidden quadratic form, and the same benchmark shell data.
+
+The benchmark boundary remains fixed throughout. The one operative metric is still exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, the low-energy matter law is not enlarged, and stronger first-principles promotion language remains paused. The honest burden therefore moves below precursor scope to the origin layer itself.
+\end{abstract}
+
+\section{Introduction}
+
+The active derivational program of \TheoryName{} has now reached the point where another lift relay would be benchmark neutral. The current lift-forcing theorem already removed the shell-generating substrate lift package as the live stopping point on the active primitive-reservoir observer-reduction line. Once that theorem is on record, the next honest benchmark-facing move must go one level lower and address the lift-generating substrate precursor dynamics that support the lift layer.
+
+There are two disciplined ways to do that. One can derive the precursor package from still more primitive explicit substrate structure, or one can prove that the precursor package is already forced inside a sharper deeper class. The recorded precursor-origin theorem supplied the first ingredient needed for the second route: it exhibited the entire precursor package as a projected exact-shell transport of a deeper precursor-generating substrate origin class. What it did not yet state sharply enough for the current routing burden is the corresponding necessity / uniqueness verdict at precursor scope.
+
+The present note records exactly that stronger claim. It does not change the benchmark exact-closure package. It does not introduce a second operative metric or a new low-energy matter law. It only proves that, once the origin package is fixed, no independent benchmark-facing freedom remains at lift-generating precursor scope.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not claim that final substrate microphysics has already been identified. Its narrower theorem is only that, on the active primitive-reservoir observer-reduction line, the lift-generating substrate precursor dynamics are themselves a forced and unique output of the recorded origin class that sits immediately below them.
+
+\section{Fixed Primitive Continuation Data}
+
+\begin{definition}[Recorded primitive continuation data]
+\label{def:fixed}
+Fix the following continuation data from the active primitive-reservoir observer-reduction line.
+\begin{enumerate}
+    \item For each sector label \(\sigma\in\{\Car,\Cur,\Hom\}\), a primitive forcing shell
+    \[
+    \ForSpace{\sigma},
+    \]
+    a visible reduction map
+    \[
+    \Reduction{\sigma}:\ForSpace{\sigma}\to X_{\sigma},
+    \]
+    and shell-level current and equilibrium carriers
+    \[
+    \CurrentCarrier{\sigma}:\ForSpace{\sigma}\to Z_{\sigma}^{\mathrm{cur}},
+    \qquad
+    \EqCarrier{\sigma}:\ForSpace{\sigma}\to Z_{\sigma}^{\mathrm{eq}}.
+    \]
+    \item The product shell
+    \[
+    \PrimShell
+    \equiv
+    \ForSpace{\Car}\times \ForSpace{\Cur}\times \ForSpace{\Hom}.
+    \]
+    \item Fixed shell extractors
+    \[
+    \CurrentExtract{\sigma}:Z_{\sigma}^{\mathrm{cur}}\to Y_{\sigma}^{\mathrm{cur}},
+    \qquad
+    \EqExtract{\sigma}:Z_{\sigma}^{\mathrm{eq}}\to Y_{\sigma}^{\mathrm{eq}},
+    \]
+    together with the recorded shell composites
+    \begin{equation}
+    \PrimCurrent{\sigma}
+    =
+    \CurrentExtract{\sigma}\circ \CurrentCarrier{\sigma},
+    \qquad
+    \PrimTheta{\sigma}
+    =
+    \EqExtract{\sigma}\circ \EqCarrier{\sigma}.
+    \label{eq:primcomposites}
+    \end{equation}
+    \item The recorded metric and ordinary-matter outputs
+    \[
+    \MetricOut:\PrimShell\to\{\text{observer metrics}\},
+    \qquad
+    \MatterOut:\PrimShell\times\Psi\to\{\text{observer stress tensors}\},
+    \]
+    satisfying
+    \begin{equation}
+    \MetricOut(\mathbf w)=\CompletedMetric,
+    \qquad
+    \MatterOut(\mathbf w,\psi)
+    =
+    T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
+    \label{eq:fixedoutputs}
+    \end{equation}
+    for every \(\mathbf w\in\PrimShell\) and every matter configuration \(\psi\in\Psi\).
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:fixed} is not reopened here. The primitive continuation data, the one operative metric, and the ordinary matter route remain fixed. The present note only addresses the deeper origin-side status of the lift-generating substrate precursor package that now sits at the frontier of the active line.
+\end{remark}
+
+\section{Recorded Lift-Generating Precursor Target}
+
+\begin{definition}[Lift-generating substrate precursor dynamics]
+\label{def:prec}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). A \emph{lift-generating substrate precursor dynamics package} for sector \(\sigma\) consists of the following data.
+\begin{enumerate}
+    \item A finite-dimensional Euclidean precursor state space
+    \[
+    \PrecSpace{\sigma},
+    \]
+    a compact convex precursor body
+    \[
+    \PrecBody{\sigma}\subset\PrecSpace{\sigma}
+    \]
+    with nonempty interior, an affine surjection
+    \[
+    \PrecProj{\sigma}:\PrecSpace{\sigma}\to\LiftSpace{\sigma},
+    \]
+    and the projected lift body
+    \[
+    \LiftBody{\sigma}
+    \equiv
+    \PrecProj{\sigma}\bigl(\PrecBody{\sigma}\bigr)
+    \subset\LiftSpace{\sigma},
+    \]
+    assumed compact convex with nonempty interior. There is an affine surjection
+    \[
+    \LiftProj{\sigma}:\LiftSpace{\sigma}\to\SubSpace{\sigma},
+    \]
+    and the projected substrate body
+    \[
+    \SubBody{\sigma}
+    \equiv
+    \LiftProj{\sigma}\bigl(\LiftBody{\sigma}\bigr)
+    \subset\SubSpace{\sigma},
+    \]
+    also assumed compact convex with nonempty interior.
+
+    There is a smooth precursor lift-fiber minimizer
+    \[
+    \PrecLiftMin{\sigma}:\LiftBody{\sigma}\to\PrecBody{\sigma}
+    \]
+    satisfying
+    \[
+    \PrecProj{\sigma}\circ\PrecLiftMin{\sigma}
+    =
+    \mathrm{id}_{\LiftBody{\sigma}},
+    \]
+    and a smooth precursor substrate-fiber minimizer
+    \[
+    \PrecSubMin{\sigma}:\SubBody{\sigma}\to\PrecBody{\sigma}
+    \]
+    satisfying
+    \[
+    \LiftProj{\sigma}\circ\PrecProj{\sigma}\circ\PrecSubMin{\sigma}
+    =
+    \mathrm{id}_{\SubBody{\sigma}}.
+    \]
+    Define
+    \begin{equation}
+    \LiftSelect{\sigma}
+    \equiv
+    \PrecProj{\sigma}\circ\PrecSubMin{\sigma}.
+    \label{eq:inducedliftselect}
+    \end{equation}
+    Assume
+    \begin{equation}
+    \PrecLiftMin{\sigma}\bigl(\LiftSelect{\sigma}(m)\bigr)
+    =
+    \PrecSubMin{\sigma}(m)
+    \qquad
+    \text{for every }m\in\SubBody{\sigma}.
+    \label{eq:compatmin}
+    \end{equation}
+    \item The same finite-dimensional Euclidean substrate restriction target
+    \[
+    \SubTarget{\sigma},
+    \]
+    the same positive-definite symmetric substrate pairing
+    \[
+    \SubPair{\sigma}:
+    \SubTarget{\sigma}\times\SubTarget{\sigma}\to\mathbb R,
+    \]
+    and a smooth precursor restriction section
+    \[
+    \PrecSection{\sigma}:\PrecSpace{\sigma}\to\SubTarget{\sigma}.
+    \]
+    Define the precursor restriction functional
+    \begin{equation}
+    \PrecFunctional{\sigma}(p)
+    \equiv
+    \SubPair{\sigma}\bigl(\PrecSection{\sigma}(p),\PrecSection{\sigma}(p)\bigr),
+    \label{eq:precfunctional}
+    \end{equation}
+    together with the exact precursor shell
+    \begin{equation}
+    \PrecShellSet{\sigma}
+    \equiv
+    \bigl(\PrecSection{\sigma}\bigr)^{-1}(0)\cap\PrecBody{\sigma}.
+    \label{eq:precshell}
+    \end{equation}
+    Define the induced lifted restriction section
+    \begin{equation}
+    \LiftSection{\sigma}
+    \equiv
+    \PrecSection{\sigma}\circ\PrecLiftMin{\sigma},
+    \label{eq:inducedliftsection}
+    \end{equation}
+    and the induced lifted restriction functional
+    \begin{equation}
+    \LiftFunctional{\sigma}(\ell)
+    \equiv
+    \SubPair{\sigma}\bigl(\LiftSection{\sigma}(\ell),\LiftSection{\sigma}(\ell)\bigr)
+    =
+    \PrecFunctional{\sigma}\bigl(\PrecLiftMin{\sigma}(\ell)\bigr).
+    \label{eq:inducedliftfunctional}
+    \end{equation}
+    Assume that, for each \(\ell\in\LiftBody{\sigma}\), \(\PrecLiftMin{\sigma}(\ell)\) is the unique minimizer of \(\PrecFunctional{\sigma}\) on the fiber
+    \[
+    \bigl(\PrecProj{\sigma}\bigr)^{-1}(\ell)\cap\PrecBody{\sigma},
+    \]
+    and, for each \(m\in\SubBody{\sigma}\), \(\PrecSubMin{\sigma}(m)\) is the unique minimizer of \(\PrecFunctional{\sigma}\) on the composite fiber
+    \[
+    \bigl(\LiftProj{\sigma}\circ\PrecProj{\sigma}\bigr)^{-1}(m)\cap\PrecBody{\sigma}.
+    \]
+    Assume that \(\LiftSelect{\sigma}(m)\) is therefore the unique minimizer of \(\LiftFunctional{\sigma}\) on
+    \[
+    \bigl(\LiftProj{\sigma}\bigr)^{-1}(m)\cap\LiftBody{\sigma},
+    \]
+    and that there exists \(\mu_{\sigma}^{\mathrm{fib}}>0\) such that
+    \begin{equation}
+    \LiftFunctional{\sigma}(\ell)
+    \ge
+    \LiftFunctional{\sigma}\bigl(\LiftSelect{\sigma}(m)\bigr)
+    +
+    \mu_{\sigma}^{\mathrm{fib}}\,
+    \operatorname{dist}\bigl(\ell,\LiftSelect{\sigma}(m)\bigr)^{2}
+    \label{eq:precfibergap}
+    \end{equation}
+    for every \(m\in\SubBody{\sigma}\) and every \(\ell\in\bigl(\LiftProj{\sigma}\bigr)^{-1}(m)\cap\LiftBody{\sigma}\). Assume there exists \(\mu_{\sigma}^{\mathrm{sub}}>0\) such that
+    \begin{equation}
+    \LiftFunctional{\sigma}\bigl(\LiftSelect{\sigma}(m)\bigr)
+    \ge
+    \mu_{\sigma}^{\mathrm{sub}}\,
+    \operatorname{dist}\bigl(m,\LiftProj{\sigma}(\PrecProj{\sigma}(\PrecShellSet{\sigma}))\bigr)^{2}
+    \qquad
+    \text{for all }m\in\SubBody{\sigma}.
+    \label{eq:precprojectedgap}
+    \end{equation}
+    \item Affine lifted observer-data and shell-response readouts
+    \[
+    \LiftData{\sigma}:\LiftSpace{\sigma}\to\DataSpace{\sigma},
+    \qquad
+    \LiftShellMap{\sigma}:\LiftSpace{\sigma}\to\AmbientTarget{\sigma},
+    \]
+    and affine precursor observer-data and shell-response readouts
+    \[
+    \PrecData{\sigma}:\PrecSpace{\sigma}\to\DataSpace{\sigma},
+    \qquad
+    \PrecShellMap{\sigma}:\PrecSpace{\sigma}\to\AmbientTarget{\sigma},
+    \]
+    satisfying
+    \begin{equation}
+    \PrecData{\sigma}
+    =
+    \LiftData{\sigma}\circ\PrecProj{\sigma},
+    \qquad
+    \PrecShellMap{\sigma}
+    =
+    \LiftShellMap{\sigma}\circ\PrecProj{\sigma}.
+    \label{eq:precfactor}
+    \end{equation}
+    There is also a finite-dimensional Euclidean support target
+    \[
+    \ResTarget{\sigma},
+    \]
+    a positive-definite symmetric support pairing
+    \[
+    \ResPair{\sigma}:
+    \ResTarget{\sigma}\times\ResTarget{\sigma}\to\mathbb R,
+    \]
+    a finite-dimensional real hidden target
+    \[
+    \EqnTarget{\sigma},
+    \]
+    and a positive-definite symmetric hidden pairing
+    \[
+    \EqnPair{\sigma}:
+    \EqnTarget{\sigma}\times\EqnTarget{\sigma}\to\mathbb R.
+    \]
+    There is a compact symmetry group
+    \[
+    \PrecSym{\sigma}
+    \]
+    and an involution
+    \[
+    \PrecTime{\sigma},
+    \]
+    acting orthogonally on \(\PrecSpace{\sigma}\), \(\LiftSpace{\sigma}\), \(\SubSpace{\sigma}\), \(\DataSpace{\sigma}\), \(\AmbientTarget{\sigma}\), and \(\ResTarget{\sigma}\), and by \(\EqnPair{\sigma}\)-isometries on \(\EqnTarget{\sigma}\), preserving \(\PrecBody{\sigma}\), \(\LiftBody{\sigma}\), \(\PrecProj{\sigma}\), \(\LiftProj{\sigma}\), \(\PrecLiftMin{\sigma}\), \(\PrecSubMin{\sigma}\), \(\PrecSection{\sigma}\), \(\LiftData{\sigma}\), \(\LiftShellMap{\sigma}\), \(\PrecData{\sigma}\), and \(\PrecShellMap{\sigma}\).
+    \item The restriction of \(\PrecProj{\sigma}\) to \(\PrecShellSet{\sigma}\) is a diffeomorphism onto its image
+    \[
+    \LiftShellSet{\sigma}
+    \equiv
+    \PrecProj{\sigma}\bigl(\PrecShellSet{\sigma}\bigr)
+    \subset\LiftBody{\sigma}.
+    \]
+    There is a Euclidean precursor shell chart
+    \[
+    \PrecChart{\sigma}:\PrecShellSet{\sigma}\to\ResSpace{\sigma}
+    \]
+    whose shell-body image
+    \[
+    \ResBody{\sigma}
+    \equiv
+    \PrecChart{\sigma}\bigl(\PrecShellSet{\sigma}\bigr)
+    \]
+    is compact convex with nonempty interior. There exist affine maps
+    \[
+    \ResData{\sigma}:\ResSpace{\sigma}\to\DataSpace{\sigma},
+    \qquad
+    \ResShellMap{\sigma}:\ResSpace{\sigma}\to\AmbientTarget{\sigma},
+    \]
+    and a smooth support section
+    \[
+    \ResSection{\sigma}:\ResSpace{\sigma}\to\ResTarget{\sigma}
+    \]
+    such that
+    \begin{equation}
+    \ResData{\sigma}\circ\PrecChart{\sigma}
+    =
+    \PrecData{\sigma}\big|_{\PrecShellSet{\sigma}},
+    \qquad
+    \ResShellMap{\sigma}\circ\PrecChart{\sigma}
+    =
+    \PrecShellMap{\sigma}\big|_{\PrecShellSet{\sigma}}.
+    \label{eq:precchartreadouts}
+    \end{equation}
+    There is a smooth precursor shell-internal support recorder
+    \[
+    \PrecSupport{\sigma}:\PrecShellSet{\sigma}\to\ResTarget{\sigma}
+    \]
+    satisfying
+    \begin{equation}
+    \ResSection{\sigma}\circ\PrecChart{\sigma}
+    =
+    \PrecSupport{\sigma}.
+    \label{eq:precsupporttransport}
+    \end{equation}
+    Define the exact precursor support shell
+    \begin{equation}
+    \PrecSupportShell{\sigma}
+    \equiv
+    \bigl(\PrecSupport{\sigma}\bigr)^{-1}(0)\cap\PrecShellSet{\sigma},
+    \label{eq:precsupportshell}
+    \end{equation}
+    and assume
+    \begin{equation}
+    \ResShellSet{\sigma}
+    \equiv
+    \bigl(\ResSection{\sigma}\bigr)^{-1}(0)\cap\ResBody{\sigma}
+    =
+    \PrecChart{\sigma}\bigl(\PrecSupportShell{\sigma}\bigr).
+    \label{eq:prectransportedsupportshell}
+    \end{equation}
+    Assume there exists \(\nu_{\sigma}^{\mathrm{sup}}>0\) such that
+    \begin{equation}
+    \ResPair{\sigma}\bigl(\ResSection{\sigma}(u),\ResSection{\sigma}(u)\bigr)
+    \ge
+    \nu_{\sigma}^{\mathrm{sup}}\,
+    \operatorname{dist}\bigl(u,\ResShellSet{\sigma}\bigr)^{2}
+    \qquad
+    \text{for all }u\in\ResBody{\sigma}.
+    \label{eq:precnormal}
+    \end{equation}
+    Assume the restriction of \(\PrecProj{\sigma}\) to \(\PrecSupportShell{\sigma}\) is a diffeomorphism onto its image
+    \[
+    \LiftSupportShell{\sigma}
+    \equiv
+    \PrecProj{\sigma}\bigl(\PrecSupportShell{\sigma}\bigr).
+    \]
+    The transported symmetry and time-reversal actions act linearly on \(\ResSpace{\sigma}\), preserving \(\ResBody{\sigma}\), \(\ResShellSet{\sigma}\), \(\ResSection{\sigma}\), \(\ResData{\sigma}\), and \(\ResShellMap{\sigma}\).
+    \item A closed embedded precursor support zero core
+    \[
+    \PrecZeroCore{\sigma}\subset\PrecSupportShell{\sigma},
+    \]
+    a finite-dimensional Euclidean hidden-seed space
+    \[
+    \SeedHidden{\sigma},
+    \]
+    and a compact convex hidden-seed body
+    \[
+    \SeedHiddenBody{\sigma}\subset\SeedHidden{\sigma}
+    \]
+    with
+    \[
+    0\in\operatorname{int}\SeedHiddenBody{\sigma}.
+    \]
+    There is a Euclidean precursor support-shell chart
+    \[
+    \PrecEqChart{\sigma}:\PrecSupportShell{\sigma}\to\EqnSpace{\sigma},
+    \]
+    an affine chart on the precursor support zero core
+    \[
+    \PrecZeroChart{\sigma}:\PrecZeroCore{\sigma}\to\EqnZero{\sigma},
+    \]
+    and a linear isometric embedding
+    \[
+    \HiddenChart{\sigma}:\SeedHidden{\sigma}\to\EqnHidden{\sigma}
+    \]
+    such that
+    \[
+    \EqnSpace{\sigma}
+    =
+    \EqnZero{\sigma}\oplus\EqnHidden{\sigma}
+    \]
+    is an orthogonal direct sum, the set
+    \[
+    \ZeroBody{\sigma}
+    \equiv
+    \PrecZeroChart{\sigma}\bigl(\PrecZeroCore{\sigma}\bigr)
+    \]
+    is compact convex with nonempty interior in \(\EqnZero{\sigma}\), the shell image
+    \[
+    \EqnBody{\sigma}
+    \equiv
+    \PrecEqChart{\sigma}\bigl(\PrecSupportShell{\sigma}\bigr)
+    \]
+    has nonempty interior in \(\EqnSpace{\sigma}\), and there is a diffeomorphism
+    \begin{equation}
+    \PrecSplit{\sigma}:
+    \PrecZeroCore{\sigma}\times\SeedHiddenBody{\sigma}
+    \xrightarrow{\cong}
+    \PrecSupportShell{\sigma}
+    \label{eq:precsplit}
+    \end{equation}
+    satisfying
+    \begin{equation}
+    \PrecEqChart{\sigma}\bigl(\PrecSplit{\sigma}(z,\eta)\bigr)
+    =
+    \PrecZeroChart{\sigma}(z)+\HiddenChart{\sigma}(\eta).
+    \label{eq:precchartsplit}
+    \end{equation}
+    The precursor shell readouts become affine in the precursor support-shell chart: there exist affine maps
+    \[
+    \EqnData{\sigma}:\EqnSpace{\sigma}\to\DataSpace{\sigma},
+    \qquad
+    \EqnShell{\sigma}:\EqnSpace{\sigma}\to\AmbientTarget{\sigma},
+    \]
+    such that
+    \begin{equation}
+    \EqnData{\sigma}\circ\PrecEqChart{\sigma}
+    =
+    \PrecData{\sigma}\big|_{\PrecSupportShell{\sigma}},
+    \qquad
+    \EqnShell{\sigma}\circ\PrecEqChart{\sigma}
+    =
+    \PrecShellMap{\sigma}\big|_{\PrecSupportShell{\sigma}}.
+    \label{eq:preceqnchartreadouts}
+    \end{equation}
+    Assume the restriction of \(\PrecProj{\sigma}\) to \(\PrecZeroCore{\sigma}\) is a diffeomorphism onto its image
+    \[
+    \LiftZeroCore{\sigma}
+    \equiv
+    \PrecProj{\sigma}\bigl(\PrecZeroCore{\sigma}\bigr).
+    \]
+    The transported symmetry and time-reversal actions act linearly on \(\EqnSpace{\sigma}\), preserving \(\EqnZero{\sigma}\), \(\EqnHidden{\sigma}\), and \(\EqnBody{\sigma}\).
+    \item A linear hidden charge map
+    \[
+    \PrecCharge{\sigma}:\SeedHidden{\sigma}\to\EqnTarget{\sigma}
+    \]
+    such that there exists \(\lambda_{\sigma}^{\mathrm{eqn}}>0\) with
+    \begin{equation}
+    \EqnPair{\sigma}\bigl(\PrecCharge{\sigma}\eta,\PrecCharge{\sigma}\eta\bigr)
+    \ge
+    \lambda_{\sigma}^{\mathrm{eqn}}\,
+    \|\eta\|^{2}
+    \qquad
+    \text{for all }\eta\in\SeedHidden{\sigma}.
+    \label{eq:precchargegap}
+    \end{equation}
+    Define the precursor support-shell hidden recorder by
+    \begin{equation}
+    \PrecResidual{\sigma}\bigl(\PrecSplit{\sigma}(z,\eta)\bigr)
+    \equiv
+    \PrecCharge{\sigma}(\eta).
+    \label{eq:precresidual}
+    \end{equation}
+    \item A smooth embedding
+    \[
+    \jmath_{\sigma}:X_{\sigma}\hookrightarrow\VisibleAffine{\sigma}
+    \]
+    and a smooth observer-compatible exact precursor zero-response realization
+    \[
+    \PrecEmbed{\sigma}:\ForSpace{\sigma}\hookrightarrow\PrecZeroCore{\sigma}
+    \]
+    whose image is exactly
+    \[
+    \PrecZeroCore{\sigma}
+    \cap
+    \bigl(\PrecShellMap{\sigma}\bigr)^{-1}(0),
+    \]
+    and such that
+    \begin{equation}
+    \PrecData{\sigma}\bigl(\PrecEmbed{\sigma}(w)\bigr)
+    =
+    \bigl(
+    \jmath_{\sigma}(\Reduction{\sigma}(w)),
+    \CurrentCarrier{\sigma}(w),
+    \EqCarrier{\sigma}(w)
+    \bigr)
+    \label{eq:preccompat}
+    \end{equation}
+    for every \(w\in\ForSpace{\sigma}\).
+    \item Fixed-data solvability on the precursor support zero core:
+    \begin{equation}
+    \PrecData{\sigma}\bigl(\PrecZeroCore{\sigma}\bigr)
+    =
+    \PrecData{\sigma}\Bigl(
+    \PrecZeroCore{\sigma}\cap
+    \bigl(\PrecShellMap{\sigma}\bigr)^{-1}(0)
+    \Bigr).
+    \label{eq:precsolvability}
+    \end{equation}
+    \item The inert precursor support-zero-core kernel
+    \[
+    \PrecKernel{\sigma}
+    \equiv
+    \ker\bigl(D\PrecData{\sigma}\big|_{\PrecZeroCore{\sigma}}\bigr)
+    \cap
+    \ker\bigl(D\PrecShellMap{\sigma}\big|_{\PrecZeroCore{\sigma}}\bigr)
+    \]
+    and the orthogonal projector
+    \[
+    \PrecStateComp{\sigma}:
+    \EqnZero{\sigma}\to
+    \bigl(\PrecKernelCh{\sigma}\bigr)^{\perp}\cap\EqnZero{\sigma},
+    \qquad
+    \PrecKernelCh{\sigma}
+    \equiv
+    D\PrecZeroChart{\sigma}\bigl(\PrecKernel{\sigma}\bigr).
+    \]
+    There exists \(\kappa_{\sigma}^{\mathrm{eqn}}>0\) such that for every
+    \[
+    w\in\ForSpace{\sigma},
+    \qquad
+    \delta p\in T_{\PrecEmbed{\sigma}(w)}\PrecSupportShell{\sigma}
+    \]
+    satisfying
+    \[
+    D\PrecData{\sigma}\,\delta p=0,
+    \]
+    if
+    \[
+    D\PrecEqChart{\sigma}(\delta p)=\delta z+\delta\eta,
+    \qquad
+    \delta z\in\EqnZero{\sigma},
+    \quad
+    \delta\eta\in\EqnHidden{\sigma},
+    \]
+    then
+    \begin{equation}
+    \begin{aligned}
+    \|D\PrecShellMap{\sigma}\,\delta p\|^{2}
+    &+
+    \EqnPair{\sigma}\bigl(
+    \PrecCharge{\sigma}\bigl((\HiddenChart{\sigma})^{-1}\delta\eta\bigr),\\
+    &\qquad
+    \PrecCharge{\sigma}\bigl((\HiddenChart{\sigma})^{-1}\delta\eta\bigr)
+    \bigr)
+    \\
+    &\ge
+    \kappa_{\sigma}^{\mathrm{eqn}}
+    \left(
+    \|\PrecStateComp{\sigma}(\delta z)\|^{2}
+    +
+    \|\delta\eta\|^{2}
+    \right).
+    \end{aligned}
+    \label{eq:preccoercive}
+    \end{equation}
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:prec} is the precise package that now has to be explained one layer deeper. The benchmark claim boundary says that such an explanation may sharpen the origin-side derivational line, but it may not change the one operative metric, enlarge the low-energy matter law, or blur the distinction between exact relativistic adoption and first-principles derivation.
+\end{remark}
+
+\section{Precursor-Generating Substrate Origin Dynamics}
+
+\begin{definition}[Precursor-generating substrate origin dynamics]
+\label{def:orig}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). A \emph{precursor-generating substrate origin dynamics package} for sector \(\sigma\) consists of the following data.
+\begin{enumerate}
+    \item A finite-dimensional Euclidean origin state space
+    \[
+    \OrigSpace{\sigma},
+    \]
+    a compact convex origin body
+    \[
+    \OrigBody{\sigma}\subset\OrigSpace{\sigma}
+    \]
+    with nonempty interior, an affine surjection
+    \[
+    \OrigProj{\sigma}:\OrigSpace{\sigma}\to\PrecSpace{\sigma},
+    \]
+    and the projected precursor body
+    \[
+    \PrecBody{\sigma}
+    \equiv
+    \OrigProj{\sigma}\bigl(\OrigBody{\sigma}\bigr)
+    \subset\PrecSpace{\sigma},
+    \]
+    assumed compact convex with nonempty interior. There is an affine surjection
+    \[
+    \PrecProj{\sigma}:\PrecSpace{\sigma}\to\LiftSpace{\sigma},
+    \]
+    and the projected lift body
+    \[
+    \LiftBody{\sigma}
+    \equiv
+    \PrecProj{\sigma}\bigl(\PrecBody{\sigma}\bigr)
+    \subset\LiftSpace{\sigma},
+    \]
+    also assumed compact convex with nonempty interior. There is an affine surjection
+    \[
+    \LiftProj{\sigma}:\LiftSpace{\sigma}\to\SubSpace{\sigma},
+    \]
+    and the projected substrate body
+    \[
+    \SubBody{\sigma}
+    \equiv
+    \LiftProj{\sigma}\bigl(\LiftBody{\sigma}\bigr)
+    \subset\SubSpace{\sigma},
+    \]
+    again assumed compact convex with nonempty interior.
+
+    There is a smooth origin precursor-fiber minimizer
+    \[
+    \OrigPrecMin{\sigma}:\PrecBody{\sigma}\to\OrigBody{\sigma}
+    \]
+    satisfying
+    \[
+    \OrigProj{\sigma}\circ\OrigPrecMin{\sigma}
+    =
+    \mathrm{id}_{\PrecBody{\sigma}},
+    \]
+    a smooth origin lift-fiber minimizer
+    \[
+    \OrigLiftMin{\sigma}:\LiftBody{\sigma}\to\OrigBody{\sigma}
+    \]
+    satisfying
+    \[
+    \PrecProj{\sigma}\circ\OrigProj{\sigma}\circ\OrigLiftMin{\sigma}
+    =
+    \mathrm{id}_{\LiftBody{\sigma}},
+    \]
+    and a smooth origin substrate-fiber minimizer
+    \[
+    \OrigSubMin{\sigma}:\SubBody{\sigma}\to\OrigBody{\sigma}
+    \]
+    satisfying
+    \[
+    \LiftProj{\sigma}\circ\PrecProj{\sigma}\circ\OrigProj{\sigma}\circ\OrigSubMin{\sigma}
+    =
+    \mathrm{id}_{\SubBody{\sigma}}.
+    \]
+    Define
+    \begin{equation}
+    \PrecLiftMin{\sigma}
+    \equiv
+    \OrigProj{\sigma}\circ\OrigLiftMin{\sigma},
+    \qquad
+    \PrecSubMin{\sigma}
+    \equiv
+    \OrigProj{\sigma}\circ\OrigSubMin{\sigma},
+    \qquad
+    \LiftSelect{\sigma}
+    \equiv
+    \PrecProj{\sigma}\circ\PrecSubMin{\sigma}.
+    \label{eq:originducedmin}
+    \end{equation}
+    Assume
+    \begin{equation}
+    \OrigPrecMin{\sigma}\bigl(\PrecLiftMin{\sigma}(\ell)\bigr)
+    =
+    \OrigLiftMin{\sigma}(\ell)
+    \qquad
+    \text{for every }\ell\in\LiftBody{\sigma},
+    \label{eq:origcompatpreclift}
+    \end{equation}
+    and
+    \begin{equation}
+    \OrigLiftMin{\sigma}\bigl(\LiftSelect{\sigma}(m)\bigr)
+    =
+    \OrigSubMin{\sigma}(m)
+    \qquad
+    \text{for every }m\in\SubBody{\sigma}.
+    \label{eq:origcompatliftsub}
+    \end{equation}
+    \item The same finite-dimensional Euclidean substrate restriction target
+    \[
+    \SubTarget{\sigma},
+    \]
+    the same positive-definite symmetric substrate pairing
+    \[
+    \SubPair{\sigma}:
+    \SubTarget{\sigma}\times\SubTarget{\sigma}\to\mathbb R,
+    \]
+    and a smooth origin restriction section
+    \[
+    \OrigSection{\sigma}:\OrigSpace{\sigma}\to\SubTarget{\sigma}.
+    \]
+    Define the origin restriction functional
+    \begin{equation}
+    \OrigFunctional{\sigma}(o)
+    \equiv
+    \SubPair{\sigma}\bigl(\OrigSection{\sigma}(o),\OrigSection{\sigma}(o)\bigr),
+    \label{eq:origfunctional}
+    \end{equation}
+    together with the exact origin shell
+    \begin{equation}
+    \OrigShellSet{\sigma}
+    \equiv
+    \bigl(\OrigSection{\sigma}\bigr)^{-1}(0)\cap\OrigBody{\sigma}.
+    \label{eq:origshell}
+    \end{equation}
+    Define the induced precursor restriction section
+    \begin{equation}
+    \PrecSection{\sigma}
+    \equiv
+    \OrigSection{\sigma}\circ\OrigPrecMin{\sigma},
+    \label{eq:originducedprecsection}
+    \end{equation}
+    and the induced precursor restriction functional
+    \begin{equation}
+    \PrecFunctional{\sigma}(p)
+    \equiv
+    \SubPair{\sigma}\bigl(\PrecSection{\sigma}(p),\PrecSection{\sigma}(p)\bigr)
+    =
+    \OrigFunctional{\sigma}\bigl(\OrigPrecMin{\sigma}(p)\bigr).
+    \label{eq:originducedprecfunctional}
+    \end{equation}
+    Define the induced lifted restriction section
+    \begin{equation}
+    \LiftSection{\sigma}
+    \equiv
+    \PrecSection{\sigma}\circ\PrecLiftMin{\sigma}
+    =
+    \OrigSection{\sigma}\circ\OrigLiftMin{\sigma},
+    \label{eq:originducedliftsection}
+    \end{equation}
+    and the induced lifted restriction functional
+    \begin{equation}
+    \LiftFunctional{\sigma}(\ell)
+    \equiv
+    \SubPair{\sigma}\bigl(\LiftSection{\sigma}(\ell),\LiftSection{\sigma}(\ell)\bigr)
+    =
+    \PrecFunctional{\sigma}\bigl(\PrecLiftMin{\sigma}(\ell)\bigr)
+    =
+    \OrigFunctional{\sigma}\bigl(\OrigLiftMin{\sigma}(\ell)\bigr).
+    \label{eq:originducedliftfunctional}
+    \end{equation}
+    Assume that, for each \(p\in\PrecBody{\sigma}\), \(\OrigPrecMin{\sigma}(p)\) is the unique minimizer of \(\OrigFunctional{\sigma}\) on the fiber
+    \[
+    \bigl(\OrigProj{\sigma}\bigr)^{-1}(p)\cap\OrigBody{\sigma},
+    \]
+    that, for each \(\ell\in\LiftBody{\sigma}\), \(\OrigLiftMin{\sigma}(\ell)\) is the unique minimizer of \(\OrigFunctional{\sigma}\) on the composite fiber
+    \[
+    \bigl(\PrecProj{\sigma}\circ\OrigProj{\sigma}\bigr)^{-1}(\ell)\cap\OrigBody{\sigma},
+    \]
+    and that, for each \(m\in\SubBody{\sigma}\), \(\OrigSubMin{\sigma}(m)\) is the unique minimizer of \(\OrigFunctional{\sigma}\) on the deeper composite fiber
+    \[
+    \bigl(\LiftProj{\sigma}\circ\PrecProj{\sigma}\circ\OrigProj{\sigma}\bigr)^{-1}(m)\cap\OrigBody{\sigma}.
+    \]
+    Assume that \(\PrecLiftMin{\sigma}(\ell)\) is therefore the unique minimizer of \(\PrecFunctional{\sigma}\) on the fiber
+    \[
+    \bigl(\PrecProj{\sigma}\bigr)^{-1}(\ell)\cap\PrecBody{\sigma},
+    \]
+    that \(\PrecSubMin{\sigma}(m)\) is therefore the unique minimizer of \(\PrecFunctional{\sigma}\) on the composite fiber
+    \[
+    \bigl(\LiftProj{\sigma}\circ\PrecProj{\sigma}\bigr)^{-1}(m)\cap\PrecBody{\sigma},
+    \]
+    and that \(\LiftSelect{\sigma}(m)\) is therefore the unique minimizer of \(\LiftFunctional{\sigma}\) on
+    \[
+    \bigl(\LiftProj{\sigma}\bigr)^{-1}(m)\cap\LiftBody{\sigma}.
+    \]
+    Assume there exists \(\mu_{\sigma}^{\mathrm{fib}}>0\) such that
+    \begin{equation}
+    \LiftFunctional{\sigma}(\ell)
+    \ge
+    \LiftFunctional{\sigma}\bigl(\LiftSelect{\sigma}(m)\bigr)
+    +
+    \mu_{\sigma}^{\mathrm{fib}}\,
+    \operatorname{dist}\bigl(\ell,\LiftSelect{\sigma}(m)\bigr)^{2}
+    \label{eq:origprecfibergap}
+    \end{equation}
+    for every \(m\in\SubBody{\sigma}\) and every \(\ell\in\bigl(\LiftProj{\sigma}\bigr)^{-1}(m)\cap\LiftBody{\sigma}\). Assume there exists \(\mu_{\sigma}^{\mathrm{sub}}>0\) such that
+    \begin{equation}
+    \LiftFunctional{\sigma}\bigl(\LiftSelect{\sigma}(m)\bigr)
+    \ge
+    \mu_{\sigma}^{\mathrm{sub}}\,
+    \operatorname{dist}\bigl(m,\LiftProj{\sigma}(\PrecProj{\sigma}(\OrigProj{\sigma}(\OrigShellSet{\sigma})))\bigr)^{2}
+    \qquad
+    \text{for all }m\in\SubBody{\sigma}.
+    \label{eq:origprecprojectedgap}
+    \end{equation}
+    \item Affine precursor observer-data and shell-response readouts
+    \[
+    \PrecData{\sigma}:\PrecSpace{\sigma}\to\DataSpace{\sigma},
+    \qquad
+    \PrecShellMap{\sigma}:\PrecSpace{\sigma}\to\AmbientTarget{\sigma},
+    \]
+    and affine origin observer-data and shell-response readouts
+    \[
+    \OrigData{\sigma}:\OrigSpace{\sigma}\to\DataSpace{\sigma},
+    \qquad
+    \OrigShellMap{\sigma}:\OrigSpace{\sigma}\to\AmbientTarget{\sigma},
+    \]
+    satisfying
+    \begin{equation}
+    \OrigData{\sigma}
+    =
+    \PrecData{\sigma}\circ\OrigProj{\sigma},
+    \qquad
+    \OrigShellMap{\sigma}
+    =
+    \PrecShellMap{\sigma}\circ\OrigProj{\sigma}.
+    \label{eq:origfactor}
+    \end{equation}
+    There is also a finite-dimensional Euclidean support target
+    \[
+    \ResTarget{\sigma},
+    \]
+    a positive-definite symmetric support pairing
+    \[
+    \ResPair{\sigma}:
+    \ResTarget{\sigma}\times\ResTarget{\sigma}\to\mathbb R,
+    \]
+    a finite-dimensional real hidden target
+    \[
+    \EqnTarget{\sigma},
+    \]
+    and a positive-definite symmetric hidden pairing
+    \[
+    \EqnPair{\sigma}:
+    \EqnTarget{\sigma}\times\EqnTarget{\sigma}\to\mathbb R.
+    \]
+    There is a compact symmetry group
+    \[
+    \OrigSym{\sigma}
+    \]
+    and an involution
+    \[
+    \OrigTime{\sigma},
+    \]
+    acting orthogonally on \(\OrigSpace{\sigma}\), \(\PrecSpace{\sigma}\), \(\LiftSpace{\sigma}\), \(\SubSpace{\sigma}\), \(\DataSpace{\sigma}\), \(\AmbientTarget{\sigma}\), and \(\ResTarget{\sigma}\), and by \(\EqnPair{\sigma}\)-isometries on \(\EqnTarget{\sigma}\), preserving \(\OrigBody{\sigma}\), \(\PrecBody{\sigma}\), \(\LiftBody{\sigma}\), \(\OrigProj{\sigma}\), \(\PrecProj{\sigma}\), \(\LiftProj{\sigma}\), \(\OrigPrecMin{\sigma}\), \(\OrigLiftMin{\sigma}\), \(\OrigSubMin{\sigma}\), \(\OrigSection{\sigma}\), \(\PrecData{\sigma}\), \(\PrecShellMap{\sigma}\), \(\OrigData{\sigma}\), and \(\OrigShellMap{\sigma}\).
+    \item The restriction of \(\OrigProj{\sigma}\) to \(\OrigShellSet{\sigma}\) is a diffeomorphism onto its image
+    \[
+    \PrecShellSet{\sigma}
+    \equiv
+    \OrigProj{\sigma}\bigl(\OrigShellSet{\sigma}\bigr)
+    \subset\PrecBody{\sigma}.
+    \]
+    There is a Euclidean origin shell chart
+    \[
+    \OrigChart{\sigma}:\OrigShellSet{\sigma}\to\ResSpace{\sigma}
+    \]
+    whose shell-body image
+    \[
+    \ResBody{\sigma}
+    \equiv
+    \OrigChart{\sigma}\bigl(\OrigShellSet{\sigma}\bigr)
+    \]
+    is compact convex with nonempty interior. There exist affine maps
+    \[
+    \ResData{\sigma}:\ResSpace{\sigma}\to\DataSpace{\sigma},
+    \qquad
+    \ResShellMap{\sigma}:\ResSpace{\sigma}\to\AmbientTarget{\sigma},
+    \]
+    and a smooth support section
+    \[
+    \ResSection{\sigma}:\ResSpace{\sigma}\to\ResTarget{\sigma}
+    \]
+    such that
+    \begin{equation}
+    \ResData{\sigma}\circ\OrigChart{\sigma}
+    =
+    \OrigData{\sigma}\big|_{\OrigShellSet{\sigma}},
+    \qquad
+    \ResShellMap{\sigma}\circ\OrigChart{\sigma}
+    =
+    \OrigShellMap{\sigma}\big|_{\OrigShellSet{\sigma}}.
+    \label{eq:origchartreadouts}
+    \end{equation}
+    There is a smooth origin shell-internal support recorder
+    \[
+    \OrigSupport{\sigma}:\OrigShellSet{\sigma}\to\ResTarget{\sigma}
+    \]
+    satisfying
+    \begin{equation}
+    \ResSection{\sigma}\circ\OrigChart{\sigma}
+    =
+    \OrigSupport{\sigma}.
+    \label{eq:origsupporttransport}
+    \end{equation}
+    Define the exact origin support shell
+    \begin{equation}
+    \OrigSupportShell{\sigma}
+    \equiv
+    \bigl(\OrigSupport{\sigma}\bigr)^{-1}(0)\cap\OrigShellSet{\sigma},
+    \label{eq:origsupportshell}
+    \end{equation}
+    and assume
+    \begin{equation}
+    \ResShellSet{\sigma}
+    \equiv
+    \bigl(\ResSection{\sigma}\bigr)^{-1}(0)\cap\ResBody{\sigma}
+    =
+    \OrigChart{\sigma}\bigl(\OrigSupportShell{\sigma}\bigr).
+    \label{eq:origtransportedsupportshell}
+    \end{equation}
+    Assume there exists \(\nu_{\sigma}^{\mathrm{sup}}>0\) such that
+    \begin{equation}
+    \ResPair{\sigma}\bigl(\ResSection{\sigma}(u),\ResSection{\sigma}(u)\bigr)
+    \ge
+    \nu_{\sigma}^{\mathrm{sup}}\,
+    \operatorname{dist}\bigl(u,\ResShellSet{\sigma}\bigr)^{2}
+    \qquad
+    \text{for all }u\in\ResBody{\sigma}.
+    \label{eq:orignormal}
+    \end{equation}
+    Assume the restriction of \(\OrigProj{\sigma}\) to \(\OrigSupportShell{\sigma}\) is a diffeomorphism onto its image
+    \[
+    \PrecSupportShell{\sigma}
+    \equiv
+    \OrigProj{\sigma}\bigl(\OrigSupportShell{\sigma}\bigr).
+    \]
+    The transported symmetry and time-reversal actions act linearly on \(\ResSpace{\sigma}\), preserving \(\ResBody{\sigma}\), \(\ResShellSet{\sigma}\), \(\ResSection{\sigma}\), \(\ResData{\sigma}\), and \(\ResShellMap{\sigma}\).
+    \item A closed embedded origin support zero core
+    \[
+    \OrigZeroCore{\sigma}\subset\OrigSupportShell{\sigma},
+    \]
+    a finite-dimensional Euclidean hidden-seed space
+    \[
+    \SeedHidden{\sigma},
+    \]
+    and a compact convex hidden-seed body
+    \[
+    \SeedHiddenBody{\sigma}\subset\SeedHidden{\sigma}
+    \]
+    with
+    \[
+    0\in\operatorname{int}\SeedHiddenBody{\sigma}.
+    \]
+    There is a Euclidean origin support-shell chart
+    \[
+    \OrigEqChart{\sigma}:\OrigSupportShell{\sigma}\to\EqnSpace{\sigma},
+    \]
+    an affine chart on the origin support zero core
+    \[
+    \OrigZeroChart{\sigma}:\OrigZeroCore{\sigma}\to\EqnZero{\sigma},
+    \]
+    and a linear isometric embedding
+    \[
+    \HiddenChart{\sigma}:\SeedHidden{\sigma}\to\EqnHidden{\sigma}
+    \]
+    such that
+    \[
+    \EqnSpace{\sigma}
+    =
+    \EqnZero{\sigma}\oplus\EqnHidden{\sigma}
+    \]
+    is an orthogonal direct sum, the set
+    \[
+    \ZeroBody{\sigma}
+    \equiv
+    \OrigZeroChart{\sigma}\bigl(\OrigZeroCore{\sigma}\bigr)
+    \]
+    is compact convex with nonempty interior in \(\EqnZero{\sigma}\), the shell image
+    \[
+    \EqnBody{\sigma}
+    \equiv
+    \OrigEqChart{\sigma}\bigl(\OrigSupportShell{\sigma}\bigr)
+    \]
+    has nonempty interior in \(\EqnSpace{\sigma}\), and there is a diffeomorphism
+    \begin{equation}
+    \OrigSplit{\sigma}:
+    \OrigZeroCore{\sigma}\times\SeedHiddenBody{\sigma}
+    \xrightarrow{\cong}
+    \OrigSupportShell{\sigma}
+    \label{eq:origsplit}
+    \end{equation}
+    satisfying
+    \begin{equation}
+    \OrigEqChart{\sigma}\bigl(\OrigSplit{\sigma}(z,\eta)\bigr)
+    =
+    \OrigZeroChart{\sigma}(z)+\HiddenChart{\sigma}(\eta).
+    \label{eq:origchartsplit}
+    \end{equation}
+    The origin shell readouts become affine in the origin support-shell chart: there exist affine maps
+    \[
+    \EqnData{\sigma}:\EqnSpace{\sigma}\to\DataSpace{\sigma},
+    \qquad
+    \EqnShell{\sigma}:\EqnSpace{\sigma}\to\AmbientTarget{\sigma},
+    \]
+    such that
+    \begin{equation}
+    \EqnData{\sigma}\circ\OrigEqChart{\sigma}
+    =
+    \OrigData{\sigma}\big|_{\OrigSupportShell{\sigma}},
+    \qquad
+    \EqnShell{\sigma}\circ\OrigEqChart{\sigma}
+    =
+    \OrigShellMap{\sigma}\big|_{\OrigSupportShell{\sigma}}.
+    \label{eq:origeqnchartreadouts}
+    \end{equation}
+    Assume the restriction of \(\OrigProj{\sigma}\) to \(\OrigZeroCore{\sigma}\) is a diffeomorphism onto its image
+    \[
+    \PrecZeroCore{\sigma}
+    \equiv
+    \OrigProj{\sigma}\bigl(\OrigZeroCore{\sigma}\bigr).
+    \]
+    The transported symmetry and time-reversal actions act linearly on \(\EqnSpace{\sigma}\), preserving \(\EqnZero{\sigma}\), \(\EqnHidden{\sigma}\), and \(\EqnBody{\sigma}\).
+    \item A linear hidden charge map
+    \[
+    \OrigCharge{\sigma}:\SeedHidden{\sigma}\to\EqnTarget{\sigma}
+    \]
+    such that there exists \(\lambda_{\sigma}^{\mathrm{eqn}}>0\) with
+    \begin{equation}
+    \EqnPair{\sigma}\bigl(\OrigCharge{\sigma}\eta,\OrigCharge{\sigma}\eta\bigr)
+    \ge
+    \lambda_{\sigma}^{\mathrm{eqn}}\,
+    \|\eta\|^{2}
+    \qquad
+    \text{for all }\eta\in\SeedHidden{\sigma}.
+    \label{eq:origchargegap}
+    \end{equation}
+    Define the origin support-shell hidden recorder by
+    \begin{equation}
+    \OrigResidual{\sigma}\bigl(\OrigSplit{\sigma}(z,\eta)\bigr)
+    \equiv
+    \OrigCharge{\sigma}(\eta).
+    \label{eq:origresidual}
+    \end{equation}
+    \item A smooth embedding
+    \[
+    \jmath_{\sigma}:X_{\sigma}\hookrightarrow\VisibleAffine{\sigma}
+    \]
+    and a smooth observer-compatible exact origin zero-response realization
+    \[
+    \OrigEmbed{\sigma}:\ForSpace{\sigma}\hookrightarrow\OrigZeroCore{\sigma}
+    \]
+    whose image is exactly
+    \[
+    \OrigZeroCore{\sigma}
+    \cap
+    \bigl(\OrigShellMap{\sigma}\bigr)^{-1}(0),
+    \]
+    and such that
+    \begin{equation}
+    \OrigData{\sigma}\bigl(\OrigEmbed{\sigma}(w)\bigr)
+    =
+    \bigl(
+    \jmath_{\sigma}(\Reduction{\sigma}(w)),
+    \CurrentCarrier{\sigma}(w),
+    \EqCarrier{\sigma}(w)
+    \bigr)
+    \label{eq:origcompat}
+    \end{equation}
+    for every \(w\in\ForSpace{\sigma}\).
+    \item Fixed-data solvability on the origin support zero core:
+    \begin{equation}
+    \OrigData{\sigma}\bigl(\OrigZeroCore{\sigma}\bigr)
+    =
+    \OrigData{\sigma}\Bigl(
+    \OrigZeroCore{\sigma}\cap
+    \bigl(\OrigShellMap{\sigma}\bigr)^{-1}(0)
+    \Bigr).
+    \label{eq:origsolvability}
+    \end{equation}
+    \item The inert origin support-zero-core kernel
+    \[
+    \OrigKernel{\sigma}
+    \equiv
+    \ker\bigl(D\OrigData{\sigma}\big|_{\OrigZeroCore{\sigma}}\bigr)
+    \cap
+    \ker\bigl(D\OrigShellMap{\sigma}\big|_{\OrigZeroCore{\sigma}}\bigr)
+    \]
+    and the orthogonal projector
+    \[
+    \OrigStateComp{\sigma}:
+    \EqnZero{\sigma}\to
+    \bigl(\OrigKernelCh{\sigma}\bigr)^{\perp}\cap\EqnZero{\sigma},
+    \qquad
+    \OrigKernelCh{\sigma}
+    \equiv
+    D\OrigZeroChart{\sigma}\bigl(\OrigKernel{\sigma}\bigr).
+    \]
+    There exists \(\kappa_{\sigma}^{\mathrm{eqn}}>0\) such that for every
+    \[
+    w\in\ForSpace{\sigma},
+    \qquad
+    \delta o\in T_{\OrigEmbed{\sigma}(w)}\OrigSupportShell{\sigma}
+    \]
+    satisfying
+    \[
+    D\OrigData{\sigma}\,\delta o=0,
+    \]
+    if
+    \[
+    D\OrigEqChart{\sigma}(\delta o)=\delta z+\delta\eta,
+    \qquad
+    \delta z\in\EqnZero{\sigma},
+    \quad
+    \delta\eta\in\EqnHidden{\sigma},
+    \]
+    then
+    \begin{equation}
+    \begin{aligned}
+    \|D\OrigShellMap{\sigma}\,\delta o\|^{2}
+    &+
+    \EqnPair{\sigma}\bigl(
+    \OrigCharge{\sigma}\bigl((\HiddenChart{\sigma})^{-1}\delta\eta\bigr),\\
+    &\qquad
+    \OrigCharge{\sigma}\bigl((\HiddenChart{\sigma})^{-1}\delta\eta\bigr)
+    \bigr)
+    \\
+    &\ge
+    \kappa_{\sigma}^{\mathrm{eqn}}
+    \left(
+    \|\OrigStateComp{\sigma}(\delta z)\|^{2}
+    +
+    \|\delta\eta\|^{2}
+    \right).
+    \end{aligned}
+    \label{eq:origcoercive}
+    \end{equation}
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:orig} is deliberately deeper than the recorded precursor package but narrower than a claim of completed substrate microphysics. The precursor layer is not discarded. Instead it is shown to arise as the projected exact-shell image of a still more primitive origin layer whose exact shell, support shell, zero-core / hidden-seed split, compatibility realization, solvability statement, and coercive control all first live at the origin level.
+\end{remark}
+
+\section{Canonical Lift-Generating Precursor Package}
+
+\begin{proposition}[The lift-generating substrate precursor package is produced canonically]
+\label{prop:prec}
+Assume Definition \ref{def:orig}. Define, for each sector \(\sigma\in\{\Car,\Cur,\Hom\}\),
+\begin{equation}
+\PrecSection{\sigma}
+\equiv
+\OrigSection{\sigma}\circ\OrigPrecMin{\sigma},
+\label{eq:propinducedprecsection}
+\end{equation}
+the precursor shell chart
+\begin{equation}
+\PrecChart{\sigma}
+\equiv
+\OrigChart{\sigma}\circ
+\bigl(\OrigProj{\sigma}\big|_{\OrigShellSet{\sigma}}\bigr)^{-1},
+\label{eq:propinducedprecchart}
+\end{equation}
+the precursor shell-internal support recorder
+\begin{equation}
+\PrecSupport{\sigma}
+\equiv
+\OrigSupport{\sigma}\circ
+\bigl(\OrigProj{\sigma}\big|_{\OrigShellSet{\sigma}}\bigr)^{-1},
+\label{eq:propinducedprecsupport}
+\end{equation}
+the projected support shell and projected support zero core
+\begin{equation}
+\PrecSupportShell{\sigma}
+\equiv
+\OrigProj{\sigma}\bigl(\OrigSupportShell{\sigma}\bigr),
+\qquad
+\PrecZeroCore{\sigma}
+\equiv
+\OrigProj{\sigma}\bigl(\OrigZeroCore{\sigma}\bigr),
+\label{eq:propinducedprecshells}
+\end{equation}
+the support-shell and zero-core charts
+\begin{equation}
+\PrecEqChart{\sigma}
+\equiv
+\OrigEqChart{\sigma}\circ
+\bigl(\OrigProj{\sigma}\big|_{\OrigSupportShell{\sigma}}\bigr)^{-1},
+\qquad
+\PrecZeroChart{\sigma}
+\equiv
+\OrigZeroChart{\sigma}\circ
+\bigl(\OrigProj{\sigma}\big|_{\OrigZeroCore{\sigma}}\bigr)^{-1},
+\label{eq:propinducedpreccharts}
+\end{equation}
+the projected split map
+\begin{equation}
+\PrecSplit{\sigma}(z,\eta)
+\equiv
+\OrigProj{\sigma}\Bigl(
+\OrigSplit{\sigma}\bigl(
+(\OrigProj{\sigma}\big|_{\OrigZeroCore{\sigma}})^{-1}(z),
+\eta
+\bigr)
+\Bigr),
+\label{eq:propinducedprecsplit}
+\end{equation}
+the hidden charge and hidden recorder
+\begin{equation}
+\PrecCharge{\sigma}
+\equiv
+\OrigCharge{\sigma},
+\qquad
+\PrecResidual{\sigma}\bigl(\PrecSplit{\sigma}(z,\eta)\bigr)
+\equiv
+\OrigCharge{\sigma}(\eta),
+\label{eq:propinducedprecresidual}
+\end{equation}
+and the exact zero-response realization
+\begin{equation}
+\PrecEmbed{\sigma}
+\equiv
+\OrigProj{\sigma}\circ\OrigEmbed{\sigma}.
+\label{eq:propinducedprecembed}
+\end{equation}
+Then the resulting data satisfy exactly the lift-generating substrate precursor dynamics package of Definition \ref{def:prec}.
+\end{proposition}
+
+\begin{proof}
+We verify the items of Definition \ref{def:prec} in order.
+
+For item (1), the precursor state space \(\PrecSpace{\sigma}\), the compact convex precursor body \(\PrecBody{\sigma}\), the affine surjection \(\PrecProj{\sigma}\), the projected lift body \(\LiftBody{\sigma}\), the affine surjection \(\LiftProj{\sigma}\), and the projected substrate body \(\SubBody{\sigma}\) are already part of Definition \ref{def:orig}(1). Equation \eqref{eq:originducedmin} gives the smooth maps \(\PrecLiftMin{\sigma}\), \(\PrecSubMin{\sigma}\), and \(\LiftSelect{\sigma}\). Moreover,
+\[
+\PrecProj{\sigma}\circ\PrecLiftMin{\sigma}
+=
+\PrecProj{\sigma}\circ\OrigProj{\sigma}\circ\OrigLiftMin{\sigma}
+=
+\mathrm{id}_{\LiftBody{\sigma}},
+\]
+and similarly
+\[
+\LiftProj{\sigma}\circ\PrecProj{\sigma}\circ\PrecSubMin{\sigma}
+=
+\LiftProj{\sigma}\circ\PrecProj{\sigma}\circ\OrigProj{\sigma}\circ\OrigSubMin{\sigma}
+=
+\mathrm{id}_{\SubBody{\sigma}}.
+\]
+Using \eqref{eq:origcompatliftsub}, we obtain
+\[
+\PrecLiftMin{\sigma}\bigl(\LiftSelect{\sigma}(m)\bigr)
+=
+\OrigProj{\sigma}\Bigl(
+\OrigLiftMin{\sigma}\bigl(\LiftSelect{\sigma}(m)\bigr)
+\Bigr)
+=
+\OrigProj{\sigma}\bigl(\OrigSubMin{\sigma}(m)\bigr)
+=
+\PrecSubMin{\sigma}(m),
+\]
+which is exactly \eqref{eq:compatmin}.
+
+For item (2), equation \eqref{eq:propinducedprecsection} gives the precursor restriction section, and \eqref{eq:originducedprecfunctional} gives its associated precursor restriction functional. If \(p\in\OrigProj{\sigma}(\OrigShellSet{\sigma})\), choose \(o\in\OrigShellSet{\sigma}\) with \(\OrigProj{\sigma}(o)=p\). Then \(\OrigFunctional{\sigma}(o)=0\), so by the origin precursor-fiber minimality of Definition \ref{def:orig}(2),
+\[
+\PrecFunctional{\sigma}(p)
+=
+\OrigFunctional{\sigma}\bigl(\OrigPrecMin{\sigma}(p)\bigr)
+=
+0.
+\]
+Conversely, if \(\PrecFunctional{\sigma}(p)=0\), then
+\[
+\OrigFunctional{\sigma}\bigl(\OrigPrecMin{\sigma}(p)\bigr)=0,
+\]
+so \(\OrigPrecMin{\sigma}(p)\in\OrigShellSet{\sigma}\) and therefore \(p\in\OrigProj{\sigma}(\OrigShellSet{\sigma})\). Hence
+\[
+\PrecShellSet{\sigma}
+=
+\bigl(\PrecSection{\sigma}\bigr)^{-1}(0)\cap\PrecBody{\sigma}
+=
+\OrigProj{\sigma}\bigl(\OrigShellSet{\sigma}\bigr).
+\]
+The precursor lift-fiber minimizing property of \(\PrecLiftMin{\sigma}\), the precursor substrate-fiber minimizing property of \(\PrecSubMin{\sigma}\), the lift-fiber minimizing property of \(\LiftSelect{\sigma}\), and the estimate \eqref{eq:precfibergap} are exactly the assumptions \eqref{eq:origprecfibergap} of Definition \ref{def:orig}(2). The projected lower-shell control \eqref{eq:precprojectedgap} is exactly \eqref{eq:origprecprojectedgap}.
+
+For item (3), the affine readouts \(\PrecData{\sigma}\) and \(\PrecShellMap{\sigma}\), the lifted readouts \(\LiftData{\sigma}\) and \(\LiftShellMap{\sigma}\), the support target, support pairing, hidden target, hidden pairing, and the symmetry/time-reversal actions on \(\PrecSpace{\sigma}\) and \(\LiftSpace{\sigma}\) are already part of Definition \ref{def:orig}(3). Those same actions give the induced \(\PrecSym{\sigma}\) and \(\PrecTime{\sigma}\). Because Definition \ref{def:orig}(3) says they preserve \(\OrigProj{\sigma}\), \(\PrecProj{\sigma}\), \(\LiftProj{\sigma}\), \(\OrigPrecMin{\sigma}\), \(\OrigLiftMin{\sigma}\), \(\OrigSubMin{\sigma}\), \(\OrigSection{\sigma}\), \(\PrecData{\sigma}\), and \(\PrecShellMap{\sigma}\), they preserve \(\PrecBody{\sigma}\), \(\LiftBody{\sigma}\), \(\PrecLiftMin{\sigma}\), \(\PrecSubMin{\sigma}\), \(\LiftSelect{\sigma}\), \(\PrecSection{\sigma}\), and the full precursor readout package required in Definition \ref{def:prec}(3).
+
+For item (4), the restriction \(\OrigProj{\sigma}\big|_{\OrigShellSet{\sigma}}\) is a diffeomorphism onto \(\PrecShellSet{\sigma}\) by Definition \ref{def:orig}(4), so \eqref{eq:propinducedprecchart} defines the precursor shell chart. Its image is exactly
+\[
+\ResBody{\sigma}
+=
+\OrigChart{\sigma}\bigl(\OrigShellSet{\sigma}\bigr).
+\]
+Using \eqref{eq:origfactor} and \eqref{eq:origchartreadouts},
+\[
+\ResData{\sigma}\circ\PrecChart{\sigma}
+=
+\OrigData{\sigma}\circ
+\bigl(\OrigProj{\sigma}\big|_{\OrigShellSet{\sigma}}\bigr)^{-1}
+=
+\PrecData{\sigma}\big|_{\PrecShellSet{\sigma}},
+\]
+and similarly
+\[
+\ResShellMap{\sigma}\circ\PrecChart{\sigma}
+=
+\PrecShellMap{\sigma}\big|_{\PrecShellSet{\sigma}}.
+\]
+Equation \eqref{eq:propinducedprecsupport} defines the precursor shell-internal support recorder, and \eqref{eq:origsupporttransport} becomes exactly \eqref{eq:precsupporttransport}. Because the restriction of \(\OrigProj{\sigma}\) to \(\OrigSupportShell{\sigma}\) is a diffeomorphism onto \(\PrecSupportShell{\sigma}\), one has
+\[
+\ResShellSet{\sigma}
+=
+\OrigChart{\sigma}\bigl(\OrigSupportShell{\sigma}\bigr)
+=
+\PrecChart{\sigma}\bigl(\PrecSupportShell{\sigma}\bigr),
+\]
+which is \eqref{eq:prectransportedsupportshell}. The normal shell stability \eqref{eq:precnormal} is exactly \eqref{eq:orignormal}. The transported symmetry and time-reversal actions on \(\ResSpace{\sigma}\) are the same ones already supplied in Definition \ref{def:orig}(4).
+
+For item (5), the projected support zero core is \(\PrecZeroCore{\sigma}\), and the restrictions of \(\OrigProj{\sigma}\big|_{\OrigSupportShell{\sigma}}\) and \(\OrigProj{\sigma}\big|_{\OrigZeroCore{\sigma}}\) are diffeomorphisms onto \(\PrecSupportShell{\sigma}\) and \(\PrecZeroCore{\sigma}\), respectively. Therefore \eqref{eq:propinducedpreccharts} defines the required charts. The orthogonal splitting
+\[
+\EqnSpace{\sigma}=\EqnZero{\sigma}\oplus\EqnHidden{\sigma},
+\]
+the compact convex bodies \(\ZeroBody{\sigma}\) and \(\EqnBody{\sigma}\), and the isometric hidden chart \(\HiddenChart{\sigma}\) are already part of Definition \ref{def:orig}(5). The projected split map \eqref{eq:propinducedprecsplit} is a diffeomorphism because \(\OrigSplit{\sigma}\) is one and \(\OrigProj{\sigma}\big|_{\OrigSupportShell{\sigma}}\) is one. Moreover, if
+\[
+o_{z}
+\equiv
+\bigl(\OrigProj{\sigma}\big|_{\OrigZeroCore{\sigma}}\bigr)^{-1}(z)
+\in
+\OrigZeroCore{\sigma},
+\]
+then
+\[
+\PrecEqChart{\sigma}\bigl(\PrecSplit{\sigma}(z,\eta)\bigr)
+=
+\OrigEqChart{\sigma}\bigl(\OrigSplit{\sigma}(o_{z},\eta)\bigr)
+=
+\OrigZeroChart{\sigma}(o_{z})+\HiddenChart{\sigma}(\eta)
+=
+\PrecZeroChart{\sigma}(z)+\HiddenChart{\sigma}(\eta),
+\]
+which is exactly \eqref{eq:precchartsplit}. The equation-space readouts \(\EqnData{\sigma}\) and \(\EqnShell{\sigma}\) are precisely the affine maps already supplied in Definition \ref{def:orig}(5). Using \eqref{eq:origfactor}, equation \eqref{eq:origeqnchartreadouts} becomes \eqref{eq:preceqnchartreadouts}.
+
+For item (6), \eqref{eq:propinducedprecresidual} defines the hidden charge and hidden recorder, and the positive hidden gap \eqref{eq:precchargegap} is exactly \eqref{eq:origchargegap}.
+
+For item (7), \eqref{eq:propinducedprecembed} defines the exact precursor zero-response realization. Since \(\OrigEmbed{\sigma}\) lands in \(\OrigZeroCore{\sigma}\cap(\OrigShellMap{\sigma})^{-1}(0)\), its projected image lands in \(\PrecZeroCore{\sigma}\cap(\PrecShellMap{\sigma})^{-1}(0)\) by \eqref{eq:origfactor}. Because \(\OrigProj{\sigma}\big|_{\OrigZeroCore{\sigma}}\) is a diffeomorphism onto \(\PrecZeroCore{\sigma}\), the image is exactly that zero-response locus. Equation \eqref{eq:preccompat} follows immediately from \eqref{eq:origcompat}, \eqref{eq:origfactor}, and \eqref{eq:propinducedprecembed}.
+
+For item (8), fixed-data solvability \eqref{eq:precsolvability} is the projection of \eqref{eq:origsolvability} through the zero-core diffeomorphism \(\OrigProj{\sigma}\big|_{\OrigZeroCore{\sigma}}\) together with the factorization \eqref{eq:origfactor}.
+
+For item (9), define
+\[
+\PrecKernel{\sigma}
+\equiv
+\ker\bigl(D\PrecData{\sigma}\big|_{\PrecZeroCore{\sigma}}\bigr)
+\cap
+\ker\bigl(D\PrecShellMap{\sigma}\big|_{\PrecZeroCore{\sigma}}\bigr),
+\qquad
+\PrecKernelCh{\sigma}
+\equiv
+D\PrecZeroChart{\sigma}\bigl(\PrecKernel{\sigma}\bigr),
+\]
+and let \(\PrecStateComp{\sigma}\) be the orthogonal projector onto \((\PrecKernelCh{\sigma})^{\perp}\cap\EqnZero{\sigma}\). Take \(w\in\ForSpace{\sigma}\) and \(\delta p\in T_{\PrecEmbed{\sigma}(w)}\PrecSupportShell{\sigma}\) satisfying \(D\PrecData{\sigma}\,\delta p=0\). Set
+\[
+\delta o
+\equiv
+D\bigl(\OrigProj{\sigma}\big|_{\OrigSupportShell{\sigma}}\bigr)^{-1}(\delta p)
+\in
+T_{\OrigEmbed{\sigma}(w)}\OrigSupportShell{\sigma}.
+\]
+Then \(D\OrigData{\sigma}\,\delta o=0\) by \eqref{eq:origfactor}. Writing
+\[
+D\PrecEqChart{\sigma}(\delta p)=\delta z+\delta\eta,
+\qquad
+\delta z\in\EqnZero{\sigma},
+\quad
+\delta\eta\in\EqnHidden{\sigma},
+\]
+equation \eqref{eq:origcoercive} becomes exactly \eqref{eq:preccoercive}. This completes the verification of Definition \ref{def:prec}.
+\end{proof}
+
+\begin{remark}
+Proposition \ref{prop:prec} gives more than another same-output relay. Every constituent of the lift-generating substrate precursor package is now an explicit projected or transported image of deeper origin data. The precursor layer has therefore lost its status as a free insertion on the active line.
+\end{remark}
+
+\section{Necessity and Uniqueness at Precursor Scope}
+
+\begin{proposition}[No extra benchmark-facing freedom remains at precursor scope]
+\label{prop:unique}
+Assume the precursor-generating substrate origin dynamics package of Definition \ref{def:orig}. Then for each sector \(\sigma\):
+\begin{enumerate}
+    \item the precursor state space and precursor body, the lift projection and fiber-minimizing precursor selections, the precursor restriction section and exact precursor shell, the affine precursor observer-data and shell-response readouts, the precursor shell chart and shell-internal support recorder, the precursor support shell and precursor support zero core, the charted zero-core / hidden-seed split, the hidden charge and hidden recorder, the symmetry and time-reversal structure, the exact precursor zero-response realization, the fixed-data solvability statement, the inert kernel/projector, and the precursor coercive package are all canonically induced by the origin input;
+    \item any other lift-generating precursor presentation compatible with that same origin input differs from the canonical one only by the obvious origin-faithful identification preserving the same precursor fibers, the same charted support shell and support zero core, the same zero-hidden splitting and hidden quadratic form, and the same benchmark shell data.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Item (1) is Proposition \ref{prop:prec}. For item (2), the origin input already fixes the precursor body as \(\OrigProj{\sigma}(\OrigBody{\sigma})\), the lift projection \(\PrecProj{\sigma}\), the fiber-minimizing precursor selections through \eqref{eq:originducedmin}, the precursor restriction section through \eqref{eq:propinducedprecsection}, the exact precursor shell as \(\PrecShellSet{\sigma}=\OrigProj{\sigma}(\OrigShellSet{\sigma})\), the precursor shell chart and support recorder through \eqref{eq:propinducedprecchart} and \eqref{eq:propinducedprecsupport}, the precursor support shell and support zero core through \eqref{eq:propinducedprecshells}, the support-shell and zero-core charts through \eqref{eq:propinducedpreccharts}, the charted split through \eqref{eq:propinducedprecsplit}, the hidden quadratic form through \(\PrecCharge{\sigma}=\OrigCharge{\sigma}\) and \(\EqnPair{\sigma}\), the exact zero-response realization through \eqref{eq:propinducedprecembed}, and the solvability and coercive statements through the transported origin identities. Any compatible precursor presentation must therefore preserve precisely those same transported objects. That leaves only the obvious origin-faithful identification respecting the already fixed precursor fibers, the same charted support shell and support zero core, the same zero-hidden splitting and hidden quadratic form, and the same benchmark shell data.
+\end{proof}
+
+\begin{corollary}[The precursor package is forced by origin dynamics]
+\label{cor:forced}
+Within the class of precursor-generating substrate origin dynamics packages, the lift-generating substrate precursor dynamics are necessary and unique at benchmark-facing scope.
+\end{corollary}
+
+\begin{proof}
+This is the combined content of Proposition \ref{prop:prec} and Proposition \ref{prop:unique}.
+\end{proof}
+
+\section{Benchmark Preservation}
+
+\begin{theorem}[The one-metric benchmark package is unchanged]
+\label{thm:outputs}
+Assume Definition \ref{def:fixed} and, for each sector \(\sigma\in\{\Car,\Cur,\Hom\}\), precursor-generating substrate origin dynamics in the sense of Definition \ref{def:orig}. Then the benchmark output statements of \eqref{eq:fixedoutputs} remain unchanged:
+\[
+\MetricOut(\mathbf w)=\CompletedMetric,
+\qquad
+\MatterOut(\mathbf w,\psi)
+=
+T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
+\]
+for every \(\mathbf w\in\PrimShell\) and every matter configuration \(\psi\in\Psi\). Consequently the deeper origin theorem introduces neither a second operative metric nor an enlarged low-energy matter law.
+\end{theorem}
+
+\begin{proof}
+The present note changes only the deeper origin-side status of the lift-generating substrate precursor package. It does not alter the fixed primitive shell \(\PrimShell\), the recorded metric map \(\MetricOut\), or the recorded matter map \(\MatterOut\). Those remain the continuation data of Definition \ref{def:fixed}, so \eqref{eq:fixedoutputs} continues to hold exactly.
+\end{proof}
+
+\section{Main Theorem}
+
+\begin{theorem}[The remaining burden moves below precursor scope]
+\label{thm:main}
+Assume the fixed primitive continuation data of Definition \ref{def:fixed} and, for each sector \(\sigma\in\{\Car,\Cur,\Hom\}\), precursor-generating substrate origin dynamics in the sense of Definition \ref{def:orig}. Then:
+\begin{enumerate}
+    \item the lift-generating substrate precursor dynamics are canonically induced by that origin package;
+    \item the precursor package is necessary and unique there up to the obvious origin-faithful identification preserving the same precursor fibers, the same charted support shell and support zero core, the same zero-hidden splitting and hidden quadratic form, and the same benchmark shell data;
+    \item the one operative metric remains exactly \(\CompletedMetric\), the ordinary matter route remains exactly the standard one through that metric, there is no second operative metric, and the low-energy matter law is not enlarged;
+    \item consequently the benchmark-facing burden after the lift-forcing theorem sharpens once more: the precursor package is no longer left as an independently inserted stopping point, and the honest burden now lies below precursor scope at the origin layer itself.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Item (1) is Proposition \ref{prop:prec}. Item (2) is Corollary \ref{cor:forced}. Item (3) is Theorem \ref{thm:outputs}. Item (4) is the routing consequence of the previous items.
+\end{proof}
+
+\begin{corollary}[What remains open after this theorem]
+\label{cor:next}
+After Theorem \ref{thm:main}, the remaining honest burden is no longer to justify the lift-generating substrate precursor dynamics themselves on the active primitive-reservoir observer-reduction line. The next honest burden is sharper again: first try to derive or uniquely force the precursor-generating substrate origin dynamics from still more primitive explicit substrate structure in a way that actually changes benchmark-facing status, or else prove a genuinely smaller theorem-level collapse, sharper necessity result, or sharper uniqueness result strictly inside the lift-generating substrate precursor package while preserving the same benchmark one-metric package and claim boundary.
+\end{corollary}
+
+\begin{proof}
+Theorem \ref{thm:main} converts the precursor package from the remaining benchmark-facing stopping point into a canonical output of the origin class. What remains open is therefore the origin layer itself, not the precursor package it now forces.
+\end{proof}
+
+\section{Conclusion}
+
+The positive result of this note is deliberately narrower than a completed final microphysical derivation and stronger than another precursor-level relay. The lift-forcing theorem had already shown that the shell-generating substrate lift package carries no extra benchmark-facing freedom once the precursor layer is fixed. The present note now makes the next admissible upstream forcing move below that frontier: it shows that the lift-generating substrate precursor dynamics themselves are a canonical and unique output of precursor-generating substrate origin dynamics.
+
+That gain is exactly what the routing layer required. The precursor package is no longer left as an independently inserted stopping point. Its precursor body and lift projection, fiber-minimizing precursor selections, precursor restriction section, exact precursor shell, precursor shell/support charts, precursor support zero core, zero-hidden split, hidden quadratic form, exact zero-response realization, solvability statement, inert-kernel projector, and coercive control are all already fixed once the origin input is fixed. At current scope, any compatible precursor presentation differs only by the obvious origin-faithful identification preserving those same benchmark-facing data.
+
+The benchmark boundary remains unchanged. The same primitive shell remains the shell carrying the observer outputs, so the one operative metric is still exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, and the low-energy matter law is not enlarged. Nothing here upgrades adoption to derivation or licenses stronger first-principles promotion language.
+
+The open burden therefore moves below precursor scope. The next benchmark-facing move should not spend itself on another shell-restriction relay, another split-core relay, another selector-law restatement, another combined-response restatement, another ambient-package restatement, another trace-core restatement, another completion-core restatement, another exact-shell affine nucleus restatement, another lift relay, or another same precursor relay. The honest next step is to go one level lower and address the origin layer itself, or a genuinely smaller theorem strictly inside the precursor package.
+
+\end{document}
