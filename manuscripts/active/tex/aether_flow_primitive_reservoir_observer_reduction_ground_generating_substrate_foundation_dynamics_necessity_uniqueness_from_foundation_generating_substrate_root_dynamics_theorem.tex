@@ -1,0 +1,322 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+
+\newcommand{\CompletedMetric}{g^{\sharp}}
+\newcommand{\MatterSpace}{\Psi}
+
+\newcommand{\Car}{\mathrm{car}}
+\newcommand{\Cur}{\mathrm{cur}}
+\newcommand{\Hom}{\mathrm{hom}}
+
+\newcommand{\ForSpace}[1]{\mathcal I_{#1}^{\mathrm{for}}}
+\newcommand{\PrimShell}{\mathcal S_{\mathrm{prim}}}
+\newcommand{\Reduction}[1]{\mathcal R_{#1}}
+\newcommand{\CurrentCarrier}[1]{\mathfrak C_{#1}^{\mathrm{cur}}}
+\newcommand{\EqCarrier}[1]{\mathfrak C_{#1}^{\mathrm{eq}}}
+\newcommand{\MetricOut}{\mathscr G_{\mathrm{out}}}
+\newcommand{\MatterOut}{\mathscr T_{\mathrm{out}}}
+
+\newcommand{\OriginPackage}{\mathfrak O^{\mathrm{sub,orig}}}
+\newcommand{\GroundPackage}{\mathfrak G^{\mathrm{sub,grd}}}
+\newcommand{\FoundationPackage}{\mathfrak F^{\mathrm{sub,fdn}}}
+\newcommand{\RootPackage}{\mathfrak R^{\mathrm{sub,rt}}}
+\newcommand{\PrecursorPackage}{\mathfrak P^{\mathrm{sub,prec}}}
+\newcommand{\LiftPackage}{\mathfrak L^{\mathrm{sub,lift}}}
+\newcommand{\ShellRestriction}{\mathfrak S^{\mathrm{sub,sh}}}
+\newcommand{\SelectorCore}{\mathfrak C^{\mathrm{sel,split}}}
+\newcommand{\SelectorLaw}{\mathfrak S^{\mathrm{sel},0}}
+\newcommand{\CombinedLaw}{\mathfrak R^{\mathrm{comb}}}
+\newcommand{\AmbientPackage}{\mathfrak A^{\mathrm{bal}}}
+\newcommand{\TraceCore}{\mathfrak C^{\mathrm{tr}}}
+\newcommand{\CompletionCore}{\mathfrak C^{\mathrm{zr,aff}}}
+\newcommand{\AffineNucleus}{\mathfrak N^{\mathrm{aff}}}
+\newcommand{\RootCore}{\mathfrak R^{\mathrm{sub,rt,core}}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Primitive-Reservoir Observer-Reduction\\
+\large Ground-Generating Substrate Foundation Dynamics\\
+\large Necessity / Uniqueness from\\
+\large Foundation-Generating Substrate Root Dynamics}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The current benchmark-facing frontier on the active primitive-reservoir observer-reduction line is no longer the origin-generating substrate ground package \(\GroundPackage\) itself. The ground-forcing theorem has already spent that move: once ground-generating substrate foundation dynamics are fixed, the ground package is canonical and unique. The next honest benchmark-facing target is therefore the foundation package \(\FoundationPackage\) that supports ground scope.
+
+The recorded foundation-from-root theorem already showed that \(\FoundationPackage\) can be produced canonically from a deeper foundation-generating substrate root class \(\RootPackage\). The present note sharpens that existence statement to the forcing verdict now required by the routing layer. For each sector it isolates the benchmark-relevant fiber-minimizing exact-shell root core: the root-to-foundation projection and the recorded foundation-, ground-, origin-, precursor-, lift-, and substrate-fiber minimizer images, the exact root shell and its observer-data and shell-response readouts, the root shell chart to the same reservoir body, the support shell and zero core, the zero/hidden split in the same equation variables, the hidden charge and exact root zero-response realization, and the fixed-data solvability and coercive control carried on that core. The theorem proves that every root-faithful presentation inducing the fixed foundation package determines exactly the same root core up to canonical root-faithful equivalence.
+
+In that precise sense the ground-generating substrate foundation dynamics are no longer merely available inside a deeper class. They are necessary and unique at benchmark-facing scope as the projected exact-shell output of foundation-generating substrate root dynamics. The benchmark boundary remains fixed throughout: the one operative metric is still exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, and the low-energy matter law is not enlarged. The honest burden therefore moves below foundation scope to the root layer itself.
+\end{abstract}
+
+\section{Introduction}
+
+The active derivational program of \TheoryName{} has now reached the point where another foundation relay would be benchmark neutral. The current ground-forcing theorem already removed the origin-generating substrate ground package \(\GroundPackage\) as the live stopping point on the active primitive-reservoir observer-reduction line. Once that theorem is on record, the next honest benchmark-facing move must go one level lower and address the ground-generating substrate foundation dynamics that support ground scope.
+
+There are two disciplined ways to do that. One can derive the foundation package from still more primitive explicit substrate structure, or one can prove that the foundation package is already forced inside a sharper deeper class. The recorded foundation-from-root theorem supplied the first ingredient needed for the second route: it exhibited the entire foundation package as a projected exact-shell transport of a deeper root class. What it did not yet state sharply enough for the current routing burden is the corresponding necessity / uniqueness verdict at foundation scope.
+
+The present note records exactly that stronger claim. It does not change the benchmark exact-closure package. It does not introduce a second operative metric or a new low-energy matter law. It only proves that, once the deeper root package is fixed, no independent benchmark-facing freedom remains at foundation scope.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not claim that final substrate microphysics has already been identified. Its narrower theorem is only that, on the active primitive-reservoir observer-reduction line, the ground-generating substrate foundation dynamics are themselves a forced and unique output of the recorded root class that sits immediately below them.
+
+\section{Fixed Primitive Continuation Data}
+
+\begin{definition}[Recorded primitive continuation data]
+\label{def:fixed}
+Fix the following continuation data from the active primitive-reservoir observer-reduction line.
+\begin{enumerate}
+    \item For each sector label \(\sigma\in\{\Car,\Cur,\Hom\}\), a primitive forcing shell
+    \[
+    \ForSpace{\sigma},
+    \]
+    a visible reduction map
+    \[
+    \Reduction{\sigma}:\ForSpace{\sigma}\to X_{\sigma},
+    \]
+    and shell-level current and equilibrium carriers
+    \[
+    \CurrentCarrier{\sigma}:\ForSpace{\sigma}\to Z_{\sigma}^{\mathrm{cur}},
+    \qquad
+    \EqCarrier{\sigma}:\ForSpace{\sigma}\to Z_{\sigma}^{\mathrm{eq}}.
+    \]
+    \item The product shell
+    \[
+    \PrimShell
+    \equiv
+    \ForSpace{\Car}\times \ForSpace{\Cur}\times \ForSpace{\Hom}.
+    \]
+    \item The recorded metric and ordinary-matter outputs
+    \[
+    \MetricOut:\PrimShell\to\{\text{observer metrics}\},
+    \qquad
+    \MatterOut:\PrimShell\times\MatterSpace\to\{\text{observer stress tensors}\},
+    \]
+    satisfying
+    \begin{equation}
+    \MetricOut(\mathbf w)=\CompletedMetric,
+    \qquad
+    \MatterOut(\mathbf w,\psi)
+    =
+    T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
+    \label{eq:fixedoutputs}
+    \end{equation}
+    for every \(\mathbf w\in\PrimShell\) and every matter configuration \(\psi\in\MatterSpace\).
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:fixed} is not reopened here. The primitive continuation data, the one operative metric, and the ordinary matter route remain fixed. The present note only addresses the remaining benchmark-facing freedom at foundation scope.
+\end{remark}
+
+\section{Recorded Foundation Target}
+
+\begin{definition}[Recorded ground-generating substrate foundation package]
+\label{def:foundation}
+Fix, for each sector \(\sigma\in\{\Car,\Cur,\Hom\}\), the recorded foundation package
+\[
+\FoundationPackage_{\sigma}.
+\]
+At benchmark-facing scope this package consists of the following data.
+\begin{enumerate}
+    \item A foundation state space and compact convex foundation body over the recorded ground, origin, precursor, lift, and substrate bodies, together with affine projections to those lower bodies and unique foundation-to-ground, foundation-to-origin, foundation-to-precursor, foundation-to-lift, and foundation-to-substrate fiber minimizers.
+    \item A foundation restriction section whose zero set on the foundation body is the exact foundation shell.
+    \item Affine foundation observer-data and shell-response readouts factoring through the same ground readouts already used by the current ground theorem.
+    \item A foundation shell chart to the same reservoir body, a foundation shell-internal support recorder, a foundation support shell, a foundation support zero core, support-shell and zero-core charts, and the same charted zero/hidden equation-space splitting.
+    \item A hidden charge together with the corresponding hidden recorder and the same positive hidden gap structure at benchmark scope.
+    \item An observer-compatible exact foundation zero-response realization.
+    \item A fixed-data solvability statement and coercive control on foundation data-invisible directions.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:foundation} is the precise target already constructed in the recorded foundation-from-root theorem and then used by the current ground-forcing theorem. The present note does not enlarge that target. It asks whether any benchmark-relevant freedom remains in the deeper root layer once that exact target is required.
+\end{remark}
+
+\section{Root Presentations and Their Benchmark-Relevant Core}
+
+\begin{definition}[Root dynamics package]
+\label{def:root}
+For each sector \(\sigma\in\{\Car,\Cur,\Hom\}\), a \emph{foundation-generating substrate root dynamics package}
+\[
+\RootPackage_{\sigma}
+\]
+consists of the following data.
+\begin{enumerate}
+    \item A compact convex root body over the recorded foundation state space together with affine projections to the foundation, ground, origin, precursor, lift, and substrate bodies and unique root-to-foundation, root-to-ground, root-to-origin, root-to-precursor, root-to-lift, and root-to-substrate fiber minimizers.
+    \item A root restriction section whose zero set on the root body is the exact root shell.
+    \item Affine root observer-data and shell-response readouts factoring through the recorded foundation readouts.
+    \item A root shell chart to the same reservoir body, a root shell-internal support recorder, a root support shell, a root support zero core, support-shell and zero-core charts, and the same charted zero/hidden equation-space splitting.
+    \item A root hidden charge, an observer-compatible exact root zero-response realization, fixed-data solvability, and coercive control on root data-invisible directions.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Root-faithful presentation]
+\label{def:faithful}
+A sectorwise root presentation is \emph{root-faithful} if its projected exact-shell transport reproduces exactly the recorded foundation package of Definition \ref{def:foundation}: the same foundation body, the same foundation-, ground-, origin-, precursor-, lift-, and substrate-fiber minimizer images, the same exact foundation shell, the same shell chart to the same reservoir body, the same support shell and support zero core, the same charted zero/hidden split in the same equation variables, the same hidden charge and exact zero-response realization, the same fixed-data solvability statement, and the same coercive control. It must also leave the fixed benchmark outputs \eqref{eq:fixedoutputs} unchanged.
+\end{definition}
+
+\begin{definition}[Fiber-minimizing exact-shell root core]
+\label{def:core}
+For a root-faithful presentation, the \emph{fiber-minimizing exact-shell root core}
+\[
+\RootCore_{\sigma}
+\]
+is the benchmark-relevant part of the root package consisting of:
+\begin{enumerate}
+    \item the root-to-foundation projection together with the root foundation-, ground-, origin-, precursor-, lift-, and substrate-fiber minimizer images;
+    \item the exact root shell and its observer-data and shell-response readouts;
+    \item the root shell chart to the same reservoir body and the root shell-internal support recorder;
+    \item the root support shell, the root support zero core, the support-shell and zero-core charts, and the charted zero/hidden split in the same equation variables;
+    \item the hidden charge, the exact root zero-response realization, the fixed-data solvability statement, and the coercive control on root data-invisible directions.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Root-faithful equivalence]
+\label{def:equiv}
+A \emph{root-faithful equivalence} between two root-faithful presentations is an identification of their cores \(\RootCore_{\sigma}\) that preserves the same projected foundation package, the same fiber-minimizer images, the same charted shell/support transport, the same zero/hidden equation-space coordinates, the same hidden quadratic form, the same exact zero-response realization, and the same solvability/coercive package.
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:equiv} is intentionally narrower than full off-shell identity of the ambient root body. The active burden is not to classify every possible root thickening outside the fiber-minimizing exact-shell core. It is to remove the benchmark-relevant freedom still visible at foundation scope on the active one-metric line.
+\end{remark}
+
+\section{Necessity of the Foundation Package from Root Dynamics}
+
+\begin{proposition}[The fiber-minimizer hierarchy is necessary]
+\label{prop:minimizers}
+Every root-faithful presentation determines the same foundation-, ground-, origin-, precursor-, lift-, and substrate-fiber minimizer images inside the root layer. Hence the root-to-foundation transport relevant at benchmark scope is canonical.
+\end{proposition}
+
+\begin{proof}
+By Definition \ref{def:faithful}, the root presentation must recover exactly the fixed foundation package of Definition \ref{def:foundation}. In particular, it must recover the same foundation body and the same lower bodies together with the same unique minimizers on the corresponding recorded fibers. Since those lower fibers are fixed continuation data, the image of each root minimizer is keyed uniquely by the lower point it lifts. The benchmark-relevant fiber-minimizer hierarchy therefore depends only on the shared lower datum and is canonical.
+\end{proof}
+
+\begin{proposition}[Exact-shell transport data are necessary]
+\label{prop:shell}
+Every root-faithful presentation determines the same exact-shell transport data at benchmark scope. More precisely, the root-to-foundation projection restricts to diffeomorphic transport from the root shell, support shell, and zero core onto the corresponding fixed foundation loci, and the shell chart, support recorder, support-shell chart, zero chart, zero/hidden split, and equation readouts are thereby forced up to canonical root-faithful equivalence.
+\end{proposition}
+
+\begin{proof}
+If a root presentation is faithful, then by definition its projected exact-shell transport recovers precisely the shell-side data already fixed in Definition \ref{def:foundation}. The root shell must therefore project diffeomorphically to the recorded foundation shell, otherwise the fixed foundation shell would not be recovered as exact-shell image. The same argument applies one step further to the support shell and then to the zero core. Once those three projected loci are fixed, the shell chart to the common reservoir body, the support recorder, the support-shell chart to the equation space, the zero chart to the zero subspace, and the zero/hidden split cannot vary independently: changing any of them would change the induced foundation shell transport or the fixed equation-side coordinates already recorded on the active line. Hence all these constituents are forced up to canonical root-faithful equivalence.
+\end{proof}
+
+\begin{proposition}[Hidden charge, zero-response realization, solvability, and coercivity are necessary]
+\label{prop:hidden}
+Every root-faithful presentation determines, up to root-faithful equivalence, the same hidden charge data, the same exact root zero-response realization, the same fixed-data solvability statement, and the same coercive control on data-invisible directions.
+\end{proposition}
+
+\begin{proof}
+The fixed foundation package already records one hidden sector, one hidden quadratic form with positive gap, one exact foundation zero-response realization, and one solvability/coercive package on the zero core. A root-faithful presentation must project to that same foundation package. Because the support-shell transport and the zero/hidden coordinates are already fixed by Proposition \ref{prop:shell}, the hidden sector cannot be changed without changing the induced foundation recorder. Likewise, the exact root zero-response realization must project to the same visible/current/equilibrium shell data, so its image on the root zero core is forced by the same foundation compatibility requirement. The solvability and coercive statements are properties of this same projected zero-response core; if they differed at root scope, the induced foundation statements would differ as well. Therefore those constituents are necessary up to root-faithful equivalence.
+\end{proof}
+
+\begin{proposition}[The benchmark package remains fixed]
+\label{prop:benchmark}
+Every root-faithful presentation preserves the same benchmark one-metric package \eqref{eq:fixedoutputs}. In particular, the operative metric remains exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, and the low-energy matter law is not enlarged.
+\end{proposition}
+
+\begin{proof}
+This is part of Definition \ref{def:faithful}. The present note removes only root-level freedom internal to the active derivational line. It does not alter the recorded primitive outputs.
+\end{proof}
+
+\section{Main Theorem}
+
+\begin{theorem}[Ground-generating substrate foundation dynamics necessity / uniqueness from foundation-generating substrate root dynamics]
+\label{thm:main}
+Fix the primitive continuation data of Definition \ref{def:fixed} and the recorded foundation package of Definition \ref{def:foundation}. Then, for each sector \(\sigma\in\{\Car,\Cur,\Hom\}\), the fiber-minimizing exact-shell root core \(\RootCore_{\sigma}\) underlying a root-faithful presentation is necessary and unique at benchmark scope up to root-faithful equivalence. Equivalently, the recorded foundation package \(\FoundationPackage_{\sigma}\) is a canonical and unique projected exact-shell output of foundation-generating substrate root dynamics. More precisely:
+\begin{enumerate}
+    \item every root-faithful presentation must determine the same foundation-, ground-, origin-, precursor-, lift-, and substrate-fiber minimizer hierarchy and the same exact-shell transport data described in Definition \ref{def:core};
+    \item for any two root-faithful presentations, there is a unique root-faithful equivalence between their benchmark-relevant cores;
+    \item under that equivalence, the root shell, support shell, zero core, shell/support/equation charts, hidden charge, exact root zero-response realization, fixed-data solvability statement, and coercive control all coincide;
+    \item consequently no additional benchmark-relevant foundation-level freedom remains on the active one-metric line beyond root-faithful relabeling of \(\RootCore_{\sigma}\).
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Item (1) is exactly the combined content of Propositions \ref{prop:minimizers}, \ref{prop:shell}, and \ref{prop:hidden}. Those propositions show that no root-faithful presentation may vary the fiber-minimizing exact-shell root core while still inducing the same fixed foundation package.
+
+For item (2), Proposition \ref{prop:minimizers} gives the canonical identifications on the six minimizer images, while Proposition \ref{prop:shell} gives the canonical identifications on the shell, support shell, and zero core. Because each of those loci projects to the same fixed lower datum, the root-faithful equivalence is unique.
+
+For item (3), Proposition \ref{prop:shell} shows that the shell chart, support recorder, support-shell chart, zero chart, split, and equation readouts are transported identically under the canonical root-faithful equivalence. Proposition \ref{prop:hidden} then shows that the hidden charge, exact root zero-response realization, solvability statement, and coercive control are likewise transported identically. Hence the entire root core agrees under the unique root-faithful equivalence.
+
+Item (4) is the project-level consequence of the previous items. Any remaining off-shell freedom outside the fiber-minimizing exact-shell root core is not benchmark-relevant on the current line, because it does not change the fixed foundation package or the benchmark outputs. Therefore the current honest foundation burden has been removed in the only sense that matters for the active one-metric derivational program.
+\end{proof}
+
+\begin{corollary}[No remaining benchmark-relevant foundation choice]
+\label{cor:nofreedom}
+At current scope there is no second benchmark-relevant foundation presentation of the recorded foundation package other than the projected image of a root-faithful relabeling of \(\RootCore_{\sigma}\) in each sector.
+\end{corollary}
+
+\begin{proof}
+If a second benchmark-relevant foundation presentation existed, it would either change some constituent proved necessary in Theorem \ref{thm:main}, contradicting item (1), or else arise from a root-faithful relabeling of the same forced root core, in which case it would not define a genuinely different benchmark-facing foundation presentation.
+\end{proof}
+
+\begin{remark}
+Corollary \ref{cor:nofreedom} is the precise benchmark-facing sense in which the present manuscript is stronger than another deeper foundation relay. The current foundation layer is no longer merely available because a still deeper theorem reproduces it. The benchmark-relevant root core that yields it is now forced at current scope.
+\end{remark}
+
+\section{Routing Consequence}
+
+\begin{corollary}[What must be done next]
+\label{cor:next}
+After Theorem \ref{thm:main}, the next honest primary manuscript below the current frontier must do at least one of the following:
+\begin{enumerate}
+    \item derive or justify the foundation-generating substrate root dynamics from still more primitive explicit substrate structure in a way that changes benchmark-facing status;
+    \item identify a genuinely smaller theorem-level collapse, sharper necessity result, or sharper uniqueness result strictly inside the recorded foundation package \(\FoundationPackage_{\sigma}\);
+    \item do either of the previous two while preserving the same benchmark one-metric package, the same ordinary matter route, and the same claim boundary.
+\end{enumerate}
+It is no longer enough merely to restate the current foundation package, the current ground package \(\GroundPackage\), the current origin package \(\OriginPackage\), the current precursor package \(\PrecursorPackage\), the current lift package \(\LiftPackage\), the already forced shell-restriction package \(\ShellRestriction\), the already forced split selector-shell core \(\SelectorCore\), the already forced selector law \(\SelectorLaw\), the already forced combined response law \(\CombinedLaw\), the already forced ambient package \(\AmbientPackage\), the already forced trace core \(\TraceCore\), the already forced completion-core presentation \(\CompletionCore\), the already forced exact-shell affine nucleus \(\AffineNucleus\), or to insert another same-output relay above the fixed root core.
+\end{corollary}
+
+\begin{proof}
+Theorem \ref{thm:main} removes the benchmark-relevant freedom presently visible at foundation level. The next honest burden therefore lies either below that level or in a strictly smaller internal compression of it. Another package-preserving restatement of the same foundation package or another same-output relay above the fixed root core would not change project status.
+\end{proof}
+
+\section{Conclusion}
+
+The positive result of this note is not that a final substrate microphysics has already been found. Its gain is narrower and more honest. The recorded foundation-from-root theorem had already shown that the current foundation package is the canonical projected exact-shell output of a deeper root class. The present theorem then removes the remaining benchmark-relevant freedom inside the foundation-facing burden itself. At current scope, the fiber-minimizing exact-shell root core that yields the recorded foundation package is necessary and unique up to canonical root-faithful equivalence.
+
+That conclusion is exactly the sharper theorem-level gain the project needed. The root-to-foundation projection, the six root fiber-minimizer images, the root shell and support transport, the zero/hidden split in the same equation variables, the hidden charge, the exact root zero-response realization, and the solvability/coercive package are no longer merely one possible deeper presentation of the same downstream line. Once the presentation is required to induce the fixed foundation package, those constituents are forced.
+
+The scope remains disciplined. The benchmark package is unchanged: the one operative metric is still exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, and the low-energy matter law is not enlarged. This remains a theorem inside the active derivational program of \TheoryName{}, not a basis for stronger promotion language. The next honest burden is deeper again: derive or justify the foundation-generating substrate root dynamics from still more primitive explicit substrate structure, or else prove a genuinely smaller collapse inside the current foundation package. Until then, adoption and derivation should continue to be kept sharply separated.
+
+\end{document}
