@@ -1,0 +1,492 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+
+\newcommand{\CompletedMetric}{g^{\sharp}}
+\newcommand{\MatterSpace}{\Psi}
+
+\newcommand{\Car}{\mathrm{car}}
+\newcommand{\Cur}{\mathrm{cur}}
+\newcommand{\Hom}{\mathrm{hom}}
+
+\newcommand{\ForSpace}[1]{\mathcal I_{#1}^{\mathrm{for}}}
+\newcommand{\PrimShell}{\mathcal S_{\mathrm{prim}}}
+\newcommand{\Reduction}[1]{\mathcal R_{#1}}
+\newcommand{\CurrentCarrier}[1]{\mathfrak C_{#1}^{\mathrm{cur}}}
+\newcommand{\EqCarrier}[1]{\mathfrak C_{#1}^{\mathrm{eq}}}
+\newcommand{\MetricOut}{\mathscr G_{\mathrm{out}}}
+\newcommand{\MatterOut}{\mathscr T_{\mathrm{out}}}
+
+\newcommand{\SubTarget}[1]{E_{#1}^{\mathrm{sub}}}
+\newcommand{\EqnTarget}[1]{Q_{#1}^{\mathrm{eqn}}}
+\newcommand{\HiddenSpace}[1]{\mathcal H_{#1}^{\mathrm{hid}}}
+\newcommand{\HiddenBody}[1]{D_{#1}^{\mathrm{hid}}}
+
+\newcommand{\SeedState}[1]{\mathcal S_{#1}^{\mathrm{seed}}}
+\newcommand{\SeedBody}[1]{\mathcal B_{#1}^{\mathrm{seed}}}
+\newcommand{\SeedShell}[1]{\mathcal Z_{#1}^{\mathrm{seed}}}
+\newcommand{\SeedSupportShell}[1]{\mathcal U_{#1}^{\mathrm{seed,sup}}}
+\newcommand{\SeedZeroCore}[1]{\mathcal Z_{#1}^{0,\mathrm{seed}}}
+\newcommand{\SeedSplit}[1]{\Phi_{#1}^{\mathrm{seed}}}
+\newcommand{\SeedCharge}[1]{\mathcal Q_{#1}^{\mathrm{seed}}}
+\newcommand{\SeedEmbed}[1]{\zeta_{#1}^{\mathrm{seed}}}
+\newcommand{\SeedKernel}[1]{\widetilde K_{#1}^{0,\mathrm{seed}}}
+\newcommand{\SeedCoercive}[1]{P_{#1}^{\mathrm{seed,co}}}
+
+\newcommand{\GermNucleus}{\mathfrak G^{\mathrm{sub,germ,zstn}}}
+\newcommand{\GermState}[1]{\mathcal G_{#1}^{\mathrm{germ}}}
+\newcommand{\GermBody}[1]{\mathcal B_{#1}^{\mathrm{germ}}}
+\newcommand{\GermProj}[1]{\Pi_{#1}^{\mathrm{germ}}}
+\newcommand{\GermSeedSec}[1]{\sigma_{#1}^{\mathrm{germ\leftarrow seed}}}
+\newcommand{\GermSection}[1]{\Gamma_{#1}^{\mathrm{germ}}}
+\newcommand{\GermShell}[1]{\mathcal Z_{#1}^{\mathrm{germ}}}
+
+\newcommand{\ProtoPackage}{\mathfrak P^{\mathrm{sub,proto,nuc}}}
+\newcommand{\ProtoTransportCore}{\mathfrak P^{\mathrm{sub,proto,xtc}}}
+\newcommand{\ProtoState}[1]{\mathcal P_{#1}^{\mathrm{proto}}}
+\newcommand{\ProtoBody}[1]{\mathcal B_{#1}^{\mathrm{proto}}}
+\newcommand{\ProtoProj}[1]{\Pi_{#1}^{\mathrm{proto}}}
+\newcommand{\ProtoGermMin}[1]{\mathfrak f_{#1}^{\mathrm{proto,germ}}}
+\newcommand{\ProtoSection}[1]{\Gamma_{#1}^{\mathrm{proto}}}
+\newcommand{\ProtoShell}[1]{\mathcal Z_{#1}^{\mathrm{proto}}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Primitive-Reservoir Observer-Reduction\\
+\large Nucleus-Generating Substrate Proto-Germ Dynamics\\
+\large Collapse to a Germ-Anchored\\
+\large Exact-Shell Transport Core}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The current primitive-reservoir observer-reduction frontier already removed the minimal germ zero-shell transport nucleus as the live unexplained stopping point by recovering it canonically from a deeper nucleus-generating substrate proto-germ package \(\ProtoPackage\). The next honest benchmark-facing move is therefore no longer another same-output replay of that current germ nucleus, nor a reopening of the older germ seed-transport core. If the full proto-germ package still contains benchmark-neutral constituents, the sharper gain is to collapse that package further before introducing another deeper relay.
+
+The present note proves that such a smaller theorem is available. For each sector it isolates a \emph{germ-anchored exact-shell transport core} \(\ProtoTransportCore\). The core keeps only the proto-germ state space and compact body, the projection to the fixed germ body, the proto-germ restriction section, the exact proto-germ shell projecting diffeomorphically to the fixed germ shell, and benchmark faithfulness. It does \emph{not} retain as independent benchmark-facing data the full-body proto-germ fiber minimizer \(\ProtoGermMin{\sigma}:\GermBody{\sigma}\to\ProtoBody{\sigma}\).
+
+The main theorem shows that the omitted full-body proto-germ lift carries no additional benchmark-facing freedom once the germ-anchored exact-shell transport core is fixed. Any two benchmark-faithful full proto-germ packages with the same core induce the same current minimal germ zero-shell transport nucleus and therefore the same downstream observer-relevant germ seed-transport core. The benchmark boundary remains fixed throughout: the one operative metric is still exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, the low-energy matter law is not enlarged, and no stronger promotion language is licensed. The positive result is therefore narrow but real: the live burden inside the current proto-germ package now shrinks from the full package \(\ProtoPackage\) to the smaller germ-anchored exact-shell transport core \(\ProtoTransportCore\).
+\end{abstract}
+
+\section{Introduction}
+
+The active derivational program of \TheoryName{} has again reached a stage where depth alone is no longer enough. The current proto-germ forcing theorem already spent the honest move that removes the minimal germ zero-shell transport nucleus as a primitive stopping point: the live burden was pushed below that nucleus into a deeper proto-germ package. Once that result is in hand, another manuscript that merely restates the same current germ nucleus, replays the older observer-relevant germ seed-transport core, or revives older seed / root / foundation layers does not answer the present burden.
+
+The remaining disciplined options are therefore narrower. One can derive or justify the proto-germ package from still more primitive explicit substrate structure, or one can ask whether the present proto-germ package is itself already larger than what benchmark-facing scope honestly requires. The present note takes the second route. Its gain is not a completed first-principles substrate derivation. Its narrower claim is that the full current proto-germ package is not yet the smallest honest benchmark-facing datum at this frontier.
+
+The sharper theorem proved here is that the off-shell full-body proto-germ lift over the whole fixed germ body is not independently live once one fixes the projected proto body, the projected exact-shell transport to the fixed germ shell, and the same benchmark outputs. The full proto-germ package certainly records such a lift, and it may remain useful as package structure. But at current benchmark-facing scope it does not change the current minimal germ zero-shell transport nucleus, it does not change the downstream observer-relevant germ seed-transport core, and it does not change the one-metric observer package already fixed on the active line.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not alter the benchmark exact-closure package. It does not introduce a second operative metric or a new low-energy matter law. It only proves that, inside the current proto-germ layer itself, the full-body proto lift is not an additional benchmark-facing burden once the projected exact-shell transport core is fixed.
+
+\section{Fixed Inputs}
+
+\begin{definition}[Recorded primitive continuation data]
+\label{def:fixed}
+Fix the following continuation data from the active primitive-reservoir observer-reduction line.
+\begin{enumerate}
+    \item For each sector label \(\sigma\in\{\Car,\Cur,\Hom\}\), a primitive forcing shell
+    \[
+    \ForSpace{\sigma},
+    \]
+    a visible reduction map
+    \[
+    \Reduction{\sigma}:\ForSpace{\sigma}\to X_{\sigma},
+    \]
+    and shell-level current and equilibrium carriers
+    \[
+    \CurrentCarrier{\sigma}:\ForSpace{\sigma}\to Z_{\sigma}^{\mathrm{cur}},
+    \qquad
+    \EqCarrier{\sigma}:\ForSpace{\sigma}\to Z_{\sigma}^{\mathrm{eq}}.
+    \]
+    \item The product shell
+    \[
+    \PrimShell
+    \equiv
+    \ForSpace{\Car}\times \ForSpace{\Cur}\times \ForSpace{\Hom}.
+    \]
+    \item The recorded metric and ordinary-matter outputs
+    \[
+    \MetricOut:\PrimShell\to\{\text{observer metrics}\},
+    \qquad
+    \MatterOut:\PrimShell\times\MatterSpace\to\{\text{observer stress tensors}\},
+    \]
+    satisfying
+    \begin{equation}
+    \MetricOut(\mathbf w)=\CompletedMetric,
+    \qquad
+    \MatterOut(\mathbf w,\psi)
+    =
+    T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
+    \label{eq:fixedoutputs}
+    \end{equation}
+    for every \(\mathbf w\in\PrimShell\) and every matter configuration \(\psi\in\MatterSpace\).
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Recorded downstream seed package]
+\label{def:seed}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). The active line already fixes the downstream seed package at current benchmark-facing scope:
+\begin{enumerate}
+    \item a finite-dimensional seed state space \(\SeedState{\sigma}\), a compact convex seed body \(\SeedBody{\sigma}\subset\SeedState{\sigma}\), the exact seed shell \(\SeedShell{\sigma}\subset\SeedBody{\sigma}\), and the exact seed support shell \(\SeedSupportShell{\sigma}\subset\SeedShell{\sigma}\);
+    \item a seed zero core \(\SeedZeroCore{\sigma}\subset\SeedSupportShell{\sigma}\), the same hidden fiber space \(\HiddenSpace{\sigma}\) with compact hidden body \(\HiddenBody{\sigma}\subset\HiddenSpace{\sigma}\), and the fixed seed split
+    \[
+    \SeedSplit{\sigma}:
+    \SeedZeroCore{\sigma}\times\HiddenBody{\sigma}
+    \xrightarrow{\cong}
+    \SeedSupportShell{\sigma};
+    \]
+    \item the seed hidden charge
+    \[
+    \SeedCharge{\sigma}:\HiddenSpace{\sigma}\to\EqnTarget{\sigma},
+    \]
+    a smooth observer-compatible exact seed zero-response realization
+    \[
+    \SeedEmbed{\sigma}:\ForSpace{\sigma}\hookrightarrow\SeedZeroCore{\sigma},
+    \]
+    and the fixed-data solvability / coercive package recorded through \(\SeedKernel{\sigma}\) and \(\SeedCoercive{\sigma}\);
+    \item benchmark faithfulness, meaning preservation of the benchmark outputs \eqref{eq:fixedoutputs}, no second operative metric, no enlarged low-energy matter law, and no premature promotion from adoption to completed derivation.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Recorded current minimal germ zero-shell transport nucleus]
+\label{def:nucleus}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). The recorded current minimal germ zero-shell transport nucleus \(\GermNucleus\) for sector \(\sigma\) consists of:
+\begin{enumerate}
+    \item the germ state space \(\GermState{\sigma}\), compact convex germ body \(\GermBody{\sigma}\subset\GermState{\sigma}\), projection
+    \[
+    \GermProj{\sigma}:\GermState{\sigma}\to\SeedState{\sigma},
+    \]
+    and seed section
+    \[
+    \GermSeedSec{\sigma}:\SeedBody{\sigma}\to\GermBody{\sigma}
+    \]
+    satisfying
+    \[
+    \GermProj{\sigma}\bigl(\GermBody{\sigma}\bigr)=\SeedBody{\sigma},
+    \qquad
+    \GermProj{\sigma}\circ\GermSeedSec{\sigma}
+    =
+    \mathrm{id}_{\SeedBody{\sigma}};
+    \]
+    \item the restriction section
+    \[
+    \GermSection{\sigma}:\GermState{\sigma}\to\SubTarget{\sigma},
+    \]
+    and the exact germ shell
+    \[
+    \GermShell{\sigma}
+    \equiv
+    \bigl(\GermSection{\sigma}\bigr)^{-1}(0)\cap\GermBody{\sigma},
+    \]
+    with
+    \[
+    \GermProj{\sigma}\big|_{\GermShell{\sigma}}
+    :
+    \GermShell{\sigma}
+    \xrightarrow{\cong}
+    \SeedShell{\sigma};
+    \]
+    \item benchmark faithfulness, meaning preservation of the benchmark outputs \eqref{eq:fixedoutputs}, no second operative metric, no enlarged low-energy matter law, and no premature promotion from adoption to completed derivation.
+\end{enumerate}
+By the already-recorded current frontier theorem, the support shell, zero core, hidden split, hidden charge, exact zero-response realization, and fixed-data solvability / coercive package are then canonically induced downstream from this nucleus together with the fixed seed package of Definition \ref{def:seed}, rather than taken as additional independent benchmark-facing data.
+\end{definition}
+
+\begin{remark}
+Definitions \ref{def:fixed}, \ref{def:seed}, and \ref{def:nucleus} are fixed inputs. The primitive continuation data, the one operative metric, the ordinary matter route, the recorded downstream seed package, and the recorded current germ nucleus are not reopened here. The present note asks only whether the current full proto-germ package is already minimal once those downstream data are held fixed.
+\end{remark}
+
+\begin{remark}[Downstream fixed fact]
+\label{rem:downstream}
+The already-recorded current frontier theorem proves that once a minimal germ zero-shell transport nucleus is fixed, the larger observer-relevant germ seed-transport core is canonically recovered and carries no extra benchmark-relevant freedom. The present note uses that downstream fact only as a routing consequence: after the induced current germ nucleus is fixed, no larger current-core package needs to be postulated anew.
+\end{remark}
+
+\section{Current Full Proto-Germ Package}
+
+\begin{definition}[Nucleus-generating substrate proto-germ dynamics]
+\label{def:proto}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). A nucleus-generating substrate proto-germ dynamics package \(\ProtoPackage\) for sector \(\sigma\) consists of the following data.
+\begin{enumerate}
+    \item A finite-dimensional Euclidean proto-germ state space \(\ProtoState{\sigma}\), a compact convex proto-germ body
+    \[
+    \ProtoBody{\sigma}\subset\ProtoState{\sigma}
+    \]
+    with nonempty interior, an affine surjection
+    \[
+    \ProtoProj{\sigma}:\ProtoState{\sigma}\to\GermState{\sigma},
+    \]
+    and a smooth proto-germ fiber minimizer
+    \[
+    \ProtoGermMin{\sigma}:\GermBody{\sigma}\to\ProtoBody{\sigma}
+    \]
+    satisfying
+    \[
+    \ProtoProj{\sigma}\bigl(\ProtoBody{\sigma}\bigr)=\GermBody{\sigma},
+    \qquad
+    \ProtoProj{\sigma}\circ\ProtoGermMin{\sigma}
+    =
+    \mathrm{id}_{\GermBody{\sigma}}.
+    \]
+    \item A smooth proto-germ restriction section
+    \[
+    \ProtoSection{\sigma}:\ProtoState{\sigma}\to\SubTarget{\sigma},
+    \]
+    and the exact proto-germ shell
+    \[
+    \ProtoShell{\sigma}
+    \equiv
+    \bigl(\ProtoSection{\sigma}\bigr)^{-1}(0)\cap\ProtoBody{\sigma},
+    \]
+    satisfying
+    \[
+    \ProtoSection{\sigma}\circ\ProtoGermMin{\sigma}
+    =
+    \GermSection{\sigma},
+    \qquad
+    \ProtoProj{\sigma}\big|_{\ProtoShell{\sigma}}
+    :
+    \ProtoShell{\sigma}
+    \xrightarrow{\cong}
+    \GermShell{\sigma}.
+    \]
+\end{enumerate}
+The package is \emph{benchmark faithful} if it preserves the benchmark outputs \eqref{eq:fixedoutputs}, introduces no second operative metric, introduces no enlarged low-energy matter law, and is presented as a deeper substrate-side source for the current minimal germ zero-shell transport nucleus rather than as a replacement benchmark theory.
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:proto} is the current benchmark-facing frontier before the present theorem is applied. The question now is whether every datum listed there is still an independent live burden, or whether part of that package is already benchmark-neutral once the projected exact-shell transport to the fixed current germ nucleus is held fixed.
+\end{remark}
+
+\section{Germ-Anchored Exact-Shell Transport Core}
+
+\begin{definition}[Germ-anchored exact-shell transport core]
+\label{def:core}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). The \emph{germ-anchored exact-shell transport core} \(\ProtoTransportCore\) for sector \(\sigma\) consists of:
+\begin{enumerate}
+    \item the proto-germ state space \(\ProtoState{\sigma}\), compact convex proto-germ body \(\ProtoBody{\sigma}\subset\ProtoState{\sigma}\), and affine surjection
+    \[
+    \ProtoProj{\sigma}:\ProtoState{\sigma}\to\GermState{\sigma}
+    \]
+    satisfying
+    \[
+    \ProtoProj{\sigma}\bigl(\ProtoBody{\sigma}\bigr)=\GermBody{\sigma};
+    \]
+    \item the restriction section
+    \[
+    \ProtoSection{\sigma}:\ProtoState{\sigma}\to\SubTarget{\sigma},
+    \]
+    the exact proto-germ shell
+    \[
+    \ProtoShell{\sigma}
+    \equiv
+    \bigl(\ProtoSection{\sigma}\bigr)^{-1}(0)\cap\ProtoBody{\sigma},
+    \]
+    and the exact-shell transport diffeomorphism
+    \[
+    \ProtoProj{\sigma}\big|_{\ProtoShell{\sigma}}
+    :
+    \ProtoShell{\sigma}
+    \xrightarrow{\cong}
+    \GermShell{\sigma};
+    \]
+    \item benchmark faithfulness in the sense of Definition \ref{def:proto}.
+\end{enumerate}
+By definition, the full-body proto-germ fiber minimizer
+\[
+\ProtoGermMin{\sigma}:\GermBody{\sigma}\to\ProtoBody{\sigma}
+\]
+is \emph{not} taken as independent core data.
+\end{definition}
+
+\begin{definition}[Benchmark-faithful proto completion]
+\label{def:completion}
+A \emph{benchmark-faithful proto completion} of \(\ProtoTransportCore\) is a full proto-germ package in the sense of Definition \ref{def:proto} whose data agree with the given core and that adds only the omitted full-body proto-germ fiber minimizer \(\ProtoGermMin{\sigma}\).
+\end{definition}
+
+\begin{definition}[Core-equivalent proto completions]
+\label{def:equiv}
+Two benchmark-faithful proto completions are \emph{core-equivalent} if they agree on every datum of Definition \ref{def:core}; equivalently, any difference between them is confined to the omitted full-body proto-germ fiber minimizer.
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:core} keeps exactly the proto-germ data that control projected exact-shell transport to the fixed current germ nucleus while preserving the benchmark package. The present theorem asks whether the omitted full-body proto lift remains independently benchmark-facing once that transport core is fixed.
+\end{remark}
+
+\section{Benchmark-Facing Consequences Depend Only on the Core}
+
+\begin{proposition}[The fixed seed anchor persists at core level]
+\label{prop:anchor}
+Fix a germ-anchored exact-shell transport core. Then
+\[
+(\GermProj{\sigma}\circ\ProtoProj{\sigma})\bigl(\ProtoBody{\sigma}\bigr)
+=
+\SeedBody{\sigma},
+\]
+and the composite shell transport
+\[
+(\GermProj{\sigma}\circ\ProtoProj{\sigma})\big|_{\ProtoShell{\sigma}}
+:
+\ProtoShell{\sigma}
+\xrightarrow{\cong}
+\SeedShell{\sigma}
+\]
+is a diffeomorphism.
+\end{proposition}
+
+\begin{proof}
+Definition \ref{def:core}(1) gives
+\[
+\ProtoProj{\sigma}\bigl(\ProtoBody{\sigma}\bigr)=\GermBody{\sigma}.
+\]
+Applying Definition \ref{def:nucleus}(1) yields
+\[
+(\GermProj{\sigma}\circ\ProtoProj{\sigma})\bigl(\ProtoBody{\sigma}\bigr)
+=
+\GermProj{\sigma}\bigl(\GermBody{\sigma}\bigr)
+=
+\SeedBody{\sigma}.
+\]
+For the shell transport, Definition \ref{def:core}(2) gives a diffeomorphism
+\[
+\ProtoProj{\sigma}\big|_{\ProtoShell{\sigma}}
+:
+\ProtoShell{\sigma}
+\xrightarrow{\cong}
+\GermShell{\sigma},
+\]
+while Definition \ref{def:nucleus}(2) gives a diffeomorphism
+\[
+\GermProj{\sigma}\big|_{\GermShell{\sigma}}
+:
+\GermShell{\sigma}
+\xrightarrow{\cong}
+\SeedShell{\sigma}.
+\]
+Their composition is therefore a diffeomorphism from \(\ProtoShell{\sigma}\) to \(\SeedShell{\sigma}\).
+\end{proof}
+
+\begin{proposition}[The current germ nucleus and downstream core depend only on the transport core]
+\label{prop:downstream}
+Any benchmark-faithful proto completion of a fixed germ-anchored exact-shell transport core induces the same current minimal germ zero-shell transport nucleus and therefore the same downstream observer-relevant germ seed-transport core.
+\end{proposition}
+
+\begin{proof}
+Fix a germ-anchored exact-shell transport core and a benchmark-faithful proto completion of it. Definition \ref{def:core}(1) already fixes the projected proto body \(\GermBody{\sigma}\), because the projected image of \(\ProtoBody{\sigma}\) is required to be exactly the fixed current germ body. Definition \ref{def:core}(2) already fixes the projected exact-shell transport to the current germ shell through the diffeomorphism
+\[
+\ProtoProj{\sigma}\big|_{\ProtoShell{\sigma}}
+:
+\ProtoShell{\sigma}
+\xrightarrow{\cong}
+\GermShell{\sigma}.
+\]
+The remaining current-germ-nucleus data
+\[
+\GermProj{\sigma},
+\qquad
+\GermSeedSec{\sigma},
+\qquad
+\GermSection{\sigma}
+\]
+are already fixed downstream in Definition \ref{def:nucleus}; they are not affected by changing the omitted full-body proto-germ lift.
+
+Therefore every benchmark-faithful completion of the same core determines the same current minimal germ zero-shell transport nucleus at benchmark-facing scope: the same germ body, the same fixed seed anchor already recorded on that nucleus, the same germ restriction section, and the same exact germ shell. By Remark \ref{rem:downstream}, the already-recorded current frontier theorem then canonically recovers the same observer-relevant germ seed-transport core from that same current nucleus together with the fixed seed package. Hence the downstream benchmark-facing consequence depends only on the germ-anchored exact-shell transport core.
+\end{proof}
+
+\begin{proposition}[The omitted full-body proto lift is benchmark-neutral]
+\label{prop:equiv}
+Any two benchmark-faithful proto completions of the same germ-anchored exact-shell transport core are core-equivalent and induce the same benchmark-facing consequences on the active line.
+\end{proposition}
+
+\begin{proof}
+By Definition \ref{def:equiv}, the two completions are core-equivalent precisely because they agree on the same germ-anchored exact-shell transport core and may differ only in the omitted full-body proto-germ lift. Proposition \ref{prop:downstream} shows that such a difference does not alter the induced current minimal germ zero-shell transport nucleus or the downstream observer-relevant germ seed-transport core. Thus it does not alter the benchmark-facing consequences of the package.
+\end{proof}
+
+\begin{proposition}[The benchmark package remains fixed]
+\label{prop:benchmark}
+Every germ-anchored exact-shell transport core preserves the same benchmark one-metric package \eqref{eq:fixedoutputs}. In particular, the operative metric remains exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, and the low-energy matter law is not enlarged.
+\end{proposition}
+
+\begin{proof}
+This is part of benchmark faithfulness in Definition \ref{def:core}(3). The present note removes only proto-package freedom internal to the derivational line. It does not alter the benchmark exact-closure package.
+\end{proof}
+
+\section{Main Theorem}
+
+\begin{theorem}[Nucleus-generating substrate proto-germ dynamics collapse to a germ-anchored exact-shell transport core]
+\label{thm:main}
+Fix the primitive continuation data of Definition \ref{def:fixed}, the recorded downstream seed package of Definition \ref{def:seed}, the recorded current germ nucleus of Definition \ref{def:nucleus}, and a benchmark-faithful full proto-germ package in the sense of Definition \ref{def:proto}. Then, for each sector \(\sigma\in\{\Car,\Cur,\Hom\}\), the live benchmark-facing burden inside that current full proto-germ package collapses to the germ-anchored exact-shell transport core \(\ProtoTransportCore\) of Definition \ref{def:core}. More precisely:
+\begin{enumerate}
+    \item forgetting the full-body proto-germ fiber minimizer \(\ProtoGermMin{\sigma}\) leaves a germ-anchored exact-shell transport core;
+    \item any two benchmark-faithful proto completions of the same core are core-equivalent and induce the same current minimal germ zero-shell transport nucleus and the same downstream observer-relevant germ seed-transport core by Propositions \ref{prop:downstream} and \ref{prop:equiv};
+    \item the omitted full-body proto-germ lift is therefore not additional independent benchmark-facing freedom once the projected proto body, projected exact-shell transport, and benchmark faithfulness are fixed;
+    \item the benchmark boundary remains fixed by Proposition \ref{prop:benchmark};
+    \item consequently the remaining honest burden below the current proto-germ-forcing frontier is no longer the full proto-germ package as such. What remains is to derive or justify the germ-anchored exact-shell transport core from still more primitive substrate structure, or else prove a still sharper collapse, sharper necessity result, or sharper uniqueness result strictly inside that smaller core.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Item (1) is immediate from Definitions \ref{def:proto} and \ref{def:core}. Item (2) is the combined content of Propositions \ref{prop:downstream} and \ref{prop:equiv}. Item (3) is the routing consequence of item (2): once the omitted full-body proto lift can vary without changing the current germ nucleus or its downstream observer-relevant consequences, it no longer constitutes an independent live burden at benchmark-facing scope. Item (4) is Proposition \ref{prop:benchmark}. Item (5) is the resulting front-line consequence together with the active safeguard against counting same-output replays as new progress once the live observer-relevant datum is unchanged.
+\end{proof}
+
+\begin{corollary}[What no longer counts as the next move]
+\label{cor:screened}
+After Theorem \ref{thm:main}, none of the following is the default next benchmark-facing move:
+\begin{enumerate}
+    \item another same-output restatement of the current minimal germ zero-shell transport nucleus;
+    \item another replay of the older observer-relevant germ seed-transport core as if it were still the live burden;
+    \item another full proto-germ restatement that treats the omitted full-body proto lift as if it were still independently benchmark-facing;
+    \item a reopening of older seed, root, foundation, ground, origin, precursor, lift, shell-restriction, selector-law, combined-response, ambient-package, or exact-shell-affine-nucleus layers;
+    \item a manuscript that introduces a second operative metric, enlarges the low-energy matter law, changes the ordinary-matter route, or uses stronger promotion language.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+Items (1)--(3) fail because Theorem \ref{thm:main} shows that the live burden is now smaller than the full current proto-germ package: once the germ-anchored exact-shell transport core is fixed, the omitted full-body proto lift is benchmark-neutral. Item (4) does not address the live burden at the present frontier. Item (5) violates benchmark faithfulness.
+\end{proof}
+
+\section{Conclusion}
+
+The positive result of this note is narrower than a completed first-principles derivation and sharper than the earlier proto-germ forcing theorem. The current frontier had already shown that the minimal germ zero-shell transport nucleus is the projected exact-shell transport image of a deeper proto-germ package. The present theorem then shows that even that current proto-germ package still contains benchmark-neutral structure: the full-body proto-germ lift over the fixed germ body is not an additional live burden once the projected proto body, projected exact-shell transport to the fixed germ shell, and benchmark faithfulness are fixed.
+
+The live burden is therefore cleaner again. At current scope the honest benchmark-facing datum is no longer the full nucleus-generating substrate proto-germ package \(\ProtoPackage\) but the smaller germ-anchored exact-shell transport core \(\ProtoTransportCore\). That is the datum that now requires deeper justification, unless a still smaller theorem-level collapse remains available strictly inside it.
+
+The scope remains disciplined. The benchmark package is unchanged: the one operative metric is still exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, and the low-energy matter law is not enlarged. This remains a theorem inside the active derivational program of \TheoryName{}, not a basis for stronger promotion language. The next honest burden is to derive or justify the germ-anchored exact-shell transport core from still more primitive substrate structure, or else prove a still sharper collapse inside it while preserving the same benchmark one-metric package, ordinary-matter route, and claim boundary.
+
+\end{document}
