@@ -179,8 +179,8 @@ At the current audit:
 
 - the benchmark exact-closure package is the front door
 - the benchmark-gatekeeping layer must be consulted before any main-line claim
-- the current file map carries a single `active_primary` row at `primitive_reduction_current_foundation_root_forcing_frontier`, anchored on the theorem forcing ground-generating substrate foundation dynamics from foundation-generating substrate root dynamics rather than on another same-output foundation relay
-- benchmark-facing status after the post-bridge routing correction is governed by the derivation-gates note, the post-bridge status note, the upstream compression theorem, and the current foundation-frontier criterion; later same-output relays should be treated conservatively unless they derive, uniquely force, or further compress the bridge object that yields the benchmark one-metric observer package
+- the current file map carries a single `active_primary` row at `primitive_reduction_current_root_seed_forcing_frontier`, anchored on the theorem forcing foundation-generating substrate root dynamics from root-generating substrate seed dynamics rather than on another same-output root relay
+- benchmark-facing status after the post-bridge routing correction is governed by the derivation-gates note, the post-bridge status note, the upstream compression theorem, and the current root-frontier criterion; later same-output relays should be treated conservatively unless they derive, uniquely force, or further compress the bridge object that yields the benchmark one-metric observer package
 - the same-package exact-preservation line is preserved as supporting or historical routing context
 - screened higher-derivative branches remain screened
 - nonlocal self-response / orbit-shape continuations remain side work unless explicitly promoted
