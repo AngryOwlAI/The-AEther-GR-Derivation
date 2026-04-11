@@ -179,7 +179,7 @@ At the current audit:
 
 - the benchmark exact-closure package is the front door
 - the benchmark-gatekeeping layer must be consulted before any main-line claim
-- the current file map carries a single `active_primary` row at `primitive_reduction_current_proto_germ_transport_section_core_frontier`, anchored on the theorem collapsing the germ-anchored exact-shell transport core to a smaller germ-anchored exact-shell transport-section core rather than on another same-output proto-germ relay, another replay of the current germ nucleus, or a reopening of older seed/root/foundation layers
+- the current file map carries a single `active_primary` row at `primitive_reduction_current_pre_proto_section_package_frontier`, anchored on the theorem deriving the exact-shell-transport-section-generating substrate proto-section dynamics from deeper proto-section-generating substrate pre-proto-section dynamics rather than on another same-output proto-section relay, another replay of the already-generated section core, or a reopening of older seed/root/foundation layers
 - benchmark-facing status after the post-bridge routing correction is governed by the derivation-gates note, the post-bridge status note, the upstream compression theorem, and the current frontier control layer; later same-output relays should be treated conservatively unless they derive, uniquely force, or further compress the bridge object that yields the benchmark one-metric observer package
 - the same-package exact-preservation line is preserved as supporting or historical routing context
 - screened higher-derivative branches remain screened
