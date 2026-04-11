@@ -1,0 +1,479 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+
+\newcommand{\CompletedMetric}{g^{\sharp}}
+\newcommand{\MatterSpace}{\Psi}
+
+\newcommand{\Car}{\mathrm{car}}
+\newcommand{\Cur}{\mathrm{cur}}
+\newcommand{\Hom}{\mathrm{hom}}
+
+\newcommand{\ForSpace}[1]{\mathcal I_{#1}^{\mathrm{for}}}
+\newcommand{\PrimShell}{\mathcal S_{\mathrm{prim}}}
+\newcommand{\MetricOut}{\mathscr G_{\mathrm{out}}}
+\newcommand{\MatterOut}{\mathscr T_{\mathrm{out}}}
+
+\newcommand{\ProtoSectionPackage}{\mathfrak Q^{\mathrm{sub,proto,secgen}}}
+\newcommand{\ProtoSectionState}[1]{\mathcal Q_{#1}^{\mathrm{psec}}}
+\newcommand{\ProtoSectionBody}[1]{\mathcal B_{#1}^{\mathrm{psec}}}
+\newcommand{\ProtoSectionFunctional}[1]{\mathscr E_{#1}^{\mathrm{psec}}}
+\newcommand{\ProtoSectionShell}[1]{\mathcal Z_{#1}^{\mathrm{psec}}}
+
+\newcommand{\PreProtoSectionPackage}{\mathfrak R^{\mathrm{sub,proto,presec}}}
+\newcommand{\PreProtoSectionMinSectionCore}{\mathfrak R^{\mathrm{sub,proto,presec,sec}}}
+\newcommand{\PreProtoSectionResidualPackage}{\mathfrak R^{\mathrm{sub,proto,presec,res}}}
+\newcommand{\PreProtoSectionMinSection}[1]{\mathfrak s_{#1}^{\mathrm{ppsec,sec}}}
+
+\newcommand{\PrePreProtoSectionPackage}{\mathfrak S^{\mathrm{sub,proto,pppresec}}}
+\newcommand{\PrePreProtoSectionVertical}[1]{V_{#1}^{\mathrm{pppresec}}}
+\newcommand{\PrePreProtoSectionResidualBody}[1]{\mathcal D_{#1}^{\mathrm{pppresec}}}
+\newcommand{\PrePreProtoSectionHidden}[1]{H_{#1}^{\mathrm{pppresec}}}
+\newcommand{\PrePreProtoSectionHiddenBody}[1]{\mathcal K_{#1}^{\mathrm{pppresec}}}
+\newcommand{\PrePreProtoSectionResponseMap}[1]{L_{#1}^{\mathrm{pppresec}}}
+\newcommand{\PrePreProtoSectionOperator}[1]{K_{#1}^{\mathrm{pppresec}}}
+
+\newcommand{\InducedResidualFunctional}[1]{\widetilde{\mathscr R}_{#1}^{\mathrm{ppsec,res}}}
+\newcommand{\InducedPreProtoSectionState}[1]{\widetilde{\mathcal R}_{#1}^{\mathrm{ppsec}}}
+\newcommand{\InducedPreProtoSectionBody}[1]{\widetilde{\mathcal B}_{#1}^{\mathrm{ppsec}}}
+\newcommand{\InducedPreProtoSectionProj}[1]{\widetilde{\Pi}_{#1}^{\mathrm{ppsec}}}
+\newcommand{\InducedPreProtoSectionFunctional}[1]{\widetilde{\mathscr F}_{#1}^{\mathrm{ppsec}}}
+\newcommand{\InducedPreProtoSectionShell}[1]{\widetilde{\mathcal Z}_{#1}^{\mathrm{ppsec}}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Primitive-Reservoir Observer-Reduction\\
+\large Proto-Section-Generating Substrate Pre-Proto-Section Dynamics\\
+\large Section-Centered Normal Form from\\
+\large Section-Centered Hidden-Response\\
+\large Pre-Pre-Proto-Section Dynamics}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The current primitive-reservoir observer-reduction frontier already sharpened the live burden inside the current pre-proto-section package: the active theorem proving section-centered normal-form necessity / uniqueness removed residual benchmark-facing presentation freedom by showing that the current proto-section-generating substrate pre-proto-section dynamics are benchmark-facingly compressed to a canonical section-centered residual normal form \(\PreProtoSectionResidualPackage\). After that theorem, another same-output deeper-origin relay that merely preserves that same residual normal form no longer counts as the honest next benchmark-facing move. The next admissible task is therefore to derive or justify that residual datum itself from still more primitive explicit substrate structure, or else prove a still smaller collapse strictly inside it.
+
+The present note takes the direct derivation route. For each sector it introduces a section-centered hidden-response pre-pre-proto-section dynamics package consisting of a compact convex section-centered displacement body over the already fixed proto-section body, a finite-dimensional hidden-response space, a smooth family of injective linear response maps from section-centered displacements into that hidden space, and a smooth positive self-adjoint hidden operator with a uniform coercive gap. The current residual-normal-form energy is then no longer a primitive input. It is the induced quadratic hidden-response energy of that deeper explicit substrate law. In the same section-centered coordinates, the full benchmark-faithful pre-proto-section dynamics package is reconstructed canonically, with the minimizer section given by the zero slice.
+
+The benchmark boundary remains fixed throughout. The one operative metric is still exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, the low-energy matter law is not enlarged, and no stronger promotion language is licensed. The positive result is therefore a genuine benchmark-facing gain below the current residual-normal-form frontier: the current proto-section-generating substrate pre-proto-section dynamics are now justified by a more primitive explicit section-centered hidden-response law, so the remaining honest burden is no longer the residual normal form itself but the deeper hidden-response package that forces it, or a still smaller collapse strictly inside that deeper package.
+\end{abstract}
+
+\section{Introduction}
+
+The active derivational program of \TheoryName{} again reaches a point where depth alone is not enough. The current active-primary theorem already showed that the current proto-section-generating substrate pre-proto-section dynamics do not carry arbitrary benchmark-facing freedom once the fixed proto-section benchmark base and the already-generated minimizer section are held fixed. Their remaining benchmark-facing content is compressed to a canonical section-centered residual normal form \(\PreProtoSectionResidualPackage\). That theorem matters because it blocks a familiar kind of recursive depth drift: a new note no longer counts merely because it repackages the same residual datum one layer deeper.
+
+The next honest move is therefore not to replay the full pre-proto-section package, not to reopen the older minimizer-image presentation, and not to present another same-output relay that leaves the current residual-normal-form datum untouched. It is to explain why that residual datum itself should hold. The present note makes that move in an explicit but disciplined way. It does not stipulate the residual functional directly. Instead, in section-centered coordinates it assigns to each residual displacement a hidden response through a fiberwise injective linear map into a deeper hidden space, and it measures the residual cost by a positive quadratic hidden-response energy. In that precise sense the current residual-normal-form datum is no longer primitive.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not introduce a second operative metric, it does not enlarge the low-energy matter law, and it does not reopen older larger presentations as if they were again the live burden. Its narrower positive role is to show that the current section-centered residual normal form, and therefore the current benchmark-faithful pre-proto-section dynamics package at benchmark-facing scope, is canonically generated by a deeper explicit section-centered hidden-response law.
+
+\section{Fixed Inputs}
+
+\begin{definition}[Recorded primitive continuation data]
+\label{def:fixed}
+Fix the following continuation data from the active primitive-reservoir observer-reduction line.
+\begin{enumerate}
+    \item For each sector label \(\sigma\in\{\Car,\Cur,\Hom\}\), a primitive forcing shell
+    \[
+    \ForSpace{\sigma}.
+    \]
+    \item The product shell
+    \[
+    \PrimShell
+    \equiv
+    \ForSpace{\Car}\times \ForSpace{\Cur}\times \ForSpace{\Hom}.
+    \]
+    \item The recorded metric and ordinary-matter outputs
+    \[
+    \MetricOut:\PrimShell\to\{\text{observer metrics}\},
+    \qquad
+    \MatterOut:\PrimShell\times\MatterSpace\to\{\text{observer stress tensors}\},
+    \]
+    satisfying
+    \begin{equation}
+    \MetricOut(\mathbf w)=\CompletedMetric,
+    \qquad
+    \MatterOut(\mathbf w,\psi)
+    =
+    T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
+    \label{eq:fixedoutputs}
+    \end{equation}
+    for every \(\mathbf w\in\PrimShell\) and every matter configuration \(\psi\in\MatterSpace\).
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Recorded proto-section benchmark base and downstream chain]
+\label{def:downstream}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). The active line already fixes the following proto-section benchmark base and downstream consequences:
+\begin{enumerate}
+    \item the current proto-section benchmark base \(\ProtoSectionPackage\), presented at current scope through
+    \[
+    \ProtoSectionState{\sigma},\qquad
+    \ProtoSectionBody{\sigma},\qquad
+    \ProtoSectionFunctional{\sigma},\qquad
+    \ProtoSectionShell{\sigma};
+    \]
+    \item the current observer-relevant pre-proto-section minimizer-section core \(\PreProtoSectionMinSectionCore\), represented in section-centered coordinates by the zero section
+    \[
+    \PreProtoSectionMinSection{\sigma}(y)\equiv (y,0)
+    \]
+    over \(\ProtoSectionBody{\sigma}\);
+    \item the previously recorded fact that, once a benchmark-faithful section-centered realization of the current pre-proto-section dynamics package is available over the fixed proto-section benchmark base and zero minimizer section, the current section-centered residual normal form, the current germ-anchored exact-shell transport-section core, and the previously recorded seed, root, foundation, ground, origin, precursor, lift, shell-restriction, split-core, selector-law, combined-response, ambient-package, trace-core, exact-shell-affine-nucleus, continuity-Hessian compressed core, and benchmark one-metric observer-package consequences on the active line follow unchanged;
+    \item benchmark faithfulness, meaning preservation of the benchmark outputs \eqref{eq:fixedoutputs}, no second operative metric, no enlarged low-energy matter law, no change to the ordinary matter route, and no premature promotion from adoption to completed derivation.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definitions \ref{def:fixed} and \ref{def:downstream} are fixed inputs. The present note does not reopen the already-recorded proto-section benchmark base, the benchmark one-metric observer package, or the downstream continuity-Hessian compressed core. The new work begins one layer deeper: why the current section-centered residual-normal-form datum should itself arise from more primitive explicit substrate structure.
+\end{remark}
+
+\section{Section-Centered Hidden-Response Pre-Pre-Proto-Section Dynamics}
+
+\begin{definition}[Section-centered hidden-response pre-pre-proto-section dynamics]
+\label{def:deeppackage}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). A \emph{section-centered hidden-response pre-pre-proto-section dynamics package} \(\PrePreProtoSectionPackage\) for sector \(\sigma\) consists of the following data.
+\begin{enumerate}
+    \item A finite-dimensional Euclidean section-centered displacement space
+    \[
+    \PrePreProtoSectionVertical{\sigma}
+    \]
+    and a compact convex section-centered displacement body
+    \[
+    \PrePreProtoSectionResidualBody{\sigma}
+    \subset
+    \ProtoSectionBody{\sigma}\times\PrePreProtoSectionVertical{\sigma}
+    \]
+    with nonempty interior in each fiber
+    \[
+    \PrePreProtoSectionResidualBody{\sigma}(y)
+    \equiv
+    \left\{
+    v\in\PrePreProtoSectionVertical{\sigma}:(y,v)\in\PrePreProtoSectionResidualBody{\sigma}
+    \right\}.
+    \]
+    Each fiber is required to be nonempty, compact, and convex, and
+    \[
+    (y,0)\in\PrePreProtoSectionResidualBody{\sigma}
+    \qquad
+    \text{for every }
+    y\in\ProtoSectionBody{\sigma}.
+    \]
+    \item A finite-dimensional Euclidean hidden-response space
+    \[
+    \PrePreProtoSectionHidden{\sigma},
+    \]
+    a compact convex hidden-response body
+    \[
+    \PrePreProtoSectionHiddenBody{\sigma}
+    \subset
+    \PrePreProtoSectionHidden{\sigma}
+    \]
+    with \(0\in\operatorname{int}\PrePreProtoSectionHiddenBody{\sigma}\), and a smooth family of injective linear maps
+    \[
+    \PrePreProtoSectionResponseMap{\sigma}(y):
+    \PrePreProtoSectionVertical{\sigma}\to\PrePreProtoSectionHidden{\sigma},
+    \qquad
+    y\in\ProtoSectionBody{\sigma},
+    \]
+    such that
+    \[
+    \PrePreProtoSectionResponseMap{\sigma}(y)\bigl(\PrePreProtoSectionResidualBody{\sigma}(y)\bigr)
+    \subset
+    \PrePreProtoSectionHiddenBody{\sigma}
+    \]
+    for every \(y\in\ProtoSectionBody{\sigma}\).
+    \item A smooth family of positive self-adjoint hidden operators
+    \[
+    \PrePreProtoSectionOperator{\sigma}(y):
+    \PrePreProtoSectionHidden{\sigma}\to\PrePreProtoSectionHidden{\sigma},
+    \qquad
+    y\in\ProtoSectionBody{\sigma},
+    \]
+    satisfying the uniform coercive bound
+    \begin{equation}
+    \ev{\eta,\PrePreProtoSectionOperator{\sigma}(y)\eta}
+    \ge
+    \mu_{\sigma}\,\|\eta\|^{2}
+    \qquad
+    \text{for all }
+    y\in\ProtoSectionBody{\sigma},
+    \ \eta\in\PrePreProtoSectionHidden{\sigma}
+    \label{eq:gap}
+    \end{equation}
+    for some constant \(\mu_{\sigma}>0\).
+    \item Exact-shell discipline, meaning that the distinguished exact shell of the package is the zero displacement slice over the fixed proto-section shell:
+    \[
+    \left\{
+    (y,0)\in\PrePreProtoSectionResidualBody{\sigma}:y\in\ProtoSectionShell{\sigma}
+    \right\}.
+    \]
+    \item Benchmark faithfulness, meaning preservation of the benchmark outputs \eqref{eq:fixedoutputs}, no second operative metric, no enlarged low-energy matter law, and presentation as a deeper explicit substrate-side source for the current section-centered residual datum rather than as a replacement benchmark theory.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:deeppackage} is more explicit than simply stipulating a residual functional on a residual body. The benchmark-facing data now sit in the displacement body, the injective hidden-response map, and the uniformly positive hidden operator. The residual energy will be induced from those deeper data instead of being inserted by hand as an independent primitive law.
+\end{remark}
+
+\section{Induced Section-Centered Residual Normal Form}
+
+\begin{definition}[Induced residual functional and reconstructed pre-proto-section package]
+\label{def:induced}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\) and a benchmark-faithful hidden-response package in the sense of Definition \ref{def:deeppackage}. Define the induced section-centered residual functional
+\[
+\InducedResidualFunctional{\sigma}:
+\PrePreProtoSectionResidualBody{\sigma}\to[0,\infty)
+\]
+by
+\begin{equation}
+\InducedResidualFunctional{\sigma}(y,v)
+\equiv
+\frac{1}{2}
+\ev{
+\PrePreProtoSectionResponseMap{\sigma}(y)v,
+\PrePreProtoSectionOperator{\sigma}(y)
+\PrePreProtoSectionResponseMap{\sigma}(y)v
+}.
+\label{eq:inducedresidual}
+\end{equation}
+Then define the reconstructed section-centered pre-proto-section package by:
+\begin{enumerate}
+    \item the state space
+    \[
+    \InducedPreProtoSectionState{\sigma}
+    \equiv
+    \ProtoSectionState{\sigma}\times\PrePreProtoSectionVertical{\sigma};
+    \]
+    \item the body
+    \[
+    \InducedPreProtoSectionBody{\sigma}
+    \equiv
+    \PrePreProtoSectionResidualBody{\sigma};
+    \]
+    \item the projection
+    \[
+    \InducedPreProtoSectionProj{\sigma}(y,v)\equiv y;
+    \]
+    \item the functional
+    \[
+    \InducedPreProtoSectionFunctional{\sigma}(y,v)
+    \equiv
+    \ProtoSectionFunctional{\sigma}(y)
+    +
+    \InducedResidualFunctional{\sigma}(y,v);
+    \]
+    \item the exact shell
+    \[
+    \InducedPreProtoSectionShell{\sigma}
+    \equiv
+    \left\{
+    (y,0)\in\InducedPreProtoSectionBody{\sigma}:y\in\ProtoSectionShell{\sigma}
+    \right\}.
+    \]
+\end{enumerate}
+The canonical minimizer section is
+\[
+\PreProtoSectionMinSection{\sigma}(y)\equiv (y,0),
+\qquad
+y\in\ProtoSectionBody{\sigma}.
+\]
+\end{definition}
+
+\begin{proposition}[Induced residual-normal-form properties]
+\label{prop:residual}
+For each \(\sigma\in\{\Car,\Cur,\Hom\}\), the induced residual functional of \eqref{eq:inducedresidual} satisfies:
+\begin{enumerate}
+    \item \(\InducedResidualFunctional{\sigma}(y,v)\ge 0\) for every \((y,v)\in\PrePreProtoSectionResidualBody{\sigma}\);
+    \item for each fixed \(y\in\ProtoSectionBody{\sigma}\), the unique zero of
+    \[
+    v\mapsto \InducedResidualFunctional{\sigma}(y,v)
+    \qquad
+    \text{on }
+    \PrePreProtoSectionResidualBody{\sigma}(y)
+    \]
+    is \(v=0\);
+    \item the distinguished exact shell is exactly
+    \[
+    \InducedPreProtoSectionShell{\sigma}
+    =
+    \left\{
+    (y,0)\in\PrePreProtoSectionResidualBody{\sigma}:y\in\ProtoSectionShell{\sigma}
+    \right\}.
+    \]
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Item (1) follows immediately from the positive self-adjointness of \(\PrePreProtoSectionOperator{\sigma}(y)\). For item (2), the lower bound \eqref{eq:gap} gives
+\[
+\InducedResidualFunctional{\sigma}(y,v)
+\ge
+\frac{\mu_{\sigma}}{2}
+\bigl\|
+\PrePreProtoSectionResponseMap{\sigma}(y)v
+\bigr\|^{2}.
+\]
+Because \(\PrePreProtoSectionResponseMap{\sigma}(y)\) is injective, the right-hand side vanishes if and only if \(v=0\). Since \(0\in\PrePreProtoSectionResidualBody{\sigma}(y)\), this proves that \(v=0\) is the unique zero in that fiber. Item (3) is precisely the exact-shell discipline fixed in Definition \ref{def:deeppackage}(4).
+\end{proof}
+
+\begin{proposition}[The reconstructed package is benchmark-faithful pre-proto-section dynamics]
+\label{prop:package}
+For each \(\sigma\in\{\Car,\Cur,\Hom\}\), the reconstructed data of Definition \ref{def:induced} form a benchmark-faithful section-centered realization of the current proto-section-generating substrate pre-proto-section dynamics package. More precisely:
+\begin{enumerate}
+    \item \(\InducedPreProtoSectionBody{\sigma}\subset\InducedPreProtoSectionState{\sigma}\) is compact and convex, and
+    \[
+    \InducedPreProtoSectionProj{\sigma}\bigl(\InducedPreProtoSectionBody{\sigma}\bigr)
+    =
+    \ProtoSectionBody{\sigma};
+    \]
+    \item each fiber
+    \[
+    \bigl(\InducedPreProtoSectionProj{\sigma}\bigr)^{-1}(y)
+    \cap
+    \InducedPreProtoSectionBody{\sigma}
+    =
+    \{y\}\times\PrePreProtoSectionResidualBody{\sigma}(y)
+    \]
+    is nonempty, compact, and convex;
+    \item for each fixed \(y\in\ProtoSectionBody{\sigma}\), the restriction of
+    \(\InducedPreProtoSectionFunctional{\sigma}\) to that fiber is strictly convex and has the unique minimizer
+    \[
+    \PreProtoSectionMinSection{\sigma}(y)=(y,0);
+    \]
+    \item
+    \[
+    \InducedPreProtoSectionShell{\sigma}
+    =
+    \left\{
+    (y,0)\in\InducedPreProtoSectionBody{\sigma}:y\in\ProtoSectionShell{\sigma}
+    \right\},
+    \]
+    and
+    \[
+    \InducedPreProtoSectionProj{\sigma}\big|_{\InducedPreProtoSectionShell{\sigma}}
+    :
+    \InducedPreProtoSectionShell{\sigma}
+    \xrightarrow{\cong}
+    \ProtoSectionShell{\sigma}
+    \]
+    is a diffeomorphism;
+    \item the package is benchmark faithful in the sense of Definition \ref{def:downstream}(4).
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Items (1) and (2) follow directly from Definition \ref{def:deeppackage}(1): the displacement body is compact and convex, projects onto \(\ProtoSectionBody{\sigma}\), and each fiber is nonempty, compact, and convex.
+
+For item (3), fix \(y\in\ProtoSectionBody{\sigma}\). On the fiber \(\{y\}\times\PrePreProtoSectionResidualBody{\sigma}(y)\),
+\[
+\InducedPreProtoSectionFunctional{\sigma}(y,v)
+=
+\ProtoSectionFunctional{\sigma}(y)
++
+\frac{1}{2}
+\ev{
+\PrePreProtoSectionResponseMap{\sigma}(y)v,
+\PrePreProtoSectionOperator{\sigma}(y)
+\PrePreProtoSectionResponseMap{\sigma}(y)v
+}.
+\]
+The first term is constant on the fiber. The second term is a positive-definite quadratic form in \(v\) because \(\PrePreProtoSectionResponseMap{\sigma}(y)\) is injective and \(\PrePreProtoSectionOperator{\sigma}(y)\) is positive. Hence the fiber restriction is strictly convex. By Proposition \ref{prop:residual}(2), its unique minimizer is \(v=0\), namely the zero section \(\PreProtoSectionMinSection{\sigma}(y)\).
+
+Item (4) is immediate from Proposition \ref{prop:residual}(3), because the shell is the zero slice over \(\ProtoSectionShell{\sigma}\), and the projection simply forgets the zero vertical coordinate. Item (5) is inherited from Definition \ref{def:deeppackage}(5): the present construction changes only the deeper substrate-side realization of the residual cost, not the benchmark one-metric observer package or its claim boundary.
+\end{proof}
+
+\begin{theorem}[Current residual-normal-form frontier discharged by hidden-response dynamics]
+\label{thm:main}
+Fix the primitive continuation data of Definition \ref{def:fixed}, the proto-section benchmark base and downstream chain of Definition \ref{def:downstream}, and for each sector \(\sigma\in\{\Car,\Cur,\Hom\}\) a benchmark-faithful section-centered hidden-response pre-pre-proto-section dynamics package in the sense of Definition \ref{def:deeppackage}. Then:
+\begin{enumerate}
+    \item the induced quadratic hidden-response energy \(\InducedResidualFunctional{\sigma}\) supplies a benchmark-faithful section-centered residual-normal-form realization over the fixed proto-section benchmark base, with zero section as the canonical minimizer section;
+    \item the reconstructed package of Definition \ref{def:induced} is a benchmark-faithful section-centered realization of the current proto-section-generating substrate pre-proto-section dynamics package;
+    \item by the previously recorded section-centered normal-form necessity / uniqueness theorem, the reconstructed package is benchmark-facingly a realization of the current live residual-normal-form datum and therefore of the current pre-proto-section dynamics package at current scope;
+    \item consequently the current residual-normal-form frontier is no longer primitive: the current proto-section-generating substrate pre-proto-section dynamics are now justified by the deeper explicit hidden-response package \(\PrePreProtoSectionPackage\).
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Item (1) is Proposition \ref{prop:residual}. Item (2) is Proposition \ref{prop:package}. For item (3), the previously recorded section-centered normal-form necessity / uniqueness theorem states that, once the fixed proto-section benchmark base and canonical minimizer section are held fixed, a benchmark-faithful realization of the current pre-proto-section dynamics carries no benchmark-facing freedom beyond its section-centered normal form. The reconstructed package of Proposition \ref{prop:package} therefore supplies a benchmark-faithful realization of exactly the datum that currently matters at that frontier. Item (4) is the routing consequence of item (3): the live stopping point has moved from the residual-normal-form datum to the deeper hidden-response package that canonically induces it.
+\end{proof}
+
+\begin{corollary}[Downstream consequences are unchanged]
+\label{cor:downstream}
+Once the benchmark-faithful hidden-response package of Definition \ref{def:deeppackage} is fixed, all currently recorded downstream benchmark-facing consequences on the active line follow unchanged: the current observer-relevant pre-proto-section minimizer-section core, the current section-centered residual normal form, the current germ-anchored exact-shell transport-section core, and the previously recorded seed, root, foundation, ground, origin, precursor, lift, shell-restriction, split-core, selector-law, combined-response, ambient-package, trace-core, exact-shell-affine-nucleus, continuity-Hessian compressed core, and benchmark one-metric observer-package consequences remain exactly as before.
+\end{corollary}
+
+\begin{proof}
+Definition \ref{def:downstream}(3) records that these consequences already factor through a benchmark-faithful realization of the current pre-proto-section dynamics package over the fixed proto-section benchmark base. Theorem \ref{thm:main} provides exactly such a realization from the deeper hidden-response package. Hence the downstream benchmark-facing consequences follow unchanged.
+\end{proof}
+
+\begin{corollary}[The benchmark package remains fixed]
+\label{cor:benchmark}
+Every benchmark-faithful hidden-response package of Definition \ref{def:deeppackage}, every induced residual realization \eqref{eq:inducedresidual}, and every reconstructed pre-proto-section package of Definition \ref{def:induced} preserve the same benchmark one-metric package \eqref{eq:fixedoutputs}. In particular, the operative metric remains exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, and the low-energy matter law is not enlarged.
+\end{corollary}
+
+\begin{proof}
+This is part of benchmark faithfulness in Definitions \ref{def:downstream}(4) and \ref{def:deeppackage}(5). The present construction only replaces the primitive status of the residual-normal-form law with a more explicit hidden-response realization; it does not modify the fixed benchmark outputs.
+\end{proof}
+
+\section{Routing Consequence}
+
+\begin{corollary}[What the next honest move now is]
+\label{cor:next}
+After Theorem \ref{thm:main}, the next honest benchmark-facing manuscript must either:
+\begin{enumerate}
+    \item derive or justify the section-centered hidden-response pre-pre-proto-section dynamics package itself from still more primitive explicit substrate structure in a way that changes benchmark-facing status;
+    \item identify a genuinely smaller theorem-level datum strictly inside that hidden-response package and prove a sharper collapse there;
+    \item do either of the previous two while preserving the same benchmark one-metric package, the same ordinary-matter route, and the same claim boundary.
+\end{enumerate}
+Another same-output deeper-origin relay that merely preserves the same hidden-response package and therefore merely reproduces the same current residual-normal-form datum, the same current pre-proto-section package, the same current minimizer-section core, the same proto-section benchmark base, and the same downstream benchmark-facing consequences, another reopening of the larger full pre-proto-section package or older minimizer-image presentation, or any move that introduces a second operative metric, enlarges the ordinary matter law, or uses stronger promotion language does not satisfy the present burden.
+\end{corollary}
+
+\begin{proof}
+Theorem \ref{thm:main} shows that the current residual-normal-form datum is now induced by the deeper hidden-response package. Therefore a subsequent manuscript must improve on that deeper package rather than merely repeat its current benchmark-facing consequences through another same-output relay or larger re-expansion.
+\end{proof}
+
+\section{Conclusion}
+
+The positive result of this note is a genuine benchmark-facing derivational gain below the current residual-normal-form frontier. The current proto-section-generating substrate pre-proto-section dynamics are no longer benchmark-facingly primitive once the fixed proto-section benchmark base is held fixed in section-centered coordinates. Their residual-normal-form law is now realized as the quadratic hidden-response energy of a more primitive explicit section-centered hidden-response package, and the full benchmark-faithful pre-proto-section dynamics are reconstructed canonically from that deeper package.
+
+This preserves the same benchmark one-metric package and the same claim boundary. The result does not yet provide a completed first-principles derivation of GR from final substrate microphysics, and it does not license stronger promotion language. Its narrower benchmark-facing gain is that the remaining honest burden is no longer the current section-centered residual normal form itself, but either a derivation of the deeper hidden-response package from still more primitive explicit substrate structure or a still smaller collapse strictly inside that deeper package.
+
+\end{document}

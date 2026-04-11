@@ -179,7 +179,7 @@ At the current audit:
 
 - the benchmark exact-closure package is the front door
 - the benchmark-gatekeeping layer must be consulted before any main-line claim
-- the current file map carries a single `active_primary` row at `primitive_reduction_current_pre_proto_section_minimizer_section_core_frontier`, anchored on the theorem collapsing the observer-relevant pre-proto-section minimizer-image core to the smaller pre-proto-section minimizer-section core rather than on another same-output pre-proto-section relay, another replay of the larger minimizer-image presentation, or a reopening of older seed/root/foundation layers
+- the current file map carries a single `active_primary` row at `primitive_reduction_current_pre_proto_section_hidden_response_frontier`, anchored on the theorem deriving the current pre-proto-section section-centered residual-normal-form datum from a deeper explicit section-centered hidden-response package rather than on another same-output residual-normal-form relay another replay of the larger pre-proto-section presentations or a reopening of older seed root foundation layers
 - benchmark-facing status after the post-bridge routing correction is governed by the derivation-gates note, the post-bridge status note, the upstream compression theorem, and the current frontier control layer; later same-output relays should be treated conservatively unless they derive, uniquely force, or further compress the bridge object that yields the benchmark one-metric observer package
 - the same-package exact-preservation line is preserved as supporting or historical routing context
 - screened higher-derivative branches remain screened
