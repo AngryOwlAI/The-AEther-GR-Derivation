@@ -1,0 +1,688 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+
+\newcommand{\CompletedMetric}{g^{\sharp}}
+\newcommand{\MatterSpace}{\Psi}
+
+\newcommand{\Car}{\mathrm{car}}
+\newcommand{\Cur}{\mathrm{cur}}
+\newcommand{\Hom}{\mathrm{hom}}
+
+\newcommand{\ForSpace}[1]{\mathcal I_{#1}^{\mathrm{for}}}
+\newcommand{\PrimShell}{\mathcal S_{\mathrm{prim}}}
+\newcommand{\Reduction}[1]{\mathcal R_{#1}}
+\newcommand{\CurrentCarrier}[1]{\mathfrak C_{#1}^{\mathrm{cur}}}
+\newcommand{\EqCarrier}[1]{\mathfrak C_{#1}^{\mathrm{eq}}}
+\newcommand{\MetricOut}{\mathscr G_{\mathrm{out}}}
+\newcommand{\MatterOut}{\mathscr T_{\mathrm{out}}}
+
+\newcommand{\SubTarget}[1]{E_{#1}^{\mathrm{sub}}}
+\newcommand{\EqnTarget}[1]{Q_{#1}^{\mathrm{eqn}}}
+\newcommand{\HiddenSpace}[1]{\mathcal H_{#1}^{\mathrm{hid}}}
+\newcommand{\HiddenBody}[1]{D_{#1}^{\mathrm{hid}}}
+
+\newcommand{\SeedState}[1]{\mathcal S_{#1}^{\mathrm{seed}}}
+\newcommand{\SeedBody}[1]{\mathcal B_{#1}^{\mathrm{seed}}}
+\newcommand{\SeedShell}[1]{\mathcal Z_{#1}^{\mathrm{seed}}}
+\newcommand{\SeedSupportShell}[1]{\mathcal U_{#1}^{\mathrm{seed,sup}}}
+\newcommand{\SeedZeroCore}[1]{\mathcal Z_{#1}^{0,\mathrm{seed}}}
+\newcommand{\SeedSplit}[1]{\Phi_{#1}^{\mathrm{seed}}}
+\newcommand{\SeedCharge}[1]{\mathcal Q_{#1}^{\mathrm{seed}}}
+\newcommand{\SeedEmbed}[1]{\zeta_{#1}^{\mathrm{seed}}}
+\newcommand{\SeedKernel}[1]{\widetilde K_{#1}^{0,\mathrm{seed}}}
+\newcommand{\SeedCoercive}[1]{P_{#1}^{\mathrm{seed,co}}}
+
+\newcommand{\GermNucleus}{\mathfrak G^{\mathrm{sub,germ,zstn}}}
+\newcommand{\GermState}[1]{\mathcal G_{#1}^{\mathrm{germ}}}
+\newcommand{\GermBody}[1]{\mathcal B_{#1}^{\mathrm{germ}}}
+\newcommand{\GermProj}[1]{\Pi_{#1}^{\mathrm{germ}}}
+\newcommand{\GermSeedSec}[1]{\sigma_{#1}^{\mathrm{germ\leftarrow seed}}}
+\newcommand{\GermSection}[1]{\Gamma_{#1}^{\mathrm{germ}}}
+\newcommand{\GermShell}[1]{\mathcal Z_{#1}^{\mathrm{germ}}}
+
+\newcommand{\ProtoTransportCore}{\mathfrak P^{\mathrm{sub,proto,xtc}}}
+\newcommand{\ProtoSectionCore}{\mathfrak P^{\mathrm{sub,proto,sec}}}
+\newcommand{\ProtoState}[1]{\mathcal P_{#1}^{\mathrm{proto}}}
+\newcommand{\ProtoBody}[1]{\mathcal B_{#1}^{\mathrm{proto}}}
+\newcommand{\ProtoProj}[1]{\Pi_{#1}^{\mathrm{proto}}}
+\newcommand{\ProtoSection}[1]{\Gamma_{#1}^{\mathrm{proto}}}
+\newcommand{\ProtoShell}[1]{\mathcal Z_{#1}^{\mathrm{proto}}}
+\newcommand{\ProtoTransportSec}[1]{\mathfrak s_{#1}^{\mathrm{proto,sec}}}
+
+\newcommand{\ProtoSectionPackage}{\mathfrak Q^{\mathrm{sub,proto,secgen}}}
+\newcommand{\ProtoSectionState}[1]{\mathcal Q_{#1}^{\mathrm{psec}}}
+\newcommand{\ProtoSectionBody}[1]{\mathcal B_{#1}^{\mathrm{psec}}}
+\newcommand{\ProtoSectionProj}[1]{\Pi_{#1}^{\mathrm{psec}}}
+\newcommand{\ProtoSectionFiber}[2]{\mathcal F_{#1}^{\mathrm{psec}}(#2)}
+\newcommand{\ProtoSectionFunctional}[1]{\mathscr E_{#1}^{\mathrm{psec}}}
+\newcommand{\ProtoSectionShell}[1]{\mathcal Z_{#1}^{\mathrm{psec}}}
+\newcommand{\ProtoSectionMin}[1]{\mathfrak m_{#1}^{\mathrm{psec}}}
+\newcommand{\InducedTransportSec}[1]{\widehat{\mathfrak s}_{#1}^{\mathrm{proto,sec}}}
+
+\newcommand{\PreProtoSectionPackage}{\mathfrak R^{\mathrm{sub,proto,presec}}}
+\newcommand{\PreProtoSectionState}[1]{\mathcal R_{#1}^{\mathrm{ppsec}}}
+\newcommand{\PreProtoSectionBody}[1]{\mathcal B_{#1}^{\mathrm{ppsec}}}
+\newcommand{\PreProtoSectionProj}[1]{\Pi_{#1}^{\mathrm{ppsec}}}
+\newcommand{\PreProtoSectionFiber}[2]{\mathcal F_{#1}^{\mathrm{ppsec}}(#2)}
+\newcommand{\PreProtoSectionProtoMin}[1]{\mathfrak n_{#1}^{\mathrm{ppsec}}}
+\newcommand{\PreProtoSectionFunctional}[1]{\mathscr F_{#1}^{\mathrm{ppsec}}}
+\newcommand{\PreProtoSectionShell}[1]{\mathcal Z_{#1}^{\mathrm{ppsec}}}
+
+\newcommand{\PreProtoSectionImageCore}{\mathfrak R^{\mathrm{sub,proto,presec,img}}}
+\newcommand{\PreProtoSectionImgBody}[1]{\mathcal B_{#1}^{\mathrm{ppsec,img}}}
+\newcommand{\PreProtoSectionImgProj}[1]{\Pi_{#1}^{\mathrm{ppsec,img}}}
+\newcommand{\PreProtoSectionImgFunctional}[1]{\mathscr J_{#1}^{\mathrm{ppsec,img}}}
+\newcommand{\PreProtoSectionImgShell}[1]{\mathcal Z_{#1}^{\mathrm{ppsec,img}}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Primitive-Reservoir Observer-Reduction\\
+\large Proto-Section-Generating Substrate Pre-Proto-Section Dynamics\\
+\large Collapse to an Observer-Relevant\\
+\large Pre-Proto-Section Minimizer-Image Core}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The current primitive-reservoir observer-reduction frontier already moved the live burden below the exact-shell-transport-section-generating substrate proto-section dynamics package \(\ProtoSectionPackage\): the active-primary theorem showed that the current proto-section package is canonically generated by a deeper proto-section-generating substrate pre-proto-section dynamics package \(\PreProtoSectionPackage\). Under the recorded safeguard against recursive same-output depth drift, however, the honest next move is no longer another deeper relay that merely preserves that same pre-proto-section package. The sharper benchmark-facing question is whether the full recorded pre-proto-section package still carries benchmark-neutral ambient freedom once the induced proto-section package is held fixed.
+
+The present note proves that it does. It isolates the \emph{observer-relevant pre-proto-section minimizer-image core}: the minimizer-image compact body over the recorded proto-section body, the restricted projection back to that body, the restricted pre-proto-section functional on that image, the exact-shell image of the recorded proto-section shell, and benchmark faithfulness. The full exact pre-proto-section shell is then shown to be forced by that image core, and ambient pre-proto-section state-space directions outside the minimizer image do not add independent benchmark-facing freedom once the induced proto-section package is held fixed.
+
+The benchmark boundary remains fixed throughout. The one operative metric is still exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, the low-energy matter law is not enlarged, and no stronger promotion language is licensed. The positive result is therefore a genuine smaller theorem-level collapse strictly inside the current pre-proto-section frontier: the live burden contracts from the full pre-proto-section package \(\PreProtoSectionPackage\) to the smaller observer-relevant pre-proto-section minimizer-image core \(\PreProtoSectionImageCore\). What remains open is to derive or justify that smaller image core from still more primitive substrate structure, or else prove a still sharper collapse strictly inside it.
+\end{abstract}
+
+\section{Introduction}
+
+The active derivational program of \TheoryName{} has again reached a sharper burden than another same-output deeper relay. The current active-primary theorem already removed the exact-shell-transport-section-generating substrate proto-section dynamics package \(\ProtoSectionPackage\) as the live primitive stopping point by showing that, once a benchmark-faithful pre-proto-section package \(\PreProtoSectionPackage\) is fixed, the recorded proto-section body, functional, and exact shell are its canonical fiberwise effective output. That theorem matters precisely because it blocks a familiar form of recursive depth drift: depth alone no longer counts once the live benchmark-relevant package datum is unchanged.
+
+The next honest move is therefore not to relay the same pre-proto-section package through another deeper origin while preserving that package and its same downstream outputs. It is to ask whether the present pre-proto-section package itself still contains benchmark-neutral ambient freedom that can be removed without changing the induced proto-section package or the downstream chain depending on it. The present note takes that sharper internal-collapse route. It shows that the full ambient pre-proto-section state space and off-image body directions are not independently live once one retains only the minimizer image over the recorded proto-section body together with the restricted functional and exact-shell image it already determines.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not introduce a second operative metric, it does not enlarge the low-energy matter law, and it does not reopen the already-generated proto-section package, the already-generated section core, or older seed, root, foundation, ground, origin, precursor, lift, shell-restriction, selector-law, combined-response, ambient-package, trace-core, or exact-shell-affine-nucleus layers as if they were again the live burden. Its narrower benchmark-facing role is to isolate the smaller current datum inside the pre-proto-section package itself.
+
+\section{Fixed Inputs}
+
+\begin{definition}[Recorded primitive continuation data]
+\label{def:fixed}
+Fix the following continuation data from the active primitive-reservoir observer-reduction line.
+\begin{enumerate}
+    \item For each sector label \(\sigma\in\{\Car,\Cur,\Hom\}\), a primitive forcing shell
+    \[
+    \ForSpace{\sigma},
+    \]
+    a visible reduction map
+    \[
+    \Reduction{\sigma}:\ForSpace{\sigma}\to X_{\sigma},
+    \]
+    and shell-level current and equilibrium carriers
+    \[
+    \CurrentCarrier{\sigma}:\ForSpace{\sigma}\to Z_{\sigma}^{\mathrm{cur}},
+    \qquad
+    \EqCarrier{\sigma}:\ForSpace{\sigma}\to Z_{\sigma}^{\mathrm{eq}}.
+    \]
+    \item The product shell
+    \[
+    \PrimShell
+    \equiv
+    \ForSpace{\Car}\times \ForSpace{\Cur}\times \ForSpace{\Hom}.
+    \]
+    \item The recorded metric and ordinary-matter outputs
+    \[
+    \MetricOut:\PrimShell\to\{\text{observer metrics}\},
+    \qquad
+    \MatterOut:\PrimShell\times\MatterSpace\to\{\text{observer stress tensors}\},
+    \]
+    satisfying
+    \begin{equation}
+    \MetricOut(\mathbf w)=\CompletedMetric,
+    \qquad
+    \MatterOut(\mathbf w,\psi)
+    =
+    T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
+    \label{eq:fixedoutputs}
+    \end{equation}
+    for every \(\mathbf w\in\PrimShell\) and every matter configuration \(\psi\in\MatterSpace\).
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Recorded downstream seed package]
+\label{def:seed}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). The active line already fixes the downstream seed package at current benchmark-facing scope:
+\begin{enumerate}
+    \item a finite-dimensional seed state space \(\SeedState{\sigma}\), a compact convex seed body \(\SeedBody{\sigma}\subset\SeedState{\sigma}\), the exact seed shell \(\SeedShell{\sigma}\subset\SeedBody{\sigma}\), and the exact seed support shell \(\SeedSupportShell{\sigma}\subset\SeedShell{\sigma}\);
+    \item a seed zero core \(\SeedZeroCore{\sigma}\subset\SeedSupportShell{\sigma}\), the same hidden fiber space \(\HiddenSpace{\sigma}\) with compact hidden body \(\HiddenBody{\sigma}\subset\HiddenSpace{\sigma}\), and the fixed seed split
+    \[
+    \SeedSplit{\sigma}:
+    \SeedZeroCore{\sigma}\times\HiddenBody{\sigma}
+    \xrightarrow{\cong}
+    \SeedSupportShell{\sigma};
+    \]
+    \item the seed hidden charge
+    \[
+    \SeedCharge{\sigma}:\HiddenSpace{\sigma}\to\EqnTarget{\sigma},
+    \]
+    a smooth observer-compatible exact seed zero-response realization
+    \[
+    \SeedEmbed{\sigma}:\ForSpace{\sigma}\hookrightarrow\SeedZeroCore{\sigma},
+    \]
+    and the fixed-data solvability / coercive package recorded through \(\SeedKernel{\sigma}\) and \(\SeedCoercive{\sigma}\);
+    \item benchmark faithfulness, meaning preservation of the benchmark outputs \eqref{eq:fixedoutputs}, no second operative metric, no enlarged low-energy matter law, no change to the ordinary matter route, and no premature promotion from adoption to completed derivation.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Recorded current minimal germ zero-shell transport nucleus]
+\label{def:nucleus}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). The recorded current minimal germ zero-shell transport nucleus \(\GermNucleus\) for sector \(\sigma\) consists of:
+\begin{enumerate}
+    \item the germ state space \(\GermState{\sigma}\), compact convex germ body \(\GermBody{\sigma}\subset\GermState{\sigma}\), projection
+    \[
+    \GermProj{\sigma}:\GermState{\sigma}\to\SeedState{\sigma},
+    \]
+    and seed section
+    \[
+    \GermSeedSec{\sigma}:\SeedBody{\sigma}\to\GermBody{\sigma}
+    \]
+    satisfying
+    \[
+    \GermProj{\sigma}\bigl(\GermBody{\sigma}\bigr)=\SeedBody{\sigma},
+    \qquad
+    \GermProj{\sigma}\circ\GermSeedSec{\sigma}
+    =
+    \mathrm{id}_{\SeedBody{\sigma}};
+    \]
+    \item the restriction section
+    \[
+    \GermSection{\sigma}:\GermState{\sigma}\to\SubTarget{\sigma},
+    \]
+    and the exact germ shell
+    \[
+    \GermShell{\sigma}
+    \equiv
+    \bigl(\GermSection{\sigma}\bigr)^{-1}(0)\cap\GermBody{\sigma},
+    \]
+    with
+    \[
+    \GermProj{\sigma}\big|_{\GermShell{\sigma}}
+    :
+    \GermShell{\sigma}
+    \xrightarrow{\cong}
+    \SeedShell{\sigma};
+    \]
+    \item benchmark faithfulness, meaning preservation of the benchmark outputs \eqref{eq:fixedoutputs}, no second operative metric, no enlarged low-energy matter law, no change to the ordinary matter route, and no premature promotion from adoption to completed derivation.
+\end{enumerate}
+By the already-recorded current frontier theorem, the support shell, zero core, hidden split, hidden charge, exact zero-response realization, and fixed-data solvability / coercive package are then canonically induced downstream from this nucleus together with the fixed seed package of Definition \ref{def:seed}, rather than taken as additional independent benchmark-facing data.
+\end{definition}
+
+\begin{definition}[Recorded current germ-anchored exact-shell transport core]
+\label{def:core}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). The recorded current germ-anchored exact-shell transport core \(\ProtoTransportCore\) for sector \(\sigma\) consists of:
+\begin{enumerate}
+    \item the proto-germ state space \(\ProtoState{\sigma}\), compact convex proto-germ body \(\ProtoBody{\sigma}\subset\ProtoState{\sigma}\), and affine surjection
+    \[
+    \ProtoProj{\sigma}:\ProtoState{\sigma}\to\GermState{\sigma}
+    \]
+    satisfying
+    \[
+    \ProtoProj{\sigma}\bigl(\ProtoBody{\sigma}\bigr)=\GermBody{\sigma};
+    \]
+    \item the restriction section
+    \[
+    \ProtoSection{\sigma}:\ProtoState{\sigma}\to\SubTarget{\sigma},
+    \]
+    the exact proto-germ shell
+    \[
+    \ProtoShell{\sigma}
+    \equiv
+    \bigl(\ProtoSection{\sigma}\bigr)^{-1}(0)\cap\ProtoBody{\sigma},
+    \]
+    and the exact-shell transport diffeomorphism
+    \[
+    \ProtoProj{\sigma}\big|_{\ProtoShell{\sigma}}
+    :
+    \ProtoShell{\sigma}
+    \xrightarrow{\cong}
+    \GermShell{\sigma};
+    \]
+    \item benchmark faithfulness, meaning preservation of the benchmark outputs \eqref{eq:fixedoutputs}, no second operative metric, no enlarged low-energy matter law, no change to the ordinary matter route, and no premature promotion from adoption to completed derivation.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Recorded current germ-anchored exact-shell transport-section core]
+\label{def:sectioncore}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\) and the recorded transport core of Definition \ref{def:core}. The recorded current germ-anchored exact-shell transport-section core \(\ProtoSectionCore\) for sector \(\sigma\) consists of:
+\begin{enumerate}
+    \item the canonical exact-shell transport section
+    \[
+    \ProtoTransportSec{\sigma}
+    \equiv
+    \left(
+    \ProtoProj{\sigma}\big|_{\ProtoShell{\sigma}}
+    \right)^{-1}
+    :
+    \GermShell{\sigma}\to\ProtoShell{\sigma}\subset\ProtoBody{\sigma}\subset\ProtoState{\sigma};
+    \]
+    \item benchmark faithfulness in the sense of Definition \ref{def:core}.
+\end{enumerate}
+The exact proto shell and the restricted shell projection back to \(\GermShell{\sigma}\) are understood as derived data rather than as separately primitive section-core data.
+\end{definition}
+
+\section{Recorded Frontier Package}
+
+\begin{definition}[Recorded exact-shell-transport-section-generating substrate proto-section dynamics]
+\label{def:protosection}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). The recorded exact-shell-transport-section-generating substrate proto-section dynamics package \(\ProtoSectionPackage\) for sector \(\sigma\) consists of the following data.
+\begin{enumerate}
+    \item A finite-dimensional Euclidean proto-section state space \(\ProtoSectionState{\sigma}\), a compact convex proto-section body
+    \[
+    \ProtoSectionBody{\sigma}\subset\ProtoSectionState{\sigma}
+    \]
+    with nonempty interior, and an affine surjection
+    \[
+    \ProtoSectionProj{\sigma}:\ProtoSectionState{\sigma}\to\ProtoState{\sigma}
+    \]
+    satisfying
+    \[
+    \ProtoSectionProj{\sigma}\bigl(\ProtoSectionBody{\sigma}\bigr)=\ProtoBody{\sigma}.
+    \]
+    For each \(x\in\GermBody{\sigma}\), write
+    \[
+    \ProtoSectionFiber{\sigma}{x}
+    \equiv
+    \left\{
+    y\in\ProtoSectionBody{\sigma}:
+    \ProtoProj{\sigma}\bigl(\ProtoSectionProj{\sigma}(y)\bigr)=x
+    \right\}.
+    \]
+    Each such fiber is required to be nonempty, compact, and convex.
+    \item A nonnegative smooth fiber-selection functional
+    \[
+    \ProtoSectionFunctional{\sigma}:\ProtoSectionState{\sigma}\to[0,\infty)
+    \]
+    such that, for every \(x\in\GermBody{\sigma}\), the restriction of \(\ProtoSectionFunctional{\sigma}\) to \(\ProtoSectionFiber{\sigma}{x}\) is strictly convex and attains a unique minimizer. The resulting minimizer depends smoothly on \(x\).
+    \item A closed embedded exact proto-section shell
+    \[
+    \ProtoSectionShell{\sigma}\subset\ProtoSectionBody{\sigma}
+    \]
+    satisfying
+    \[
+    \ProtoSectionShell{\sigma}
+    =
+    \left\{
+    y\in\ProtoSectionBody{\sigma}:
+    \ProtoProj{\sigma}\bigl(\ProtoSectionProj{\sigma}(y)\bigr)\in\GermShell{\sigma},
+    \;
+    \ProtoSectionFunctional{\sigma}(y)
+    =
+    \min_{z\in\ProtoSectionFiber{\sigma}{\ProtoProj{\sigma}(\ProtoSectionProj{\sigma}(y))}}
+    \ProtoSectionFunctional{\sigma}(z)
+    \right\},
+    \]
+    and
+    \[
+    \ProtoSectionProj{\sigma}\big|_{\ProtoSectionShell{\sigma}}
+    :
+    \ProtoSectionShell{\sigma}
+    \xrightarrow{\cong}
+    \ProtoShell{\sigma}
+    \]
+    is a diffeomorphism.
+    \item Benchmark faithfulness, meaning preservation of the benchmark outputs \eqref{eq:fixedoutputs}, no second operative metric, no enlarged low-energy matter law, no change to the ordinary matter route, and no premature promotion from adoption to completed derivation.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Recorded proto-section-generating substrate pre-proto-section dynamics]
+\label{def:preprotosection}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). The recorded current pre-proto-section dynamics package \(\PreProtoSectionPackage\) for sector \(\sigma\) consists of the following data.
+\begin{enumerate}
+    \item A finite-dimensional Euclidean pre-proto-section state space \(\PreProtoSectionState{\sigma}\), a compact convex pre-proto-section body
+    \[
+    \PreProtoSectionBody{\sigma}\subset\PreProtoSectionState{\sigma}
+    \]
+    with nonempty interior, and an affine surjection
+    \[
+    \PreProtoSectionProj{\sigma}:\PreProtoSectionState{\sigma}\to\ProtoSectionState{\sigma}
+    \]
+    satisfying
+    \[
+    \PreProtoSectionProj{\sigma}\bigl(\PreProtoSectionBody{\sigma}\bigr)=\ProtoSectionBody{\sigma}.
+    \]
+    For each \(y\in\ProtoSectionBody{\sigma}\), write
+    \[
+    \PreProtoSectionFiber{\sigma}{y}
+    \equiv
+    \bigl(\PreProtoSectionProj{\sigma}\bigr)^{-1}(y)\cap\PreProtoSectionBody{\sigma}.
+    \]
+    Each such fiber is required to be nonempty, compact, and convex.
+    \item A nonnegative smooth pre-proto-section functional
+    \[
+    \PreProtoSectionFunctional{\sigma}:\PreProtoSectionState{\sigma}\to[0,\infty)
+    \]
+    such that, for every \(y\in\ProtoSectionBody{\sigma}\), the restriction of \(\PreProtoSectionFunctional{\sigma}\) to \(\PreProtoSectionFiber{\sigma}{y}\) is strictly convex and attains a unique minimizer. The resulting minimizer depends smoothly on \(y\); write it as
+    \[
+    \PreProtoSectionProtoMin{\sigma}:\ProtoSectionBody{\sigma}\to\PreProtoSectionBody{\sigma}.
+    \]
+    These data satisfy
+    \[
+    \PreProtoSectionProj{\sigma}\circ\PreProtoSectionProtoMin{\sigma}
+    =
+    \mathrm{id}_{\ProtoSectionBody{\sigma}},
+    \]
+    and the effective minimum value recovers the recorded proto-section functional on the benchmark-relevant body:
+    \[
+    \ProtoSectionFunctional{\sigma}(y)
+    =
+    \PreProtoSectionFunctional{\sigma}\bigl(\PreProtoSectionProtoMin{\sigma}(y)\bigr)
+    =
+    \min_{u\in\PreProtoSectionFiber{\sigma}{y}}
+    \PreProtoSectionFunctional{\sigma}(u)
+    \qquad
+    \text{for every }
+    y\in\ProtoSectionBody{\sigma}.
+    \]
+    \item A closed embedded exact pre-proto-section shell
+    \[
+    \PreProtoSectionShell{\sigma}\subset\PreProtoSectionBody{\sigma}
+    \]
+    satisfying
+    \[
+    \PreProtoSectionShell{\sigma}
+    =
+    \left\{
+    u\in\PreProtoSectionBody{\sigma}:
+    \begin{array}{l}
+    \PreProtoSectionProj{\sigma}(u)\in\ProtoSectionShell{\sigma},\\[0.2em]
+    \PreProtoSectionFunctional{\sigma}(u)
+    =
+    \displaystyle\min_{v\in\PreProtoSectionFiber{\sigma}{\PreProtoSectionProj{\sigma}(u)}}
+    \PreProtoSectionFunctional{\sigma}(v)
+    \end{array}
+    \right\},
+    \]
+    and
+    \[
+    \PreProtoSectionProj{\sigma}\big|_{\PreProtoSectionShell{\sigma}}
+    :
+    \PreProtoSectionShell{\sigma}
+    \xrightarrow{\cong}
+    \ProtoSectionShell{\sigma}
+    \]
+    is a diffeomorphism.
+    \item Benchmark faithfulness, meaning preservation of the benchmark outputs \eqref{eq:fixedoutputs}, no second operative metric, no enlarged low-energy matter law, and presentation as a deeper substrate-side source for the current proto-section package rather than as a replacement benchmark theory.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definitions \ref{def:protosection} and \ref{def:preprotosection} fix the current frontier package. The present note does not spend its move on another deeper derivation below that frontier. It asks instead whether the full recorded pre-proto-section package carries benchmark-neutral ambient freedom that can be removed without changing the induced proto-section package or the downstream chain that depends on it.
+\end{remark}
+
+\section{Observer-Relevant Pre-Proto-Section Minimizer-Image Core}
+
+\begin{definition}[Observer-relevant pre-proto-section minimizer-image core]
+\label{def:imagecore}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\) and a benchmark-faithful pre-proto-section package in the sense of Definition \ref{def:preprotosection}. The \emph{observer-relevant pre-proto-section minimizer-image core} \(\PreProtoSectionImageCore\) for sector \(\sigma\) consists of:
+\begin{enumerate}
+    \item the compact minimizer-image body
+    \[
+    \PreProtoSectionImgBody{\sigma}
+    \equiv
+    \PreProtoSectionProtoMin{\sigma}\bigl(\ProtoSectionBody{\sigma}\bigr)
+    \subset
+    \PreProtoSectionBody{\sigma},
+    \]
+    together with the restricted projection
+    \[
+    \PreProtoSectionImgProj{\sigma}
+    \equiv
+    \PreProtoSectionProj{\sigma}\big|_{\PreProtoSectionImgBody{\sigma}}
+    :
+    \PreProtoSectionImgBody{\sigma}\to\ProtoSectionBody{\sigma};
+    \]
+    \item the restricted functional
+    \[
+    \PreProtoSectionImgFunctional{\sigma}
+    \equiv
+    \PreProtoSectionFunctional{\sigma}\big|_{\PreProtoSectionImgBody{\sigma}};
+    \]
+    \item the exact-shell image
+    \[
+    \PreProtoSectionImgShell{\sigma}
+    \equiv
+    \PreProtoSectionProtoMin{\sigma}\bigl(\ProtoSectionShell{\sigma}\bigr)
+    \subset
+    \PreProtoSectionShell{\sigma};
+    \]
+    \item benchmark faithfulness in the sense of Definition \ref{def:preprotosection}(4).
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:imagecore} is intentionally smaller than Definition \ref{def:preprotosection}. It keeps only the minimizer image over the recorded proto-section body together with the restricted functional and the exact-shell image it already determines. The ambient pre-proto-section state space and off-image body directions are not taken as independent core data.
+\end{remark}
+
+\section{Collapse of the Full Pre-Proto-Section Package}
+
+\begin{proposition}[The minimizer-image body carries the body-level content]
+\label{prop:body}
+For every benchmark-faithful pre-proto-section package, \(\PreProtoSectionImgBody{\sigma}\) is compact and the restricted projection
+\[
+\PreProtoSectionImgProj{\sigma}:\PreProtoSectionImgBody{\sigma}\to\ProtoSectionBody{\sigma}
+\]
+is a homeomorphism with inverse \(\PreProtoSectionProtoMin{\sigma}\).
+\end{proposition}
+
+\begin{proof}
+The body \(\ProtoSectionBody{\sigma}\) is compact by Definition \ref{def:protosection}, and \(\PreProtoSectionProtoMin{\sigma}\) is continuous by Definition \ref{def:preprotosection}(2). Therefore
+\[
+\PreProtoSectionImgBody{\sigma}
+=
+\PreProtoSectionProtoMin{\sigma}\bigl(\ProtoSectionBody{\sigma}\bigr)
+\]
+is compact. The identity
+\[
+\PreProtoSectionProj{\sigma}\circ\PreProtoSectionProtoMin{\sigma}
+=
+\mathrm{id}_{\ProtoSectionBody{\sigma}}
+\]
+shows that \(\PreProtoSectionImgProj{\sigma}\) is surjective and that \(\PreProtoSectionProtoMin{\sigma}\) is a right inverse for it. If \(u_{1},u_{2}\in\PreProtoSectionImgBody{\sigma}\) satisfy
+\[
+\PreProtoSectionImgProj{\sigma}(u_{1})=\PreProtoSectionImgProj{\sigma}(u_{2})=y,
+\]
+then each \(u_{i}\) lies in the fiber \(\PreProtoSectionFiber{\sigma}{y}\) and is the unique minimizer there, so \(u_{1}=u_{2}=\PreProtoSectionProtoMin{\sigma}(y)\). Thus \(\PreProtoSectionImgProj{\sigma}\) is bijective with inverse \(\PreProtoSectionProtoMin{\sigma}\). Since \(\PreProtoSectionImgBody{\sigma}\) is compact and \(\ProtoSectionBody{\sigma}\) is Hausdorff, the continuous bijection \(\PreProtoSectionImgProj{\sigma}\) is a homeomorphism.
+\end{proof}
+
+\begin{proposition}[The recorded proto-section functional is carried by the image core]
+\label{prop:functional}
+For every benchmark-faithful pre-proto-section package, the recorded proto-section functional is recovered entirely from the restricted image-core functional:
+\[
+\ProtoSectionFunctional{\sigma}(y)
+=
+\PreProtoSectionImgFunctional{\sigma}\bigl(\PreProtoSectionProtoMin{\sigma}(y)\bigr)
+\qquad
+\text{for every }y\in\ProtoSectionBody{\sigma}.
+\]
+\end{proposition}
+
+\begin{proof}
+By Definition \ref{def:imagecore}(2),
+\[
+\PreProtoSectionImgFunctional{\sigma}\bigl(\PreProtoSectionProtoMin{\sigma}(y)\bigr)
+=
+\PreProtoSectionFunctional{\sigma}\bigl(\PreProtoSectionProtoMin{\sigma}(y)\bigr).
+\]
+Definition \ref{def:preprotosection}(2) then gives
+\[
+\PreProtoSectionFunctional{\sigma}\bigl(\PreProtoSectionProtoMin{\sigma}(y)\bigr)
+=
+\ProtoSectionFunctional{\sigma}(y)
+\]
+for every \(y\in\ProtoSectionBody{\sigma}\).
+\end{proof}
+
+\begin{proposition}[The full exact pre-proto-section shell is forced by the image core]
+\label{prop:shell}
+For every benchmark-faithful pre-proto-section package,
+\[
+\PreProtoSectionShell{\sigma}
+=
+\PreProtoSectionImgShell{\sigma}
+=
+\PreProtoSectionProtoMin{\sigma}\bigl(\ProtoSectionShell{\sigma}\bigr),
+\]
+and the restricted projection
+\[
+\PreProtoSectionImgProj{\sigma}\big|_{\PreProtoSectionImgShell{\sigma}}
+:
+\PreProtoSectionImgShell{\sigma}\xrightarrow{\cong}\ProtoSectionShell{\sigma}
+\]
+is a diffeomorphism.
+\end{proposition}
+
+\begin{proof}
+If \(u\in\PreProtoSectionShell{\sigma}\), then Definition \ref{def:preprotosection}(3) gives
+\[
+y\equiv \PreProtoSectionProj{\sigma}(u)\in\ProtoSectionShell{\sigma},
+\]
+and \(u\) minimizes \(\PreProtoSectionFunctional{\sigma}\) on the fiber \(\PreProtoSectionFiber{\sigma}{y}\). By Definition \ref{def:preprotosection}(2), that minimizer is unique and equals \(\PreProtoSectionProtoMin{\sigma}(y)\). Hence
+\[
+u=\PreProtoSectionProtoMin{\sigma}(y)\in\PreProtoSectionImgShell{\sigma},
+\]
+so \(\PreProtoSectionShell{\sigma}\subset\PreProtoSectionImgShell{\sigma}\).
+
+Conversely, if \(y\in\ProtoSectionShell{\sigma}\), then \(\PreProtoSectionProtoMin{\sigma}(y)\) is by definition the unique minimizer of \(\PreProtoSectionFunctional{\sigma}\) on the fiber over \(y\). Therefore \(\PreProtoSectionProtoMin{\sigma}(y)\in\PreProtoSectionShell{\sigma}\), so \(\PreProtoSectionImgShell{\sigma}\subset\PreProtoSectionShell{\sigma}\). This proves the equality of shells.
+
+Finally,
+\[
+\PreProtoSectionImgProj{\sigma}\big|_{\PreProtoSectionImgShell{\sigma}}
+=
+\PreProtoSectionProj{\sigma}\big|_{\PreProtoSectionShell{\sigma}},
+\]
+and the latter is a diffeomorphism onto \(\ProtoSectionShell{\sigma}\) by Definition \ref{def:preprotosection}(3).
+\end{proof}
+
+\begin{proposition}[The image core canonically reproduces the current proto-section package]
+\label{prop:package}
+Fix a benchmark-faithful pre-proto-section package. Then the current proto-section package of Definition \ref{def:protosection} is exactly the benchmark-relevant package induced by the smaller image core. In particular:
+\begin{enumerate}
+    \item the recorded proto-section body and its body-level transport over that body are recovered by Proposition \ref{prop:body};
+    \item the recorded proto-section functional on \(\ProtoSectionBody{\sigma}\) is recovered by Proposition \ref{prop:functional};
+    \item the recorded exact proto-section shell is recovered by Proposition \ref{prop:shell}.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Item (1) is Proposition \ref{prop:body}. Item (2) is Proposition \ref{prop:functional}. Item (3) is Proposition \ref{prop:shell}. These statements are exactly the benchmark-relevant constituents of the current proto-section package at current scope.
+\end{proof}
+
+\begin{proposition}[All downstream recovery factors through the image core]
+\label{prop:downstream}
+Fix a benchmark-faithful pre-proto-section package. Then the current germ-anchored exact-shell transport-section core \(\ProtoSectionCore\) and the previously recorded downstream seed, root, foundation, ground, origin, precursor, lift, shell-restriction, split-core, selector-law, combined-response, ambient-package, trace-core, exact-shell-affine-nucleus, and one-metric observer-package consequences on the active line all factor through \(\PreProtoSectionImageCore\).
+\end{proposition}
+
+\begin{proof}
+The previously recorded theorem deriving the current germ-anchored exact-shell transport-section core \(\ProtoSectionCore\) requires exactly the proto-section package of Definition \ref{def:protosection} as its live input at current scope. Proposition \ref{prop:package} shows that this entire proto-section package is already determined by the smaller image core. Therefore the recorded section-core recovery and the previously recorded downstream chain that depends on that proto-section package do not require the full ambient pre-proto-section package as additional independent data; they factor through \(\PreProtoSectionImageCore\).
+\end{proof}
+
+\begin{proposition}[Ambient pre-proto-section directions are benchmark neutral at current scope]
+\label{prop:neutral}
+For every benchmark-faithful pre-proto-section package, the ambient pre-proto-section state space \(\PreProtoSectionState{\sigma}\) and the off-image body directions
+\[
+\PreProtoSectionBody{\sigma}\setminus\PreProtoSectionImgBody{\sigma}
+\]
+do not add independent benchmark-facing freedom beyond \(\PreProtoSectionImageCore\).
+\end{proposition}
+
+\begin{proof}
+By Proposition \ref{prop:body}, the full body-level content relevant to the recorded proto-section package is already fixed by the minimizer-image body \(\PreProtoSectionImgBody{\sigma}\) and the restricted projection \(\PreProtoSectionImgProj{\sigma}\). By Proposition \ref{prop:functional}, the current proto-section functional is already fixed by the restricted image-core functional \(\PreProtoSectionImgFunctional{\sigma}\). By Proposition \ref{prop:shell}, the full exact pre-proto-section shell is not additional data beyond the shell image; it is exactly that image. By Proposition \ref{prop:downstream}, all downstream recovery of the current section core and the previously recorded active-line consequences factors through this smaller core. Finally, benchmark faithfulness is already part of Definition \ref{def:imagecore}(4) and preserves the fixed outputs \eqref{eq:fixedoutputs}. Therefore nothing benchmark-facing at the present frontier requires the ambient pre-proto-section state-space presentation or body points outside the minimizer image as additional independent data.
+\end{proof}
+
+\begin{proposition}[The benchmark package remains fixed]
+\label{prop:benchmark}
+Every observer-relevant pre-proto-section minimizer-image core preserves the same benchmark one-metric package \eqref{eq:fixedoutputs}. In particular, the operative metric remains exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, and the low-energy matter law is not enlarged.
+\end{proposition}
+
+\begin{proof}
+This is part of benchmark faithfulness in Definition \ref{def:imagecore}(4). The present note only removes benchmark-neutral ambient pre-proto-section freedom from the live burden. It does not alter the benchmark exact-closure package.
+\end{proof}
+
+\section{Main Theorem}
+
+\begin{theorem}[Proto-section-generating substrate pre-proto-section dynamics collapse to an observer-relevant pre-proto-section minimizer-image core]
+\label{thm:main}
+Fix the primitive continuation data of Definition \ref{def:fixed}, the recorded downstream seed package of Definition \ref{def:seed}, the recorded current germ nucleus of Definition \ref{def:nucleus}, the recorded current transport core of Definition \ref{def:core}, the recorded current section core of Definition \ref{def:sectioncore}, the recorded proto-section package of Definition \ref{def:protosection}, and a benchmark-faithful pre-proto-section package in the sense of Definition \ref{def:preprotosection}. Then, for each sector \(\sigma\in\{\Car,\Cur,\Hom\}\), the live benchmark-facing burden inside the current pre-proto-section frontier collapses from the full pre-proto-section package \(\PreProtoSectionPackage\) to the smaller observer-relevant pre-proto-section minimizer-image core \(\PreProtoSectionImageCore\). More precisely:
+\begin{enumerate}
+    \item the body-level content of the full pre-proto-section package is already carried by the minimizer-image body \(\PreProtoSectionImgBody{\sigma}\), the restricted projection \(\PreProtoSectionImgProj{\sigma}\), and the restricted image-core functional \(\PreProtoSectionImgFunctional{\sigma}\) by Propositions \ref{prop:body} and \ref{prop:functional};
+    \item the full exact pre-proto-section shell is forced to equal the minimizer image of the recorded proto-section shell by Proposition \ref{prop:shell};
+    \item the current proto-section package and therefore the current germ-anchored exact-shell transport-section core \(\ProtoSectionCore\) together with the previously recorded downstream consequences all factor through \(\PreProtoSectionImageCore\) by Propositions \ref{prop:package} and \ref{prop:downstream};
+    \item ambient pre-proto-section directions outside that image core are benchmark neutral at current scope by Proposition \ref{prop:neutral};
+    \item the benchmark boundary remains fixed by Proposition \ref{prop:benchmark};
+    \item consequently the remaining honest burden below the previous pre-proto-section frontier is no longer the full proto-section-generating substrate pre-proto-section dynamics package \(\PreProtoSectionPackage\) as such. What remains is to derive or justify the sharper image core \(\PreProtoSectionImageCore\) from still more primitive substrate structure, or else prove a still smaller theorem-level collapse strictly inside that image core.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Item (1) is Propositions \ref{prop:body} and \ref{prop:functional}. Item (2) is Proposition \ref{prop:shell}. Item (3) is Propositions \ref{prop:package} and \ref{prop:downstream}. Item (4) is Proposition \ref{prop:neutral}. Item (5) is Proposition \ref{prop:benchmark}. Item (6) is the routing consequence of the previous items together with the active safeguard against counting another same-output deeper-origin relay as new front-line progress when the live benchmark-relevant datum is unchanged.
+\end{proof}
+
+\begin{corollary}[What must be done next]
+\label{cor:next}
+After Theorem \ref{thm:main}, the next honest benchmark-facing manuscript must either:
+\begin{enumerate}
+    \item derive or justify the observer-relevant pre-proto-section minimizer-image core \(\PreProtoSectionImageCore\) from still more primitive substrate structure in a way that changes benchmark-facing status;
+    \item identify a genuinely smaller theorem-level observer-relevant datum strictly inside \(\PreProtoSectionImageCore\) and prove a sharper collapse to it;
+    \item do either of the previous two while preserving the same benchmark one-metric package, the same ordinary matter route, and the same claim boundary.
+\end{enumerate}
+Another same-output deeper-origin relay that preserves this image core and therefore merely reproduces the same current proto-section package \(\ProtoSectionPackage\), the same current germ-anchored exact-shell transport-section core \(\ProtoSectionCore\), and the same previously recorded downstream consequences, another re-expansion back to the full pre-proto-section package as if its screened ambient directions were still live, another reopening of the already-screened proto-section package or older larger active-line presentations as if they were again the current burden, or any move that introduces a second operative metric, enlarges the ordinary matter law, or uses stronger promotion language does not satisfy the present burden.
+\end{corollary}
+
+\begin{proof}
+Theorem \ref{thm:main} shows that the full pre-proto-section package is no longer the minimal benchmark-facing datum at this stage. Therefore a subsequent manuscript must improve on the smaller image core rather than merely restating the larger package.
+\end{proof}
+
+\section{Conclusion}
+
+The positive result of this note is a disciplined compression step inside the current pre-proto-section frontier. The previous active-primary theorem already removed the current proto-section package as the primitive stopping point by deriving it from a deeper pre-proto-section package. The present theorem then takes the remaining honest internal route available there: it shows that the full pre-proto-section package is itself not the minimal benchmark-facing datum.
+
+What survives as the live burden is the observer-relevant pre-proto-section minimizer-image core. That sharper datum consists of the minimizer-image compact body over the recorded proto-section body, the restricted projection back to that body, the restricted pre-proto-section functional on that image, the exact-shell image of the recorded proto-section shell, and benchmark faithfulness. The full exact pre-proto-section shell is forced to equal that image shell, and ambient pre-proto-section directions outside the minimizer image do not add independent benchmark-facing freedom once the induced proto-section package is fixed.
+
+This is the honest next burden after the present theorem. A new primary manuscript must derive or justify that sharper image core from still more primitive substrate structure, or else collapse it further, while preserving the same benchmark one-metric package, the same ordinary matter route, and the same claim boundary. The current result does not yet complete a first-principles derivation of GR from substrate microphysics, but it does narrow the live derivational burden one level further on the active line.
+
+\end{document}
