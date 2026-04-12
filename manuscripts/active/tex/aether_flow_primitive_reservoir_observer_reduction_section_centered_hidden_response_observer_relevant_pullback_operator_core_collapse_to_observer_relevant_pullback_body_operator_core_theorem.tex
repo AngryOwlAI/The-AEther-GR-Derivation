@@ -1,0 +1,396 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+
+\newcommand{\CompletedMetric}{g^{\sharp}}
+\newcommand{\MatterSpace}{\Psi}
+
+\newcommand{\Car}{\mathrm{car}}
+\newcommand{\Cur}{\mathrm{cur}}
+\newcommand{\Hom}{\mathrm{hom}}
+
+\newcommand{\ForSpace}[1]{\mathcal I_{#1}^{\mathrm{for}}}
+\newcommand{\PrimShell}{\mathcal S_{\mathrm{prim}}}
+\newcommand{\MetricOut}{\mathscr G_{\mathrm{out}}}
+\newcommand{\MatterOut}{\mathscr T_{\mathrm{out}}}
+
+\newcommand{\ProtoSectionPackage}{\mathfrak Q^{\mathrm{sub,proto,secgen}}}
+\newcommand{\ProtoSectionState}[1]{\mathcal Q_{#1}^{\mathrm{psec}}}
+\newcommand{\ProtoSectionBody}[1]{\mathcal B_{#1}^{\mathrm{psec}}}
+\newcommand{\ProtoSectionFunctional}[1]{\mathscr E_{#1}^{\mathrm{psec}}}
+\newcommand{\ProtoSectionShell}[1]{\mathcal Z_{#1}^{\mathrm{psec}}}
+
+\newcommand{\PreProtoSectionPackage}{\mathfrak R^{\mathrm{sub,proto,presec}}}
+\newcommand{\PreProtoSectionMinSectionCore}{\mathfrak R^{\mathrm{sub,proto,presec,sec}}}
+\newcommand{\PreProtoSectionResidualPackage}{\mathfrak R^{\mathrm{sub,proto,presec,res}}}
+
+\newcommand{\PrePreProtoSectionPullbackCore}{\mathfrak S^{\mathrm{sub,proto,pppresec,pb}}}
+\newcommand{\PrePreProtoSectionVertical}[1]{V_{#1}^{\mathrm{pppresec}}}
+\newcommand{\PrePreProtoSectionResidualBody}[1]{\mathcal D_{#1}^{\mathrm{pppresec}}}
+\newcommand{\PrePreProtoSectionPullbackOperator}[1]{A_{#1}^{\mathrm{pppresec,pb}}}
+\newcommand{\PrePreProtoSectionPullbackFunctional}[1]{\mathscr P_{#1}^{\mathrm{pppresec,pb}}}
+
+\newcommand{\PullbackOperatorCore}{\mathfrak S^{\mathrm{sub,proto,pppresec,pb,op}}}
+\newcommand{\PullbackBodyOperatorCore}{\mathfrak S^{\mathrm{sub,proto,pppresec,pb,bodyop}}}
+\newcommand{\RecoveredBodyOperatorSpace}[1]{\widehat V_{#1}^{\mathrm{pppresec,pb,bodyop}}}
+\newcommand{\RecoveredPullbackFunctional}[1]{\widehat{\mathscr P}_{#1}^{\mathrm{pppresec,pb,bodyop}}}
+\newcommand{\RecoveredPullbackShell}[1]{\widehat{\mathcal Z}_{#1}^{\mathrm{pppresec,pb,bodyop}}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Primitive-Reservoir Observer-Reduction\\
+\large Section-Centered Hidden-Response\\
+\large Observer-Relevant Pullback-Operator Core\\
+\large Collapse to an Observer-Relevant Pullback Body-Operator Core}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The current active-primary theorem already removed the full observer-relevant pullback-quadratic core \(\PrePreProtoSectionPullbackCore\) as the primitive stopping point of the active section-centered hidden-response line by collapsing its benchmark-facing content to the smaller observer-relevant pullback-operator core \(\PullbackOperatorCore\). The preferred next move below that frontier would be to derive or justify that operator core from still more primitive explicit substrate structure in a way that genuinely changes benchmark-facing status. The present note takes the honest fallback route available before such a cleaner deeper law is fixed: it proves a strictly smaller theorem-level collapse inside the current operator core itself.
+
+The positive result is that, relative to the fixed proto-section benchmark base, the current operator core still contains presentational redundancy. The compact section-centered displacement body already recovers the ambient displacement space canonically as the fiberwise span of its displacement fibers, so the separate ambient-space listing does not add independent benchmark-facing freedom. What survives is the smaller observer-relevant pullback body-operator core \(\PullbackBodyOperatorCore\): the displacement body together with the smooth positive self-adjoint pullback operator family and benchmark faithfulness.
+
+The benchmark boundary remains fixed throughout. The one operative metric is still exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, the low-energy matter law is not enlarged, and no stronger promotion language is licensed. The positive result is therefore a genuine smaller theorem-level collapse strictly inside the current operator-core frontier. What remains open is to derive or justify the pullback body-operator core from still more primitive explicit substrate structure, or else to prove a still sharper collapse, necessity result, or uniqueness result strictly inside that smaller core.
+\end{abstract}
+
+\section{Introduction}
+
+The active derivational program of \TheoryName{} again reaches a point where depth alone is not the honest default move. The current active-primary theorem already showed that the full observer-relevant pullback-quadratic core is not the live primitive stopping point at current scope, because the quadratic pullback functional and the exact-shell presentation are recovered from the smaller observer-relevant pullback-operator core \(\PullbackOperatorCore\). That theorem therefore spent the pullback-quadratic-core presentation as the live burden.
+
+The present note asks the next narrower question available strictly inside that operator core. Once the fixed proto-section benchmark base is held fixed, does the current operator core still contain an independently live ambient-space presentation, or is that ambient space already forced by the displacement body on which the current operator acts? The present note proves that the ambient-space presentation is redundant. Because each displacement fiber has nonempty interior in the listed ambient space, the body already spans that space. The live benchmark-facing datum therefore contracts one level further to the pullback body-operator core.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not introduce a second operative metric, it does not enlarge the low-energy matter law, and it does not reopen the larger pullback-quadratic-core, hidden-response, residual-normal-form, or pre-proto-section presentations as if they were again independently live. Its narrower benchmark-facing role is to identify whether the separate ambient displacement-space listing inside the current operator core is still independently meaningful at benchmark scope.
+
+\section{Fixed Inputs}
+
+\begin{definition}[Recorded primitive continuation data]
+\label{def:fixed}
+Fix the following continuation data from the active primitive-reservoir observer-reduction line.
+\begin{enumerate}
+    \item For each sector label \(\sigma\in\{\Car,\Cur,\Hom\}\), a primitive forcing shell
+    \[
+    \ForSpace{\sigma}.
+    \]
+    \item The product shell
+    \[
+    \PrimShell
+    \equiv
+    \ForSpace{\Car}\times \ForSpace{\Cur}\times \ForSpace{\Hom}.
+    \]
+    \item The recorded metric and ordinary-matter outputs
+    \[
+    \MetricOut:\PrimShell\to\{\text{observer metrics}\},
+    \qquad
+    \MatterOut:\PrimShell\times\MatterSpace\to\{\text{observer stress tensors}\},
+    \]
+    satisfying
+    \begin{equation}
+    \MetricOut(\mathbf w)=\CompletedMetric,
+    \qquad
+    \MatterOut(\mathbf w,\psi)
+    =
+    T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
+    \label{eq:fixedoutputs}
+    \end{equation}
+    for every \(\mathbf w\in\PrimShell\) and every matter configuration \(\psi\in\MatterSpace\).
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Recorded proto-section benchmark base and downstream chain]
+\label{def:downstream}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). The active line already fixes the following proto-section benchmark base and downstream consequences.
+\begin{enumerate}
+    \item the current proto-section benchmark base \(\ProtoSectionPackage\), presented through
+    \[
+    \ProtoSectionState{\sigma},\qquad
+    \ProtoSectionBody{\sigma},\qquad
+    \ProtoSectionFunctional{\sigma},\qquad
+    \ProtoSectionShell{\sigma};
+    \]
+    \item the current observer-relevant pullback-operator core \(\PullbackOperatorCore\), the current observer-relevant pullback-quadratic core \(\PrePreProtoSectionPullbackCore\), the current section-centered residual-normal-form realization \(\PreProtoSectionResidualPackage\), the current observer-relevant pre-proto-section minimizer-section core \(\PreProtoSectionMinSectionCore\), and the current benchmark-faithful pre-proto-section package \(\PreProtoSectionPackage\) as already recorded on the active line;
+    \item the previously recorded fact that, once a benchmark-faithful observer-relevant pullback-operator core over the fixed proto-section benchmark base is available, the current pullback-quadratic-core realization, the current section-centered residual-normal-form realization, the current pre-proto-section package, the current minimizer-section core, and the previously recorded seed, root, foundation, ground, origin, precursor, lift, shell-restriction, split-core, selector-law, combined-response, ambient-package, trace-core, exact-shell-affine-nucleus, continuity-Hessian compressed core, and benchmark one-metric observer-package consequences follow unchanged;
+    \item benchmark faithfulness, meaning preservation of the benchmark outputs \eqref{eq:fixedoutputs}, no second operative metric, no enlarged low-energy matter law, no change to the ordinary matter route, and no premature promotion from adoption to completed derivation.
+\end{enumerate}
+\end{definition}
+
+\section{Current Operator-Core Frontier}
+
+\begin{definition}[Observer-relevant pullback-operator core]
+\label{def:operatorcore}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). A \emph{benchmark-faithful observer-relevant pullback-operator core} \(\PullbackOperatorCore\) for sector \(\sigma\) consists of:
+\begin{enumerate}
+    \item a finite-dimensional Euclidean section-centered displacement space
+    \[
+    \PrePreProtoSectionVertical{\sigma};
+    \]
+    \item a compact convex section-centered displacement body
+    \[
+    \PrePreProtoSectionResidualBody{\sigma}
+    \subset
+    \ProtoSectionBody{\sigma}\times\PrePreProtoSectionVertical{\sigma}
+    \]
+    with nonempty interior in each fiber
+    \[
+    \PrePreProtoSectionResidualBody{\sigma}(y)
+    \equiv
+    \left\{
+    v\in\PrePreProtoSectionVertical{\sigma}:(y,v)\in\PrePreProtoSectionResidualBody{\sigma}
+    \right\},
+    \]
+    where every fiber is nonempty, compact, and convex, and
+    \[
+    (y,0)\in\PrePreProtoSectionResidualBody{\sigma}
+    \qquad
+    \text{for every }
+    y\in\ProtoSectionBody{\sigma};
+    \]
+    \item a smooth family of positive self-adjoint pullback operators
+    \[
+    \PrePreProtoSectionPullbackOperator{\sigma}(y):
+    \PrePreProtoSectionVertical{\sigma}\to\PrePreProtoSectionVertical{\sigma},
+    \qquad
+    y\in\ProtoSectionBody{\sigma},
+    \]
+    satisfying
+    \[
+    \ev{v,\PrePreProtoSectionPullbackOperator{\sigma}(y)v}>0
+    \qquad
+    \text{for every }
+    y\in\ProtoSectionBody{\sigma},
+    \ \ 0\neq v\in\PrePreProtoSectionVertical{\sigma};
+    \]
+    \item benchmark faithfulness in the sense of Definition \ref{def:downstream}(4).
+\end{enumerate}
+From this operator core define the recovered pullback quadratic data by
+\[
+\PrePreProtoSectionPullbackFunctional{\sigma}(y,v)
+\equiv
+\frac{1}{2}
+\ev{v,\PrePreProtoSectionPullbackOperator{\sigma}(y)v},
+\qquad
+\RecoveredPullbackShell{\sigma}
+\equiv
+\left\{
+(y,0)\in\PrePreProtoSectionResidualBody{\sigma}:y\in\ProtoSectionShell{\sigma}
+\right\}.
+\]
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:operatorcore} is the full current operator-core presentation. The present note asks whether the separate ambient displacement-space listing remains independently live once the displacement body and pullback operator family are already fixed.
+\end{remark}
+
+\section{Observer-Relevant Pullback Body-Operator Core}
+
+\begin{definition}[Observer-relevant pullback body-operator core]
+\label{def:bodyop}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\) and a benchmark-faithful pullback-operator core in the sense of Definition \ref{def:operatorcore}. The \emph{observer-relevant pullback body-operator core} \(\PullbackBodyOperatorCore\) for sector \(\sigma\) consists only of:
+\begin{enumerate}
+    \item the compact convex section-centered displacement body
+    \[
+    \PrePreProtoSectionResidualBody{\sigma}
+    \subset
+    \ProtoSectionBody{\sigma}\times\PrePreProtoSectionVertical{\sigma};
+    \]
+    \item the smooth family of positive self-adjoint pullback operators
+    \[
+    \PrePreProtoSectionPullbackOperator{\sigma}(y):
+    \PrePreProtoSectionVertical{\sigma}\to\PrePreProtoSectionVertical{\sigma},
+    \qquad
+    y\in\ProtoSectionBody{\sigma};
+    \]
+    \item benchmark faithfulness in the sense of Definition \ref{def:downstream}(4).
+\end{enumerate}
+From this smaller core define the recovered ambient displacement space by
+\[
+\RecoveredBodyOperatorSpace{\sigma}
+\equiv
+\operatorname{span}\left(
+\bigcup_{y\in\ProtoSectionBody{\sigma}}
+\PrePreProtoSectionResidualBody{\sigma}(y)
+\right)
+\subset
+\PrePreProtoSectionVertical{\sigma}.
+\]
+The ambient-space listing is therefore treated as derived rather than separately primitive.
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:bodyop} is strictly smaller than Definition \ref{def:operatorcore} at current scope. Once the displacement body and the pullback operator family are fixed, the only remaining question is whether the ambient displacement space adds any further benchmark-facing freedom. The present theorem shows that it does not.
+\end{remark}
+
+\section{Collapse of the Operator Core}
+
+\begin{proposition}[The displacement body recovers the ambient displacement space]
+\label{prop:recover_space}
+For every benchmark-faithful pullback-operator core and every \(\sigma\in\{\Car,\Cur,\Hom\}\),
+\[
+\RecoveredBodyOperatorSpace{\sigma}
+=
+\PrePreProtoSectionVertical{\sigma}.
+\]
+\end{proposition}
+
+\begin{proof}
+Fix \(y\in\ProtoSectionBody{\sigma}\). By Definition \ref{def:operatorcore}(2), the fiber \(\PrePreProtoSectionResidualBody{\sigma}(y)\) has nonempty interior in the ambient finite-dimensional Euclidean space \(\PrePreProtoSectionVertical{\sigma}\). Any subset of a finite-dimensional vector space with nonempty interior spans that vector space. Hence
+\[
+\operatorname{span}\bigl(\PrePreProtoSectionResidualBody{\sigma}(y)\bigr)
+=
+\PrePreProtoSectionVertical{\sigma}.
+\]
+Because that fiber is contained in the union appearing in Definition \ref{def:bodyop},
+\[
+\PrePreProtoSectionVertical{\sigma}
+\subset
+\RecoveredBodyOperatorSpace{\sigma}
+\subset
+\PrePreProtoSectionVertical{\sigma},
+\]
+which proves the claim.
+\end{proof}
+
+\begin{proposition}[The full operator core is reconstructed from the body-operator core]
+\label{prop:reconstruct}
+For every benchmark-faithful pullback-operator core, the full observer-relevant pullback-operator core \(\PullbackOperatorCore\) is reconstructed from the smaller pullback body-operator core \(\PullbackBodyOperatorCore\) together with the fixed proto-section benchmark base.
+\end{proposition}
+
+\begin{proof}
+Proposition \ref{prop:recover_space} recovers the ambient displacement space exactly from the displacement body. The body itself and the pullback operator family are already part of Definition \ref{def:bodyop}, and benchmark faithfulness is retained there as well. Therefore every constituent of Definition \ref{def:operatorcore} is recovered from the smaller body-operator core plus the fixed proto-section benchmark base.
+\end{proof}
+
+\begin{proposition}[The pullback quadratic data remain canonical]
+\label{prop:recover_quadratic}
+For every benchmark-faithful pullback-operator core and every \(\sigma\in\{\Car,\Cur,\Hom\}\), the pullback quadratic data are recovered canonically from the body-operator core by
+\[
+\PrePreProtoSectionPullbackFunctional{\sigma}(y,v)
+\equiv
+\frac{1}{2}
+\ev{v,\PrePreProtoSectionPullbackOperator{\sigma}(y)v},
+\qquad
+\RecoveredPullbackShell{\sigma}
+\equiv
+\left\{
+(y,0)\in\PrePreProtoSectionResidualBody{\sigma}:y\in\ProtoSectionShell{\sigma}
+\right\}.
+\]
+These agree with the current pullback quadratic data of Definition \ref{def:operatorcore}.
+\end{proposition}
+
+\begin{proof}
+The formula for the recovered quadratic functional uses only the operator family retained in Definition \ref{def:bodyop}. The shell formula uses only the retained displacement body together with the fixed proto-section shell. Since the body-operator core reconstructs the full operator core by Proposition \ref{prop:reconstruct}, these recovered pullback quadratic data are exactly the same as those already carried by Definition \ref{def:operatorcore}.
+\end{proof}
+
+\begin{proposition}[All current downstream uses factor through the body-operator core]
+\label{prop:downstream}
+For every benchmark-faithful pullback-operator core, all current benchmark-facing downstream uses of the current operator-core frontier already factor through the smaller pullback body-operator core \(\PullbackBodyOperatorCore\) together with the fixed proto-section benchmark base. In particular, the current pullback-quadratic core, the current section-centered residual-normal-form realization, the current pre-proto-section package, the current minimizer-section core, and the previously recorded seed, root, foundation, ground, origin, precursor, lift, shell-restriction, split-core, selector-law, combined-response, ambient-package, trace-core, exact-shell-affine-nucleus, continuity-Hessian compressed core, and benchmark one-metric observer-package consequences follow unchanged once the body-operator core is fixed.
+\end{proposition}
+
+\begin{proof}
+By Proposition \ref{prop:reconstruct}, the full operator core is recovered from the smaller body-operator core. Proposition \ref{prop:recover_quadratic} then recovers the same pullback quadratic data. Definition \ref{def:downstream}(3) records that, once a benchmark-faithful operator core over the fixed proto-section benchmark base is available, all of the listed downstream consequences follow unchanged. Therefore every current benchmark-facing downstream use of the operator-core frontier factors through the smaller body-operator core together with the fixed proto-section benchmark base.
+\end{proof}
+
+\begin{proposition}[Separate ambient-space presentation is benchmark neutral at current scope]
+\label{prop:neutral}
+For every benchmark-faithful pullback-operator core, the separate presentation of the ambient displacement space
+\[
+\PrePreProtoSectionVertical{\sigma}
+\]
+does not add independent benchmark-facing freedom beyond the smaller observer-relevant pullback body-operator core \(\PullbackBodyOperatorCore\).
+\end{proposition}
+
+\begin{proof}
+By Proposition \ref{prop:recover_space}, the ambient displacement space is reconstructed canonically from the displacement body. By Proposition \ref{prop:downstream}, all current benchmark-facing downstream uses of the operator-core frontier already factor through the smaller body-operator core once that reconstruction is made. Therefore the separate ambient-space listing does not provide additional benchmark-facing freedom beyond \(\PullbackBodyOperatorCore\).
+\end{proof}
+
+\begin{proposition}[The benchmark package remains fixed]
+\label{prop:benchmark}
+Every observer-relevant pullback body-operator core preserves the same benchmark one-metric package \eqref{eq:fixedoutputs}. In particular, the operative metric remains exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, and the low-energy matter law is not enlarged.
+\end{proposition}
+
+\begin{proof}
+This is part of benchmark faithfulness in Definition \ref{def:bodyop}(3). The present note only removes presentational redundancy inside the current pullback-operator-core frontier. It does not alter the benchmark exact-closure package.
+\end{proof}
+
+\section{Main Theorem}
+
+\begin{theorem}[Observer-relevant pullback-operator core collapse to an observer-relevant pullback body-operator core]
+\label{thm:main}
+Fix the primitive continuation data of Definition \ref{def:fixed}, the recorded proto-section benchmark base and downstream chain of Definition \ref{def:downstream}, and a benchmark-faithful pullback-operator core in the sense of Definition \ref{def:operatorcore}. Then, for each sector \(\sigma\in\{\Car,\Cur,\Hom\}\), the live benchmark-facing burden inside the current pullback-operator-core frontier collapses from the observer-relevant pullback-operator core \(\PullbackOperatorCore\) to the smaller observer-relevant pullback body-operator core \(\PullbackBodyOperatorCore\). More precisely:
+\begin{enumerate}
+    \item the ambient displacement space is recovered canonically from the fiberwise span of the displacement body by Proposition \ref{prop:recover_space};
+    \item the full operator-core presentation is therefore reconstructed from the body-operator core and the fixed proto-section benchmark base by Proposition \ref{prop:reconstruct};
+    \item the same pullback quadratic data remain canonical by Proposition \ref{prop:recover_quadratic};
+    \item all current benchmark-facing downstream uses of the operator-core frontier factor through the body-operator core by Proposition \ref{prop:downstream};
+    \item the separate ambient-space presentation adds no independent benchmark-facing freedom beyond the body-operator core by Proposition \ref{prop:neutral};
+    \item the benchmark boundary remains fixed by Proposition \ref{prop:benchmark};
+    \item consequently the remaining honest burden below the previous pullback-operator-core frontier is no longer the full observer-relevant pullback-operator core \(\PullbackOperatorCore\) as such. What remains is to derive or justify the sharper pullback body-operator core \(\PullbackBodyOperatorCore\) from still more primitive substrate structure, or else to prove a still smaller collapse, sharper necessity result, or sharper uniqueness result strictly inside that smaller core.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Item (1) is Proposition \ref{prop:recover_space}. Item (2) is Proposition \ref{prop:reconstruct}. Item (3) is Proposition \ref{prop:recover_quadratic}. Item (4) is Proposition \ref{prop:downstream}. Item (5) is Proposition \ref{prop:neutral}. Item (6) is Proposition \ref{prop:benchmark}. Item (7) is the routing consequence of the previous items together with the active safeguard against counting another same-output deeper-origin relay as new front-line progress when the live benchmark-relevant datum is unchanged.
+\end{proof}
+
+\begin{corollary}[What must be done next]
+\label{cor:next}
+After Theorem \ref{thm:main}, the next honest benchmark-facing manuscript must either:
+\begin{enumerate}
+    \item derive or justify the observer-relevant pullback body-operator core \(\PullbackBodyOperatorCore\) from still more primitive explicit substrate structure in a way that changes benchmark-facing status;
+    \item identify a genuinely smaller theorem-level observer-relevant datum strictly inside \(\PullbackBodyOperatorCore\) and prove a sharper collapse, sharper necessity result, or sharper uniqueness result there;
+    \item do either of the previous two while preserving the same benchmark one-metric package, the same ordinary-matter route, and the same claim boundary.
+\end{enumerate}
+Another same-output deeper-origin relay that preserves this body-operator core and therefore merely reproduces the same current pullback-operator core \(\PullbackOperatorCore\), the same current pullback-quadratic core \(\PrePreProtoSectionPullbackCore\), the same current section-centered hidden-response package, the same current residual-normal-form datum, the same current benchmark-faithful pre-proto-section package, and the same downstream benchmark-facing consequences, another re-expansion back to the larger pullback-operator-core, pullback-quadratic-core, hidden-response, residual-normal-form, or pre-proto-section presentations as if their recovered constituents were still independently live, or any move that introduces a second operative metric, enlarges the ordinary matter law, or uses stronger promotion language does not satisfy the present burden.
+\end{corollary}
+
+\begin{proof}
+Theorem \ref{thm:main} shows that the ambient-space presentation is no longer part of the minimal benchmark-facing datum at this stage. Therefore a subsequent manuscript must improve on the smaller body-operator core rather than merely restating the larger operator core.
+\end{proof}
+
+\section{Conclusion}
+
+The positive result of this note is a disciplined second compression step inside the current pullback frontier. The previous active-primary theorem already showed that the full pullback-quadratic-core presentation is not the minimal benchmark-facing datum, because its benchmark-relevant content collapses to an observer-relevant pullback-operator core. The present theorem then takes the honest next internal route available there: it shows that even that operator-core presentation is still larger than necessary.
+
+What survives as the live burden is the observer-relevant pullback body-operator core \(\PullbackBodyOperatorCore\). Relative to the already fixed proto-section benchmark base, that sharper datum is just the compact section-centered displacement body together with the smooth positive self-adjoint pullback operator family acting on it. The ambient displacement space is already recovered as the span of the displacement body, so its separate listing does not add independent benchmark-facing freedom.
+
+This is the honest next burden after the present theorem. A new primary manuscript must derive or justify that sharper body-operator core from still more primitive explicit substrate structure, or else collapse it further, while preserving the same benchmark one-metric package, the same ordinary matter route, and the same claim boundary. The current result does not yet complete a first-principles derivation of GR from substrate microphysics, but it does narrow the live derivational burden one level further on the active line.
+
+\end{document}
