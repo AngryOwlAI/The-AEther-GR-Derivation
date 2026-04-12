@@ -1,0 +1,504 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+
+\newcommand{\CompletedMetric}{g^{\sharp}}
+\newcommand{\MatterSpace}{\Psi}
+
+\newcommand{\Car}{\mathrm{car}}
+\newcommand{\Cur}{\mathrm{cur}}
+\newcommand{\Hom}{\mathrm{hom}}
+
+\newcommand{\ForSpace}[1]{\mathcal I_{#1}^{\mathrm{for}}}
+\newcommand{\PrimShell}{\mathcal S_{\mathrm{prim}}}
+\newcommand{\MetricOut}{\mathscr G_{\mathrm{out}}}
+\newcommand{\MatterOut}{\mathscr T_{\mathrm{out}}}
+
+\newcommand{\ProtoSectionPackage}{\mathfrak Q^{\mathrm{sub,proto,secgen}}}
+\newcommand{\ProtoSectionState}[1]{\mathcal Q_{#1}^{\mathrm{psec}}}
+\newcommand{\ProtoSectionBody}[1]{\mathcal B_{#1}^{\mathrm{psec}}}
+\newcommand{\ProtoSectionFunctional}[1]{\mathscr E_{#1}^{\mathrm{psec}}}
+\newcommand{\ProtoSectionShell}[1]{\mathcal Z_{#1}^{\mathrm{psec}}}
+
+\newcommand{\PreProtoSectionPackage}{\mathfrak R^{\mathrm{sub,proto,presec}}}
+\newcommand{\PreProtoSectionMinSectionCore}{\mathfrak R^{\mathrm{sub,proto,presec,sec}}}
+\newcommand{\PreProtoSectionResidualPackage}{\mathfrak R^{\mathrm{sub,proto,presec,res}}}
+
+\newcommand{\PrePreProtoSectionPullbackCore}{\mathfrak S^{\mathrm{sub,proto,pppresec,pb}}}
+\newcommand{\PrePreProtoSectionVertical}[1]{V_{#1}^{\mathrm{pppresec}}}
+\newcommand{\PrePreProtoSectionResidualBody}[1]{\mathcal D_{#1}^{\mathrm{pppresec}}}
+\newcommand{\PrePreProtoSectionPullbackOperator}[1]{A_{#1}^{\mathrm{pppresec,pb}}}
+\newcommand{\PrePreProtoSectionPullbackFunctional}[1]{\mathscr P_{#1}^{\mathrm{pppresec,pb}}}
+
+\newcommand{\PullbackOperatorCore}{\mathfrak S^{\mathrm{sub,proto,pppresec,pb,op}}}
+\newcommand{\RecoveredPullbackFunctional}[1]{\widehat{\mathscr P}_{#1}^{\mathrm{pppresec,pb}}}
+\newcommand{\RecoveredPullbackShell}[1]{\widehat{\mathcal Z}_{#1}^{\mathrm{pppresec,pb}}}
+
+\newcommand{\OperatorCorePreProtoSectionState}[1]{\widetilde{\mathcal R}_{#1}^{\mathrm{ppsec}}}
+\newcommand{\OperatorCorePreProtoSectionBody}[1]{\widetilde{\mathcal B}_{#1}^{\mathrm{ppsec}}}
+\newcommand{\OperatorCorePreProtoSectionProj}[1]{\widetilde{\Pi}_{#1}^{\mathrm{ppsec}}}
+\newcommand{\OperatorCorePreProtoSectionFunctional}[1]{\widetilde{\mathscr F}_{#1}^{\mathrm{ppsec}}}
+\newcommand{\OperatorCorePreProtoSectionShell}[1]{\widetilde{\mathcal Z}_{#1}^{\mathrm{ppsec}}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Primitive-Reservoir Observer-Reduction\\
+\large Section-Centered Hidden-Response\\
+\large Observer-Relevant Pullback-Quadratic Core\\
+\large Collapse to an Observer-Relevant Pullback-Operator Core}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The current active-primary theorem already removed the larger section-centered hidden-response pre-pre-proto-section dynamics package as the primitive stopping point of the active pre-proto-section line by collapsing its benchmark-facing content to the smaller observer-relevant pullback-quadratic core \(\PrePreProtoSectionPullbackCore\). The present note proves that even this sharper frontier still contains presentational redundancy.
+
+Relative to the fixed proto-section benchmark base, the only independent benchmark-facing datum still carried by the current pullback-quadratic core is the compact section-centered displacement body together with the smooth positive self-adjoint pullback operator on that body. The quadratic pullback functional is recovered canonically from that operator by the standard quadratic formula, and the exact shell is recovered canonically as the zero section over the fixed proto-section shell. The current pullback-quadratic-core frontier therefore collapses one level further to a smaller observer-relevant pullback-operator core \(\PullbackOperatorCore\).
+
+The benchmark boundary remains fixed throughout. The one operative metric is still exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, the low-energy matter law is not enlarged, and no stronger promotion language is licensed. The positive result is therefore a genuine smaller theorem-level collapse strictly inside the current pullback-core frontier. What remains open is to derive or justify the pullback-operator core from still more primitive explicit substrate structure, or else to prove a still sharper collapse, necessity result, or uniqueness result strictly inside that operator core.
+\end{abstract}
+
+\section{Introduction}
+
+The active derivational program of \TheoryName{} again reaches a stage where depth alone is no longer the honest default move. The current active-primary theorem already showed that the full section-centered hidden-response package is not benchmark-facingly primitive at current scope, because the current residual law and the current benchmark-faithful pre-proto-section dynamics depend only on the smaller observer-relevant pullback-quadratic core \(\PrePreProtoSectionPullbackCore\).
+
+That theorem also sharpens the next honest question. Once the larger hidden-response package has been spent, does the full pullback-quadratic-core presentation itself still contain independent benchmark-facing freedom, or are some of its listed constituents merely recovered bookkeeping once the fixed proto-section benchmark base and the positive pullback operator are already in hand? The present note proves that the latter is the case. The quadratic pullback functional and the exact-shell slice are not additional primitive data beyond the displacement body and the pullback operator. They are canonically forced from them.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not introduce a second operative metric, it does not enlarge the low-energy matter law, and it does not reopen the larger hidden-response, residual-normal-form, or pre-proto-section presentations as if they were again the live burden. Its narrower benchmark-facing role is to identify the only independent datum still carried by the current pullback-core frontier.
+
+\section{Fixed Inputs}
+
+\begin{definition}[Recorded primitive continuation data]
+\label{def:fixed}
+Fix the following continuation data from the active primitive-reservoir observer-reduction line.
+\begin{enumerate}
+    \item For each sector label \(\sigma\in\{\Car,\Cur,\Hom\}\), a primitive forcing shell
+    \[
+    \ForSpace{\sigma}.
+    \]
+    \item The product shell
+    \[
+    \PrimShell
+    \equiv
+    \ForSpace{\Car}\times \ForSpace{\Cur}\times \ForSpace{\Hom}.
+    \]
+    \item The recorded metric and ordinary-matter outputs
+    \[
+    \MetricOut:\PrimShell\to\{\text{observer metrics}\},
+    \qquad
+    \MatterOut:\PrimShell\times\MatterSpace\to\{\text{observer stress tensors}\},
+    \]
+    satisfying
+    \begin{equation}
+    \MetricOut(\mathbf w)=\CompletedMetric,
+    \qquad
+    \MatterOut(\mathbf w,\psi)
+    =
+    T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
+    \label{eq:fixedoutputs}
+    \end{equation}
+    for every \(\mathbf w\in\PrimShell\) and every matter configuration \(\psi\in\MatterSpace\).
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Recorded proto-section benchmark base and downstream chain]
+\label{def:downstream}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). The active line already fixes the following proto-section benchmark base and downstream consequences.
+\begin{enumerate}
+    \item the current proto-section benchmark base \(\ProtoSectionPackage\), presented through
+    \[
+    \ProtoSectionState{\sigma},\qquad
+    \ProtoSectionBody{\sigma},\qquad
+    \ProtoSectionFunctional{\sigma},\qquad
+    \ProtoSectionShell{\sigma};
+    \]
+    \item the current observer-relevant pullback-quadratic core \(\PrePreProtoSectionPullbackCore\), the current section-centered residual-normal-form realization \(\PreProtoSectionResidualPackage\), the current observer-relevant pre-proto-section minimizer-section core \(\PreProtoSectionMinSectionCore\), and the current benchmark-faithful pre-proto-section package \(\PreProtoSectionPackage\) as already recorded on the active line;
+    \item the previously recorded fact that, once a benchmark-faithful observer-relevant pullback-quadratic core over the fixed proto-section benchmark base is available, the current section-centered residual-normal-form realization, the current pre-proto-section package, the current minimizer-section core, and the previously recorded seed, root, foundation, ground, origin, precursor, lift, shell-restriction, split-core, selector-law, combined-response, ambient-package, trace-core, exact-shell-affine-nucleus, continuity-Hessian compressed core, and benchmark one-metric observer-package consequences follow unchanged;
+    \item benchmark faithfulness, meaning preservation of the benchmark outputs \eqref{eq:fixedoutputs}, no second operative metric, no enlarged low-energy matter law, no change to the ordinary matter route, and no premature promotion from adoption to completed derivation.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Observer-relevant pullback-quadratic core]
+\label{def:pullback}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). A \emph{benchmark-faithful observer-relevant pullback-quadratic core} \(\PrePreProtoSectionPullbackCore\) for sector \(\sigma\) consists of:
+\begin{enumerate}
+    \item a finite-dimensional Euclidean section-centered displacement space
+    \[
+    \PrePreProtoSectionVertical{\sigma};
+    \]
+    \item a compact convex section-centered displacement body
+    \[
+    \PrePreProtoSectionResidualBody{\sigma}
+    \subset
+    \ProtoSectionBody{\sigma}\times\PrePreProtoSectionVertical{\sigma}
+    \]
+    with nonempty interior in each fiber
+    \[
+    \PrePreProtoSectionResidualBody{\sigma}(y)
+    \equiv
+    \left\{
+    v\in\PrePreProtoSectionVertical{\sigma}:(y,v)\in\PrePreProtoSectionResidualBody{\sigma}
+    \right\},
+    \]
+    where every fiber is nonempty, compact, and convex, and
+    \[
+    (y,0)\in\PrePreProtoSectionResidualBody{\sigma}
+    \qquad
+    \text{for every }
+    y\in\ProtoSectionBody{\sigma};
+    \]
+    \item a smooth family of positive self-adjoint pullback operators
+    \[
+    \PrePreProtoSectionPullbackOperator{\sigma}(y):
+    \PrePreProtoSectionVertical{\sigma}\to\PrePreProtoSectionVertical{\sigma},
+    \qquad
+    y\in\ProtoSectionBody{\sigma},
+    \]
+    satisfying
+    \[
+    \ev{v,\PrePreProtoSectionPullbackOperator{\sigma}(y)v}>0
+    \qquad
+    \text{for every }
+    y\in\ProtoSectionBody{\sigma},
+    \ \ 0\neq v\in\PrePreProtoSectionVertical{\sigma};
+    \]
+    \item the pullback residual functional
+    \[
+    \PrePreProtoSectionPullbackFunctional{\sigma}:
+    \PrePreProtoSectionResidualBody{\sigma}\to[0,\infty),
+    \qquad
+    \PrePreProtoSectionPullbackFunctional{\sigma}(y,v)
+    \equiv
+    \frac{1}{2}
+    \ev{v,\PrePreProtoSectionPullbackOperator{\sigma}(y)v};
+    \]
+    \item the exact shell
+    \[
+    \left\{
+    (y,0)\in\PrePreProtoSectionResidualBody{\sigma}:y\in\ProtoSectionShell{\sigma}
+    \right\};
+    \]
+    \item benchmark faithfulness in the sense of Definition \ref{def:downstream}(4).
+\end{enumerate}
+From this full pullback-quadratic core define the reconstructed section-centered pre-proto-section package by:
+\begin{enumerate}
+    \item the state space
+    \[
+    \OperatorCorePreProtoSectionState{\sigma}
+    \equiv
+    \ProtoSectionState{\sigma}\times\PrePreProtoSectionVertical{\sigma};
+    \]
+    \item the body
+    \[
+    \OperatorCorePreProtoSectionBody{\sigma}
+    \equiv
+    \PrePreProtoSectionResidualBody{\sigma};
+    \]
+    \item the projection
+    \[
+    \OperatorCorePreProtoSectionProj{\sigma}(y,v)\equiv y;
+    \]
+    \item the functional
+    \[
+    \OperatorCorePreProtoSectionFunctional{\sigma}(y,v)
+    \equiv
+    \ProtoSectionFunctional{\sigma}(y)
+    +
+    \PrePreProtoSectionPullbackFunctional{\sigma}(y,v);
+    \]
+    \item the exact shell
+    \[
+    \OperatorCorePreProtoSectionShell{\sigma}
+    \equiv
+    \left\{
+    (y,0)\in\OperatorCorePreProtoSectionBody{\sigma}:y\in\ProtoSectionShell{\sigma}
+    \right\}.
+    \]
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:pullback} is the full current observer-relevant pullback-core presentation. The present note asks which of its listed constituents remain independent benchmark-facing data once the fixed proto-section benchmark base is held fixed.
+\end{remark}
+
+\section{Observer-Relevant Pullback-Operator Core}
+
+\begin{definition}[Observer-relevant pullback-operator core]
+\label{def:operatorcore}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\) and a benchmark-faithful pullback-quadratic core in the sense of Definition \ref{def:pullback}. The \emph{observer-relevant pullback-operator core} \(\PullbackOperatorCore\) for sector \(\sigma\) consists only of:
+\begin{enumerate}
+    \item the section-centered displacement space \(\PrePreProtoSectionVertical{\sigma}\);
+    \item the compact convex section-centered displacement body \(\PrePreProtoSectionResidualBody{\sigma}\subset\ProtoSectionBody{\sigma}\times\PrePreProtoSectionVertical{\sigma}\);
+    \item the smooth family of positive self-adjoint pullback operators \(\PrePreProtoSectionPullbackOperator{\sigma}(y)\);
+    \item benchmark faithfulness in the sense of Definition \ref{def:downstream}(4).
+\end{enumerate}
+From this smaller operator core define the recovered pullback data by
+\begin{enumerate}
+    \item the recovered pullback functional
+    \[
+    \RecoveredPullbackFunctional{\sigma}:
+    \PrePreProtoSectionResidualBody{\sigma}\to[0,\infty),
+    \qquad
+    \RecoveredPullbackFunctional{\sigma}(y,v)
+    \equiv
+    \frac{1}{2}
+    \ev{v,\PrePreProtoSectionPullbackOperator{\sigma}(y)v};
+    \]
+    \item the recovered exact shell
+    \[
+    \RecoveredPullbackShell{\sigma}
+    \equiv
+    \left\{
+    (y,0)\in\PrePreProtoSectionResidualBody{\sigma}:y\in\ProtoSectionShell{\sigma}
+    \right\};
+    \]
+    \item the recovered section-centered pre-proto-section package
+    \begin{align*}
+    \OperatorCorePreProtoSectionState{\sigma}
+    &\equiv
+    \ProtoSectionState{\sigma}\times\PrePreProtoSectionVertical{\sigma},\\
+    \OperatorCorePreProtoSectionBody{\sigma}
+    &\equiv
+    \PrePreProtoSectionResidualBody{\sigma},\\
+    \OperatorCorePreProtoSectionProj{\sigma}(y,v)
+    &\equiv
+    y,\\
+    \OperatorCorePreProtoSectionFunctional{\sigma}(y,v)
+    &\equiv
+    \ProtoSectionFunctional{\sigma}(y)+\RecoveredPullbackFunctional{\sigma}(y,v),\\
+    \OperatorCorePreProtoSectionShell{\sigma}
+    &\equiv
+    \RecoveredPullbackShell{\sigma}.
+    \end{align*}
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}[Recovered pullback functional properties]
+\label{prop:functional}
+For each \(\sigma\in\{\Car,\Cur,\Hom\}\), the recovered pullback functional of Definition \ref{def:operatorcore} satisfies:
+\begin{enumerate}
+    \item
+    \[
+    \RecoveredPullbackFunctional{\sigma}(y,v)\ge 0
+    \qquad
+    \text{for every }(y,v)\in\PrePreProtoSectionResidualBody{\sigma};
+    \]
+    \item for each fixed \(y\in\ProtoSectionBody{\sigma}\), the map
+    \[
+    v\mapsto \RecoveredPullbackFunctional{\sigma}(y,v)
+    \qquad
+    \text{on }
+    \PrePreProtoSectionResidualBody{\sigma}(y)
+    \]
+    is strictly convex;
+    \item for each fixed \(y\in\ProtoSectionBody{\sigma}\), the unique zero of that fiberwise recovered functional is \(v=0\).
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Item (1) follows from positivity of the pullback operator. For item (2), fix \(y\in\ProtoSectionBody{\sigma}\). Because \(\PrePreProtoSectionPullbackOperator{\sigma}(y)\) is positive definite on nonzero vectors, the map
+\[
+v\mapsto \frac{1}{2}\ev{v,\PrePreProtoSectionPullbackOperator{\sigma}(y)v}
+\]
+is a positive-definite quadratic form on \(\PrePreProtoSectionVertical{\sigma}\), hence strictly convex on every convex subset, in particular on \(\PrePreProtoSectionResidualBody{\sigma}(y)\). Item (3) then follows immediately: the quadratic form vanishes if and only if \(v=0\).
+\end{proof}
+
+\begin{proposition}[Recovered shell and recovered package]
+\label{prop:package}
+For each \(\sigma\in\{\Car,\Cur,\Hom\}\), the recovered data of Definition \ref{def:operatorcore} form a benchmark-faithful section-centered realization of the current proto-section-generating substrate pre-proto-section dynamics package. More precisely:
+\begin{enumerate}
+    \item \(\OperatorCorePreProtoSectionBody{\sigma}\subset\OperatorCorePreProtoSectionState{\sigma}\) is compact and convex, and
+    \[
+    \OperatorCorePreProtoSectionProj{\sigma}\bigl(\OperatorCorePreProtoSectionBody{\sigma}\bigr)
+    =
+    \ProtoSectionBody{\sigma};
+    \]
+    \item each fiber
+    \[
+    \bigl(\OperatorCorePreProtoSectionProj{\sigma}\bigr)^{-1}(y)
+    \cap
+    \OperatorCorePreProtoSectionBody{\sigma}
+    =
+    \{y\}\times\PrePreProtoSectionResidualBody{\sigma}(y)
+    \]
+    is nonempty, compact, and convex;
+    \item for each fixed \(y\in\ProtoSectionBody{\sigma}\), the restriction of \(\OperatorCorePreProtoSectionFunctional{\sigma}\) to that fiber is strictly convex and has the unique minimizer \((y,0)\);
+    \item
+    \[
+    \OperatorCorePreProtoSectionShell{\sigma}
+    =
+    \left\{
+    (y,0)\in\OperatorCorePreProtoSectionBody{\sigma}:y\in\ProtoSectionShell{\sigma}
+    \right\},
+    \]
+    and
+    \[
+    \OperatorCorePreProtoSectionProj{\sigma}\big|_{\OperatorCorePreProtoSectionShell{\sigma}}
+    :
+    \OperatorCorePreProtoSectionShell{\sigma}
+    \xrightarrow{\cong}
+    \ProtoSectionShell{\sigma}
+    \]
+    is a diffeomorphism;
+    \item the recovered package is benchmark faithful in the sense of Definition \ref{def:downstream}(4).
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Items (1) and (2) are inherited directly from the displacement-body part of Definition \ref{def:pullback}. For item (3), fix \(y\in\ProtoSectionBody{\sigma}\). On the fiber \(\{y\}\times\PrePreProtoSectionResidualBody{\sigma}(y)\),
+\[
+\OperatorCorePreProtoSectionFunctional{\sigma}(y,v)
+=
+\ProtoSectionFunctional{\sigma}(y)
++
+\RecoveredPullbackFunctional{\sigma}(y,v).
+\]
+The first term is constant on the fiber, while the second term is strictly convex with unique zero at \(v=0\) by Proposition \ref{prop:functional}. Hence the fiber restriction is strictly convex and has unique minimizer \((y,0)\).
+
+Item (4) is built directly into Definition \ref{def:operatorcore}, and the displayed projection is a diffeomorphism because it is just the identity on the proto-section-shell coordinate. Item (5) is inherited from the benchmark faithfulness recorded in the operator core itself: the same benchmark outputs \eqref{eq:fixedoutputs} are preserved, the same ordinary matter route is preserved, and no second operative metric or enlarged low-energy matter law is introduced.
+\end{proof}
+
+\section{Reconstruction and Benchmark-Facing Factorization}
+
+\begin{proposition}[The full pullback-quadratic core is reconstructed from the operator core]
+\label{prop:reconstruct}
+Let \(\sigma\in\{\Car,\Cur,\Hom\}\) and let \(\PrePreProtoSectionPullbackCore\) be a benchmark-faithful pullback-quadratic core in the sense of Definition \ref{def:pullback}. Form its operator core \(\PullbackOperatorCore\) as in Definition \ref{def:operatorcore}. Then the recovered quadratic data are exactly the original ones:
+\[
+\RecoveredPullbackFunctional{\sigma}
+=
+\PrePreProtoSectionPullbackFunctional{\sigma},
+\qquad
+\RecoveredPullbackShell{\sigma}
+=
+\left\{
+(y,0)\in\PrePreProtoSectionResidualBody{\sigma}:y\in\ProtoSectionShell{\sigma}
+\right\}.
+\]
+Consequently the full pullback-quadratic-core presentation is recovered from the smaller operator core.
+\end{proposition}
+
+\begin{proof}
+The equality of functionals is immediate because both are defined by the same quadratic formula
+\[
+\frac{1}{2}\ev{v,\PrePreProtoSectionPullbackOperator{\sigma}(y)v}.
+\]
+The equality of exact shells is likewise immediate because both are defined as the zero section over the fixed proto-section shell. No additional data are needed beyond the operator core and the already fixed proto-section benchmark base.
+\end{proof}
+
+\begin{proposition}[All current downstream uses factor through the operator core]
+\label{prop:downstream}
+For every benchmark-faithful pullback-quadratic core, all current benchmark-facing downstream uses of the current pullback-core frontier already factor through the smaller pullback-operator core \(\PullbackOperatorCore\) together with the fixed proto-section benchmark base. In particular, the current section-centered residual-normal-form realization, the current pre-proto-section package, the current minimizer-section core, and the previously recorded seed, root, foundation, ground, origin, precursor, lift, shell-restriction, split-core, selector-law, combined-response, ambient-package, trace-core, exact-shell-affine-nucleus, continuity-Hessian compressed core, and benchmark one-metric observer-package consequences follow unchanged once the operator core is fixed.
+\end{proposition}
+
+\begin{proof}
+By Proposition \ref{prop:reconstruct}, the full pullback-quadratic core is recovered from the smaller operator core. By Proposition \ref{prop:package}, that recovered data already form a benchmark-faithful section-centered realization of the current proto-section-generating substrate pre-proto-section dynamics package. Definition \ref{def:downstream}(3) records that, once such a benchmark-faithful pullback-core realization over the fixed proto-section benchmark base is available, all of the listed downstream consequences follow unchanged. Therefore every current benchmark-facing downstream use factors through the operator core together with the fixed proto-section benchmark base.
+\end{proof}
+
+\begin{proposition}[Separate quadratic-functional and exact-shell presentation is benchmark neutral at current scope]
+\label{prop:neutral}
+For every benchmark-faithful pullback-quadratic core, the separate presentation of
+\[
+\PrePreProtoSectionPullbackFunctional{\sigma},
+\qquad
+\left\{
+(y,0)\in\PrePreProtoSectionResidualBody{\sigma}:y\in\ProtoSectionShell{\sigma}
+\right\}
+\]
+does not add independent benchmark-facing freedom beyond the smaller observer-relevant pullback-operator core \(\PullbackOperatorCore\).
+\end{proposition}
+
+\begin{proof}
+By Proposition \ref{prop:reconstruct}, both listed constituents are reconstructed from the smaller operator core and the already fixed proto-section benchmark base. By Proposition \ref{prop:downstream}, all current benchmark-facing downstream uses of the pullback-core frontier already factor through that reconstructed data. Therefore the separate quadratic-functional and exact-shell presentation is not additional benchmark-facing information beyond the smaller operator core.
+\end{proof}
+
+\begin{proposition}[The benchmark package remains fixed]
+\label{prop:benchmark}
+Every observer-relevant pullback-operator core preserves the same benchmark one-metric package \eqref{eq:fixedoutputs}. In particular, the operative metric remains exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, and the low-energy matter law is not enlarged.
+\end{proposition}
+
+\begin{proof}
+This is part of benchmark faithfulness in Definition \ref{def:operatorcore}(4). The present note only removes presentational redundancy inside the current pullback-core frontier. It does not alter the benchmark exact-closure package.
+\end{proof}
+
+\section{Main Theorem}
+
+\begin{theorem}[Observer-relevant pullback-quadratic core collapse to an observer-relevant pullback-operator core]
+\label{thm:main}
+Fix the primitive continuation data of Definition \ref{def:fixed}, the recorded proto-section benchmark base and downstream chain of Definition \ref{def:downstream}, and a benchmark-faithful pullback-quadratic core in the sense of Definition \ref{def:pullback}. Then, for each sector \(\sigma\in\{\Car,\Cur,\Hom\}\), the live benchmark-facing burden inside the current pullback-quadratic-core frontier collapses from the observer-relevant pullback-quadratic core \(\PrePreProtoSectionPullbackCore\) to the smaller observer-relevant pullback-operator core \(\PullbackOperatorCore\). More precisely:
+\begin{enumerate}
+    \item the recovered pullback functional is forced by the pullback operator through the quadratic formula of Definition \ref{def:operatorcore} and Proposition \ref{prop:functional};
+    \item the exact shell is forced by the operator core as the zero section over the fixed proto-section shell by Definition \ref{def:operatorcore} and Proposition \ref{prop:package};
+    \item the full pullback-quadratic-core presentation is therefore reconstructed from the operator core by Proposition \ref{prop:reconstruct};
+    \item all current benchmark-facing downstream uses of the pullback-core frontier factor through the operator core by Proposition \ref{prop:downstream};
+    \item the separate quadratic-functional and exact-shell presentation adds no independent benchmark-facing freedom beyond the operator core by Proposition \ref{prop:neutral};
+    \item the benchmark boundary remains fixed by Proposition \ref{prop:benchmark};
+    \item consequently the remaining honest burden below the previous pullback-quadratic-core frontier is no longer the full pullback-quadratic core \(\PrePreProtoSectionPullbackCore\) as such. What remains is to derive or justify the sharper pullback-operator core \(\PullbackOperatorCore\) from still more primitive substrate structure, or else to prove a still smaller collapse, sharper necessity result, or sharper uniqueness result strictly inside that operator core.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Item (1) is Proposition \ref{prop:functional}. Item (2) is the shell clause of Definition \ref{def:operatorcore} together with Proposition \ref{prop:package}. Item (3) is Proposition \ref{prop:reconstruct}. Item (4) is Proposition \ref{prop:downstream}. Item (5) is Proposition \ref{prop:neutral}. Item (6) is Proposition \ref{prop:benchmark}. Item (7) is the routing consequence of the previous items together with the active safeguard against counting another same-output deeper-origin relay as new front-line progress when the live benchmark-relevant datum is unchanged.
+\end{proof}
+
+\begin{corollary}[What must be done next]
+\label{cor:next}
+After Theorem \ref{thm:main}, the next honest benchmark-facing manuscript must either:
+\begin{enumerate}
+    \item derive or justify the observer-relevant pullback-operator core \(\PullbackOperatorCore\) from still more primitive explicit substrate structure in a way that changes benchmark-facing status;
+    \item identify a genuinely smaller theorem-level observer-relevant datum strictly inside \(\PullbackOperatorCore\) and prove a sharper collapse, necessity result, or uniqueness result there;
+    \item do either of the previous two while preserving the same benchmark one-metric package and the same claim boundary.
+\end{enumerate}
+Another same-output deeper-origin relay that merely preserves this operator core and therefore merely reproduces the same pullback-quadratic core, the same section-centered hidden-response package, the same residual-normal-form datum, the same benchmark-faithful pre-proto-section package, and the same downstream benchmark-facing consequences, another re-expansion back to the larger pullback-quadratic-core or hidden-response presentations as if their recovered constituents were still independently live, another reopening of the already-spent residual-normal-form or larger pre-proto-section presentations, or any move that introduces a second operative metric, enlarges the ordinary matter law, or uses stronger promotion language does not satisfy the present burden.
+\end{corollary}
+
+\begin{proof}
+Theorem \ref{thm:main} shows that the full pullback-quadratic-core presentation is no longer the minimal benchmark-facing datum at this stage. Therefore a subsequent manuscript must improve on the smaller operator core rather than merely restating the larger pullback-core or hidden-response presentations.
+\end{proof}
+
+\section{Conclusion}
+
+The positive result of this note is a disciplined second compression step inside the current pullback-core frontier. The previous active-primary theorem already showed that the full section-centered hidden-response package is not the minimal benchmark-facing datum, because its benchmark-relevant content collapses to an observer-relevant pullback-quadratic core. The present theorem then takes the honest next internal route available there: it shows that even that pullback-core presentation is still larger than necessary.
+
+What survives as the live burden is the observer-relevant pullback-operator core \(\PullbackOperatorCore\). Relative to the already fixed proto-section benchmark base, that sharper datum is just the section-centered displacement body together with the smooth positive self-adjoint pullback operator on it. The pullback quadratic functional is its canonical quadratic form, and the exact shell is the zero section over the fixed proto-section shell. Those separately listed pullback-core constituents therefore do not add independent benchmark-facing freedom.
+
+This is the honest next burden after the present theorem. A new primary manuscript must derive or justify that sharper operator core from still more primitive explicit substrate structure, or else collapse it further, while preserving the same benchmark one-metric package, the same ordinary matter route, and the same claim boundary. The current result does not yet complete a first-principles derivation of GR from substrate microphysics, but it does narrow the live derivational burden one level further on the active line.
+
+\end{document}
