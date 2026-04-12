@@ -1,0 +1,736 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+
+\newcommand{\CompletedMetric}{g^{\sharp}}
+\newcommand{\MatterSpace}{\Psi}
+
+\newcommand{\Car}{\mathrm{car}}
+\newcommand{\Cur}{\mathrm{cur}}
+\newcommand{\Hom}{\mathrm{hom}}
+
+\newcommand{\ForSpace}[1]{\mathcal I_{#1}^{\mathrm{for}}}
+\newcommand{\PrimShell}{\mathcal S_{\mathrm{prim}}}
+\newcommand{\MetricOut}{\mathscr G_{\mathrm{out}}}
+\newcommand{\MatterOut}{\mathscr T_{\mathrm{out}}}
+
+\newcommand{\ProtoSectionBody}[1]{\mathcal B_{#1}^{\mathrm{psec}}}
+\newcommand{\ProtoSectionShell}[1]{\mathcal Z_{#1}^{\mathrm{psec}}}
+
+\newcommand{\PrePreProtoSectionPullbackCore}{\mathfrak S^{\mathrm{sub,proto,pppresec,pb}}}
+\newcommand{\PrePreProtoSectionVertical}[1]{V_{#1}^{\mathrm{pppresec}}}
+\newcommand{\PrePreProtoSectionResidualBody}[1]{\mathcal D_{#1}^{\mathrm{pppresec}}}
+
+\newcommand{\PullbackOperatorCore}{\mathfrak S^{\mathrm{sub,proto,pppresec,pb,op}}}
+\newcommand{\PullbackBodyOperatorCore}{\mathfrak S^{\mathrm{sub,proto,pppresec,pb,bodyop}}}
+\newcommand{\PullbackBodyResponseCore}{\mathfrak S^{\mathrm{sub,proto,pppresec,pb,bodyresp}}}
+\newcommand{\PreProtoSectionResidualPackage}{\mathfrak R^{\mathrm{sub,proto,presec,res}}}
+\newcommand{\PreProtoSectionPackage}{\mathfrak R^{\mathrm{sub,proto,presec}}}
+\newcommand{\PreProtoSectionMinSectionCore}{\mathfrak R^{\mathrm{sub,proto,presec,sec}}}
+
+\newcommand{\ReducedStructure}{\mathfrak S^{\mathrm{disp,resp,red}}}
+\newcommand{\CurrentBodyImageCore}{\mathfrak S^{\mathrm{disp,resp,cbimg}}}
+\newcommand{\SubstrateCarrier}[1]{U_{#1}^{\mathrm{disp,resp}}}
+\newcommand{\SubstrateProjection}[1]{P_{#1}^{\mathrm{disp,resp}}}
+\newcommand{\SubstrateOperator}[1]{K_{#1}^{\mathrm{disp,resp}}}
+\newcommand{\SubstrateKernel}[1]{N_{#1}^{\mathrm{disp,resp}}}
+\newcommand{\SchurResponse}[1]{M_{#1}^{\mathrm{disp,resp}}}
+\newcommand{\CanonicalLift}[1]{J_{#1}^{\mathrm{disp,resp,can}}}
+\newcommand{\CoreForcedBodyResponse}[1]{\widehat{\mathscr R}_{#1}^{\mathrm{disp,resp,cbimg}}}
+\newcommand{\CanonicalImageBody}[1]{\mathcal U_{#1}^{\mathrm{disp,resp,cbimg}}}
+\newcommand{\ImageProjection}[1]{\Pi_{#1}^{\mathrm{disp,resp,cbimg}}}
+\newcommand{\CanonicalImageResponseLaw}[1]{\mathscr Q_{#1}^{\mathrm{disp,resp,cbimg}}}
+\newcommand{\CanonicalImageShell}[1]{\mathcal Z_{#1}^{\mathrm{disp,resp,cbimg}}}
+
+\newcommand{\CompatibleImageBody}[1]{\widetilde{\mathcal U}_{#1}^{\mathrm{disp,resp,cbimg}}}
+\newcommand{\CompatibleImageProjection}[1]{\widetilde{\Pi}_{#1}^{\mathrm{disp,resp,cbimg}}}
+\newcommand{\CompatibleImageLift}[1]{\widetilde J_{#1}^{\mathrm{disp,resp,cbimg}}}
+\newcommand{\CompatibleImageResponseLaw}[1]{\widetilde{\mathscr Q}_{#1}^{\mathrm{disp,resp,cbimg}}}
+\newcommand{\CompatibleImageShell}[1]{\widetilde{\mathcal Z}_{#1}^{\mathrm{disp,resp,cbimg}}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Primitive-Reservoir Observer-Reduction\\
+\large Section-Centered Hidden-Response\\
+\large Canonical Current-Body Image Core\\
+\large Necessity / Uniqueness from\\
+\large Reduced Projection-Response Substrate Structure}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The current active-primary theorem already proved that, once the fixed canonical image body \(\CanonicalImageBody{\sigma}\), the fixed surjective projection, the fixed coercive response operator, and the fixed current body-response route are held fixed, the restricted projection / canonical-lift relation on that body is uniquely forced. Together with the earlier body-level and response/shell-level theorems, that spent the constituent-level freedom inside the current image-core frontier. What still remained open was the cleaner benchmark-facing move now demanded by the routing layer: derive the \emph{full} canonical current-body image core \(\CurrentBodyImageCore\) in one smaller package from deeper explicit substrate structure rather than by keeping its body, relation, response, and shell pieces separately fixed.
+
+The present note makes that move. For each sector it introduces a reduced projection-response substrate structure consisting only of the fixed current displacement body, a finite-dimensional substrate carrier, a smooth surjective displacement projection, a smooth coercive positive self-adjoint substrate-response operator, exact-shell discipline, and benchmark faithfulness. From that reduced explicit substrate structure one derives canonically the remaining image-core constituents now requiring benchmark-facing justification: the canonical minimal lift, the canonical image body, the restricted projection on that body, the canonical image response law, the canonical exact-shell image, and therefore the full canonical current-body image core. Within this reduced-structure class those constituents are not merely available. They are necessary and unique at benchmark-facing scope.
+
+The benchmark boundary remains fixed throughout. The one operative metric is still exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, the low-energy matter law is not enlarged, and no stronger promotion language is licensed. The positive result is therefore a genuine cleaner theorem one level below the prior relation-level frontier. The remaining honest burden moves below the full image core itself to the reduced projection-response substrate structure that now forces it, or to a still sharper theorem that makes that deeper derivation unavoidable.
+\end{abstract}
+
+\section{Introduction}
+
+The active derivational program of \TheoryName{} has reached the point where the next honest gain could not be another same-output relay. The preceding projection-operator-core collapse theorem first moved the live burden to the smaller canonical current-body image core \(\CurrentBodyImageCore\). The later canonical-image-body theorem then showed that the body constituent is forced once the current displacement body, the surjective projection, the coercive response operator, the exact-shell image, and the current body-response route are fixed. The next canonical-image-response / exact-shell theorem spent the response-level and shell-level freedom on that fixed body once the relation is fixed, and the latest canonical-image restricted-projection / canonical-lift theorem spent the remaining relation-level freedom as well.
+
+Those constituentwise sharpenings were honest benchmark-facing gains, but they also clarified what the next clean step had to be. Once the body-level, relation-level, response-level, and shell-level freedom have each been removed separately, the next honest move is not to hold all of them fixed again and descend to another unexplained layer. It is to derive the whole image core in one smaller benchmark-facing package from deeper explicit substrate structure, or to prove a theorem that makes that derivation unavoidable.
+
+The present note takes the first route in the strongest disciplined form that now comes out cleanly. It does not restore the full substrate-body presentation of the older projection-operator core, and it does not replay the full displacement-response substrate law. Instead it keeps only a reduced explicit substrate structure: the current displacement body, a substrate carrier, a surjective displacement projection, a coercive positive self-adjoint response operator, exact-shell discipline, and the same benchmark-faithfulness conditions already fixed on the active line. From those reduced inputs it derives canonically the full current image core and proves that no genuinely different benchmark-faithful full image-core package can remain at current scope once that reduced structure is fixed.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not claim that final substrate microphysics has already been identified. Its narrower theorem is only that, on the active primitive-reservoir observer-reduction line, the full canonical current-body image core is itself a canonical and unique output of a smaller reduced projection-response substrate structure sitting below the previously live relation-level frontier.
+
+\section{Fixed Inputs}
+
+\begin{definition}[Recorded primitive continuation data]
+\label{def:fixed}
+Fix the following continuation data from the active primitive-reservoir observer-reduction line.
+\begin{enumerate}
+    \item For each sector label \(\sigma\in\{\Car,\Cur,\Hom\}\), a primitive forcing shell
+    \[
+    \ForSpace{\sigma}.
+    \]
+    \item The product shell
+    \[
+    \PrimShell
+    \equiv
+    \ForSpace{\Car}\times \ForSpace{\Cur}\times \ForSpace{\Hom}.
+    \]
+    \item The recorded metric and ordinary-matter outputs
+    \[
+    \MetricOut:\PrimShell\to\{\text{observer metrics}\},
+    \qquad
+    \MatterOut:\PrimShell\times\MatterSpace\to\{\text{observer stress tensors}\},
+    \]
+    satisfying
+    \begin{equation}
+    \MetricOut(\mathbf w)=\CompletedMetric,
+    \qquad
+    \MatterOut(\mathbf w,\psi)
+    =
+    T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
+    \label{eq:fixedoutputs}
+    \end{equation}
+    for every \(\mathbf w\in\PrimShell\) and every matter configuration \(\psi\in\MatterSpace\).
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Reduced projection-response substrate structure]
+\label{def:structure}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). A \emph{benchmark-faithful reduced projection-response substrate structure}
+\[
+\ReducedStructure_{\sigma}
+\]
+consists of the following data.
+\begin{enumerate}
+    \item The current proto-section benchmark base \(\ProtoSectionBody{\sigma}\) and exact proto-section shell \(\ProtoSectionShell{\sigma}\).
+    \item The current section-centered displacement body
+    \[
+    \PrePreProtoSectionResidualBody{\sigma}
+    \subset
+    \ProtoSectionBody{\sigma}\times\PrePreProtoSectionVertical{\sigma}
+    \]
+    whose fiber
+    \[
+    \PrePreProtoSectionResidualBody{\sigma}(y)
+    \equiv
+    \left\{
+    v\in\PrePreProtoSectionVertical{\sigma}:(y,v)\in\PrePreProtoSectionResidualBody{\sigma}
+    \right\}
+    \]
+    is nonempty, compact, convex, contains \(0\), and has nonempty interior for every \(y\in\ProtoSectionBody{\sigma}\).
+    \item A finite-dimensional Euclidean substrate carrier
+    \[
+    \SubstrateCarrier{\sigma}.
+    \]
+    \item A smooth family of surjective linear displacement projections
+    \[
+    \SubstrateProjection{\sigma}(y):
+    \SubstrateCarrier{\sigma}\to\PrePreProtoSectionVertical{\sigma},
+    \qquad
+    y\in\ProtoSectionBody{\sigma}.
+    \]
+    \item A smooth family of positive self-adjoint substrate-response operators
+    \[
+    \SubstrateOperator{\sigma}(y):
+    \SubstrateCarrier{\sigma}\to\SubstrateCarrier{\sigma},
+    \qquad
+    y\in\ProtoSectionBody{\sigma},
+    \]
+    satisfying the uniform coercive bound
+    \begin{equation}
+    \ev{u,\SubstrateOperator{\sigma}(y)u}
+    \ge
+    \mu_{\sigma}\,\|u\|^2
+    \qquad
+    \text{for all }
+    y\in\ProtoSectionBody{\sigma},
+    \ \ u\in\SubstrateCarrier{\sigma}
+    \label{eq:coercive}
+    \end{equation}
+    for some constant \(\mu_{\sigma}>0\).
+    \item The fixed exact-shell/current-body compatibility relation
+    \[
+    \left\{
+    y\in\ProtoSectionBody{\sigma}:0\in\PrePreProtoSectionResidualBody{\sigma}(y)
+    \right\}
+    =
+    \ProtoSectionShell{\sigma}.
+    \]
+    \item Benchmark faithfulness, meaning preservation of \eqref{eq:fixedoutputs}, no second operative metric, no enlarged low-energy matter law, no change to the ordinary matter route, and no premature promotion from adoption to completed derivation.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:structure} is intentionally smaller than the older projection-operator core and the older displacement-response substrate law. It does not reinstall a separately primitive full substrate body, and it does not take the body-level, relation-level, response-level, or shell-level constituents of the current image core as independent input. Those are precisely the data now to be derived from this reduced explicit substrate structure.
+\end{remark}
+
+\begin{definition}[Recorded downstream chain]
+\label{def:downstream}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). The active line already records that, once the same benchmark-faithful current body-response route on the fixed displacement body is available, the current observer-relevant pullback body-response core \(\PullbackBodyResponseCore\), the current pullback body-operator core \(\PullbackBodyOperatorCore\), the current pullback-operator core \(\PullbackOperatorCore\), the current pullback-quadratic core \(\PrePreProtoSectionPullbackCore\), the current section-centered residual-normal-form realization \(\PreProtoSectionResidualPackage\), the current benchmark-faithful pre-proto-section package \(\PreProtoSectionPackage\), the current minimizer-section core \(\PreProtoSectionMinSectionCore\), and the previously recorded continuity-Hessian compressed core and benchmark one-metric observer package follow unchanged.
+\end{definition}
+
+\section{Canonical Current-Body Image Core from Reduced Structure}
+
+\begin{proposition}[Positive Schur-response operator]
+\label{prop:schur}
+For each \(y\in\ProtoSectionBody{\sigma}\), define
+\[
+\SchurResponse{\sigma}(y)
+\equiv
+\SubstrateProjection{\sigma}(y)
+\SubstrateOperator{\sigma}(y)^{-1}
+\SubstrateProjection{\sigma}(y)^*:
+\PrePreProtoSectionVertical{\sigma}\to\PrePreProtoSectionVertical{\sigma},
+\]
+where \((\cdot)^*\) denotes Euclidean adjoint with respect to the fixed inner products on \(\SubstrateCarrier{\sigma}\) and \(\PrePreProtoSectionVertical{\sigma}\). Then \(\SchurResponse{\sigma}(y)\) is positive self-adjoint and invertible for every \(y\in\ProtoSectionBody{\sigma}\).
+\end{proposition}
+
+\begin{proof}
+Self-adjointness is immediate from the self-adjointness of \(\SubstrateOperator{\sigma}(y)^{-1}\). For any \(0\neq w\in\PrePreProtoSectionVertical{\sigma}\),
+\[
+\ev{w,\SchurResponse{\sigma}(y)w}
+=
+\ev{
+\SubstrateOperator{\sigma}(y)^{-1/2}\SubstrateProjection{\sigma}(y)^*w,
+\SubstrateOperator{\sigma}(y)^{-1/2}\SubstrateProjection{\sigma}(y)^*w
+}
+>0
+\]
+because \(\SubstrateProjection{\sigma}(y)\) is surjective and therefore \(\SubstrateProjection{\sigma}(y)^*\) is injective. Hence \(\SchurResponse{\sigma}(y)\) is positive definite and invertible.
+\end{proof}
+
+\begin{definition}[Canonical lift and induced current body-response route]
+\label{def:canonical}
+For each \(y\in\ProtoSectionBody{\sigma}\), define the \emph{canonical minimal lift}
+\begin{equation}
+\CanonicalLift{\sigma}(y)
+\equiv
+\SubstrateOperator{\sigma}(y)^{-1}\SubstrateProjection{\sigma}(y)^*
+\SchurResponse{\sigma}(y)^{-1}
+:
+\PrePreProtoSectionVertical{\sigma}\to\SubstrateCarrier{\sigma}.
+\label{eq:canonical}
+\end{equation}
+Define the \emph{induced current body-response route}
+\begin{equation}
+\CoreForcedBodyResponse{\sigma}(y,v)
+\equiv
+\frac{1}{2}
+\ev{
+\CanonicalLift{\sigma}(y)v,
+\SubstrateOperator{\sigma}(y)\CanonicalLift{\sigma}(y)v
+}
+\qquad
+\text{for }
+(y,v)\in\PrePreProtoSectionResidualBody{\sigma}.
+\label{eq:coreresponse}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[Canonical lift properties]
+\label{prop:canonical}
+For every \(y\in\ProtoSectionBody{\sigma}\),
+\begin{enumerate}
+    \item
+    \[
+    \SubstrateProjection{\sigma}(y)\circ\CanonicalLift{\sigma}(y)
+    =
+    \mathrm{id}_{\PrePreProtoSectionVertical{\sigma}};
+    \]
+    \item
+    \[
+    \ev{
+    \CanonicalLift{\sigma}(y)v,
+    \SubstrateOperator{\sigma}(y)k
+    }
+    =
+    0
+    \]
+    for every \(v\in\PrePreProtoSectionVertical{\sigma}\) and every \(k\in\SubstrateKernel{\sigma}(y)\equiv\ker\SubstrateProjection{\sigma}(y)\);
+    \item every \(u\in\SubstrateCarrier{\sigma}\) admits a unique decomposition
+    \[
+    u
+    =
+    \CanonicalLift{\sigma}(y)\bigl(\SubstrateProjection{\sigma}(y)u\bigr)
+    +
+    k,
+    \qquad
+    k\in\SubstrateKernel{\sigma}(y);
+    \]
+    \item \(\CanonicalLift{\sigma}(y)\) is linear in the displacement argument and smooth in \(y\).
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Item (1) follows directly from Definition \ref{def:canonical}. For item (2), let \(k\in\SubstrateKernel{\sigma}(y)\). Then
+\[
+\ev{
+\CanonicalLift{\sigma}(y)v,
+\SubstrateOperator{\sigma}(y)k
+}
+=
+\ev{
+\SubstrateProjection{\sigma}(y)^*\SchurResponse{\sigma}(y)^{-1}v,
+k
+}
+=
+\ev{
+\SchurResponse{\sigma}(y)^{-1}v,
+\SubstrateProjection{\sigma}(y)k
+}
+=
+0.
+\]
+Item (3) follows by setting
+\[
+k\equiv u-\CanonicalLift{\sigma}(y)\bigl(\SubstrateProjection{\sigma}(y)u\bigr)
+\]
+and applying item (1). Uniqueness follows because item (1) fixes the non-kernel part. Linearity and smoothness are immediate from \eqref{eq:canonical}.
+\end{proof}
+
+\begin{proposition}[Unique energy-minimizing lift]
+\label{prop:min}
+For every \(y\in\ProtoSectionBody{\sigma}\) and every \(v\in\PrePreProtoSectionVertical{\sigma}\), the canonical lift \(\CanonicalLift{\sigma}(y)v\) is the unique minimizer of
+\begin{equation}
+\min\left\{
+\frac{1}{2}\ev{u,\SubstrateOperator{\sigma}(y)u}:
+u\in\SubstrateCarrier{\sigma},
+\ \SubstrateProjection{\sigma}(y)u=v
+\right\}.
+\label{eq:minproblem}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Let \(u\in\SubstrateCarrier{\sigma}\) satisfy \(\SubstrateProjection{\sigma}(y)u=v\). By Proposition \ref{prop:canonical}(3),
+\[
+u=\CanonicalLift{\sigma}(y)v+k,
+\qquad
+k\in\SubstrateKernel{\sigma}(y).
+\]
+Using Proposition \ref{prop:canonical}(2),
+\[
+\ev{u,\SubstrateOperator{\sigma}(y)u}
+=
+\ev{
+\CanonicalLift{\sigma}(y)v,
+\SubstrateOperator{\sigma}(y)\CanonicalLift{\sigma}(y)v
+}
++
+\ev{k,\SubstrateOperator{\sigma}(y)k}.
+\]
+The last term is nonnegative by positivity of \(\SubstrateOperator{\sigma}(y)\), and by the coercive bound \eqref{eq:coercive} it vanishes only if \(k=0\). Therefore the unique minimizer of \eqref{eq:minproblem} is \(\CanonicalLift{\sigma}(y)v\).
+\end{proof}
+
+\begin{definition}[Canonical current-body image core]
+\label{def:imagecore}
+For each \(y\in\ProtoSectionBody{\sigma}\), define the \emph{canonical image body}
+\begin{equation}
+\CanonicalImageBody{\sigma}(y)
+\equiv
+\CanonicalLift{\sigma}(y)\bigl(\PrePreProtoSectionResidualBody{\sigma}(y)\bigr)
+\subset
+\SubstrateCarrier{\sigma}.
+\label{eq:imagebody}
+\end{equation}
+Define the \emph{restricted image projection}
+\begin{equation}
+\ImageProjection{\sigma}(y)
+\equiv
+\SubstrateProjection{\sigma}(y)\big|_{\CanonicalImageBody{\sigma}(y)}
+:
+\CanonicalImageBody{\sigma}(y)\to\PrePreProtoSectionResidualBody{\sigma}(y),
+\label{eq:imageprojection}
+\end{equation}
+the \emph{canonical image response law}
+\begin{equation}
+\CanonicalImageResponseLaw{\sigma}(y,u)
+\equiv
+\frac{1}{2}
+\ev{u,\SubstrateOperator{\sigma}(y)u}
+\qquad
+\text{for }
+u\in\CanonicalImageBody{\sigma}(y),
+\label{eq:imageresponse}
+\end{equation}
+and the \emph{canonical exact-shell image}
+\begin{equation}
+\CanonicalImageShell{\sigma}
+\equiv
+\left\{
+(y,0):y\in\ProtoSectionShell{\sigma}
+\right\}.
+\label{eq:imageshell}
+\end{equation}
+The \emph{canonical current-body image core} for sector \(\sigma\) is the package
+\[
+\CurrentBodyImageCore_{\sigma}
+\equiv
+\Bigl(
+\CanonicalImageBody{\sigma},
+\ImageProjection{\sigma},
+\CanonicalLift{\sigma},
+\CanonicalImageResponseLaw{\sigma},
+\CanonicalImageShell{\sigma}
+\Bigr).
+\]
+\end{definition}
+
+\begin{proposition}[Canonical current-body image core is derived by the reduced structure]
+\label{prop:derived}
+For every \(y\in\ProtoSectionBody{\sigma}\), the reduced structure of Definition \ref{def:structure} canonically determines the full current-body image core constituents of Definition \ref{def:imagecore}. More precisely:
+\begin{enumerate}
+    \item the restricted image projection \(\ImageProjection{\sigma}(y)\) is a bijection with inverse \(\CanonicalLift{\sigma}(y)\big|_{\PrePreProtoSectionResidualBody{\sigma}(y)}\);
+    \item each fiber \(\CanonicalImageBody{\sigma}(y)\) is nonempty, compact, and convex;
+    \item the canonical image response law pulls back along the canonical lift to the induced current body-response route:
+    \[
+    \CanonicalImageResponseLaw{\sigma}\bigl(y,\CanonicalLift{\sigma}(y)v\bigr)
+    =
+    \CoreForcedBodyResponse{\sigma}(y,v)
+    \]
+    for every \((y,v)\in\PrePreProtoSectionResidualBody{\sigma}\);
+    \item the exact-shell image is exactly \(\CanonicalImageShell{\sigma}\).
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+For item (1), surjectivity follows from the definition \eqref{eq:imagebody}. If \(u\in\CanonicalImageBody{\sigma}(y)\), then \(u=\CanonicalLift{\sigma}(y)v\) for some \(v\in\PrePreProtoSectionResidualBody{\sigma}(y)\), and Proposition \ref{prop:canonical}(1) gives
+\[
+\ImageProjection{\sigma}(y)u
+=
+\SubstrateProjection{\sigma}(y)u
+=
+v.
+\]
+Hence \(\ImageProjection{\sigma}(y)\) is inverse to the canonical lift on the stated domains and is therefore bijective.
+
+Item (2) follows because \(\PrePreProtoSectionResidualBody{\sigma}(y)\) is nonempty, compact, and convex and \(\CanonicalLift{\sigma}(y)\) is linear and continuous.
+
+Item (3) is immediate from Definitions \ref{def:canonical} and \ref{def:imagecore}.
+
+For item (4), if \(y\in\ProtoSectionShell{\sigma}\), then by linearity \(\CanonicalLift{\sigma}(y)0=0\), so \((y,0)\in\CanonicalImageShell{\sigma}\). Conversely, if \((y,u)\in\CanonicalImageShell{\sigma}\), then by definition \(u=0\) and \(y\in\ProtoSectionShell{\sigma}\). Thus the exact-shell image is exactly \(\CanonicalImageShell{\sigma}\).
+\end{proof}
+
+\begin{remark}
+Proposition \ref{prop:derived} is the first cleaner compression now required by the routing layer. The reduced explicit substrate structure already yields the whole current image core at once. The body, relation, response, and shell data no longer need to be taken one by one as separately fixed frontier inputs.
+\end{remark}
+
+\section{Compatible Benchmark-Faithful Full Current-Image-Core Packages}
+
+\begin{definition}[Benchmark-faithful compatible full current-image-core package]
+\label{def:compatible}
+A \emph{benchmark-faithful compatible full current-image-core package} for sector \(\sigma\) consists of the following data over the fixed reduced structure of Definition \ref{def:structure}.
+\begin{enumerate}
+    \item A fiberwise body
+    \[
+    \CompatibleImageBody{\sigma}(y)\subset\SubstrateCarrier{\sigma},
+    \qquad
+    y\in\ProtoSectionBody{\sigma},
+    \]
+    each fiber being nonempty, compact, and convex.
+    \item A bijection
+    \[
+    \CompatibleImageProjection{\sigma}(y):
+    \CompatibleImageBody{\sigma}(y)\to\PrePreProtoSectionResidualBody{\sigma}(y)
+    \]
+    with inverse
+    \[
+    \CompatibleImageLift{\sigma}(y):
+    \PrePreProtoSectionResidualBody{\sigma}(y)\to\CompatibleImageBody{\sigma}(y).
+    \]
+    \item The compatible projection agrees with the ambient displacement projection:
+    \[
+    \CompatibleImageProjection{\sigma}(y)u
+    =
+    \SubstrateProjection{\sigma}(y)u
+    \]
+    for every \(u\in\CompatibleImageBody{\sigma}(y)\). Equivalently,
+    \[
+    \SubstrateProjection{\sigma}(y)\CompatibleImageLift{\sigma}(y)v=v
+    \]
+    for every \((y,v)\in\PrePreProtoSectionResidualBody{\sigma}\).
+    \item A response law
+    \[
+    \CompatibleImageResponseLaw{\sigma}(y,\cdot):
+    \CompatibleImageBody{\sigma}(y)\to[0,\infty)
+    \]
+    such that
+    \[
+    \CompatibleImageResponseLaw{\sigma}\bigl(y,\CompatibleImageLift{\sigma}(y)v\bigr)
+    =
+    \CoreForcedBodyResponse{\sigma}(y,v)
+    \]
+    for every \((y,v)\in\PrePreProtoSectionResidualBody{\sigma}\).
+    \item An exact-shell image
+    \[
+    \CompatibleImageShell{\sigma}
+    \equiv
+    \left\{
+    \bigl(y,\CompatibleImageLift{\sigma}(y)0\bigr):y\in\ProtoSectionShell{\sigma}
+    \right\}.
+    \]
+    \item Benchmark faithfulness in the sense of Definition \ref{def:structure}(7), together with preservation of the same downstream benchmark-facing package of Definition \ref{def:downstream}.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:compatible} does not reopen the older full substrate-body presentation, the older projection-operator core, or the older displacement-response substrate law. It asks the single sharp question now left by the routing layer: once the reduced explicit projection/response structure is fixed, can any genuinely different benchmark-faithful \emph{full} image-core package remain?
+\end{remark}
+
+\begin{proposition}[The canonical current-body image core is compatible]
+\label{prop:exists}
+The canonical current-body image core of Definition \ref{def:imagecore} forms a benchmark-faithful compatible full current-image-core package.
+\end{proposition}
+
+\begin{proof}
+Item (1) of Definition \ref{def:compatible} is Proposition \ref{prop:derived}(2). Item (2) is Proposition \ref{prop:derived}(1). Item (3) is built into the definition \eqref{eq:imageprojection}. Item (4) is Proposition \ref{prop:derived}(3). Item (5) is exactly \eqref{eq:imageshell}. Item (6) holds because the fixed outputs \eqref{eq:fixedoutputs} are unchanged by Definition \ref{def:structure}(7), and Definition \ref{def:downstream} gives the same downstream benchmark-facing package once the same current body-response route is used on the fixed displacement body.
+\end{proof}
+
+\begin{proposition}[Compatible lifts are canonical]
+\label{prop:lift}
+Let \((\CompatibleImageBody{\sigma},\CompatibleImageProjection{\sigma},\CompatibleImageLift{\sigma},\CompatibleImageResponseLaw{\sigma},\CompatibleImageShell{\sigma})\) be any benchmark-faithful compatible full current-image-core package. Then
+\[
+\CompatibleImageLift{\sigma}(y)v
+=
+\CanonicalLift{\sigma}(y)v
+\]
+for every \(y\in\ProtoSectionBody{\sigma}\) and every \(v\in\PrePreProtoSectionResidualBody{\sigma}(y)\).
+\end{proposition}
+
+\begin{proof}
+Fix \(y\in\ProtoSectionBody{\sigma}\) and \(v\in\PrePreProtoSectionResidualBody{\sigma}(y)\). By Definition \ref{def:compatible}(3), the point \(\CompatibleImageLift{\sigma}(y)v\) satisfies
+\[
+\SubstrateProjection{\sigma}(y)\CompatibleImageLift{\sigma}(y)v=v.
+\]
+Hence it is admissible for the constrained minimization problem \eqref{eq:minproblem}. By Definition \ref{def:compatible}(4),
+\[
+\frac{1}{2}
+\ev{
+\CompatibleImageLift{\sigma}(y)v,
+\SubstrateOperator{\sigma}(y)\CompatibleImageLift{\sigma}(y)v
+}
+=
+\CoreForcedBodyResponse{\sigma}(y,v)
+=
+\frac{1}{2}
+\ev{
+\CanonicalLift{\sigma}(y)v,
+\SubstrateOperator{\sigma}(y)\CanonicalLift{\sigma}(y)v
+}.
+\]
+Therefore \(\CompatibleImageLift{\sigma}(y)v\) attains the same minimal value as the canonical lift. Proposition \ref{prop:min} says that minimizer is unique. Hence
+\[
+\CompatibleImageLift{\sigma}(y)v
+=
+\CanonicalLift{\sigma}(y)v.
+\]
+\end{proof}
+
+\begin{corollary}[Compatible bodies and restricted projections are canonical]
+\label{cor:bodyprojection}
+Every benchmark-faithful compatible full current-image-core package has
+\[
+\CompatibleImageBody{\sigma}(y)=\CanonicalImageBody{\sigma}(y)
+\]
+and
+\[
+\CompatibleImageProjection{\sigma}(y)=\ImageProjection{\sigma}(y)
+\]
+for every \(y\in\ProtoSectionBody{\sigma}\).
+\end{corollary}
+
+\begin{proof}
+By Definition \ref{def:compatible}(2),
+\[
+\CompatibleImageBody{\sigma}(y)
+=
+\CompatibleImageLift{\sigma}(y)\bigl(\PrePreProtoSectionResidualBody{\sigma}(y)\bigr).
+\]
+Proposition \ref{prop:lift} therefore gives
+\[
+\CompatibleImageBody{\sigma}(y)
+=
+\CanonicalLift{\sigma}(y)\bigl(\PrePreProtoSectionResidualBody{\sigma}(y)\bigr)
+=
+\CanonicalImageBody{\sigma}(y).
+\]
+If \(u\in\CompatibleImageBody{\sigma}(y)=\CanonicalImageBody{\sigma}(y)\), Definition \ref{def:compatible}(3) gives
+\[
+\CompatibleImageProjection{\sigma}(y)u
+=
+\SubstrateProjection{\sigma}(y)u
+=
+\ImageProjection{\sigma}(y)u.
+\]
+Hence the restricted projections coincide.
+\end{proof}
+
+\begin{proposition}[Compatible response laws and shell images are canonical]
+\label{prop:responseandshell}
+Every benchmark-faithful compatible full current-image-core package has
+\[
+\CompatibleImageResponseLaw{\sigma}(y,u)
+=
+\CanonicalImageResponseLaw{\sigma}(y,u)
+\]
+for every \(y\in\ProtoSectionBody{\sigma}\) and every \(u\in\CanonicalImageBody{\sigma}(y)\), and has exact-shell image
+\[
+\CompatibleImageShell{\sigma}
+=
+\CanonicalImageShell{\sigma}.
+\]
+\end{proposition}
+
+\begin{proof}
+Fix \(y\in\ProtoSectionBody{\sigma}\) and \(u\in\CanonicalImageBody{\sigma}(y)\). By Proposition \ref{prop:derived}(1), there is a unique \(v\in\PrePreProtoSectionResidualBody{\sigma}(y)\) such that
+\[
+u=\CanonicalLift{\sigma}(y)v.
+\]
+By Proposition \ref{prop:lift}, this also equals \(\CompatibleImageLift{\sigma}(y)v\). Therefore Definition \ref{def:compatible}(4) gives
+\[
+\CompatibleImageResponseLaw{\sigma}(y,u)
+=
+\CompatibleImageResponseLaw{\sigma}\bigl(y,\CompatibleImageLift{\sigma}(y)v\bigr)
+=
+\CoreForcedBodyResponse{\sigma}(y,v).
+\]
+By Proposition \ref{prop:derived}(3),
+\[
+\CoreForcedBodyResponse{\sigma}(y,v)
+=
+\CanonicalImageResponseLaw{\sigma}\bigl(y,\CanonicalLift{\sigma}(y)v\bigr)
+=
+\CanonicalImageResponseLaw{\sigma}(y,u).
+\]
+This proves the response-law identity.
+
+For the exact-shell image, Definition \ref{def:compatible}(5) and Proposition \ref{prop:lift} give
+\[
+\CompatibleImageShell{\sigma}
+=
+\left\{
+\bigl(y,\CanonicalLift{\sigma}(y)0\bigr):y\in\ProtoSectionShell{\sigma}
+\right\}.
+\]
+Linearity of \(\CanonicalLift{\sigma}(y)\) implies \(\CanonicalLift{\sigma}(y)0=0\), so
+\[
+\CompatibleImageShell{\sigma}
+=
+\left\{
+(y,0):y\in\ProtoSectionShell{\sigma}
+\right\}
+=
+\CanonicalImageShell{\sigma}.
+\]
+\end{proof}
+
+\begin{proposition}[The downstream benchmark-facing package is already fixed]
+\label{prop:downstream}
+Every benchmark-faithful compatible full current-image-core package induces the same current body-response route \(\CoreForcedBodyResponse{\sigma}\) on the fixed displacement body and therefore the same downstream benchmark-facing package of Definition \ref{def:downstream}.
+\end{proposition}
+
+\begin{proof}
+Definition \ref{def:compatible}(4) makes the induced body-response route exactly \(\CoreForcedBodyResponse{\sigma}\). Definition \ref{def:downstream} then gives the same pullback body-response core \(\PullbackBodyResponseCore\), the same pullback body-operator core \(\PullbackBodyOperatorCore\), the same pullback-operator core \(\PullbackOperatorCore\), the same pullback-quadratic core \(\PrePreProtoSectionPullbackCore\), the same section-centered residual-normal-form realization \(\PreProtoSectionResidualPackage\), the same benchmark-faithful pre-proto-section package \(\PreProtoSectionPackage\), the same minimizer-section core \(\PreProtoSectionMinSectionCore\), and the same continuity-Hessian compressed core and benchmark one-metric observer package.
+\end{proof}
+
+\section{Main Theorem}
+
+\begin{theorem}[Full canonical current-body image core is necessary and unique]
+\label{thm:main}
+Fix the primitive continuation data of Definition \ref{def:fixed}, the reduced projection-response substrate structure of Definition \ref{def:structure}, and the recorded downstream chain of Definition \ref{def:downstream}. Then the full canonical current-body image core \(\CurrentBodyImageCore\) is a canonical and unique benchmark-facing output of that reduced explicit substrate structure. More precisely:
+\begin{enumerate}
+    \item the reduced structure canonically derives the full image-core constituents
+    \[
+    \Bigl(
+    \CanonicalImageBody{\sigma},
+    \ImageProjection{\sigma},
+    \CanonicalLift{\sigma},
+    \CanonicalImageResponseLaw{\sigma},
+    \CanonicalImageShell{\sigma}
+    \Bigr)
+    \]
+    by Proposition \ref{prop:derived};
+    \item every benchmark-faithful compatible full current-image-core package coincides sectorwise with the canonical one by Proposition \ref{prop:lift}, Corollary \ref{cor:bodyprojection}, and Proposition \ref{prop:responseandshell};
+    \item the induced current body-response route is therefore \(\CoreForcedBodyResponse{\sigma}\), and the downstream pullback body-response core, pullback body-operator core, pullback-operator core, pullback-quadratic core, section-centered residual-normal-form realization, pre-proto-section package, minimizer-section core, continuity-Hessian compressed core, and benchmark one-metric observer package follow unchanged by Proposition \ref{prop:downstream};
+    \item consequently no independently live benchmark-facing body-level, relation-level, response-level, or shell-level datum remains inside the current image-core frontier once the reduced projection-response substrate structure is fixed.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Item (1) is Proposition \ref{prop:derived}. Item (2) is exactly the content of Proposition \ref{prop:lift}, Corollary \ref{cor:bodyprojection}, and Proposition \ref{prop:responseandshell}. Item (3) is Proposition \ref{prop:downstream}. Item (4) is the benchmark-facing consequence of items (1)--(3): a compatible full image-core package is not genuinely alternative because each of its constituents agrees with the canonical one, while any package that changes one of those constituents changes the induced current body-response route or abandons benchmark faithfulness and therefore no longer preserves the same benchmark one-metric package on the active line.
+\end{proof}
+
+\begin{corollary}[The remaining honest burden moves below the full image core]
+\label{cor:burden}
+After Theorem \ref{thm:main}, the next honest benchmark-facing move is no longer to restate or relocate the same full canonical current-body image core \(\CurrentBodyImageCore\). It is to derive or justify the reduced projection-response substrate structure of Definition \ref{def:structure} from still more primitive explicit substrate structure, or to prove a sharper theorem that makes that deeper derivation unavoidable, while preserving the same benchmark one-metric package, the same ordinary matter route, and the same claim boundary.
+\end{corollary}
+
+\begin{proof}
+By Theorem \ref{thm:main}, once the reduced projection-response substrate structure is fixed, the full current image core is already forced. Another manuscript that merely preserves that same reduced structure and therefore the same full image core does not remove any remaining benchmark-facing freedom. The live burden therefore moves below the image core itself to the reduced structure that now forces it, or to a still sharper theorem that makes such a deeper derivation unavoidable.
+\end{proof}
+
+\section{Conclusion}
+
+The positive result of this note is the cleaner benchmark-facing derivation that the routing layer had made the live burden. The current image-core frontier is no longer described only by separate constituentwise theorems about the canonical image body, the restricted projection / canonical-lift relation, the canonical image response law, and the canonical exact-shell image. Those separate gains remain preserved handoff history, but the present theorem now compresses them to a single cleaner statement: once the reduced projection-response substrate structure is fixed, the full canonical current-body image core \(\CurrentBodyImageCore\) is derived canonically and is unique at benchmark-facing scope.
+
+The scope remains disciplined. The benchmark package is unchanged: the one operative metric is still exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, and the low-energy matter law is not enlarged. Nothing here upgrades adoption to a completed first-principles derivation of GR or licenses stronger promotion language. The gain is narrower and more honest than that: it removes the full current image core itself as an independently live benchmark-facing stopping point once the reduced explicit projection/response structure is fixed.
+
+The next open burden is therefore clear. The next benchmark-facing manuscript should derive or justify that reduced projection-response substrate structure from still more primitive explicit substrate structure, or prove a still sharper theorem that makes such a derivation unavoidable, while preserving the same benchmark one-metric package, the same ordinary matter route, and the same claim boundary. Another same-full-image-core relay, another restoration of the full substrate-body presentation, another replay of the full projection-operator core or the full displacement-response substrate law, or another re-expansion back to the larger already-spent presentations is not the clean next manuscript target at current scope.
+
+\end{document}
