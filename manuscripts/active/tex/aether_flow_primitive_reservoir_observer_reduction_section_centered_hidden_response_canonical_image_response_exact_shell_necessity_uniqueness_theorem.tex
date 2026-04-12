@@ -1,0 +1,574 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+
+\newcommand{\CompletedMetric}{g^{\sharp}}
+\newcommand{\MatterSpace}{\Psi}
+
+\newcommand{\Car}{\mathrm{car}}
+\newcommand{\Cur}{\mathrm{cur}}
+\newcommand{\Hom}{\mathrm{hom}}
+
+\newcommand{\ForSpace}[1]{\mathcal I_{#1}^{\mathrm{for}}}
+\newcommand{\PrimShell}{\mathcal S_{\mathrm{prim}}}
+\newcommand{\MetricOut}{\mathscr G_{\mathrm{out}}}
+\newcommand{\MatterOut}{\mathscr T_{\mathrm{out}}}
+
+\newcommand{\ProtoSectionBody}[1]{\mathcal B_{#1}^{\mathrm{psec}}}
+\newcommand{\ProtoSectionShell}[1]{\mathcal Z_{#1}^{\mathrm{psec}}}
+
+\newcommand{\PrePreProtoSectionPullbackCore}{\mathfrak S^{\mathrm{sub,proto,pppresec,pb}}}
+\newcommand{\PrePreProtoSectionVertical}[1]{V_{#1}^{\mathrm{pppresec}}}
+\newcommand{\PrePreProtoSectionResidualBody}[1]{\mathcal D_{#1}^{\mathrm{pppresec}}}
+
+\newcommand{\PullbackOperatorCore}{\mathfrak S^{\mathrm{sub,proto,pppresec,pb,op}}}
+\newcommand{\PullbackBodyOperatorCore}{\mathfrak S^{\mathrm{sub,proto,pppresec,pb,bodyop}}}
+\newcommand{\PullbackBodyResponseCore}{\mathfrak S^{\mathrm{sub,proto,pppresec,pb,bodyresp}}}
+\newcommand{\PreProtoSectionResidualPackage}{\mathfrak R^{\mathrm{sub,proto,presec,res}}}
+\newcommand{\PreProtoSectionPackage}{\mathfrak R^{\mathrm{sub,proto,presec}}}
+\newcommand{\PreProtoSectionMinSectionCore}{\mathfrak R^{\mathrm{sub,proto,presec,sec}}}
+
+\newcommand{\SubstrateCarrier}[1]{U_{#1}^{\mathrm{disp,resp}}}
+\newcommand{\SubstrateProjection}[1]{P_{#1}^{\mathrm{disp,resp}}}
+\newcommand{\SubstrateOperator}[1]{K_{#1}^{\mathrm{disp,resp}}}
+\newcommand{\SchurResponse}[1]{M_{#1}^{\mathrm{disp,resp}}}
+\newcommand{\CanonicalLift}[1]{J_{#1}^{\mathrm{disp,resp,can}}}
+\newcommand{\CoreForcedBodyResponse}[1]{\widehat{\mathscr R}_{#1}^{\mathrm{disp,resp,projop}}}
+\newcommand{\CanonicalImageBody}[1]{\mathcal U_{#1}^{\mathrm{disp,resp,cbimg}}}
+\newcommand{\CanonicalImageShell}[1]{\mathcal Z_{#1}^{\mathrm{disp,resp,cbimg}}}
+\newcommand{\CanonicalImageResponseLaw}[1]{\mathscr Q_{#1}^{\mathrm{disp,resp,cbimg}}}
+
+\newcommand{\CompatibleImageResponseLaw}[1]{\widetilde{\mathscr Q}_{#1}^{\mathrm{disp,resp,cbimg}}}
+\newcommand{\CompatibleShellSection}[1]{\widetilde z_{#1}^{\mathrm{disp,resp,cbimg}}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Primitive-Reservoir Observer-Reduction\\
+\large Section-Centered Hidden-Response\\
+\large Canonical Image Response / Exact-Shell\\
+\large Necessity / Uniqueness Theorem}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The current active-primary theorem already proved that the canonical image body is the unique benchmark-facing body compatible with the fixed current displacement body, the fixed surjective projection, the fixed coercive response operator, the fixed exact-shell image, and the fixed current body-response route. That spent the body-level option inside the current canonical current-body image core, but it still left a smaller internal question. Once the body itself is fixed and the restricted projection / canonical-lift relation is held fixed on that body, do the image-level response law and the exact-shell image still carry independent benchmark-facing freedom?
+
+The present note proves that they do not. On the fixed canonical image body, any benchmark-faithful response law whose pullback along the fixed canonical lift agrees with the already forced current body-response route must coincide fiberwise with the canonical quadratic response induced by the ambient coercive operator. Likewise, any benchmark-faithful shell selector in the fixed canonical image body that lies above zero displacement on the fixed proto-section shell must equal the canonical zero section. Therefore no genuinely different response-level or shell-level datum remains live inside the current image-core frontier once the body and the restricted projection / canonical-lift relation are fixed.
+
+The benchmark boundary remains fixed throughout. The one operative metric is still exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, the low-energy matter law is not enlarged, and no stronger promotion language is licensed. The positive result is therefore a genuine sharper theorem strictly inside the current image-core frontier: the remaining response and exact-shell constituents are no longer independently live there. What remains open is the deeper derivation or forcing of the restricted projection / canonical-lift relation itself, or a genuinely cleaner deeper derivation of the full image core.
+\end{abstract}
+
+\section{Introduction}
+
+The active derivational program of \TheoryName{} again reaches a stage where the honest next move is smaller than another deeper relay but sharper than a mere routing reminder. The preceding canonical image-body necessity / uniqueness theorem already proved that, on the recorded section-centered hidden-response route, the image body itself is uniquely forced once the fixed current displacement body and the fixed projection / response data are held fixed. After that gain, another manuscript that merely restates the same body datum through a deeper presentation would no longer remove any live benchmark-facing freedom.
+
+The next honest internal question is therefore even narrower. Suppose the canonical image body is already fixed and the restricted projection / canonical-lift relation on that body is already held fixed. Does the induced image-level response law still remain independently live, and does the exact-shell image still remain independently live, or are those data already forced as well? The present note proves the second statement. The only response law on the fixed image body that reproduces the already forced current body-response route is the canonical quadratic response inherited from the ambient coercive operator, and the only shell point in the fixed image body above zero displacement is the canonical zero point.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not introduce a second operative metric, it does not enlarge the low-energy matter law, and it does not reopen the already-screened larger substrate-body presentation, the larger projection-operator core, or the full displacement-response substrate law as if they were again the live burden. Its narrower benchmark-facing role is to prove that once the canonical image body and the fixed projection / lift relation are already in hand, the remaining response and exact-shell constituents of the current image core are forced as well.
+
+\section{Fixed Inputs}
+
+\begin{definition}[Recorded primitive continuation data]
+\label{def:fixed}
+Fix the following continuation data from the active primitive-reservoir observer-reduction line.
+\begin{enumerate}
+    \item For each sector label \(\sigma\in\{\Car,\Cur,\Hom\}\), a primitive forcing shell
+    \[
+    \ForSpace{\sigma}.
+    \]
+    \item The product shell
+    \[
+    \PrimShell
+    \equiv
+    \ForSpace{\Car}\times \ForSpace{\Cur}\times \ForSpace{\Hom}.
+    \]
+    \item The recorded metric and ordinary-matter outputs
+    \[
+    \MetricOut:\PrimShell\to\{\text{observer metrics}\},
+    \qquad
+    \MatterOut:\PrimShell\times\MatterSpace\to\{\text{observer stress tensors}\},
+    \]
+    satisfying
+    \begin{equation}
+    \MetricOut(\mathbf w)=\CompletedMetric,
+    \qquad
+    \MatterOut(\mathbf w,\psi)
+    =
+    T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
+    \label{eq:fixedoutputs}
+    \end{equation}
+    for every \(\mathbf w\in\PrimShell\) and every matter configuration \(\psi\in\MatterSpace\).
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Recorded proto-section benchmark base and current image-core forcing data]
+\label{def:route}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). The active line already fixes:
+\begin{enumerate}
+    \item the current proto-section benchmark base \(\ProtoSectionBody{\sigma}\) and exact proto-section shell \(\ProtoSectionShell{\sigma}\);
+    \item the current section-centered displacement body
+    \[
+    \PrePreProtoSectionResidualBody{\sigma}
+    \subset
+    \ProtoSectionBody{\sigma}\times\PrePreProtoSectionVertical{\sigma}
+    \]
+    whose fiber
+    \[
+    \PrePreProtoSectionResidualBody{\sigma}(y)
+    \equiv
+    \left\{
+    v\in\PrePreProtoSectionVertical{\sigma}:(y,v)\in\PrePreProtoSectionResidualBody{\sigma}
+    \right\}
+    \]
+    is nonempty, compact, convex, contains \(0\), and has nonempty interior for every \(y\in\ProtoSectionBody{\sigma}\);
+    \item a finite-dimensional Euclidean substrate carrier
+    \[
+    \SubstrateCarrier{\sigma};
+    \]
+    \item a smooth family of surjective linear displacement projections
+    \[
+    \SubstrateProjection{\sigma}(y):
+    \SubstrateCarrier{\sigma}\to\PrePreProtoSectionVertical{\sigma},
+    \qquad
+    y\in\ProtoSectionBody{\sigma};
+    \]
+    \item a smooth family of positive self-adjoint substrate-response operators
+    \[
+    \SubstrateOperator{\sigma}(y):
+    \SubstrateCarrier{\sigma}\to\SubstrateCarrier{\sigma},
+    \qquad
+    y\in\ProtoSectionBody{\sigma},
+    \]
+    satisfying the uniform coercive bound
+    \begin{equation}
+    \ev{u,\SubstrateOperator{\sigma}(y)u}
+    \ge
+    \mu_{\sigma}\,\|u\|^2
+    \qquad
+    \text{for all }
+    y\in\ProtoSectionBody{\sigma},
+    \ \ u\in\SubstrateCarrier{\sigma}
+    \label{eq:coercive}
+    \end{equation}
+    for some constant \(\mu_{\sigma}>0\);
+    \item the fixed exact-shell/current-body compatibility relation
+    \[
+    \left\{
+    y\in\ProtoSectionBody{\sigma}:0\in\PrePreProtoSectionResidualBody{\sigma}(y)
+    \right\}
+    =
+    \ProtoSectionShell{\sigma};
+    \]
+    \item benchmark faithfulness, meaning preservation of \eqref{eq:fixedoutputs}, no second operative metric, no enlarged low-energy matter law, no change to the ordinary matter route, and no premature promotion from adoption to completed derivation.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Recorded downstream chain]
+\label{def:downstream}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). The active line already records that, once the same benchmark-faithful current body-response core on the fixed displacement body is available, the current observer-relevant pullback body-response core \(\PullbackBodyResponseCore\), the current pullback body-operator core \(\PullbackBodyOperatorCore\), the current pullback-operator core \(\PullbackOperatorCore\), the current pullback-quadratic core \(\PrePreProtoSectionPullbackCore\), the current section-centered residual-normal-form realization \(\PreProtoSectionResidualPackage\), the current benchmark-faithful pre-proto-section package \(\PreProtoSectionPackage\), the current minimizer-section core \(\PreProtoSectionMinSectionCore\), and the previously recorded continuity-Hessian compressed core and benchmark one-metric observer package follow unchanged.
+\end{definition}
+
+\section{Canonical Image Data}
+
+\begin{proposition}[Positive Schur-response operator]
+\label{prop:schur}
+For each \(y\in\ProtoSectionBody{\sigma}\), define
+\[
+\SchurResponse{\sigma}(y)
+\equiv
+\SubstrateProjection{\sigma}(y)
+\SubstrateOperator{\sigma}(y)^{-1}
+\SubstrateProjection{\sigma}(y)^*:
+\PrePreProtoSectionVertical{\sigma}\to\PrePreProtoSectionVertical{\sigma},
+\]
+where \((\cdot)^*\) denotes Euclidean adjoint with respect to the fixed inner products on \(\SubstrateCarrier{\sigma}\) and \(\PrePreProtoSectionVertical{\sigma}\). Then \(\SchurResponse{\sigma}(y)\) is positive self-adjoint and invertible for every \(y\in\ProtoSectionBody{\sigma}\).
+\end{proposition}
+
+\begin{proof}
+Self-adjointness is immediate from the self-adjointness of \(\SubstrateOperator{\sigma}(y)^{-1}\). For any \(0\neq w\in\PrePreProtoSectionVertical{\sigma}\),
+\[
+\ev{w,\SchurResponse{\sigma}(y)w}
+=
+\ev{
+\SubstrateOperator{\sigma}(y)^{-1/2}\SubstrateProjection{\sigma}(y)^*w,
+\SubstrateOperator{\sigma}(y)^{-1/2}\SubstrateProjection{\sigma}(y)^*w
+}
+>0
+\]
+because \(\SubstrateProjection{\sigma}(y)\) is surjective and therefore \(\SubstrateProjection{\sigma}(y)^*\) is injective. Hence \(\SchurResponse{\sigma}(y)\) is positive definite and invertible.
+\end{proof}
+
+\begin{definition}[Canonical lift and current body-response route]
+\label{def:canonical}
+For each \(y\in\ProtoSectionBody{\sigma}\), define the \emph{canonical minimal lift}
+\begin{equation}
+\CanonicalLift{\sigma}(y)
+\equiv
+\SubstrateOperator{\sigma}(y)^{-1}\SubstrateProjection{\sigma}(y)^*
+\SchurResponse{\sigma}(y)^{-1}
+:
+\PrePreProtoSectionVertical{\sigma}\to\SubstrateCarrier{\sigma}.
+\label{eq:canonical}
+\end{equation}
+Define the \emph{core-forced body response}
+\begin{equation}
+\CoreForcedBodyResponse{\sigma}(y,v)
+\equiv
+\frac{1}{2}
+\ev{
+\CanonicalLift{\sigma}(y)v,
+\SubstrateOperator{\sigma}(y)\CanonicalLift{\sigma}(y)v
+}
+\qquad
+\text{for }
+(y,v)\in\PrePreProtoSectionResidualBody{\sigma}.
+\label{eq:coreresponse}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[Canonical lift properties]
+\label{prop:canonical}
+For every \(y\in\ProtoSectionBody{\sigma}\),
+\begin{enumerate}
+    \item
+    \[
+    \SubstrateProjection{\sigma}(y)\circ\CanonicalLift{\sigma}(y)
+    =
+    \mathrm{id}_{\PrePreProtoSectionVertical{\sigma}};
+    \]
+    \item every \(u\in\SubstrateCarrier{\sigma}\) admits a unique decomposition
+    \[
+    u
+    =
+    \CanonicalLift{\sigma}(y)\bigl(\SubstrateProjection{\sigma}(y)u\bigr)
+    +
+    k,
+    \qquad
+    k\in\ker\SubstrateProjection{\sigma}(y);
+    \]
+    \item \(\CanonicalLift{\sigma}(y)\) is linear in the displacement argument and smooth in \(y\).
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Item (1) follows directly from Definition \ref{def:canonical}. For item (2), set
+\[
+k
+\equiv
+u-\CanonicalLift{\sigma}(y)\bigl(\SubstrateProjection{\sigma}(y)u\bigr).
+\]
+Then item (1) gives \(\SubstrateProjection{\sigma}(y)k=0\). Uniqueness follows because item (1) fixes the non-kernel part. Linearity and smoothness are immediate from \eqref{eq:canonical}.
+\end{proof}
+
+\begin{definition}[Canonical image body, restricted projection / lift relation, and canonical image response / shell]
+\label{def:image}
+For each \(y\in\ProtoSectionBody{\sigma}\), define the \emph{canonical image body}
+\begin{equation}
+\CanonicalImageBody{\sigma}(y)
+\equiv
+\CanonicalLift{\sigma}(y)\bigl(\PrePreProtoSectionResidualBody{\sigma}(y)\bigr)
+\subset
+\SubstrateCarrier{\sigma}.
+\label{eq:imagebody}
+\end{equation}
+Define the \emph{canonical image response law}
+\begin{equation}
+\CanonicalImageResponseLaw{\sigma}(y,u)
+\equiv
+\frac{1}{2}
+\ev{u,\SubstrateOperator{\sigma}(y)u}
+\qquad
+\text{for }
+u\in\CanonicalImageBody{\sigma}(y),
+\label{eq:imageresponse}
+\end{equation}
+and the \emph{canonical exact-shell image}
+\begin{equation}
+\CanonicalImageShell{\sigma}
+\equiv
+\left\{
+(y,0):y\in\ProtoSectionShell{\sigma}
+\right\}.
+\label{eq:imageshell}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[Restricted projection is inverse to the canonical lift on the image body]
+\label{prop:restricted}
+For every \(y\in\ProtoSectionBody{\sigma}\), the restricted projection
+\[
+\SubstrateProjection{\sigma}(y)\big|_{\CanonicalImageBody{\sigma}(y)}
+:
+\CanonicalImageBody{\sigma}(y)\to\PrePreProtoSectionResidualBody{\sigma}(y)
+\]
+is a bijection with inverse \(\CanonicalLift{\sigma}(y)\big|_{\PrePreProtoSectionResidualBody{\sigma}(y)}\).
+\end{proposition}
+
+\begin{proof}
+Surjectivity follows from the definition \eqref{eq:imagebody}. If \(u\in\CanonicalImageBody{\sigma}(y)\), then \(u=\CanonicalLift{\sigma}(y)v\) for some \(v\in\PrePreProtoSectionResidualBody{\sigma}(y)\), and Proposition \ref{prop:canonical}(1) gives
+\[
+\SubstrateProjection{\sigma}(y)u=v.
+\]
+Hence the restricted projection is inverse to the canonical lift on the stated domains and is therefore bijective.
+\end{proof}
+
+\begin{remark}
+The preceding canonical-image-body necessity / uniqueness theorem already spent the body-level freedom inside the current image-core frontier. The present note asks whether even after the body and the restricted projection / canonical-lift relation are fixed, any further response-level or shell-level freedom can remain at benchmark scope.
+\end{remark}
+
+\section{Compatible Response / Exact-Shell Packages on the Fixed Image Body}
+
+\begin{definition}[Benchmark-faithful compatible current-image response / exact-shell package]
+\label{def:compatible}
+A \emph{benchmark-faithful compatible current-image response / exact-shell package} for sector \(\sigma\) consists of:
+\begin{enumerate}
+    \item a fiberwise function
+    \[
+    \CompatibleImageResponseLaw{\sigma}(y,\cdot):
+    \CanonicalImageBody{\sigma}(y)\to[0,\infty),
+    \qquad
+    y\in\ProtoSectionBody{\sigma};
+    \]
+    \item a shell selector
+    \[
+    \CompatibleShellSection{\sigma}(y)\in\CanonicalImageBody{\sigma}(y),
+    \qquad
+    y\in\ProtoSectionShell{\sigma};
+    \]
+\end{enumerate}
+such that:
+\begin{enumerate}[label=(\arabic*)]
+    \item the response law agrees with the fixed current body-response route after pullback by the fixed canonical lift:
+    \[
+    \CompatibleImageResponseLaw{\sigma}\bigl(y,\CanonicalLift{\sigma}(y)v\bigr)
+    =
+    \CoreForcedBodyResponse{\sigma}(y,v)
+    \]
+    for every \((y,v)\in\PrePreProtoSectionResidualBody{\sigma}\);
+    \item the shell selector lies above zero displacement:
+    \[
+    \SubstrateProjection{\sigma}(y)\CompatibleShellSection{\sigma}(y)=0
+    \qquad
+    \text{for every }
+    y\in\ProtoSectionShell{\sigma};
+    \]
+    \item benchmark faithfulness in the sense of Definition \ref{def:route}(7).
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:compatible} is intentionally internal to the already-fixed image-body frontier. It does not yet claim a deeper explicit substrate law below the image core. It asks only whether, once the fixed image body and the fixed restricted projection / canonical-lift relation are held fixed, any genuinely different benchmark-facing response or shell data can remain.
+\end{remark}
+
+\begin{proposition}[The canonical image response / shell package is compatible]
+\label{prop:exists}
+The canonical image response law \(\CanonicalImageResponseLaw{\sigma}\) together with the shell selector
+\[
+y\longmapsto 0\in\CanonicalImageBody{\sigma}(y)
+\qquad
+(y\in\ProtoSectionShell{\sigma})
+\]
+forms a benchmark-faithful compatible current-image response / exact-shell package.
+\end{proposition}
+
+\begin{proof}
+For any \((y,v)\in\PrePreProtoSectionResidualBody{\sigma}\),
+\begin{align*}
+\CanonicalImageResponseLaw{\sigma}\bigl(y,\CanonicalLift{\sigma}(y)v\bigr)
+&=
+\frac{1}{2}
+\ev{
+\CanonicalLift{\sigma}(y)v,
+\SubstrateOperator{\sigma}(y)\CanonicalLift{\sigma}(y)v
+} \\
+&=
+\CoreForcedBodyResponse{\sigma}(y,v).
+\end{align*}
+by Definitions \ref{def:canonical} and \ref{def:image}. Since \(\CanonicalLift{\sigma}(y)0=0\), the shell selector is well defined and satisfies
+\[
+\SubstrateProjection{\sigma}(y)0=0.
+\]
+Benchmark faithfulness is inherited from the fixed route data.
+\end{proof}
+
+\begin{proposition}[Compatible response laws are canonical]
+\label{prop:response}
+Let \(\CompatibleImageResponseLaw{\sigma}\) be any benchmark-faithful compatible current-image response / exact-shell package. Then
+\[
+\CompatibleImageResponseLaw{\sigma}(y,u)
+=
+\CanonicalImageResponseLaw{\sigma}(y,u)
+\]
+for every \(y\in\ProtoSectionBody{\sigma}\) and every \(u\in\CanonicalImageBody{\sigma}(y)\).
+\end{proposition}
+
+\begin{proof}
+Fix \(y\in\ProtoSectionBody{\sigma}\) and \(u\in\CanonicalImageBody{\sigma}(y)\). By Proposition \ref{prop:restricted}, there is a unique \(v\in\PrePreProtoSectionResidualBody{\sigma}(y)\) such that
+\[
+u=\CanonicalLift{\sigma}(y)v.
+\]
+Definition \ref{def:compatible}(1) then gives
+\[
+\CompatibleImageResponseLaw{\sigma}(y,u)
+=
+\CompatibleImageResponseLaw{\sigma}\bigl(y,\CanonicalLift{\sigma}(y)v\bigr)
+=
+\CoreForcedBodyResponse{\sigma}(y,v).
+\]
+Using Definition \ref{def:canonical},
+\begin{align*}
+\CoreForcedBodyResponse{\sigma}(y,v)
+&=
+\frac{1}{2}
+\ev{
+\CanonicalLift{\sigma}(y)v,
+\SubstrateOperator{\sigma}(y)\CanonicalLift{\sigma}(y)v
+} \\
+&=
+\frac{1}{2}
+\ev{u,\SubstrateOperator{\sigma}(y)u} \\
+&=
+\CanonicalImageResponseLaw{\sigma}(y,u).
+\end{align*}
+\end{proof}
+
+\begin{proposition}[Compatible shell selectors are canonical]
+\label{prop:shell}
+Let \(\CompatibleShellSection{\sigma}\) be any benchmark-faithful compatible current-image response / exact-shell package. Then
+\[
+\CompatibleShellSection{\sigma}(y)=0
+\]
+for every \(y\in\ProtoSectionShell{\sigma}\). Consequently its exact-shell image is exactly \(\CanonicalImageShell{\sigma}\).
+\end{proposition}
+
+\begin{proof}
+Fix \(y\in\ProtoSectionShell{\sigma}\). By Definition \ref{def:compatible}(2),
+\[
+\SubstrateProjection{\sigma}(y)\CompatibleShellSection{\sigma}(y)=0.
+\]
+Because \(\CompatibleShellSection{\sigma}(y)\in\CanonicalImageBody{\sigma}(y)\), Proposition \ref{prop:restricted} shows that there is a unique point of \(\CanonicalImageBody{\sigma}(y)\) above zero displacement. That point is
+\[
+\CanonicalLift{\sigma}(y)0=0.
+\]
+Hence \(\CompatibleShellSection{\sigma}(y)=0\). The exact-shell image is therefore
+\[
+\left\{
+\bigl(y,\CompatibleShellSection{\sigma}(y)\bigr):
+y\in\ProtoSectionShell{\sigma}
+\right\}
+=
+\left\{
+(y,0):y\in\ProtoSectionShell{\sigma}
+\right\}
+=
+\CanonicalImageShell{\sigma}.
+\]
+\end{proof}
+
+\begin{proposition}[The canonical image response / shell package is sufficient at current benchmark scope]
+\label{prop:sufficient}
+The canonical image response law together with the canonical exact-shell image on the fixed canonical image body is sufficient to determine every benchmark-facing downstream statement currently available below the image-core frontier.
+\end{proposition}
+
+\begin{proof}
+By Proposition \ref{prop:exists}, the canonical image response law pulls back along the fixed canonical lift to the same current body-response route \(\CoreForcedBodyResponse{\sigma}\) on the fixed displacement body. Definition \ref{def:downstream} then gives the same current pullback body-response core \(\PullbackBodyResponseCore\), the same pullback body-operator core \(\PullbackBodyOperatorCore\), the same pullback-operator core \(\PullbackOperatorCore\), the same pullback-quadratic core \(\PrePreProtoSectionPullbackCore\), the same residual-normal-form realization \(\PreProtoSectionResidualPackage\), the same benchmark-faithful pre-proto-section package \(\PreProtoSectionPackage\), the same minimizer-section core \(\PreProtoSectionMinSectionCore\), and the same downstream benchmark one-metric observer package. Proposition \ref{prop:shell} identifies the exact-shell image with \(\CanonicalImageShell{\sigma}\), so no shell-level freedom changes that downstream package either.
+\end{proof}
+
+\section{Main Theorem}
+
+\begin{theorem}[Canonical image response / exact-shell necessity / uniqueness on the current route]
+\label{thm:main}
+Fix the primitive continuation data of Definition \ref{def:fixed}, the recorded proto-section benchmark base and current image-core forcing data of Definition \ref{def:route}, and the recorded downstream chain of Definition \ref{def:downstream}. Then, once the fixed canonical image body and the fixed restricted projection / canonical-lift relation are held fixed, the canonical image response law \(\CanonicalImageResponseLaw{\sigma}\) and the canonical exact-shell image \(\CanonicalImageShell{\sigma}\) are the unique benchmark-facing response / shell data compatible with the fixed current displacement body, the fixed surjective projection, the fixed coercive response operator, and the fixed current body-response route. More precisely:
+\begin{enumerate}
+    \item every benchmark-faithful compatible current-image response / exact-shell package has response law equal fiberwise to \(\CanonicalImageResponseLaw{\sigma}\) by Proposition \ref{prop:response};
+    \item every such package has shell selector equal fiberwise to \(0\) and exact-shell image equal to \(\CanonicalImageShell{\sigma}\) by Proposition \ref{prop:shell};
+    \item the canonical image response / shell package is sufficient to determine every currently available benchmark-facing downstream consequence by Proposition \ref{prop:sufficient};
+    \item therefore no genuinely different benchmark-facing response-level or shell-level datum remains live inside the current current-body-image-core frontier once the body and the restricted projection / canonical-lift relation are fixed.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Item (1) is Proposition \ref{prop:response}. Item (2) is Proposition \ref{prop:shell}. Item (3) is Proposition \ref{prop:sufficient}. Item (4) is the routing consequence of items (1)--(3): any alternative compatible response law or shell image is not genuinely alternative because it coincides with the canonical one, while any response or shell data that change the fixed body-response route or the downstream package are not benchmark-faithfully compatible with the current route.
+\end{proof}
+
+\begin{corollary}[No genuinely different response or shell datum remains at current scope]
+\label{cor:minimal}
+Inside the present section-centered hidden-response current-body-image-core frontier, there is no genuinely different benchmark-facing response-level or exact-shell datum below the fixed canonical image body once the restricted projection / canonical-lift relation is held fixed.
+\end{corollary}
+
+\begin{proof}
+By Theorem \ref{thm:main}, every benchmark-faithful compatible response / shell package coincides with the canonical image response / shell package. Hence no distinct compatible response-level or shell-level datum remains live at current benchmark scope.
+\end{proof}
+
+\begin{corollary}[Primary post-response / shell burden]
+\label{cor:next}
+After Theorem \ref{thm:main}, the next honest benchmark-facing manuscript below the present frontier must do at least one of the following:
+\begin{enumerate}
+    \item derive or force the restricted projection / canonical-lift relation on the fixed current displacement body from still more primitive explicit substrate structure;
+    \item derive the full canonical current-body image core in one genuinely cleaner deeper package if that unified derivation is honestly available;
+    \item prove a sharper compatibility, necessity, or uniqueness theorem that makes one of the previous two moves unavoidable while preserving the same benchmark one-metric package, the same ordinary matter route, and the same claim boundary.
+\end{enumerate}
+Another same-output deeper relay that merely preserves the same canonical image body, the same image response law, and the same exact-shell image, another restoration of the full substrate-body presentation, or another replay of the larger projection-operator or full displacement-response substrate-law presentations is not the honest default next move.
+\end{corollary}
+
+\begin{proof}
+Theorem \ref{thm:main} and Corollary \ref{cor:minimal} show that once the fixed image body and fixed projection / lift relation are already in hand, the remaining response-level and shell-level freedom is spent as well. Therefore a new primary manuscript must either derive the still-unspent projection / lift relation from deeper explicit substrate structure, derive the whole image core in a cleaner deeper package, or prove a theorem that forces one of those moves. If it does not, then it preserves the same already-forced image-core data and is benchmark neutral at project-status level.
+\end{proof}
+
+\begin{proposition}[The benchmark package remains fixed]
+\label{prop:benchmark}
+The present necessity / uniqueness theorem preserves the benchmark one-metric package \eqref{eq:fixedoutputs}. In particular, the operative metric remains exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, and the low-energy matter law is not enlarged.
+\end{proposition}
+
+\begin{proof}
+This is part of benchmark faithfulness in Definitions \ref{def:route}(7) and \ref{def:compatible}(3). The present note removes only the remaining response-level and shell-level presentational freedom inside the current image-core frontier.
+\end{proof}
+
+\section{Conclusion}
+
+The positive result of this note is narrower than a completed substrate derivation of GR but sharper than another routing reminder. On the current section-centered hidden-response route, once the canonical image body and the restricted projection / canonical-lift relation are held fixed, the image-level response law and the exact-shell image are now proved to be uniquely forced as well.
+
+That matters because it spends the remaining response-level and shell-level presentational freedom inside the current current-body-image-core frontier. Any benchmark-faithful compatible response / shell package on the fixed image body is forced to be exactly the canonical quadratic response inherited from the ambient coercive operator together with the canonical zero shell image. The earlier canonical-image-body necessity / uniqueness theorem remains preserved main-line history because it first removed the body constituent as an independently live burden. The present theorem sharpens that frontier again by proving that the remaining response and shell constituents are not independently variable either.
+
+The scope remains honest. The one operative metric is still exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, and the low-energy matter law is not enlarged. The next open burden is therefore no longer to restate the same image body, the same image response law, or the same exact-shell image through another deeper relay. It is to derive or uniquely force the restricted projection / canonical-lift relation itself from still more primitive explicit substrate structure, or to derive the full image core in a genuinely cleaner deeper package, while preserving the same benchmark one-metric package and the same claim boundary.
+
+\end{document}
