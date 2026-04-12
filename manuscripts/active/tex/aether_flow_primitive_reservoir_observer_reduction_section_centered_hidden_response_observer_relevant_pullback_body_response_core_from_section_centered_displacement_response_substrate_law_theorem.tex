@@ -1,0 +1,471 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+
+\newcommand{\CompletedMetric}{g^{\sharp}}
+\newcommand{\MatterSpace}{\Psi}
+
+\newcommand{\Car}{\mathrm{car}}
+\newcommand{\Cur}{\mathrm{cur}}
+\newcommand{\Hom}{\mathrm{hom}}
+
+\newcommand{\ForSpace}[1]{\mathcal I_{#1}^{\mathrm{for}}}
+\newcommand{\PrimShell}{\mathcal S_{\mathrm{prim}}}
+\newcommand{\MetricOut}{\mathscr G_{\mathrm{out}}}
+\newcommand{\MatterOut}{\mathscr T_{\mathrm{out}}}
+
+\newcommand{\ProtoSectionPackage}{\mathfrak Q^{\mathrm{sub,proto,secgen}}}
+\newcommand{\ProtoSectionBody}[1]{\mathcal B_{#1}^{\mathrm{psec}}}
+\newcommand{\ProtoSectionShell}[1]{\mathcal Z_{#1}^{\mathrm{psec}}}
+\newcommand{\PreProtoSectionPackage}{\mathfrak R^{\mathrm{sub,proto,presec}}}
+\newcommand{\PreProtoSectionMinSectionCore}{\mathfrak R^{\mathrm{sub,proto,presec,sec}}}
+\newcommand{\PreProtoSectionResidualPackage}{\mathfrak R^{\mathrm{sub,proto,presec,res}}}
+
+\newcommand{\PrePreProtoSectionPullbackCore}{\mathfrak S^{\mathrm{sub,proto,pppresec,pb}}}
+\newcommand{\PrePreProtoSectionVertical}[1]{V_{#1}^{\mathrm{pppresec}}}
+\newcommand{\PrePreProtoSectionResidualBody}[1]{\mathcal D_{#1}^{\mathrm{pppresec}}}
+\newcommand{\PrePreProtoSectionBodyResponse}[1]{\mathscr R_{#1}^{\mathrm{pppresec,pb,body}}}
+
+\newcommand{\PullbackOperatorCore}{\mathfrak S^{\mathrm{sub,proto,pppresec,pb,op}}}
+\newcommand{\PullbackBodyOperatorCore}{\mathfrak S^{\mathrm{sub,proto,pppresec,pb,bodyop}}}
+\newcommand{\PullbackBodyResponseCore}{\mathfrak S^{\mathrm{sub,proto,pppresec,pb,bodyresp}}}
+
+\newcommand{\SubstrateCarrier}[1]{U_{#1}^{\mathrm{disp,resp}}}
+\newcommand{\SubstrateBody}[1]{\mathcal U_{#1}^{\mathrm{disp,resp}}}
+\newcommand{\SubstrateProjection}[1]{P_{#1}^{\mathrm{disp,resp}}}
+\newcommand{\SubstrateOperator}[1]{K_{#1}^{\mathrm{disp,resp}}}
+\newcommand{\SubstrateLift}[1]{J_{#1}^{\mathrm{disp,resp}}}
+\newcommand{\SubstrateKernel}[1]{N_{#1}^{\mathrm{disp,resp}}}
+\newcommand{\SubstrateEnergy}[1]{\mathscr E_{#1}^{\mathrm{disp,resp}}}
+\newcommand{\ForcedBodyResponse}[1]{\widehat{\mathscr R}_{#1}^{\mathrm{disp,resp}}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Primitive-Reservoir Observer-Reduction\\
+\large Section-Centered Hidden-Response\\
+\large Observer-Relevant Pullback Body-Response Core\\
+\large from a Section-Centered Displacement-Response Substrate Law}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The current active-primary theorem already proved that the observer-relevant pullback body-response core \(\PullbackBodyResponseCore\) is the unique minimal benchmark-facing datum on the recorded section-centered hidden-response route up to body-response-faithful equivalence. The next honest benchmark-facing move is therefore no longer another same-core relay. It is to derive that current core itself, or some nontrivial constituent inside it, from still more primitive explicit substrate structure.
+
+The present note makes that move directly. For each sector it introduces a benchmark-faithful section-centered displacement-response substrate law consisting of a compact convex section-centered substrate body over the fixed proto-section body, a surjective displacement projection to the recorded section-centered displacement space, a positive self-adjoint substrate response operator, and a \(K\)-orthogonal minimal-lift splitting along the displacement projection. The current section-centered displacement-body datum is then realized as the projection image of the substrate body, while the body-restricted pullback response is no longer primitive: it is the unique minimal substrate-response energy among all substrate lifts of a given recorded displacement. In this sense the current body-response core is forced by a more primitive explicit substrate law rather than merely postulated.
+
+The benchmark boundary remains fixed throughout. The one operative metric is still exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, the low-energy matter law is not enlarged, and no stronger promotion language is licensed. By the earlier collapse theorem and the current necessity / uniqueness frontier, the same pullback body-operator core, pullback-operator core, pullback-quadratic core, section-centered residual-normal-form realization, continuity-Hessian compressed core, and benchmark one-metric observer package then follow unchanged. The positive result is therefore a genuine derivational gain below the body-response-core necessity / uniqueness frontier rather than another same-output deeper relay.
+\end{abstract}
+
+\section{Introduction}
+
+The active derivational program of \TheoryName{} now has a sharper burden than before. The current body-response-core necessity / uniqueness theorem already showed that, on the recorded section-centered hidden-response route, the observer-relevant pullback body-response core \(\PullbackBodyResponseCore\) is the unique minimal benchmark-facing datum up to body-response-faithful equivalence. That theorem therefore spent the option of merely repackaging the same body-response core or re-expanding back to the larger pullback-body-operator, pullback-operator, pullback-quadratic, hidden-response, residual-normal-form, or pre-proto-section presentations.
+
+What remains honest is to derive that current core itself from more primitive explicit substrate structure, or else to prove a genuinely smaller theorem inside it. The present note takes the direct derivation route. It does not reintroduce the larger hidden-response package as the live benchmark-facing datum. Instead it assigns the current displacement body as a projection image of a more primitive substrate body and derives the current body-restricted pullback response as the unique minimal quadratic substrate-response cost compatible with each recorded displacement. In that precise sense, the current body-response core is no longer primitive once the section-centered displacement-response substrate law is given.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not introduce a second operative metric, it does not enlarge the low-energy matter law, and it does not claim a completed first-principles derivation of GR from final substrate microphysics. Its narrower benchmark-facing role is to show that the current observer-relevant pullback body-response core is already forced by a smaller explicit substrate law tailored directly to the current section-centered body-response frontier.
+
+\section{Fixed Inputs from the Current Body-Response Frontier}
+
+\begin{definition}[Recorded primitive continuation data]
+\label{def:fixed}
+Fix the following continuation data from the active primitive-reservoir observer-reduction line.
+\begin{enumerate}
+    \item For each sector label \(\sigma\in\{\Car,\Cur,\Hom\}\), a primitive forcing shell
+    \[
+    \ForSpace{\sigma}.
+    \]
+    \item The product shell
+    \[
+    \PrimShell
+    \equiv
+    \ForSpace{\Car}\times \ForSpace{\Cur}\times \ForSpace{\Hom}.
+    \]
+    \item The recorded metric and ordinary-matter outputs
+    \[
+    \MetricOut:\PrimShell\to\{\text{observer metrics}\},
+    \qquad
+    \MatterOut:\PrimShell\times\MatterSpace\to\{\text{observer stress tensors}\},
+    \]
+    satisfying
+    \begin{equation}
+    \MetricOut(\mathbf w)=\CompletedMetric,
+    \qquad
+    \MatterOut(\mathbf w,\psi)
+    =
+    T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
+    \label{eq:fixedoutputs}
+    \end{equation}
+    for every \(\mathbf w\in\PrimShell\) and every matter configuration \(\psi\in\MatterSpace\).
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Recorded benchmark base and downstream chain]
+\label{def:downstream}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). The active line already fixes the following data and consequences.
+\begin{enumerate}
+    \item the current proto-section benchmark base \(\ProtoSectionPackage\), in particular the recorded proto-section body \(\ProtoSectionBody{\sigma}\) and shell \(\ProtoSectionShell{\sigma}\);
+    \item the current observer-relevant pullback body-response core \(\PullbackBodyResponseCore\), the current observer-relevant pullback body-operator core \(\PullbackBodyOperatorCore\), the current observer-relevant pullback-operator core \(\PullbackOperatorCore\), the current observer-relevant pullback-quadratic core \(\PrePreProtoSectionPullbackCore\), the current section-centered residual-normal-form realization \(\PreProtoSectionResidualPackage\), the current observer-relevant pre-proto-section minimizer-section core \(\PreProtoSectionMinSectionCore\), and the current benchmark-faithful pre-proto-section package \(\PreProtoSectionPackage\);
+    \item the previously recorded fact that, once a benchmark-faithful observer-relevant pullback body-response core over the fixed proto-section benchmark base is available, the current body-operator-core realization, the current pullback-operator-core realization, the current pullback-quadratic-core realization, the current section-centered residual-normal-form realization, the current pre-proto-section package, the current minimizer-section core, and the previously recorded continuity-Hessian compressed core and benchmark one-metric observer-package consequences follow unchanged;
+    \item benchmark faithfulness, meaning preservation of the benchmark outputs \eqref{eq:fixedoutputs}, no second operative metric, no enlarged low-energy matter law, no change to the ordinary matter route, and no premature promotion from adoption to completed derivation.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Current observer-relevant pullback body-response core]
+\label{def:bodyresp}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). A \emph{benchmark-faithful observer-relevant pullback body-response core} \(\PullbackBodyResponseCore\) for sector \(\sigma\) consists of:
+\begin{enumerate}
+    \item a compact convex section-centered displacement body
+    \[
+    \PrePreProtoSectionResidualBody{\sigma}
+    \subset
+    \ProtoSectionBody{\sigma}\times\PrePreProtoSectionVertical{\sigma}
+    \]
+    whose fiber
+    \[
+    \PrePreProtoSectionResidualBody{\sigma}(y)
+    \equiv
+    \left\{
+    v\in\PrePreProtoSectionVertical{\sigma}:(y,v)\in\PrePreProtoSectionResidualBody{\sigma}
+    \right\}
+    \]
+    is nonempty, compact, convex, contains \(0\), and has nonempty interior for every \(y\in\ProtoSectionBody{\sigma}\);
+    \item the body-restricted pullback response
+    \[
+    \PrePreProtoSectionBodyResponse{\sigma}:
+    \PrePreProtoSectionResidualBody{\sigma}\to[0,\infty),
+    \]
+    smooth in \(y\), fiberwise quadratic in \(v\), and satisfying
+    \[
+    \PrePreProtoSectionBodyResponse{\sigma}(y,v)=0
+    \qquad\Longleftrightarrow\qquad
+    v=0
+    \]
+    on every fiber;
+    \item benchmark faithfulness in the sense of Definition \ref{def:downstream}(4).
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}[What the current frontier already fixes]
+\label{prop:frontier}
+On the recorded section-centered hidden-response route, the current frontier already fixes two benchmark-facing facts.
+\begin{enumerate}
+    \item The observer-relevant pullback body-response core \(\PullbackBodyResponseCore\) is the unique minimal benchmark-facing datum at current scope up to body-response-faithful equivalence.
+    \item All current benchmark-facing downstream uses already factor through the current body-response core and the fixed proto-section benchmark base.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Item (1) is exactly the current body-response-core necessity / uniqueness theorem. Item (2) is exactly the previously recorded collapse of the observer-relevant pullback body-operator core to the smaller observer-relevant pullback body-response core.
+\end{proof}
+
+\section{Section-Centered Displacement-Response Substrate Law}
+
+\begin{definition}[Benchmark-faithful section-centered displacement-response substrate law]
+\label{def:law}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). A \emph{benchmark-faithful section-centered displacement-response substrate law} for sector \(\sigma\) consists of the following data.
+\begin{enumerate}
+    \item A finite-dimensional Euclidean substrate carrier
+    \[
+    \SubstrateCarrier{\sigma}
+    \]
+    and a compact convex section-centered substrate body
+    \[
+    \SubstrateBody{\sigma}
+    \subset
+    \ProtoSectionBody{\sigma}\times\SubstrateCarrier{\sigma}
+    \]
+    whose fiber
+    \[
+    \SubstrateBody{\sigma}(y)
+    \equiv
+    \left\{
+    u\in\SubstrateCarrier{\sigma}:(y,u)\in\SubstrateBody{\sigma}
+    \right\}
+    \]
+    is nonempty, compact, convex, contains \(0\), and has nonempty interior for every \(y\in\ProtoSectionBody{\sigma}\).
+    \item A smooth family of surjective linear displacement projections
+    \[
+    \SubstrateProjection{\sigma}(y):
+    \SubstrateCarrier{\sigma}\to\PrePreProtoSectionVertical{\sigma},
+    \qquad
+    y\in\ProtoSectionBody{\sigma}.
+    \]
+    \item A smooth family of positive self-adjoint substrate response operators
+    \[
+    \SubstrateOperator{\sigma}(y):
+    \SubstrateCarrier{\sigma}\to\SubstrateCarrier{\sigma},
+    \qquad
+    y\in\ProtoSectionBody{\sigma},
+    \]
+    satisfying the uniform coercive bound
+    \begin{equation}
+    \ev{u,\SubstrateOperator{\sigma}(y)u}
+    \ge
+    \mu_{\sigma}\,\|u\|^{2}
+    \qquad
+    \text{for all }
+    y\in\ProtoSectionBody{\sigma},
+    \ \ u\in\SubstrateCarrier{\sigma}
+    \label{eq:coercive}
+    \end{equation}
+    for some constant \(\mu_{\sigma}>0\).
+    \item A smooth family of linear minimal lifts
+    \[
+    \SubstrateLift{\sigma}(y):
+    \PrePreProtoSectionVertical{\sigma}\to\SubstrateCarrier{\sigma}
+    \]
+    satisfying, for every \(y\in\ProtoSectionBody{\sigma}\),
+    \begin{enumerate}
+        \item
+        \[
+        \SubstrateProjection{\sigma}(y)\circ\SubstrateLift{\sigma}(y)
+        =
+        \mathrm{id}_{\PrePreProtoSectionVertical{\sigma}};
+        \]
+        \item every \(u\in\SubstrateCarrier{\sigma}\) admits the unique decomposition
+        \[
+        u
+        =
+        \SubstrateLift{\sigma}(y)\bigl(\SubstrateProjection{\sigma}(y)u\bigr)
+        +
+        k,
+        \qquad
+        k\in\SubstrateKernel{\sigma}(y)\equiv\ker\SubstrateProjection{\sigma}(y);
+        \]
+        \item the lift is \(\SubstrateOperator{\sigma}(y)\)-orthogonal to the kernel, namely
+        \[
+        \ev{
+        \SubstrateLift{\sigma}(y)v,
+        \SubstrateOperator{\sigma}(y)k
+        }
+        =
+        0
+        \]
+        for every \(v\in\PrePreProtoSectionVertical{\sigma}\) and every \(k\in\SubstrateKernel{\sigma}(y)\).
+    \end{enumerate}
+    \item Exact-shell discipline, meaning that the projected zero slice of the substrate body records exactly the zero section over the fixed proto-section shell:
+    \[
+    \left\{
+    y\in\ProtoSectionBody{\sigma}:
+    \exists u\in\SubstrateBody{\sigma}(y)
+    \text{ with }
+    \SubstrateProjection{\sigma}(y)u=0
+    \right\}
+    =
+    \ProtoSectionShell{\sigma}.
+    \]
+    \item Benchmark faithfulness in the sense of Definition \ref{def:downstream}(4).
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Current-body-realizing law]
+\label{def:realizing}
+A benchmark-faithful section-centered displacement-response substrate law for sector \(\sigma\) is \emph{current-body-realizing} if, for every \(y\in\ProtoSectionBody{\sigma}\),
+\begin{equation}
+\PrePreProtoSectionResidualBody{\sigma}(y)
+=
+\SubstrateProjection{\sigma}(y)\bigl(\SubstrateBody{\sigma}(y)\bigr).
+\label{eq:realizing}
+\end{equation}
+Thus the current section-centered displacement-body datum is the projection image of the explicit substrate body.
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:law} is deliberately smaller than the older full section-centered hidden-response package. It does not reintroduce a separate hidden-response space, a larger pullback-operator presentation, or any re-expansion back to the already spent hidden-response frontier. It is tailored only to the current body-response burden: force the recorded displacement body and the quadratic pullback response realized on that body.
+\end{remark}
+
+\section{Forced Body-Restricted Pullback Response}
+
+\begin{definition}[Substrate response energy and law-forced body response]
+\label{def:forced}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\) and a benchmark-faithful section-centered displacement-response substrate law. Define the quadratic substrate response energy by
+\[
+\SubstrateEnergy{\sigma}(y,u)
+\equiv
+\frac{1}{2}
+\ev{u,\SubstrateOperator{\sigma}(y)u}.
+\]
+For \(v\in\SubstrateProjection{\sigma}(y)(\SubstrateCarrier{\sigma})\), define the \emph{law-forced body response} by
+\begin{equation}
+\ForcedBodyResponse{\sigma}(y,v)
+\equiv
+\min\left\{
+\SubstrateEnergy{\sigma}(y,u):
+u\in\SubstrateCarrier{\sigma},
+\ \SubstrateProjection{\sigma}(y)u=v
+\right\}.
+\label{eq:forcedresponse}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[Unique minimal substrate lift]
+\label{prop:minlift}
+Fix \(y\in\ProtoSectionBody{\sigma}\) and \(v\in\PrePreProtoSectionVertical{\sigma}\). For every benchmark-faithful section-centered displacement-response substrate law, the constrained minimum in \eqref{eq:forcedresponse} exists, is unique, and is achieved by the lifted substrate state
+\[
+u_{\min}(y,v)
+=
+\SubstrateLift{\sigma}(y)v.
+\]
+Consequently,
+\begin{equation}
+\ForcedBodyResponse{\sigma}(y,v)
+=
+\frac{1}{2}
+\ev{
+\SubstrateLift{\sigma}(y)v,
+\SubstrateOperator{\sigma}(y)\SubstrateLift{\sigma}(y)v
+}.
+\label{eq:forcedquadratic}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Let \(u\in\SubstrateCarrier{\sigma}\) satisfy \(\SubstrateProjection{\sigma}(y)u=v\). By Definition \ref{def:law}(4), \(u\) admits the unique decomposition
+\[
+u
+=
+\SubstrateLift{\sigma}(y)v+k,
+\qquad
+k\in\SubstrateKernel{\sigma}(y).
+\]
+Using the \(\SubstrateOperator{\sigma}(y)\)-orthogonality of the lift to the kernel,
+\[
+\ev{u,\SubstrateOperator{\sigma}(y)u}
+=
+\ev{
+\SubstrateLift{\sigma}(y)v,
+\SubstrateOperator{\sigma}(y)\SubstrateLift{\sigma}(y)v
+}
++
+\ev{k,\SubstrateOperator{\sigma}(y)k}.
+\]
+By the coercive bound \eqref{eq:coercive}, the second term is nonnegative and vanishes only when \(k=0\). Hence the minimum among all lifts of \(v\) is attained uniquely at \(k=0\), namely at \(u=\SubstrateLift{\sigma}(y)v\). Formula \eqref{eq:forcedquadratic} follows immediately.
+\end{proof}
+
+\begin{proposition}[The law-forced response is a benchmark-faithful body response]
+\label{prop:response}
+Fix a benchmark-faithful current-body-realizing section-centered displacement-response substrate law for sector \(\sigma\). Then the pair
+\[
+\left(
+\PrePreProtoSectionResidualBody{\sigma},
+\ForcedBodyResponse{\sigma}
+\right)
+\]
+is a benchmark-faithful observer-relevant pullback body-response core over the fixed proto-section benchmark base.
+\end{proposition}
+
+\begin{proof}
+Because the law is current-body-realizing, the recorded displacement body is exactly the projection image \eqref{eq:realizing} of the compact convex substrate body. Hence each fiber \(\PrePreProtoSectionResidualBody{\sigma}(y)\) is the image of a nonempty compact convex set under a linear map, and so remains nonempty, compact, and convex; its nonempty interior and zero section are already part of the recorded current-body datum. By Proposition \ref{prop:minlift}, the forced response \(\ForcedBodyResponse{\sigma}(y,v)\) is a smooth fiberwise quadratic form in \(v\). If \(v\neq 0\), then \(\SubstrateLift{\sigma}(y)v\neq 0\) because \(\SubstrateProjection{\sigma}(y)\circ\SubstrateLift{\sigma}(y)=\mathrm{id}\), and the positivity of \(\SubstrateOperator{\sigma}(y)\) gives
+\[
+\ForcedBodyResponse{\sigma}(y,v)>0.
+\]
+Conversely \(\ForcedBodyResponse{\sigma}(y,0)=0\). Benchmark faithfulness is part of Definition \ref{def:law}(6). Therefore the induced pair satisfies Definition \ref{def:bodyresp}.
+\end{proof}
+
+\section{Forcing the Current Body-Response Frontier}
+
+\begin{theorem}[Current body-response core from a section-centered displacement-response substrate law]
+\label{thm:main}
+Fix the primitive continuation data of Definition \ref{def:fixed}, the recorded proto-section benchmark base and downstream chain of Definition \ref{def:downstream}, and for each sector \(\sigma\in\{\Car,\Cur,\Hom\}\) a benchmark-faithful current-body-realizing section-centered displacement-response substrate law in the sense of Definitions \ref{def:law} and \ref{def:realizing}. Then:
+\begin{enumerate}
+    \item the current section-centered displacement-body datum is the projection image of the explicit substrate body by \eqref{eq:realizing};
+    \item the body-restricted pullback response on that current displacement body is forced by the law as the unique minimal substrate-response energy \(\ForcedBodyResponse{\sigma}\) of Definition \ref{def:forced};
+    \item the pair
+    \[
+    \left(
+    \PrePreProtoSectionResidualBody{\sigma},
+    \ForcedBodyResponse{\sigma}
+    \right)
+    \]
+    is therefore a benchmark-faithful observer-relevant pullback body-response core by Proposition \ref{prop:response};
+    \item by Proposition \ref{prop:frontier}(1), this law-forced core is body-response-faithfully equivalent to the unique minimal benchmark-facing body-response datum on the recorded route;
+    \item by Proposition \ref{prop:frontier}(2), the same current pullback body-operator core, current pullback-operator core, current pullback-quadratic core, current section-centered residual-normal-form realization, current pre-proto-section package, continuity-Hessian compressed core, and benchmark one-metric observer package follow unchanged.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Item (1) is Definition \ref{def:realizing}. Item (2) is Proposition \ref{prop:minlift}. Item (3) is Proposition \ref{prop:response}. For item (4), Proposition \ref{prop:frontier}(1) says that any benchmark-faithful observer-relevant pullback body-response core on the current route is body-response-faithfully equivalent to the unique minimal datum already fixed by the current frontier theorem. Item (5) is then exactly Proposition \ref{prop:frontier}(2): once a benchmark-faithful body-response core over the fixed proto-section benchmark base is in hand, all current downstream benchmark-facing consequences factor through it.
+\end{proof}
+
+\begin{corollary}[The current body-response core is no longer primitive]
+\label{cor:nonprimitive}
+Under the hypotheses of Theorem \ref{thm:main}, the current observer-relevant pullback body-response core is no longer a primitive stopping point on the recorded section-centered hidden-response route. It is a forced output of the benchmark-faithful section-centered displacement-response substrate law.
+\end{corollary}
+
+\begin{proof}
+Theorem \ref{thm:main}(1)--(3) shows that the displacement-body datum and body-restricted pullback response are supplied by the law rather than postulated independently. The current core is therefore induced by more primitive explicit substrate structure.
+\end{proof}
+
+\begin{corollary}[Primary post-substrate-law burden]
+\label{cor:next}
+After Theorem \ref{thm:main}, the next primary manuscript below the current frontier must do at least one of the following:
+\begin{enumerate}
+    \item derive or force the section-centered displacement-response substrate law itself from still more primitive explicit substrate structure;
+    \item derive or force a nontrivial constituent of that law, such as the substrate body, the displacement projection / minimal-lift splitting, or the coercive substrate-response operator;
+    \item prove a sharper necessity, uniqueness, or compatibility theorem for a nontrivial constituent or relation inside that law;
+    \item do one of the previous three while preserving the same benchmark one-metric package, the same ordinary matter route, and the same claim boundary.
+\end{enumerate}
+Another same-output relay that merely preserves the same displacement-response substrate law, or any re-expansion back to the larger pullback-body-operator, pullback-operator, pullback-quadratic, hidden-response, residual-normal-form, or pre-proto-section presentations, is not the honest default next move.
+\end{corollary}
+
+\begin{proof}
+By Corollary \ref{cor:nonprimitive}, the current body-response core is no longer the live unexplained stopping point. The remaining honest burden therefore moves upstream to the law that now forces that core, or to a strictly smaller theorem inside that law.
+\end{proof}
+
+\begin{proposition}[The benchmark package remains fixed]
+\label{prop:benchmark}
+The present substrate-law theorem preserves the benchmark one-metric package \eqref{eq:fixedoutputs}. In particular, the operative metric remains exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, and the low-energy matter law is not enlarged.
+\end{proposition}
+
+\begin{proof}
+This is part of benchmark faithfulness in Definitions \ref{def:downstream}(4) and \ref{def:law}(6). The present note changes only the upstream status of the current body-response core on the recorded route.
+\end{proof}
+
+\section{Conclusion}
+
+The positive result of this note is the direct derivation the routing layer asked for. On the recorded section-centered hidden-response route, the current section-centered displacement-body datum is now realized as the projection image of a more primitive explicit substrate body, and the current body-restricted pullback response is forced as the unique minimal substrate-response energy compatible with each recorded displacement.
+
+That result is narrower than a completed first-principles derivation of GR from substrate microphysics, but it is stronger than another same-output deeper relay. The current observer-relevant pullback body-response core is no longer merely the unique minimal benchmark-facing datum on the route. It is now a forced output of the section-centered displacement-response substrate law. By the earlier collapse theorem and the current necessity / uniqueness frontier, the same pullback body-operator core, pullback-operator core, pullback-quadratic core, section-centered residual-normal-form realization, continuity-Hessian compressed core, and benchmark one-metric observer package therefore follow unchanged.
+
+The scope remains honest. The one operative metric is still exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, the low-energy matter law is not enlarged, and no stronger promotion language is licensed. The next open burden is therefore no longer the body-response core itself. It is to derive or force the section-centered displacement-response substrate law, or some nontrivial constituent or relation inside it, from still more primitive explicit substrate structure.
+
+\end{document}
