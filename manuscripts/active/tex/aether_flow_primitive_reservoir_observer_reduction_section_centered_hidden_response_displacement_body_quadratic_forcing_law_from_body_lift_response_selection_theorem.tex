@@ -1,0 +1,307 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+
+\newcommand{\CompletedMetric}{g^{\sharp}}
+\newcommand{\MatterSpace}{\Psi}
+
+\newcommand{\Car}{\mathrm{car}}
+\newcommand{\Cur}{\mathrm{cur}}
+\newcommand{\Hom}{\mathrm{hom}}
+
+\newcommand{\ForSpace}[1]{\mathcal I_{#1}^{\mathrm{for}}}
+\newcommand{\PrimShell}{\mathcal S_{\mathrm{prim}}}
+\newcommand{\MetricOut}{\mathscr G_{\mathrm{out}}}
+\newcommand{\MatterOut}{\mathscr T_{\mathrm{out}}}
+
+\newcommand{\ProtoSectionBody}[1]{\mathcal B_{#1}^{\mathrm{psec}}}
+\newcommand{\ProtoSectionShell}[1]{\mathcal Z_{#1}^{\mathrm{psec}}}
+\newcommand{\PrePreProtoSectionVertical}[1]{V_{#1}^{\mathrm{pppresec}}}
+\newcommand{\PrePreProtoSectionResidualBody}[1]{\mathcal D_{#1}^{\mathrm{pppresec}}}
+
+\newcommand{\PullbackBodyResponseCore}{\mathfrak S^{\mathrm{sub,proto,pppresec,pb,bodyresp}}}
+\newcommand{\PullbackBodyOperatorCore}{\mathfrak S^{\mathrm{sub,proto,pppresec,pb,bodyop}}}
+\newcommand{\PullbackOperatorCore}{\mathfrak S^{\mathrm{sub,proto,pppresec,pb,op}}}
+\newcommand{\PrePreProtoSectionPullbackCore}{\mathfrak S^{\mathrm{sub,proto,pppresec,pb}}}
+\newcommand{\PreProtoSectionResidualPackage}{\mathfrak R^{\mathrm{sub,proto,presec,res}}}
+\newcommand{\PreProtoSectionPackage}{\mathfrak R^{\mathrm{sub,proto,presec}}}
+\newcommand{\PreProtoSectionMinSectionCore}{\mathfrak R^{\mathrm{sub,proto,presec,sec}}}
+
+\newcommand{\VisibleBodyForcingLaw}[1]{\mathscr F_{#1}^{\mathrm{disp,resp,vis,body}}}
+\newcommand{\VisibleResponseOperator}[1]{S_{#1}^{\mathrm{disp,resp,vis}}}
+\newcommand{\MinimalReducedStructure}{\mathfrak S^{\mathrm{disp,resp,red,min}}}
+
+\newcommand{\LiftSelectionCarrier}[1]{\mathcal U_{#1}^{\mathrm{disp,body,sel}}}
+\newcommand{\SelectedResponseLift}[1]{\Lambda_{#1}^{\mathrm{disp,body,sel}}}
+\newcommand{\SelectedResponseOperator}[1]{K_{#1}^{\mathrm{disp,body,sel}}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Primitive-Reservoir Observer-Reduction\\
+\large Section-Centered Hidden-Response\\
+\large Displacement-Body Quadratic Forcing Law\\
+\large from Body-Lift Response Selection}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The current active-primary theorem already proves that the canonical minimal visible-response representative \(\MinimalReducedStructure\) and its visible-response operator family are canonical consequences of a smaller section-centered displacement-body quadratic forcing law on the fixed displacement body. The next honest benchmark-facing move is therefore no longer another same-body-law restatement, another same operator-extension relay, or another restored larger same-output package. It is to derive that current body-level forcing law itself from still more primitive explicit substrate structure.
+
+The present note makes that move in the smallest explicit package presently available below the forcing-law frontier. For each sector it introduces a benchmark-faithful body-lift response selection: the fixed proto-section benchmark base and fixed section-centered displacement body together with a finite-dimensional selected substrate carrier, a smooth linear selected response lift over the displacement fibers, and a smooth positive self-adjoint selected response operator. The current displacement-body quadratic forcing law is then the selected substrate-response energy of the chosen response-carrying lift on the actual displacement body. Hence the current body-level forcing law is no longer primitive once this smaller explicit body-lift response selection is fixed.
+
+The benchmark boundary remains unchanged throughout. The one operative metric is still exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, the low-energy matter law is not enlarged, and no stronger promotion language is licensed. By the previous forcing-law theorem, the same canonical minimal visible-response representative, the same current body-response core, and every currently recorded downstream benchmark-facing consequence then follow unchanged. The remaining honest burden therefore moves below the current body-level forcing law to a deeper derivation or justification of the selected body-lift response package itself rather than another same-output replay.
+\end{abstract}
+
+\section{Introduction}
+
+The active derivational program of \TheoryName{} has now spent the presentational freedom inside the current visible-response datum and, after that, the presentational freedom inside the current body-level forcing law itself. The visible-response operator family and canonical minimal visible-response representative are no longer primitive once the smaller section-centered displacement-body quadratic forcing law is fixed. The next honest question is therefore narrower again: what smaller explicit substrate structure forces that current body-level law?
+
+The present note takes the smallest clean route currently available below the forcing-law frontier. It does not restore the full displacement-response substrate law, the larger projection/body presentation, the full canonical current-body image core, or any other larger same-output package as if those were again the live benchmark-facing datum. Instead it retains only a selected response-carrying substrate representative of each actual recorded displacement together with a positive substrate-response operator acting on that selected carrier. The current body-level forcing law is then read off as the selected substrate-response energy on the fixed displacement body.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not claim a completed first-principles derivation of GR from final substrate microphysics. Its narrower positive role is to show that the current section-centered displacement-body quadratic forcing law is already forced once the smaller selected body-lift response package is fixed.
+
+\section{Fixed Inputs from the Current Forcing-Law Frontier}
+
+\begin{definition}[Recorded primitive continuation data]
+\label{def:fixed}
+Fix the following continuation data from the active primitive-reservoir observer-reduction line.
+\begin{enumerate}
+    \item For each sector label \(\sigma\in\{\Car,\Cur,\Hom\}\), a primitive forcing shell
+    \[
+    \ForSpace{\sigma}.
+    \]
+    \item The product shell
+    \[
+    \PrimShell
+    \equiv
+    \ForSpace{\Car}\times \ForSpace{\Cur}\times \ForSpace{\Hom}.
+    \]
+    \item The recorded metric and ordinary-matter outputs
+    \[
+    \MetricOut:\PrimShell\to\{\text{observer metrics}\},
+    \qquad
+    \MatterOut:\PrimShell\times\MatterSpace\to\{\text{observer stress tensors}\},
+    \]
+    satisfying
+    \begin{equation}
+    \MetricOut(\mathbf w)=\CompletedMetric,
+    \qquad
+    \MatterOut(\mathbf w,\psi)
+    =
+    T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
+    \label{eq:fixedoutputs}
+    \end{equation}
+    for every \(\mathbf w\in\PrimShell\) and every matter configuration \(\psi\in\MatterSpace\).
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Recorded benchmark base and downstream chain]
+\label{def:route}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). The active route already fixes the following data and consequences.
+\begin{enumerate}
+    \item the current proto-section benchmark base, in particular the recorded proto-section body \(\ProtoSectionBody{\sigma}\) and shell \(\ProtoSectionShell{\sigma}\);
+    \item the fixed section-centered displacement body
+    \[
+    \PrePreProtoSectionResidualBody{\sigma}
+    \subset
+    \ProtoSectionBody{\sigma}\times\PrePreProtoSectionVertical{\sigma}
+    \]
+    whose fiber
+    \[
+    \PrePreProtoSectionResidualBody{\sigma}(y)
+    \equiv
+    \left\{
+    v\in\PrePreProtoSectionVertical{\sigma}:(y,v)\in\PrePreProtoSectionResidualBody{\sigma}
+    \right\}
+    \]
+    is nonempty, compact, convex, contains \(0\), and has nonempty interior for every \(y\in\ProtoSectionBody{\sigma}\);
+    \item the recorded downstream continuation, namely
+    \[
+    \begin{aligned}
+    &\PullbackBodyResponseCore,\quad
+    \PullbackBodyOperatorCore,\\
+    &\PullbackOperatorCore,\quad
+    \PrePreProtoSectionPullbackCore,
+    \end{aligned}
+    \qquad
+    \begin{aligned}
+    &\PreProtoSectionResidualPackage,\quad
+    \PreProtoSectionPackage,\\
+    &\PreProtoSectionMinSectionCore,
+    \end{aligned}
+    \]
+    together with the current continuity-Hessian compressed core and benchmark one-metric observer package;
+    \item benchmark faithfulness, meaning preservation of the benchmark outputs \eqref{eq:fixedoutputs}, no second operative metric, no enlarged low-energy matter law, no change to the ordinary matter route, and no premature promotion from adoption to completed derivation.
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}[What the current forcing-law frontier already proves]
+\label{prop:frontier}
+At current scope, the already-recorded forcing-law frontier theorems prove all of the following.
+\begin{enumerate}
+    \item Any benchmark-faithful section-centered displacement-body quadratic forcing law canonically determines the visible-response operator family \(\VisibleResponseOperator{\sigma}\) and the canonical minimal visible-response representative \(\MinimalReducedStructure_{\sigma}\) on the fixed displacement body.
+    \item Once that law is available, the current body-response core and all currently recorded downstream benchmark-facing consequences already follow unchanged from the same derived representative.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Item (1) is exactly the content of the current theorem deriving the canonical minimal visible-response representative from the section-centered displacement-body quadratic forcing law. Item (2) is exactly the downstream factorization statement recorded there.
+\end{proof}
+
+\section{Body-Lift Response Selection}
+
+\begin{definition}[Benchmark-faithful body-lift response selection]
+\label{def:selection}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). A \emph{benchmark-faithful body-lift response selection} for sector \(\sigma\) consists of the following data.
+\begin{enumerate}
+    \item The fixed proto-section benchmark base and fixed section-centered displacement body of Definition \ref{def:route}(1)--(2).
+    \item A finite-dimensional Euclidean selected-lift carrier
+    \[
+    \LiftSelectionCarrier{\sigma}.
+    \]
+    \item A smooth family of linear selected response lifts
+    \[
+    \SelectedResponseLift{\sigma}(y):
+    \PrePreProtoSectionVertical{\sigma}\to\LiftSelectionCarrier{\sigma},
+    \qquad
+    y\in\ProtoSectionBody{\sigma},
+    \]
+    used only on the recorded displacement-body fiber
+    \[
+    \PrePreProtoSectionResidualBody{\sigma}(y).
+    \]
+    \item A smooth family of positive self-adjoint selected response operators
+    \[
+    \SelectedResponseOperator{\sigma}(y):
+    \LiftSelectionCarrier{\sigma}\to\LiftSelectionCarrier{\sigma},
+    \qquad
+    y\in\ProtoSectionBody{\sigma}.
+    \]
+    \item Positivity on the actual displacement body:
+    \[
+    \ev{
+    \SelectedResponseLift{\sigma}(y)v,
+    \SelectedResponseOperator{\sigma}(y)\SelectedResponseLift{\sigma}(y)v
+    }
+    =0
+    \qquad\Longleftrightarrow\qquad
+    v=0
+    \]
+    for every \(y\in\ProtoSectionBody{\sigma}\) and every \(v\in\PrePreProtoSectionResidualBody{\sigma}(y)\).
+    \item Benchmark faithfulness in the sense of Definition \ref{def:route}(4).
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:selection} is intentionally smaller than the older section-centered displacement-response substrate law and smaller than the later projection/body or current-image-core presentations. It retains only the explicit response-carrying selected substrate representative of each actual recorded displacement together with the positive substrate-response operator acting on that selected carrier. Ambient substrate-body points, projection/kernel decompositions, and other larger same-output presentations are not kept as separately primitive data here.
+\end{remark}
+
+\section{Forced Section-Centered Displacement-Body Quadratic Forcing Law}
+
+\begin{definition}[Selected-lift forcing energy]
+\label{def:energy}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\) and a benchmark-faithful body-lift response selection. Define the selected-lift forcing energy on the recorded displacement body by
+\begin{equation}
+\VisibleBodyForcingLaw{\sigma}(y,v)
+\equiv
+\frac{1}{2}
+\ev{
+\SelectedResponseLift{\sigma}(y)v,
+\SelectedResponseOperator{\sigma}(y)\SelectedResponseLift{\sigma}(y)v
+}
+\label{eq:forcing}
+\end{equation}
+for every \((y,v)\in\PrePreProtoSectionResidualBody{\sigma}\).
+\end{definition}
+
+\begin{proposition}[The selected-lift forcing energy is a benchmark-faithful body-level quadratic forcing law]
+\label{prop:law}
+Fix a benchmark-faithful body-lift response selection for sector \(\sigma\). Then the pair
+\[
+\left(
+\PrePreProtoSectionResidualBody{\sigma},
+\VisibleBodyForcingLaw{\sigma}
+\right)
+\]
+is a benchmark-faithful section-centered displacement-body quadratic forcing law on the fixed displacement body.
+\end{proposition}
+
+\begin{proof}
+Because \(y\mapsto \SelectedResponseLift{\sigma}(y)\) and \(y\mapsto \SelectedResponseOperator{\sigma}(y)\) are smooth, the forcing energy \(\VisibleBodyForcingLaw{\sigma}\) is smooth in \(y\). Because \(v\mapsto \SelectedResponseLift{\sigma}(y)v\) is linear on \(\PrePreProtoSectionVertical{\sigma}\), the restriction of \(\VisibleBodyForcingLaw{\sigma}(y,\cdot)\) to the recorded displacement-body fiber \(\PrePreProtoSectionResidualBody{\sigma}(y)\) is quadratic in \(v\). Positivity and vanishing only at \(v=0\) on that fiber are exactly Definition \ref{def:selection}(5). Benchmark faithfulness is part of Definition \ref{def:selection}(6). Therefore the induced pair satisfies the requirements of a benchmark-faithful section-centered displacement-body quadratic forcing law on the fixed displacement body.
+\end{proof}
+
+\section{Forcing the Current Body-Law Frontier}
+
+\begin{theorem}[Current displacement-body quadratic forcing law from body-lift response selection]
+\label{thm:main}
+Fix the primitive continuation data of Definition \ref{def:fixed}, the recorded benchmark base and downstream chain of Definition \ref{def:route}, and for each sector \(\sigma\in\{\Car,\Cur,\Hom\}\) a benchmark-faithful body-lift response selection in the sense of Definition \ref{def:selection}. Then the current section-centered displacement-body quadratic forcing law is canonically forced by that smaller explicit package. More precisely:
+\begin{enumerate}
+    \item the selected-lift forcing energy \(\VisibleBodyForcingLaw{\sigma}\) of Definition \ref{def:energy} is a benchmark-faithful section-centered displacement-body quadratic forcing law on the fixed displacement body by Proposition \ref{prop:law};
+    \item by Proposition \ref{prop:frontier}(1), that law canonically determines the visible-response operator family \(\VisibleResponseOperator{\sigma}\) and the canonical minimal visible-response representative \(\MinimalReducedStructure_{\sigma}\);
+    \item by Proposition \ref{prop:frontier}(2), the current body-response core and every currently recorded downstream benchmark-facing consequence in Definition \ref{def:route}(3) then follow unchanged from the same derived representative;
+    \item the benchmark one-metric package \eqref{eq:fixedoutputs} is preserved, the ordinary matter route is unchanged, there is no second operative metric, and the low-energy matter law is not enlarged;
+    \item consequently the remaining honest burden is no longer to restate the current section-centered displacement-body quadratic forcing law itself, but to derive or justify the smaller explicit body-lift response selection from still more primitive substrate structure.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Item (1) is exactly Proposition \ref{prop:law}. Item (2) is Proposition \ref{prop:frontier}(1) applied to the law defined in \eqref{eq:forcing}. Item (3) is Proposition \ref{prop:frontier}(2). Item (4) is the benchmark-faithfulness condition built into Definitions \ref{def:route} and \ref{def:selection}. Item (5) is the routing consequence of Items (1)--(4): once the current body-level forcing law is itself a canonical consequence of the smaller selected body-lift response package, another manuscript that merely restates that same law or merely replays its downstream consequences does not remove any remaining benchmark-facing freedom.
+\end{proof}
+
+\begin{corollary}[The current body-level forcing law is no longer primitive]
+\label{cor:nonprimitive}
+Under the hypotheses of Theorem \ref{thm:main}, the current section-centered displacement-body quadratic forcing law is no longer a primitive stopping point on the recorded section-centered hidden-response route. It is a forced output of the benchmark-faithful body-lift response selection.
+\end{corollary}
+
+\begin{proof}
+Theorem \ref{thm:main}(1) identifies the current body-level forcing law as the selected substrate-response energy of the smaller explicit package, while Theorem \ref{thm:main}(2)--(3) identifies the same downstream benchmark-facing consequences. The law is therefore induced rather than postulated independently.
+\end{proof}
+
+\section{Conclusion}
+
+The positive result of this note is a genuine derivational gain below the current displacement-body forcing-law frontier. The current section-centered displacement-body quadratic forcing law is no longer primitive once the smaller body-lift response selection is fixed. The active line therefore no longer stops honestly at the body-law presentation itself.
+
+The scope remains narrow and honest. The one operative metric is still exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, the low-energy matter law is not enlarged, and nothing here upgrades adoption to a completed first-principles derivation of GR from final substrate microphysics.
+
+The next open burden is therefore sharper again. The next benchmark-facing manuscript should derive or justify the current body-lift response selection itself from still more primitive explicit substrate structure. Another manuscript that merely restates the same selected-lift package, the same section-centered displacement-body quadratic forcing law, the same visible-response operator family, the same canonical minimal visible-response representative, or another larger same-output current-image-core or reduced-carrier or projection/body or full substrate-law presentation is no longer the clean next target at current scope.
+
+\end{document}
