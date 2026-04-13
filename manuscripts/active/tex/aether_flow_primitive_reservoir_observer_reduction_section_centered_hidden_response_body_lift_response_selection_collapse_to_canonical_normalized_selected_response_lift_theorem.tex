@@ -1,0 +1,451 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+
+\newcommand{\CompletedMetric}{g^{\sharp}}
+\newcommand{\MatterSpace}{\Psi}
+
+\newcommand{\Car}{\mathrm{car}}
+\newcommand{\Cur}{\mathrm{cur}}
+\newcommand{\Hom}{\mathrm{hom}}
+
+\newcommand{\ForSpace}[1]{\mathcal I_{#1}^{\mathrm{for}}}
+\newcommand{\PrimShell}{\mathcal S_{\mathrm{prim}}}
+\newcommand{\MetricOut}{\mathscr G_{\mathrm{out}}}
+\newcommand{\MatterOut}{\mathscr T_{\mathrm{out}}}
+
+\newcommand{\ProtoSectionBody}[1]{\mathcal B_{#1}^{\mathrm{psec}}}
+\newcommand{\ProtoSectionShell}[1]{\mathcal Z_{#1}^{\mathrm{psec}}}
+\newcommand{\PrePreProtoSectionVertical}[1]{V_{#1}^{\mathrm{pppresec}}}
+\newcommand{\PrePreProtoSectionResidualBody}[1]{\mathcal D_{#1}^{\mathrm{pppresec}}}
+
+\newcommand{\PullbackBodyResponseCore}{\mathfrak S^{\mathrm{sub,proto,pppresec,pb,bodyresp}}}
+\newcommand{\PullbackBodyOperatorCore}{\mathfrak S^{\mathrm{sub,proto,pppresec,pb,bodyop}}}
+\newcommand{\PullbackOperatorCore}{\mathfrak S^{\mathrm{sub,proto,pppresec,pb,op}}}
+\newcommand{\PrePreProtoSectionPullbackCore}{\mathfrak S^{\mathrm{sub,proto,pppresec,pb}}}
+\newcommand{\PreProtoSectionResidualPackage}{\mathfrak R^{\mathrm{sub,proto,presec,res}}}
+\newcommand{\PreProtoSectionPackage}{\mathfrak R^{\mathrm{sub,proto,presec}}}
+\newcommand{\PreProtoSectionMinSectionCore}{\mathfrak R^{\mathrm{sub,proto,presec,sec}}}
+
+\newcommand{\VisibleBodyForcingLaw}[1]{\mathscr F_{#1}^{\mathrm{disp,resp,vis,body}}}
+\newcommand{\VisibleResponseOperator}[1]{S_{#1}^{\mathrm{disp,resp,vis}}}
+\newcommand{\MinimalReducedStructure}{\mathfrak S^{\mathrm{disp,resp,red,min}}}
+
+\newcommand{\LiftSelectionPackage}{\mathfrak L^{\mathrm{disp,body,sel}}}
+\newcommand{\LiftSelectionCarrier}[1]{\mathcal U_{#1}^{\mathrm{disp,body,sel}}}
+\newcommand{\SelectedResponseLift}[1]{\Lambda_{#1}^{\mathrm{disp,body,sel}}}
+\newcommand{\SelectedResponseOperator}[1]{K_{#1}^{\mathrm{disp,body,sel}}}
+
+\newcommand{\NormalizedLiftPackage}{\widehat{\mathfrak L}^{\mathrm{disp,body,norm}}}
+\newcommand{\NormalizedLiftCarrier}[1]{\widehat{\mathcal U}_{#1}^{\mathrm{disp,body,norm}}}
+\newcommand{\NormalizedSelectedResponseLift}[1]{\widehat{\Lambda}_{#1}^{\mathrm{disp,body,norm}}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Primitive-Reservoir Observer-Reduction\\
+\large Section-Centered Hidden-Response\\
+\large Body-Lift Response Selection Collapse\\
+\large to a Canonical Normalized\\
+\large Selected-Response Lift}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The current active-primary theorem already proves that the current section-centered displacement-body quadratic forcing law follows canonically from a smaller explicit body-lift response selection \(\LiftSelectionPackage\) on the fixed displacement body. The next honest benchmark-facing move is therefore no longer another replay of the body-level law or of the visible-response structures it yields. It is to force the selected-lift package itself, or to prove that some genuinely smaller constituent inside that package already carries all of its benchmark-relevant content.
+
+The present note takes the smaller-constituent route in the cleanest available form. For each sector, a benchmark-faithful body-lift response selection consists of a finite-dimensional selected carrier, a smooth linear selected response lift, and a smooth positive self-adjoint selected response operator acting on that carrier. The theorem shows that this operator-bearing package already collapses canonically to a smaller normalized selected-response lift:
+\[
+\NormalizedSelectedResponseLift{\sigma}(y)
+=
+\SelectedResponseOperator{\sigma}(y)^{1/2}\SelectedResponseLift{\sigma}(y).
+\]
+The current body-level forcing law is exactly the normalized lift energy
+\[
+\frac{1}{2}
+\ev{
+\NormalizedSelectedResponseLift{\sigma}(y)v,
+\NormalizedSelectedResponseLift{\sigma}(y)v
+}
+\]
+on the actual displacement body. Conversely, any benchmark-faithful normalized selected-response lift already induces a benchmark-faithful body-lift response selection by taking the selected response operator to be the identity. Thus the separate operator-bearing presentation carries no additional benchmark-facing freedom beyond the smaller normalized lift.
+
+The benchmark boundary remains unchanged throughout. The one operative metric is still exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, the low-energy matter law is not enlarged, and no stronger promotion language is licensed. By the current forcing-law theorem, the same displacement-body quadratic forcing law, the same canonical minimal visible-response representative, the same current body-response core, and every currently recorded downstream benchmark-facing consequence then follow unchanged. The remaining honest burden therefore moves below the selected body-lift response package to a deeper derivation or justification of the current normalized selected-response lift itself rather than another same-selection or same-body-law replay.
+\end{abstract}
+
+\section{Introduction}
+
+The active derivational program of \TheoryName{} has now already removed two larger stopping points on the recorded section-centered hidden-response route: first the visible-response operator-family presentation, and then the body-level quadratic forcing law itself. The current active-primary theorem shows that once a smaller explicit body-lift response selection is fixed, the present body-level forcing law is no longer primitive.
+
+The next honest question is therefore narrower again. Does the selected-lift package itself still contain benchmark-relevant freedom, or does it already collapse to some smaller constituent? The present note answers that question in the smallest clean way presently available. It does not introduce a larger current-image-core package, a larger reduced-carrier presentation, an older projection/body presentation, or a replay of the full displacement-response substrate law. Instead it shows that the selected response operator can be absorbed canonically into the lift itself through its positive square root. The benchmark-relevant content of the current selected-lift package is therefore carried already by a smaller normalized selected-response lift on the fixed displacement body.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not claim a completed first-principles derivation of GR from final substrate microphysics. Its narrower positive role is to show that the current operator-bearing body-lift response selection already collapses benchmark-facingly to a smaller canonical normalized selected-response lift.
+
+\section{Fixed Inputs from the Current Selected-Lift Frontier}
+
+\begin{definition}[Recorded primitive continuation data]
+\label{def:fixed}
+Fix the following continuation data from the active primitive-reservoir observer-reduction line.
+\begin{enumerate}
+    \item For each sector label \(\sigma\in\{\Car,\Cur,\Hom\}\), a primitive forcing shell
+    \[
+    \ForSpace{\sigma}.
+    \]
+    \item The product shell
+    \[
+    \PrimShell
+    \equiv
+    \ForSpace{\Car}\times \ForSpace{\Cur}\times \ForSpace{\Hom}.
+    \]
+    \item The recorded metric and ordinary-matter outputs
+    \[
+    \MetricOut:\PrimShell\to\{\text{observer metrics}\},
+    \qquad
+    \MatterOut:\PrimShell\times\MatterSpace\to\{\text{observer stress tensors}\},
+    \]
+    satisfying
+    \begin{equation}
+    \MetricOut(\mathbf w)=\CompletedMetric,
+    \qquad
+    \MatterOut(\mathbf w,\psi)
+    =
+    T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
+    \label{eq:fixedoutputs}
+    \end{equation}
+    for every \(\mathbf w\in\PrimShell\) and every matter configuration \(\psi\in\MatterSpace\).
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Recorded benchmark base and downstream chain]
+\label{def:route}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). The active route already fixes the following data and consequences.
+\begin{enumerate}
+    \item the current proto-section benchmark base, in particular the recorded proto-section body \(\ProtoSectionBody{\sigma}\) and shell \(\ProtoSectionShell{\sigma}\);
+    \item the fixed section-centered displacement body
+    \[
+    \PrePreProtoSectionResidualBody{\sigma}
+    \subset
+    \ProtoSectionBody{\sigma}\times\PrePreProtoSectionVertical{\sigma}
+    \]
+    whose fiber
+    \[
+    \PrePreProtoSectionResidualBody{\sigma}(y)
+    \equiv
+    \left\{
+    v\in\PrePreProtoSectionVertical{\sigma}:(y,v)\in\PrePreProtoSectionResidualBody{\sigma}
+    \right\}
+    \]
+    is nonempty, compact, convex, contains \(0\), and has nonempty interior for every \(y\in\ProtoSectionBody{\sigma}\);
+    \item the recorded downstream continuation, namely
+    \[
+    \begin{aligned}
+    &\PullbackBodyResponseCore,\quad
+    \PullbackBodyOperatorCore,\\
+    &\PullbackOperatorCore,\quad
+    \PrePreProtoSectionPullbackCore,
+    \end{aligned}
+    \qquad
+    \begin{aligned}
+    &\PreProtoSectionResidualPackage,\quad
+    \PreProtoSectionPackage,\\
+    &\PreProtoSectionMinSectionCore,
+    \end{aligned}
+    \]
+    together with the current continuity-Hessian compressed core and benchmark one-metric observer package;
+    \item benchmark faithfulness, meaning preservation of the benchmark outputs \eqref{eq:fixedoutputs}, no second operative metric, no enlarged low-energy matter law, no change to the ordinary matter route, and no premature promotion from adoption to completed derivation.
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}[What the current selected-lift frontier already proves]
+\label{prop:frontier}
+At current scope, the already-recorded selected-lift frontier theorems prove all of the following.
+\begin{enumerate}
+    \item Any benchmark-faithful body-lift response selection canonically determines the current section-centered displacement-body quadratic forcing law on the fixed displacement body.
+    \item That law canonically determines the visible-response operator family \(\VisibleResponseOperator{\sigma}\) and the canonical minimal visible-response representative \(\MinimalReducedStructure_{\sigma}\).
+    \item The current body-response core and every currently recorded downstream benchmark-facing consequence then follow unchanged from the same derived representative.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Item (1) is exactly the content of the current displacement-body forcing-law theorem from body-lift response selection. Items (2) and (3) are exactly the earlier forcing-law downstream continuation already preserved on the recorded route.
+\end{proof}
+
+\section{Body-Lift Response Selection}
+
+\begin{definition}[Benchmark-faithful body-lift response selection]
+\label{def:selection}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). A \emph{benchmark-faithful body-lift response selection} for sector \(\sigma\) consists of the following data.
+\begin{enumerate}
+    \item The fixed proto-section benchmark base and fixed section-centered displacement body of Definition \ref{def:route}(1)--(2).
+    \item A finite-dimensional Euclidean selected-lift carrier
+    \[
+    \LiftSelectionCarrier{\sigma}.
+    \]
+    \item A smooth family of linear selected response lifts
+    \[
+    \SelectedResponseLift{\sigma}(y):
+    \PrePreProtoSectionVertical{\sigma}\to\LiftSelectionCarrier{\sigma},
+    \qquad
+    y\in\ProtoSectionBody{\sigma},
+    \]
+    used only on the recorded displacement-body fiber
+    \[
+    \PrePreProtoSectionResidualBody{\sigma}(y).
+    \]
+    \item A smooth family of positive self-adjoint selected response operators
+    \[
+    \SelectedResponseOperator{\sigma}(y):
+    \LiftSelectionCarrier{\sigma}\to\LiftSelectionCarrier{\sigma},
+    \qquad
+    y\in\ProtoSectionBody{\sigma}.
+    \]
+    \item Positivity on the actual displacement body:
+    \[
+    \ev{
+    \SelectedResponseLift{\sigma}(y)v,
+    \SelectedResponseOperator{\sigma}(y)\SelectedResponseLift{\sigma}(y)v
+    }
+    =0
+    \qquad\Longleftrightarrow\qquad
+    v=0
+    \]
+    for every \(y\in\ProtoSectionBody{\sigma}\) and every \(v\in\PrePreProtoSectionResidualBody{\sigma}(y)\).
+    \item Benchmark faithfulness in the sense of Definition \ref{def:route}(4).
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:selection} is already smaller than the older displacement-response substrate-law and projection/body presentations. The question addressed here is whether even this operator-bearing selected-lift package still contains benchmark-relevant freedom once the actual displacement body is fixed.
+\end{remark}
+
+\section{Canonical Normalized Selected-Response Lift}
+
+\begin{definition}[Benchmark-faithful canonical normalized selected-response lift]
+\label{def:normalized}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). A \emph{benchmark-faithful canonical normalized selected-response lift} for sector \(\sigma\) consists of the following data.
+\begin{enumerate}
+    \item The fixed proto-section benchmark base and fixed section-centered displacement body of Definition \ref{def:route}(1)--(2).
+    \item A finite-dimensional Euclidean normalized selected-response carrier
+    \[
+    \NormalizedLiftCarrier{\sigma}.
+    \]
+    \item A smooth family of linear normalized selected-response lifts
+    \[
+    \NormalizedSelectedResponseLift{\sigma}(y):
+    \PrePreProtoSectionVertical{\sigma}\to\NormalizedLiftCarrier{\sigma},
+    \qquad
+    y\in\ProtoSectionBody{\sigma},
+    \]
+    used only on the recorded displacement-body fiber
+    \[
+    \PrePreProtoSectionResidualBody{\sigma}(y).
+    \]
+    \item Positivity on the actual displacement body:
+    \[
+    \ev{
+    \NormalizedSelectedResponseLift{\sigma}(y)v,
+    \NormalizedSelectedResponseLift{\sigma}(y)v
+    }
+    =0
+    \qquad\Longleftrightarrow\qquad
+    v=0
+    \]
+    for every \(y\in\ProtoSectionBody{\sigma}\) and every \(v\in\PrePreProtoSectionResidualBody{\sigma}(y)\).
+    \item Benchmark faithfulness in the sense of Definition \ref{def:route}(4).
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:normalized} is strictly smaller than Definition \ref{def:selection}. It keeps the response-carrying lift itself, but no longer treats a separate selected response operator as independently primitive data. The operator-bearing presentation is to be recovered only when needed, and in the canonical normalized presentation it becomes the identity.
+\end{remark}
+
+\begin{proposition}[Square-root normalization produces a canonical normalized lift]
+\label{prop:normalize}
+Fix a benchmark-faithful body-lift response selection for sector \(\sigma\). Define
+\begin{equation}
+\NormalizedLiftCarrier{\sigma}
+\equiv
+\LiftSelectionCarrier{\sigma},
+\qquad
+\NormalizedSelectedResponseLift{\sigma}(y)
+\equiv
+\SelectedResponseOperator{\sigma}(y)^{1/2}\SelectedResponseLift{\sigma}(y)
+\label{eq:normalize}
+\end{equation}
+for each \(y\in\ProtoSectionBody{\sigma}\). Then
+\[
+\left(
+\NormalizedLiftCarrier{\sigma},
+\NormalizedSelectedResponseLift{\sigma}
+\right)
+\]
+is a benchmark-faithful canonical normalized selected-response lift.
+\end{proposition}
+
+\begin{proof}
+Because \(\SelectedResponseOperator{\sigma}(y)\) is positive self-adjoint on the finite-dimensional Euclidean space \(\LiftSelectionCarrier{\sigma}\), it has a unique positive self-adjoint square root \(\SelectedResponseOperator{\sigma}(y)^{1/2}\). Smooth dependence on \(y\) follows from the smooth dependence of the positive operator family. Therefore \(y\mapsto \NormalizedSelectedResponseLift{\sigma}(y)\) is a smooth family of linear maps.
+
+For \((y,v)\in\PrePreProtoSectionResidualBody{\sigma}\),
+\[
+\ev{
+\NormalizedSelectedResponseLift{\sigma}(y)v,
+\NormalizedSelectedResponseLift{\sigma}(y)v
+}
+=
+\ev{
+\SelectedResponseLift{\sigma}(y)v,
+\SelectedResponseOperator{\sigma}(y)\SelectedResponseLift{\sigma}(y)v
+},
+\]
+so positivity and vanishing only at \(v=0\) on the actual displacement body are exactly Definition \ref{def:selection}(5). Benchmark faithfulness is inherited from Definition \ref{def:selection}(6). Hence the normalized data satisfy Definition \ref{def:normalized}.
+\end{proof}
+
+\begin{proposition}[A normalized selected-response lift induces a body-lift response selection]
+\label{prop:denormalize}
+Fix a benchmark-faithful canonical normalized selected-response lift for sector \(\sigma\). Then the data
+\[
+\LiftSelectionCarrier{\sigma}
+\equiv
+\NormalizedLiftCarrier{\sigma},
+\qquad
+\SelectedResponseLift{\sigma}(y)
+\equiv
+\NormalizedSelectedResponseLift{\sigma}(y),
+\qquad
+\SelectedResponseOperator{\sigma}(y)
+\equiv
+\mathrm{id}_{\NormalizedLiftCarrier{\sigma}}
+\]
+form a benchmark-faithful body-lift response selection.
+\end{proposition}
+
+\begin{proof}
+Smoothness and linearity are immediate. Positivity on the actual displacement body becomes exactly
+\[
+\ev{
+\SelectedResponseLift{\sigma}(y)v,
+\SelectedResponseOperator{\sigma}(y)\SelectedResponseLift{\sigma}(y)v
+}
+=
+\ev{
+\NormalizedSelectedResponseLift{\sigma}(y)v,
+\NormalizedSelectedResponseLift{\sigma}(y)v
+},
+\]
+which is positive and vanishes only at \(v=0\) by Definition \ref{def:normalized}(4). Benchmark faithfulness is inherited from Definition \ref{def:normalized}(5). Therefore the induced data satisfy Definition \ref{def:selection}.
+\end{proof}
+
+\begin{definition}[Normalized selected-lift forcing energy]
+\label{def:energy}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\) and a benchmark-faithful canonical normalized selected-response lift. Define the normalized selected-lift forcing energy on the recorded displacement body by
+\begin{equation}
+\VisibleBodyForcingLaw{\sigma}(y,v)
+\equiv
+\frac{1}{2}
+\ev{
+\NormalizedSelectedResponseLift{\sigma}(y)v,
+\NormalizedSelectedResponseLift{\sigma}(y)v
+}
+\label{eq:forcing}
+\end{equation}
+for every \((y,v)\in\PrePreProtoSectionResidualBody{\sigma}\).
+\end{definition}
+
+\begin{proposition}[The normalized lift energy agrees with the selected-lift energy]
+\label{prop:energy}
+Fix a benchmark-faithful body-lift response selection and let \(\NormalizedSelectedResponseLift{\sigma}\) be its square-root normalization from Proposition \ref{prop:normalize}. Then for every \((y,v)\in\PrePreProtoSectionResidualBody{\sigma}\),
+\[
+\frac{1}{2}
+\ev{
+\NormalizedSelectedResponseLift{\sigma}(y)v,
+\NormalizedSelectedResponseLift{\sigma}(y)v
+}
+=
+\frac{1}{2}
+\ev{
+\SelectedResponseLift{\sigma}(y)v,
+\SelectedResponseOperator{\sigma}(y)\SelectedResponseLift{\sigma}(y)v
+}.
+\]
+Hence the current body-level forcing law determined from the selected-lift package is exactly the normalized lift energy \eqref{eq:forcing}.
+\end{proposition}
+
+\begin{proof}
+This is the identity already used in the proof of Proposition \ref{prop:normalize}. It follows directly from \eqref{eq:normalize} and from self-adjointness of \(\SelectedResponseOperator{\sigma}(y)^{1/2}\).
+\end{proof}
+
+\section{Collapsing the Current Selected-Lift Frontier}
+
+\begin{theorem}[Current body-lift response selection collapses to a canonical normalized selected-response lift]
+\label{thm:main}
+Fix the primitive continuation data of Definition \ref{def:fixed}, the recorded benchmark base and downstream chain of Definition \ref{def:route}, and for each sector \(\sigma\in\{\Car,\Cur,\Hom\}\) a benchmark-faithful body-lift response selection in the sense of Definition \ref{def:selection}. Then the current operator-bearing selected-lift package carries no additional benchmark-facing freedom beyond a smaller canonical normalized selected-response lift. More precisely:
+\begin{enumerate}
+    \item Proposition \ref{prop:normalize} canonically associates to the given body-lift response selection a benchmark-faithful normalized selected-response lift \(\NormalizedSelectedResponseLift{\sigma}\).
+    \item Proposition \ref{prop:denormalize} recovers from that normalized lift a benchmark-faithful body-lift response selection with identity selected response operator, so the separate operator-bearing presentation is not independently primitive at current benchmark scope.
+    \item By Proposition \ref{prop:energy}, the current section-centered displacement-body quadratic forcing law is exactly the normalized lift energy \eqref{eq:forcing}.
+    \item By Proposition \ref{prop:frontier}(2)--(3), the same visible-response operator family \(\VisibleResponseOperator{\sigma}\), the same canonical minimal visible-response representative \(\MinimalReducedStructure_{\sigma}\), the same current body-response core, and every currently recorded downstream benchmark-facing consequence then follow unchanged from that same normalized lift energy.
+    \item The benchmark one-metric package \eqref{eq:fixedoutputs} is preserved, the ordinary matter route is unchanged, there is no second operative metric, and the low-energy matter law is not enlarged.
+    \item Consequently the remaining honest burden is no longer to restate the operator-bearing body-lift response selection itself, but to derive or justify the smaller canonical normalized selected-response lift from still more primitive substrate structure.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Item (1) is Proposition \ref{prop:normalize}. Item (2) is Proposition \ref{prop:denormalize}. Item (3) is Proposition \ref{prop:energy}. Item (4) is exactly the previously recorded downstream continuation applied to the forcing law \eqref{eq:forcing}. Item (5) is the benchmark-faithfulness condition built into Definitions \ref{def:route}, \ref{def:selection}, and \ref{def:normalized}. Item (6) is the routing consequence of Items (1)--(5): once the current selected-lift package collapses benchmark-facingly to the smaller normalized lift, another manuscript that merely restates the same operator-bearing selected-lift package or merely replays the same body-law or operator-level consequences does not remove any remaining benchmark-facing freedom.
+\end{proof}
+
+\begin{corollary}[The operator-bearing selected-lift presentation is no longer primitive]
+\label{cor:nonprimitive}
+Under the hypotheses of Theorem \ref{thm:main}, the current operator-bearing body-lift response selection is no longer a primitive stopping point on the recorded section-centered hidden-response route. Its benchmark-relevant content is already carried by the smaller canonical normalized selected-response lift.
+\end{corollary}
+
+\begin{proof}
+Theorem \ref{thm:main}(1)--(3) identifies the same forcing law as the normalized lift energy, while Theorem \ref{thm:main}(4) identifies the same downstream benchmark-facing consequences. Therefore the separate operator-bearing selected-lift presentation is dispensable at current benchmark scope.
+\end{proof}
+
+\section{Conclusion}
+
+The positive result of this note is a genuine internal sharpening below the current body-lift response-selection frontier. The present body-lift response selection no longer needs to be treated as a separately primitive operator-bearing package. Its benchmark-relevant content already collapses to a smaller canonical normalized selected-response lift on the fixed displacement body.
+
+The scope remains narrow and honest. The one operative metric is still exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, the low-energy matter law is not enlarged, and nothing here upgrades adoption to a completed first-principles derivation of GR from final substrate microphysics.
+
+The next open burden is therefore sharper again. The next benchmark-facing manuscript should derive or justify the current canonical normalized selected-response lift itself from still more primitive explicit substrate structure. Another manuscript that merely restates the same operator-bearing selected-lift package, the same section-centered displacement-body quadratic forcing law, the same visible-response operator family, the same canonical minimal visible-response representative, or a larger same-output current-image-core or reduced-carrier or projection/body or full substrate-law presentation is no longer the clean next target at current scope.
+
+\end{document}
