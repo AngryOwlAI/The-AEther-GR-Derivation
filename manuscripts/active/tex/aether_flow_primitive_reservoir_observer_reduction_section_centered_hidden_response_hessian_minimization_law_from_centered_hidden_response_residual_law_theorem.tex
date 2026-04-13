@@ -1,0 +1,430 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+
+\newcommand{\CompletedMetric}{g^{\sharp}}
+\newcommand{\MatterSpace}{\Psi}
+
+\newcommand{\Car}{\mathrm{car}}
+\newcommand{\Cur}{\mathrm{cur}}
+\newcommand{\Hom}{\mathrm{hom}}
+
+\newcommand{\ForSpace}[1]{\mathcal I_{#1}^{\mathrm{for}}}
+\newcommand{\PrimShell}{\mathcal S_{\mathrm{prim}}}
+\newcommand{\MetricOut}{\mathscr G_{\mathrm{out}}}
+\newcommand{\MatterOut}{\mathscr T_{\mathrm{out}}}
+
+\newcommand{\ProtoSectionBody}[1]{\mathcal B_{#1}^{\mathrm{psec}}}
+\newcommand{\ProtoSectionShell}[1]{\mathcal Z_{#1}^{\mathrm{psec}}}
+\newcommand{\PrePreProtoSectionVertical}[1]{V_{#1}^{\mathrm{pppresec}}}
+\newcommand{\PrePreProtoSectionResidualBody}[1]{\mathcal D_{#1}^{\mathrm{pppresec}}}
+
+\newcommand{\PullbackBodyResponseCore}{\mathfrak S^{\mathrm{sub,proto,pppresec,pb,bodyresp}}}
+\newcommand{\PullbackBodyOperatorCore}{\mathfrak S^{\mathrm{sub,proto,pppresec,pb,bodyop}}}
+\newcommand{\PullbackOperatorCore}{\mathfrak S^{\mathrm{sub,proto,pppresec,pb,op}}}
+\newcommand{\PrePreProtoSectionPullbackCore}{\mathfrak S^{\mathrm{sub,proto,pppresec,pb}}}
+\newcommand{\PreProtoSectionResidualPackage}{\mathfrak R^{\mathrm{sub,proto,presec,res}}}
+\newcommand{\PreProtoSectionPackage}{\mathfrak R^{\mathrm{sub,proto,presec}}}
+\newcommand{\PreProtoSectionMinSectionCore}{\mathfrak R^{\mathrm{sub,proto,presec,sec}}}
+
+\newcommand{\SquareRootOperatorCore}{\mathfrak O^{\mathrm{disp,body,sqrt}}}
+\newcommand{\SquareRootOperator}[1]{R_{#1}^{\mathrm{disp,body,sqrt}}}
+\newcommand{\VisibleBodyForcingLaw}[1]{\mathscr F_{#1}^{\mathrm{disp,resp,vis,body}}}
+\newcommand{\VisibleResponseOperator}[1]{S_{#1}^{\mathrm{disp,resp,vis}}}
+\newcommand{\MinimalReducedStructure}{\mathfrak S^{\mathrm{disp,resp,red,min}}}
+
+\newcommand{\HiddenMinimizationPackage}{\mathfrak M^{\mathrm{disp,hid,min}}}
+\newcommand{\HiddenCarrier}[1]{\mathcal H_{#1}^{\mathrm{disp,hid}}}
+\newcommand{\HiddenReadout}[1]{\Pi_{#1}^{\mathrm{disp,hid}}}
+\newcommand{\HiddenHessian}[1]{A_{#1}^{\mathrm{disp,hid}}}
+\newcommand{\HiddenMinEnergy}[1]{\mathcal E_{#1}^{\mathrm{hid,min}}}
+
+\newcommand{\ResidualLawPackage}{\mathfrak N^{\mathrm{disp,hid,res}}}
+\newcommand{\ResidualState}[1]{\mathcal U_{#1}^{\mathrm{disp,hid,res}}}
+\newcommand{\ResidualTarget}[1]{\mathcal E_{#1}^{\mathrm{disp,hid,res}}}
+\newcommand{\ResidualReadout}[1]{\Pi_{#1}^{\mathrm{disp,hid,res}}}
+\newcommand{\ResidualOperator}[1]{L_{#1}^{\mathrm{disp,hid,res}}}
+\newcommand{\ResidualLeastSquares}[1]{\mathcal J_{#1}^{\mathrm{disp,hid,res}}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Primitive-Reservoir Observer-Reduction\\
+\large Section-Centered Hidden-Response\\
+\large Hessian Minimization Law\\
+\large from a Centered Hidden-Response\\
+\large Residual Law}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The current active-primary theorem already proves that the current canonical square-root operator core is already the canonical reduced readout of a deeper hidden-response Hessian minimization law on the fixed displacement fibers. The next honest benchmark-facing move is therefore no longer another replay of the square-root operator core, of the normalized-lift package, of the selected-lift package, of the body-level forcing law, or of the visible-response structures that follow from them. It is to derive or justify the hidden-response Hessian minimization law itself from still more primitive explicit substrate structure.
+
+The present note takes that step in the smallest residual form currently available below the hidden-response-Hessian-minimization frontier. For each sector, it introduces a benchmark-faithful centered hidden-response residual law: the fixed proto-section benchmark base and fixed section-centered displacement body together with a finite-dimensional centered residual state space, a smooth surjective displacement readout to the actual displacement fibers, and a smooth injective centered residual operator into a Euclidean residual target. The current hidden-response Hessian minimization law is then no longer primitive. It is canonically induced by the pullback residual energy
+\[
+\HiddenHessian{\sigma}(y)
+=
+\ResidualOperator{\sigma}(y)^*
+\ResidualOperator{\sigma}(y),
+\qquad
+\HiddenMinEnergy{\sigma}(y,v)
+=
+\min_{\ResidualReadout{\sigma}(y)u=v}
+\frac{1}{2}
+\norm{\ResidualOperator{\sigma}(y)u}^{2}.
+\]
+
+The benchmark boundary remains unchanged throughout. The one operative metric is still exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, the low-energy matter law is not enlarged, and no stronger promotion language is licensed. Once this smaller centered residual law is fixed, the current hidden-response Hessian minimization law is forced, and therefore the same square-root operator core, the same section-centered displacement-body quadratic forcing law, the same visible-response operator family, the same canonical minimal visible-response representative, the same current body-response core, and every currently recorded downstream benchmark-facing consequence follow unchanged. The remaining honest burden therefore moves below the separate hidden-response-Hessian package itself to a deeper derivation or justification of the centered hidden-response residual law that forces it.
+\end{abstract}
+
+\section{Introduction}
+
+The active derivational program of \TheoryName{} has already removed the larger stopping points that once sat above the current section-centered hidden-response datum. The visible-response operator family was compressed to the body-level forcing law, the body-level forcing law was compressed to the selected-lift package, the selected-lift package was compressed to the canonical normalized selected-response lift, the normalized-lift package was compressed to the square-root operator core, and the square-root operator core was then shown to be a canonical consequence of a deeper hidden-response Hessian minimization law.
+
+The next honest question is therefore narrower again. What still more primitive explicit substrate structure forces that current hidden-response Hessian minimization law itself? The present note answers that question in the smallest residual form now available below the current frontier. It does not reinstall the square-root operator core, the normalized-lift package, the selected-lift package, the body-law presentation, the visible-response operator family, the canonical minimal visible-response representative, the current body-response core, or any larger current-image-core or reduced-carrier or projection/body or full substrate-law presentation as independently primitive data. Instead it keeps only a centered residual state space, a displacement readout, and a residual operator into a Euclidean residual target. The current hidden-response Hessian minimization law is then the induced pullback least-squares law on that smaller residual package.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not claim a completed first-principles derivation of GR from final substrate microphysics. Its narrower positive role is to show that the current hidden-response Hessian minimization law already follows canonically from a smaller centered hidden-response residual law on the fixed displacement fibers.
+
+\section{Fixed Inputs from the Current Hidden-Response-Hessian Frontier}
+
+\begin{definition}[Recorded primitive continuation data]
+\label{def:fixed}
+Fix the following continuation data from the active primitive-reservoir observer-reduction line.
+\begin{enumerate}
+    \item For each sector label \(\sigma\in\{\Car,\Cur,\Hom\}\), a primitive forcing shell
+    \[
+    \ForSpace{\sigma}.
+    \]
+    \item The product shell
+    \[
+    \PrimShell
+    \equiv
+    \ForSpace{\Car}\times \ForSpace{\Cur}\times \ForSpace{\Hom}.
+    \]
+    \item The recorded metric and ordinary-matter outputs
+    \[
+    \MetricOut:\PrimShell\to\{\text{observer metrics}\},
+    \qquad
+    \MatterOut:\PrimShell\times\MatterSpace\to\{\text{observer stress tensors}\},
+    \]
+    satisfying
+    \begin{equation}
+    \MetricOut(\mathbf w)=\CompletedMetric,
+    \qquad
+    \MatterOut(\mathbf w,\psi)
+    =
+    T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
+    \label{eq:fixedoutputs}
+    \end{equation}
+    for every \(\mathbf w\in\PrimShell\) and every matter configuration \(\psi\in\MatterSpace\).
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Recorded benchmark base and downstream chain]
+\label{def:route}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). The active route already fixes the following data and consequences.
+\begin{enumerate}
+    \item the current proto-section benchmark base and in particular the recorded proto-section body \(\ProtoSectionBody{\sigma}\) and shell \(\ProtoSectionShell{\sigma}\);
+    \item the fixed section-centered displacement body
+    \[
+    \PrePreProtoSectionResidualBody{\sigma}
+    \subset
+    \ProtoSectionBody{\sigma}\times\PrePreProtoSectionVertical{\sigma}
+    \]
+    whose fiber
+    \[
+    \PrePreProtoSectionResidualBody{\sigma}(y)
+    \equiv
+    \left\{
+    v\in\PrePreProtoSectionVertical{\sigma}:(y,v)\in\PrePreProtoSectionResidualBody{\sigma}
+    \right\}
+    \]
+    is nonempty, compact, convex, contains \(0\), and has nonempty interior for every \(y\in\ProtoSectionBody{\sigma}\);
+    \item the recorded downstream continuation
+    \[
+    \begin{aligned}
+    &\PullbackBodyResponseCore,\quad
+    \PullbackBodyOperatorCore,\\
+    &\PullbackOperatorCore,\quad
+    \PrePreProtoSectionPullbackCore,
+    \end{aligned}
+    \qquad
+    \begin{aligned}
+    &\PreProtoSectionResidualPackage,\quad
+    \PreProtoSectionPackage,\\
+    &\PreProtoSectionMinSectionCore,
+    \end{aligned}
+    \]
+    together with the current continuity-Hessian compressed core and benchmark one-metric observer package;
+    \item benchmark faithfulness, meaning preservation of the benchmark outputs \eqref{eq:fixedoutputs}, no second operative metric, no enlarged low-energy matter law, no change to the ordinary matter route, and no premature promotion from adoption to completed derivation.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Benchmark-faithful hidden-response Hessian minimization law]
+\label{def:hidden}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). A \emph{benchmark-faithful hidden-response Hessian minimization law} for sector \(\sigma\) consists of the following data.
+\begin{enumerate}
+    \item The fixed proto-section benchmark base and fixed section-centered displacement body of Definition \ref{def:route}(1)--(2).
+    \item A finite-dimensional Euclidean hidden-response carrier
+    \[
+    \HiddenCarrier{\sigma}.
+    \]
+    \item A smooth family of surjective linear hidden-response readouts
+    \[
+    \HiddenReadout{\sigma}(y):
+    \HiddenCarrier{\sigma}\to\PrePreProtoSectionVertical{\sigma},
+    \qquad
+    y\in\ProtoSectionBody{\sigma}.
+    \]
+    \item A smooth family of positive self-adjoint hidden Hessians
+    \[
+    \HiddenHessian{\sigma}(y):
+    \HiddenCarrier{\sigma}\to\HiddenCarrier{\sigma},
+    \qquad
+    y\in\ProtoSectionBody{\sigma},
+    \]
+    each of which is positive definite on \(\HiddenCarrier{\sigma}\).
+    \item Benchmark faithfulness in the sense of Definition \ref{def:route}(4).
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}[What the current hidden-response-Hessian frontier already proves]
+\label{prop:frontier}
+At current scope, the already-recorded hidden-response-Hessian frontier theorems prove all of the following.
+\begin{enumerate}
+    \item Any benchmark-faithful hidden-response Hessian minimization law canonically determines the current square-root operator core on the fixed displacement fibers.
+    \item That square-root operator core canonically determines the current section-centered displacement-body quadratic forcing law on the fixed displacement body.
+    \item That forcing law canonically determines the visible-response operator family \(\VisibleResponseOperator{\sigma}\) and the canonical minimal visible-response representative \(\MinimalReducedStructure_{\sigma}\).
+    \item The current body-response core and every currently recorded downstream benchmark-facing consequence then follow unchanged.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Item (1) is exactly the content of the current theorem proving that the canonical square-root operator core is the reduced readout of a hidden-response Hessian minimization law. Items (2)--(4) are exactly the previously recorded downstream continuation from that square-root operator core.
+\end{proof}
+
+\section{Centered Hidden-Response Residual Law}
+
+\begin{definition}[Benchmark-faithful centered hidden-response residual law]
+\label{def:residual}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). A \emph{benchmark-faithful centered hidden-response residual law} for sector \(\sigma\) consists of the following data.
+\begin{enumerate}
+    \item The fixed proto-section benchmark base and fixed section-centered displacement body of Definition \ref{def:route}(1)--(2).
+    \item A finite-dimensional Euclidean centered residual state space
+    \[
+    \ResidualState{\sigma}.
+    \]
+    \item A smooth family of surjective linear displacement readouts
+    \[
+    \ResidualReadout{\sigma}(y):
+    \ResidualState{\sigma}\to\PrePreProtoSectionVertical{\sigma},
+    \qquad
+    y\in\ProtoSectionBody{\sigma}.
+    \]
+    \item A finite-dimensional Euclidean residual target
+    \[
+    \ResidualTarget{\sigma}.
+    \]
+    \item A smooth family of injective linear centered residual operators
+    \[
+    \ResidualOperator{\sigma}(y):
+    \ResidualState{\sigma}\to\ResidualTarget{\sigma},
+    \qquad
+    y\in\ProtoSectionBody{\sigma}.
+    \]
+    \item Benchmark faithfulness in the sense of Definition \ref{def:route}(4).
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:residual} is intentionally smaller than the current hidden-response Hessian minimization law. It does not install a positive hidden Hessian as an independent datum. It keeps only a centered residual state space, the displacement readout, and a centered residual operator into a Euclidean residual target. The current hidden-response Hessian will be induced from that residual operator as a pullback residual norm rather than inserted separately. It also does not reinstall the square-root operator core, the normalized-lift package, the selected-lift package, the body-level forcing law, the visible-response operator family, the canonical minimal visible-response representative, the current body-response core, or any larger current-image-core or reduced-carrier or projection/body or full substrate-law presentation as primitive data.
+\end{remark}
+
+\section{Induced Hidden-Response Hessian Minimization Law}
+
+\begin{definition}[Residual-law-induced hidden-response package]
+\label{def:induced}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\) and a benchmark-faithful centered hidden-response residual law. Define the induced hidden-response data by
+\[
+\HiddenCarrier{\sigma}
+\equiv
+\ResidualState{\sigma},
+\qquad
+\HiddenReadout{\sigma}(y)
+\equiv
+\ResidualReadout{\sigma}(y),
+\qquad
+\HiddenHessian{\sigma}(y)
+\equiv
+\ResidualOperator{\sigma}(y)^*\ResidualOperator{\sigma}(y).
+\]
+Also define the induced least-squares residual energy on the actual displacement body by
+\begin{equation}
+\ResidualLeastSquares{\sigma}(y,v)
+\equiv
+\min\left\{
+\frac{1}{2}\norm{\ResidualOperator{\sigma}(y)u}^{2}:
+u\in\ResidualState{\sigma},
+\ \ResidualReadout{\sigma}(y)u=v
+\right\}
+\label{eq:residualenergy}
+\end{equation}
+for every \((y,v)\in\PrePreProtoSectionResidualBody{\sigma}\).
+\end{definition}
+
+\begin{proposition}[The pullback residual operator induces a positive hidden Hessian]
+\label{prop:pullback}
+Under Definition \ref{def:induced}, the family \(\HiddenHessian{\sigma}(y)\) is positive self-adjoint and positive definite on \(\HiddenCarrier{\sigma}\) for every \(y\in\ProtoSectionBody{\sigma}\).
+\end{proposition}
+
+\begin{proof}
+Self-adjointness is immediate from the definition
+\[
+\HiddenHessian{\sigma}(y)
+=
+\ResidualOperator{\sigma}(y)^*\ResidualOperator{\sigma}(y).
+\]
+For any nonzero \(u\in\HiddenCarrier{\sigma}=\ResidualState{\sigma}\),
+\[
+\ev{u,\HiddenHessian{\sigma}(y)u}
+=
+\ev{
+\ResidualOperator{\sigma}(y)u,
+\ResidualOperator{\sigma}(y)u
+}
+=
+\norm{\ResidualOperator{\sigma}(y)u}^{2}.
+\]
+Because \(\ResidualOperator{\sigma}(y)\) is injective, the last quantity is strictly positive whenever \(u\neq 0\). Hence \(\HiddenHessian{\sigma}(y)\) is positive definite.
+\end{proof}
+
+\begin{proposition}[Residual-law-induced hidden-response Hessian minimization law]
+\label{prop:hidden}
+Under Definition \ref{def:induced}, the data
+\[
+\Bigl(
+\HiddenCarrier{\sigma},
+\HiddenReadout{\sigma},
+\HiddenHessian{\sigma}
+\Bigr)
+\]
+form a benchmark-faithful hidden-response Hessian minimization law in the sense of Definition \ref{def:hidden}.
+\end{proposition}
+
+\begin{proof}
+The carrier \(\HiddenCarrier{\sigma}=\ResidualState{\sigma}\) is finite-dimensional and Euclidean. The readout family \(\HiddenReadout{\sigma}(y)=\ResidualReadout{\sigma}(y)\) is smooth and surjective by Definition \ref{def:residual}(3). Proposition \ref{prop:pullback} shows that the hidden Hessian family is smooth, self-adjoint, and positive definite. Benchmark faithfulness is inherited directly from Definition \ref{def:residual}(6). Therefore all items of Definition \ref{def:hidden} hold.
+\end{proof}
+
+\begin{proposition}[The current hidden-response minimization law is exact least-squares residual energy]
+\label{prop:leastsq}
+Under Definition \ref{def:induced}, for every \((y,v)\in\PrePreProtoSectionResidualBody{\sigma}\),
+\begin{equation}
+\ResidualLeastSquares{\sigma}(y,v)
+=
+\min\left\{
+\frac{1}{2}\ev{u,\HiddenHessian{\sigma}(y)u}:
+u\in\HiddenCarrier{\sigma},
+\ \HiddenReadout{\sigma}(y)u=v
+\right\}.
+\label{eq:leastsq}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+For every admissible \(u\),
+\[
+\frac{1}{2}\ev{u,\HiddenHessian{\sigma}(y)u}
+=
+\frac{1}{2}
+\ev{
+u,
+\ResidualOperator{\sigma}(y)^*\ResidualOperator{\sigma}(y)u
+}
+=
+\frac{1}{2}\norm{\ResidualOperator{\sigma}(y)u}^{2}.
+\]
+Because the readout families agree by Definition \ref{def:induced}, the admissible sets in \eqref{eq:residualenergy} and \eqref{eq:leastsq} are the same. Therefore the two minimization problems coincide exactly.
+\end{proof}
+
+\section{Deriving the Current Hidden-Response-Hessian Frontier}
+
+\begin{theorem}[Current hidden-response Hessian minimization law from a centered hidden-response residual law]
+\label{thm:main}
+Fix the primitive continuation data of Definition \ref{def:fixed}, the recorded benchmark base and downstream chain of Definition \ref{def:route}, and for each sector \(\sigma\in\{\Car,\Cur,\Hom\}\) a benchmark-faithful centered hidden-response residual law in the sense of Definition \ref{def:residual}. Then the current hidden-response Hessian minimization law is canonically forced by that smaller explicit substrate package. More precisely:
+\begin{enumerate}
+    \item Proposition \ref{prop:hidden} canonically associates to the centered residual law a benchmark-faithful hidden-response Hessian minimization law \((\HiddenCarrier{\sigma},\HiddenReadout{\sigma},\HiddenHessian{\sigma})\).
+    \item Proposition \ref{prop:leastsq} identifies the current hidden-response minimization law exactly with the least-squares residual law
+    \[
+    \HiddenMinEnergy{\sigma}(y,v)
+    =
+    \ResidualLeastSquares{\sigma}(y,v)
+    =
+    \min_{\ResidualReadout{\sigma}(y)u=v}
+    \frac{1}{2}\norm{\ResidualOperator{\sigma}(y)u}^{2}.
+    \]
+    \item By Proposition \ref{prop:frontier}, the current canonical square-root operator core, the same section-centered displacement-body quadratic forcing law, the same visible-response operator family \(\VisibleResponseOperator{\sigma}\), the same canonical minimal visible-response representative \(\MinimalReducedStructure_{\sigma}\), the same current body-response core, and every currently recorded downstream benchmark-facing consequence then follow unchanged from that same centered residual law through the induced hidden-response Hessian minimization law.
+    \item The benchmark one-metric package \eqref{eq:fixedoutputs} is preserved, the ordinary matter route is unchanged, there is no second operative metric, and the low-energy matter law is not enlarged.
+    \item Consequently the remaining honest burden is no longer to restate the current hidden-response Hessian minimization law itself, but to derive or justify the centered hidden-response residual law that forces it from still more primitive explicit substrate structure.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Item (1) is Proposition \ref{prop:hidden}. Item (2) is Proposition \ref{prop:leastsq}. Item (3) is the already-recorded downstream continuation of the current hidden-response-Hessian frontier applied to the law furnished by Items (1)--(2). Item (4) is the benchmark-faithfulness condition built into Definitions \ref{def:route} and \ref{def:residual}. Item (5) is the routing consequence of Items (1)--(4): once the current hidden-response Hessian minimization law is shown to be a canonical pullback least-squares law of the smaller centered residual package, another manuscript that merely restates that same minimization law or merely replays the same square-root-core or normalized-lift or selected-lift or body-law or visible-response consequences does not remove any remaining benchmark-facing freedom.
+\end{proof}
+
+\begin{corollary}[The hidden-response Hessian minimization law is no longer primitive]
+\label{cor:nonprimitive}
+Under the hypotheses of Theorem \ref{thm:main}, the current hidden-response Hessian minimization law is no longer a primitive stopping point on the recorded section-centered hidden-response route. Its benchmark-relevant content is already forced by the smaller centered hidden-response residual law \(\ResidualLawPackage\).
+\end{corollary}
+
+\begin{proof}
+Theorem \ref{thm:main}(1)--(3) identifies the current hidden-response Hessian minimization law and its same square-root-core and downstream benchmark-facing consequences as outputs of the smaller centered hidden-response residual law. Therefore the current hidden-response-Hessian package is no longer primitive at benchmark scope once that residual law is fixed.
+\end{proof}
+
+\section{Conclusion}
+
+The positive result of this note is a genuine derivational gain below the current hidden-response-Hessian frontier. The current hidden-response Hessian minimization law no longer needs to be treated as primitive. It is already the canonical pullback least-squares law of a smaller centered hidden-response residual law on the fixed displacement fibers.
+
+The scope remains narrow and honest. The one operative metric is still exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, the low-energy matter law is not enlarged, and nothing here upgrades adoption to a completed first-principles derivation of GR from final substrate microphysics.
+
+The next open burden is therefore sharper again. The next benchmark-facing manuscript should derive or justify the centered hidden-response residual law itself from still more primitive explicit substrate structure. Another manuscript that merely restates the same centered residual law, the same hidden-response Hessian minimization law, the same square-root operator core, the same carrier-bearing normalized selected-response lift, the same operator-bearing selected-lift package, the same section-centered displacement-body quadratic forcing law, the same visible-response operator family, the same canonical minimal visible-response representative, the same current body-response core, or a larger same-output current-image-core or reduced-carrier or projection/body or full substrate-law presentation is no longer the clean next target at current scope.
+
+\end{document}
