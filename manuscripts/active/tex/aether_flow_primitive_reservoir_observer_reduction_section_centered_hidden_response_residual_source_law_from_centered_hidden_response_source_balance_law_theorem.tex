@@ -1,0 +1,728 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+
+\newcommand{\CompletedMetric}{g^{\sharp}}
+\newcommand{\MatterSpace}{\Psi}
+
+\newcommand{\Car}{\mathrm{car}}
+\newcommand{\Cur}{\mathrm{cur}}
+\newcommand{\Hom}{\mathrm{hom}}
+
+\newcommand{\ForSpace}[1]{\mathcal I_{#1}^{\mathrm{for}}}
+\newcommand{\PrimShell}{\mathcal S_{\mathrm{prim}}}
+\newcommand{\MetricOut}{\mathscr G_{\mathrm{out}}}
+\newcommand{\MatterOut}{\mathscr T_{\mathrm{out}}}
+
+\newcommand{\ProtoSectionBody}[1]{\mathcal B_{#1}^{\mathrm{psec}}}
+\newcommand{\ProtoSectionShell}[1]{\mathcal Z_{#1}^{\mathrm{psec}}}
+\newcommand{\PrePreProtoSectionVertical}[1]{V_{#1}^{\mathrm{pppresec}}}
+\newcommand{\PrePreProtoSectionResidualBody}[1]{\mathcal D_{#1}^{\mathrm{pppresec}}}
+
+\newcommand{\PullbackBodyResponseCore}{\mathfrak S^{\mathrm{sub,proto,pppresec,pb,bodyresp}}}
+\newcommand{\PullbackBodyOperatorCore}{\mathfrak S^{\mathrm{sub,proto,pppresec,pb,bodyop}}}
+\newcommand{\PullbackOperatorCore}{\mathfrak S^{\mathrm{sub,proto,pppresec,pb,op}}}
+\newcommand{\PrePreProtoSectionPullbackCore}{\mathfrak S^{\mathrm{sub,proto,pppresec,pb}}}
+\newcommand{\PreProtoSectionResidualPackage}{\mathfrak R^{\mathrm{sub,proto,presec,res}}}
+\newcommand{\PreProtoSectionPackage}{\mathfrak R^{\mathrm{sub,proto,presec}}}
+\newcommand{\PreProtoSectionMinSectionCore}{\mathfrak R^{\mathrm{sub,proto,presec,sec}}}
+
+\newcommand{\SquareRootOperatorCore}{\mathfrak O^{\mathrm{disp,body,sqrt}}}
+\newcommand{\VisibleBodyForcingLaw}[1]{\mathscr F_{#1}^{\mathrm{disp,resp,vis,body}}}
+\newcommand{\VisibleResponseOperator}[1]{S_{#1}^{\mathrm{disp,resp,vis}}}
+\newcommand{\MinimalReducedStructure}{\mathfrak S^{\mathrm{disp,resp,red,min}}}
+
+\newcommand{\HiddenMinimizationPackage}{\mathfrak M^{\mathrm{disp,hid,min}}}
+\newcommand{\ResidualLawPackage}{\mathfrak N^{\mathrm{disp,hid,res}}}
+\newcommand{\ResidualState}[1]{\mathcal U_{#1}^{\mathrm{disp,hid,res}}}
+
+\newcommand{\ResidualSourceLawPackage}{\mathfrak P^{\mathrm{disp,hid,res,src}}}
+\newcommand{\ResidualSourceCarrier}[1]{\mathcal W_{#1}^{\mathrm{disp,hid,res,src}}}
+\newcommand{\ResidualSourceProjection}[1]{Q_{#1}^{\mathrm{disp,hid,res,src}}}
+\newcommand{\ResidualSourceReadout}[1]{\Theta_{#1}^{\mathrm{disp,hid,res,src}}}
+\newcommand{\ResidualSourceOperator}[1]{K_{#1}^{\mathrm{disp,hid,res,src}}}
+
+\newcommand{\SourceBalanceLawPackage}{\mathfrak B^{\mathrm{disp,hid,res,src,bal}}}
+\newcommand{\BalancedSourceCarrier}[1]{\mathcal Y_{#1}^{\mathrm{disp,hid,res,src,bal}}}
+\newcommand{\SourceBalanceTarget}[1]{\mathcal C_{#1}^{\mathrm{disp,hid,res,src,bal}}}
+\newcommand{\SourceBalanceOperator}[1]{B_{#1}^{\mathrm{disp,hid,res,src,bal}}}
+\newcommand{\SourceBalancedState}[1]{\mathcal Z_{#1}^{\mathrm{disp,hid,res,src,bal}}}
+\newcommand{\SourceBalanceReadout}[1]{\Xi_{#1}^{\mathrm{disp,hid,res,src,bal}}}
+\newcommand{\SourceBalanceResponse}[1]{H_{#1}^{\mathrm{disp,hid,res,src,bal}}}
+\newcommand{\SourceBalanceQuotientMetric}[1]{\Gamma_{#1}^{\mathrm{disp,hid,res,src,bal}}}
+\newcommand{\SourceBalanceCorrector}[1]{\Lambda_{#1}^{\mathrm{disp,hid,res,src,bal}}}
+\newcommand{\BalancedProjection}[1]{P_{#1}^{\mathrm{disp,hid,res,src,bal}}}
+\newcommand{\SourceBalanceCorrectionEnergy}[1]{\mathcal D_{#1}^{\mathrm{disp,hid,res,src,bal}}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Primitive-Reservoir Observer-Reduction\\
+\large Section-Centered Hidden-Response\\
+\large Residual-Source Law\\
+\large from a Centered Hidden-Response\\
+\large Source-Balance Law}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The current active-primary theorem already proves that the current centered hidden-response residual law is the canonical quotient minimal-source-energy law of a smaller centered hidden-response residual-source law on the fixed displacement fibers. The next honest benchmark-facing move is therefore no longer another replay of that centered residual law, of the hidden-response Hessian minimization package, of the square-root operator core, of the normalized-lift package, of the body-level forcing law, or of the visible-response structures that follow from them. It is to derive or justify the centered residual-source law itself from still more primitive explicit substrate structure.
+
+The present note takes that next step in the smallest clean balance-law form currently available below the centered-hidden-response-residual-source frontier. For each sector, it introduces a benchmark-faithful centered hidden-response source-balance law: the fixed proto-section benchmark base and fixed section-centered displacement body together with a finite-dimensional Euclidean balanced source carrier, a surjective balance operator onto a finite-dimensional balance target, a smooth surjective source displacement readout to the actual displacement fibers, and a smooth positive self-adjoint source-response operator. The current centered hidden-response residual-source law is then no longer primitive. Its residual state space is the balanced kernel
+\[
+\SourceBalancedState{\sigma}=\ker \SourceBalanceOperator{\sigma},
+\]
+its source-state projection is the canonical response-orthogonal projector
+\[
+\BalancedProjection{\sigma}(y)
+=
+I_{\BalancedSourceCarrier{\sigma}}
+-\SourceBalanceResponse{\sigma}(y)^{-1}
+{\SourceBalanceOperator{\sigma}}^{*}
+\Bigl(
+\SourceBalanceOperator{\sigma}
+\SourceBalanceResponse{\sigma}(y)^{-1}
+{\SourceBalanceOperator{\sigma}}^{*}
+\Bigr)^{-1}
+\SourceBalanceOperator{\sigma},
+\]
+and the induced source-state projection is exactly the unique balanced-kernel correction minimizing the fiberwise source-response energy
+\[
+\SourceBalanceCorrectionEnergy{\sigma}(y;w,u)
+=
+\frac{1}{2}
+\ev{
+w-u,
+\SourceBalanceResponse{\sigma}(y)(w-u)
+}.
+\]
+Once that source-balance law is fixed, the current centered hidden-response residual-source law, the current centered hidden-response residual law, the current hidden-response Hessian minimization law, the same square-root operator core, the same section-centered displacement-body quadratic forcing law, the same visible-response operator family, the same canonical minimal visible-response representative, the same current body-response core, and every currently recorded downstream benchmark-facing consequence follow unchanged.
+
+The benchmark boundary remains unchanged throughout. The one operative metric is still exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, the low-energy matter law is not enlarged, and no stronger promotion language is licensed. The remaining honest burden therefore moves below the separate centered hidden-response residual-source law itself to a deeper derivation or justification of the centered hidden-response source-balance law that forces it.
+\end{abstract}
+
+\section{Introduction}
+
+The active derivational program of \TheoryName{} has already moved one layer below the square-root-operator-core frontier, then one layer below the hidden-response-Hessian frontier, then one layer below the centered-residual frontier itself. The current active-primary theorem shows that the current centered hidden-response residual law is already the canonical quotient minimal-source-energy law of a smaller centered hidden-response residual-source law on the fixed displacement fibers.
+
+The next honest question is therefore narrower again. What still more primitive explicit substrate structure forces that current centered hidden-response residual-source law itself? The present note answers that question in the smallest clean balance-law form now available below the current frontier. It does not reinstall the centered residual law, the hidden-response Hessian minimization law, the square-root operator core, the normalized-lift package, the selected-lift package, the body-law presentation, the visible-response operator family, the canonical minimal visible-response representative, the current body-response core, or any larger current-image-core or reduced-carrier or projection/body or full substrate-law presentation as primitive data. Instead it keeps only a balanced source carrier, a balance operator cutting out the balanced source kernel, a source displacement readout, and a positive source-response operator. The current centered residual-source law then descends canonically because its source-state projection is already forced as the response-orthogonal projector onto that balanced kernel.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not claim a completed first-principles derivation of GR from final substrate microphysics. Its narrower positive role is to show that the current centered hidden-response residual-source law already follows canonically from a smaller centered hidden-response source-balance law on the fixed displacement fibers.
+
+\section{Fixed Inputs from the Current Residual-Source Frontier}
+
+\begin{definition}[Recorded primitive continuation data]
+\label{def:fixed}
+Fix the following continuation data from the active primitive-reservoir observer-reduction line.
+\begin{enumerate}
+    \item For each sector label \(\sigma\in\{\Car,\Cur,\Hom\}\), a primitive forcing shell
+    \[
+    \ForSpace{\sigma}.
+    \]
+    \item The product shell
+    \[
+    \PrimShell
+    \equiv
+    \ForSpace{\Car}\times \ForSpace{\Cur}\times \ForSpace{\Hom}.
+    \]
+    \item The recorded metric and ordinary-matter outputs
+    \[
+    \MetricOut:\PrimShell\to\{\text{observer metrics}\},
+    \qquad
+    \MatterOut:\PrimShell\times\MatterSpace\to\{\text{observer stress tensors}\},
+    \]
+    satisfying
+    \begin{equation}
+    \MetricOut(\mathbf w)=\CompletedMetric,
+    \qquad
+    \MatterOut(\mathbf w,\psi)
+    =
+    T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
+    \label{eq:fixedoutputs}
+    \end{equation}
+    for every \(\mathbf w\in\PrimShell\) and every matter configuration \(\psi\in\MatterSpace\).
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Recorded benchmark base and downstream chain]
+\label{def:route}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). The active route already fixes the following data and consequences.
+\begin{enumerate}
+    \item the current proto-section benchmark base and in particular the recorded proto-section body \(\ProtoSectionBody{\sigma}\) and shell \(\ProtoSectionShell{\sigma}\);
+    \item the fixed section-centered displacement body
+    \[
+    \PrePreProtoSectionResidualBody{\sigma}
+    \subset
+    \ProtoSectionBody{\sigma}\times\PrePreProtoSectionVertical{\sigma}
+    \]
+    whose fiber
+    \[
+    \PrePreProtoSectionResidualBody{\sigma}(y)
+    \equiv
+    \left\{
+    v\in\PrePreProtoSectionVertical{\sigma}:(y,v)\in\PrePreProtoSectionResidualBody{\sigma}
+    \right\}
+    \]
+    is nonempty, compact, convex, contains \(0\), and has nonempty interior for every \(y\in\ProtoSectionBody{\sigma}\);
+    \item the recorded downstream continuation
+    \[
+    \begin{aligned}
+    &\PullbackBodyResponseCore,\quad
+    \PullbackBodyOperatorCore,\\
+    &\PullbackOperatorCore,\quad
+    \PrePreProtoSectionPullbackCore,
+    \end{aligned}
+    \qquad
+    \begin{aligned}
+    &\PreProtoSectionResidualPackage,\quad
+    \PreProtoSectionPackage,\\
+    &\PreProtoSectionMinSectionCore,
+    \end{aligned}
+    \]
+    together with the current continuity-Hessian compressed core and benchmark one-metric observer package;
+    \item benchmark faithfulness, meaning preservation of the benchmark outputs \eqref{eq:fixedoutputs}, no second operative metric, no enlarged low-energy matter law, no change to the ordinary matter route, and no premature promotion from adoption to completed derivation.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Benchmark-faithful centered hidden-response residual-source law]
+\label{def:source}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). A \emph{benchmark-faithful centered hidden-response residual-source law} for sector \(\sigma\) consists of the following data.
+\begin{enumerate}
+    \item The fixed proto-section benchmark base and fixed section-centered displacement body of Definition \ref{def:route}(1)--(2).
+    \item A finite-dimensional Euclidean residual-source carrier
+    \[
+    \ResidualSourceCarrier{\sigma}.
+    \]
+    \item A finite-dimensional Euclidean residual state space
+    \[
+    \ResidualState{\sigma}.
+    \]
+    \item A smooth family of surjective linear source-state projections
+    \[
+    \ResidualSourceProjection{\sigma}(y):
+    \ResidualSourceCarrier{\sigma}\to\ResidualState{\sigma},
+    \qquad
+    y\in\ProtoSectionBody{\sigma}.
+    \]
+    \item A smooth family of surjective linear source displacement readouts
+    \[
+    \ResidualSourceReadout{\sigma}(y):
+    \ResidualSourceCarrier{\sigma}\to\PrePreProtoSectionVertical{\sigma},
+    \qquad
+    y\in\ProtoSectionBody{\sigma}.
+    \]
+    \item Exactness of the displacement readout on source-state fibers:
+    \[
+    \ker \ResidualSourceProjection{\sigma}(y)
+    \subseteq
+    \ker \ResidualSourceReadout{\sigma}(y)
+    \qquad
+    \text{for every }
+    y\in\ProtoSectionBody{\sigma}.
+    \]
+    \item A smooth family of positive self-adjoint residual-source response operators
+    \[
+    \ResidualSourceOperator{\sigma}(y):
+    \ResidualSourceCarrier{\sigma}\to\ResidualSourceCarrier{\sigma},
+    \qquad
+    y\in\ProtoSectionBody{\sigma},
+    \]
+    each of which is positive definite on \(\ResidualSourceCarrier{\sigma}\).
+    \item Benchmark faithfulness in the sense of Definition \ref{def:route}(4).
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}[What the current residual-source frontier already proves]
+\label{prop:frontier}
+At current scope, the already-recorded centered-hidden-response-residual-source frontier theorems prove all of the following.
+\begin{enumerate}
+    \item Any benchmark-faithful centered hidden-response residual-source law canonically determines the current centered hidden-response residual law on the fixed displacement fibers.
+    \item That centered residual law canonically determines the current hidden-response Hessian minimization law.
+    \item That hidden-response Hessian minimization law canonically determines the current square-root operator core, the current section-centered displacement-body quadratic forcing law, the visible-response operator family \(\VisibleResponseOperator{\sigma}\), and the canonical minimal visible-response representative \(\MinimalReducedStructure_{\sigma}\).
+    \item The current body-response core and every currently recorded downstream benchmark-facing consequence then follow unchanged.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Item (1) is exactly the content of the current theorem proving that the centered hidden-response residual law is the quotient minimal-source-energy law of a smaller centered hidden-response residual-source law. Items (2)--(4) are the already-recorded downstream continuation from that same residual-source frontier through the later centered-residual and hidden-response-Hessian and square-root-core consequences.
+\end{proof}
+
+\section{Centered Hidden-Response Source-Balance Law}
+
+\begin{definition}[Benchmark-faithful centered hidden-response source-balance law]
+\label{def:balance}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). A \emph{benchmark-faithful centered hidden-response source-balance law} for sector \(\sigma\) consists of the following data.
+\begin{enumerate}
+    \item The fixed proto-section benchmark base and fixed section-centered displacement body of Definition \ref{def:route}(1)--(2).
+    \item A finite-dimensional Euclidean balanced source carrier
+    \[
+    \BalancedSourceCarrier{\sigma}.
+    \]
+    \item A finite-dimensional Euclidean source-balance target
+    \[
+    \SourceBalanceTarget{\sigma}.
+    \]
+    \item A surjective linear source-balance operator
+    \[
+    \SourceBalanceOperator{\sigma}:
+    \BalancedSourceCarrier{\sigma}\to\SourceBalanceTarget{\sigma}.
+    \]
+    \item A smooth family of surjective linear source displacement readouts
+    \[
+    \SourceBalanceReadout{\sigma}(y):
+    \BalancedSourceCarrier{\sigma}\to\PrePreProtoSectionVertical{\sigma},
+    \qquad
+    y\in\ProtoSectionBody{\sigma}.
+    \]
+    \item A smooth family of positive self-adjoint source-response operators
+    \[
+    \SourceBalanceResponse{\sigma}(y):
+    \BalancedSourceCarrier{\sigma}\to\BalancedSourceCarrier{\sigma},
+    \qquad
+    y\in\ProtoSectionBody{\sigma},
+    \]
+    each of which is positive definite on \(\BalancedSourceCarrier{\sigma}\).
+    \item Response-orthogonal balance corrections are readout-invisible:
+    \[
+    \SourceBalanceResponse{\sigma}(y)^{-1}
+    {\SourceBalanceOperator{\sigma}}^{*}
+    \SourceBalanceTarget{\sigma}
+    \subseteq
+    \ker \SourceBalanceReadout{\sigma}(y)
+    \qquad
+    \text{for every }
+    y\in\ProtoSectionBody{\sigma}.
+    \]
+    \item Benchmark faithfulness in the sense of Definition \ref{def:route}(4).
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:balance} is intentionally smaller at benchmark scope than the current centered hidden-response residual-source law. It does not install a separately primitive residual state space and does not install a separately primitive source-state projection. Instead the residual state space will be the balanced kernel of the explicit balance operator \(\SourceBalanceOperator{\sigma}\), and the source-state projection will be forced by \(\SourceBalanceOperator{\sigma}\) together with the positive source-response operator \(\SourceBalanceResponse{\sigma}(y)\). It also does not reinstall the centered residual law, the hidden-response Hessian minimization law, the square-root operator core, the body-level forcing law, the visible-response operator family, the canonical minimal visible-response representative, the current body-response core, or any larger same-output presentation as primitive data.
+\end{remark}
+
+\section{Induced Centered Hidden-Response Residual-Source Law}
+
+\begin{definition}[Balanced kernel and response-orthogonal balance projector]
+\label{def:projector}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\) and a benchmark-faithful centered hidden-response source-balance law. Define the balanced source state space
+\[
+\SourceBalancedState{\sigma}
+\equiv
+\ker \SourceBalanceOperator{\sigma}.
+\]
+For \(y\in\ProtoSectionBody{\sigma}\), define the source-balance quotient metric
+\begin{equation}
+\SourceBalanceQuotientMetric{\sigma}(y)
+\equiv
+\SourceBalanceOperator{\sigma}
+\SourceBalanceResponse{\sigma}(y)^{-1}
+{\SourceBalanceOperator{\sigma}}^{*}.
+\label{eq:balancequotient}
+\end{equation}
+Also define the response-orthogonal balance corrector
+\begin{equation}
+\SourceBalanceCorrector{\sigma}(y)
+\equiv
+\SourceBalanceResponse{\sigma}(y)^{-1}
+{\SourceBalanceOperator{\sigma}}^{*}
+\SourceBalanceQuotientMetric{\sigma}(y)^{-1}
+:
+\SourceBalanceTarget{\sigma}\to\BalancedSourceCarrier{\sigma}
+\label{eq:corrector}
+\end{equation}
+and the balanced projection
+\begin{equation}
+\BalancedProjection{\sigma}(y)
+\equiv
+I_{\BalancedSourceCarrier{\sigma}}
+-\SourceBalanceCorrector{\sigma}(y)\SourceBalanceOperator{\sigma}.
+\label{eq:projector}
+\end{equation}
+Finally, for \(w\in\BalancedSourceCarrier{\sigma}\) and \(u\in\SourceBalancedState{\sigma}\), define the source-balance correction energy
+\[
+\SourceBalanceCorrectionEnergy{\sigma}(y;w,u)
+\equiv
+\frac{1}{2}
+\ev{
+w-u,
+\SourceBalanceResponse{\sigma}(y)(w-u)
+}.
+\]
+\end{definition}
+
+\begin{proposition}[The source-balance quotient metric is positive definite]
+\label{prop:balancequotient}
+For every \(y\in\ProtoSectionBody{\sigma}\), the operator \(\SourceBalanceQuotientMetric{\sigma}(y)\) of \eqref{eq:balancequotient} is positive self-adjoint and positive definite on \(\SourceBalanceTarget{\sigma}\).
+\end{proposition}
+
+\begin{proof}
+Self-adjointness is immediate from the definition. For any \(c\in\SourceBalanceTarget{\sigma}\),
+\[
+\ev{
+c,\SourceBalanceQuotientMetric{\sigma}(y)c
+}
+=
+\ev{
+\SourceBalanceResponse{\sigma}(y)^{-1/2}
+{\SourceBalanceOperator{\sigma}}^{*}c,
+\SourceBalanceResponse{\sigma}(y)^{-1/2}
+{\SourceBalanceOperator{\sigma}}^{*}c
+}.
+\]
+The right-hand side is nonnegative and vanishes only if
+\[
+{\SourceBalanceOperator{\sigma}}^{*}c=0.
+\]
+Because \(\SourceBalanceOperator{\sigma}\) is surjective, its adjoint is injective, so \({\SourceBalanceOperator{\sigma}}^{*}c=0\) implies \(c=0\). Hence \(\SourceBalanceQuotientMetric{\sigma}(y)\) is positive definite.
+\end{proof}
+
+\begin{proposition}[The balanced projection is the canonical projector onto the balanced kernel]
+\label{prop:projector}
+For every \(y\in\ProtoSectionBody{\sigma}\), the map \(\BalancedProjection{\sigma}(y)\) of \eqref{eq:projector} is a surjective idempotent linear map onto \(\SourceBalancedState{\sigma}\). More precisely,
+\begin{enumerate}
+    \item
+    \[
+    \SourceBalanceOperator{\sigma}\BalancedProjection{\sigma}(y)=0;
+    \]
+    \item
+    \[
+    \BalancedProjection{\sigma}(y)u=u
+    \qquad
+    \text{for every }
+    u\in\SourceBalancedState{\sigma};
+    \]
+    \item
+    \[
+    \BalancedProjection{\sigma}(y)^{2}
+    =
+    \BalancedProjection{\sigma}(y);
+    \]
+    \item
+    \[
+    \ker \BalancedProjection{\sigma}(y)
+    =
+    \operatorname{im}\SourceBalanceCorrector{\sigma}(y).
+    \]
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Because
+\[
+\SourceBalanceOperator{\sigma}\SourceBalanceCorrector{\sigma}(y)
+=
+\SourceBalanceOperator{\sigma}
+\SourceBalanceResponse{\sigma}(y)^{-1}
+{\SourceBalanceOperator{\sigma}}^{*}
+\SourceBalanceQuotientMetric{\sigma}(y)^{-1}
+=
+I_{\SourceBalanceTarget{\sigma}},
+\]
+we get
+\[
+\SourceBalanceOperator{\sigma}\BalancedProjection{\sigma}(y)
+=
+\SourceBalanceOperator{\sigma}
+-\SourceBalanceOperator{\sigma}\SourceBalanceCorrector{\sigma}(y)\SourceBalanceOperator{\sigma}
+=
+0.
+\]
+Hence \(\operatorname{im}\BalancedProjection{\sigma}(y)\subseteq\SourceBalancedState{\sigma}\).
+
+If \(u\in\SourceBalancedState{\sigma}\), then \(\SourceBalanceOperator{\sigma}u=0\), so
+\[
+\BalancedProjection{\sigma}(y)u
+=
+u-\SourceBalanceCorrector{\sigma}(y)\SourceBalanceOperator{\sigma}u
+=
+u.
+\]
+Therefore \(\BalancedProjection{\sigma}(y)\) is surjective onto \(\SourceBalancedState{\sigma}\), and idempotence follows:
+\[
+\BalancedProjection{\sigma}(y)^{2}w
+=
+\BalancedProjection{\sigma}(y)\bigl(\BalancedProjection{\sigma}(y)w\bigr)
+=
+\BalancedProjection{\sigma}(y)w.
+\]
+
+If \(w\in\ker \BalancedProjection{\sigma}(y)\), then
+\[
+w
+=
+\SourceBalanceCorrector{\sigma}(y)\SourceBalanceOperator{\sigma}w
+\in
+\operatorname{im}\SourceBalanceCorrector{\sigma}(y).
+\]
+Conversely, if \(w=\SourceBalanceCorrector{\sigma}(y)c\), then
+\[
+\BalancedProjection{\sigma}(y)w
+=
+\SourceBalanceCorrector{\sigma}(y)c
+-\SourceBalanceCorrector{\sigma}(y)\SourceBalanceOperator{\sigma}\SourceBalanceCorrector{\sigma}(y)c
+=
+0.
+\]
+Thus \(\ker \BalancedProjection{\sigma}(y)=\operatorname{im}\SourceBalanceCorrector{\sigma}(y)\).
+\end{proof}
+
+\begin{proposition}[Minimal source-balance correction characterization]
+\label{prop:minimal}
+For every \(y\in\ProtoSectionBody{\sigma}\) and every \(w\in\BalancedSourceCarrier{\sigma}\), the element \(\BalancedProjection{\sigma}(y)w\) is the unique vector in \(\SourceBalancedState{\sigma}\) minimizing the source-balance correction energy:
+\begin{equation}
+\SourceBalanceCorrectionEnergy{\sigma}\bigl(y;w,\BalancedProjection{\sigma}(y)w\bigr)
+=
+\min_{u\in\SourceBalancedState{\sigma}}
+\SourceBalanceCorrectionEnergy{\sigma}(y;w,u).
+\label{eq:minimalcorrection}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Fix \(y\in\ProtoSectionBody{\sigma}\) and \(w\in\BalancedSourceCarrier{\sigma}\). By Proposition \ref{prop:projector}, the vector \(\BalancedProjection{\sigma}(y)w\) lies in \(\SourceBalancedState{\sigma}\). Any other \(u\in\SourceBalancedState{\sigma}\) can be written uniquely as
+\[
+u=\BalancedProjection{\sigma}(y)w+\eta,
+\qquad
+\eta\in\SourceBalancedState{\sigma}.
+\]
+Hence
+\[
+w-u
+=
+\SourceBalanceCorrector{\sigma}(y)\SourceBalanceOperator{\sigma}w-\eta.
+\]
+Using
+\[
+\SourceBalanceResponse{\sigma}(y)\SourceBalanceCorrector{\sigma}(y)
+=
+{\SourceBalanceOperator{\sigma}}^{*}
+\SourceBalanceQuotientMetric{\sigma}(y)^{-1},
+\]
+we obtain
+\[
+\begin{aligned}
+\ev{
+\SourceBalanceCorrector{\sigma}(y)\SourceBalanceOperator{\sigma}w,
+\SourceBalanceResponse{\sigma}(y)\eta
+}
+&=
+\ev{
+\SourceBalanceQuotientMetric{\sigma}(y)^{-1}\SourceBalanceOperator{\sigma}w,
+\SourceBalanceOperator{\sigma}\eta
+}\\
+&=
+0,
+\end{aligned}
+\]
+because \(\eta\in\ker \SourceBalanceOperator{\sigma}\). Therefore
+\[
+\begin{aligned}
+\SourceBalanceCorrectionEnergy{\sigma}(y;w,u)
+&=
+\SourceBalanceCorrectionEnergy{\sigma}\bigl(y;w,\BalancedProjection{\sigma}(y)w\bigr)\\
+&\qquad+
+\frac{1}{2}
+\ev{
+\eta,\SourceBalanceResponse{\sigma}(y)\eta
+}.
+\end{aligned}
+\]
+The second term is nonnegative and vanishes only when \(\eta=0\) because \(\SourceBalanceResponse{\sigma}(y)\) is positive definite. This proves \eqref{eq:minimalcorrection} and uniqueness of the minimizer.
+\end{proof}
+
+\begin{proposition}[The source displacement readout is exact on balanced-source fibers]
+\label{prop:readout}
+Under Definition \ref{def:balance}, for every \(y\in\ProtoSectionBody{\sigma}\),
+\begin{equation}
+\SourceBalanceReadout{\sigma}(y)\BalancedProjection{\sigma}(y)
+=
+\SourceBalanceReadout{\sigma}(y).
+\label{eq:readoutexact}
+\end{equation}
+Equivalently,
+\[
+\ker \BalancedProjection{\sigma}(y)
+\subseteq
+\ker \SourceBalanceReadout{\sigma}(y).
+\]
+\end{proposition}
+
+\begin{proof}
+By Definition \ref{def:balance}(7),
+\[
+\SourceBalanceReadout{\sigma}(y)\SourceBalanceCorrector{\sigma}(y)=0.
+\]
+Hence, using \eqref{eq:projector},
+\[
+\SourceBalanceReadout{\sigma}(y)\BalancedProjection{\sigma}(y)
+=
+\SourceBalanceReadout{\sigma}(y)
+-\SourceBalanceReadout{\sigma}(y)\SourceBalanceCorrector{\sigma}(y)\SourceBalanceOperator{\sigma}
+=
+\SourceBalanceReadout{\sigma}(y).
+\]
+The kernel statement follows from Proposition \ref{prop:projector}(4).
+\end{proof}
+
+\begin{definition}[Source-balance-induced centered residual-source law]
+\label{def:induced}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\) and a benchmark-faithful centered hidden-response source-balance law. Define the induced centered hidden-response residual-source data by
+\[
+\ResidualSourceCarrier{\sigma}
+\equiv
+\BalancedSourceCarrier{\sigma},
+\qquad
+\ResidualState{\sigma}
+\equiv
+\SourceBalancedState{\sigma},
+\]
+\[
+\ResidualSourceProjection{\sigma}(y)
+\equiv
+\BalancedProjection{\sigma}(y),
+\qquad
+\ResidualSourceReadout{\sigma}(y)
+\equiv
+\SourceBalanceReadout{\sigma}(y),
+\qquad
+\ResidualSourceOperator{\sigma}(y)
+\equiv
+\SourceBalanceResponse{\sigma}(y).
+\]
+\end{definition}
+
+\begin{proposition}[Source-balance-induced centered hidden-response residual-source law]
+\label{prop:source}
+Under Definitions \ref{def:balance} and \ref{def:induced}, the data
+\[
+\Bigl(
+\ResidualSourceCarrier{\sigma},
+\ResidualState{\sigma},
+\ResidualSourceProjection{\sigma},
+\ResidualSourceReadout{\sigma},
+\ResidualSourceOperator{\sigma}
+\Bigr)
+\]
+form a benchmark-faithful centered hidden-response residual-source law in the sense of Definition \ref{def:source}.
+\end{proposition}
+
+\begin{proof}
+The carrier \(\ResidualSourceCarrier{\sigma}=\BalancedSourceCarrier{\sigma}\) is finite-dimensional and Euclidean. The state space \(\ResidualState{\sigma}=\SourceBalancedState{\sigma}\) is a linear subspace of a finite-dimensional Euclidean space and is therefore finite-dimensional and Euclidean.
+
+By Proposition \ref{prop:projector}, each \(\ResidualSourceProjection{\sigma}(y)=\BalancedProjection{\sigma}(y)\) is a surjective linear projection onto \(\ResidualState{\sigma}\). By Definition \ref{def:balance}(5), each \(\ResidualSourceReadout{\sigma}(y)\) is a surjective linear map to the fixed displacement fibers. Proposition \ref{prop:readout} gives the exactness condition
+\[
+\ker \ResidualSourceProjection{\sigma}(y)
+\subseteq
+\ker \ResidualSourceReadout{\sigma}(y).
+\]
+The operator \(\ResidualSourceOperator{\sigma}(y)=\SourceBalanceResponse{\sigma}(y)\) is positive self-adjoint and positive definite by Definition \ref{def:balance}(6). Benchmark faithfulness is inherited directly from Definition \ref{def:balance}(8). Therefore all items of Definition \ref{def:source} hold.
+\end{proof}
+
+\section{Deriving the Current Centered-Residual-Source Frontier}
+
+\begin{theorem}[Current centered hidden-response residual-source law from a centered hidden-response source-balance law]
+\label{thm:main}
+Fix the primitive continuation data of Definition \ref{def:fixed}, the recorded benchmark base and downstream chain of Definition \ref{def:route}, and for each sector \(\sigma\in\{\Car,\Cur,\Hom\}\) a benchmark-faithful centered hidden-response source-balance law in the sense of Definition \ref{def:balance}. Then the current centered hidden-response residual-source law is canonically forced by that smaller explicit substrate package. More precisely:
+\begin{enumerate}
+    \item Proposition \ref{prop:source} canonically associates to the source-balance law a benchmark-faithful centered hidden-response residual-source law
+    \[
+    \Bigl(
+    \ResidualSourceCarrier{\sigma},
+    \ResidualState{\sigma},
+    \ResidualSourceProjection{\sigma},
+    \ResidualSourceReadout{\sigma},
+    \ResidualSourceOperator{\sigma}
+    \Bigr).
+    \]
+    \item The induced source-state projection is exactly the response-orthogonal projector onto the balanced kernel:
+    \[
+    \ResidualSourceProjection{\sigma}(y)
+    =
+    I_{\ResidualSourceCarrier{\sigma}}
+    -\ResidualSourceOperator{\sigma}(y)^{-1}
+    {\SourceBalanceOperator{\sigma}}^{*}
+    \Bigl(
+    \SourceBalanceOperator{\sigma}
+    \ResidualSourceOperator{\sigma}(y)^{-1}
+    {\SourceBalanceOperator{\sigma}}^{*}
+    \Bigr)^{-1}
+    \SourceBalanceOperator{\sigma},
+    \]
+    and for every \(w\in\ResidualSourceCarrier{\sigma}\),
+    \[
+    \ResidualSourceProjection{\sigma}(y)w
+    =
+    \arg\min_{u\in\ResidualState{\sigma}}
+    \frac{1}{2}
+    \ev{
+    w-u,
+    \ResidualSourceOperator{\sigma}(y)(w-u)
+    }.
+    \]
+    \item By Proposition \ref{prop:frontier}, the current centered hidden-response residual law, the current hidden-response Hessian minimization law, the same square-root operator core, the same section-centered displacement-body quadratic forcing law, the same visible-response operator family \(\VisibleResponseOperator{\sigma}\), the same canonical minimal visible-response representative \(\MinimalReducedStructure_{\sigma}\), the same current body-response core, and every currently recorded downstream benchmark-facing consequence then follow unchanged from that same centered hidden-response source-balance law through the induced centered hidden-response residual-source law.
+    \item The benchmark one-metric package \eqref{eq:fixedoutputs} is preserved, the ordinary matter route is unchanged, there is no second operative metric, and the low-energy matter law is not enlarged.
+    \item Consequently the remaining honest burden is no longer to restate the current centered hidden-response residual-source law itself, but to derive or justify the centered hidden-response source-balance law that forces it from still more primitive explicit substrate structure.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Item (1) is Proposition \ref{prop:source}. Item (2) is exactly Propositions \ref{prop:projector} and \ref{prop:minimal} rewritten in the induced residual-source notation of Definition \ref{def:induced}. Item (3) is the already-recorded downstream continuation of the current residual-source frontier applied to the law furnished by Items (1)--(2). Item (4) is the benchmark-faithfulness condition built into Definitions \ref{def:route} and \ref{def:balance}. Item (5) is the routing consequence of Items (1)--(4): once the current centered hidden-response residual-source law is shown to be the canonical balanced-kernel output of the smaller centered hidden-response source-balance package, another manuscript that merely restates that same residual-source law or merely replays the same centered residual law or same hidden-response-Hessian or square-root-core or normalized-lift or selected-lift or body-law or visible-response consequences does not remove any remaining benchmark-facing freedom.
+\end{proof}
+
+\begin{corollary}[The centered hidden-response residual-source law is no longer primitive]
+\label{cor:nonprimitive}
+Under the hypotheses of Theorem \ref{thm:main}, the current centered hidden-response residual-source law is no longer a primitive stopping point on the recorded section-centered hidden-response route. Its benchmark-relevant content is already forced by the smaller centered hidden-response source-balance law \(\SourceBalanceLawPackage\).
+\end{corollary}
+
+\begin{proof}
+Theorem \ref{thm:main}(1)--(3) identifies the current centered hidden-response residual-source law and its same centered-residual and hidden-response-Hessian and downstream benchmark-facing consequences as outputs of the smaller centered hidden-response source-balance law. Therefore the current residual-source package is no longer primitive at benchmark scope once that source-balance law is fixed.
+\end{proof}
+
+\section{Conclusion}
+
+The positive result of this note is a genuine derivational gain below the current centered-hidden-response-residual-source frontier. The current centered hidden-response residual-source law no longer needs to be treated as primitive. It is already the canonical response-orthogonal balanced-kernel law induced by a smaller centered hidden-response source-balance package on the fixed displacement fibers.
+
+The scope remains narrow and honest. The one operative metric is still exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, the low-energy matter law is not enlarged, and nothing here upgrades adoption to a completed first-principles derivation of GR from final substrate microphysics.
+
+The next open burden is therefore sharper again. The next benchmark-facing manuscript should derive or justify the centered hidden-response source-balance law itself from still more primitive explicit substrate structure. Another manuscript that merely restates the same centered hidden-response source-balance law, the same centered hidden-response residual-source law, the same centered hidden-response residual law, the same hidden-response Hessian minimization law, the same square-root operator core, the same carrier-bearing normalized selected-response lift, the same operator-bearing selected-lift package, the same section-centered displacement-body quadratic forcing law, the same visible-response operator family, the same canonical minimal visible-response representative, the same current body-response core, or a larger same-output current-image-core or reduced-carrier or projection/body or full substrate-law presentation is no longer the clean next target at current scope.
+
+\end{document}
