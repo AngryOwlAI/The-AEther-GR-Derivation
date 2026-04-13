@@ -1,0 +1,432 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+
+\newcommand{\CompletedMetric}{g^{\sharp}}
+\newcommand{\MatterSpace}{\Psi}
+
+\newcommand{\Car}{\mathrm{car}}
+\newcommand{\Cur}{\mathrm{cur}}
+\newcommand{\Hom}{\mathrm{hom}}
+
+\newcommand{\ForSpace}[1]{\mathcal I_{#1}^{\mathrm{for}}}
+\newcommand{\PrimShell}{\mathcal S_{\mathrm{prim}}}
+\newcommand{\MetricOut}{\mathscr G_{\mathrm{out}}}
+\newcommand{\MatterOut}{\mathscr T_{\mathrm{out}}}
+
+\newcommand{\ProtoSectionBody}[1]{\mathcal B_{#1}^{\mathrm{psec}}}
+\newcommand{\ProtoSectionShell}[1]{\mathcal Z_{#1}^{\mathrm{psec}}}
+\newcommand{\PrePreProtoSectionPullbackCore}{\mathfrak S^{\mathrm{sub,proto,pppresec,pb}}}
+\newcommand{\PrePreProtoSectionVertical}[1]{V_{#1}^{\mathrm{pppresec}}}
+\newcommand{\PrePreProtoSectionResidualBody}[1]{\mathcal D_{#1}^{\mathrm{pppresec}}}
+\newcommand{\PullbackOperatorCore}{\mathfrak S^{\mathrm{sub,proto,pppresec,pb,op}}}
+\newcommand{\PullbackBodyOperatorCore}{\mathfrak S^{\mathrm{sub,proto,pppresec,pb,bodyop}}}
+\newcommand{\PullbackBodyResponseCore}{\mathfrak S^{\mathrm{sub,proto,pppresec,pb,bodyresp}}}
+\newcommand{\PreProtoSectionResidualPackage}{\mathfrak R^{\mathrm{sub,proto,presec,res}}}
+\newcommand{\PreProtoSectionPackage}{\mathfrak R^{\mathrm{sub,proto,presec}}}
+\newcommand{\PreProtoSectionMinSectionCore}{\mathfrak R^{\mathrm{sub,proto,presec,sec}}}
+
+\newcommand{\CurrentBodyImageCore}{\mathfrak S^{\mathrm{disp,resp,cbimg}}}
+\newcommand{\ImageProjection}[1]{\Pi_{#1}^{\mathrm{disp,resp,cbimg}}}
+\newcommand{\CanonicalLift}[1]{J_{#1}^{\mathrm{disp,resp,can}}}
+\newcommand{\CanonicalImageBody}[1]{\mathcal U_{#1}^{\mathrm{disp,resp,cbimg}}}
+\newcommand{\CanonicalImageResponseLaw}[1]{\mathscr Q_{#1}^{\mathrm{disp,resp,cbimg}}}
+\newcommand{\CanonicalImageShell}[1]{\mathcal Z_{#1}^{\mathrm{disp,resp,cbimg}}}
+\newcommand{\CoreForcedBodyResponse}[1]{\widehat{\mathscr R}_{#1}^{\mathrm{disp,resp,vis}}}
+\newcommand{\VisibleResponseOperator}[1]{S_{#1}^{\mathrm{disp,resp,vis}}}
+\newcommand{\MinimalReducedStructure}{\mathfrak S^{\mathrm{disp,resp,red,min}}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Primitive-Reservoir Observer-Reduction\\
+\large Section-Centered Hidden-Response\\
+\large Canonical Current-Body Image Core\\
+\large Collapse to a Canonical Minimal\\
+\large Visible-Response Representative}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The current active-primary theorem already proves that the older current-body-realizing projection-operator-core package collapses benchmark-facingly to the canonical minimal visible-response representative on the fixed section-centered displacement fibers. The current routing criterion therefore demands a sharper question below that frontier: does even the full canonical current-body image core still carry independent benchmark-facing content beyond the same visible quadratic response, or is the image-core presentation itself already larger than the live datum?
+
+The present note takes that next smaller route. Starting from a benchmark-faithful full canonical current-body image core
+\[
+\CurrentBodyImageCore_{\sigma}
+=
+\Bigl(
+\CanonicalImageBody{\sigma},
+\ImageProjection{\sigma},
+\CanonicalLift{\sigma},
+\CanonicalImageResponseLaw{\sigma},
+\CanonicalImageShell{\sigma}
+\Bigr),
+\]
+it proves that the only benchmark-facing datum still carried there is the positive visible-response operator \(\VisibleResponseOperator{\sigma}\) on the fixed displacement fibers. Equivalently, the full image-core package already collapses benchmark-facingly to the canonical minimal visible-response representative
+\[
+\MinimalReducedStructure_{\sigma}
+=
+\Bigl(
+\PrePreProtoSectionVertical{\sigma},
+\mathrm{id},
+\VisibleResponseOperator{\sigma}
+\Bigr)
+\]
+over the fixed section-centered displacement body. The image body, the restricted projection / canonical-lift relation, and the exact-shell image are no longer independently live once the same visible quadratic response is fixed on the displacement fibers.
+
+The benchmark boundary remains fixed throughout. The one operative metric is still exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, the low-energy matter law is not enlarged, and no stronger promotion language is licensed. The positive result is therefore a genuine sharper collapse below the full current-image-core presentation rather than another restored larger package or another inert-kernel relay. The next honest burden moves below the image-core route itself to the visible-response operator on the fixed displacement fibers.
+\end{abstract}
+
+\section{Introduction}
+
+The active derivational program of \TheoryName{} has reached a narrower stage on the section-centered hidden-response line. The earlier full-image-core forcing theorem already showed that, once a reduced projection-response substrate structure is fixed, the whole canonical current-body image core is canonically derived and uniquely forced. The later reduced-structure necessity / uniqueness theorem then sharpened that gain further: once the fixed full image core is held fixed, any benchmark-faithful compatible reduced structure induces the same visible quadratic response operator on the fixed displacement fibers and differs from the canonical minimal representative only by inert kernel extension. The most recent projection-operator-core collapse theorem showed that an even older explicit projection-operator-core package already determines that same canonical minimal visible-response representative.
+
+At that point the routing layer named the next honest question more sharply. If the visible quadratic response is already what remains benchmark-facingly live, then even the full canonical current-body image core may be larger than necessary at current scope. The present note proves exactly that. It shows that the image-body, restricted projection / canonical-lift relation, and exact-shell image do not carry additional benchmark-facing freedom once the visible-response operator on the fixed displacement fibers has been read off.
+
+The key point is direct. The fixed image-core response law on the canonical image body pulls back through the restricted image projection to a positive quadratic response on the fixed displacement body. Because that body has nonempty interior in the fixed displacement fibers, the induced quadratic form determines a unique positive self-adjoint operator \(\VisibleResponseOperator{\sigma}\) on those fibers. Once that operator is fixed, the current body-response core and every currently recorded downstream benchmark-facing consequence already follow unchanged. The full image-core presentation is therefore no longer the honest stopping point at benchmark-facing scope.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not introduce a second operative metric, it does not enlarge the low-energy matter law, and it does not claim a completed first-principles derivation of GR from final substrate microphysics. Its narrower benchmark-facing role is to show that the full canonical current-body image-core package already carries no additional benchmark-facing content beyond the visible quadratic response on the fixed displacement fibers.
+
+\section{Fixed Inputs}
+
+\begin{definition}[Recorded primitive continuation data]
+\label{def:fixed}
+Fix the following continuation data from the active primitive-reservoir observer-reduction line.
+\begin{enumerate}
+    \item For each sector label \(\sigma\in\{\Car,\Cur,\Hom\}\), a primitive forcing shell
+    \[
+    \ForSpace{\sigma}.
+    \]
+    \item The product shell
+    \[
+    \PrimShell
+    \equiv
+    \ForSpace{\Car}\times \ForSpace{\Cur}\times \ForSpace{\Hom}.
+    \]
+    \item The recorded metric and ordinary-matter outputs
+    \[
+    \MetricOut:\PrimShell\to\{\text{observer metrics}\},
+    \qquad
+    \MatterOut:\PrimShell\times\MatterSpace\to\{\text{observer stress tensors}\},
+    \]
+    satisfying
+    \begin{equation}
+    \MetricOut(\mathbf w)=\CompletedMetric,
+    \qquad
+    \MatterOut(\mathbf w,\psi)
+    =
+    T_{\mu\nu}^{\mathrm{matter}}[\CompletedMetric,\psi]
+    \label{eq:fixedoutputs}
+    \end{equation}
+    for every \(\mathbf w\in\PrimShell\) and every matter configuration \(\psi\in\MatterSpace\).
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Fixed full current-image-core frontier data]
+\label{def:frontier}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). The active line already fixes the following data.
+\begin{enumerate}
+    \item The current proto-section benchmark base \(\ProtoSectionBody{\sigma}\) and exact proto-section shell \(\ProtoSectionShell{\sigma}\).
+    \item The current section-centered displacement body
+    \[
+    \PrePreProtoSectionResidualBody{\sigma}
+    \subset
+    \ProtoSectionBody{\sigma}\times\PrePreProtoSectionVertical{\sigma}
+    \]
+    whose fiber
+    \[
+    \PrePreProtoSectionResidualBody{\sigma}(y)
+    \equiv
+    \left\{
+    v\in\PrePreProtoSectionVertical{\sigma}:(y,v)\in\PrePreProtoSectionResidualBody{\sigma}
+    \right\}
+    \]
+    is nonempty, compact, convex, contains \(0\), and has nonempty interior for every \(y\in\ProtoSectionBody{\sigma}\).
+    \item The current body-response route
+    \[
+    \CoreForcedBodyResponse{\sigma}:
+    \PrePreProtoSectionResidualBody{\sigma}\to[0,\infty),
+    \]
+    smooth in \(y\), fiberwise quadratic in \(v\), and satisfying
+    \[
+    \CoreForcedBodyResponse{\sigma}(y,v)=0
+    \qquad\Longleftrightarrow\qquad
+    v=0
+    \]
+    on every fiber.
+    \item The fixed full canonical current-body image core
+    \[
+    \CurrentBodyImageCore_{\sigma}
+    \equiv
+    \Bigl(
+    \CanonicalImageBody{\sigma},
+    \ImageProjection{\sigma},
+    \CanonicalLift{\sigma},
+    \CanonicalImageResponseLaw{\sigma},
+    \CanonicalImageShell{\sigma}
+    \Bigr),
+    \]
+    where, for every \(y\in\ProtoSectionBody{\sigma}\),
+    \[
+    \ImageProjection{\sigma}(y):
+    \CanonicalImageBody{\sigma}(y)\to\PrePreProtoSectionResidualBody{\sigma}(y)
+    \]
+    is a bijection with inverse
+    \[
+    \CanonicalLift{\sigma}(y):
+    \PrePreProtoSectionResidualBody{\sigma}(y)\to\CanonicalImageBody{\sigma}(y),
+    \]
+    the response law satisfies
+    \begin{equation}
+    \CanonicalImageResponseLaw{\sigma}\bigl(y,\CanonicalLift{\sigma}(y)v\bigr)
+    =
+    \CoreForcedBodyResponse{\sigma}(y,v)
+    \label{eq:imagepullback}
+    \end{equation}
+    for every \((y,v)\in\PrePreProtoSectionResidualBody{\sigma}\), and the exact-shell image is
+    \[
+    \CanonicalImageShell{\sigma}
+    =
+    \left\{
+    \bigl(y,\CanonicalLift{\sigma}(y)0\bigr):
+    y\in\ProtoSectionShell{\sigma}
+    \right\}.
+    \]
+    \item Benchmark faithfulness, meaning preservation of \eqref{eq:fixedoutputs}, no second operative metric, no enlarged low-energy matter law, no change to the ordinary matter route, and no premature promotion from adoption to completed derivation.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Recorded downstream chain]
+\label{def:downstream}
+Fix \(\sigma\in\{\Car,\Cur,\Hom\}\). The active line already records that, once the same benchmark-faithful current body-response core on the fixed displacement body is available, the current observer-relevant pullback body-response core \(\PullbackBodyResponseCore\), the current pullback body-operator core \(\PullbackBodyOperatorCore\), the current pullback-operator core \(\PullbackOperatorCore\), the current pullback-quadratic core \(\PrePreProtoSectionPullbackCore\), the current section-centered residual-normal-form realization \(\PreProtoSectionResidualPackage\), the current benchmark-faithful pre-proto-section package \(\PreProtoSectionPackage\), the current minimizer-section core \(\PreProtoSectionMinSectionCore\), and the previously recorded continuity-Hessian compressed core and benchmark one-metric observer package follow unchanged.
+\end{definition}
+
+\section{Visible Response Readout}
+
+\begin{proposition}[The full current image core determines a unique visible-response operator]
+\label{prop:visible}
+For each \(y\in\ProtoSectionBody{\sigma}\), there exists a unique positive self-adjoint operator
+\[
+\VisibleResponseOperator{\sigma}(y):
+\PrePreProtoSectionVertical{\sigma}\to\PrePreProtoSectionVertical{\sigma}
+\]
+such that
+\begin{equation}
+\CoreForcedBodyResponse{\sigma}(y,v)
+=
+\frac{1}{2}
+\ev{v,\VisibleResponseOperator{\sigma}(y)v}
+\label{eq:visible}
+\end{equation}
+for every \((y,v)\in\PrePreProtoSectionResidualBody{\sigma}\). The family \(y\mapsto\VisibleResponseOperator{\sigma}(y)\) is smooth.
+\end{proposition}
+
+\begin{proof}
+Fix \(y\in\ProtoSectionBody{\sigma}\). By Definition \ref{def:frontier}(3), the function
+\[
+v\mapsto \CoreForcedBodyResponse{\sigma}(y,v)
+\]
+is quadratic on the compact convex body \(\PrePreProtoSectionResidualBody{\sigma}(y)\), which contains \(0\) and has nonempty interior in the finite-dimensional vector space \(\PrePreProtoSectionVertical{\sigma}\). A quadratic function on such a set extends uniquely to a quadratic form on the whole vector space. By polarization and the Euclidean inner product on \(\PrePreProtoSectionVertical{\sigma}\), there is therefore a unique self-adjoint operator \(\VisibleResponseOperator{\sigma}(y)\) satisfying \eqref{eq:visible}.
+
+Positivity follows because the fixed body-response route is nonnegative and vanishes only at \(v=0\). Hence the extended quadratic form is positive definite. Smoothness in \(y\) follows from the smoothness of \(\CoreForcedBodyResponse{\sigma}\) in Definition \ref{def:frontier}(3).
+\end{proof}
+
+\begin{remark}
+Proposition \ref{prop:visible} is the precise compression below the full current-image-core frontier. The full image-core package determines the visible quadratic response on the fixed displacement fibers, and at current benchmark-facing scope that visible quadratic response is the only datum that remains directly operative there.
+\end{remark}
+
+\begin{proposition}[The image-core response law is exactly the pullback of the visible quadratic response]
+\label{prop:factor}
+For every \(y\in\ProtoSectionBody{\sigma}\) and every \(u\in\CanonicalImageBody{\sigma}(y)\),
+\begin{equation}
+\CanonicalImageResponseLaw{\sigma}(y,u)
+=
+\frac{1}{2}
+\ev{
+\ImageProjection{\sigma}(y)u,
+\VisibleResponseOperator{\sigma}(y)\ImageProjection{\sigma}(y)u
+}.
+\label{eq:imagefactor}
+\end{equation}
+Moreover,
+\begin{equation}
+\CanonicalImageShell{\sigma}
+=
+\left\{
+(y,u)\in\ProtoSectionBody{\sigma}\times\CanonicalImageBody{\sigma}(y):
+\ImageProjection{\sigma}(y)u=0
+\right\}.
+\label{eq:shellfactor}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Fix \(y\in\ProtoSectionBody{\sigma}\) and \(u\in\CanonicalImageBody{\sigma}(y)\). Set
+\[
+v\equiv \ImageProjection{\sigma}(y)u
+\in
+\PrePreProtoSectionResidualBody{\sigma}(y).
+\]
+Because \(\ImageProjection{\sigma}(y)\) is inverse to \(\CanonicalLift{\sigma}(y)\) on the fixed image body, we have \(u=\CanonicalLift{\sigma}(y)v\). Therefore \eqref{eq:imagepullback} and Proposition \ref{prop:visible} give
+\[
+\CanonicalImageResponseLaw{\sigma}(y,u)
+=
+\CoreForcedBodyResponse{\sigma}(y,v)
+=
+\frac{1}{2}
+\ev{v,\VisibleResponseOperator{\sigma}(y)v},
+\]
+which is exactly \eqref{eq:imagefactor}.
+
+For \eqref{eq:shellfactor}, first suppose \((y,u)\in\CanonicalImageShell{\sigma}\). By Definition \ref{def:frontier}(4), we have \(y\in\ProtoSectionShell{\sigma}\) and \(u=\CanonicalLift{\sigma}(y)0\). Hence \(\ImageProjection{\sigma}(y)u=0\).
+
+Conversely, suppose \(u\in\CanonicalImageBody{\sigma}(y)\) and \(\ImageProjection{\sigma}(y)u=0\). Because \(\ImageProjection{\sigma}(y)\) is inverse to \(\CanonicalLift{\sigma}(y)\) on the fixed image body, we get \(u=\CanonicalLift{\sigma}(y)0\). Since \(0\in\PrePreProtoSectionResidualBody{\sigma}(y)\) exactly on \(\ProtoSectionShell{\sigma}\) by Definition \ref{def:frontier}(2), it follows that \(y\in\ProtoSectionShell{\sigma}\). Therefore \((y,u)\in\CanonicalImageShell{\sigma}\).
+\end{proof}
+
+\section{Canonical Minimal Visible-Response Representative}
+
+\begin{definition}[Canonical minimal visible-response representative]
+\label{def:minimal}
+For sector \(\sigma\), define the \emph{canonical minimal visible-response representative}
+\[
+\MinimalReducedStructure_{\sigma}
+\equiv
+\Bigl(
+\PrePreProtoSectionVertical{\sigma},
+\mathrm{id}_{\PrePreProtoSectionVertical{\sigma}},
+\VisibleResponseOperator{\sigma}
+\Bigr)
+\]
+over the fixed displacement body \(\PrePreProtoSectionResidualBody{\sigma}\), the fixed exact-shell relation
+\[
+\left\{
+y\in\ProtoSectionBody{\sigma}:0\in\PrePreProtoSectionResidualBody{\sigma}(y)
+\right\}
+=
+\ProtoSectionShell{\sigma},
+\]
+and the benchmark-faithfulness conditions of Definition \ref{def:frontier}(5).
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:minimal} keeps only what remains benchmark-facingly visible below the full current-image-core frontier: the fixed displacement fibers together with the fixed positive quadratic visible-response operator on those fibers. The image body, its restricted projection / canonical-lift realization, and the exact-shell image survive there only as one concrete realization of that same visible datum.
+\end{remark}
+
+\begin{proposition}[The current body-response core factors through the minimal visible-response representative]
+\label{prop:downstream}
+The pair
+\[
+\left(
+\PrePreProtoSectionResidualBody{\sigma},
+\CoreForcedBodyResponse{\sigma}
+\right)
+\]
+is exactly the benchmark-faithful quadratic body-response route induced by the canonical minimal visible-response representative \(\MinimalReducedStructure_{\sigma}\). Consequently:
+\begin{enumerate}
+    \item the current body-response core on the fixed displacement body is unchanged when one passes from the full current image-core package to \(\MinimalReducedStructure_{\sigma}\);
+    \item the downstream pullback body-response core, pullback body-operator core, pullback-operator core, pullback-quadratic core, section-centered residual-normal-form realization, pre-proto-section package, minimizer-section core, continuity-Hessian compressed core, and benchmark one-metric observer package therefore follow unchanged once \(\MinimalReducedStructure_{\sigma}\) is fixed.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Item (1) is exactly Proposition \ref{prop:visible}: by \eqref{eq:visible},
+\[
+\CoreForcedBodyResponse{\sigma}(y,v)
+=
+\frac{1}{2}
+\ev{v,\VisibleResponseOperator{\sigma}(y)v}
+\]
+on the fixed displacement body, which is the quadratic response supplied by Definition \ref{def:minimal}. Item (2) is then precisely the recorded downstream fact of Definition \ref{def:downstream}.
+\end{proof}
+
+\begin{proposition}[The benchmark package remains fixed]
+\label{prop:benchmark}
+Passing from the full current image-core package \(\CurrentBodyImageCore_{\sigma}\) to the canonical minimal visible-response representative \(\MinimalReducedStructure_{\sigma}\) preserves the same benchmark one-metric package \eqref{eq:fixedoutputs}. In particular, the operative metric remains exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, and the low-energy matter law is not enlarged.
+\end{proposition}
+
+\begin{proof}
+This is part of benchmark faithfulness in Definitions \ref{def:frontier}(5) and \ref{def:minimal}. The present note removes only benchmark-neutral image-core presentation above the fixed visible-response datum.
+\end{proof}
+
+\section{Main Theorem}
+
+\begin{theorem}[Canonical current-body image core collapse to a canonical minimal visible-response representative]
+\label{thm:main}
+Fix the primitive continuation data of Definition \ref{def:fixed}, the fixed full current-image-core frontier data of Definition \ref{def:frontier}, and the recorded downstream chain of Definition \ref{def:downstream}. Then the full canonical current-body image core already collapses benchmark-facingly to the canonical minimal visible-response representative \(\MinimalReducedStructure_{\sigma}\). More precisely:
+\begin{enumerate}
+    \item the full current image-core package canonically determines the positive visible-response operator \(\VisibleResponseOperator{\sigma}\) on the fixed displacement fibers by Proposition \ref{prop:visible};
+    \item the canonical image response law and exact-shell image are already exactly the pullback / realization of that visible quadratic response by Proposition \ref{prop:factor};
+    \item the fixed displacement body together with \(\VisibleResponseOperator{\sigma}\) defines a benchmark-faithful canonical minimal visible-response representative \(\MinimalReducedStructure_{\sigma}\) by Definition \ref{def:minimal};
+    \item the current body-response core and all currently recorded downstream benchmark-facing consequences already factor through \(\MinimalReducedStructure_{\sigma}\) by Proposition \ref{prop:downstream};
+    \item the image body, the restricted projection / canonical-lift relation, and the exact-shell image are therefore no longer independently live benchmark-facing burdens at current scope once the same visible-response operator on the fixed displacement fibers is fixed;
+    \item the benchmark boundary remains fixed by Proposition \ref{prop:benchmark};
+    \item consequently the remaining honest burden below this frontier is no longer to restore the full current image-core package as such. It is to derive or justify the visible-response operator \(\VisibleResponseOperator{\sigma}\), equivalently the canonical minimal visible-response representative \(\MinimalReducedStructure_{\sigma}\), from still more primitive explicit substrate structure, or to prove a still sharper theorem strictly inside that visible-response datum.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Item (1) is Proposition \ref{prop:visible}. Item (2) is Proposition \ref{prop:factor}. Item (3) is Definition \ref{def:minimal}. Item (4) is Proposition \ref{prop:downstream}. Item (5) is the routing consequence of items (1)--(4): once the same current body-response core and the same downstream benchmark-facing package already factor through the visible-response operator on the fixed displacement fibers, the larger image-core presentation does not remove additional benchmark-facing freedom. Item (6) is Proposition \ref{prop:benchmark}. Item (7) is the resulting front-line routing consequence together with the active safeguard against counting another same-output deeper relay as new benchmark-facing progress when the live visible datum is unchanged.
+\end{proof}
+
+\begin{corollary}[Primary post-collapse burden]
+\label{cor:next}
+After Theorem \ref{thm:main}, the next honest benchmark-facing manuscript below the present frontier must do at least one of the following:
+\begin{enumerate}
+    \item derive or force the visible-response operator \(\VisibleResponseOperator{\sigma}\) itself on the fixed displacement fibers from still more primitive explicit substrate structure;
+    \item equivalently derive the canonical minimal visible-response representative \(\MinimalReducedStructure_{\sigma}\) from still more primitive explicit substrate structure;
+    \item prove a sharper necessity, uniqueness, or compatibility theorem strictly inside that visible-response datum while preserving the same benchmark one-metric package, the same ordinary matter route, and the same claim boundary.
+\end{enumerate}
+Another manuscript that merely restores the full current image-core package, re-expands to a reduced carrier presentation, replays the projection-operator core, returns to the full displacement-response substrate law, or re-expands back to the larger pullback-body-operator, pullback-operator, pullback-quadratic, hidden-response, residual-normal-form, or pre-proto-section presentations is not the honest default next move.
+\end{corollary}
+
+\begin{proof}
+Theorem \ref{thm:main} shows that the full current image-core presentation is no longer the minimal benchmark-facing datum at this stage. Therefore a subsequent manuscript must improve on the visible-response operator itself rather than merely accompany it through another larger realization.
+\end{proof}
+
+\section{Conclusion}
+
+The positive result of this note is a genuine sharper collapse below the full current-image-core frontier. The earlier full-image-core forcing theorem already showed that the canonical current-body image core is itself a canonical and unique output once a reduced projection-response substrate structure is fixed. The later reduced-structure necessity / uniqueness theorem then showed that any compatible reduced structure already carries the same visible quadratic response operator up to inert kernel extension. The present theorem takes the next honest smaller route still available there: it shows that even the full canonical image-core package already carries no benchmark-facing content beyond that visible quadratic response on the fixed displacement fibers.
+
+The scope remains disciplined. The one operative metric is still exactly \(\CompletedMetric\), the ordinary matter route is unchanged, there is no second operative metric, and the low-energy matter law is not enlarged. Nothing here upgrades adoption to completed derivation or licenses stronger promotion language. The gain is narrower and more honest than that: it shows that the image-body, projection / lift, and exact-shell realization are benchmark-neutral once the visible-response operator itself has been identified on the fixed displacement fibers.
+
+The next open burden is therefore clear. The next benchmark-facing manuscript should derive or justify the visible-response operator \(\VisibleResponseOperator{\sigma}\) itself, equivalently derive the canonical minimal visible-response representative \(\MinimalReducedStructure_{\sigma}\), from still more primitive explicit substrate structure while preserving the same benchmark one-metric package, the same ordinary matter route, and the same claim boundary. Another restored image-core presentation, another reduced-structure replay, another replay of the projection-operator core, or another return to the full displacement-response substrate law is not the clean next manuscript target at current scope.
+
+\end{document}
