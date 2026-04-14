@@ -1,0 +1,310 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\ExplicitPackage}{\mathfrak P_{\mathrm{exp}}}
+\newcommand{\PrimitiveFamily}{\mathfrak P_{\mathrm{dyn}}}
+\newcommand{\StableBridgeObject}{\mathfrak B_{\mathrm{st}}}
+\newcommand{\ObserverMetric}{g^{\sharp}}
+\newcommand{\ObserverBurden}{\mathfrak B_{\mu\nu}^{\mathrm{obs}}}
+\newcommand{\GateFive}{G_{5}}
+\newcommand{\BridgeLaw}{\mathcal L_{\mathrm{bridge}}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Bounded GR Derivation Attempt from the\\
+\large Explicit Substrate Package and Primitive Dynamics}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This manuscript performs the next bounded main-line test required by the current routing layer of \TheoryName{}. The bridge-object synthesis note already froze the stable object under test as the explicit substrate equation / symmetry / constraint package together with the primitive reversible constrained dynamics family that forces it. The present task is now narrower and verdict bearing: can that frozen bridge object discharge the still-open benchmark derivation gates while preserving the one-metric claim boundary and leaving the already settled same-package observer-side closure result as a monitor condition?
+
+The answer of the present bounded test is negative in a precise but conditional sense. The current bridge object forces substantial upstream structure: explicit substrate state spaces, data projections, shell equations, selector and chain-forcing structure, and preservation of the same operative metric and ordinary matter route already fixed on the active line. What it does \emph{not} yet provide is an explicit observer-closing law that derives the Einsteinian observer equation, one-metric universal matter coupling, ordinary GR gauge / two-tensor content, and exact null / proper-time / redshift recovery from explicit substrate structure itself rather than carrying those as preserved benchmark outputs.
+
+Accordingly, Gates (1)--(4) are not discharged by the present bridge object alone. Gate (5) remains satisfied only as a monitor condition because the same-package observer-side remainder has already been closed on the active completed branch. The honest verdict is therefore neither \texttt{Derived} nor \texttt{Not Derived On Current Line}. It is \texttt{Suspended Pending New Law}: a new explicit substrate law is still required to map the frozen bridge object to the adopted benchmark observer package without adding a second operative metric or enlarging the ordinary matter law.
+\end{abstract}
+
+\section{Introduction}
+
+The benchmark exact-closure package of \TheoryName{} is already fixed, and the bridge-object synthesis note already froze the current bounded program. The active question is no longer whether the primitive-reservoir line can keep descending while preserving the same observer package. The active question is whether the frozen bridge object
+\[
+\StableBridgeObject=(\ExplicitPackage,\PrimitiveFamily)
+\]
+actually derives the adopted GR benchmark under the five benchmark derivation gates.
+
+That question must now be answered in bounded form. The present manuscript therefore does not propose another same-output deeper relay. It tests the current bridge object under the fixed claim boundary: no second operative metric, no enlarged low-energy matter law, no reopening of the same-package observer-side closure problem as if it were still the default bottleneck, and an ending that must honestly be \texttt{Derived}, \texttt{Not Derived On Current Line}, or \texttt{Suspended Pending New Law}.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not claim that GR has already been derived from explicit substrate structure. Its narrower role is to test the frozen bridge object and record the resulting verdict honestly.
+
+\section{Verdict Convention and Frozen Object Under Test}
+
+\begin{definition}[Frozen bridge object under test]
+\label{def:bridge_object}
+The bounded derivation attempt of this note uses the frozen bridge object
+\[
+\StableBridgeObject=(\ExplicitPackage,\PrimitiveFamily),
+\]
+where:
+\begin{enumerate}
+    \item \(\ExplicitPackage\) is the explicit substrate equation / symmetry / constraint package fixed by the explicit-package necessity / uniqueness theorem;
+    \item \(\PrimitiveFamily\) is the primitive reversible constrained dynamics family that forces \(\ExplicitPackage\) on the active primitive-reservoir line.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Bounded verdicts]
+\label{def:verdicts}
+Relative to the frozen bridge object \(\StableBridgeObject\), the admissible bounded verdicts are:
+\begin{enumerate}
+    \item \texttt{Derived}: the current manuscript sequence proves that \(\StableBridgeObject\) discharges Gates (1)--(4) from explicit substrate structure while preserving Gate \(\GateFive\) as a satisfied monitor condition.
+    \item \texttt{Not Derived On Current Line}: the current manuscript sequence proves that \(\StableBridgeObject\), under the fixed one-metric claim boundary, cannot satisfy at least one of Gates (1)--(4).
+    \item \texttt{Suspended Pending New Law}: the current manuscript sequence proves neither of the previous two verdicts because a benchmark-closing substrate law is still missing from the bridge object under test.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:verdicts} is intentionally stricter than a statement of current incompleteness. A note earns \texttt{Not Derived On Current Line} only if it proves an obstruction or incompatibility on the present line. Mere absence of a derivation theorem is not enough for that stronger negative verdict.
+\end{remark}
+
+\begin{definition}[Benchmark-closing substrate law]
+\label{def:bridge_law}
+A \emph{benchmark-closing substrate law} for the frozen bridge object is a law
+\[
+\BridgeLaw(\ExplicitPackage,\PrimitiveFamily)
+=
+\bigl(
+g_{\mu\nu}^{\mathrm{obs}},
+\mathcal E_{\mu\nu}^{\mathrm{obs}},
+\mathcal R_{\mathrm{rel}}^{\mathrm{obs}}
+\bigr)
+\]
+that is constructed from explicit substrate structure and that satisfies all of the following:
+\begin{enumerate}
+    \item it determines one operative observer metric \(g_{\mu\nu}^{\mathrm{obs}}\) without introducing a second universal matter metric;
+    \item it yields Einsteinian observer dynamics
+    \[
+    \mathcal E_{\mu\nu}^{\mathrm{obs}}
+    =
+    G_{\mu\nu}[g^{\mathrm{obs}}]
+    +\Lambda_{\mathrm{eff}}g_{\mu\nu}^{\mathrm{obs}}
+    -\frac{8\pi G_N}{c^4}T_{\mu\nu}^{\mathrm{matter}}[g^{\mathrm{obs}},\psi]
+    \]
+    or an equivalent Einstein--Hilbert plus ordinary-matter action statement;
+    \item it fixes the ordinary GR gauge and two-tensor content at benchmark scope;
+    \item it fixes exact null, proper-time, and redshift recovery through that same operative metric;
+    \item it preserves the already settled monitor condition that no genuine observer-side remainder survives.
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}[What this bounded attempt must decide]
+\label{prop:decision}
+The present bounded derivation attempt must decide whether the current bridge object already contains a law of Definition \ref{def:bridge_law} or instead stops short of it.
+\end{proposition}
+
+\begin{proof}
+The bridge-object synthesis note already froze the test object and recorded that Gates (1)--(4) remained open while Gate \(\GateFive\) became a monitor condition. Therefore the only honest benchmark-facing question left for the present note is whether the current bridge object now closes those open gates from explicit substrate structure or whether a genuinely new law is still missing.
+\end{proof}
+
+\section{What the Current Bridge Object Actually Supplies}
+
+\begin{definition}[Structural outputs already forced on the active line]
+\label{def:forced_outputs}
+The current bridge object \(\StableBridgeObject\) already forces, on the active primitive-reservoir line, the following structural outputs:
+\begin{enumerate}
+    \item explicit substrate state spaces, data projections, shell equations, time-reversal / symmetry data, compact fibers, and fiberwise convexity structure;
+    \item unique selector and chain-forcing structure from explicit substrate variables into the primitive observer-reduction chain;
+    \item the continuity-Hessian compressed core and its ordered defect / readout / branch-locking package;
+    \item preservation of the same operative metric \(\ObserverMetric\) and the same ordinary matter route \(T_{\mu\nu}^{\mathrm{matter}}[\ObserverMetric,\psi]\) already fixed on the active line;
+    \item same-package observer-side closure on the active completed branch, namely the settled monitor condition that the observer-side burden class vanishes there.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:forced_outputs} separates two different kinds of achievement already present on the line. Items (1)--(3) are genuine upstream structural gains. Items (4)--(5) are benchmark-facing consequences already preserved on the active line. The present bounded test turns on whether those preserved observer-side outputs are now \emph{derived} from the explicit substrate package, rather than merely carried forward without change.
+\end{remark}
+
+\begin{table}[ht]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.31\textwidth} >{\raggedright\arraybackslash}p{0.28\textwidth} >{\raggedright\arraybackslash}p{0.31\textwidth}}
+\toprule
+\textbf{Constituent} & \textbf{Current status on the frozen bridge object} & \textbf{Bounded-program significance} \\
+\midrule
+Explicit substrate state spaces, shell equations, symmetry and constraint data & Forced by the explicit-package and primitive-dynamics theorems & Real structural gain on the bridge side \\
+Selector, stationary reduction, and chain-forcing structure & Forced by the selector, stationary-construction, and chain-forcing theorems & Real structural gain connecting the explicit package to the primitive observer-reduction chain \\
+Continuity-Hessian defect / readout / branch-locking core & Derived on the primitive-reservoir line & Real benchmark-facing compression gain already in hand \\
+One operative metric and ordinary matter route & Preserved as fixed outputs and pulled back along the chain & Benchmark-stable output, but not yet first-principles derivation from explicit substrate structure \\
+Einsteinian observer law and relativistic recovery package & Preserved by the adopted benchmark package & Benchmark target remains fixed, but not yet derived from the frozen bridge object \\
+No genuine observer-side remainder & Settled on the active completed branch at same-package scope & Monitor condition rather than the default open bottleneck \\
+\bottomrule
+\end{tabular}
+\caption{What the current bridge object forces and what it still preserves without deriving.}
+\label{tab:forced_vs_preserved}
+\end{table}
+
+\begin{proposition}[The current bridge object is structurally strong but observer-law incomplete]
+\label{prop:incomplete}
+Table \ref{tab:forced_vs_preserved} shows that the present bridge object already fixes substantial explicit substrate structure and its chain into the primitive observer-reduction package, but does not yet by itself provide a benchmark-closing substrate law in the sense of Definition \ref{def:bridge_law}.
+\end{proposition}
+
+\begin{proof}
+The chain-forcing, stationary-construction, explicit-package necessity / uniqueness, and primitive-dynamics necessity / uniqueness results fix the explicit bridge-side structure and show that the primitive observer-reduction chain is forced rather than merely named. However, those same theorems preserve the same operative metric and the same ordinary matter route already fixed on the active line by pulling back or preserving recorded outputs. They do not define an observer-equation map from explicit substrate variables that yields Einstein dynamics, ordinary GR gauge / two-tensor content, or exact relativistic recovery as new output. Therefore the frozen bridge object is structurally strong but still lacks the benchmark-closing law of Definition \ref{def:bridge_law}.
+\end{proof}
+
+\begin{corollary}[Why preservation does not yet count as derivation]
+Preservation of the same operative metric \(\ObserverMetric\), of the same ordinary matter route, or of the same benchmark observer package is not by itself derivation of Gates (1)--(4) from explicit substrate structure.
+\end{corollary}
+
+\begin{proof}
+Derivation requires that the benchmark observer package be recovered from explicit substrate variables rather than carried forward as already fixed continuation data. By Proposition \ref{prop:incomplete}, the current bridge object preserves those observer-side outputs but does not yet construct them from explicit substrate structure by a benchmark-closing law. Preservation therefore does not settle the open gates as derivation.
+\end{proof}
+
+\section{Gate-by-Gate Bounded Test}
+
+\begin{definition}[Gate status language for the present test]
+For this manuscript:
+\begin{enumerate}
+    \item a gate is \emph{discharged} if the frozen bridge object yields the required benchmark content from explicit substrate structure by a benchmark-closing law;
+    \item a gate is \emph{not discharged} if the current bridge object preserves the required benchmark content but does not yet derive it from explicit substrate structure;
+    \item Gate \(\GateFive\) is \emph{monitored} if the same-package observer-side closure theorem already settles it on the active completed branch and the present bounded test only checks that nothing reopens it.
+\end{enumerate}
+\end{definition}
+
+\begin{table}[ht]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.23\textwidth} >{\raggedright\arraybackslash}p{0.20\textwidth} >{\raggedright\arraybackslash}p{0.47\textwidth}}
+\toprule
+\textbf{Gate} & \textbf{Bounded verdict} & \textbf{Exact reason on the frozen bridge object} \\
+\midrule
+Einsteinian observer dynamics & Not discharged & No theorem on \(\StableBridgeObject\) constructs the Einstein observer equation from explicit substrate variables; the current line preserves the adopted Einsteinian observer package instead. \\
+One operative metric with universal matter coupling & Not discharged & The one operative metric and ordinary matter route are preserved as fixed outputs on the current line, but no benchmark-closing law derives them from the explicit substrate package itself. \\
+Ordinary GR gauge and two-tensor content & Not discharged & The active line keeps the benchmark one-metric observer package fixed, but no theorem on \(\StableBridgeObject\) forces that gauge / two-tensor content from explicit substrate structure. \\
+Exact null, proper-time, and redshift recovery & Not discharged & Exact relativistic recovery remains attached to the adopted observer metric package, not yet to a first-principles substrate-to-observer law derived from \(\StableBridgeObject\). \\
+No genuine observer-side remainder & Monitor satisfied & The same-package continuity-Hessian closure theorem already settles this on the active completed branch; the present test treats it as a fixed monitor condition rather than an open upstream gate. \\
+\bottomrule
+\end{tabular}
+\caption{Gate-by-gate bounded verdict on the frozen bridge object.}
+\label{tab:gates}
+\end{table}
+
+\begin{theorem}[Exact gate verdict on the present bridge object]
+\label{thm:gate_verdict}
+Against the frozen bridge object \(\StableBridgeObject\), Gates (1)--(4) are not discharged as first-principles derivations from explicit substrate structure, while Gate \(\GateFive\) remains satisfied only as a monitor condition already settled at same-package observer-side scope.
+\end{theorem}
+
+\begin{proof}
+Table \ref{tab:gates} states the test gate by gate. For Gates (1)--(4), the current manuscript sequence preserves the relevant benchmark observer content, but Proposition \ref{prop:incomplete} shows that the frozen bridge object does not yet contain the benchmark-closing law needed to derive that content from explicit substrate structure. Those gates therefore remain not discharged. For Gate \(\GateFive\), the post-bridge continuity-Hessian closure result already establishes the no-genuine-observer-side-remainder condition on the active completed branch, so the present bounded test only monitors that settled fact and does not reopen it as the default open gate.
+\end{proof}
+
+\begin{corollary}[The current line is not yet \texttt{Derived}]
+\label{cor:not_derived_yet}
+The current primitive-reservoir line has not yet derived the adopted GR benchmark from the frozen bridge object.
+\end{corollary}
+
+\begin{proof}
+By Theorem \ref{thm:gate_verdict}, Gates (1)--(4) remain not discharged on the frozen bridge object. Since \texttt{Derived} requires those gates to be discharged while preserving Gate \(\GateFive\), the present line is not yet \texttt{Derived}.
+\end{proof}
+
+\section{Why the Verdict Is Suspension Rather Than No-Go}
+
+\begin{proposition}[What would be needed for a no-go verdict]
+\label{prop:no_go_need}
+The stronger verdict \texttt{Not Derived On Current Line} would require an obstruction theorem showing that no admissible benchmark-closing substrate law of Definition \ref{def:bridge_law} can be built from \(\StableBridgeObject\) under the fixed one-metric claim boundary.
+\end{proposition}
+
+\begin{proof}
+This is exactly the meaning of \texttt{Not Derived On Current Line} in Definition \ref{def:verdicts}. That verdict is stronger than current non-derivation because it requires proof of incompatibility, not merely failure of present completion.
+\end{proof}
+
+\begin{proposition}[The present line does not yet prove such an obstruction]
+\label{prop:no_obstruction}
+The current manuscript sequence does not yet prove that the frozen bridge object is incompatible with any admissible benchmark-closing substrate law.
+\end{proposition}
+
+\begin{proof}
+The present bridge-side theorems show that the explicit substrate package, selector structure, and primitive observer-reduction chain are forced while preserving the benchmark one-metric claim boundary. They do not prove that an additional explicit substrate law connecting that forced structure to the benchmark observer package is impossible. Therefore the stronger obstruction verdict is not yet established on the current line.
+\end{proof}
+
+\begin{definition}[Minimal missing ingredient]
+\label{def:missing_ingredient}
+The \emph{minimal missing ingredient} on the present line is a new explicit substrate law, internal to the same one-metric claim boundary, that uses \(\StableBridgeObject\) to determine:
+\begin{enumerate}
+    \item the operative observer metric as derived output rather than preserved continuation data;
+    \item the Einsteinian observer equation or equivalent Einstein--Hilbert plus ordinary-matter action from that same metric;
+    \item the ordinary GR gauge / two-tensor content and exact relativistic recovery package through that same metric;
+    \item preservation of the already settled monitor condition on Gate \(\GateFive\).
+\end{enumerate}
+\end{definition}
+
+\begin{theorem}[Bounded verdict of the present manuscript]
+\label{thm:final_verdict}
+The honest bounded verdict for the frozen bridge object \(\StableBridgeObject\) is
+\[
+\texttt{Suspended Pending New Law}.
+\]
+\end{theorem}
+
+\begin{proof}
+Corollary \ref{cor:not_derived_yet} shows that the current line is not yet \texttt{Derived}. Proposition \ref{prop:no_obstruction} shows that the stronger obstruction verdict \texttt{Not Derived On Current Line} is not yet established either. Definition \ref{def:missing_ingredient} identifies the missing ingredient as an explicit benchmark-closing substrate law not yet present in the current bridge object. By Definition \ref{def:verdicts}, that is exactly the verdict \texttt{Suspended Pending New Law}.
+\end{proof}
+
+\begin{corollary}[Next honest burden after the present test]
+The next honest benchmark-facing burden is not another same-output deeper relay. It is either:
+\begin{enumerate}
+    \item to derive the missing benchmark-closing substrate law from the frozen bridge object while preserving the one-metric claim boundary and the Gate \(\GateFive\) monitor condition;
+    \item or to prove that no such law can exist on the present line, in which case the verdict should be upgraded to \texttt{Not Derived On Current Line}.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+Theorem \ref{thm:final_verdict} leaves only those two admissible ways forward. Another same-output deeper relay would neither supply the missing law nor prove its impossibility, and so would not change the bounded verdict.
+\end{proof}
+
+\section{Conclusion}
+
+This manuscript was not asked to go deeper. It was asked to test the frozen bridge object honestly. That bounded test now has a clean answer. The explicit substrate package and the primitive reversible constrained dynamics family do force substantial upstream structure on the active primitive-reservoir line, including the selector / chain-forcing route and the continuity-Hessian compressed core. They also preserve the same one operative metric and the same ordinary matter route already fixed on the active line, while Gate \(\GateFive\) remains satisfied as a same-package monitor condition.
+
+What they do not yet do is equally important. The current bridge object does not yet contain a benchmark-closing substrate law that derives Einsteinian observer dynamics, one-metric universal matter coupling, ordinary GR gauge / two-tensor content, and exact relativistic recovery from explicit substrate structure itself. Gates (1)--(4) therefore remain not discharged by the present object under test.
+
+The verdict is accordingly neither triumphalist nor negative for its own sake. It is \texttt{Suspended Pending New Law}. The bounded program is now sharper than before: either supply the missing law on the same one-metric claim boundary, or prove that no such law can exist on the current line. That is the honest next burden after the present derivation attempt.
+
+\end{document}
