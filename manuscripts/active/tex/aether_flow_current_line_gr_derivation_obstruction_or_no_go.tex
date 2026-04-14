@@ -1,0 +1,304 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{physics}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue, citecolor=black}
+\setlist[enumerate]{topsep=0.4em,itemsep=0.35em}
+\setlist[itemize]{topsep=0.3em,itemsep=0.25em}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\setstretch{1.06}
+
+\newcommand{\Aether}{\AE{}ther}
+\newcommand{\Aflow}{\AE{}ther-flow}
+\newcommand{\TheoryName}{\Aflow{} Interpretation of Relativity}
+\newcommand{\TheoryProgram}{\Aether{} / \Aflow{} framework}
+\newcommand{\ExplicitPackage}{\mathfrak P_{\mathrm{exp}}}
+\newcommand{\PrimitiveFamily}{\mathfrak P_{\mathrm{dyn}}}
+\newcommand{\StableBridgeObject}{\mathfrak B_{\mathrm{st}}}
+\newcommand{\FixedMetric}{g^{\sharp}}
+\newcommand{\MetricOut}{\mathscr G_{\mathrm{out}}}
+\newcommand{\MatterOut}{\mathscr T_{\mathrm{out}}}
+\newcommand{\ObsMan}{M_{\mathrm{obs}}}
+\newcommand{\GateFive}{G_{5}}
+\newcommand{\InternalLaw}{\mathcal L_{\mathrm{int}}}
+\newcommand{\LocalBridgeLaw}{\mathcal L_{\mathrm{loc}}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+
+\title{\textbf{The \TheoryName{}}\\[0.4em]
+\large Current-Line GR Derivation\\
+\large Obstruction / No-Go}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The current bounded derivation-attempt manuscript on the active primitive-reservoir line ended in the verdict \texttt{Suspended Pending New Law}. It identified the missing ingredient precisely: a benchmark-closing substrate law on the frozen bridge object that would derive the operative observer metric, the Einsteinian observer equation or Einstein--Hilbert plus ordinary-matter form, the ordinary GR gauge / two-tensor content, and exact null / proper-time / redshift recovery while preserving the already settled Gate \(\GateFive\) monitor condition.
+
+The present note attacks that burden directly and proves a scoped obstruction result. Its scope is the current one-metric line only, with the frozen bridge object kept fixed as the explicit substrate equation / symmetry / constraint package together with the primitive reversible constrained dynamics family that forces it. On that fixed line, every recorded construction still factors through finite-dimensional shell, selector, defect, and readout data, together with the same preserved metric and ordinary-matter outputs already fixed on the active branch. What is not present is equally sharp: no recorded theorem supplies an observer-localization map to observer spacetime fields, no local differential operator on the observer metric, and no internal law from which curvature, null cones, proper time, or redshift can be derived as new output from the frozen bridge object itself.
+
+This absence is enough for a bounded no-go. Without introducing a genuinely new observer-localizing substrate law, new primitive variable, or new symmetry principle, the current frozen bridge object cannot produce the benchmark-closing observer law required by the five derivation gates. Gates (1)--(4) therefore cannot be discharged on the current line. Gate \(\GateFive\) remains satisfied only as a monitor condition already settled at same-package scope. The honest verdict is accordingly upgraded from \texttt{Suspended Pending New Law} to the scoped verdict
+\[
+\texttt{Not Derived On Current Line}.
+\]
+\end{abstract}
+
+\section{Introduction}
+
+The benchmark exact-closure package of \TheoryName{} is already fixed. The bounded bridge-object synthesis note then froze the stable object under test, and the subsequent bounded derivation attempt recorded the current suspension verdict. The active question is now narrower than before: does the frozen bridge object already contain the missing benchmark-closing substrate law, or is the present line obstructed without a genuinely new law?
+
+The present note proves the second alternative in a disciplined sense. It is not a universal impossibility theorem for every conceivable substrate completion of the broader \Aether{} / \Aflow{} framework. It is a no-go statement only for the current bounded primitive-reservoir line, with the same one-metric claim boundary and the same frozen bridge object used in the derivation-attempt manuscript.
+
+\paragraph{Framework and claim boundary.}
+\TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
+
+The present note stays strictly inside that boundary. It does not demote the benchmark package, and it does not claim a universal impossibility theorem for the whole framework. Its narrower claim is that the \emph{current line as frozen} cannot derive the benchmark observer law from \(\StableBridgeObject\) without adding a genuinely new observer-localizing law.
+
+\section{Frozen Object and Recorded Data}
+
+\begin{definition}[Frozen bridge object]
+\label{def:bridge}
+The frozen bridge object of the bounded program is
+\[
+\StableBridgeObject=(\ExplicitPackage,\PrimitiveFamily),
+\]
+where:
+\begin{enumerate}
+    \item \(\ExplicitPackage\) is the explicit substrate equation / symmetry / constraint package fixed by the explicit-package necessity / uniqueness theorem;
+    \item \(\PrimitiveFamily\) is the primitive reversible constrained dynamics family that forces \(\ExplicitPackage\) on the active primitive-reservoir line.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Recorded internal bridge data on the current line]
+\label{def:recorded}
+The \emph{recorded internal bridge data} on the current line consist of the following classes of objects already forced by the active manuscript sequence:
+\begin{enumerate}
+    \item finite-dimensional sectorwise state spaces, compact convex bodies, affine readout maps, shell equations, constraint residuals, positive hidden-sector operators, and symmetry / time-reversal data inside \(\ExplicitPackage\);
+    \item selector, stationary-construction, and chain-forcing data connecting \(\ExplicitPackage\) to the primitive observer-reduction chain;
+    \item continuity-Hessian defect, readout, and branch-locking data on the active primitive-reservoir line;
+    \item the preserved one-metric and ordinary-matter outputs
+    \[
+    \MetricOut(\mathbf w)=\FixedMetric,
+    \qquad
+    \MatterOut(\mathbf w,\psi)=T_{\mu\nu}^{\mathrm{matter}}[\FixedMetric,\psi]
+    \]
+    already fixed on the active branch.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Item (4) is intentionally phrased as preserved output rather than derived observer law. The one-metric / ordinary-matter output-map theorem explicitly treats the operative metric and ordinary matter route as pullbacks of the already preserved one-metric observer package, not as a new local observer equation derived from explicit substrate variables.
+\end{remark}
+
+\begin{proposition}[Recorded bridge data stop at shell-level structure plus preserved outputs]
+\label{prop:recorded_scope}
+Every recorded object on the current frozen line lands in one of the two following classes:
+\begin{enumerate}
+    \item finite-dimensional shell, selector, defect, readout, and symmetry data internal to \(\StableBridgeObject\);
+    \item preserved observer outputs already fixed as \(\FixedMetric\) and \(T_{\mu\nu}^{\mathrm{matter}}[\FixedMetric,\psi]\).
+\end{enumerate}
+No recorded theorem on the current line adds an observer-local metric field law, an observer-side differential operator built from that metric, or a new causal/proper-time/redshift readout map constructed from explicit substrate variables.
+\end{proposition}
+
+\begin{proof}
+The explicit-package and primitive-dynamics theorems construct sectorwise Euclidean spaces, convex bodies, affine data maps, shell equations, constraints, coercive operators, and symmetry data. The selector and chain-forcing theorems add maps from those structures into the primitive observer-reduction chain. The continuity-Hessian results add defect tuples, readouts, and branch locking. The one-metric / ordinary-matter output-map theorem then identifies the observer metric and matter outputs as pullbacks of the already preserved one-metric package, with \(\MetricOut(\mathbf w)=\FixedMetric\) and \(\MatterOut(\mathbf w,\psi)=T_{\mu\nu}^{\mathrm{matter}}[\FixedMetric,\psi]\). None of these recorded constructions introduces a map from explicit substrate variables to a spacetime-dependent observer metric field, to its connection or curvature, or to an observer-local causal / proper-time / redshift law. Therefore the recorded scope is exactly the two classes stated above.
+\end{proof}
+
+\begin{table}[ht]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.31\textwidth} >{\raggedright\arraybackslash}p{0.19\textwidth} >{\raggedright\arraybackslash}p{0.38\textwidth}}
+\toprule
+\textbf{Constituent} & \textbf{Status on current line} & \textbf{Bounded significance} \\
+\midrule
+Finite-dimensional shell, selector, and symmetry data & Present & Real bridge-side structure forced by \(\StableBridgeObject\). \\
+Continuity-Hessian defect / readout / branch-locking core & Present & Real benchmark-facing compression and same-package monitor support already in hand. \\
+One operative metric and ordinary matter route & Present as preserved pullback output & Keeps the one-metric claim boundary fixed, but does not by itself supply a local observer field law. \\
+Observer-local metric field, curvature operator, and relativistic readout law & Absent & This is the missing benchmark-closing substrate law needed to discharge Gates (1)--(4). \\
+\bottomrule
+\end{tabular}
+\caption{What the frozen bridge object already supplies and what remains absent on the current line.}
+\label{tab:scope}
+\end{table}
+
+\section{Internal Laws and Observer-Local Closure}
+
+\begin{definition}[Internal law on the frozen line]
+\label{def:internal}
+An \emph{internal law} on the frozen line is any law constructed from the recorded internal bridge data of Definition \ref{def:recorded} using only:
+\begin{enumerate}
+    \item composition, product formation, affine or linear combination, and selector pullback among recorded maps;
+    \item fiberwise restriction to recorded shells, selectors, defect fibers, or locked branches;
+    \item reuse of the preserved outputs \(\FixedMetric\) and \(T_{\mu\nu}^{\mathrm{matter}}[\FixedMetric,\psi]\) exactly as already fixed on the active line.
+\end{enumerate}
+By definition, an internal law introduces no new primitive variable, no new observer-localization map, no new symmetry principle, and no new action functional beyond what the recorded theorems already contain.
+\end{definition}
+
+\begin{lemma}[Internal laws factor through shell data and preserved outputs]
+\label{lem:factor}
+Every internal law \(\InternalLaw\) on the frozen line factors through finite-dimensional shell / selector / defect data together with the preserved outputs \(\FixedMetric\) and \(T_{\mu\nu}^{\mathrm{matter}}[\FixedMetric,\psi]\).
+\end{lemma}
+
+\begin{proof}
+By Definition \ref{def:internal}, an internal law may use only operations internal to the data listed in Definition \ref{def:recorded}. Proposition \ref{prop:recorded_scope} states that those recorded data already land only in finite-dimensional shell / selector / defect structures or in the preserved outputs \(\FixedMetric\) and \(T_{\mu\nu}^{\mathrm{matter}}[\FixedMetric,\psi]\). Composition, products, affine combinations, shell restrictions, and selector pullbacks cannot create a new target type not already present among their inputs. Therefore every internal law factors through the same shell-level structures and preserved outputs.
+\end{proof}
+
+\begin{definition}[Observer-local benchmark-closing law]
+\label{def:local}
+A \emph{benchmark-closing observer-local law} on the frozen bridge object is a law
+\[
+\LocalBridgeLaw(\ExplicitPackage,\PrimitiveFamily)
+=
+\bigl(
+g_{\mu\nu}^{\mathrm{obs}}(\cdot),
+\mathcal E_{\mu\nu}^{\mathrm{obs}}(\cdot),
+\mathcal R_{\mathrm{rel}}^{\mathrm{obs}}(\cdot)
+\bigr)
+\]
+with all of the following features:
+\begin{enumerate}
+    \item it determines one operative observer metric field \(g_{\mu\nu}^{\mathrm{obs}}(x)\) on an observer spacetime \(\ObsMan\);
+    \item it determines the Einsteinian observer equation
+    \[
+    \mathcal E_{\mu\nu}^{\mathrm{obs}}
+    =
+    G_{\mu\nu}[g^{\mathrm{obs}}]
+    +\Lambda_{\mathrm{eff}}g_{\mu\nu}^{\mathrm{obs}}
+    -\frac{8\pi G_N}{c^4}T_{\mu\nu}^{\mathrm{matter}}[g^{\mathrm{obs}},\psi]
+    \]
+    or an equivalent Einstein--Hilbert plus ordinary-matter action statement;
+    \item it fixes the ordinary GR gauge / two-tensor content through that same metric;
+    \item it fixes null, proper-time, and redshift recovery through that same metric;
+    \item it preserves the already settled Gate \(\GateFive\) monitor condition that no genuine observer-side remainder survives.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Definition \ref{def:local} is the precise content of the ``missing benchmark-closing substrate law'' named by the bounded derivation-attempt manuscript. The present note asks whether such a law can be obtained \emph{internally} from the frozen bridge object, not whether one could be postulated later by changing the line.
+\end{remark}
+
+\section{Observer-Law Silence of the Frozen Bridge Object}
+
+\begin{definition}[Observer-localization datum]
+\label{def:localization}
+An \emph{observer-localization datum} for the purposes of the present note is the minimum extra structure needed to turn shell-level substrate data into observer-local field dynamics:
+\begin{enumerate}
+    \item a rule assigning observer-spacetime points or local neighborhoods to explicit substrate states;
+    \item a field-valued output map \(x\mapsto g_{\mu\nu}^{\mathrm{obs}}(x)\) on \(\ObsMan\);
+    \item a local differential operator or equivalent variational functional acting on that field;
+    \item a causal / proper-time / redshift readout rule derived from the same field.
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}[No observer-localization datum is recorded on the current line]
+\label{prop:no_localization}
+The frozen bridge object \(\StableBridgeObject\) carries no observer-localization datum in the sense of Definition \ref{def:localization}.
+\end{proposition}
+
+\begin{proof}
+By Proposition \ref{prop:recorded_scope}, the current line records only shell / selector / defect data and the preserved outputs \(\FixedMetric\) and \(T_{\mu\nu}^{\mathrm{matter}}[\FixedMetric,\psi]\). The explicit-package and primitive-dynamics theorems provide finite-dimensional spaces, convex bodies, affine readouts, shell equations, coercive operators, and symmetry actions. The selector and chain-forcing theorems provide induced maps among those structures. The one-metric output-map theorem provides the constant pullback output \(\MetricOut(\mathbf w)=\FixedMetric\), but explicitly does not derive the operative metric as a new function of the primitive defect tuple. None of these data specifies a pointwise observer-spacetime localization rule, a field-valued map \(x\mapsto g_{\mu\nu}^{\mathrm{obs}}(x)\), a differential or variational operator on that field, or a derived causal / proper-time / redshift readout. Hence no observer-localization datum is recorded on the current line.
+\end{proof}
+
+\begin{theorem}[Observer-law silence of the frozen bridge object]
+\label{thm:silence}
+No internal law on the frozen line can be a benchmark-closing observer-local law in the sense of Definition \ref{def:local}.
+\end{theorem}
+
+\begin{proof}
+Assume, for contradiction, that some internal law \(\InternalLaw\) is a benchmark-closing observer-local law. By Lemma \ref{lem:factor}, \(\InternalLaw\) factors through finite-dimensional shell / selector / defect data and the preserved outputs \(\FixedMetric\) and \(T_{\mu\nu}^{\mathrm{matter}}[\FixedMetric,\psi]\). But Definition \ref{def:local} requires a field-valued observer metric on \(\ObsMan\), a local differential or variational law yielding the Einsteinian observer equation, and a derived null / proper-time / redshift rule. Proposition \ref{prop:no_localization} shows that the frozen bridge object contains no observer-localization datum from which such structures could even be defined internally. In particular, without a localization rule there is no pointwise observer field; without a pointwise field there is no internal connection or curvature operator; without such an operator there is no internal Einstein tensor, no ordinary GR gauge / two-tensor content derived from substrate structure, and no exact relativistic recovery rule generated by the frozen object itself. This contradicts the assumption that \(\InternalLaw\) is benchmark closing. Therefore no internal law on the frozen line can be a benchmark-closing observer-local law.
+\end{proof}
+
+\begin{corollary}[Gates (1), (3), and (4) are obstructed on the current line]
+\label{cor:g134}
+On the current frozen line, Gates (1), (3), and (4) cannot be discharged from \(\StableBridgeObject\) without adding a genuinely new observer-localizing substrate law.
+\end{corollary}
+
+\begin{proof}
+Gate (1) requires the Einsteinian observer equation or an equivalent Einstein--Hilbert plus matter action. Gate (3) requires ordinary GR gauge / two-tensor content. Gate (4) requires exact null, proper-time, and redshift recovery. By Theorem \ref{thm:silence}, no internal law on the frozen line can supply the observer-local structures from which those three gates could be derived. Hence those gates are obstructed on the current line.
+\end{proof}
+
+\begin{corollary}[Gate (2) is preserved but not derived on the current line]
+\label{cor:g2}
+The current line preserves the one operative metric and ordinary matter route, but it does not derive Gate (2) from explicit substrate structure.
+\end{corollary}
+
+\begin{proof}
+The one-metric / ordinary-matter output-map theorem fixes
+\[
+\MetricOut(\mathbf w)=\FixedMetric,
+\qquad
+\MatterOut(\mathbf w,\psi)=T_{\mu\nu}^{\mathrm{matter}}[\FixedMetric,\psi]
+\]
+as pullbacks of the already preserved one-metric observer package. This preserves Gate (2) at package level, but Proposition \ref{prop:no_localization} shows that the current line contains no observer-localization datum turning that preserved package into a newly derived local observer field law. Therefore Gate (2) remains preserved rather than derived from explicit substrate structure.
+\end{proof}
+
+\section{Bounded Verdict}
+
+\begin{definition}[Scoped obstruction verdict]
+\label{def:verdict}
+The verdict \texttt{Not Derived On Current Line} is justified here if the present one-metric frozen line proves that \(\StableBridgeObject\), without a genuinely new observer-localizing law, cannot satisfy at least one of the benchmark derivation gates while Gate \(\GateFive\) remains only a preserved monitor condition.
+\end{definition}
+
+\begin{proposition}[Gate \(\GateFive\) remains a monitor condition]
+\label{prop:g5}
+The present obstruction does not reopen Gate \(\GateFive\). The no-genuine-observer-side-remainder statement remains settled at same-package scope on the active completed branch and continues to function only as a monitor condition.
+\end{proposition}
+
+\begin{proof}
+The continuity-Hessian closure theorem already settles the observer-side remainder question on the active completed branch. The present note does not add a new observer-side sector; it proves instead that the frozen bridge object is observer-law silent and therefore cannot derive the benchmark observer law internally. This leaves the same-package remainder closure unchanged. Hence Gate \(\GateFive\) remains monitored rather than reopened.
+\end{proof}
+
+\begin{theorem}[Current-line obstruction / no-go verdict]
+\label{thm:verdict}
+On the current one-metric primitive-reservoir line, with the frozen bridge object \(\StableBridgeObject\) and without adding a genuinely new observer-localizing substrate law, the honest bounded verdict is
+\[
+\texttt{Not Derived On Current Line}.
+\]
+\end{theorem}
+
+\begin{proof}
+Corollary \ref{cor:g134} shows that Gates (1), (3), and (4) are obstructed on the current line. Corollary \ref{cor:g2} shows that Gate (2) is preserved but not derived. Proposition \ref{prop:g5} shows that Gate \(\GateFive\) remains only a monitor condition already settled at same-package scope. Therefore the current frozen line cannot discharge the benchmark derivation gates from \(\StableBridgeObject\) under its present assumptions. By Definition \ref{def:verdict}, this is exactly the scoped verdict \texttt{Not Derived On Current Line}.
+\end{proof}
+
+\begin{corollary}[What would count as leaving the present no-go behind]
+\label{cor:leave}
+Any later positive move must introduce a genuinely new observer-localizing substrate law, new primitive variable, or new symmetry principle. Such a move would no longer be completion of the current frozen line as it stands; it would be a new line or a new assumption layered on top of it.
+\end{corollary}
+
+\begin{proof}
+Theorem \ref{thm:silence} proves that no internal law of the current frozen line can be benchmark closing. Therefore any later benchmark-closing success must use structure not available internally to the present line. That is exactly a new observer-localizing law, new primitive variable, or new symmetry principle beyond the frozen current-line data.
+\end{proof}
+
+\section{Conclusion}
+
+The positive result of this note is not a new derivation theorem. It is a bounded obstruction theorem. The frozen bridge object of the current primitive-reservoir line does force real shell, selector, chain, and continuity-Hessian structure, and it preserves the same one operative metric and ordinary matter route already fixed on the benchmark package. But it remains observer-law silent: it supplies no observer-localization map, no local metric field law, no curvature operator, and no derived null / proper-time / redshift rule.
+
+That absence is now strong enough to change the verdict. On the current one-metric line, the missing benchmark-closing substrate law is not merely unwritten. It is not internally constructible from the frozen bridge object under the present assumptions. Gates (1)--(4) therefore cannot be discharged on this line, while Gate \(\GateFive\) remains a same-package monitor condition only. The honest bounded verdict is \texttt{Not Derived On Current Line}.
+
+The next burden, if the project chooses to continue derivationally at all, is correspondingly sharper. It is not another deeper same-output relay below the same frozen object. It is a genuinely new observer-localizing substrate law or a revised line with new structural assumptions. That is the exact scope of the no-go proved here.
+
+\end{document}
