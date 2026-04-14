@@ -1,6 +1,6 @@
 # The Æther-Flow Interpretation of Relativity - GR Derivation
 
-This repository is the active LaTeX workspace for `The Æther-Flow Interpretation of Relativity`. The overview-first exact-closure package is the benchmark theory statement. The downstream derivational manuscripts are the live attempt to recover that same GR sector from explicit `Æther / Æther-flow` structure without overstating what has been achieved.
+This repository is the active LaTeX workspace for `The Æther-Flow Interpretation of Relativity`. The overview-first exact-closure package is the benchmark theory statement, and GR is adopted there exactly as the operational relativistic sector with ordinary matter coupling. The current line has not yet derived that benchmark from explicit `Æther / Æther-flow` structure. The active research question is whether the present line can derive the adopted benchmark under the five benchmark derivation gates.
 
 Earlier ontology/background material is preserved in the predecessor repository [The Æther](https://github.com/AngryOwlAI/The-AEther).
 
@@ -17,16 +17,18 @@ The exact-closure package is therefore a positive scientific deliverable in its 
 
 - Public front door: [aether_flow_exact_closure_sequence_overview.tex](manuscripts/active/tex/aether_flow_exact_closure_sequence_overview.tex)
 - Fixed benchmark package: [aether_flow_exact_closure_note.tex](manuscripts/active/tex/aether_flow_exact_closure_note.tex), [aether_flow_foundations.tex](manuscripts/active/tex/aether_flow_foundations.tex), [aether_flow_dynamics.tex](manuscripts/active/tex/aether_flow_dynamics.tex), [aether_flow_consistency.tex](manuscripts/active/tex/aether_flow_consistency.tex), [aether_flow_relativistic_recovery.tex](manuscripts/active/tex/aether_flow_relativistic_recovery.tex), and [aether_flow_geometry.tex](manuscripts/active/tex/aether_flow_geometry.tex)
-- Claim boundary: GR is adopted exactly in the benchmark package; a first-principles substrate derivation remains open
+- Claim boundary: GR is adopted exactly in the benchmark package; the current line has not yet derived that benchmark from explicit substrate structure
 - The benchmark package is a completed exact-closure theory statement at the operational level, not a temporary placeholder
-- Post-bridge routing: the same-package observer-side closure burden is no longer the live bottleneck on the active one-metric line; the remaining honest burden is upstream substrate derivation of the benchmark package
-- Current deepest benchmark-facing main-line gain: [the zepto-section-generating substrate yocto-section dynamics collapse to an observer-relevant yocto-section minimizer-image core theorem](manuscripts/active/tex/aether_flow_primitive_reservoir_observer_reduction_zepto_section_generating_substrate_yocto_section_dynamics_collapse_to_observer_relevant_yocto_section_minimizer_image_core_theorem.tex)
-- Current honest next move: derive or justify the observer-relevant yocto-section minimizer-image core from still more primitive substrate structure, or prove a still sharper collapse inside that image core; another same-output deeper relay that leaves that sharper image core unchanged is not primary
+- Active research question: determine whether the present line can derive the adopted benchmark under the five benchmark derivation gates
+- Post-bridge routing: the same-package observer-side closure burden is no longer the live bottleneck on the active one-metric line; the remaining honest burden is upstream substrate derivation of the benchmark package rather than another package-preserving same-output relay
+- Active file-map state: no manuscript currently holds `active_primary`; that slot is reserved for a bounded bridge-object synthesis manuscript, bounded derivation attempt, or obstruction/no-go manuscript
+- Former relay endpoint: use [docs/manuscript-wiki-workflow.md](docs/manuscript-wiki-workflow.md), [docs/ACTIVE_MANUSCRIPT_FILE_MAP.csv](docs/ACTIVE_MANUSCRIPT_FILE_MAP.csv), [docs/ACTIVE_MANUSCRIPT_FILE_MAP_GUIDE.md](docs/ACTIVE_MANUSCRIPT_FILE_MAP_GUIDE.md), and the local Manuscript Wiki to locate the preserved pre-reset source-penalty-kernel relay endpoint when reconstructing old chain history; it no longer defines the default next move
+- Current derivational outcome framing: valid answers are `Derived`, `Not Derived On Current Line`, or `Suspended Pending New Law`; depth alone is not a research verdict
 - The deeper positive-pair / orbit-shape continuation remains recorded side work unless it changes that primary burden
 
 ## Primary Goal
 
-The primary goal is to keep the benchmark exact-closure theory statement scientifically stable while pursuing a disciplined derivational program that aims to recover the same GR sector from deeper substrate structure. The project goal is not to replace GR by a separate low-energy deformation, and it is not to present unfinished derivational work as already complete.
+The primary goal is to keep the benchmark exact-closure theory statement scientifically stable while pursuing a disciplined derivational program that determines whether the current line can derive that adopted GR benchmark from deeper substrate structure. The project goal is not to replace GR by a separate low-energy deformation, and it is not to present unfinished derivational work as already complete.
 
 ## Start Here
 
@@ -58,7 +60,7 @@ The primary goal is to keep the benchmark exact-closure theory statement scienti
 
 ## Manuscript Wiki
 
-The local Obsidian Manuscript Wiki is now part of the supported day-to-day workflow. Use [docs/manuscript-wiki-workflow.md](docs/manuscript-wiki-workflow.md) for the build, sync, lint, and authority-order commands.
+The local Obsidian Manuscript Wiki is now part of the supported day-to-day workflow. Use [docs/manuscript-wiki-workflow.md](docs/manuscript-wiki-workflow.md) for the build, sync, lint, and authority-order commands. Use the wiki and file map as the retrieval layer before broad repository search, and use the active `.tex` manuscripts as the scientific authority.
 Phase 6 also supports a separate supplemental external-reference library under the local vault without mixing that literature into the project-routing surfaces.
 
 ## Context Economy

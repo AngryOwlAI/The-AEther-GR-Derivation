@@ -4,6 +4,8 @@
 
 This page is for physicists, mathematicians, and technically trained readers who want to audit the repository honestly and efficiently.
 
+GR is adopted exactly in the benchmark package. The current line has not yet derived that benchmark from explicit substrate structure. The active downstream question is whether the present line can derive the adopted benchmark under the five benchmark derivation gates.
+
 ## Best Review Entry Point
 
 Start with the [exact-closure sequence overview PDF](assets/pdfs/aether_flow_exact_closure_sequence_overview.pdf), then move to the [Theory Package](theory-package.md) in order.
@@ -16,7 +18,7 @@ That order matters because the benchmark package, not the derivational manuscrip
 - Equation audit: do the package manuscripts say exactly what they claim to establish, no more and no less?
 - Consistency audit: are the package definitions, symbols, and roles aligned across the overview and six core manuscripts?
 - Novelty and literature-position audit: where does the package genuinely differ from standard interpretive or effective-field presentations, and where does it need sharper positioning?
-- Derivation-program audit: does the active downstream research line stay answerable to the exact GR benchmark fixed by the package?
+- Derivation-program audit: does the active downstream research line stay clear that GR is already adopted in the benchmark package while the open question is whether the present line can derive that adopted benchmark under the five benchmark derivation gates?
 
 ## Suggested Reviewer Path
 

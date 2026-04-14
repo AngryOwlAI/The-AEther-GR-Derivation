@@ -24,6 +24,12 @@ and [aether_flow_geometry.tex](../manuscripts/active/tex/aether_flow_geometry.te
 | Flow geometry | The flow-geometry manuscript deepens the interpretation of exact GR/SR without changing the adopted law. | The flow-geometry manuscript modifies Einsteinian dynamics. |
 | Bridge notes | The bridge and derivational notes are candidate steps in an active derivational program answerable to the benchmark package. | The bridge line already gives a completed Einstein derivation. |
 
+## Current Status Formula
+
+- GR is adopted exactly in the benchmark exact-closure package.
+- The current line has not yet derived that benchmark from explicit substrate structure.
+- The active question is whether the present line can derive the adopted benchmark under the five benchmark derivation gates.
+
 ## Positive Deliverable Rule
 
 The exact-closure package is already a positive scientific deliverable. It should be described as:
@@ -34,8 +40,15 @@ The exact-closure package is already a positive scientific deliverable. It shoul
 
 It should not be described as a merely temporary placeholder awaiting legitimacy from a future derivation.
 
+## Retrieval Rule
+
+- Use [manuscript-wiki-workflow.md](manuscript-wiki-workflow.md), [ACTIVE_MANUSCRIPT_FILE_MAP.csv](ACTIVE_MANUSCRIPT_FILE_MAP.csv), [ACTIVE_MANUSCRIPT_FILE_MAP_GUIDE.md](ACTIVE_MANUSCRIPT_FILE_MAP_GUIDE.md), and the local Manuscript Wiki as the retrieval layer for routing and frontier claims.
+- Use the active `.tex` manuscripts as the scientific authority.
+- Do not start with broad ad hoc repository search when the wiki and file map already answer the routing question.
+
 ## Active Open Burdens
 
+- Determine whether the current line can derive the adopted benchmark under the five benchmark derivation gates.
 - Satisfy the benchmark derivation gates recorded in [aether_flow_exact_closure_derivation_gates_note.tex](../manuscripts/active/tex/aether_flow_exact_closure_derivation_gates_note.tex).
 - Treat [aether_flow_exact_closure_post_bridge_derivation_gate_status_note.tex](../manuscripts/active/tex/aether_flow_exact_closure_post_bridge_derivation_gate_status_note.tex) as the active benchmark-facing routing note: on the active completed branch, the same-package observer-side remainder gate is no longer the live bottleneck, and the remaining honest burden has moved upstream to substrate derivation of the benchmark package itself.
 - Treat [aether_flow_benchmark_one_metric_observer_package_upstream_compression_theorem.tex](../manuscripts/active/tex/aether_flow_benchmark_one_metric_observer_package_upstream_compression_theorem.tex) as the benchmark-facing safeguard: another deeper-origin relay that preserves the same continuity-Hessian compressed core does not change derivational status.
@@ -54,8 +67,8 @@ It should not be described as a merely temporary placeholder awaiting legitimacy
 - Treat [aether_flow_primitive_reservoir_observer_reduction_section_centered_hidden_response_observer_relevant_pullback_quadratic_core_collapse_to_observer_relevant_pullback_operator_core_theorem.tex](../manuscripts/active/tex/aether_flow_primitive_reservoir_observer_reduction_section_centered_hidden_response_observer_relevant_pullback_quadratic_core_collapse_to_observer_relevant_pullback_operator_core_theorem.tex) as the preserved handoff into the later pullback-body-operator-core frontier: the current pullback-quadratic-core presentation already collapsed there to a smaller observer-relevant pullback-operator core, so the live burden no longer sat on the separate quadratic-functional and exact-shell presentation itself.
 - Treat [aether_flow_primitive_reservoir_observer_reduction_section_centered_hidden_response_observer_relevant_pullback_operator_core_collapse_to_observer_relevant_pullback_body_operator_core_theorem.tex](../manuscripts/active/tex/aether_flow_primitive_reservoir_observer_reduction_section_centered_hidden_response_observer_relevant_pullback_operator_core_collapse_to_observer_relevant_pullback_body_operator_core_theorem.tex) as the preserved handoff into the later pullback-body-response-core frontier: the current pullback-operator-core presentation already collapsed there to a smaller observer-relevant pullback body-operator core, so the live burden no longer sat on the separate ambient displacement-space presentation itself.
 - Treat [aether_flow_primitive_reservoir_observer_reduction_section_centered_hidden_response_observer_relevant_pullback_body_operator_core_collapse_to_observer_relevant_pullback_body_response_core_theorem.tex](../manuscripts/active/tex/aether_flow_primitive_reservoir_observer_reduction_section_centered_hidden_response_observer_relevant_pullback_body_operator_core_collapse_to_observer_relevant_pullback_body_response_core_theorem.tex) as the preserved handoff into the later body-response-core necessity / uniqueness frontier: the current pullback-body-operator-core presentation already collapsed there to a smaller observer-relevant pullback body-response core, so the separate ambient operator-family presentation no longer counts as the live burden.
-- Treat [aether_flow_primitive_reservoir_observer_reduction_section_centered_hidden_response_observer_relevant_pullback_body_response_core_necessity_uniqueness_theorem.tex](../manuscripts/active/tex/aether_flow_primitive_reservoir_observer_reduction_section_centered_hidden_response_observer_relevant_pullback_body_response_core_necessity_uniqueness_theorem.tex) as the single current `active_primary` row: on the recorded section-centered hidden-response route, the current observer-relevant pullback body-response core is now proved to be the unique minimal benchmark-facing datum up to body-response-faithful equivalence, so another same-core restatement no longer counts as the live burden.
-- The next primary gain should therefore derive or force that current observer-relevant pullback body-response core, or some nontrivial constituent or relation inside it, below the renewed pre-proto-section-package frontier that yields the current primitive observer-reduction chain the continuity-Hessian compressed core and the benchmark one-metric observer package.
+- Treat the file map as intentionally carrying no `active_primary` row until a bounded bridge-object synthesis manuscript, bounded derivation attempt manuscript, or obstruction/no-go manuscript exists; the former source-penalty-kernel relay endpoint is now preserved as historical context rather than live frontier status.
+- The next primary gain should therefore be framed as a bounded answer to the benchmark question rather than as default depth alone: either a bounded derivation attempt, a bounded obstruction or no-go result, or a tightly justified bridge-object compression that materially shortens that test.
 - Another same-output deeper-origin relay that merely preserves the same seed package the same root package the same foundation package the same ground package the same origin package the same precursor package the same lift package the same shell-restriction package the same full proto-germ package the same germ-anchored exact-shell transport core the same germ-anchored exact-shell transport-section core the same proto-section package the same pre-proto-section package the same pre-proto-section minimizer-image core the same pre-proto-section minimizer-section core the same section-centered residual normal form the same section-centered hidden-response package the same observer-relevant pullback-quadratic core the same observer-relevant pullback-operator core the same observer-relevant pullback body-operator core the same observer-relevant pullback body-response core up to body-response-faithful equivalence or a reopening of older screened layers is not the honest default next move.
 - Stronger promotion language remains paused until the remaining derivation-gate burdens beyond same-package observer-side closure are met cleanly.
 
@@ -75,8 +88,9 @@ Use formulations like:
 - The overview-first exact-closure package is the benchmark public theory statement.
 - The repository now has a benchmark exact-relativistic theory statement and an active derivational program.
 - The post-bridge continuity-Hessian closure result settles the same-package observer-side remainder gate on the active completed branch, but a first-principles substrate derivation still remains open.
-- The file map currently carries one live `active_primary` theorem on the primitive-reservoir observer-reduction line at observer-relevant pullback-body-response-core necessity / uniqueness scope inside section-centered hidden-response pre-pre-proto-section dynamics, but benchmark-facing status is governed by the derivation-gates note, the post-bridge status note, the upstream compression theorem, and the current frontier control layer.
-- The current missing bridge burden is the substrate law below the body-response-core necessity / uniqueness frontier that forces the current pullback body-response core itself, or some nontrivial constituent or relation inside it, and thereby forces the current primitive observer-reduction chain yielding the continuity-Hessian compressed core and the benchmark one-metric observer package.
+- The current line has not yet derived the adopted benchmark from explicit substrate structure.
+- The active question is whether the present line can derive the adopted benchmark under the five benchmark derivation gates.
+- Use the file map and Manuscript Wiki to determine whether any bounded-program manuscript currently holds `active_primary`; during reset intervals there may be none, and the old relay endpoint should then be read as historical context only.
 
 ## Claims To Avoid
 

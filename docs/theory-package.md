@@ -6,6 +6,8 @@ This page lists the flagship public-facing package of `The Æther-Flow Interpret
 
 The package is overview-first and exact-closure-first. It remains the main benchmark deliverable of the repository. The derivational manuscript line is now active, but it is still read only after this package because any successful derivation must recover the benchmark fixed here.
 
+GR is adopted exactly in this benchmark package. The current line has not yet derived that benchmark from explicit substrate structure. The downstream research question is whether the present line can derive the adopted benchmark under the five benchmark derivation gates.
+
 If you want a single-entry orientation before the package itself, begin with the [Front-Facing Article](front-facing-article.md).
 
 ## Fixed Public Reading Order
@@ -25,7 +27,7 @@ If you want a single-entry orientation before the package itself, begin with the
 - It presents the active exact relativistic theory statement of the repository.
 - It fixes the public reading order around the overview and the six core manuscripts.
 - It states the interpretation in terms of `Æther`, `Æther-flow`, observed three-dimensional space, and `S-time`.
-- It fixes the exact GR benchmark that the active derivational program is now trying to derive from deeper substrate structure.
+- It fixes the exact GR benchmark that the active derivational program is now testing for derivability from deeper substrate structure.
 - It keeps the package at exact relativistic adoption and exact closure rather than overclaiming a completed substrate derivation.
 
 ## What This Package Does Not Claim

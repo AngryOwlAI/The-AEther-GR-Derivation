@@ -2,7 +2,9 @@
 
 [Home](index.md) | [Start Here](start-here.md) | [Theory Package](theory-package.md) | [Active Research](research-archive.md) | [How to Review](how-to-review.md) | [AI Collaboration and Method](ai-collaboration-and-method.md) | [Front-Facing Article](front-facing-article.md)
 
-If you are arriving fresh, the right entry point is still not the full derivational manuscript tree. It is the overview-first exact-closure package, because that package fixes the relativistic benchmark that the active derivational program is now trying to recover.
+If you are arriving fresh, the right entry point is still not the full derivational manuscript tree. It is the overview-first exact-closure package, because that package fixes the relativistic benchmark that the active derivational program is now testing against deeper substrate structure.
+
+GR is adopted exactly in that benchmark package. The current line has not yet derived that benchmark from explicit substrate structure. The active question is whether the present line can derive the adopted benchmark under the five benchmark derivation gates.
 
 ## Recommended Reading Path
 
@@ -17,7 +19,9 @@ If you are arriving fresh, the right entry point is still not the full derivatio
 - The project is currently presented as `The Æther-Flow Interpretation of Relativity`.
 - The exact-closure package remains the benchmark public theory statement of the repository.
 - The active manuscripts adopt GR exactly as the effective relativistic sector.
-- The repository is now actively trying to derive that same GR sector from deeper `Æther / Æther-flow` structure, but it does not yet claim that this derivation has been completed.
+- The benchmark package is already the active exact-relativistic theory statement of the repository.
+- The current line has not yet derived that benchmark from explicit substrate structure.
+- The active research question is whether the present line can derive the adopted benchmark under the five benchmark derivation gates.
 
 ## Fast Paths By Reader Type
 
