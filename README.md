@@ -1,6 +1,6 @@
 # The Æther-Flow Interpretation of Relativity - GR Derivation
 
-This repository is the active LaTeX workspace for `The Æther-Flow Interpretation of Relativity`. The overview-first exact-closure package is the benchmark theory statement, and GR is adopted there exactly as the operational relativistic sector with ordinary matter coupling. The current line has not yet derived that benchmark from explicit `Æther / Æther-flow` structure. The active research question is whether the present line can derive the adopted benchmark under the five benchmark derivation gates.
+This repository is the active LaTeX workspace for `The Æther-Flow Interpretation of Relativity`. The overview-first exact-closure package is the benchmark theory statement, and GR is adopted there exactly as the operational relativistic sector with ordinary matter coupling. The current frozen primitive-reservoir line now carries the scoped verdict `Not Derived On Current Line` on its frozen bridge object. Any resumed derivational continuation therefore has to begin on a genuinely new line with an explicit observer-localizing law, new primitive variable, or new symmetry principle.
 
 Earlier ontology/background material is preserved in the predecessor repository [The Æther](https://github.com/AngryOwlAI/The-AEther).
 
@@ -16,19 +16,21 @@ The exact-closure package is therefore a positive scientific deliverable in its 
 ## Current State
 
 - Public front door: [aether_flow_exact_closure_sequence_overview.tex](manuscripts/active/tex/aether_flow_exact_closure_sequence_overview.tex)
+- Public orientation article: [aether_flow_exact_closure_flagship_article.tex](manuscripts/active/tex/aether_flow_exact_closure_flagship_article.tex)
 - Fixed benchmark package: [aether_flow_exact_closure_note.tex](manuscripts/active/tex/aether_flow_exact_closure_note.tex), [aether_flow_foundations.tex](manuscripts/active/tex/aether_flow_foundations.tex), [aether_flow_dynamics.tex](manuscripts/active/tex/aether_flow_dynamics.tex), [aether_flow_consistency.tex](manuscripts/active/tex/aether_flow_consistency.tex), [aether_flow_relativistic_recovery.tex](manuscripts/active/tex/aether_flow_relativistic_recovery.tex), and [aether_flow_geometry.tex](manuscripts/active/tex/aether_flow_geometry.tex)
-- Claim boundary: GR is adopted exactly in the benchmark package; the current line has not yet derived that benchmark from explicit substrate structure
+- Claim boundary: GR is adopted exactly in the benchmark package; the current frozen line does not derive that benchmark from explicit substrate structure and now ends in the scoped verdict `Not Derived On Current Line`
 - The benchmark package is a completed exact-closure theory statement at the operational level, not a temporary placeholder
-- Active research question: determine whether the present line can derive the adopted benchmark under the five benchmark derivation gates
+- Immediate main-line move: package, review, and present the benchmark exact-closure package as the flagship result already in hand
+- If derivational work is resumed, the active research question becomes: can a genuinely new line derive the adopted benchmark under the five benchmark derivation gates once it states an explicit observer-localizing law?
 - Post-bridge routing: the same-package observer-side closure burden is no longer the live bottleneck on the active one-metric line; the remaining honest burden is upstream substrate derivation of the benchmark package rather than another package-preserving same-output relay
-- Active file-map state: [aether_flow_bounded_gr_derivation_bridge_object_synthesis.tex](manuscripts/active/tex/aether_flow_bounded_gr_derivation_bridge_object_synthesis.tex) now holds `active_primary` as the bounded bridge-object synthesis manuscript
+- Active file-map state: [aether_flow_current_line_gr_derivation_obstruction_or_no_go.tex](manuscripts/active/tex/aether_flow_current_line_gr_derivation_obstruction_or_no_go.tex) now holds `active_primary` as the bounded obstruction / no-go manuscript; [aether_flow_bounded_gr_derivation_bridge_object_synthesis.tex](manuscripts/active/tex/aether_flow_bounded_gr_derivation_bridge_object_synthesis.tex) remains active supporting context, and [aether_flow_bounded_gr_derivation_attempt_from_explicit_substrate_package_and_primitive_dynamics.tex](manuscripts/active/tex/aether_flow_bounded_gr_derivation_attempt_from_explicit_substrate_package_and_primitive_dynamics.tex) is preserved as the immediate suspension-stage handoff
 - Former relay endpoint: use [docs/manuscript-wiki-workflow.md](docs/manuscript-wiki-workflow.md), [docs/ACTIVE_MANUSCRIPT_FILE_MAP.csv](docs/ACTIVE_MANUSCRIPT_FILE_MAP.csv), [docs/ACTIVE_MANUSCRIPT_FILE_MAP_GUIDE.md](docs/ACTIVE_MANUSCRIPT_FILE_MAP_GUIDE.md), and the local Manuscript Wiki to locate the preserved pre-reset source-penalty-kernel relay endpoint when reconstructing old chain history; it no longer defines the default next move
-- Current derivational outcome framing: valid answers are `Derived`, `Not Derived On Current Line`, or `Suspended Pending New Law`; depth alone is not a research verdict
+- Current derivational outcome framing: valid answers are `Derived`, `Not Derived On Current Line`, or `Suspended Pending New Law`; the current frozen line now sits at `Not Derived On Current Line`, and depth alone is not a research verdict
 - The deeper positive-pair / orbit-shape continuation remains recorded side work unless it changes that primary burden
 
 ## Primary Goal
 
-The primary goal is to keep the benchmark exact-closure theory statement scientifically stable while pursuing a disciplined derivational program that determines whether the current line can derive that adopted GR benchmark from deeper substrate structure. The project goal is not to replace GR by a separate low-energy deformation, and it is not to present unfinished derivational work as already complete.
+The primary goal is to keep the benchmark exact-closure theory statement scientifically stable and to present it clearly as the flagship result already achieved. If derivational work is resumed, it should proceed only as a disciplined new-line program that tests whether the adopted GR benchmark can be derived from deeper substrate structure without changing the benchmark claim boundary prematurely. The project goal is not to replace GR by a separate low-energy deformation, and it is not to present unfinished derivational work as already complete.
 
 ## Start Here
 
