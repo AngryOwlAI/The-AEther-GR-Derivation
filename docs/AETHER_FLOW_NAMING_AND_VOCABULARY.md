@@ -39,23 +39,29 @@ Older repository labels are legacy material and should not appear in active pros
 - Use `Æther` and `Æther-flow` consistently; do not swap in retired labels.
 - Treat Markdown as routing/policy material and the active `.tex` manuscripts as the scientific record.
 
+## Preferred Status Snapshot
+
+When a public-facing document needs a compact project-status block, prefer wording like:
+
+- Benchmark package: the overview-first exact-closure sequence is the flagship result and benchmark public theory statement.
+- Relation to GR: the project currently presents an exact-GR benchmark and interpretive package, not a low-energy modification or replacement of GR.
+- Current-line verdict: the frozen primitive-reservoir line ends in the scoped verdict `Not Derived On Current Line`.
+- Next admissible move: either stop with that scoped no-go and package the benchmark result already in hand, or open a genuinely new line with explicit observer-localizing structure.
+
 ## Current Status Language
 
 At current scope, describe the repository as follows:
 
 - The exact-closure package is the benchmark public theory statement.
 - The exact-closure package is already a positive theory deliverable at the effective level.
-- The current frozen primitive-reservoir line now ends in the scoped verdict `Not Derived On Current Line` on its frozen bridge object.
-- Any resumed derivational work must begin on a genuinely new line with an explicit observer-localizing law, new primitive variable, or new symmetry principle.
 - GR is adopted exactly in the benchmark package.
-- The benchmark package does not claim an independent low-energy non-GR observable sector.
+- The project does not currently claim an independent low-energy non-GR observable sector.
+- The project is not, at current scope, a low-energy modification or replacement of GR.
+- The current frozen primitive-reservoir line ends in the scoped verdict `Not Derived On Current Line`.
+- Any resumed derivational work must begin on a genuinely new line with an explicit observer-localizing law, new primitive variable, or new symmetry principle.
 - A first-principles substrate derivation remains open.
-- After the post-bridge continuity-Hessian closure result, the remaining honest burden is upstream substrate derivation of the benchmark package rather than another same-package observer-side note.
-- The benchmark-facing routing layer is controlled by [aether_flow_exact_closure_derivation_gates_note.tex](../manuscripts/active/tex/aether_flow_exact_closure_derivation_gates_note.tex), [aether_flow_exact_closure_post_bridge_derivation_gate_status_note.tex](../manuscripts/active/tex/aether_flow_exact_closure_post_bridge_derivation_gate_status_note.tex), and [aether_flow_benchmark_one_metric_observer_package_upstream_compression_theorem.tex](../manuscripts/active/tex/aether_flow_benchmark_one_metric_observer_package_upstream_compression_theorem.tex).
-- The file map currently carries [aether_flow_current_line_gr_derivation_obstruction_or_no_go.tex](../manuscripts/active/tex/aether_flow_current_line_gr_derivation_obstruction_or_no_go.tex) as the live `active_primary` bounded obstruction / no-go manuscript, while [aether_flow_bounded_gr_derivation_bridge_object_synthesis.tex](../manuscripts/active/tex/aether_flow_bounded_gr_derivation_bridge_object_synthesis.tex) remains active supporting context that freezes the bridge object under test and [aether_flow_bounded_gr_derivation_attempt_from_explicit_substrate_package_and_primitive_dynamics.tex](../manuscripts/active/tex/aether_flow_bounded_gr_derivation_attempt_from_explicit_substrate_package_and_primitive_dynamics.tex) is preserved as the immediate suspension-stage handoff.
-- Bridge-entry derivations already on record include [aether_flow_primitive_reservoir_line_continuity_hessian_core_derivation_theorem.tex](../manuscripts/active/tex/aether_flow_primitive_reservoir_line_continuity_hessian_core_derivation_theorem.tex), [aether_flow_primitive_reservoir_observer_reduction_datum_origin_theorem.tex](../manuscripts/active/tex/aether_flow_primitive_reservoir_observer_reduction_datum_origin_theorem.tex), [aether_flow_primitive_reservoir_observer_sector_defect_fiber_factorization_theorem.tex](../manuscripts/active/tex/aether_flow_primitive_reservoir_observer_sector_defect_fiber_factorization_theorem.tex), [aether_flow_primitive_reservoir_one_metric_ordinary_matter_output_map_theorem.tex](../manuscripts/active/tex/aether_flow_primitive_reservoir_one_metric_ordinary_matter_output_map_theorem.tex), and the later chain-forcing / selector / stationary / explicit-package theorems.
-- The current missing ingredient is an explicit observer-localizing substrate law that would force the primitive observer-reduction bridge object to yield observer spacetime fields, the operative metric, and Einsteinian / relativistic recovery as genuine local output rather than preserved package data. See [GR_DERIVATION_AUDIT_PACKAGE.md](GR_DERIVATION_AUDIT_PACKAGE.md).
-- Another same-output deeper-origin relay that preserves that compressed core is benchmark-neutral at current scope.
+- The remaining honest burden is upstream substrate derivation of the benchmark package rather than another same-package or same-output relay below the frozen bridge object.
+- Another same-output deeper-origin relay that preserves the current benchmark-facing compressed core is benchmark-neutral at current scope.
 - The deeper positive-pair / orbit-shape continuation remains recorded side work unless it changes the primary burden.
 
 ## Preferred Phrasing
@@ -66,6 +72,7 @@ Use wording such as:
 - the scoped no-go on the frozen bridge object
 - the active derivational program
 - the remaining honest burden is upstream substrate derivation of the benchmark package
+- the project is not currently a low-energy modification or replacement of GR
 - observed three-dimensional space as a local experiential slice
 - exact relativistic adoption
 - first-principles derivation remains open

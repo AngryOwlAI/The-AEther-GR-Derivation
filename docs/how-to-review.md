@@ -4,7 +4,12 @@
 
 This page is for physicists, mathematicians, and technically trained readers who want to audit the repository honestly and efficiently.
 
-GR is adopted exactly in the benchmark package. The current line has not yet derived that benchmark from explicit substrate structure. The active downstream question is whether the present line can derive the adopted benchmark under the five benchmark derivation gates.
+## Status Snapshot
+
+- Benchmark package: the overview-first exact-closure sequence is the flagship result and the public claim to audit first.
+- Relation to GR: the repository currently presents an exact-GR benchmark package, not a low-energy modification or replacement of GR.
+- Current-line verdict: the frozen primitive-reservoir line ends in the scoped verdict `Not Derived On Current Line`.
+- Next admissible move: if derivational work is resumed, the live downstream question is whether a genuinely new line can derive the adopted benchmark under the five benchmark derivation gates.
 
 ## Best Review Entry Point
 
@@ -14,18 +19,20 @@ That order matters because the benchmark package, not the derivational manuscrip
 
 ## Core Audits Requested
 
+- Benchmark-package audit: is the overview-first exact-closure package coherent, readable, and honest about what it establishes and what it does not establish?
 - Claim-boundary audit: does the public presentation keep exact relativistic adoption distinct from first-principles derivation?
-- Equation audit: do the package manuscripts say exactly what they claim to establish, no more and no less?
+- No-go audit: is the scoped `Not Derived On Current Line` framing on the frozen bridge object justified by the bounded obstruction manuscript and the routing layer?
+- New-line audit: if a future derivational proposal is made, does it add genuinely new observer-localizing structure rather than another same-output deeper relay?
 - Consistency audit: are the package definitions, symbols, and roles aligned across the overview and six core manuscripts?
 - Novelty and literature-position audit: where does the package genuinely differ from standard interpretive or effective-field presentations, and where does it need sharper positioning?
-- Derivation-program audit: does the active downstream research line stay clear that GR is already adopted in the benchmark package while the open question is whether the present line can derive that adopted benchmark under the five benchmark derivation gates?
+- Derivation-program audit: does the downstream research line stay clear that GR is already adopted in the benchmark package, that the current frozen line ends in a scoped no-go, and that any resumed derivational work has to open a genuinely new line rather than merely continue the same frozen bridge object?
 
 ## Suggested Reviewer Path
 
 1. Read the overview and exact-closure note first.
 2. Read the companion manuscript most relevant to your expertise.
 3. Use the [claim-boundary note](AETHER_FLOW_CLAIM_BOUNDARY.md) as a check against overstatement.
-4. Only after that, enter the [Active Research](research-archive.md) page if you want the broader derivational context and the current live target.
+4. Only after that, enter the [Active Research](research-archive.md) page if you want the broader derivational context, the current bounded verdict, and the restart burden for any genuinely new line.
 
 ## Particularly Useful Feedback
 
@@ -43,4 +50,4 @@ That order matters because the benchmark package, not the derivational manuscrip
 
 ## Public Feedback Target
 
-The most useful public review at this stage is not a general endorsement or dismissal. It is a disciplined audit of whether the overview-first exact-closure package is readable, internally coherent, and honest about its open burdens, and whether the active derivational line is pursuing that benchmark without overclaiming success.
+The most useful public review at this stage is not a general endorsement or dismissal. It is a disciplined audit of whether the overview-first exact-closure package is readable, internally coherent, and honest about its open burdens, and whether any future derivational restart is framed honestly rather than as another same-output continuation of the frozen line.

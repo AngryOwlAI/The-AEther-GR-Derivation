@@ -1,36 +1,40 @@
-# The Æther-Flow Interpretation of Relativity - GR Derivation
+# The Æther-Flow Interpretation of Relativity
 
-This repository is the active LaTeX workspace for `The Æther-Flow Interpretation of Relativity`. The overview-first exact-closure package is the benchmark theory statement, and GR is adopted there exactly as the operational relativistic sector with ordinary matter coupling. The current frozen primitive-reservoir line now carries the scoped verdict `Not Derived On Current Line` on its frozen bridge object. Any resumed derivational continuation therefore has to begin on a genuinely new line with an explicit observer-localizing law, new primitive variable, or new symmetry principle.
+## Exact-GR Benchmark and Substrate Research Program
+
+This repository is the active LaTeX workspace for `The Æther-Flow Interpretation of Relativity`. The overview-first exact-closure package is the flagship scientific result already in hand: it adopts GR exactly as the operational relativistic sector with ordinary matter coupling, and it serves as the benchmark theory statement for the repository. The downstream substrate program is now separate in role: it asks whether a genuinely new line can derive that benchmark without changing the benchmark claim boundary prematurely.
 
 Earlier ontology/background material is preserved in the predecessor repository [The Æther](https://github.com/AngryOwlAI/The-AEther).
 
+## Status Snapshot
+
+- Benchmark package: the overview-first exact-closure sequence is the flagship result and the public front door.
+- Relation to GR: the repository currently presents an exact-GR benchmark and interpretive package, not a low-energy modification or replacement of GR.
+- Current-line verdict: the frozen primitive-reservoir bounded line ends in the scoped verdict `Not Derived On Current Line`.
+- Next admissible move: either stop with that scoped no-go and package the benchmark result already in hand, or open a genuinely new line with an explicit observer-localizing law, new primitive variable, or new symmetry principle.
+
 ## Project Intent
 
-The project is not merely an ontology archive waiting for its first disciplined theory statement. Its intent is twofold:
+The project is not merely an ontology archive waiting for legitimacy from a future derivation. Its active intent is twofold:
 
-- to preserve the `Æther / Æther-flow` ontology in rigorous form
-- to state and maintain `The Æther-Flow Interpretation of Relativity` as an exact relativistic theory at the effective level
+- preserve the `Æther / Æther-flow` ontology in rigorous form
+- state and maintain `The Æther-Flow Interpretation of Relativity` as an exact relativistic theory at the effective level
 
-The exact-closure package is therefore a positive scientific deliverable in its own right, while the deeper derivational line remains active foundational work downstream of that benchmark.
+The benchmark package is therefore a positive scientific deliverable in its own right, while any resumed derivational line remains downstream foundational work answerable to that benchmark.
 
 ## Current State
 
 - Public front door: [aether_flow_exact_closure_sequence_overview.tex](manuscripts/active/tex/aether_flow_exact_closure_sequence_overview.tex)
 - Public orientation article: [aether_flow_exact_closure_flagship_article.tex](manuscripts/active/tex/aether_flow_exact_closure_flagship_article.tex)
 - Fixed benchmark package: [aether_flow_exact_closure_note.tex](manuscripts/active/tex/aether_flow_exact_closure_note.tex), [aether_flow_foundations.tex](manuscripts/active/tex/aether_flow_foundations.tex), [aether_flow_dynamics.tex](manuscripts/active/tex/aether_flow_dynamics.tex), [aether_flow_consistency.tex](manuscripts/active/tex/aether_flow_consistency.tex), [aether_flow_relativistic_recovery.tex](manuscripts/active/tex/aether_flow_relativistic_recovery.tex), and [aether_flow_geometry.tex](manuscripts/active/tex/aether_flow_geometry.tex)
-- Claim boundary: GR is adopted exactly in the benchmark package; the current frozen line does not derive that benchmark from explicit substrate structure and now ends in the scoped verdict `Not Derived On Current Line`
-- The benchmark package is a completed exact-closure theory statement at the operational level, not a temporary placeholder
-- Immediate main-line move: package, review, and present the benchmark exact-closure package as the flagship result already in hand
-- If derivational work is resumed, the active research question becomes: can a genuinely new line derive the adopted benchmark under the five benchmark derivation gates once it states an explicit observer-localizing law?
-- Post-bridge routing: the same-package observer-side closure burden is no longer the live bottleneck on the active one-metric line; the remaining honest burden is upstream substrate derivation of the benchmark package rather than another package-preserving same-output relay
-- Active file-map state: [aether_flow_current_line_gr_derivation_obstruction_or_no_go.tex](manuscripts/active/tex/aether_flow_current_line_gr_derivation_obstruction_or_no_go.tex) now holds `active_primary` as the bounded obstruction / no-go manuscript; [aether_flow_bounded_gr_derivation_bridge_object_synthesis.tex](manuscripts/active/tex/aether_flow_bounded_gr_derivation_bridge_object_synthesis.tex) remains active supporting context, and [aether_flow_bounded_gr_derivation_attempt_from_explicit_substrate_package_and_primitive_dynamics.tex](manuscripts/active/tex/aether_flow_bounded_gr_derivation_attempt_from_explicit_substrate_package_and_primitive_dynamics.tex) is preserved as the immediate suspension-stage handoff
-- Former relay endpoint: use [docs/manuscript-wiki-workflow.md](docs/manuscript-wiki-workflow.md), [docs/ACTIVE_MANUSCRIPT_FILE_MAP.csv](docs/ACTIVE_MANUSCRIPT_FILE_MAP.csv), [docs/ACTIVE_MANUSCRIPT_FILE_MAP_GUIDE.md](docs/ACTIVE_MANUSCRIPT_FILE_MAP_GUIDE.md), and the local Manuscript Wiki to locate the preserved pre-reset source-penalty-kernel relay endpoint when reconstructing old chain history; it no longer defines the default next move
-- Current derivational outcome framing: valid answers are `Derived`, `Not Derived On Current Line`, or `Suspended Pending New Law`; the current frozen line now sits at `Not Derived On Current Line`, and depth alone is not a research verdict
-- The deeper positive-pair / orbit-shape continuation remains recorded side work unless it changes that primary burden
+- Benchmark gatekeeping: [aether_flow_exact_closure_derivation_gates_note.tex](manuscripts/active/tex/aether_flow_exact_closure_derivation_gates_note.tex), [aether_flow_exact_closure_post_bridge_derivation_gate_status_note.tex](manuscripts/active/tex/aether_flow_exact_closure_post_bridge_derivation_gate_status_note.tex), and [aether_flow_benchmark_one_metric_observer_package_upstream_compression_theorem.tex](manuscripts/active/tex/aether_flow_benchmark_one_metric_observer_package_upstream_compression_theorem.tex)
+- Live bounded verdict: [aether_flow_current_line_gr_derivation_obstruction_or_no_go.tex](manuscripts/active/tex/aether_flow_current_line_gr_derivation_obstruction_or_no_go.tex) holds `active_primary`; [aether_flow_bounded_gr_derivation_bridge_object_synthesis.tex](manuscripts/active/tex/aether_flow_bounded_gr_derivation_bridge_object_synthesis.tex) remains active supporting context; [aether_flow_bounded_gr_derivation_attempt_from_explicit_substrate_package_and_primitive_dynamics.tex](manuscripts/active/tex/aether_flow_bounded_gr_derivation_attempt_from_explicit_substrate_package_and_primitive_dynamics.tex) is preserved as the immediate suspension-stage handoff
+- Historical same-output deeper-relay material remains preserved, but it no longer defines the default next move
+- The deeper positive-pair / orbit-shape continuation remains recorded side work unless it changes the benchmark-facing burden
 
 ## Primary Goal
 
-The primary goal is to keep the benchmark exact-closure theory statement scientifically stable and to present it clearly as the flagship result already achieved. If derivational work is resumed, it should proceed only as a disciplined new-line program that tests whether the adopted GR benchmark can be derived from deeper substrate structure without changing the benchmark claim boundary prematurely. The project goal is not to replace GR by a separate low-energy deformation, and it is not to present unfinished derivational work as already complete.
+The primary goal is to keep the benchmark exact-closure theory statement scientifically stable and to present it clearly as the flagship result already achieved. If derivational work is resumed, it should proceed only as a disciplined new-line program testing whether the adopted GR benchmark can be derived from deeper substrate structure. The project goal is not to rebrand unfinished derivational work as success, and it is not to turn the current repository into a low-energy non-GR gravity project.
 
 ## Start Here
 
@@ -58,13 +62,12 @@ The primary goal is to keep the benchmark exact-closure theory statement scienti
 - Keep [RESEARCH_PLAN.md](RESEARCH_PLAN.md) active and tracked as a live control document.
 - Retire completed one-off implementation-planning Markdown into the local ignored archive at `docs/_archived_plans/` instead of leaving it in the active tracked docs surface.
 - After adding, removing, or renaming an active manuscript, keep [docs/ACTIVE_MANUSCRIPT_FILE_MAP.csv](docs/ACTIVE_MANUSCRIPT_FILE_MAP.csv) in sync and run `python3 scripts/validate_active_manuscript_file_map.py`.
-- `scripts/build_aether_pdf.sh` now runs the active manuscript file-map validation automatically after builds from `manuscripts/active/tex/`, and it can sync rebuilt PDFs into the local Manuscript Wiki.
+- `scripts/build_aether_pdf.sh` runs the active manuscript file-map validation automatically after builds from `manuscripts/active/tex/`, and it can sync rebuilt PDFs into the local Manuscript Wiki.
 
 ## Manuscript Wiki
 
-The local Obsidian Manuscript Wiki is now part of the supported day-to-day workflow. Use [docs/manuscript-wiki-workflow.md](docs/manuscript-wiki-workflow.md) for the build, sync, lint, and authority-order commands. Use the wiki and file map as the retrieval layer before broad repository search, and use the active `.tex` manuscripts as the scientific authority.
-Phase 6 also supports a separate supplemental external-reference library under the local vault without mixing that literature into the project-routing surfaces.
+The local Obsidian Manuscript Wiki is part of the supported day-to-day workflow. Use [docs/manuscript-wiki-workflow.md](docs/manuscript-wiki-workflow.md) for the build, sync, lint, and authority-order commands. Use the wiki and the file map as the retrieval layer before broad repository search, and use the active `.tex` manuscripts as the scientific authority. Phase 6 also supports a separate supplemental external-reference library under the local vault without mixing that literature into the project-routing surfaces.
 
 ## Context Economy
 
-The Markdown layer is now intentionally short. For scientific detail, read the relevant active `.tex` manuscript directly instead of treating repository documentation as a narrative archive.
+The Markdown layer is intentionally compact. For scientific detail, read the relevant active `.tex` manuscript directly instead of treating repository documentation as a narrative archive.

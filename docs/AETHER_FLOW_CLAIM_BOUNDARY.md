@@ -27,6 +27,7 @@ and [aether_flow_geometry.tex](../manuscripts/active/tex/aether_flow_geometry.te
 ## Current Status Formula
 
 - GR is adopted exactly in the benchmark exact-closure package.
+- At current scope, the project is not a low-energy modification or replacement of GR.
 - The current frozen primitive-reservoir line has now received the bounded verdict `Not Derived On Current Line`.
 - The active routing question is whether work should stop with that scoped no-go or restart on a genuinely new line by adding a new observer-localizing substrate law, new primitive variable, or new symmetry principle.
 
@@ -39,6 +40,12 @@ The exact-closure package is already a positive scientific deliverable. It shoul
 - the automatic reversion point if a later bridge candidate fails
 
 It should not be described as a merely temporary placeholder awaiting legitimacy from a future derivation.
+
+The front-door packaging rule is also fixed:
+
+- the overview-first exact-closure package is the canonical scientific front door
+- the flagship public article is a release-facing synthesis built on that ordered core
+- the flagship public article does not replace the overview or reorder the benchmark package
 
 ## Retrieval Rule
 
@@ -87,10 +94,12 @@ Use formulations like:
 
 - GR is adopted exactly within `The Æther-Flow Interpretation of Relativity`.
 - The overview-first exact-closure package is the benchmark public theory statement.
+- The flagship public article is a release-facing synthesis of that benchmark package rather than a replacement front door.
 - The repository now has a benchmark exact-relativistic theory statement and an active derivational program.
+- The project is not currently a low-energy modification or replacement of GR.
 - The post-bridge continuity-Hessian closure result settles the same-package observer-side remainder gate on the active completed branch, but a first-principles substrate derivation still remains open.
-- The current line has not yet derived the adopted benchmark from explicit substrate structure.
-- The active question is whether the present line can derive the adopted benchmark under the five benchmark derivation gates.
+- The current frozen line does not derive the adopted benchmark from explicit substrate structure and now ends in the scoped verdict `Not Derived On Current Line`.
+- If derivational work is resumed, the active question is whether a genuinely new line can derive the adopted benchmark under the five benchmark derivation gates.
 - Use the file map and Manuscript Wiki to determine whether any bounded-program manuscript currently holds `active_primary`; during reset intervals there may be none, and the old relay endpoint should then be read as historical context only.
 
 ## Claims To Avoid

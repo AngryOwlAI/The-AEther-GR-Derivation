@@ -4,9 +4,14 @@
 
 This page lists the flagship public-facing package of `The Æther-Flow Interpretation of Relativity`.
 
-The package is overview-first and exact-closure-first. It remains the main benchmark deliverable of the repository. The derivational manuscript line is now active, but it is still read only after this package because any successful derivation must recover the benchmark fixed here.
+The package is overview-first and exact-closure-first. It remains the main benchmark deliverable of the repository. The derivational manuscript line is read only after this package because any successful derivation must recover the benchmark fixed here.
 
-GR is adopted exactly in this benchmark package. The current line has not yet derived that benchmark from explicit substrate structure. The downstream research question is whether the present line can derive the adopted benchmark under the five benchmark derivation gates.
+## Status Snapshot
+
+- Benchmark package: this overview-first sequence is the flagship result already in hand.
+- Relation to GR: the package adopts GR exactly at observable scale and is not a low-energy modification or replacement program.
+- Current-line verdict: the frozen primitive-reservoir line ends in the scoped verdict `Not Derived On Current Line`.
+- Next admissible move: any resumed derivational work must begin on a genuinely new line that states explicit observer-localizing structure clearly enough to test the five benchmark derivation gates.
 
 If you want a single-entry orientation before the package itself, begin with the [Front-Facing Article](front-facing-article.md).
 
@@ -27,12 +32,14 @@ If you want a single-entry orientation before the package itself, begin with the
 - It presents the active exact relativistic theory statement of the repository.
 - It fixes the public reading order around the overview and the six core manuscripts.
 - It states the interpretation in terms of `Æther`, `Æther-flow`, observed three-dimensional space, and `S-time`.
-- It fixes the exact GR benchmark that the active derivational program is now testing for derivability from deeper substrate structure.
+- It fixes the exact GR benchmark that any later derivational program must answer to.
 - It keeps the package at exact relativistic adoption and exact closure rather than overclaiming a completed substrate derivation.
 
 ## What This Package Does Not Claim
 
 - It does not claim that GR has already been derived from substrate microphysics.
+- It does not claim a surviving low-energy non-GR gravitational sector.
+- It does not re-scope the repository as a low-energy replacement for GR.
 - It does not treat ontology alone as a completed low-energy physical derivation.
 - It does not require readers to accept the downstream bridge archive before understanding the current theory statement.
 
@@ -42,4 +49,4 @@ If you want a single-entry orientation before the package itself, begin with the
 - The first curated release bundle contains the front-facing article, the overview, and the six core exact-closure manuscripts.
 - The larger root archive remains in the repository, but it is intentionally not surfaced here on equal footing with the flagship benchmark package.
 
-If you want the live derivational continuation after finishing this package, continue to [Active Research](research-archive.md).
+If you want the current derivational status and restart conditions after finishing this package, continue to [Active Research](research-archive.md).

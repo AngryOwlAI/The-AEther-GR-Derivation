@@ -14,7 +14,7 @@ That framing encourages recursive depth drift, because any deeper same-output re
 
 The repository should instead frame the objective as:
 
-- `determine whether the current line can derive GR under the recorded benchmark derivation gates`
+- `determine whether the line under test can derive GR under the recorded benchmark derivation gates`
 
 ## Fixed Benchmark
 
@@ -26,6 +26,8 @@ The benchmark remains:
 - the benchmark package is already a positive scientific deliverable
 - the derivational line is downstream of that benchmark rather than a replacement for it
 
+Since April 14, 2026, the frozen current primitive-reservoir line has already received the scoped verdict `Not Derived On Current Line`. The reset question below therefore no longer governs whether the frozen current line should keep descending by same-output relay. It governs any resumed genuinely new line only.
+
 See also:
 
 - [AETHER_FLOW_CLAIM_BOUNDARY.md](AETHER_FLOW_CLAIM_BOUNDARY.md)
@@ -34,11 +36,11 @@ See also:
 
 ## New Top-Level Research Question
 
-The active question of the repository is:
+If derivational work is resumed, the active question of the repository is:
 
-- `Can the current line derive the adopted GR benchmark from explicit substrate structure under the five benchmark derivation gates?`
+- `Can a genuinely new line derive the adopted GR benchmark from explicit substrate structure under the five benchmark derivation gates?`
 
-This is the question that should govern:
+This is the question that should govern any resumed line:
 
 - manuscript priority
 - frontier promotion
@@ -50,15 +52,17 @@ This is the question that should govern:
 The repository should treat the following outcomes as equally legitimate.
 
 1. `Derived`
-   The current line discharges the benchmark derivation gates and derives the adopted GR benchmark.
+   The line under test discharges the benchmark derivation gates and derives the adopted GR benchmark.
 
 2. `Not Derived On Current Line`
-   The current line does not derive the adopted GR benchmark as presently formulated.
+   The line under test does not derive the adopted GR benchmark as presently formulated.
 
 3. `Suspended Pending New Law`
-   The exact-closure benchmark remains in force, but the current line cannot be advanced honestly without a qualitatively new substrate law, variable, or structural assumption.
+   The exact-closure benchmark remains in force, but the line under test cannot be advanced honestly without a qualitatively new substrate law, variable, or structural assumption.
 
 These are all valid research endpoints.
+
+At current repository scope, the frozen current line already sits at outcome (2).
 
 ## Invalid Default Outcome
 
@@ -74,7 +78,7 @@ Another same-output deeper-origin relay is not, by itself, a research verdict.
 
 When an agent is working on the derivational line, its objective should be interpreted as:
 
-- `decide whether the current line can derive the adopted benchmark`
+- `decide whether the line under test can derive the adopted benchmark`
 
 not as:
 
@@ -89,7 +93,7 @@ A new main-line manuscript should count as progress only if it does at least one
 - directly advances a bounded derivation attempt
 - proves a bounded obstruction or no-go result
 - sharply reduces the primitive assumptions needed for that bounded attempt
-- forces a clear yes/no/conditional verdict on the current line
+- forces a clear yes/no/conditional verdict on the line under test
 
 If it does none of those, it should not be treated as the default next answer to the GR question.
 
@@ -98,8 +102,8 @@ If it does none of those, it should not be treated as the default next answer to
 When the repository summarizes its status, it should use this three-part formula:
 
 - GR is adopted exactly in the benchmark package.
-- The current line has not yet derived that benchmark from explicit substrate structure.
-- The active question is whether the present line can derive that adopted benchmark under the five benchmark derivation gates.
+- The current frozen line now ends in the scoped verdict `Not Derived On Current Line`.
+- If derivational work is resumed, the active question becomes whether a genuinely new line can derive that adopted benchmark under the five benchmark derivation gates.
 
 ## Conclusion
 
@@ -110,5 +114,4 @@ It does not weaken the benchmark package, and it does not declare the derivation
 It simply makes the research question scientifically honest:
 
 - the job is not to keep going deeper
-- the job is to determine whether the current line can, or cannot, derive the adopted GR benchmark
-
+- the job is to determine whether the line under test can, or cannot, derive the adopted GR benchmark

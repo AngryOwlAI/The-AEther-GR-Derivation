@@ -2,36 +2,51 @@
 
 [Home](index.md) | [Start Here](start-here.md) | [Theory Package](theory-package.md) | [Active Research](research-archive.md) | [How to Review](how-to-review.md) | [AI Collaboration and Method](ai-collaboration-and-method.md) | [Front-Facing Article](front-facing-article.md)
 
-This page is intentionally compact. It tracks the live derivational objective of `The Æther-Flow Interpretation of Relativity` without repeating the full manuscript-by-manuscript archive narrative.
+This page is intentionally compact. It tracks the current bounded-program status and any future derivational restart burden of `The Æther-Flow Interpretation of Relativity` without repeating the full manuscript-by-manuscript archive narrative.
 
 ## Reading Rule
 
 Read the [Theory Package](theory-package.md) first. The active derivational program is answerable to that benchmark package.
 
-## Role of This Page
+## Status Snapshot
 
-This page documents active foundational work downstream of a benchmark exact-closure theory statement that already stands on its own at the effective level. It should not be read as if the repository still lacks a disciplined theory statement until the derivational line is finished.
+- Benchmark package: the overview-first exact-closure sequence remains the flagship result already in hand.
+- Relation to GR: the active project is an exact-GR benchmark and interpretive package plus an open foundational derivation program, not a current low-energy replacement of GR.
+- Current-line verdict: the frozen primitive-reservoir bounded line ends in `Not Derived On Current Line`.
+- Next admissible move: either stop with that scoped no-go and package the benchmark result, or open a genuinely new line with explicit observer-localizing structure.
 
-## Current Benchmark-Facing Line
+## What the Frozen Line Achieved
 
-The active benchmark-facing line currently has six compact stages:
+The frozen bounded program should now be read as a compact chain with a bounded end state:
 
-1. Benchmark target fixing in [aether_flow_exact_closure_derivation_gates_note.tex](../manuscripts/active/tex/aether_flow_exact_closure_derivation_gates_note.tex) together with the overview-first exact-closure package.
-2. Post-bridge rerouting in [aether_flow_exact_closure_post_bridge_derivation_gate_status_note.tex](../manuscripts/active/tex/aether_flow_exact_closure_post_bridge_derivation_gate_status_note.tex): on the active completed branch, the same-package observer-side remainder gate is no longer the live bottleneck, so the remaining honest burden shifts upstream to substrate derivation of the benchmark package itself.
-3. Benchmark-facing compression and minimal-core sharpening in [aether_flow_benchmark_one_metric_observer_package_upstream_compression_theorem.tex](../manuscripts/active/tex/aether_flow_benchmark_one_metric_observer_package_upstream_compression_theorem.tex), [aether_flow_primitive_reservoir_line_continuity_hessian_core_necessity_uniqueness_theorem.tex](../manuscripts/active/tex/aether_flow_primitive_reservoir_line_continuity_hessian_core_necessity_uniqueness_theorem.tex), and [aether_flow_primitive_reservoir_line_continuity_hessian_core_derivation_theorem.tex](../manuscripts/active/tex/aether_flow_primitive_reservoir_line_continuity_hessian_core_derivation_theorem.tex).
-4. Primitive-reservoir bridge-entry derivations through datum origin, defect-fiber factorization, one-metric and ordinary-matter output recovery, chain forcing, selector existence / uniqueness, stationary-substrate construction, and the explicit substrate package forcing result in [aether_flow_primitive_reservoir_observer_reduction_explicit_substrate_package_necessity_uniqueness_from_primitive_dynamics_theorem.tex](../manuscripts/active/tex/aether_flow_primitive_reservoir_observer_reduction_explicit_substrate_package_necessity_uniqueness_from_primitive_dynamics_theorem.tex).
-5. Bridge-object sharpening below the explicit substrate package: the primitive reversible constrained substrate-dynamics normal form is forced in [aether_flow_primitive_reservoir_observer_reduction_primitive_reversible_constrained_dynamics_necessity_uniqueness_from_ambient_shell_law_theorem.tex](../manuscripts/active/tex/aether_flow_primitive_reservoir_observer_reduction_primitive_reversible_constrained_dynamics_necessity_uniqueness_from_ambient_shell_law_theorem.tex), later same-output graph/combined-response layers collapse to the minimal zero-response affine completion core, and the larger primitive-dynamics presentation is compressed further to a smaller exact-shell affine nucleus in [aether_flow_primitive_reservoir_observer_reduction_primitive_reversible_constrained_dynamics_collapse_to_minimal_exact_shell_affine_nucleus_theorem.tex](../manuscripts/active/tex/aether_flow_primitive_reservoir_observer_reduction_primitive_reversible_constrained_dynamics_collapse_to_minimal_exact_shell_affine_nucleus_theorem.tex).
-6. The current live frontier: the exact-shell-transport-section-generating substrate proto-section package is now itself derived canonically from deeper proto-section-generating substrate pre-proto-section dynamics in [aether_flow_primitive_reservoir_observer_reduction_exact_shell_transport_section_generating_substrate_proto_section_dynamics_from_proto_section_generating_substrate_pre_proto_section_dynamics_theorem.tex](../manuscripts/active/tex/aether_flow_primitive_reservoir_observer_reduction_exact_shell_transport_section_generating_substrate_proto_section_dynamics_from_proto_section_generating_substrate_pre_proto_section_dynamics_theorem.tex). At current scope, restating the proto-section package, restating the already-generated germ-anchored exact-shell transport-section core, or adding another same-output deeper relay that leaves the current pre-proto-section package unchanged no longer counts as the honest next benchmark-facing move.
+1. [aether_flow_exact_closure_derivation_gates_note.tex](../manuscripts/active/tex/aether_flow_exact_closure_derivation_gates_note.tex) fixes the five benchmark derivation gates.
+2. [aether_flow_exact_closure_post_bridge_derivation_gate_status_note.tex](../manuscripts/active/tex/aether_flow_exact_closure_post_bridge_derivation_gate_status_note.tex) records that the same-package observer-side remainder gate is no longer the live bottleneck on the active one-metric line.
+3. [aether_flow_benchmark_one_metric_observer_package_upstream_compression_theorem.tex](../manuscripts/active/tex/aether_flow_benchmark_one_metric_observer_package_upstream_compression_theorem.tex) and the bridge-entry primitive-reservoir theorems show that another deeper same-output relay preserving the same compressed core is benchmark-neutral.
+4. [aether_flow_bounded_gr_derivation_bridge_object_synthesis.tex](../manuscripts/active/tex/aether_flow_bounded_gr_derivation_bridge_object_synthesis.tex) freezes the bridge object under test.
+5. [aether_flow_bounded_gr_derivation_attempt_from_explicit_substrate_package_and_primitive_dynamics.tex](../manuscripts/active/tex/aether_flow_bounded_gr_derivation_attempt_from_explicit_substrate_package_and_primitive_dynamics.tex) records the immediate verdict `Suspended Pending New Law`.
+6. [aether_flow_current_line_gr_derivation_obstruction_or_no_go.tex](../manuscripts/active/tex/aether_flow_current_line_gr_derivation_obstruction_or_no_go.tex) upgrades that frozen line to `Not Derived On Current Line`.
 
-## Current Primary Burden
+## Why the Current Line Is Scoped as `Not Derived On Current Line`
 
-The next primary manuscript should now act one level below the current pre-proto-section frontier. It should:
+The current-line obstruction note is not just a reminder that more work could be done somewhere. Its point is narrower and stronger:
 
-- first try to derive or justify the proto-section-generating substrate pre-proto-section dynamics package itself from still more primitive explicit substrate structure in a way that changes benchmark-facing status
-- or, if that cannot be done cleanly, prove a genuinely smaller theorem-level collapse or a sharper necessity / uniqueness result strictly inside the current pre-proto-section package while preserving the same benchmark one-metric package and claim boundary
-- and not default to restating the proto-section package, restating the already-generated section core, or inserting another same-output deeper relay that merely preserves the same current pre-proto-section package, because none of those now changes benchmark-facing status
+- the frozen bridge object preserves real shell, selector, defect, readout, and one-metric output structure
+- the frozen bridge object does not supply an observer-localizing law from explicit substrate variables to local observer spacetime fields
+- the frozen bridge object does not derive a local operative metric law, local curvature law, or local null / proper-time / redshift structure as new output
+- because those missing ingredients are not internally supplied on the frozen line, another deeper same-output relay below the same bridge object no longer counts as the honest next benchmark-facing move
 
-Until that happens, the claim boundary remains fixed: one operative metric, unchanged ordinary matter route, no second operative metric, no enlarged matter law, and no stronger first-principles promotion language.
+## What a Genuinely New Line Must Add
+
+Any later promoted derivational line must add something the frozen line does not already contain. At minimum, it must specify:
+
+- an explicit observer-localizing law, new primitive variable, or new symmetry principle
+- a local map from substrate variables to observer spacetime fields
+- a local account of how the single operative metric is generated
+- a route from that same local structure to Einsteinian observer dynamics
+- a route to null structure, proper time, and redshift through that same operative metric
+- a bounded yes / no / conditional verdict rather than another depth-only relay
+
+Until that happens, the benchmark claim boundary remains fixed: one operative metric, unchanged ordinary matter route, no second operative metric, no enlarged matter law, and no stronger first-principles promotion language.
 
 ## Side Continuation
 
@@ -48,9 +63,9 @@ Representative side-line entry points:
 - [Benchmark derivation-gates PDF](../manuscripts/active/pdf/aether_flow_exact_closure_derivation_gates_note.pdf)
 - [Post-bridge derivation-gate status PDF](../manuscripts/active/pdf/aether_flow_exact_closure_post_bridge_derivation_gate_status_note.pdf)
 - [Upstream compression theorem PDF](../manuscripts/active/pdf/aether_flow_benchmark_one_metric_observer_package_upstream_compression_theorem.pdf)
-- [Continuity-Hessian core derivation PDF](../manuscripts/active/pdf/aether_flow_primitive_reservoir_line_continuity_hessian_core_derivation_theorem.pdf)
-- [Explicit substrate package forcing PDF](../manuscripts/active/pdf/aether_flow_primitive_reservoir_observer_reduction_explicit_substrate_package_necessity_uniqueness_from_primitive_dynamics_theorem.pdf)
-- [Proto-section-from-pre-proto-section frontier PDF](../manuscripts/active/pdf/aether_flow_primitive_reservoir_observer_reduction_exact_shell_transport_section_generating_substrate_proto_section_dynamics_from_proto_section_generating_substrate_pre_proto_section_dynamics_theorem.pdf)
+- [Bounded bridge-object synthesis PDF](../manuscripts/active/pdf/aether_flow_bounded_gr_derivation_bridge_object_synthesis.pdf)
+- [Bounded derivation attempt PDF](../manuscripts/active/pdf/aether_flow_bounded_gr_derivation_attempt_from_explicit_substrate_package_and_primitive_dynamics.pdf)
+- [Current-line obstruction / no-go PDF](../manuscripts/active/pdf/aether_flow_current_line_gr_derivation_obstruction_or_no_go.pdf)
 - [Research plan](../RESEARCH_PLAN.md)
 
 ## Archive Principle
