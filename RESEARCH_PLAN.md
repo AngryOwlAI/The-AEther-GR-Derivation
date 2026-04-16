@@ -21,6 +21,8 @@ This file is intentionally short. It tracks the live control surface for `The Æ
   [aether_flow_consistency.tex](manuscripts/active/tex/aether_flow_consistency.tex),
   [aether_flow_relativistic_recovery.tex](manuscripts/active/tex/aether_flow_relativistic_recovery.tex),
   and [aether_flow_geometry.tex](manuscripts/active/tex/aether_flow_geometry.tex).
+- Keep the publication split explicit:
+  Product A is the benchmark exact-closure package, and Product B is the current-line obstruction / no-go result as packaged in [docs/PUBLICATION_ARCHITECTURE.md](docs/PUBLICATION_ARCHITECTURE.md).
 - Keep the benchmark claim boundary fixed: GR is adopted exactly in that package with one operative metric and universal matter coupling.
 - Keep the current-line verdict fixed: the frozen line is already answered negatively on its present assumptions.
 - Keep the routing question fixed: any resumed derivational work must begin on a genuinely new line rather than by descending again below the same frozen bridge object.
@@ -31,7 +33,8 @@ This file is intentionally short. It tracks the live control surface for `The Æ
 2. Audit the benchmark package so each manuscript states its positive claim, explicit nonclaim, and benchmark role cleanly.
 3. Package the frozen bounded line as a reusable obstruction / no-go result rather than a muddled live frontier.
 4. Strengthen literature positioning so the project reads as an exact-GR interpretive package plus an open foundational derivation program.
-5. Prepare a hard gate for any resumed derivational work through a new-line design charter.
+5. Keep the benchmark package and the frozen-line no-go separated as distinct publishable outputs rather than as a single blurred manuscript story.
+6. Prepare a hard gate for any resumed derivational work through a new-line design charter.
 
 ## Hard Gates
 

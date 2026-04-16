@@ -14,6 +14,8 @@ This checklist is intentionally compact. It tracks the active operational rules 
 ## Public And Routing Discipline
 
 - [ ] Keep repository-facing Markdown answerable to the benchmark package, the file map, and the benchmark-gatekeeping layer.
+- [ ] Keep the publication split explicit: Product A is the exact-GR benchmark package, and Product B is the frozen-line obstruction / no-go result.
+- [ ] Do not let benchmark-package materials read like a derivation-failure paper, and do not let the no-go materials demote the benchmark package.
 - [ ] Present bridge and derivational notes only after the benchmark package has fixed the public claim.
 - [ ] Treat `Derived`, `Not Derived On Current Line`, and `Suspended Pending New Law` as equally valid scientific outcomes; depth alone is not a research verdict.
 - [x] Treat the file map as carrying [aether_flow_current_line_gr_derivation_obstruction_or_no_go.tex](manuscripts/active/tex/aether_flow_current_line_gr_derivation_obstruction_or_no_go.tex) as the live `active_primary` bounded obstruction/no-go manuscript, with [aether_flow_bounded_gr_derivation_bridge_object_synthesis.tex](manuscripts/active/tex/aether_flow_bounded_gr_derivation_bridge_object_synthesis.tex) retained as active supporting context and [aether_flow_bounded_gr_derivation_attempt_from_explicit_substrate_package_and_primitive_dynamics.tex](manuscripts/active/tex/aether_flow_bounded_gr_derivation_attempt_from_explicit_substrate_package_and_primitive_dynamics.tex) preserved as the immediate suspension-stage handoff.
