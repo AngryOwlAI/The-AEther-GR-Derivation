@@ -18,6 +18,7 @@ The benchmark starting point is the overview-first exact-closure package centere
 - Begin with the [Start Here](start-here.md) guide if you are new to the project.
 - Read the [Front-Facing Article](front-facing-article.md) if you want one public-entry document before the full package.
 - Go directly to the [Theory Package](theory-package.md) page if you want the flagship reading order and the current public manuscript bundle.
+- Use [Literature Positioning](literature-positioning.md) if you want a compact comparison against standard GR, Einstein-aether, emergent-gravity, induced-gravity, and preferred-foliation alternatives.
 - Use the [Active Research](research-archive.md) page after the flagship package if you want the current bounded-program verdict, the restart condition for any genuinely new line, and the broader research record.
 
 The canonical front door of the package is available here:
@@ -43,6 +44,7 @@ For the fuller repository claim-boundary note, see [Æther-Flow Claim Boundary](
 - [Active Research](research-archive.md): the current bounded-program verdict, the restart condition for any genuinely new derivational line, and archive context.
 - [AI Collaboration and Method](ai-collaboration-and-method.md): the administratively supervised GPT-5.4 research workflow and its limits.
 - [How to Review](how-to-review.md): what expert readers are being asked to audit.
+- [Literature Positioning](literature-positioning.md): compact matrix comparing the benchmark package against adjacent gravity literatures.
 
 ## Release Scope
 

@@ -17,6 +17,8 @@ Start with the [exact-closure sequence overview PDF](assets/pdfs/aether_flow_exa
 
 That order matters because the benchmark package, not the derivational manuscript line by itself, is the current public-facing claim.
 
+For a compact external comparison against adjacent frameworks, use [Literature Positioning](literature-positioning.md).
+
 ## Core Audits Requested
 
 - Benchmark-package audit: is the overview-first exact-closure package coherent, readable, and honest about what it establishes and what it does not establish?
@@ -24,7 +26,7 @@ That order matters because the benchmark package, not the derivational manuscrip
 - No-go audit: is the scoped `Not Derived On Current Line` framing on the frozen bridge object justified by the bounded obstruction manuscript and the routing layer?
 - New-line audit: if a future derivational proposal is made, does it add genuinely new observer-localizing structure rather than another same-output deeper relay?
 - Consistency audit: are the package definitions, symbols, and roles aligned across the overview and six core manuscripts?
-- Novelty and literature-position audit: where does the package genuinely differ from standard interpretive or effective-field presentations, and where does it need sharper positioning?
+- Novelty and literature-position audit: where does the package genuinely differ from standard interpretive or effective-field presentations, and where does it need sharper positioning? Use [Literature Positioning](literature-positioning.md) as the quick comparison surface.
 - Derivation-program audit: does the downstream research line stay clear that GR is already adopted in the benchmark package, that the current frozen line ends in a scoped no-go, and that any resumed derivational work has to open a genuinely new line rather than merely continue the same frozen bridge object?
 
 ## Suggested Reviewer Path
