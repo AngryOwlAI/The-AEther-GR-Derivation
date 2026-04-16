@@ -22,6 +22,8 @@ The project is not merely an ontology archive waiting for legitimacy from a futu
 
 The benchmark package is therefore a positive scientific deliverable in its own right, while any resumed derivational line remains downstream foundational work answerable to that benchmark.
 
+The explicit identity decision for the current repository is recorded in [docs/PROJECT_IDENTITY_DECISION_NOTE.md](docs/PROJECT_IDENTITY_DECISION_NOTE.md): keep exact GR as the public benchmark identity, treat derivation as a separate open burden, and do not treat low-energy GR modification or replacement as the current flagship project.
+
 ## Current State
 
 - Public front door: [aether_flow_exact_closure_sequence_overview.tex](manuscripts/active/tex/aether_flow_exact_closure_sequence_overview.tex)
@@ -41,6 +43,7 @@ The primary goal is to keep the benchmark exact-closure theory statement scienti
 - [docs/start-here.md](docs/start-here.md)
 - [docs/theory-package.md](docs/theory-package.md)
 - [docs/research-archive.md](docs/research-archive.md)
+- [docs/review_packets/README.md](docs/review_packets/README.md)
 - [docs/AETHER_FLOW_CLAIM_BOUNDARY.md](docs/AETHER_FLOW_CLAIM_BOUNDARY.md)
 - [docs/AETHER_FLOW_NAMING_AND_VOCABULARY.md](docs/AETHER_FLOW_NAMING_AND_VOCABULARY.md)
 
@@ -49,6 +52,7 @@ The primary goal is to keep the benchmark exact-closure theory statement scienti
 - `manuscripts/active/tex/`: active manuscript source of truth
 - `manuscripts/active/pdf/`: built PDFs
 - `docs/`: compact public and policy documentation
+- `docs/review_packets/`: phase-8 review bundle with `ai/` LaTeX-first Markdown packets for AI review, `ai_pdfs/` PDF-first packet copies for AI PDF workflows, and `human/` PDF-first handoff copies for human review
 - `RESEARCH_PLAN.md`: current live research board
 - `EXECUTION_CHECKLIST.md`: operational checklist for manuscript work
 - `docs/manuscript-wiki-workflow.md`: local Obsidian Manuscript Wiki workflow

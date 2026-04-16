@@ -140,7 +140,7 @@ If a later phase needs a third output, it should be a design-charter or literatu
 
 Acceptable Product-C roles:
 
-- new-line derivation charter
+- new-line derivation charter, now implemented as [NEW_LINE_DERIVATION_CHARTER.md](NEW_LINE_DERIVATION_CHARTER.md)
 - literature-positioning note
 - benchmark-facing bridge redesign screen
 

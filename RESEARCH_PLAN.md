@@ -24,6 +24,7 @@ This file is intentionally short. It tracks the live control surface for `The Æ
 - Keep the publication split explicit:
   Product A is the benchmark exact-closure package, and Product B is the current-line obstruction / no-go result as packaged in [docs/PUBLICATION_ARCHITECTURE.md](docs/PUBLICATION_ARCHITECTURE.md).
 - Keep the benchmark claim boundary fixed: GR is adopted exactly in that package with one operative metric and universal matter coupling.
+- Keep the project identity fixed by [docs/PROJECT_IDENTITY_DECISION_NOTE.md](docs/PROJECT_IDENTITY_DECISION_NOTE.md): exact-GR benchmark now, any non-GR direction only as a separate re-scoped project.
 - Keep the current-line verdict fixed: the frozen line is already answered negatively on its present assumptions.
 - Keep the routing question fixed: any resumed derivational work must begin on a genuinely new line rather than by descending again below the same frozen bridge object.
 
@@ -34,7 +35,7 @@ This file is intentionally short. It tracks the live control surface for `The Æ
 3. Package the frozen bounded line as a reusable obstruction / no-go result rather than a muddled live frontier.
 4. Strengthen literature positioning so the project reads as an exact-GR interpretive package plus an open foundational derivation program.
 5. Keep the benchmark package and the frozen-line no-go separated as distinct publishable outputs rather than as a single blurred manuscript story.
-6. Prepare a hard gate for any resumed derivational work through a new-line design charter.
+6. Enforce a hard gate for any resumed derivational work through [docs/NEW_LINE_DERIVATION_CHARTER.md](docs/NEW_LINE_DERIVATION_CHARTER.md).
 
 ## Hard Gates
 
@@ -42,7 +43,9 @@ This file is intentionally short. It tracks the live control surface for `The Æ
 - Treat `Derived`, `Not Derived On Current Line`, and `Suspended Pending New Law` as equally valid scientific outcomes.
 - Do not treat another same-output deeper relay below the frozen bridge object as default benchmark-facing progress.
 - Do not change the one-metric benchmark claim boundary with a second operative metric, an enlarged matter law, or stronger first-principles promotion language.
+- Do not treat GR modification or replacement as the current flagship project; require a separate renamed and re-scoped project if that path is ever opened.
 - Do not promote a resumed derivational line unless it states an explicit observer-localizing law, a new primitive variable, or a new symmetry principle clearly enough to yield a bounded yes / no / conditional verdict.
+- Require a completed [docs/NEW_LINE_DERIVATION_CHARTER.md](docs/NEW_LINE_DERIVATION_CHARTER.md) before opening or promoting any resumed derivational line.
 
 ## Archived History
 

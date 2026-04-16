@@ -18,6 +18,7 @@ The benchmark starting point is the overview-first exact-closure package centere
 - Begin with the [Start Here](start-here.md) guide if you are new to the project.
 - Read the [Front-Facing Article](front-facing-article.md) if you want one public-entry document before the full package.
 - Go directly to the [Theory Package](theory-package.md) page if you want the flagship reading order and the current public manuscript bundle.
+- Use [Project Identity Decision Note](PROJECT_IDENTITY_DECISION_NOTE.md) if you want the shortest explicit statement of why the active project remains exact-GR rather than a low-energy modification or replacement.
 - Use [Literature Positioning](literature-positioning.md) if you want a compact comparison against standard GR, Einstein-aether, emergent-gravity, induced-gravity, and preferred-foliation alternatives.
 - Use the [Active Research](research-archive.md) page after the flagship package if you want the current bounded-program verdict, the restart condition for any genuinely new line, and the broader research record.
 

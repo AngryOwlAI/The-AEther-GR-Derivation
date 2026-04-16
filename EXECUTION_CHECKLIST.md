@@ -28,7 +28,9 @@ This checklist is intentionally compact. It tracks the active operational rules 
 - [ ] Treat the upstream compression theorem as the benchmark-facing safeguard: another deeper-origin relay that preserves the same continuity-Hessian compressed core does not change derivational status.
 - [ ] Treat the current fixed one-metric observer package as benchmark-stable at same-package scope; do not confuse preservation of that package with first-principles derivation.
 - [ ] Do not change the one-metric claim boundary with a second operative metric, an enlarged matter law, or stronger first-principles promotion language.
+- [ ] Treat [docs/PROJECT_IDENTITY_DECISION_NOTE.md](docs/PROJECT_IDENTITY_DECISION_NOTE.md) as fixing the current identity: exact-GR benchmark now, any non-GR path only as a separate renamed and re-scoped project.
 - [ ] Only promote a resumed derivational line if it adds an explicit observer-localizing law, a new primitive variable, or a new symmetry principle and yields a bounded yes / no / conditional verdict.
+- [ ] Require a completed [docs/NEW_LINE_DERIVATION_CHARTER.md](docs/NEW_LINE_DERIVATION_CHARTER.md) before opening or promoting any resumed derivational line.
 
 ## Current Supporting Context
 
@@ -66,5 +68,6 @@ Before treating a note as progress on the main line, confirm:
 - [ ] if it is a deeper-origin continuation, it changes the continuity-Hessian compressed core or the bridge object that forces it rather than merely renaming a deeper unexplained layer
 - [ ] if it proposes an explicitly quantum bridge, it derives or sharpens the current live benchmark-facing burden, proves a smaller theorem-level benchmark-relevant collapse, or discharges a benchmark derivation gate rather than merely renaming a deeper unexplained layer
 - [ ] if it claims necessity, uniqueness, or compression, that claim lands on a bridge object with benchmark-facing consequence rather than on a package that merely preserves the same outputs
+- [ ] if it proposes a resumed line, it comes with a completed charter stating the new ingredient, local observer map, metric-generation rule, mode-control story, relativistic recovery route, remainder audit, and verdict rule
 - [ ] it does not conflate adoption with derivation or describe the current frontier as if it were already a completed GR derivation
 - [ ] it preserves the one operative metric and the recorded bridge-entry gains at the stated scope
