@@ -1,6 +1,6 @@
 # Æther-Flow Interpretation Execution Checklist
 
-Last updated: April 16, 2026
+Last updated: April 17, 2026
 
 This checklist is intentionally compact. It tracks the active operational rules for the benchmark package, the current-line no-go, and any admissible restart condition.
 
@@ -11,10 +11,19 @@ This checklist is intentionally compact. It tracks the active operational rules 
 - [ ] Keep the current-line verdict fixed: the frozen primitive-reservoir bounded line ends in `Not Derived On Current Line`.
 - [ ] Keep the next admissible move fixed: either stop with that scoped no-go and package the benchmark result already in hand, or open a genuinely new line with explicit observer-localizing structure.
 
+## External Review Gate
+
+- [x] Freeze a dated external-review snapshot of Product A and Product B under `docs/review_packets/outgoing/`.
+- [x] Rebuild the authoritative Product A and Product B PDFs from their `.tex` sources before circulation.
+- [x] Add the one-page cover memo and the response template to each outgoing packet bundle.
+- [ ] Transmit Packet A to a GR / foundations reader, Packet B to a mathematical physicist, and Packet C to an emergence / reconstruction / literature reader.
+- [x] Keep derivation restart blocked while outside review is outstanding unless `docs/NEW_LINE_DERIVATION_CHARTER.md` can already be completed concretely as equations rather than prose.
+
 ## Public And Routing Discipline
 
 - [ ] Keep repository-facing Markdown answerable to the benchmark package, the file map, and the benchmark-gatekeeping layer.
 - [ ] Keep the publication split explicit: Product A is the exact-GR benchmark package, and Product B is the frozen-line obstruction / no-go result.
+- [x] Use packet discipline for outside review: Packet A for the benchmark package, Packet B for the bounded no-go, and Packet C for literature positioning.
 - [ ] Do not let benchmark-package materials read like a derivation-failure paper, and do not let the no-go materials demote the benchmark package.
 - [ ] Present bridge and derivational notes only after the benchmark package has fixed the public claim.
 - [ ] Treat `Derived`, `Not Derived On Current Line`, and `Suspended Pending New Law` as equally valid scientific outcomes; depth alone is not a research verdict.

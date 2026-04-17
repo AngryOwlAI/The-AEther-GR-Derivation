@@ -1,6 +1,6 @@
 # Phase 8 Review Packets
 
-Last updated: April 16, 2026
+Last updated: April 17, 2026
 
 This folder contains the phase-8 reviewer handoff bundle for `The Æther-Flow Interpretation of Relativity`.
 The goal is to let outside reviewers pressure-test the cleaned repository in three distinct ways:
@@ -16,6 +16,7 @@ These packets are intentionally separated so a reviewer can audit one layer with
 - [ai/](ai/): Markdown source packets and template for AI-facing or editable documentation.
 - [ai_pdfs/](ai_pdfs/): PDF packet copies intended for AI workflows that need PDF-first article links.
 - [human/](human/): PDF renderings of the same reviewer packets for human handoff.
+- [outgoing/](outgoing/): dated frozen handoff bundles with copied packet assets, authoritative product PDFs, a cover memo, and reviewer-targeted send notes.
 - `_ai_pdf_sources/`: internal Markdown build sources used to generate the AI PDF packets with PDF-first article links.
 - `_human_sources/`: internal Markdown build sources used to generate the human PDFs with human-specific format priorities.
 
@@ -30,6 +31,18 @@ These packets are intentionally separated so a reviewer can audit one layer with
 Send the packet most relevant to the reviewer’s expertise from the `human/` folder, together with the matching AI-side Markdown source when editable text is useful.
 Use [ai/response_to_review_template.md](ai/response_to_review_template.md) as the editable response form.
 
+The current dated freeze bundle is:
+
+- [outgoing/2026-04-17/README.md](outgoing/2026-04-17/README.md)
+
+That bundle is the repo-local handoff surface for the immediate outside-review step:
+
+- Packet A to a GR / foundations reader
+- Packet B to a mathematical physicist
+- Packet C to an emergence / reconstruction / literature reader
+
+Use the one-page cover memo from that bundle to keep Product A, Product B, and Packet C separated under strict packet discipline.
+
 Recommended order if one reviewer is reading the whole project:
 
 1. [ai/packet_A_benchmark_package_review.md](ai/packet_A_benchmark_package_review.md) for AI Markdown review
@@ -43,6 +56,7 @@ Recommended order if one reviewer is reading the whole project:
 - [ai/packet_C_literature_positioning_review.md](ai/packet_C_literature_positioning_review.md) and [human/packet_C_literature_positioning_review.pdf](human/packet_C_literature_positioning_review.pdf): review whether the project’s literature category and novelty claims are accurate and conservative.
 - [ai_pdfs/packet_A_benchmark_package_review.pdf](ai_pdfs/packet_A_benchmark_package_review.pdf), [ai_pdfs/packet_B_current_line_no_go_review.pdf](ai_pdfs/packet_B_current_line_no_go_review.pdf), and [ai_pdfs/packet_C_literature_positioning_review.pdf](ai_pdfs/packet_C_literature_positioning_review.pdf): AI PDF packet copies with article links prioritized in PDF form.
 - [ai/response_to_review_template.md](ai/response_to_review_template.md) and [human/response_to_review_template.pdf](human/response_to_review_template.pdf): reusable template for reviewers or internal responses to reviewer feedback.
+- [outgoing/2026-04-17/README.md](outgoing/2026-04-17/README.md): dated frozen bundle describing exactly what should be sent now and to which reviewer class.
 
 ## Current Repository Status
 
