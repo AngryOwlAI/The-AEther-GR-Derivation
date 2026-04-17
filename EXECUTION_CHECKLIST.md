@@ -9,7 +9,7 @@ This checklist is intentionally compact. It tracks the active operational rules 
 - [ ] Keep the overview-first exact-closure package fixed as the flagship benchmark result.
 - [ ] Keep the GR relation fixed: the repository currently presents an exact-GR benchmark package, not a low-energy modification or replacement of GR.
 - [ ] Keep the current-line verdict fixed: the frozen primitive-reservoir bounded line ends in `Not Derived On Current Line`.
-- [ ] Keep the next admissible move fixed: either stop with that scoped no-go and package the benchmark result already in hand, or open a genuinely new line with explicit observer-localizing structure.
+- [ ] Keep the next admissible move fixed: either stop with that scoped no-go and package the benchmark result already in hand, or open a genuinely new line only after the charter is completed concretely at equation level.
 
 ## External Review Gate
 
@@ -17,7 +17,8 @@ This checklist is intentionally compact. It tracks the active operational rules 
 - [x] Rebuild the authoritative Product A and Product B PDFs from their `.tex` sources before circulation.
 - [x] Add the one-page cover memo and the response template to each outgoing packet bundle.
 - [ ] Transmit Packet A to a GR / foundations reader, Packet B to a mathematical physicist, and Packet C to an emergence / reconstruction / literature reader.
-- [x] Keep derivation restart blocked while outside review is outstanding unless `docs/NEW_LINE_DERIVATION_CHARTER.md` can already be completed concretely as equations rather than prose.
+- [ ] Keep the simulated packet reviews under `docs/Reviews/` classified as internal routing evidence rather than external peer review.
+- [x] Keep derivation restart blocked unless `docs/NEW_LINE_DERIVATION_CHARTER.md` can already be completed concretely as equations rather than prose; outside-review return alone does not lift the block.
 
 ## Public And Routing Discipline
 
@@ -38,7 +39,7 @@ This checklist is intentionally compact. It tracks the active operational rules 
 - [ ] Treat the current fixed one-metric observer package as benchmark-stable at same-package scope; do not confuse preservation of that package with first-principles derivation.
 - [ ] Do not change the one-metric claim boundary with a second operative metric, an enlarged matter law, or stronger first-principles promotion language.
 - [ ] Treat [docs/PROJECT_IDENTITY_DECISION_NOTE.md](docs/PROJECT_IDENTITY_DECISION_NOTE.md) as fixing the current identity: exact-GR benchmark now, any non-GR path only as a separate renamed and re-scoped project.
-- [ ] Only promote a resumed derivational line if it adds an explicit observer-localizing law, a new primitive variable, or a new symmetry principle and yields a bounded yes / no / conditional verdict.
+- [ ] Only promote a resumed derivational line if it adds an explicit observer-localizing law, a new primitive variable, or a new symmetry principle, completes the charter concretely at equation level, and yields a bounded yes / no / conditional verdict.
 - [ ] Require a completed [docs/NEW_LINE_DERIVATION_CHARTER.md](docs/NEW_LINE_DERIVATION_CHARTER.md) before opening or promoting any resumed derivational line.
 
 ## Current Supporting Context
@@ -77,6 +78,6 @@ Before treating a note as progress on the main line, confirm:
 - [ ] if it is a deeper-origin continuation, it changes the continuity-Hessian compressed core or the bridge object that forces it rather than merely renaming a deeper unexplained layer
 - [ ] if it proposes an explicitly quantum bridge, it derives or sharpens the current live benchmark-facing burden, proves a smaller theorem-level benchmark-relevant collapse, or discharges a benchmark derivation gate rather than merely renaming a deeper unexplained layer
 - [ ] if it claims necessity, uniqueness, or compression, that claim lands on a bridge object with benchmark-facing consequence rather than on a package that merely preserves the same outputs
-- [ ] if it proposes a resumed line, it comes with a completed charter stating the new ingredient, local observer map, metric-generation rule, mode-control story, relativistic recovery route, remainder audit, and verdict rule
+- [ ] if it proposes a resumed line, it comes with a completed charter stating the new ingredient, local observer map, metric-generation rule, mode-control mechanism, relativistic recovery route, remainder audit, and verdict rule at equation level
 - [ ] it does not conflate adoption with derivation or describe the current frontier as if it were already a completed GR derivation
 - [ ] it preserves the one operative metric and the recorded bridge-entry gains at the stated scope

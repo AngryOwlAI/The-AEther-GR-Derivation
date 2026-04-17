@@ -9,7 +9,7 @@ This page is for physicists, mathematicians, and technically trained readers who
 - Benchmark package: the overview-first exact-closure sequence is the flagship result and the public claim to audit first.
 - Relation to GR: the repository currently presents an exact-GR benchmark package, not a low-energy modification or replacement of GR.
 - Current-line verdict: the frozen primitive-reservoir line ends in the scoped verdict `Not Derived On Current Line`.
-- Next admissible move: if derivational work is resumed, the live downstream question is whether a genuinely new line can derive the adopted benchmark under the five benchmark derivation gates.
+- Next admissible move: if derivational work is resumed, the live downstream question is whether a genuinely new line can derive the adopted benchmark under the five benchmark derivation gates after completing the charter concretely at equation level.
 
 Operationally, the benchmark package is ordinary GR at observable scale: Einstein-Hilbert dynamics, one operative metric, universal matter coupling, standard relativistic causal structure, and no extra preferred-frame, vector, or scalar graviton sector. Packet B is a separate scoped no-go on the frozen primitive-reservoir derivational line, not a revision of that benchmark package. The congruence layer belongs to standard GR observer kinematics, and any surviving novelty claim is methodological: benchmark-first package discipline and explicit no-go discipline inside the broader emergent / induced / reconstruction conversation.
 
@@ -26,7 +26,7 @@ For a compact external comparison against adjacent frameworks, use [Literature P
 - Benchmark-package audit: is the overview-first exact-closure package coherent, readable, and honest about what it establishes and what it does not establish?
 - Claim-boundary audit: does the public presentation keep exact relativistic adoption distinct from first-principles derivation?
 - No-go audit: is the scoped `Not Derived On Current Line` framing on the frozen bridge object justified by the bounded obstruction manuscript and the routing layer?
-- New-line audit: if a future derivational proposal is made, does it add genuinely new observer-localizing structure rather than another same-output deeper relay?
+- New-line audit: if a future derivational proposal is made, does it add genuinely new observer-localizing structure rather than another same-output deeper relay, and does it complete the charter concretely at equation level?
 - Consistency audit: are the package definitions, symbols, and roles aligned across the overview and six core manuscripts?
 - Novelty and literature-position audit: where does the package genuinely differ from standard interpretive or effective-field presentations, and where does it need sharper positioning? Use [Literature Positioning](literature-positioning.md) as the quick comparison surface.
 - Derivation-program audit: does the downstream research line stay clear that GR is already adopted in the benchmark package, that the current frozen line ends in a scoped no-go, and that any resumed derivational work has to open a genuinely new line rather than merely continue the same frozen bridge object?

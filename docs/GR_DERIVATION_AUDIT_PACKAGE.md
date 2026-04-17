@@ -87,7 +87,7 @@ It is not the default next main-line answer to the bounded derivation question.
 For the frozen bounded line, only two honest next moves remain:
 
 1. stop with the scoped no-go already proved
-2. open a genuinely new line with an explicit observer-localizing law, new primitive variable, or new symmetry principle
+2. open a genuinely new line only after a candidate completes the charter concretely at equation level and states an explicit observer-localizing law, new primitive variable, or new symmetry principle
 
 Any resumed derivational line has to say explicitly:
 
@@ -95,6 +95,8 @@ Any resumed derivational line has to say explicitly:
 - how the operative metric is generated locally
 - how Einsteinian observer dynamics arise from that same local structure
 - how null structure, proper time, and redshift arise from that same metric
+
+Outside review may help pressure-test that proposal, but it does not by itself lift the restart block.
 
 Until then, the benchmark claim boundary remains fixed:
 

@@ -1,6 +1,6 @@
 # New-Line Derivation Charter
 
-Last updated: April 16, 2026
+Last updated: April 17, 2026
 
 This note is the phase-6 implementation artifact for [aether_flow_research_agent_implementation_plan.md](../aether_flow_research_agent_implementation_plan.md).
 It is a repository control and pre-registration note.
@@ -17,6 +17,7 @@ This charter exists to block recursive depth drift.
 No resumed derivational line may be opened, promoted, or summarized as live benchmark-facing progress unless this charter can be completed concretely first.
 
 If the charter cannot be written concretely, do not open the line.
+Outside review, reviewer encouragement, or packet return does not satisfy this gate by itself.
 
 ## Fixed Starting Point
 
@@ -52,6 +53,25 @@ If any answer is missing, vague, or only verbal, the immediate recommendation is
 ## Charter Fields
 
 The charter for any resumed line must include all fields below.
+
+### Minimum Mathematical Instantiation
+
+Before a candidate line may be opened, promoted, or summarized as live benchmark-facing work, the charter must be instantiated at equation level rather than left as prose or schematic aspiration.
+
+Required minimum form:
+
+- an explicit local observer map with domain and codomain, for example `Phi_U : X|_U -> (g, psi, clock/null structure)|_U`
+- an explicit operative-metric generation rule, for example `g_{mu nu} = F_{mu nu}(X, partial X, ldots)`
+- an explicit observer-dynamics rule, for example `E^{obs}_{mu nu}[g, psi] = 0`, or an induced-action statement from which Einsteinian observer dynamics follow
+- an explicit low-energy mode-control mechanism; it is not enough to promise that extra modes will later be projected out, screened, or tuned away
+- an explicit same-metric recovery statement for null cones, proper time, and redshift from the generated operative metric
+- an explicit verdict template stating what concrete evidence would count as `Derived`, `Not Derived On Current Line`, and `Suspended Pending New Law`
+
+Automatic `No-Go` if:
+
+- the charter remains verbal or metaphorical without equation-level local rules
+- the local observer map, metric-generation rule, or observer-dynamics rule is deferred to later work
+- mode control is asserted only as expectation rather than as a stated mechanism
 
 ### 1. New Ingredient
 
@@ -213,7 +233,7 @@ Mark every gate explicitly before opening the line.
 - [ ] Gate 2: a local observer map is written down with a clear domain, codomain, and locality rule
 - [ ] Gate 3: the operative metric is generated rather than merely assumed or inherited
 - [ ] Gate 4: Einsteinian observer dynamics arise from the same candidate structure rather than being inserted externally
-- [ ] Gate 5: extra low-energy sectors are eliminated, screened, or otherwise controlled so the benchmark claim boundary remains intact
+- [ ] Gate 5: extra low-energy sectors are eliminated, screened, or otherwise controlled by a stated mechanism so the benchmark claim boundary remains intact
 - [ ] Gate 6: null cones, proper time, and redshift arise from that same operative metric
 - [ ] Gate 7: no genuine observer-side remainder survives at benchmark scope
 - [ ] Gate 8: the line states in advance what counts as `Derived`, `Not Derived On Current Line`, and `Suspended Pending New Law`

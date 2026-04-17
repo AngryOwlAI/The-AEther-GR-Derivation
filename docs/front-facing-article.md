@@ -11,7 +11,7 @@ The article is a public orientation layer. It does not replace the overview-firs
 - Benchmark package: the article explains the flagship exact-GR benchmark package but does not replace it.
 - Relation to GR: the package adopts GR exactly at observable scale and is not currently a low-energy modification or replacement of GR.
 - Current-line verdict: the frozen primitive-reservoir line ends in `Not Derived On Current Line`.
-- Next admissible move: any future derivational continuation must be a genuinely new line with explicit observer-localizing structure.
+- Next admissible move: any future derivational continuation must be a genuinely new line with explicit observer-localizing structure and a charter completed concretely at equation level.
 
 Operationally, the benchmark package is ordinary GR at observable scale: Einstein-Hilbert dynamics, one operative metric, universal matter coupling, standard relativistic causal structure, and no extra preferred-frame, vector, or scalar graviton sector. Packet B is a separate scoped no-go on the frozen primitive-reservoir derivational line, not a revision of that benchmark package. The congruence layer belongs to standard GR observer kinematics, and any surviving novelty claim is methodological: benchmark-first package discipline and explicit no-go discipline inside the broader emergent / induced / reconstruction conversation.
 

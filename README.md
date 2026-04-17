@@ -13,7 +13,7 @@ Earlier ontology/background material is preserved in the predecessor repository 
 - Benchmark package: the overview-first exact-closure sequence is the flagship result and the public front door.
 - Relation to GR: the repository currently presents an exact-GR benchmark and interpretive package, not a low-energy modification or replacement of GR.
 - Current-line verdict: the frozen primitive-reservoir bounded line ends in the scoped verdict `Not Derived On Current Line`.
-- Next admissible move: either stop with that scoped no-go and package the benchmark result already in hand, or open a genuinely new line with an explicit observer-localizing law, new primitive variable, or new symmetry principle.
+- Next admissible move: either stop with that scoped no-go and package the benchmark result already in hand, or open a genuinely new line only after `docs/NEW_LINE_DERIVATION_CHARTER.md` is completed concretely at equation level.
 
 ## Project Intent
 
@@ -22,7 +22,7 @@ The project is not merely an ontology archive waiting for legitimacy from a futu
 - preserve the `Æther / Æther-flow` ontology in rigorous form
 - state and maintain `The Æther-Flow Interpretation of Relativity` as an exact relativistic theory at the effective level
 
-The benchmark package is therefore a positive scientific deliverable in its own right, while any resumed derivational line remains downstream foundational work answerable to that benchmark.
+The benchmark package is therefore a positive scientific deliverable in its own right, while any resumed derivational line remains downstream foundational work answerable to that benchmark and gated by a concretely completed charter.
 
 The explicit identity decision for the current repository is recorded in [docs/PROJECT_IDENTITY_DECISION_NOTE.md](docs/PROJECT_IDENTITY_DECISION_NOTE.md): keep exact GR as the public benchmark identity, treat derivation as a separate open burden, and do not treat low-energy GR modification or replacement as the current flagship project.
 

@@ -35,13 +35,18 @@ The current dated freeze bundle is:
 
 - [outgoing/2026-04-17/README.md](outgoing/2026-04-17/README.md)
 
-That bundle is the repo-local handoff surface for the immediate outside-review step:
+The current live circulation bundle is:
+
+- [outgoing/2026-04-17-live/README.md](outgoing/2026-04-17-live/README.md)
+
+The frozen bundle remains the archival same-day snapshot. The live circulation bundle is the repo-local handoff surface for real outside review:
 
 - Packet A to a GR / foundations reader
 - Packet B to a mathematical physicist
 - Packet C to an emergence / reconstruction / literature reader
 
 Use the one-page cover memo from that bundle to keep Product A, Product B, and Packet C separated under strict packet discipline.
+Treat the simulated packet reviews under `docs/Reviews/` as internal routing evidence only, not as external peer review.
 
 Recommended order if one reviewer is reading the whole project:
 
@@ -56,14 +61,15 @@ Recommended order if one reviewer is reading the whole project:
 - [ai/packet_C_literature_positioning_review.md](ai/packet_C_literature_positioning_review.md) and [human/packet_C_literature_positioning_review.pdf](human/packet_C_literature_positioning_review.pdf): review whether the project’s literature category and novelty claims are accurate and conservative.
 - [ai_pdfs/packet_A_benchmark_package_review.pdf](ai_pdfs/packet_A_benchmark_package_review.pdf), [ai_pdfs/packet_B_current_line_no_go_review.pdf](ai_pdfs/packet_B_current_line_no_go_review.pdf), and [ai_pdfs/packet_C_literature_positioning_review.pdf](ai_pdfs/packet_C_literature_positioning_review.pdf): AI PDF packet copies with article links prioritized in PDF form.
 - [ai/response_to_review_template.md](ai/response_to_review_template.md) and [human/response_to_review_template.pdf](human/response_to_review_template.pdf): reusable template for reviewers or internal responses to reviewer feedback.
-- [outgoing/2026-04-17/README.md](outgoing/2026-04-17/README.md): dated frozen bundle describing exactly what should be sent now and to which reviewer class.
+- [outgoing/2026-04-17/README.md](outgoing/2026-04-17/README.md): frozen same-day archival snapshot retained for reference.
+- [outgoing/2026-04-17-live/README.md](outgoing/2026-04-17-live/README.md): live same-day circulation bundle for real outside review.
 
 ## Current Repository Status
 
 - Benchmark package: the overview-first exact-closure sequence is the flagship result already in hand.
 - Relation to GR: the active project is an exact-GR benchmark and interpretive package, not a low-energy modification or replacement of GR.
 - Current-line verdict: the frozen primitive-reservoir line ends in `Not Derived On Current Line`.
-- Next admissible move: either stop with that scoped no-go and package the benchmark result already in hand, or open a genuinely new line with explicit observer-localizing structure.
+- Next admissible move: either stop with that scoped no-go and package the benchmark result already in hand, or open a genuinely new line only after `../NEW_LINE_DERIVATION_CHARTER.md` is completed concretely at equation level.
 
 ## Scope Discipline
 

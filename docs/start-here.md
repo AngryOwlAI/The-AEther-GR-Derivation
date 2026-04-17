@@ -9,7 +9,7 @@ If you are arriving fresh, the right entry point is still not the full derivatio
 - Benchmark package: the overview-first exact-closure sequence is the flagship result and the public front door.
 - Relation to GR: the project currently presents an exact-GR benchmark package, not a low-energy modification or replacement of GR.
 - Current-line verdict: the frozen primitive-reservoir line ends in the scoped verdict `Not Derived On Current Line`.
-- Next admissible move: if derivational work is resumed, it must begin on a genuinely new line with an explicit observer-localizing law, new primitive variable, or new symmetry principle.
+- Next admissible move: if derivational work is resumed, it must begin on a genuinely new line only after the charter is completed concretely at equation level.
 
 Operationally, the benchmark package is ordinary GR at observable scale: Einstein-Hilbert dynamics, one operative metric, universal matter coupling, standard relativistic causal structure, and no extra preferred-frame, vector, or scalar graviton sector. Packet B is a separate scoped no-go on the frozen primitive-reservoir derivational line, not a revision of that benchmark package. The congruence layer belongs to standard GR observer kinematics, and any surviving novelty claim is methodological: benchmark-first package discipline and explicit no-go discipline inside the broader emergent / induced / reconstruction conversation.
 
@@ -29,7 +29,7 @@ Operationally, the benchmark package is ordinary GR at observable scale: Einstei
 - The project is not currently presented as a low-energy modification or replacement of GR.
 - The benchmark package is already the active exact-relativistic theory statement of the repository.
 - The current frozen primitive-reservoir line ends in the scoped verdict `Not Derived On Current Line`.
-- Any resumed derivational work must begin on a genuinely new line with explicit observer-localizing structure.
+- Any resumed derivational work must begin on a genuinely new line with explicit observer-localizing structure and a concretely completed charter.
 
 ## Fast Paths By Reader Type
 

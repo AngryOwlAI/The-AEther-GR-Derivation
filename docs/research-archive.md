@@ -13,7 +13,7 @@ Read the [Theory Package](theory-package.md) first. The active derivational prog
 - Benchmark package: the overview-first exact-closure sequence remains the flagship result already in hand.
 - Relation to GR: the active project is an exact-GR benchmark and interpretive package plus an open foundational derivation program, not a current low-energy replacement of GR.
 - Current-line verdict: the frozen primitive-reservoir bounded line ends in `Not Derived On Current Line`.
-- Next admissible move: either stop with that scoped no-go and package the benchmark result, or open a genuinely new line with explicit observer-localizing structure.
+- Next admissible move: either stop with that scoped no-go and package the benchmark result, or open a genuinely new line only after `NEW_LINE_DERIVATION_CHARTER.md` is completed concretely at equation level.
 
 ## What the Frozen Line Achieved
 
@@ -36,6 +36,8 @@ The current-line obstruction note is not just a reminder that more work could be
 - because those missing ingredients are not internally supplied on the frozen line, another deeper same-output relay below the same bridge object no longer counts as the honest next benchmark-facing move
 
 ## What a Genuinely New Line Must Add
+
+A new line is not admissible on packet return or reviewer encouragement alone. Before it can count as live benchmark-facing work, it must complete [NEW_LINE_DERIVATION_CHARTER.md](NEW_LINE_DERIVATION_CHARTER.md) concretely at equation level.
 
 Any later promoted derivational line must add something the frozen line does not already contain. At minimum, it must specify:
 

@@ -40,6 +40,8 @@ If derivational work is resumed, the active question of the repository is:
 
 - `Can a genuinely new line derive the adopted GR benchmark from explicit substrate structure under the five benchmark derivation gates?`
 
+A resumed line is admissible only after [NEW_LINE_DERIVATION_CHARTER.md](NEW_LINE_DERIVATION_CHARTER.md) has been completed concretely at equation level. Outside review may sharpen the question, but it does not reopen the line by itself.
+
 This is the question that should govern any resumed line:
 
 - manuscript priority
@@ -103,7 +105,7 @@ When the repository summarizes its status, it should use this three-part formula
 
 - GR is adopted exactly in the benchmark package.
 - The current frozen line now ends in the scoped verdict `Not Derived On Current Line`.
-- If derivational work is resumed, the active question becomes whether a genuinely new line can derive that adopted benchmark under the five benchmark derivation gates.
+- If derivational work is resumed, it may be reopened only after a candidate line completes the charter concretely at equation level, and the active question becomes whether that genuinely new line can derive the adopted benchmark under the five benchmark derivation gates.
 
 ## Conclusion
 
