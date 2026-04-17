@@ -49,7 +49,7 @@
 \begin{abstract}
 This paper gives the next positive extension of the active \TheoryName{} sequence by formalizing \Aflow{} through congruence-based relativistic geometry. The scope is explicit. The manuscript does not alter the effective law of the theory: \TheoryName{} still adopts Einsteinian gravity with universal matter coupling and a single operational metric. Its purpose is interpretive deepening inside exact closure.
 
-The central move is to represent \Aflow{} by a future-directed unit timelike congruence \(u^\mu\) on the exact relativistic spacetime and to read its kinematics through the standard decomposition of \(\nabla_\mu u_\nu\) into expansion, shear, vorticity, and acceleration. This yields a disciplined flow dictionary. Expansion describes local volume change and cosmological growth of the observer congruence. Acceleration governs static gravitational support and redshift structure. Vorticity captures swirl, rotation, and frame dragging. Shear captures anisotropic distortion, tidal structure, and the strain content associated with gravitational waves. Local special relativity is recovered as the local inertial limit of the same flow geometry.
+The central move is to represent \Aflow{} by a future-directed unit timelike congruence \(u^\mu\) on the exact relativistic spacetime and to read its kinematics through the standard decomposition of \(\nabla_\mu u_\nu\) into expansion, shear, vorticity, and acceleration. This yields a disciplined flow dictionary. The congruence is an admissible, generally non-unique observer field rather than a unique output already derived from substrate dynamics. Expansion describes local volume change and cosmological growth of the observer congruence. Acceleration governs static gravitational support and redshift structure. Vorticity captures swirl, rotation, and frame dragging. Shear captures anisotropic distortion, tidal structure, and the strain content associated with gravitational waves. Local special relativity is recovered as the local inertial limit of the same flow geometry.
 
 The resulting claim is precise. In \TheoryName{}, \Aflow{} is not a second low-energy gravitational field competing with the metric. It is the congruence-based physical interpretation of how the exact relativistic geometry may be read by embedded observers. This sharpened interpretation makes the ontology more valuable without denying SR or GR and without pretending that a first-principles substrate derivation has already been completed.
 
@@ -65,7 +65,7 @@ That is the task of the present manuscript. The goal is not to replace the metri
 \paragraph{Framework and claim boundary.}
 \TheoryProgram{} denotes the broader \Aether{} / \Aflow{} framework built on the claims that the \Aether{} is the underlying four-dimensional substrate of reality, the \Aflow{} is its intrinsic ordered motion, observed three-dimensional space is the local experiential slice of that deeper substrate, S-time is the experienced order of change arising from matter, light, and the \Aflow{}, and observed expansion is the three-dimensional appearance of deeper four-dimensional ordered motion. Within that framework, \TheoryName{} denotes the exact-closure theory in which the effective gravitational dynamics are adopted to be exactly Einsteinian with universal matter coupling. In the active sequence, \emph{adoption} means use of that established relativistic dynamics without claiming substrate derivation, while \emph{derivation} is reserved for a first-principles recovery from explicit substrate variables.
 
-The key discipline is this. A viable flow interpretation of GR cannot identify all gravitational phenomena with one naive image such as a literal vortex. Static spherical gravity exists without vorticity. Cosmological expansion exists without local swirl. Frame dragging does involve rotational structure, but it is not the whole content of gravitation. The correct relativistic move is therefore to interpret \Aflow{} through the full kinematics of a timelike congruence rather than through one over-literal metaphor.
+The key discipline is this. A viable flow interpretation of GR cannot identify all gravitational phenomena with one naive image such as a literal vortex. Static spherical gravity exists without vorticity. Cosmological expansion exists without local swirl. Frame dragging does involve rotational structure, but it is not the whole content of gravitation. The correct relativistic move is therefore to interpret \Aflow{} through the full kinematics of a timelike congruence rather than through one over-literal metaphor. The classical language for doing so is the congruence and 1+3 covariant machinery of GR \cite{Raychaudhuri1955,EllisVanElst1999}.
 
 The sequence role is therefore explicit. After the overview, the short exact-closure anchor, and the foundations, dynamics, consistency, and relativistic-recovery modules, the present manuscript closes the modular full statement by fixing the formal geometric dictionary of the \Aflow{} interpretation. It does not reopen the effective law and it does not move derivational continuation ahead of the exact benchmark already adopted.
 
@@ -81,7 +81,7 @@ The congruence provides the observer-based kinematic dictionary by which the \Af
 \end{definition}
 
 \begin{remark}
-The congruence is not a second field equation added to GR. It is an admissible observer field defined on the exact metric spacetime. Different physical situations may call for different natural congruences, but they all live inside the same metric geometry.
+The congruence is not a second field equation added to GR. It is an admissible, generally non-unique observer field defined on the exact metric spacetime. Different physical situations may call for different natural congruences, but they all live inside the same metric geometry, and no substrate-level derivation of the preferred choice is claimed here.
 \end{remark}
 
 This point fixes the scientific status of the manuscript. The paper is not proposing a bimetric theory, a preferred-frame matter coupling, or an extra propagating vector sector. It is specifying how the \Aflow{} language may be made mathematically disciplined while the effective law remains exactly Einsteinian.
@@ -94,6 +94,20 @@ G_{\mu\nu}=\frac{8\pi G}{c^4}T_{\mu\nu},
 \end{equation}
 with universal matter coupling to \(g_{\mu\nu}\). The congruence \(u^\mu\) adds interpretation, not a second low-energy dynamics.
 \end{proposition}
+
+\subsection{Congruence Choice and Scope}
+
+The observer field \(u^\mu\) is an admissible congruence choice inside the adopted metric geometry, not a unique field already derived from substrate dynamics. At current scope, the ontology-to-congruence map is therefore interpretive rather than first-principles: one chooses the observer family that fits the physical question while remaining inside the same exact relativistic spacetime \cite{Raychaudhuri1955,EllisVanElst1999}.
+
+Four examples fix the intended use of the dictionary.
+\begin{enumerate}
+    \item In static spacetimes, static observer congruences are natural when the goal is to describe gravitational support and redshift.
+    \item In FLRW cosmology, comoving congruences are natural when the goal is to describe homogeneous expansion.
+    \item In stationary axisymmetric settings, zero-angular-momentum-observer-like (ZAMO-like) congruences are natural when the goal is to isolate frame dragging and rotational structure.
+    \item In local inertial or detector problems, freely falling congruences are natural when the goal is to describe local SR recovery, geodesic deviation, and wave strain.
+\end{enumerate}
+
+None of these choices is claimed here to be uniquely selected by substrate microphysics. The present manuscript supplies the disciplined dictionary once an admissible observer family has been specified.
 
 \section{Observer Rest Space and Local Decomposition}
 
@@ -215,7 +229,7 @@ This proposition is the key conceptual payoff of the paper. It shows how the flo
 
 \subsection{Raychaudhuri Control}
 
-The evolution of the expansion is governed by the Raychaudhuri equation
+The evolution of the expansion is governed by the Raychaudhuri equation \cite{Raychaudhuri1955}
 \begin{equation}
 u^\mu \nabla_\mu \theta
 =
@@ -259,6 +273,8 @@ a_\mu=0,
 \end{equation}
 where \(H\) is the Hubble parameter. The observed expansion of cosmology is therefore represented, in the congruence language, by nonzero \(\theta\) rather than by motion into an external container.
 
+This is the comoving-FLRW example from the congruence-choice discussion above.
+
 \begin{remark}
 This is exactly the kind of clarification the \Aether{} / \Aflow{} ontology needs. The deeper ordered motion is not a literal river flowing into empty space. Its observer-accessible expansion content is encoded by congruence expansion inside the exact relativistic geometry.
 \end{remark}
@@ -297,6 +313,8 @@ a_\mu = \Proj_\mu \ln N.
 \end{equation}
 
 Thus the static observers are generally not geodesic even though the spacetime may be stationary and non-rotating. The proper acceleration needed to hold station in the gravitational field is encoded directly in the gradient of the lapse.
+
+This is the static-observer example from the congruence-choice discussion above.
 
 In the weak-field limit,
 \begin{equation}
@@ -355,7 +373,7 @@ This proposition is essential. It shows why the language of a universal vortex c
 
 The vortex intuition does have a legitimate relativistic home, but only in the rotational sector. When \(\omega_{\mu\nu}\neq 0\), the congruence has local twist or swirl. This is the sector in which rotational gravity and frame dragging belong.
 
-In a stationary but non-static geometry with nontrivial time-space metric components \(g_{0i}\), the congruence of observers held at fixed spatial coordinates generally has nonzero vorticity. In the weak-field regime, \(\omega_{\mu\nu}\) is controlled by the antisymmetric spatial derivatives of those time-space components. Thus the rotational part of the metric carries a genuine swirl content in the congruence description.
+In stationary axisymmetric settings, the natural illustrative choice is often a zero-angular-momentum-observer-like (ZAMO-like) congruence. More generally, in a stationary but non-static geometry with nontrivial time-space metric components \(g_{0i}\), the congruence of observers held at fixed spatial coordinates generally has nonzero vorticity. In the weak-field regime, \(\omega_{\mu\nu}\) is controlled by the antisymmetric spatial derivatives of those time-space components. Thus the rotational part of the metric carries a genuine swirl content in the congruence description.
 
 \begin{proposition}[Rotational sector]
 Within the \Aflow{} interpretation of \TheoryName{}, vorticity \(\omega_{\mu\nu}\) is the correct mathematical carrier of swirl, rotational dragging, and local failure of hypersurface orthogonality.
@@ -404,11 +422,11 @@ ds^2
 h^{\mathrm{TT}}_{ii}=0.
 \label{eq:ttmetric}
 \end{equation}
-The wave does not create a second low-energy propagation law. It is already part of the exact GR metric sector. For freely falling detector congruences, it appears as oscillatory tidal deformation and therefore as time-dependent shear and geodesic deviation in the observer rest space.
+The wave does not create a second low-energy propagation law. It is already part of the exact GR metric sector. For freely falling detector congruences, the fourth example from the scope discussion above, it appears as oscillatory tidal deformation and therefore as time-dependent shear and geodesic deviation in the observer rest space.
 
 \section{Local Special Relativity as the Local Inertial Limit}
 
-The local relation to SR can now be stated sharply. At every event \(p\), one may choose local inertial coordinates such that
+The local relation to SR can now be stated sharply. Freely falling congruences provide the cleanest local inertial realization of the dictionary. At every event \(p\), one may choose local inertial coordinates such that
 \begin{equation}
 g_{\mu\nu}(p)=\eta_{\mu\nu},
 \qquad
@@ -460,5 +478,7 @@ The clean way to make \Aether{} and \Aflow{} more valuable inside \TheoryName{} 
 In this language, the \Aflow{} is not one crude image but a structured relativistic object. Expansion \(\theta\) captures ordered growth and cosmological volume change. Acceleration \(a_\mu\) captures static gravitational support and redshift structure. Vorticity \(\omega_{\mu\nu}\) captures swirl, rotation, and frame dragging. Shear \(\sigma_{\mu\nu}\) captures anisotropic tidal distortion and wave strain. Local special relativity appears as the local inertial limit of the same geometry. The result is a stronger scientific interpretation of the ontology because it says exactly where each piece of the flow idea lives inside the accepted relativistic formalism.
 
 That is the appropriate status of the manuscript. It does not claim that GR has already been derived from substrate microphysics. It claims that, once exact closure is adopted, the \Aether{} / \Aflow{} ontology can be connected to the measured relativistic world through a disciplined and comprehensive flow geometry. In the flagship sequence, this paper completes the five-paper modular full statement that follows the short exact-closure anchor, and it does so without displacing the rule that exact closure is presented first while any derivational continuation remains explicitly secondary.
+
+\input{tex_shared/aether_flow_product_a_references.tex}
 
 \end{document}

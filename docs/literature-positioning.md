@@ -10,8 +10,16 @@ It is supplemental literature only. It does not determine manuscript routing, fr
 
 - The active benchmark package is not Einstein-aether theory, Horava gravity, or any other low-energy preferred-frame modification of GR.
 - The active benchmark package is closer to an exact-GR interpretive package than to a distinct alternative gravity theory.
+- The congruence-based interpretive layer should be read against the classical Raychaudhuri and 1+3 covariant GR literature, not as a new observer-level gravitational sector.
+- The consistency discussion is an audit of the adopted GR sector and should be read against the ADM constraint-analysis baseline rather than as a new low-energy dynamics result.
 - The downstream derivation ambition belongs to an already populated emergent-gravity category; it should not be presented as unprecedented merely because the ontology is different.
 - Any novelty claim that survives review is narrower: disciplined ontology, exact-GR benchmark packaging, benchmark-gated derivation architecture, and explicit negative-result discipline on the frozen line.
+
+## Classical GR Baselines That Matter Here
+
+- Raychaudhuri-style congruence kinematics and later 1+3 covariant reviews provide the formal baseline for the benchmark package's flow-geometry dictionary.
+- ADM canonical analysis provides the baseline for the benchmark package's degree-of-freedom counting and Hamiltonian constraint language.
+- These baselines matter because the benchmark package is not claiming a second low-energy dynamics; it is re-reading exact GR through a disciplined ontological and congruence-based framework.
 
 ## Literature Positioning Matrix
 
@@ -26,6 +34,9 @@ It is supplemental literature only. It does not determine manuscript routing, fr
 ## Primary Reference Points
 
 - Standard GR baseline: Albert Einstein, *The Foundation of the General Theory of Relativity* (1916). [DOI](https://doi.org/10.1002/andp.19163540702)
+- ADM canonical analysis: Richard Arnowitt, Stanley Deser, and Charles W. Misner, *The Dynamics of General Relativity* (1962 / reprint 2008).
+- Congruence kinematics baseline: A. Raychaudhuri, *Relativistic Cosmology. I* (1955).
+- 1+3 covariant review baseline: G. F. R. Ellis and H. van Elst, *Cosmological Models (Cargese Lectures 1998)* (1999). [arXiv](https://arxiv.org/abs/gr-qc/9812046)
 - Einstein-aether theory: Ted Jacobson and David Mattingly, *Gravity with a dynamical preferred frame* (2001). [APS](https://journals.aps.org/prd/abstract/10.1103/PhysRevD.64.024028)
 - Einstein-aether modes: Ted Jacobson and David Mattingly, *Einstein-aether waves* (2004). [APS](https://journals.aps.org/prd/abstract/10.1103/PhysRevD.70.024003)
 - Thermodynamic gravity: Ted Jacobson, *Thermodynamics of Spacetime: The Einstein Equation of State* (1995). [APS](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.75.1260)
@@ -38,5 +49,6 @@ Use this page when you want a fast answer to four questions:
 
 - what the project is not
 - what it is trying to do
+- which classical GR baselines it is reusing rather than replacing
 - where it overlaps with known frameworks
 - where any defensible novelty claim would have to be narrower than first impression

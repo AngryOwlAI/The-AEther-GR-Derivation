@@ -68,18 +68,22 @@ Use these only if you want the human reading copy of the same article after insp
 
 Primary external comparison targets already named by the repo:
 
-1. Standard GR with interpretive language
-2. Einstein-aether theory
-3. Thermodynamic / emergent derivations of Einstein gravity
-4. Sakharov-style induced gravity
-5. Horava gravity and related preferred-foliation alternatives
+1. Classical congruence / 1+3 covariant GR literature
+2. ADM canonical constraint analysis
+3. Standard GR with interpretive language
+4. Einstein-aether theory
+5. Thermodynamic / emergent derivations of Einstein gravity
+6. Sakharov-style induced gravity
+7. Horava gravity and related preferred-foliation alternatives
 
 ## Core Claims Under Review
 
 The packet claims that:
 
 - the active benchmark package is closer to an exact-GR interpretive package than to a distinct low-energy alternative gravity theory
-- the downstream derivation ambition belongs to an already populated emergent-gravity category
+- the congruence-based flow dictionary should be placed inside the existing classical GR congruence literature rather than treated as a new observer-level field theory
+- the consistency discussion should be read against the ADM baseline as an analysis of the adopted GR sector
+- the downstream derivation ambition belongs to an already populated emergent-gravity / induced-gravity conversation
 - the project should not be presented as Einstein-aether theory or as any current low-energy preferred-frame modification of GR
 - any defensible novelty claim is narrower than “new gravity theory” and narrower than “gravity might emerge from deeper microphysics”
 
@@ -92,15 +96,17 @@ The packet does not claim that:
 ## Specific Review Questions
 
 1. Is “exact-GR interpretive package plus open emergent-gravity research program” the right category label?
-2. Is the comparison against standard GR with interpretive language fair, or does it still overstate distinctiveness?
-3. Is the contrast with Einstein-aether theory accurate at the level of low-energy content and extra modes?
-4. Is the positioning relative to Jacobson-style or other emergent-gravity programs accurate?
-5. Is the positioning relative to induced gravity and Sakharov-style emergence accurate?
-6. Is the contrast with Horava gravity or other preferred-foliation alternatives stated fairly?
-7. Which directly relevant literature is still missing from the current matrix or flagship article?
-8. Is any claimed novelty real, and if so is it best located in ontology, package discipline, derivation architecture, negative-result discipline, or somewhere else?
-9. Which novelty claims should be cut, narrowed, or made more explicit?
-10. Is there any place where the project is still likely to be misread as a low-energy alternative gravity theory?
+2. Is the package foregrounding the classical congruence / 1+3 covariant GR baseline clearly enough?
+3. Is the consistency framing aligned clearly enough with the ADM canonical baseline?
+4. Is the comparison against standard GR with interpretive language fair, or does it still overstate distinctiveness?
+5. Is the contrast with Einstein-aether theory accurate at the level of low-energy content and extra modes?
+6. Is the positioning relative to Jacobson-style or other emergent-gravity programs accurate?
+7. Is the positioning relative to induced gravity and Sakharov-style emergence accurate?
+8. Is the contrast with Horava gravity or other preferred-foliation alternatives stated fairly?
+9. Which directly relevant literature is still missing from the current matrix, flagship article, or baseline discussion?
+10. Is any claimed novelty real, and if so is it best located in ontology, package discipline, derivation architecture, negative-result discipline, or somewhere else?
+11. Which novelty claims should be cut, narrowed, or made more explicit?
+12. Is there any place where the project is still likely to be misread as a low-energy alternative gravity theory?
 
 ## Particularly Useful Feedback
 

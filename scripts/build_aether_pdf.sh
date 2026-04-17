@@ -242,10 +242,13 @@ EOF
   printf 'Building %s\n' "$tex_path"
   printf '  -> %s/%s.pdf\n' "$pdf_dir" "$base_name"
 
+  TEXINPUTS="$repo_root:${TEXINPUTS:-}" \
   pdflatex -interaction=nonstopmode -halt-on-error -file-line-error \
     -output-directory="$pdf_dir" "$tex_path"
+  TEXINPUTS="$repo_root:${TEXINPUTS:-}" \
   pdflatex -interaction=nonstopmode -halt-on-error -file-line-error \
     -output-directory="$pdf_dir" "$tex_path"
+  TEXINPUTS="$repo_root:${TEXINPUTS:-}" \
   pdflatex -interaction=nonstopmode -halt-on-error -file-line-error \
     -output-directory="$pdf_dir" "$tex_path"
 
