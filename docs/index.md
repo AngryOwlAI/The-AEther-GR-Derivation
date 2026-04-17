@@ -6,6 +6,8 @@ This site is the public presentation layer for `The Æther-Flow Interpretation o
 
 The benchmark starting point is the overview-first exact-closure package centered on [`aether_flow_exact_closure_sequence_overview.tex`](assets/tex/aether_flow_exact_closure_sequence_overview.tex). That package remains the active theory statement at the operational level. As of April 14, 2026, the current frozen primitive-reservoir line carries the scoped verdict `Not Derived On Current Line` on its frozen bridge object, so any resumed derivational program has to begin on a genuinely new line without changing the benchmark claim boundary prematurely.
 
+Operationally, the benchmark package is ordinary GR at observable scale: Einstein-Hilbert dynamics, one operative metric, universal matter coupling, standard relativistic causal structure, and no extra preferred-frame, vector, or scalar graviton sector. Packet B is a separate scoped no-go on the frozen primitive-reservoir derivational line, not a revision of that benchmark package. The congruence layer belongs to standard GR observer kinematics, and any surviving novelty claim is methodological: benchmark-first package discipline and explicit no-go discipline inside the broader emergent / induced / reconstruction conversation.
+
 ## Status Snapshot
 
 - Benchmark package: the overview-first exact-closure sequence is the fixed public front door and flagship result.

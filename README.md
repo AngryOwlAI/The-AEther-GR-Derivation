@@ -4,6 +4,8 @@
 
 This repository is the active LaTeX workspace for `The Æther-Flow Interpretation of Relativity`. The overview-first exact-closure package is the flagship scientific result already in hand: it adopts GR exactly as the operational relativistic sector with ordinary matter coupling, and it serves as the benchmark theory statement for the repository. The downstream substrate program is now separate in role: it asks whether a genuinely new line can derive that benchmark without changing the benchmark claim boundary prematurely.
 
+Operationally, the benchmark package is ordinary GR at observable scale: Einstein-Hilbert dynamics, one operative metric, universal matter coupling, standard relativistic causal structure, and no extra preferred-frame, vector, or scalar graviton sector. Packet B is a separate scoped no-go on the frozen primitive-reservoir derivational line, not a revision of that benchmark package. The congruence layer belongs to standard GR observer kinematics, and any surviving novelty claim is methodological: benchmark-first package discipline and explicit no-go discipline inside the broader emergent / induced / reconstruction conversation.
+
 Earlier ontology/background material is preserved in the predecessor repository [The Æther](https://github.com/AngryOwlAI/The-AEther).
 
 ## Status Snapshot

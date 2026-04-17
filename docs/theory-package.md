@@ -13,6 +13,8 @@ The package is overview-first and exact-closure-first. It remains the main bench
 - Current-line verdict: the frozen primitive-reservoir line ends in the scoped verdict `Not Derived On Current Line`.
 - Next admissible move: any resumed derivational work must begin on a genuinely new line that states explicit observer-localizing structure clearly enough to test the five benchmark derivation gates.
 
+Operationally, the benchmark package is ordinary GR at observable scale: Einstein-Hilbert dynamics, one operative metric, universal matter coupling, standard relativistic causal structure, and no extra preferred-frame, vector, or scalar graviton sector. Packet B is a separate scoped no-go on the frozen primitive-reservoir derivational line, not a revision of that benchmark package. The congruence layer belongs to standard GR observer kinematics, and any surviving novelty claim is methodological: benchmark-first package discipline and explicit no-go discipline inside the broader emergent / induced / reconstruction conversation.
+
 If you want a single-entry orientation before the package itself, begin with the [Front-Facing Article](front-facing-article.md).
 
 ## Fixed Public Reading Order

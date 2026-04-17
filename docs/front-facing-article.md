@@ -13,6 +13,8 @@ The article is a public orientation layer. It does not replace the overview-firs
 - Current-line verdict: the frozen primitive-reservoir line ends in `Not Derived On Current Line`.
 - Next admissible move: any future derivational continuation must be a genuinely new line with explicit observer-localizing structure.
 
+Operationally, the benchmark package is ordinary GR at observable scale: Einstein-Hilbert dynamics, one operative metric, universal matter coupling, standard relativistic causal structure, and no extra preferred-frame, vector, or scalar graviton sector. Packet B is a separate scoped no-go on the frozen primitive-reservoir derivational line, not a revision of that benchmark package. The congruence layer belongs to standard GR observer kinematics, and any surviving novelty claim is methodological: benchmark-first package discipline and explicit no-go discipline inside the broader emergent / induced / reconstruction conversation.
+
 ## Article Access
 
 - [Flagship article PDF](assets/pdfs/aether_flow_exact_closure_flagship_article.pdf)
