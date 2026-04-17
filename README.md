@@ -1,79 +1,123 @@
+<p align="center">
+  <img src="docs/assets/images/readme-banner.png" alt="Editorial cosmic banner for The Æther-Flow Interpretation of Relativity with the subtitle 'Ontology, exact-GR benchmark package, and open derivation program.'" width="100%" />
+</p>
+
 # The Æther-Flow Interpretation of Relativity
 
-## Exact-GR Benchmark and Substrate Research Program
+This repository is designed to be readable even if you are new to GitHub, and it is the active LaTeX workspace for `The Æther-Flow Interpretation of Relativity`. The overview-first exact-closure package is the benchmark public theory statement, while the downstream substrate program asks whether that benchmark can be derived from explicit substrate structure without changing the claim boundary prematurely.
 
-This repository is the active LaTeX workspace for `The Æther-Flow Interpretation of Relativity`. The overview-first exact-closure package is the flagship scientific result already in hand: it adopts GR exactly as the operational relativistic sector with ordinary matter coupling, and it serves as the benchmark theory statement for the repository. The downstream substrate program is now separate in role: it asks whether a genuinely new line can derive that benchmark without changing the benchmark claim boundary prematurely.
+> **First time here:** Start with [Start Here](docs/start-here.md). If you mainly want to read the project rather than inspect the repository, prefer the PDF links in the [Theory Package](docs/theory-package.md) page or begin with the [Front-Facing Article](docs/front-facing-article.md).
 
-Operationally, the benchmark package is ordinary GR at observable scale: Einstein-Hilbert dynamics, one operative metric, universal matter coupling, standard relativistic causal structure, and no extra preferred-frame, vector, or scalar graviton sector. Packet B is a separate scoped no-go on the frozen primitive-reservoir derivational line, not a revision of that benchmark package. The congruence layer belongs to standard GR observer kinematics, and any surviving novelty claim is methodological: benchmark-first package discipline and explicit no-go discipline inside the broader emergent / induced / reconstruction conversation.
+## Quick Links
 
-Earlier ontology/background material is preserved in the predecessor repository [The Æther](https://github.com/AngryOwlAI/The-AEther).
+[Start Here](docs/start-here.md) · [Theory Package](docs/theory-package.md) · [Active Research](docs/research-archive.md) · [Review Packets](docs/review_packets/README.md) · [How to Review](docs/how-to-review.md) · [AI Collaboration and Method](docs/ai-collaboration-and-method.md) · [Manuscript Wiki](docs/manuscript-wiki-workflow.md)
 
-## Status Snapshot
+## Choose Your Path
 
-- Benchmark package: the overview-first exact-closure sequence is the flagship result and the public front door.
-- Relation to GR: the repository currently presents an exact-GR benchmark and interpretive package, not a low-energy modification or replacement of GR.
-- Current-line verdict: the frozen primitive-reservoir bounded line ends in the scoped verdict `Not Derived On Current Line`.
-- Next admissible move: either stop with that scoped no-go and package the benchmark result already in hand, or open a genuinely new line only after `docs/NEW_LINE_DERIVATION_CHARTER.md` is completed concretely at equation level.
+- **New to the project:** Go to [Start Here](docs/start-here.md) for the reading order, the first clicks to make, and the quickest way into the repository.
+- **Curious non-specialist:** Read the [Front-Facing Article](docs/front-facing-article.md), then open the [Overview PDF](docs/assets/pdfs/aether_flow_exact_closure_sequence_overview.pdf) for the benchmark package in reading form.
+- **Physics / math reader:** Go straight to the [Theory Package](docs/theory-package.md), then use [How to Review](docs/how-to-review.md) for the intended audit path.
+- **Reviewer / AI collaborator:** Use [Review Packets](docs/review_packets/README.md), [AI Collaboration and Method](docs/ai-collaboration-and-method.md), and the [Manuscript Wiki workflow](docs/manuscript-wiki-workflow.md) to find the right handoff or retrieval surface quickly.
 
-## Project Intent
+## What This Project Is
 
-The project is not merely an ontology archive waiting for legitimacy from a future derivation. Its active intent is twofold:
+This repository is a research hub, a public reading path, and a working manuscript space at the same time. It is meant to help readers, reviewers, and collaborators navigate the project.
 
-- preserve the `Æther / Æther-flow` ontology in rigorous form
-- state and maintain `The Æther-Flow Interpretation of Relativity` as an exact relativistic theory at the effective level
+At the scientific level, the repository presents `The Æther-Flow Interpretation of Relativity` as an exact relativistic theory statement built on the `Æther` / `Æther-flow` ontology. Its public front door is the overview-first exact-closure package, while the downstream derivational manuscripts remain answerable to that benchmark package rather than replacing it.
 
-The benchmark package is therefore a positive scientific deliverable in its own right, while any resumed derivational line remains downstream foundational work answerable to that benchmark and gated by a concretely completed charter.
+## What It Currently Claims
 
-The explicit identity decision for the current repository is recorded in [docs/PROJECT_IDENTITY_DECISION_NOTE.md](docs/PROJECT_IDENTITY_DECISION_NOTE.md): keep exact GR as the public benchmark identity, treat derivation as a separate open burden, and do not treat low-energy GR modification or replacement as the current flagship project.
+- The overview-first exact-closure package is the benchmark public theory statement and the canonical front door of the repository.
+- `The Æther-Flow Interpretation of Relativity` is the active exact relativistic theory statement built on the `Æther` / `Æther-flow` ontology.
+- GR is adopted exactly in the benchmark package as the operational relativistic sector with ordinary matter coupling.
+- At current scope, the project is an exact-GR benchmark and interpretive package, not a low-energy modification or replacement of GR.
+- The current frozen primitive-reservoir line ends in the scoped verdict `Not Derived On Current Line`.
+- Any resumed derivational work must begin on a genuinely new line with explicit observer-localizing structure and a concretely completed [charter](docs/NEW_LINE_DERIVATION_CHARTER.md).
 
-## Current State
+## What It Does Not Currently Claim
 
-- Public front door: [aether_flow_exact_closure_sequence_overview.tex](manuscripts/active/tex/aether_flow_exact_closure_sequence_overview.tex)
-- Public orientation article: [aether_flow_exact_closure_flagship_article.tex](manuscripts/active/tex/aether_flow_exact_closure_flagship_article.tex)
-- Fixed benchmark package: [aether_flow_exact_closure_note.tex](manuscripts/active/tex/aether_flow_exact_closure_note.tex), [aether_flow_foundations.tex](manuscripts/active/tex/aether_flow_foundations.tex), [aether_flow_dynamics.tex](manuscripts/active/tex/aether_flow_dynamics.tex), [aether_flow_consistency.tex](manuscripts/active/tex/aether_flow_consistency.tex), [aether_flow_relativistic_recovery.tex](manuscripts/active/tex/aether_flow_relativistic_recovery.tex), and [aether_flow_geometry.tex](manuscripts/active/tex/aether_flow_geometry.tex)
-- Benchmark gatekeeping: [aether_flow_exact_closure_derivation_gates_note.tex](manuscripts/active/tex/aether_flow_exact_closure_derivation_gates_note.tex), [aether_flow_exact_closure_post_bridge_derivation_gate_status_note.tex](manuscripts/active/tex/aether_flow_exact_closure_post_bridge_derivation_gate_status_note.tex), and [aether_flow_benchmark_one_metric_observer_package_upstream_compression_theorem.tex](manuscripts/active/tex/aether_flow_benchmark_one_metric_observer_package_upstream_compression_theorem.tex)
-- Live bounded verdict: [aether_flow_current_line_gr_derivation_obstruction_or_no_go.tex](manuscripts/active/tex/aether_flow_current_line_gr_derivation_obstruction_or_no_go.tex) holds `active_primary`; [aether_flow_bounded_gr_derivation_bridge_object_synthesis.tex](manuscripts/active/tex/aether_flow_bounded_gr_derivation_bridge_object_synthesis.tex) remains active supporting context; [aether_flow_bounded_gr_derivation_attempt_from_explicit_substrate_package_and_primitive_dynamics.tex](manuscripts/active/tex/aether_flow_bounded_gr_derivation_attempt_from_explicit_substrate_package_and_primitive_dynamics.tex) is preserved as the immediate suspension-stage handoff
-- Historical same-output deeper-relay material remains preserved, but it no longer defines the default next move
-- The deeper positive-pair / orbit-shape continuation remains recorded side work unless it changes the benchmark-facing burden
+- It does not claim a completed first-principles substrate derivation of GR.
+- It does not claim an independent low-energy non-GR observable sector.
+- It does not claim that ontology alone already yields a finished microphysical theory of gravity.
+- It does not treat the downstream bridge and derivational notes as replacements for the benchmark package.
+- It does not treat another same-output deeper relay below the frozen bridge object as benchmark-facing success by default.
 
-## Primary Goal
+## Plain-Language Glossary
 
-The primary goal is to keep the benchmark exact-closure theory statement scientifically stable and to present it clearly as the flagship result already achieved. If derivational work is resumed, it should proceed only as a disciplined new-line program testing whether the adopted GR benchmark can be derived from deeper substrate structure. The project goal is not to rebrand unfinished derivational work as success, and it is not to turn the current repository into a low-energy non-GR gravity project.
+If you want the repository's compact naming note for these terms, start with [Æther-Flow Naming and Vocabulary](docs/AETHER_FLOW_NAMING_AND_VOCABULARY.md). If you want a more reader-friendly orientation first, use the [Front-Facing Article](docs/front-facing-article.md).
 
-## Start Here
+- `Æther`: the project's name for the deeper four-dimensional substrate of reality. In the active manuscripts, it is the underlying four-dimensional substrate of reality.
+- `Æther-flow`: the ordered motion of that deeper substrate. In the active manuscripts, it is the intrinsic ordered motion of the `Æther`.
+- observed three-dimensional space: the space we experience locally. In project language, it is the observer-level local experiential slice of the deeper substrate.
+- local experiential slice: the repository's phrase for that observer-level cut through the deeper substrate that appears to us as ordinary space.
+- `S-time`: the experienced order of change. In project language, it arises from matter, light, and the `Æther-flow`.
+- exact closure: the benchmark stance that the operational relativistic sector agrees exactly with GR.
+- adoption: use of established relativistic dynamics without claiming first-principles substrate recovery.
+- derivation: first-principles recovery of the relativistic sector from explicit substrate structure.
 
-- [docs/start-here.md](docs/start-here.md)
-- [docs/theory-package.md](docs/theory-package.md)
-- [docs/research-archive.md](docs/research-archive.md)
-- [docs/review_packets/README.md](docs/review_packets/README.md)
-- [docs/AETHER_FLOW_CLAIM_BOUNDARY.md](docs/AETHER_FLOW_CLAIM_BOUNDARY.md)
-- [docs/AETHER_FLOW_NAMING_AND_VOCABULARY.md](docs/AETHER_FLOW_NAMING_AND_VOCABULARY.md)
+## Repository Map
 
-## Repository Layout
+- **Authoring manuscripts** — [`manuscripts/active/tex/`](manuscripts/active/tex/): the active `.tex` files and the scientific source of truth.
+- **Built reading copies** — [`manuscripts/active/pdf/`](manuscripts/active/pdf/): generated PDFs for human reading, sharing, and review.
+- **Public orientation and policy** — [`docs/`](docs/): guided entry pages, vocabulary notes, claim-boundary notes, and public-facing documentation.
+- **Review handoff bundles** — [`docs/review_packets/`](docs/review_packets/): organized review packets for outside readers, including AI and human-oriented formats.
+- **Live research board** — [`RESEARCH_PLAN.md`](RESEARCH_PLAN.md): the current progress and direction surface for ongoing work.
+- **Operational checklist** — [`EXECUTION_CHECKLIST.md`](EXECUTION_CHECKLIST.md): the active checklist for manuscript and workflow execution.
 
-- `manuscripts/active/tex/`: active manuscript source of truth
-- `manuscripts/active/pdf/`: built PDFs
-- `docs/`: compact public and policy documentation
-- `docs/review_packets/`: phase-8 review bundle with `ai/` LaTeX-first Markdown packets for AI review, `ai_pdfs/` PDF-first packet copies for AI PDF workflows, and `human/` PDF-first handoff copies for human review
-- `RESEARCH_PLAN.md`: current live research board
-- `EXECUTION_CHECKLIST.md`: operational checklist for manuscript work
-- `docs/manuscript-wiki-workflow.md`: local Obsidian Manuscript Wiki workflow
+## How This Repo Works
 
-## Working Rules
+1. New manuscript writing and revision happen in `.tex`, not in Markdown or another authoring format.
+2. The active `.tex` manuscripts under `manuscripts/active/tex/` are the scientific authority for the project.
+3. The PDFs under `manuscripts/active/pdf/` and `docs/assets/pdfs/` are compiled reading deliverables and the most convenient reading surface for most visitors.
+4. The local Manuscript Wiki is a retrieval and navigation layer that helps agents and collaborators find the right material quickly; it does not replace the active `.tex` manuscripts as authority.
+5. The root `README.md` and the pages under `docs/` are orientation surfaces: they explain how to navigate the project, but they are not the primary scientific record.
+6. The public reading order starts with the benchmark exact-closure package before the downstream derivational program and archive context.
 
-- New manuscript content is written in `.tex`.
-- Keep ontology, adopted GR benchmark, and derivational ambitions clearly separated.
-- Preserve the fixed benchmark reading order before surfacing downstream derivational notes.
-- Rebuild the matching PDF after each `.tex` change.
-- Keep [RESEARCH_PLAN.md](RESEARCH_PLAN.md) active and tracked as a live control document.
-- Retire completed one-off implementation-planning Markdown into the local ignored archive at `docs/_archived_plans/` instead of leaving it in the active tracked docs surface.
-- After adding, removing, or renaming an active manuscript, keep [docs/ACTIVE_MANUSCRIPT_FILE_MAP.csv](docs/ACTIVE_MANUSCRIPT_FILE_MAP.csv) in sync and run `python3 scripts/validate_active_manuscript_file_map.py`.
-- `scripts/build_aether_pdf.sh` runs the active manuscript file-map validation automatically after builds from `manuscripts/active/tex/`, and it can sync rebuilt PDFs into the local Manuscript Wiki.
+## For AI Agents And Advanced Collaborators
 
-## Manuscript Wiki
+- [AGENTS.md](AGENTS.md): repo-local working rules for academic writing, terminology, build discipline, routing discipline, and support-tooling workflow.
+- [Manuscript Wiki workflow](docs/manuscript-wiki-workflow.md): the compact guide for build, sync, lint, and authority-order commands.
+- [Active manuscript file map](docs/ACTIVE_MANUSCRIPT_FILE_MAP.csv): the routing control layer for manuscript status, front-door classification, and current-line discipline.
+- [Active manuscript file map guide](docs/ACTIVE_MANUSCRIPT_FILE_MAP_GUIDE.md): the taxonomy and update rules behind that routing layer.
+- Operational rule: use the wiki and file map for navigation first, then verify substantive scientific claims in the active `.tex` manuscripts.
 
-The local Obsidian Manuscript Wiki is part of the supported day-to-day workflow. Use [docs/manuscript-wiki-workflow.md](docs/manuscript-wiki-workflow.md) for the build, sync, lint, and authority-order commands. Use the wiki and the file map as the retrieval layer before broad repository search, and use the active `.tex` manuscripts as the scientific authority. Phase 6 also supports a separate supplemental external-reference library under the local vault without mixing that literature into the project-routing surfaces.
+## Review And Provenance
 
-## Context Economy
+This repository is set up for outside reading as well as active internal work. The review and provenance surfaces are meant to make that process easier, clearer, and more disciplined.
 
-The Markdown layer is intentionally compact. For scientific detail, read the relevant active `.tex` manuscript directly instead of treating repository documentation as a narrative archive.
+- [How to Review](docs/how-to-review.md): the intended audit path for physicists, mathematicians, and technically trained readers.
+- [Review Packets](docs/review_packets/README.md): structured handoff bundles for outside review.
+- [AI Collaboration and Method](docs/ai-collaboration-and-method.md): provenance and workflow context for the AI-assisted research process used in the repository.
+
+## More On Æther And Æther-Flow
+
+The README uses `Æther` and `Æther-flow` as core project terms, but the fuller explanation lives in linked project documents rather than in the landing page itself.
+
+- [Æther-Flow Naming and Vocabulary](docs/AETHER_FLOW_NAMING_AND_VOCABULARY.md): the compact definitions and preferred wording note for the active project.
+- [Front-Facing Article](docs/front-facing-article.md): a more accessible orientation for readers who want the ideas explained before entering the manuscript structure.
+- [Theory Package](docs/theory-package.md): the benchmark reading path if you want to see how those concepts are used in the active exact-closure package.
+
+## How To Use The Manuscript Wiki
+
+The Manuscript Wiki is the local retrieval and navigation layer for the project. It is there to help readers and agents find the right manuscript, synced PDF, and routing note quickly without treating the wiki itself as the scientific source of truth.
+
+- Start with [docs/manuscript-wiki-workflow.md](docs/manuscript-wiki-workflow.md) for the default vault path, build commands, sync flow, and lint commands.
+- Use the wiki when you need navigation, cross-links, synced PDFs, or note generation around the active manuscripts.
+- Do not treat the wiki as the final scientific authority: the active `.tex` manuscripts remain the source of truth.
+
+## How To Use The Scripts Folder
+
+The [`scripts/`](scripts/) folder holds the tracked workflow tools for the repository. These scripts exist so contributors and agents can build, sync, validate, and clean the project in a consistent way instead of relying on ad hoc shell commands.
+
+- Use [`scripts/build_aether_pdf.sh`](scripts/build_aether_pdf.sh) to build active manuscripts and, when needed, sync the resulting PDFs into the wiki workflow.
+- Use [`scripts/check_manuscript_wiki.sh`](scripts/check_manuscript_wiki.sh), [`scripts/sync_manuscript_wiki_pdfs.py`](scripts/sync_manuscript_wiki_pdfs.py), and [`scripts/generate_manuscript_wiki_notes.py`](scripts/generate_manuscript_wiki_notes.py) to refresh and verify the local wiki layer.
+- Use [`scripts/validate_active_manuscript_file_map.py`](scripts/validate_active_manuscript_file_map.py) when the active manuscript map changes.
+- Use [`scripts/clean_aether_pdflatex_artifacts.sh`](scripts/clean_aether_pdflatex_artifacts.sh) to remove leftover LaTeX build artifacts after manual or failed builds.
+
+## How To Use The CSV Control Layer
+
+The project's main CSV control surface is [docs/ACTIVE_MANUSCRIPT_FILE_MAP.csv](docs/ACTIVE_MANUSCRIPT_FILE_MAP.csv). This file is not a manuscript itself; it is the routing layer that tells readers and agents how the active manuscript set is classified and how it should be navigated.
+
+- Use the CSV when you need to know which manuscripts are front door, active supporting, historical-but-kept-active, screened out, or side work.
+- Pair the CSV with [docs/ACTIVE_MANUSCRIPT_FILE_MAP_GUIDE.md](docs/ACTIVE_MANUSCRIPT_FILE_MAP_GUIDE.md), because the guide explains what the columns and status labels mean.
+- Use the file map before making claims about project status, current main line, or benchmark-facing next steps.
