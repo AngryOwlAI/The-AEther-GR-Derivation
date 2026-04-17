@@ -15,6 +15,18 @@ The package is overview-first and exact-closure-first. It remains the main bench
 
 Operationally, the benchmark package is ordinary GR at observable scale: Einstein-Hilbert dynamics, one operative metric, universal matter coupling, standard relativistic causal structure, and no extra preferred-frame, vector, or scalar graviton sector. Packet B is a separate scoped no-go on the frozen primitive-reservoir derivational line, not a revision of that benchmark package. The congruence layer belongs to standard GR observer kinematics, and any surviving novelty claim is methodological: benchmark-first package discipline and explicit no-go discipline inside the broader emergent / induced / reconstruction conversation.
 
+## What This Package Is Not
+
+For the standalone comparison note, see [What This Package Is Not](what-this-package-is-not.md).
+
+- Not Einstein-aether: the benchmark package does not add a dynamical preferred-frame vector field in the low-energy action; the congruence / `Æther-flow` layer is a GR observer-kinematics dictionary inside the adopted metric spacetime.
+- Not Hořava or preferred-foliation gravity: the active package does not claim a preferred slicing, modified low-energy symmetry structure, or an extra low-energy foliation sector.
+- Not a low-energy non-GR alternative: at observable scale the package is ordinary GR with one operative metric and universal matter coupling.
+- Not a completed derivation of GR: exact relativistic adoption is the benchmark result now; first-principles substrate derivation remains open downstream.
+- Not a still-live frozen-line program: the current frozen primitive-reservoir line already ends in the scoped verdict `Not Derived On Current Line`, so another same-output relay below that frozen object is not the current front-line task.
+
+The positive mirror is equally simple: the exact-GR benchmark package is the public result now, the derivational burden is downstream and still open, and the frozen current line is already preserved under `Not Derived On Current Line`.
+
 If you want a single-entry orientation before the package itself, begin with the [Front-Facing Article](front-facing-article.md).
 
 ## Fixed Public Reading Order

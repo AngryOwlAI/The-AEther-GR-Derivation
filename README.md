@@ -10,7 +10,7 @@ This repository is designed to be readable even if you are new to GitHub, and it
 
 ## Quick Links
 
-[Start Here](docs/start-here.md) · [Theory Package](docs/theory-package.md) · [Active Research](docs/research-archive.md) · [Review Packets](docs/review_packets/README.md) · [How to Review](docs/how-to-review.md) · [AI Collaboration and Method](docs/ai-collaboration-and-method.md) · [Manuscript Wiki](docs/manuscript-wiki-workflow.md)
+[Start Here](docs/start-here.md) · [Theory Package](docs/theory-package.md) · [What This Package Is Not](docs/what-this-package-is-not.md) · [Active Research](docs/research-archive.md) · [Review Packets](docs/review_packets/README.md) · [How to Review](docs/how-to-review.md) · [AI Collaboration and Method](docs/ai-collaboration-and-method.md) · [Manuscript Wiki](docs/manuscript-wiki-workflow.md)
 
 ## Choose Your Path
 
@@ -34,13 +34,17 @@ At the scientific level, the repository presents `The Æther-Flow Interpretation
 - The current frozen primitive-reservoir line ends in the scoped verdict `Not Derived On Current Line`.
 - Any resumed derivational work must begin on a genuinely new line with explicit observer-localizing structure and a concretely completed [charter](docs/NEW_LINE_DERIVATION_CHARTER.md).
 
-## What It Does Not Currently Claim
+## What This Package Is Not
 
-- It does not claim a completed first-principles substrate derivation of GR.
-- It does not claim an independent low-energy non-GR observable sector.
-- It does not claim that ontology alone already yields a finished microphysical theory of gravity.
-- It does not treat the downstream bridge and derivational notes as replacements for the benchmark package.
-- It does not treat another same-output deeper relay below the frozen bridge object as benchmark-facing success by default.
+If you only need the compact comparison layer, start with [What This Package Is Not](docs/what-this-package-is-not.md).
+
+- Not Einstein-aether: the benchmark package does not add a dynamical preferred-frame vector field in the low-energy action; the congruence / `Æther-flow` layer is a GR observer-kinematics dictionary inside the adopted metric spacetime.
+- Not Hořava or preferred-foliation gravity: the active package does not claim a preferred slicing, modified low-energy symmetry structure, or an extra low-energy foliation sector.
+- Not a low-energy non-GR alternative: at observable scale the package is ordinary GR with one operative metric and universal matter coupling.
+- Not a completed derivation of GR: exact relativistic adoption is the benchmark result now; first-principles substrate derivation remains open downstream.
+- Not a still-live frozen-line program: the current frozen primitive-reservoir line already ends in the scoped verdict `Not Derived On Current Line`, so another same-output relay below that frozen object is not the current front-line task.
+
+The positive mirror is equally simple: the exact-GR benchmark package is the public result now, the derivational burden is downstream and still open, and the frozen current line is already preserved under `Not Derived On Current Line`.
 
 ## Plain-Language Glossary
 
