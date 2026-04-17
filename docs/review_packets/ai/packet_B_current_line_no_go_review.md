@@ -1,19 +1,19 @@
 # Packet B: Current-Line No-Go Review
 
-Last updated: April 16, 2026
+Last updated: April 17, 2026
 
 ## Purpose
 
-This packet asks a reviewer to assess whether the frozen primitive-reservoir line is correctly scoped as a bounded obstruction / no-go.
+This packet asks a reviewer to assess whether the frozen primitive-reservoir line is correctly scoped as a bounded structural obstruction / no-go internal to the frozen bridge object and the constructions already licensed on the current line.
 
 The question is not whether every conceivable `Æther` / `Æther-flow` completion is impossible.
-The question is whether the current frozen one-metric primitive-reservoir line, on its stated bridge object and assumptions, really earns the verdict `Not Derived On Current Line`.
+The question is whether the current frozen one-metric primitive-reservoir line, on its stated bridge object and assumptions, really earns the verdict `Not Derived On Current Line` as a scoped structural no-go, rather than whether every future completion of the broader framework is dynamically impossible.
 
 ## Status Snapshot
 
 - Benchmark target: fixed already by the exact-closure package.
 - Current-line verdict under review: `Not Derived On Current Line`.
-- Scope: bounded and line-specific, not a universal impossibility theorem.
+- Scope: a bounded structural obstruction theorem internal to the frozen line and its allowed constructions, not a universal impossibility theorem.
 - Routing consequence: the next honest move is either to stop with the scoped no-go or to open a genuinely new line with new observer-localizing structure.
 
 ## What The Reviewer Is Being Asked To Judge
@@ -73,6 +73,7 @@ The packet claims that:
 - the benchmark target is already fixed elsewhere and should not be recreated inside Product B
 - the frozen bridge object preserves real structure and real benchmark-facing gains
 - the frozen line still lacks the benchmark-closing observer-localizing ingredient
+- the resulting no-go is structural and internal to the current frozen formal grammar rather than a universal dynamical impossibility theorem
 - because of that absence, Gates (1) through (4) cannot be discharged on the current line
 - the correct verdict is therefore `Not Derived On Current Line`
 

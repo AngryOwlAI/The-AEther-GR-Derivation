@@ -13,6 +13,7 @@ It is supplemental literature only. It does not determine manuscript routing, fr
 - The congruence-based interpretive layer should be read against the classical Raychaudhuri and 1+3 covariant GR literature, not as a new observer-level gravitational sector.
 - The consistency discussion is an audit of the adopted GR sector and should be read against the ADM constraint-analysis baseline rather than as a new low-energy dynamics result.
 - The downstream derivation ambition belongs to an already populated emergent-gravity category; it should not be presented as unprecedented merely because the ontology is different.
+- Packet B's current-line no-go is best read as a scoped structural obstruction tied to a missing local dictionary from deeper data to observer geometry and dynamics, not as a universal impossibility theorem for every future completion.
 - Any novelty claim that survives review is narrower: disciplined ontology, exact-GR benchmark packaging, benchmark-gated derivation architecture, and explicit negative-result discipline on the frozen line.
 
 ## Classical GR Baselines That Matter Here
@@ -20,6 +21,16 @@ It is supplemental literature only. It does not determine manuscript routing, fr
 - Raychaudhuri-style congruence kinematics and later 1+3 covariant reviews provide the formal baseline for the benchmark package's flow-geometry dictionary.
 - ADM canonical analysis provides the baseline for the benchmark package's degree-of-freedom counting and Hamiltonian constraint language.
 - These baselines matter because the benchmark package is not claiming a second low-energy dynamics; it is re-reading exact GR through a disciplined ontological and congruence-based framework.
+
+## Why Packet B's Missing Bridge Is Familiar
+
+- Packet B does not argue that deeper structure is impossible in principle; it argues that the current frozen line lacks the local dictionary needed to turn bridge-side data into observer geometry and dynamics.
+- Jacobson-style thermodynamic derivations still rely on local causal-horizon structure through each spacetime point, so they illustrate that even emergent routes to Einstein dynamics need a concrete local geometric bridge.
+- Visser's induced-gravity framing is a useful contrast because Lorentzian geometry is typically already in hand before one asks how Einstein-Hilbert dynamics are induced; preserving a metric package is not yet the same as deriving that package.
+- Hojman-Kuchar-Teitelboim make local deformation or constraint structure central to reconstruction, which sharpens why a missing observer-local law is not a small omission.
+- Deser's self-coupling route emphasizes that locality and gauge consistency are part of what forces the nonlinear gravitational structure, so Packet B's missing local dictionary is a familiar obstruction rather than a repo-private complaint.
+- Lovelock sharpens the point further: once a local metric field law is required, the admissible second-order divergence-free structures in four dimensions are already tightly constrained, so the law itself has to be written down.
+- Barcelo-Liberati-Visser provide the analogue-gravity comparison: one may recover metric-like kinematics, horizons, or propagation structure without thereby deriving Einstein dynamics.
 
 ## Literature Positioning Matrix
 
@@ -40,6 +51,11 @@ It is supplemental literature only. It does not determine manuscript routing, fr
 - Einstein-aether theory: Ted Jacobson and David Mattingly, *Gravity with a dynamical preferred frame* (2001). [APS](https://journals.aps.org/prd/abstract/10.1103/PhysRevD.64.024028)
 - Einstein-aether modes: Ted Jacobson and David Mattingly, *Einstein-aether waves* (2004). [APS](https://journals.aps.org/prd/abstract/10.1103/PhysRevD.70.024003)
 - Thermodynamic gravity: Ted Jacobson, *Thermodynamics of Spacetime: The Einstein Equation of State* (1995). [APS](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.75.1260)
+- Induced-gravity review: Matt Visser, *Sakharov's Induced Gravity: A Modern Perspective* (2002). [arXiv](https://arxiv.org/abs/gr-qc/0204062)
+- Geometrodynamics reconstruction: S. A. Hojman, K. Kuchar, and C. Teitelboim, *Geometrodynamics Regained* (1976). [Annals of Physics](https://www.sciencedirect.com/science/article/pii/0003491676900736)
+- Local self-coupling route: S. Deser, *Self-Interaction and Gauge Invariance* (1970 / reprint 2004). [arXiv](https://arxiv.org/abs/gr-qc/0411023)
+- Local metric-structure constraint: David Lovelock, *The Einstein Tensor and Its Generalizations* (1971). [DOI](https://doi.org/10.1063/1.1665613)
+- Analogue-gravity review: Carlos Barcelo, Stefano Liberati, and Matt Visser, *Analogue Gravity* (2005 / updated 2011). [Living Reviews](https://link.springer.com/article/10.12942/lrr-2011-3)
 - Induced gravity: A. D. Sakharov, *Vacuum quantum fluctuations in curved space and the theory of gravitation* (1967; English reprint 1991). [UFN](https://ufn.ru/en/articles/1991/5/d/)
 - Preferred-foliation gravity: Petr Horava, *Quantum Gravity at a Lifshitz Point* (2009). [APS](https://journals.aps.org/prd/abstract/10.1103/PhysRevD.79.084008)
 
