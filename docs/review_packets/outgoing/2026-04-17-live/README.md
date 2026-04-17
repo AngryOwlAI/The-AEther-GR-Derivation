@@ -24,10 +24,19 @@ The controlling repository stance for this bundle is:
 - [packet_A_gr_foundations/](packet_A_gr_foundations/): Product A handoff for benchmark-package review.
 - [packet_B_mathematical_physics/](packet_B_mathematical_physics/): Product B handoff for bounded no-go review.
 - [packet_C_emergence_reconstruction/](packet_C_emergence_reconstruction/): literature-positioning handoff.
+- `reviewer_targets.tsv`: sourced candidate-reader queue from official institutional pages for the real outside-review pass.
 - `dispatch_log.tsv`: transmission and return-tracking template for real outside reviewers.
 - `artifact_manifest.tsv`: hash list for the files copied into this dated bundle.
 
 Each packet folder is intended to stay bounded. Do not blur the packets back into one hybrid review request unless a reviewer explicitly asks for the full cross-packet story.
+
+## Outreach Queue
+
+- Use `reviewer_targets.tsv` to pick the primary or backup reader for each packet.
+- Write to `dispatch_log.tsv` only after an actual transmission has occurred.
+- Do not record sourced but unsent candidates as dispatched outreach.
+- After a real send, fill `reviewer_name`, `contact_method`, `sent_date`, `response_due`, and `status` in `dispatch_log.tsv`.
+- When a review returns, store it under `docs/Reviews/Packet A/`, `docs/Reviews/Packet B/`, or `docs/Reviews/Packet C/` and then record the path in `returned_review_path`.
 
 ## Authority And Scope
 
@@ -38,5 +47,6 @@ Each packet folder is intended to stay bounded. Do not blur the packets back int
 ## Operational Note
 
 This bundle prepares the handoff completely inside the repository. Actual transmission still requires real reviewer names and contact details outside the repo.
+The current `reviewer_targets.tsv` file narrows that remaining external step to a concrete packet-by-packet shortlist, but it does not count as outreach by itself.
 
 Returned external reviews should be logged under `docs/Reviews/Packet A/`, `docs/Reviews/Packet B/`, or `docs/Reviews/Packet C/` as appropriate, together with a matching response note after triage.
