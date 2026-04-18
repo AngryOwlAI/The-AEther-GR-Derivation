@@ -16,7 +16,7 @@ This checklist is intentionally compact. It tracks the active operational rules 
 - [x] Freeze a dated external-review snapshot of Product A and Product B under `docs/review_packets/outgoing/`.
 - [x] Rebuild the authoritative Product A and Product B PDFs from their `.tex` sources before circulation.
 - [x] Add the one-page cover memo and the response template to each outgoing packet bundle.
-- [ ] Transmit Packet A to a GR / foundations reader, Packet B to a mathematical physicist, and Packet C to an emergence / reconstruction / literature reader.
+- [ ] Human owner transmits Packet A to a GR / foundations reader, Packet B to a mathematical physicist, and Packet C to an emergence / reconstruction / literature reader; agents may prepare materials and logs but should not block on the outreach step itself.
 - [ ] Keep the simulated packet reviews under `docs/Reviews/` classified as internal routing evidence rather than external peer review.
 - [x] Keep derivation restart blocked unless `docs/NEW_LINE_DERIVATION_CHARTER.md` can already be completed concretely as equations rather than prose; outside-review return alone does not lift the block.
 

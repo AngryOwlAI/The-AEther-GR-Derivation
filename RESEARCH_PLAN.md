@@ -9,14 +9,14 @@ This file is intentionally short. It tracks the live control surface for `The Æ
 - Benchmark package: the overview-first exact-closure sequence is the flagship exact-GR benchmark already in hand.
 - Relation to GR: the project currently presents an exact-GR benchmark and interpretive package, not a low-energy modification or replacement of GR.
 - Current-line verdict: the frozen primitive-reservoir bounded line ends in `Not Derived On Current Line`.
-- Immediate operational move: keep the frozen internal snapshot, circulate the live external-review bundle, and send Packet A, Packet B, and Packet C under strict packet discipline.
+- Immediate operational move: keep the frozen internal snapshot and the live external-review bundle ready under strict packet discipline; actual outside transmission of Packet A, Packet B, and Packet C is a human-owned outreach step rather than a default agent action.
 - Derivation restart rule: keep derivation blocked unless a candidate line can already complete `docs/NEW_LINE_DERIVATION_CHARTER.md` concretely at equation level; outside review is helpful but not sufficient.
 
 ## Current Objective
 
 - Maintain the frozen internal-review snapshot and a separate live external-circulation bundle under `docs/review_packets/outgoing/`.
 - Rebuild the authoritative Product A and Product B PDFs from their `.tex` sources before circulation.
-- Send Packet A to a GR / foundations reader, Packet B to a mathematical physicist, and Packet C to an emergence / reconstruction / literature reader, using the response template in `docs/review_packets/`.
+- Keep Packet A, Packet B, and Packet C ready for human transmission to their targeted readers, using the response template in `docs/review_packets/`; do not stall agent work on the human outreach step itself.
 - Treat the simulated packet reviews already stored under `docs/Reviews/` as routing evidence only, not as external peer review.
 - Keep the benchmark package fixed as the public front door:
   [aether_flow_exact_closure_sequence_overview.tex](manuscripts/active/tex/aether_flow_exact_closure_sequence_overview.tex),
@@ -35,7 +35,7 @@ This file is intentionally short. It tracks the live control surface for `The Æ
 
 ## Live Workstreams
 
-1. Keep the frozen internal snapshot and circulate Packet A, Packet B, and Packet C to targeted outside readers through the live bundle.
+1. Keep the frozen internal snapshot and the targeted Packet A / Packet B / Packet C live bundle ready for human outside circulation while agent work continues on internal manuscript, routing, and packaging tasks.
 2. Harmonize public and control-layer docs around the exact-GR benchmark package and the current-line no-go.
 3. Package the frozen bounded line as a reusable obstruction / no-go result rather than a muddled live frontier.
 4. Strengthen literature positioning so the project reads as an exact-GR interpretive package plus an open foundational derivation program.
