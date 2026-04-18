@@ -16,8 +16,9 @@ The repository keeps exact GR as its benchmark and public scientific identity.
 
 At current scope, `The Æther-Flow Interpretation of Relativity` is:
 
-- an exact-GR benchmark and interpretive package at observable scale
-- plus an open foundational derivation program that is now restricted to genuinely new lines
+- Product A: an exact-GR benchmark and interpretive package at observable scale
+- Product B: a separate bounded no-go on the frozen primitive-reservoir line
+- any future derivational program only as a genuinely new line after the charter is completed concretely at equation level
 
 At current scope, it is not:
 
@@ -82,7 +83,8 @@ For current repository work, the decision is:
 
 The project identity is now explicit:
 
-- current flagship identity: exact-GR benchmark interpretation
+- current flagship identity: Product A, the exact-GR benchmark interpretation
+- current downstream status: Product B, the bounded frozen-line no-go
 - current open burden: whether a genuinely new line can derive that benchmark
 - deferred possibility: a separate future non-GR project, only under an explicitly different scope
 

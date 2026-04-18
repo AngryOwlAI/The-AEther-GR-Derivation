@@ -4,7 +4,7 @@
 
 # The Æther-Flow Interpretation of Relativity
 
-This repository is designed to be readable even if you are new to GitHub, and it is the active LaTeX workspace for `The Æther-Flow Interpretation of Relativity`. The overview-first exact-closure package is the benchmark public theory statement, while the downstream substrate program asks whether that benchmark can be derived from explicit substrate structure without changing the claim boundary prematurely.
+This repository is designed to be readable even if you are new to GitHub, and it is the active LaTeX workspace for `The Æther-Flow Interpretation of Relativity`. Product A is the overview-first exact-closure package, which remains the benchmark public theory statement. Product B is the separate frozen-line obstruction / no-go result on the current primitive-reservoir bounded line. Any resumed derivational work would therefore have to begin on a genuinely new line rather than as a continuation of Product B.
 
 > **First time here:** Start with [Start Here](docs/start-here.md). If you mainly want to read the project rather than inspect the repository, prefer the PDF links in the [Theory Package](docs/theory-package.md) page or begin with the [Front-Facing Article](docs/front-facing-article.md).
 
@@ -23,11 +23,12 @@ This repository is designed to be readable even if you are new to GitHub, and it
 
 This repository is a research hub, a public reading path, and a working manuscript space at the same time. It is meant to help readers, reviewers, and collaborators navigate the project.
 
-At the scientific level, the repository presents `The Æther-Flow Interpretation of Relativity` as an exact relativistic theory statement built on the `Æther` / `Æther-flow` ontology. Its public front door is the overview-first exact-closure package, while the downstream derivational manuscripts remain answerable to that benchmark package rather than replacing it.
+At the scientific level, the repository presents `The Æther-Flow Interpretation of Relativity` as an exact relativistic theory statement built on the `Æther` / `Æther-flow` ontology. Its public front door is Product A, the overview-first exact-closure package. Product B is the separate downstream obstruction / no-go record for the frozen current line, and any future derivational manuscript line remains answerable to Product A rather than replacing it.
 
 ## What It Currently Claims
 
 - The overview-first exact-closure package is the benchmark public theory statement and the canonical front door of the repository.
+- Product A is the exact-GR benchmark package, and Product B is the separate bounded no-go on the frozen primitive-reservoir line.
 - `The Æther-Flow Interpretation of Relativity` is the active exact relativistic theory statement built on the `Æther` / `Æther-flow` ontology.
 - GR is adopted exactly in the benchmark package as the operational relativistic sector with ordinary matter coupling.
 - At current scope, the project is an exact-GR benchmark and interpretive package, not a low-energy modification or replacement of GR.

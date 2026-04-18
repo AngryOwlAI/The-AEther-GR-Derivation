@@ -2,7 +2,7 @@
 
 [Home](index.md) | [Start Here](start-here.md) | [Theory Package](theory-package.md) | [Active Research](research-archive.md) | [How to Review](how-to-review.md) | [AI Collaboration and Method](ai-collaboration-and-method.md) | [Front-Facing Article](front-facing-article.md)
 
-This page is intentionally compact. It tracks the current bounded-program status and any future derivational restart burden of `The Æther-Flow Interpretation of Relativity` without repeating the full manuscript-by-manuscript archive narrative.
+This page is intentionally compact. It tracks the downstream bounded-program status and any future derivational restart burden of `The Æther-Flow Interpretation of Relativity` without repeating the full manuscript-by-manuscript archive narrative. It is the downstream status page after Product A, not a second front door.
 
 ## Reading Rule
 
@@ -11,7 +11,7 @@ Read the [Theory Package](theory-package.md) first. The active derivational prog
 ## Status Snapshot
 
 - Benchmark package: the overview-first exact-closure sequence remains the flagship result already in hand.
-- Relation to GR: the active project is an exact-GR benchmark and interpretive package plus an open foundational derivation program, not a current low-energy replacement of GR.
+- Publication split: Product A remains the exact-GR benchmark front door, Product B remains the separate frozen-line no-go, and any future derivational reopening would be a later new-line effort rather than a continuation of Product B.
 - Current-line verdict: the frozen primitive-reservoir bounded line ends in `Not Derived On Current Line`.
 - Next admissible move: either stop with that scoped no-go and package the benchmark result, or open a genuinely new line only after `NEW_LINE_DERIVATION_CHARTER.md` is completed concretely at equation level.
 

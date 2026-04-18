@@ -2,18 +2,18 @@
 
 [Home](index.md) | [Start Here](start-here.md) | [Theory Package](theory-package.md) | [Active Research](research-archive.md) | [How to Review](how-to-review.md) | [AI Collaboration and Method](ai-collaboration-and-method.md) | [Front-Facing Article](front-facing-article.md)
 
-This page lists the flagship public-facing package of `The Æther-Flow Interpretation of Relativity`.
+This page lists Product A, the flagship public-facing package of `The Æther-Flow Interpretation of Relativity`.
 
-The package is overview-first and exact-closure-first. It remains the main benchmark deliverable of the repository. The derivational manuscript line is read only after this package because any successful derivation must recover the benchmark fixed here.
+The package is overview-first and exact-closure-first. It remains the main benchmark deliverable of the repository. Product B and any future derivational manuscript line are read only after this package because any successful derivation must recover the benchmark fixed here.
 
 ## Status Snapshot
 
 - Benchmark package: this overview-first sequence is the flagship result already in hand.
-- Relation to GR: the package adopts GR exactly at observable scale and is not a low-energy modification or replacement program.
+- Publication split: Product A is the exact-GR benchmark front door, and Product B is the separate bounded no-go on the frozen line; neither is a low-energy modification or replacement program.
 - Current-line verdict: the frozen primitive-reservoir line ends in the scoped verdict `Not Derived On Current Line`.
 - Next admissible move: any resumed derivational work must begin on a genuinely new line only after the charter is completed concretely at equation level and explicit observer-localizing structure is stated clearly enough to test the five benchmark derivation gates.
 
-Operationally, the benchmark package is ordinary GR at observable scale: Einstein-Hilbert dynamics, one operative metric, universal matter coupling, standard relativistic causal structure, and no extra preferred-frame, vector, or scalar graviton sector. Packet B is a separate scoped no-go on the frozen primitive-reservoir derivational line, not a revision of that benchmark package. The congruence layer belongs to standard GR observer kinematics, and any surviving novelty claim is methodological: benchmark-first package discipline and explicit no-go discipline inside the broader emergent / induced / reconstruction conversation.
+Operationally, Product A is ordinary GR at observable scale: Einstein-Hilbert dynamics, one operative metric, universal matter coupling, standard relativistic causal structure, and no extra preferred-frame, vector, or scalar graviton sector. Product B is a separate bounded no-go on the frozen primitive-reservoir line: it does not revise Product A, and it does not reopen derivation on the same bridge object. The congruence layer belongs to standard GR observer kinematics, and any surviving novelty claim is methodological: benchmark-first package discipline, exact-GR interpretive discipline, and explicit no-go discipline inside the broader emergent / induced / reconstruction conversation.
 
 ## What This Package Is Not
 

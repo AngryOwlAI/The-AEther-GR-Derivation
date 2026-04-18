@@ -4,14 +4,14 @@
 
 This site is the public presentation layer for `The Æther-Flow Interpretation of Relativity`.
 
-The benchmark starting point is the overview-first exact-closure package centered on [`aether_flow_exact_closure_sequence_overview.tex`](assets/tex/aether_flow_exact_closure_sequence_overview.tex). That package remains the active theory statement at the operational level. As of April 14, 2026, the current frozen primitive-reservoir line carries the scoped verdict `Not Derived On Current Line` on its frozen bridge object, so any resumed derivational program has to begin on a genuinely new line and first complete the charter concretely at equation level without changing the benchmark claim boundary prematurely.
+The benchmark starting point is Product A, the overview-first exact-closure package centered on [`aether_flow_exact_closure_sequence_overview.tex`](assets/tex/aether_flow_exact_closure_sequence_overview.tex). That package remains the active public theory statement. Product B is the separate frozen-line obstruction / no-go on the current primitive-reservoir bridge object. As of April 14, 2026, Product B carries the scoped verdict `Not Derived On Current Line`, so any resumed derivational program would have to begin on a genuinely new line and first complete the charter concretely at equation level without changing the benchmark claim boundary prematurely.
 
-Operationally, the benchmark package is ordinary GR at observable scale: Einstein-Hilbert dynamics, one operative metric, universal matter coupling, standard relativistic causal structure, and no extra preferred-frame, vector, or scalar graviton sector. Packet B is a separate scoped no-go on the frozen primitive-reservoir derivational line, not a revision of that benchmark package. The congruence layer belongs to standard GR observer kinematics, and any surviving novelty claim is methodological: benchmark-first package discipline and explicit no-go discipline inside the broader emergent / induced / reconstruction conversation.
+Operationally, Product A is ordinary GR at observable scale: Einstein-Hilbert dynamics, one operative metric, universal matter coupling, standard relativistic causal structure, and no extra preferred-frame, vector, or scalar graviton sector. Product B is a separate bounded no-go on the frozen primitive-reservoir line: it does not revise Product A, and it does not reopen derivation on the same bridge object. The congruence layer belongs to standard GR observer kinematics, and any surviving novelty claim is methodological: benchmark-first package discipline, exact-GR interpretive discipline, and explicit no-go discipline inside the broader emergent / induced / reconstruction conversation.
 
 ## Status Snapshot
 
 - Benchmark package: the overview-first exact-closure sequence is the fixed public front door and flagship result.
-- Relation to GR: the project currently presents an exact-GR benchmark package, not a low-energy modification or replacement of GR.
+- Publication split: Product A is the exact-GR benchmark front door, and Product B is the separate bounded no-go on the frozen line; neither is a low-energy modification or replacement of GR.
 - Current-line verdict: the frozen primitive-reservoir line ends in the scoped verdict `Not Derived On Current Line`.
 - Next admissible move: either stop with that scoped no-go and package the benchmark result already in hand, or open a genuinely new line only after `NEW_LINE_DERIVATION_CHARTER.md` is completed concretely at equation level.
 

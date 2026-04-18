@@ -7,6 +7,7 @@ This file is intentionally short. It tracks the live control surface for `The Æ
 ## Status Snapshot
 
 - Benchmark package: the overview-first exact-closure sequence is the flagship exact-GR benchmark already in hand.
+- Publication split: Product A is the benchmark exact-closure package, Product B is the separate frozen-line obstruction / no-go, and any future derivational reopening would be a later new-line effort rather than a continuation of Product B.
 - Relation to GR: the project currently presents an exact-GR benchmark and interpretive package, not a low-energy modification or replacement of GR.
 - Current-line verdict: the frozen primitive-reservoir bounded line ends in `Not Derived On Current Line`.
 - Immediate operational move: keep the frozen internal snapshot and the live external-review bundle ready under strict packet discipline; actual outside transmission of Packet A, Packet B, and Packet C is a human-owned outreach step rather than a default agent action.
@@ -38,7 +39,7 @@ This file is intentionally short. It tracks the live control surface for `The Æ
 1. Keep the frozen internal snapshot and the targeted Packet A / Packet B / Packet C live bundle ready for human outside circulation while agent work continues on internal manuscript, routing, and packaging tasks.
 2. Harmonize public and control-layer docs around the exact-GR benchmark package and the current-line no-go.
 3. Package the frozen bounded line as a reusable obstruction / no-go result rather than a muddled live frontier.
-4. Strengthen literature positioning so the project reads as an exact-GR interpretive package plus an open foundational derivation program.
+4. Strengthen literature positioning so Product A reads as an exact-GR interpretive package, Product B reads as a bounded frozen-line no-go, and any future derivational ambition reads as a separate new-line program.
 5. Keep the benchmark package and the frozen-line no-go separated as distinct publishable outputs rather than as a single blurred manuscript story.
 6. Enforce a hard gate for any resumed derivational work through [docs/NEW_LINE_DERIVATION_CHARTER.md](docs/NEW_LINE_DERIVATION_CHARTER.md).
 

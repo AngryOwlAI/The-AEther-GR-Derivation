@@ -32,7 +32,7 @@ Readers should evaluate the manuscripts by their stated assumptions, explicit eq
 ## Repository Method
 
 - keep the overview-first exact-closure package fixed as the benchmark deliverable
-- keep the derivational manuscripts downstream of that benchmark in public presentation even while they become the active research workstream
+- keep Product B and any future new-line derivational manuscripts downstream of that benchmark in public presentation rather than letting them replace Product A as the front door
 - treat bounded obstruction / no-go results as valid research outcomes and require any resumed derivational line to state genuinely new observer-localizing structure explicitly
 - record negative results and boundary statements rather than smoothing them away
 - preserve explicit provenance so collaborators and reviewers can see how the project has been developed

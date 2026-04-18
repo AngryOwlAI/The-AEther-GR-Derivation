@@ -7,11 +7,11 @@ This page is for physicists, mathematicians, and technically trained readers who
 ## Status Snapshot
 
 - Benchmark package: the overview-first exact-closure sequence is the flagship result and the public claim to audit first.
-- Relation to GR: the repository currently presents an exact-GR benchmark package, not a low-energy modification or replacement of GR.
+- Publication split: Product A is the exact-GR benchmark front door, and Product B is the separate bounded no-go on the frozen line; neither is a low-energy modification or replacement of GR.
 - Current-line verdict: the frozen primitive-reservoir line ends in the scoped verdict `Not Derived On Current Line`.
 - Next admissible move: if derivational work is resumed, the live downstream question is whether a genuinely new line can derive the adopted benchmark under the five benchmark derivation gates after completing the charter concretely at equation level.
 
-Operationally, the benchmark package is ordinary GR at observable scale: Einstein-Hilbert dynamics, one operative metric, universal matter coupling, standard relativistic causal structure, and no extra preferred-frame, vector, or scalar graviton sector. Packet B is a separate scoped no-go on the frozen primitive-reservoir derivational line, not a revision of that benchmark package. The congruence layer belongs to standard GR observer kinematics, and any surviving novelty claim is methodological: benchmark-first package discipline and explicit no-go discipline inside the broader emergent / induced / reconstruction conversation.
+Operationally, Product A is ordinary GR at observable scale: Einstein-Hilbert dynamics, one operative metric, universal matter coupling, standard relativistic causal structure, and no extra preferred-frame, vector, or scalar graviton sector. Product B is a separate bounded no-go on the frozen primitive-reservoir line: it does not revise Product A, and it does not reopen derivation on the same bridge object. The congruence layer belongs to standard GR observer kinematics, and any surviving novelty claim is methodological: benchmark-first package discipline, exact-GR interpretive discipline, and explicit no-go discipline inside the broader emergent / induced / reconstruction conversation.
 
 ## Best Review Entry Point
 
