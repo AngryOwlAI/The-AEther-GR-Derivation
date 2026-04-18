@@ -4,9 +4,11 @@
 
 This site is the public presentation layer for `The Æther-Flow Interpretation of Relativity`.
 
-The benchmark starting point is Product A, the overview-first exact-closure package centered on [`aether_flow_exact_closure_sequence_overview.tex`](assets/tex/aether_flow_exact_closure_sequence_overview.tex). That package remains the active public theory statement. Product B is the separate frozen-line obstruction / no-go on the current primitive-reservoir bridge object. As of April 14, 2026, Product B carries the scoped verdict `Not Derived On Current Line`, so any resumed derivational program would have to begin on a genuinely new line and first complete the charter concretely at equation level without changing the benchmark claim boundary prematurely.
+The benchmark starting point is Product A, the overview-first exact-closure package centered on `aether_flow_exact_closure_sequence_overview` ([PDF](assets/pdfs/aether_flow_exact_closure_sequence_overview.pdf) | [TeX](assets/tex/aether_flow_exact_closure_sequence_overview.tex)). That package remains the active public theory statement. Product B is the separate frozen-line obstruction / no-go on the current primitive-reservoir bridge object. As of April 14, 2026, Product B carries the scoped verdict `Not Derived On Current Line`, so any resumed derivational program would have to begin on a genuinely new line and first complete the charter concretely at equation level without changing the benchmark claim boundary prematurely.
 
 Operationally, Product A is ordinary GR at observable scale: Einstein-Hilbert dynamics, one operative metric, universal matter coupling, standard relativistic causal structure, and no extra preferred-frame, vector, or scalar graviton sector. Product B is a separate bounded no-go on the frozen primitive-reservoir line: it does not revise Product A, and it does not reopen derivation on the same bridge object. The congruence layer belongs to standard GR observer kinematics, and any surviving novelty claim is methodological: benchmark-first package discipline, exact-GR interpretive discipline, and explicit no-go discipline inside the broader emergent / induced / reconstruction conversation.
+
+This site should also be read as background to an AI-led, human-scaffolded research experiment. GPT-5.4 in Codex carried out most of the drafting, formalization, mathematical exploration, screening, and package-building, while the human supplied process-level human guidance, tooling, routing, and workflow scaffolding to keep the work on track without serving as equation-level scientific steering. For the full methodology and provenance account, use [AI Collaboration and Method](ai-collaboration-and-method.md).
 
 ## Status Snapshot
 
@@ -45,7 +47,7 @@ For the fuller repository claim-boundary note, see [Æther-Flow Claim Boundary](
 - [Front-Facing Article](front-facing-article.md): single-entry public article that explains the package without replacing it.
 - [Theory Package](theory-package.md): the fixed public reading order of the overview-first exact-closure package.
 - [Active Research](research-archive.md): the current bounded-program verdict, the restart condition for any genuinely new derivational line, and archive context.
-- [AI Collaboration and Method](ai-collaboration-and-method.md): the administratively supervised GPT-5.4 research workflow and its limits.
+- [AI Collaboration and Method](ai-collaboration-and-method.md): the AI-led, human-scaffolded research experiment, its provenance, and its limits.
 - [How to Review](how-to-review.md): what expert readers are being asked to audit.
 - [Literature Positioning](literature-positioning.md): compact matrix comparing the benchmark package against adjacent gravity literatures.
 

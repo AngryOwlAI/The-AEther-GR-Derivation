@@ -4,6 +4,8 @@
 
 If you are arriving fresh, the right entry point is still not the full derivational manuscript tree. It is the overview-first exact-closure package, because that package fixes the relativistic benchmark that all later foundational work remains answerable to.
 
+This repository is also an AI-led, human-scaffolded research experiment. GPT-5.4 in Codex carried out most of the drafting, formalization, mathematical exploration, screening, and package-building, while the human supplied process-level human guidance, tooling, routing, and workflow scaffolding to keep the work aligned with the goal rather than providing equation-level scientific steering. If you want the full methodology and provenance account, read [AI Collaboration and Method](ai-collaboration-and-method.md).
+
 ## Status Snapshot
 
 - Benchmark package: the overview-first exact-closure sequence is the flagship result and the public front door.

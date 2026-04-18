@@ -19,12 +19,12 @@ Read the [Theory Package](theory-package.md) first. The active derivational prog
 
 The frozen bounded program should now be read as a compact chain with a bounded end state:
 
-1. [aether_flow_exact_closure_derivation_gates_note.tex](../manuscripts/active/tex/aether_flow_exact_closure_derivation_gates_note.tex) fixes the five benchmark derivation gates.
-2. [aether_flow_exact_closure_post_bridge_derivation_gate_status_note.tex](../manuscripts/active/tex/aether_flow_exact_closure_post_bridge_derivation_gate_status_note.tex) records that the same-package observer-side remainder gate is no longer the live bottleneck on the active one-metric line.
-3. [aether_flow_benchmark_one_metric_observer_package_upstream_compression_theorem.tex](../manuscripts/active/tex/aether_flow_benchmark_one_metric_observer_package_upstream_compression_theorem.tex) and the bridge-entry primitive-reservoir theorems show that another deeper same-output relay preserving the same compressed core is benchmark-neutral.
-4. [aether_flow_bounded_gr_derivation_bridge_object_synthesis.tex](../manuscripts/active/tex/aether_flow_bounded_gr_derivation_bridge_object_synthesis.tex) freezes the bridge object under test.
-5. [aether_flow_bounded_gr_derivation_attempt_from_explicit_substrate_package_and_primitive_dynamics.tex](../manuscripts/active/tex/aether_flow_bounded_gr_derivation_attempt_from_explicit_substrate_package_and_primitive_dynamics.tex) records the immediate verdict `Suspended Pending New Law`.
-6. [aether_flow_current_line_gr_derivation_obstruction_or_no_go.tex](../manuscripts/active/tex/aether_flow_current_line_gr_derivation_obstruction_or_no_go.tex) upgrades that frozen line to `Not Derived On Current Line`.
+1. `aether_flow_exact_closure_derivation_gates_note` ([PDF](../manuscripts/active/pdf/aether_flow_exact_closure_derivation_gates_note.pdf) | [TeX](../manuscripts/active/tex/aether_flow_exact_closure_derivation_gates_note.tex)) fixes the five benchmark derivation gates.
+2. `aether_flow_exact_closure_post_bridge_derivation_gate_status_note` ([PDF](../manuscripts/active/pdf/aether_flow_exact_closure_post_bridge_derivation_gate_status_note.pdf) | [TeX](../manuscripts/active/tex/aether_flow_exact_closure_post_bridge_derivation_gate_status_note.tex)) records that the same-package observer-side remainder gate is no longer the live bottleneck on the active one-metric line.
+3. `aether_flow_benchmark_one_metric_observer_package_upstream_compression_theorem` ([PDF](../manuscripts/active/pdf/aether_flow_benchmark_one_metric_observer_package_upstream_compression_theorem.pdf) | [TeX](../manuscripts/active/tex/aether_flow_benchmark_one_metric_observer_package_upstream_compression_theorem.tex)) and the bridge-entry primitive-reservoir theorems show that another deeper same-output relay preserving the same compressed core is benchmark-neutral.
+4. `aether_flow_bounded_gr_derivation_bridge_object_synthesis` ([PDF](../manuscripts/active/pdf/aether_flow_bounded_gr_derivation_bridge_object_synthesis.pdf) | [TeX](../manuscripts/active/tex/aether_flow_bounded_gr_derivation_bridge_object_synthesis.tex)) freezes the bridge object under test.
+5. `aether_flow_bounded_gr_derivation_attempt_from_explicit_substrate_package_and_primitive_dynamics` ([PDF](../manuscripts/active/pdf/aether_flow_bounded_gr_derivation_attempt_from_explicit_substrate_package_and_primitive_dynamics.pdf) | [TeX](../manuscripts/active/tex/aether_flow_bounded_gr_derivation_attempt_from_explicit_substrate_package_and_primitive_dynamics.tex)) records the immediate verdict `Suspended Pending New Law`.
+6. `aether_flow_current_line_gr_derivation_obstruction_or_no_go` ([PDF](../manuscripts/active/pdf/aether_flow_current_line_gr_derivation_obstruction_or_no_go.pdf) | [TeX](../manuscripts/active/tex/aether_flow_current_line_gr_derivation_obstruction_or_no_go.tex)) upgrades that frozen line to `Not Derived On Current Line`.
 
 ## Why the Current Line Is Scoped as `Not Derived On Current Line`
 
@@ -56,18 +56,18 @@ The orbit-shape / primitive-class / midpoint-selector sequence remains recorded 
 
 Representative side-line entry points:
 
-- [Orbit-shape/modulus target PDF](../manuscripts/active/pdf/aether_flow_substrate_higher_derivative_nonlocal_bridge_self_response_off_shell_profile_selection_bridge_order_orbit_shape_modulus_origin_note.pdf)
-- [Primitive-class setup PDF](../manuscripts/active/pdf/aether_flow_substrate_higher_derivative_nonlocal_bridge_self_response_off_shell_profile_selection_bridge_order_orbit_shape_modulus_primitive_class_setup_note.pdf)
-- [Midpoint-selector pair-balance-origin PDF](../manuscripts/active/pdf/aether_flow_substrate_higher_derivative_nonlocal_bridge_self_response_off_shell_profile_selection_bridge_order_orbit_shape_modulus_primitive_class_absolute_amplitude_polarity_midpoint_selector_pair_balance_origin_note.pdf)
+- Orbit-shape/modulus target ([PDF](../manuscripts/active/pdf/aether_flow_substrate_higher_derivative_nonlocal_bridge_self_response_off_shell_profile_selection_bridge_order_orbit_shape_modulus_origin_note.pdf) | [TeX](../manuscripts/active/tex/aether_flow_substrate_higher_derivative_nonlocal_bridge_self_response_off_shell_profile_selection_bridge_order_orbit_shape_modulus_origin_note.tex))
+- Primitive-class setup ([PDF](../manuscripts/active/pdf/aether_flow_substrate_higher_derivative_nonlocal_bridge_self_response_off_shell_profile_selection_bridge_order_orbit_shape_modulus_primitive_class_setup_note.pdf) | [TeX](../manuscripts/active/tex/aether_flow_substrate_higher_derivative_nonlocal_bridge_self_response_off_shell_profile_selection_bridge_order_orbit_shape_modulus_primitive_class_setup_note.tex))
+- Midpoint-selector pair-balance-origin ([PDF](../manuscripts/active/pdf/aether_flow_substrate_higher_derivative_nonlocal_bridge_self_response_off_shell_profile_selection_bridge_order_orbit_shape_modulus_primitive_class_absolute_amplitude_polarity_midpoint_selector_pair_balance_origin_note.pdf) | [TeX](../manuscripts/active/tex/aether_flow_substrate_higher_derivative_nonlocal_bridge_self_response_off_shell_profile_selection_bridge_order_orbit_shape_modulus_primitive_class_absolute_amplitude_polarity_midpoint_selector_pair_balance_origin_note.tex))
 
 ## Fast Entry Points
 
-- [Benchmark derivation-gates PDF](../manuscripts/active/pdf/aether_flow_exact_closure_derivation_gates_note.pdf)
-- [Post-bridge derivation-gate status PDF](../manuscripts/active/pdf/aether_flow_exact_closure_post_bridge_derivation_gate_status_note.pdf)
-- [Upstream compression theorem PDF](../manuscripts/active/pdf/aether_flow_benchmark_one_metric_observer_package_upstream_compression_theorem.pdf)
-- [Bounded bridge-object synthesis PDF](../manuscripts/active/pdf/aether_flow_bounded_gr_derivation_bridge_object_synthesis.pdf)
-- [Bounded derivation attempt PDF](../manuscripts/active/pdf/aether_flow_bounded_gr_derivation_attempt_from_explicit_substrate_package_and_primitive_dynamics.pdf)
-- [Current-line obstruction / no-go PDF](../manuscripts/active/pdf/aether_flow_current_line_gr_derivation_obstruction_or_no_go.pdf)
+- Benchmark derivation-gates ([PDF](../manuscripts/active/pdf/aether_flow_exact_closure_derivation_gates_note.pdf) | [TeX](../manuscripts/active/tex/aether_flow_exact_closure_derivation_gates_note.tex))
+- Post-bridge derivation-gate status ([PDF](../manuscripts/active/pdf/aether_flow_exact_closure_post_bridge_derivation_gate_status_note.pdf) | [TeX](../manuscripts/active/tex/aether_flow_exact_closure_post_bridge_derivation_gate_status_note.tex))
+- Upstream compression theorem ([PDF](../manuscripts/active/pdf/aether_flow_benchmark_one_metric_observer_package_upstream_compression_theorem.pdf) | [TeX](../manuscripts/active/tex/aether_flow_benchmark_one_metric_observer_package_upstream_compression_theorem.tex))
+- Bounded bridge-object synthesis ([PDF](../manuscripts/active/pdf/aether_flow_bounded_gr_derivation_bridge_object_synthesis.pdf) | [TeX](../manuscripts/active/tex/aether_flow_bounded_gr_derivation_bridge_object_synthesis.tex))
+- Bounded derivation attempt ([PDF](../manuscripts/active/pdf/aether_flow_bounded_gr_derivation_attempt_from_explicit_substrate_package_and_primitive_dynamics.pdf) | [TeX](../manuscripts/active/tex/aether_flow_bounded_gr_derivation_attempt_from_explicit_substrate_package_and_primitive_dynamics.tex))
+- Current-line obstruction / no-go ([PDF](../manuscripts/active/pdf/aether_flow_current_line_gr_derivation_obstruction_or_no_go.pdf) | [TeX](../manuscripts/active/tex/aether_flow_current_line_gr_derivation_obstruction_or_no_go.tex))
 - [Research plan](../RESEARCH_PLAN.md)
 
 ## Archive Principle

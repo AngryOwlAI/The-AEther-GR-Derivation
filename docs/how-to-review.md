@@ -15,7 +15,7 @@ Operationally, Product A is ordinary GR at observable scale: Einstein-Hilbert dy
 
 ## Best Review Entry Point
 
-Start with the [exact-closure sequence overview PDF](assets/pdfs/aether_flow_exact_closure_sequence_overview.pdf), then move to the [Theory Package](theory-package.md) in order.
+Start with the exact-closure sequence overview ([PDF](assets/pdfs/aether_flow_exact_closure_sequence_overview.pdf) | [TeX](assets/tex/aether_flow_exact_closure_sequence_overview.tex)), then move to the [Theory Package](theory-package.md) in order.
 
 That order matters because the benchmark package, not the derivational manuscript line by itself, is the current public-facing claim.
 
@@ -30,6 +30,10 @@ For a compact external comparison against adjacent frameworks, use [Literature P
 - Consistency audit: are the package definitions, symbols, and roles aligned across the overview and six core manuscripts?
 - Novelty and literature-position audit: where does the package genuinely differ from standard interpretive or effective-field presentations, and where does it need sharper positioning? Use [Literature Positioning](literature-positioning.md) as the quick comparison surface.
 - Derivation-program audit: does the downstream research line stay clear that GR is already adopted in the benchmark package, that the current frozen line ends in a scoped no-go, and that any resumed derivational work has to open a genuinely new line rather than merely continue the same frozen bridge object?
+
+This repository can also be evaluated as an AI-led, human-scaffolded research experiment, but that is a separate review question from the scientific one. If you want that provenance and method context, read [AI Collaboration and Method](ai-collaboration-and-method.md), and evaluate the science and the AI methodology separately.
+
+If you criticize the AI process, distinguish that clearly from criticism of the physics or mathematics itself. Likewise, criticism of the scientific content should not be treated as a substitute for evaluating the workflow experiment.
 
 ## Suggested Reviewer Path
 

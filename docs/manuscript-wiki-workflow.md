@@ -23,6 +23,8 @@ Override it when needed with either:
 
 ## Day-To-Day Commands
 
+The command examples below use `aether_flow_exact_closure_note` as the sample active manuscript ([PDF](../manuscripts/active/pdf/aether_flow_exact_closure_note.pdf) | [TeX](../manuscripts/active/tex/aether_flow_exact_closure_note.tex)).
+
 Build one active manuscript and refresh the local wiki automatically if the vault exists:
 
 ```bash

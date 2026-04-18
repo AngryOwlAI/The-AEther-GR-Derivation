@@ -6,16 +6,16 @@
 
 This repository is designed to be readable even if you are new to GitHub, and it is the active LaTeX workspace for `The Æther-Flow Interpretation of Relativity`. Product A is the overview-first exact-closure package, which remains the benchmark public theory statement. Product B is the separate frozen-line obstruction / no-go result on the current primitive-reservoir bounded line. Any resumed derivational work would therefore have to begin on a genuinely new line rather than as a continuation of Product B.
 
-> **First time here:** Start with [Start Here](docs/start-here.md). If you mainly want to read the project rather than inspect the repository, prefer the PDF links in the [Theory Package](docs/theory-package.md) page or begin with the [Front-Facing Article](docs/front-facing-article.md).
+> **First time here:** Start with [Home](docs/index.md), then go [Start Here](docs/start-here.md). If you mainly want to read the project rather than inspect the repository, prefer the PDF links in the [Theory Package](docs/theory-package.md) page or begin with the [Front-Facing Article](docs/front-facing-article.md).
 
 ## Quick Links
 
-[Start Here](docs/start-here.md) · [Theory Package](docs/theory-package.md) · [What This Package Is Not](docs/what-this-package-is-not.md) · [Active Research](docs/research-archive.md) · [Review Packets](docs/review_packets/README.md) · [How to Review](docs/how-to-review.md) · [AI Collaboration and Method](docs/ai-collaboration-and-method.md) · [Manuscript Wiki](docs/manuscript-wiki-workflow.md)
+[Home](docs/index.md) · [Start Here](docs/start-here.md) · [Theory Package](docs/theory-package.md) · [What This Package Is Not](docs/what-this-package-is-not.md) · [Active Research](docs/research-archive.md) · [Review Packets](docs/review_packets/README.md) · [How to Review](docs/how-to-review.md) · [AI Collaboration and Method](docs/ai-collaboration-and-method.md) · [Manuscript Wiki](docs/manuscript-wiki-workflow.md)
 
 ## Choose Your Path
 
 - **New to the project:** Go to [Start Here](docs/start-here.md) for the reading order, the first clicks to make, and the quickest way into the repository.
-- **Curious non-specialist:** Read the [Front-Facing Article](docs/front-facing-article.md), then open the [Overview PDF](docs/assets/pdfs/aether_flow_exact_closure_sequence_overview.pdf) for the benchmark package in reading form.
+- **Curious non-specialist:** Read the [Front-Facing Article](docs/front-facing-article.md), then open the overview manuscript ([PDF](docs/assets/pdfs/aether_flow_exact_closure_sequence_overview.pdf) | [TeX](docs/assets/tex/aether_flow_exact_closure_sequence_overview.tex)) for the benchmark package in reading form.
 - **Physics / math reader:** Go straight to the [Theory Package](docs/theory-package.md), then use [How to Review](docs/how-to-review.md) for the intended audit path.
 - **Reviewer / AI collaborator:** Use [Review Packets](docs/review_packets/README.md), [AI Collaboration and Method](docs/ai-collaboration-and-method.md), and the [Manuscript Wiki workflow](docs/manuscript-wiki-workflow.md) to find the right handoff or retrieval surface quickly.
 
@@ -24,6 +24,8 @@ This repository is designed to be readable even if you are new to GitHub, and it
 This repository is a research hub, a public reading path, and a working manuscript space at the same time. It is meant to help readers, reviewers, and collaborators navigate the project.
 
 At the scientific level, the repository presents `The Æther-Flow Interpretation of Relativity` as an exact relativistic theory statement built on the `Æther` / `Æther-flow` ontology. Its public front door is Product A, the overview-first exact-closure package. Product B is the separate downstream obstruction / no-go record for the frozen current line, and any future derivational manuscript line remains answerable to Product A rather than replacing it.
+
+The repository is also an AI-led, human-scaffolded research experiment. GPT-5.4 in Codex carried out most of the drafting, formalization, mathematical exploration, screening, and package-building, while the human supplied process-level human guidance, tooling, routing, and workflow scaffolding to keep the work aligned with the project goal rather than providing equation-level scientific steering. If you want the full methodology and provenance account, use [AI Collaboration and Method](docs/ai-collaboration-and-method.md).
 
 ## What It Currently Claims
 
@@ -92,7 +94,7 @@ This repository is set up for outside reading as well as active internal work. T
 
 - [How to Review](docs/how-to-review.md): the intended audit path for physicists, mathematicians, and technically trained readers.
 - [Review Packets](docs/review_packets/README.md): structured handoff bundles for outside review.
-- [AI Collaboration and Method](docs/ai-collaboration-and-method.md): provenance and workflow context for the AI-assisted research process used in the repository.
+- [AI Collaboration and Method](docs/ai-collaboration-and-method.md): provenance and workflow context for the AI-led, human-scaffolded research experiment used in the repository.
 
 ## More On Æther And Æther-Flow
 
