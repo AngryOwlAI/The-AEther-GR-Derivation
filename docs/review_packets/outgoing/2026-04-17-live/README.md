@@ -9,7 +9,8 @@ The controlling repository stance for this bundle is:
 
 - Product A stays fixed as the positive benchmark exact-GR package.
 - Product B stays fixed as the bounded frozen-line obstruction / no-go.
-- Packet C stays limited to literature positioning and novelty discipline.
+- Packet C stays limited to literature positioning and novelty discipline around the Product A / Product B split.
+- Packet C is not a request to reopen the frozen line as if Product B were still a live positive derivation program.
 - The simulated packet reviews already stored under `docs/Reviews/` are internal routing evidence only; they are not external peer review.
 - Derivation restart remains blocked regardless of packet return unless `docs/NEW_LINE_DERIVATION_CHARTER.md` can already be completed concretely at equation level.
 

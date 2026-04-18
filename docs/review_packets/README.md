@@ -50,9 +50,18 @@ Treat the simulated packet reviews under `docs/Reviews/` as internal routing evi
 
 Recommended order if one reviewer is reading the whole project:
 
-1. [ai/packet_A_benchmark_package_review.md](ai/packet_A_benchmark_package_review.md) for AI Markdown review
-2. [ai_pdfs/packet_A_benchmark_package_review.pdf](ai_pdfs/packet_A_benchmark_package_review.pdf) for AI PDF review
-3. [human/packet_A_benchmark_package_review.pdf](human/packet_A_benchmark_package_review.pdf) for human review
+1. Product A benchmark package:
+   [ai/packet_A_benchmark_package_review.md](ai/packet_A_benchmark_package_review.md),
+   [ai_pdfs/packet_A_benchmark_package_review.pdf](ai_pdfs/packet_A_benchmark_package_review.pdf),
+   [human/packet_A_benchmark_package_review.pdf](human/packet_A_benchmark_package_review.pdf)
+2. Product B current-line no-go:
+   [ai/packet_B_current_line_no_go_review.md](ai/packet_B_current_line_no_go_review.md),
+   [ai_pdfs/packet_B_current_line_no_go_review.pdf](ai_pdfs/packet_B_current_line_no_go_review.pdf),
+   [human/packet_B_current_line_no_go_review.pdf](human/packet_B_current_line_no_go_review.pdf)
+3. Packet C literature positioning:
+   [ai/packet_C_literature_positioning_review.md](ai/packet_C_literature_positioning_review.md),
+   [ai_pdfs/packet_C_literature_positioning_review.pdf](ai_pdfs/packet_C_literature_positioning_review.pdf),
+   [human/packet_C_literature_positioning_review.pdf](human/packet_C_literature_positioning_review.pdf)
 
 ## Packet List
 
@@ -69,7 +78,8 @@ Recommended order if one reviewer is reading the whole project:
 - Benchmark package: the overview-first exact-closure sequence is the flagship result already in hand.
 - Relation to GR: the active project is an exact-GR benchmark and interpretive package, not a low-energy modification or replacement of GR.
 - Current-line verdict: the frozen primitive-reservoir line ends in `Not Derived On Current Line`.
-- Next admissible move: either stop with that scoped no-go and package the benchmark result already in hand, or open a genuinely new line only after `../NEW_LINE_DERIVATION_CHARTER.md` is completed concretely at equation level.
+- Future derivational status: any reopened derivational ambition would have to be a separate new-line program rather than a continuation of Product B.
+- Next admissible move: either stop with that scoped no-go and package the benchmark result already in hand, or open that genuinely new line only after `../NEW_LINE_DERIVATION_CHARTER.md` is completed concretely at equation level.
 
 ## Scope Discipline
 
@@ -83,3 +93,4 @@ Use these packets with the repository’s current control surfaces in mind:
 The benchmark package is Product A.
 The frozen-line no-go is Product B.
 Packet C tests whether that split is being placed honestly in the literature.
+Packet C is not a request to reopen the frozen line as if Product B were still a live positive derivation program.

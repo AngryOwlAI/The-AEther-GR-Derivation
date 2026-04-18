@@ -6,14 +6,22 @@ This page is a compact comparison surface for reviewers who want to place `The Ã
 
 It is supplemental literature only. It does not determine manuscript routing, front-line status, or the benchmark claim boundary. Those remain controlled by the active manuscripts and the routing layer.
 
+## Publication Split In Literature Terms
+
+- Product A should be described as the exact-GR interpretive package already fixed at observer level.
+- Product B should be described as the bounded frozen-line no-go on the current primitive-reservoir bridge object.
+- Any future derivational ambition belongs, if reopened at all, to a separate new-line emergent / reconstruction / induced-gravity program after the charter is completed concretely at equation level.
+- Packet C exists to audit whether those three layers stay separated in public description, citation practice, and novelty claims.
+
 ## Bottom Line
 
 - The active benchmark package is not Einstein-aether theory, Horava gravity, or any other low-energy preferred-frame modification of GR.
 - The active benchmark package is closer to an exact-GR interpretive package than to a distinct alternative gravity theory.
 - The congruence-based interpretive layer should be read against the classical Raychaudhuri and 1+3 covariant GR literature, not as a new observer-level gravitational sector.
 - The consistency discussion is an audit of the adopted GR sector and should be read against the ADM constraint-analysis baseline rather than as a new low-energy dynamics result.
-- The downstream derivation ambition belongs to an already populated emergent-gravity category; it should not be presented as unprecedented merely because the ontology is different.
+- Any future reopened derivation ambition belongs to an already populated emergent-gravity category; that future new-line program should not be folded back into Product A or Product B.
 - Packet B's current-line no-go is best read as a scoped structural obstruction tied to a missing local dictionary from deeper data to observer geometry and dynamics, not as a universal impossibility theorem for every future completion.
+- Product A and Product B should be cited as separate outputs rather than as one hybrid benchmark-plus-derivation paper.
 - Any novelty claim that survives review is narrower: disciplined ontology, exact-GR benchmark packaging, benchmark-gated derivation architecture, and explicit negative-result discipline on the frozen line.
 
 ## Classical GR Baselines That Matter Here
@@ -65,6 +73,7 @@ Use this page when you want a fast answer to four questions:
 
 - what the project is not
 - what it is trying to do
+- how Product A, Product B, and any future new-line program should be kept distinct in literature framing
 - which classical GR baselines it is reusing rather than replacing
 - where it overlaps with known frameworks
 - where any defensible novelty claim would have to be narrower than first impression
