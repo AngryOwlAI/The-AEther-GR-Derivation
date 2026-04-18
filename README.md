@@ -8,6 +8,8 @@ This repository is designed to be readable even if you are new to GitHub, and it
 
 > **First time here:** Start with [Home](docs/index.md), then go [Start Here](docs/start-here.md). If you mainly want to read the project rather than inspect the repository, prefer the PDF links in the [Theory Package](docs/theory-package.md) page or begin with the [Front-Facing Article](docs/front-facing-article.md).
 
+> **Note:** This site should also be read as background to an AI-led, human-scaffolded research experiment. GPT-5.4 in Codex carried out most of the drafting, formalization, mathematical exploration, screening, and package-building, while the human supplied process-level human guidance, tooling, routing, and workflow scaffolding to keep the work on track without serving as equation-level scientific steering. For the full methodology and provenance account, use [AI Collaboration and Method](ai-collaboration-and-method.md).
+
 ## Quick Links
 
 [Home](docs/index.md) · [Start Here](docs/start-here.md) · [Theory Package](docs/theory-package.md) · [What This Package Is Not](docs/what-this-package-is-not.md) · [Active Research](docs/research-archive.md) · [Review Packets](docs/review_packets/README.md) · [How to Review](docs/how-to-review.md) · [AI Collaboration and Method](docs/ai-collaboration-and-method.md) · [Manuscript Wiki](docs/manuscript-wiki-workflow.md)
